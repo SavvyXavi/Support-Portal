@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from './login/services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,18 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'Support Portal';
 
-  constructor (private router: Router) {}
+  constructor (
+    private router: Router,
+    private authenticationService: AuthenticationService
+    ) {
+      this.authenticationService.logout();
+      this.router.navigate(['/login']);
+    }
 
   ngOnInit() {}
 
   logout() {
+    this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
 }
