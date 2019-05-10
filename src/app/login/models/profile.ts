@@ -5,4 +5,6 @@ export class Profile {
   firstName: string;
   lastName: string;
   token: string;
+  partner: string;
+  partnerRole: string;
 }

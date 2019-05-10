@@ -3,6 +3,8 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
+import { Profile } from '../models/profile';
+
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
 
@@ -10,7 +12,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // array in local storage for registered users
-        const profile: any[] = JSON.parse(localStorage.getItem('profile')) || [];
+        const profile: Profile[] = JSON.parse(localStorage.getItem('profile')) || [];
 
         // wrap in delayed observable to simulate server api call
         return of(null).pipe(mergeMap(() => {

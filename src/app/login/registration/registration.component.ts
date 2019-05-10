@@ -63,6 +63,6 @@ export class RegistrationComponent implements OnInit {
           this.alertService.error(error);
           this.loading = false;
         }
-      )
+      );
   }
 }

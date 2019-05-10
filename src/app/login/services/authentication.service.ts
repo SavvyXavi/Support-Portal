@@ -30,6 +30,7 @@ export class AuthenticationService {
      .pipe(map( profile => {
        if (profile && profile.token) {
          localStorage.setItem('currentUser', JSON.stringify(profile));
+         this.currentUserSubject.next(profile);
        }
 
        return profile;
