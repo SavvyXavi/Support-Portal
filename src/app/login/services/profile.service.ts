@@ -11,11 +11,15 @@ export class ProfileService {
   constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get<Profile>(`${environment.serverUrl}/profile`);
+    return this.http.get<Profile[]>(`${environment.serverUrl}/profile`);
   }
 
   getById(id: number) {
     return this.http.get(`${environment.serverUrl}/profile/${id}`);
+  }
+
+  getByRole( profile: Profile) {
+    return this.http.get(`${environment.serverUrl}/profile/${profile.partnerRole}`);
   }
 
   register(profile: Profile) {
@@ -27,6 +31,6 @@ export class ProfileService {
   }
 
   delete(id: number) {
-    this.http.delete(`${environment.serverUrl}/profile/${id}`);
+   return this.http.delete(`${environment.serverUrl}/profile/${id}`);
   }
 }

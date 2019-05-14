@@ -21,7 +21,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             if (request.url.endsWith('/profile/authenticate') && request.method === 'POST') {
                 // find if any user matches login credentials
                 let filteredUsers = profile.filter(profile => {
-                    return profile.username === request.body.username && profile.password === request.body.password;
+                    return profile.username === request.body.username
+                    && profile.password === request.body.password
+                    && profile.partnerRole === request.body.partnerRole;
                 });
 
                 if (filteredUsers.length) {
@@ -32,13 +34,14 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                         username: profile.username,
                         firstName: profile.firstName,
                         lastName: profile.lastName,
+                        partnerRole: profile.partnerRole,
                         token: 'fake-jwt-token'
                     };
 
                     return of(new HttpResponse({ status: 200, body: body }));
                 } else {
                     // else return 400 bad request
-                    return throwError({ error: { message: 'Username or password is incorrect' } });
+                    return throwError({ error: { message: 'Username, password, or role is incorrect' } });
                 }
             }
 

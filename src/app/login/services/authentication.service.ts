@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Profile } from '../models/profile';
+import { Role } from '../../types/role.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +26,8 @@ export class AuthenticationService {
      return this.currentUserSubject.value;
    }
 
-   login(username: string, password: string) {
-     return this.http.post<any>(`${environment.serverUrl}/profile/authenticate`, {username, password})
+   login(username: string, password: string, partnerRole: Role) {
+     return this.http.post<any>(`${environment.serverUrl}/profile/authenticate`, {username, password, partnerRole})
      .pipe(map( profile => {
        if (profile && profile.token) {
          localStorage.setItem('currentUser', JSON.stringify(profile));

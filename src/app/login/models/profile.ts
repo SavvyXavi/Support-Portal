@@ -1,3 +1,5 @@
+import { Role } from 'src/app/types/role.enum';
+
 export class Profile {
   id: number;
   username: string;
@@ -6,5 +8,5 @@ export class Profile {
   lastName: string;
   token: string;
   partner: string;
-  partnerRole: string;
+  partnerRole: Role;
 }
