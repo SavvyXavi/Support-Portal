@@ -23,6 +23,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 let filteredUsers = profile.filter(profile => {
                     return profile.username === request.body.username
                     && profile.password === request.body.password
+                    && profile.partner === request.body.partner
                     && profile.partnerRole === request.body.partnerRole;
                 });
 
@@ -34,6 +35,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                         username: profile.username,
                         firstName: profile.firstName,
                         lastName: profile.lastName,
+                        partner: profile.partner,
                         partnerRole: profile.partnerRole,
                         token: 'fake-jwt-token'
                     };

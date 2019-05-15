@@ -7,7 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Role } from '../../types/role.enum';
 import { Profile } from '../models/profile';
 import { ProfileService } from '../services/profile.service';
-
+import { Partner } from '../../types/partner.enum';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
-  role: Role;
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,7 +38,8 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
-      partnerRole: ['', Validators]
+      partner: ['', Validators.required],
+      partnerRole: ['', Validators.required]
     });
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
@@ -55,15 +56,35 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value, this.f.partnerRole.value)
+    this.authenticationService.login(this.f.username.value, this.f.password.value, this.f.partner.value, this.f.partnerRole.value)
     .pipe(first())
     .subscribe(
       data => {
-        if (this.f.partnerRole.value === 'Admin') {
-          this.router.navigate(['/dashboard']);
-        } else {
-          this.router.navigate(['/suppdash']);
+       let dash = this.f.partner.value;
+        switch (dash) {
+          case dash = 'NorthSmart':
+            this.router.navigate(['/northdash']);
+          break;
+          case dash = 'Noble 1':
+            this.router.navigate(['/dashboard']);
+          break;
+          case dash = 'Reliant':
+            this.router.navigate(['/reliantdash']);
+          break;
+          case dash = 'Relus':
+            this.router.navigate(['/relusdash']);
+          break;
+          case dash = 'Generic':
+            this.router.navigate(['/genericdash']);
+          break;
+          default:
+            this.router.navigate(['/dashboard']);
         }
+        // if (this.f.partnerRole.value === 'Admin') {
+        //   this.router.navigate(['/dashboard']);
+        // } else {
+        //   this.router.navigate(['/suppdash']);
+        // }
       },
       error => {
         this.alertService.error(error);

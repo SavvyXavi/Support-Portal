@@ -14,6 +14,10 @@ import { AlertComponent } from './login/alert/alert.component';
 import { RegistrationComponent } from './login/registration/registration.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
+import { NorthComponent } from './north/north.component';
+import { ReliantDashComponent } from './reliant-dash/reliant-dash.component';
+import { RelusDashComponent } from './relus-dash/relus-dash.component';
+import { GenericDashComponent } from './generic-dash/generic-dash.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { SuppdashComponent } from './suppdash/suppdash.component';
     AlertComponent,
     RegistrationComponent,
     DashboardComponent,
-    SuppdashComponent
+    SuppdashComponent,
+    NorthComponent,
+    ReliantDashComponent,
+    RelusDashComponent,
+    GenericDashComponent
   ],
   imports: [
     BrowserModule,

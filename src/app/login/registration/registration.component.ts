@@ -5,6 +5,7 @@ import { first } from 'rxjs/operators';
 import { AlertService } from '../services/alert.service';
 import { AuthenticationService } from '../services/authentication.service';
 import { ProfileService } from '../services/profile.service';
+import { Partner } from 'src/app/types/partner.enum';
 
 @Component({
   selector: 'app-registration',
@@ -15,6 +16,8 @@ export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
+
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,11 +37,11 @@ export class RegistrationComponent implements OnInit {
       firstName: ['',  Validators.required],
       lastName: ['', Validators.required],
       username: ['', Validators.required],
-      partnerRole: ['', Validators.required ],
+      partner: ['', Validators.required],
+      partnerRole: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
-
   // convenience getter for easy access to form fields
   get f() {
     return this.registerForm.controls;

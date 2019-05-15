@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Profile } from '../models/profile';
 import { Role } from '../../types/role.enum';
-
+import { Partner } from '../../types/partner.enum';
 @Injectable({
   providedIn: 'root'
 })
@@ -26,8 +26,8 @@ export class AuthenticationService {
      return this.currentUserSubject.value;
    }
 
-   login(username: string, password: string, partnerRole: Role) {
-     return this.http.post<any>(`${environment.serverUrl}/profile/authenticate`, {username, password, partnerRole})
+   login(username: string, password: string, partner: Partner, partnerRole: Role) {
+     return this.http.post<any>(`${environment.serverUrl}/profile/authenticate`, {username, password, partner, partnerRole})
      .pipe(map( profile => {
        if (profile && profile.token) {
          localStorage.setItem('currentUser', JSON.stringify(profile));

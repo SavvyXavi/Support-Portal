@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   returnedInfo: Info;
   getInfo: Info;
 
+  dashboard = 'Noble 1';
 
   currentProfile: Profile;
   currentProfileSubscription: Subscription;
