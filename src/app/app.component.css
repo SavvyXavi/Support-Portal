@@ -1,0 +1,40 @@
+/*
+.choices {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+}
+.choices li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #dde4f8;
+  margin: .5em;
+  padding: .3em 0;
+  height: 2.2em;
+  border-radius: 4px;
+}
+.choices li.selected:hover {
+  background-color: #aabffc !important;
+  color: black;
+}
+.choices li:hover {
+  color: black;
+  background-color: #DDD;
+  left: .1em;
+}
+.choices .text {
+  position: relative;
+  top: -3px;
+}
+.loginscreen {
+  background: white;
+  color: rgb(59, 127, 129);
+  border-radius: 1em;
+  padding: 1em;
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+} */

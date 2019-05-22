@@ -1,13 +1,12 @@
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { first } from 'rxjs/operators';
+
 import { AlertService } from './../services/alert.service';
 import { AuthenticationService } from './../services/authentication.service';
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Role } from '../../types/role.enum';
-import { Profile } from '../models/profile';
-import { ProfileService } from '../services/profile.service';
-import { Partner } from '../../types/partner.enum';
+import { Role } from 'src/app/types/role.enum';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +18,8 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
-
+  role: Role;
+  @Output() adminHeader: EventEmitter<boolean> = new EventEmitter();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private authenticationService: AuthenticationService,
     private alertService: AlertService,
-    private profileService: ProfileService
+
   ) {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
@@ -46,6 +46,11 @@ export class LoginComponent implements OnInit {
 
   get f() {
     return this.loginForm.controls;
+  }
+
+  // Determines which header to load
+  onClickHeader() {
+    this.adminHeader.emit(this.f.partnerRole.value);
   }
 
   onSubmit() {
@@ -80,11 +85,6 @@ export class LoginComponent implements OnInit {
           default:
             this.router.navigate(['/dashboard']);
         }
-        // if (this.f.partnerRole.value === 'Admin') {
-        //   this.router.navigate(['/dashboard']);
-        // } else {
-        //   this.router.navigate(['/suppdash']);
-        // }
       },
       error => {
         this.alertService.error(error);

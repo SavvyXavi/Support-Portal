@@ -18,6 +18,7 @@ import { NorthComponent } from './north/north.component';
 import { ReliantDashComponent } from './reliant-dash/reliant-dash.component';
 import { RelusDashComponent } from './relus-dash/relus-dash.component';
 import { GenericDashComponent } from './generic-dash/generic-dash.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GenericDashComponent } from './generic-dash/generic-dash.component';
     NorthComponent,
     ReliantDashComponent,
     RelusDashComponent,
-    GenericDashComponent
+    GenericDashComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

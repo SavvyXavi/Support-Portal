@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Profile } from '../models/profile';
+import { Role } from '../../types/role.enum';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
@@ -18,8 +19,8 @@ export class ProfileService {
     return this.http.get(`${environment.serverUrl}/profile/${id}`);
   }
 
-  getByRole( profile: Profile) {
-    return this.http.get(`${environment.serverUrl}/profile/${profile.partnerRole}`);
+  getByRole(role: Role) {
+    return this.http.get(`${environment.serverUrl}/profile/${role}`);
   }
 
   register(profile: Profile) {

@@ -1,3 +1,4 @@
+import { Profile } from './login/models/profile';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './login/services/authentication.service';
@@ -9,6 +10,7 @@ import { AuthenticationService } from './login/services/authentication.service';
 })
 export class AppComponent implements OnInit {
   title = 'Support Portal';
+   loginusername = Profile;
 
   constructor (
     private router: Router,
