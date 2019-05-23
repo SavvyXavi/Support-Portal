@@ -1,11 +1,35 @@
+<div *ngIf="!currentRole; else variable">
+  <p>
+    Testing Header
+  </p>
+</div>
+
+<ng-template #variable>
 <div style="text-align:center">
     <h1>
       Welcome to {{ title }}
     </h1>
-    <app-login *ngIf="" class="navbar-nav col-sm-1">
-      <a class="nav-item nav-link" routerLink="/">Home</a>
-      <a class="nav-item nav-link" (click)="logout()">Logout</a>
-  </app-login>
-  <div>
-    Admin Header works!
+    <div *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav col-sm-1">
+      <ul class=" nav nav-pills flex-column">
+        <li class="nav-items">
+          <a class="nav-link active" data-toggle="pill" routerLink="/">Dashboard</a>
+        </li>
+        <li class="nav-items">
+          <a class="nav-link " data-toggle="pill" routerLink="/manageassets">Manage Assets</a>
+        </li>
+        <li class="nav-items">
+          <a class="nav-link" data-toggle="pill" routerLink="/">Budget</a>
+        </li>
+        <li class="nav-items">
+          <a class="nav-link" data-toggle="pill" routerLink="/">Admin</a>
+        </li>
+        <li>
+          <a class="nav-pill nav-link" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav col-sm-1">
+      User Header Works
+    </div>
   </div>
+</ng-template>

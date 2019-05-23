@@ -19,6 +19,7 @@ import { ReliantDashComponent } from './reliant-dash/reliant-dash.component';
 import { RelusDashComponent } from './relus-dash/relus-dash.component';
 import { GenericDashComponent } from './generic-dash/generic-dash.component';
 import { HeaderComponent } from './header/header.component';
+import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HeaderComponent } from './header/header.component';
     ReliantDashComponent,
     RelusDashComponent,
     GenericDashComponent,
-    HeaderComponent
+    HeaderComponent,
+    ManageAssetsComponent
   ],
   imports: [
     BrowserModule,

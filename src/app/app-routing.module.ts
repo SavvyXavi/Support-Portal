@@ -10,6 +10,7 @@ import { ReliantDashComponent } from './reliant-dash/reliant-dash.component';
 import { RelusDashComponent } from './relus-dash/relus-dash.component';
 import { GenericDashComponent } from './generic-dash/generic-dash.component';
 
+import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 import { AuthGuard } from './login/guards/auth.guard';
 
 const routes: Routes = [
@@ -46,6 +47,11 @@ const routes: Routes = [
   {
     path: '',
     component: SuppdashComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'manageassets',
+    component: ManageAssetsComponent,
     canActivate: [AuthGuard]
   },
   {
