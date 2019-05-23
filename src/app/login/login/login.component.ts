@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
           case 'NorthSmart':
             this.router.navigate(['/northdash']);
           break;
-          case 'Noble 1':
+          case 'Noble1':
             this.router.navigate(['/dashboard']);
           break;
           case 'Reliant':

@@ -20,6 +20,7 @@ import { RelusDashComponent } from './relus-dash/relus-dash.component';
 import { GenericDashComponent } from './generic-dash/generic-dash.component';
 import { HeaderComponent } from './header/header.component';
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
     RelusDashComponent,
     GenericDashComponent,
     HeaderComponent,
-    ManageAssetsComponent
+    ManageAssetsComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
