@@ -67,23 +67,26 @@ export class LoginComponent implements OnInit {
       data => {
        let dash = this.f.partner.value;
         switch (dash) {
-          case dash = 'NorthSmart':
+          case 'NorthSmart':
             this.router.navigate(['/northdash']);
           break;
-          case dash = 'Noble 1':
+          case 'Noble 1':
             this.router.navigate(['/dashboard']);
           break;
-          case dash = 'Reliant':
+          case 'Reliant':
             this.router.navigate(['/reliantdash']);
           break;
-          case dash = 'Relus':
+          case 'Relus':
             this.router.navigate(['/relusdash']);
           break;
-          case dash = 'Generic':
+          case 'Generic':
             this.router.navigate(['/genericdash']);
           break;
+          case 'Support':
+            this.router.navigate(['/suppdash']);
+            break;
           default:
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/login']);
         }
       },
       error => {
