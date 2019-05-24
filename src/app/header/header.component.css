@@ -2,3 +2,15 @@ nav {
   width: 100%;
   height: auto;
 }
+
+.navbar-brand{
+  width:75px;
+}
+
+.search-bar {
+  width: 600px;
+}
+
+.account-info {
+ width: 20%;
+}

@@ -1,39 +1,36 @@
-<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top" >
-  <a class="navbar-brand" routerLink="/"><img src="../../assets//favicon.ico" style="width:75px; height:75px"></a>
-  <form class="form-inline justify-content-center" action="/action_page.php">
+<div>
+  <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top justify-content-right" >
+    <a class="navbar-brand col-md-1" routerLink="/"><img src="../../assets//favicon.ico" style="width:75px; height:75px"></a>
 
-      <input class="form-control" type="text" placeholder="Search">
-      <button class="btn btn-primary" type="submit">Search</button>
-
+  <form class="search-bar form-inline col-md-8" action="/action_page.php">
+     <div class="input-group mb-sm justify-content-center">
+        <input type="text" class="form-control" placeholder="Search">
+        <div class="input-group-append">
+          <button class="btn btn-info" type="button"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
   </form>
-  <p>Header Works</p>
-</nav>
-<!-- <ng-template #variable>
-<div style="text-align:center">
-    <h1>
-      Welcome to {{ title }}
-    </h1>
-    <div *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav col-sm-1">
-      <ul class=" nav nav-pills flex-column">
-        <li class="nav-items">
-          <a class="nav-link active" data-toggle="pill" routerLink="/">Dashboard</a>
-        </li>
-        <li class="nav-items">
-          <a class="nav-link " data-toggle="pill" routerLink="/manageassets">Manage Assets</a>
-        </li>
-        <li class="nav-items">
-          <a class="nav-link" data-toggle="pill" routerLink="/">Budget</a>
-        </li>
-        <li class="nav-items">
-          <a class="nav-link" data-toggle="pill" routerLink="/">Admin</a>
-        </li>
-        <li>
-          <a class="nav-pill nav-link" (click)="logout()">Logout</a>
-        </li>
-      </ul>
+
+  <div class="dropdown account-info col-md-3">
+      <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+        User's Name Here
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="/">Link 1</a>
+        <a class="dropdown-item" routerLink="/">Link 2</a>
+        <a class="dropdown-item" routerLink="/">Link 3</a>
+      </div>
     </div>
-    <div *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav col-sm-1">
-      User Header Works
-    </div>
-  </div>
-</ng-template> -->
+  </nav>
+</div>
+
+<!-- <button type="button" class="btn">Basic</button>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-dark">Dark</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-link">Link</button> -->
