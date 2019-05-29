@@ -41,3 +41,7 @@
 app-header {
   height: 100%;
 }
+
+.jumbotron {
+  padding-top: 110px;
+}

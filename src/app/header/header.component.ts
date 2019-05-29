@@ -1,5 +1,4 @@
 import { Role } from 'src/app/types/role.enum';
-import { LoginComponent } from './../login/login/login.component';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../login/services/authentication.service';
