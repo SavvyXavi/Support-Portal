@@ -2,7 +2,7 @@
   </div>
 
   <ng-template #variable>
-  <div style="text-align:center">
+  <!-- <div style="text-align:center">
       <h1>
         Welcome to {{ title }}
       </h1>
@@ -28,7 +28,76 @@
       </div>
       <div *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav col-sm-1">
         User Header Works
-      </div>
+      </div> -->
+
+      <div class="row sticky-top" id="body-row">
+          <!-- Sidebar -->
+          <div id="sidebar-container" class="sidebar-expanded "><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+              <!-- Bootstrap List Group -->
+              <ul class="list-group">
+                  <!-- Menu with submenu -->
+                  <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-light list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="fa fa-dashboard fa-fw mr-3"></span>
+                          <span class="menu-collapsed">Dashboard</span>
+                          <span class="submenu-icon ml-auto"></span>
+                      </div>
+                  </a>
+                  <!-- Submenu content -->
+                  <div id='submenu1' class="collapse sidebar-submenu">
+                      <a href="#" class="list-group-item list-group-item-action bg-light">
+                          <span class="menu-collapsed">Charts</span>
+                      </a>
+                      <a href="#" class="list-group-item list-group-item-action bg-light">
+                          <span class="menu-collapsed">Reports</span>
+                      </a>
+                      <a href="#" class="list-group-item list-group-item-action bg-light">
+                          <span class="menu-collapsed">Tables</span>
+                      </a>
+                  </div>
+                  <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-light list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="fa fa-user fa-fw mr-3"></span>
+                          <span class="menu-collapsed">Profile</span>
+                          <span class="submenu-icon ml-auto"></span>
+                      </div>
+                  </a>
+                  <!-- Submenu content -->
+                  <div id='submenu2' class="collapse sidebar-submenu">
+                      <a href="#" class="list-group-item list-group-item-action bg-light text-white">
+                          <span class="menu-collapsed">Settings</span>
+                      </a>
+                      <a href="#" class="list-group-item list-group-item-action bg-light text-white">
+                          <span class="menu-collapsed">Password</span>
+                      </a>
+                  </div>
+                  <a href="#" class="bg-light list-group-item list-group-item-action">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="fa fa-tasks fa-fw mr-3"></span>
+                          <span class="menu-collapsed">Tasks</span>
+                      </div>
+                  </a>
+                  <a href="#" class="bg-light list-group-item list-group-item-action">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="fa fa-calendar fa-fw mr-3"></span>
+                          <span class="menu-collapsed">Calendar</span>
+                      </div>
+                  </a>
+                  <a href="#" class="bg-light list-group-item list-group-item-action">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="fa fa-envelope-o fa-fw mr-3"></span>
+                          <span class="menu-collapsed">Messages <span class="badge badge-pill badge-primary ml-2">5</span></span>
+                      </div>
+                  </a>
+                  <a href="#" class="bg-light list-group-item list-group-item-action">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="fa fa-question fa-fw mr-3"></span>
+                          <span class="menu-collapsed">Help</span>
+                      </div>
+                  </a>
+              </ul><!-- List Group END-->
+          </div><!-- sidebar-container END -->
+          </div>
   </ng-template>
 
 
