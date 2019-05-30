@@ -2,3 +2,7 @@ form {
   margin-left: 150px;
   margin-right: 150px;
 }
+
+header {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+}

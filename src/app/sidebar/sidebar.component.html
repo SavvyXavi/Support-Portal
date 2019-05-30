@@ -1,104 +1,45 @@
-<div *ngIf="!currentRole; else variable">
-  </div>
+<!-- <div *ngIf="!currentRole; else variable">
+    <p>
+        This is what we see when not logged in
+      </p>
+</div> -->
 
-  <ng-template #variable>
-  <!-- <div style="text-align:center">
+  <!-- <ng-template #variable>
+  <div style="text-align:center">
       <h1>
         Welcome to {{ title }}
       </h1>
       <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav col-sm-1">
-        <ul class=" navbar-nav nav-pills flex-column bg-light">
-          <li class="nav-items">
-            <a class="nav-link active" data-toggle="pill" routerLink="/">Dashboard</a>
-          </li>
-          <li class="nav-items">
-            <a class="nav-link " data-toggle="pill" routerLink="/manageassets">Manage Assets</a>
-          </li>
-          <li class="nav-items">
-            <a class="nav-link" data-toggle="pill" routerLink="/">Budget</a>
-          </li>
-          <li class="nav-items">
-            <a class="nav-link" data-toggle="pill" routerLink="/">Admin</a>
-          </li>
-          <li>
-            <a class="nav-pill nav-link" (click)="logout()">Logout</a>
-          </li>
-        </ul>
+        <ul class=" navbar-nav nav-pills flex-column bg-light"></ul>
+    </nav>
+  </div> -->
+
+  <div #variable>
+  <div class="sidebar-container" style="width: 100%;text-align:center">
+      <p>
+        Listing of crap
+  </p>
+      <nav  class="navbar-nav ">
+        <div class="nav list-group flex-column nav-justified">
+
+            <a class="list-group-item list-group-item-action nav-link active" data-toggle="pill" routerLink="/">Dashboard</a>
+
+
+            <a class="list-group-item list-group-item-action nav-link " data-toggle="pill" routerLink="/manageassets">Manage Assets</a>
+
+
+            <a class="list-group-item list-group-item-action nav-link" data-toggle="pill" routerLink="/">Budget</a>
+
+
+            <a class="list-group-item list-group-item-action nav-link" data-toggle="pill" routerLink="/">Admin</a>
+
+        </div>
         </nav>
       </div>
-      <div *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav col-sm-1">
+      <div class="sidebar-container" *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav col-sm-1">
         User Header Works
-      </div> -->
+      </div>
 
-      <div class="row sticky-top" id="body-row">
-          <!-- Sidebar -->
-          <div id="sidebar-container" class="sidebar-expanded "><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
-              <!-- Bootstrap List Group -->
-              <ul class="list-group">
-                  <!-- Menu with submenu -->
-                  <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-light list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-start align-items-center">
-                          <span class="fa fa-dashboard fa-fw mr-3"></span>
-                          <span class="menu-collapsed">Dashboard</span>
-                          <span class="submenu-icon ml-auto"></span>
-                      </div>
-                  </a>
-                  <!-- Submenu content -->
-                  <div id='submenu1' class="collapse sidebar-submenu">
-                      <a href="#" class="list-group-item list-group-item-action bg-light">
-                          <span class="menu-collapsed">Charts</span>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action bg-light">
-                          <span class="menu-collapsed">Reports</span>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action bg-light">
-                          <span class="menu-collapsed">Tables</span>
-                      </a>
-                  </div>
-                  <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-light list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-start align-items-center">
-                          <span class="fa fa-user fa-fw mr-3"></span>
-                          <span class="menu-collapsed">Profile</span>
-                          <span class="submenu-icon ml-auto"></span>
-                      </div>
-                  </a>
-                  <!-- Submenu content -->
-                  <div id='submenu2' class="collapse sidebar-submenu">
-                      <a href="#" class="list-group-item list-group-item-action bg-light text-white">
-                          <span class="menu-collapsed">Settings</span>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action bg-light text-white">
-                          <span class="menu-collapsed">Password</span>
-                      </a>
-                  </div>
-                  <a href="#" class="bg-light list-group-item list-group-item-action">
-                      <div class="d-flex w-100 justify-content-start align-items-center">
-                          <span class="fa fa-tasks fa-fw mr-3"></span>
-                          <span class="menu-collapsed">Tasks</span>
-                      </div>
-                  </a>
-                  <a href="#" class="bg-light list-group-item list-group-item-action">
-                      <div class="d-flex w-100 justify-content-start align-items-center">
-                          <span class="fa fa-calendar fa-fw mr-3"></span>
-                          <span class="menu-collapsed">Calendar</span>
-                      </div>
-                  </a>
-                  <a href="#" class="bg-light list-group-item list-group-item-action">
-                      <div class="d-flex w-100 justify-content-start align-items-center">
-                          <span class="fa fa-envelope-o fa-fw mr-3"></span>
-                          <span class="menu-collapsed">Messages <span class="badge badge-pill badge-primary ml-2">5</span></span>
-                      </div>
-                  </a>
-                  <a href="#" class="bg-light list-group-item list-group-item-action">
-                      <div class="d-flex w-100 justify-content-start align-items-center">
-                          <li>
-                              <a class="nav-pill nav-link" (click)="logout()">Logout</a>
-                          </li>
-                      </div>
-                  </a>
-              </ul><!-- List Group END-->
-          </div><!-- sidebar-container END -->
-          </div>
-  </ng-template>
+  </div>
 
 
