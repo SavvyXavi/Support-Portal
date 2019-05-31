@@ -51,7 +51,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: '',
+    path: 'manageassets',
     component: ManageAssetsComponent,
     canActivate: [AuthGuard]
   },
@@ -96,6 +96,7 @@ const routes: Routes = [
     path: 'admin/accounts',
     component: AccountsComponent
   }
+
 ];
 
 @NgModule({
