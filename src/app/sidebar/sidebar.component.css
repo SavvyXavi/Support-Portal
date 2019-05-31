@@ -4,11 +4,18 @@
 }
 
 .list-group-item:hover {
-  background-color: #3399ff;
-  color:white;
+  color: #668cff;
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
   -webkit-transition:.5s;
   transition:.5s
+}
+.nav-fill{
+  border-radius: 0%;
+}
+
+.btn-light {
+  background-color: transparent;
+  outline: none;
 }

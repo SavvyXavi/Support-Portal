@@ -21,6 +21,7 @@ import { GenericDashComponent } from './generic-dash/generic-dash.component';
 import { HeaderComponent } from './header/header.component';
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AccountsComponent } from './admin/accounts/accounts.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     GenericDashComponent,
     HeaderComponent,
     ManageAssetsComponent,
-    SidebarComponent
+    SidebarComponent,
+    AccountsComponent
   ],
   imports: [
     BrowserModule,

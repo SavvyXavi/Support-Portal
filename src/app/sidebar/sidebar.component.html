@@ -4,42 +4,61 @@
       </p>
 </div> -->
 
-  <!-- <ng-template #variable>
-  <div style="text-align:center">
+  <div>
+  <div class="sidebar-container" style="text-align:center">
       <h1>
         Welcome to {{ title }}
       </h1>
-      <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav col-sm-1">
-        <ul class=" navbar-nav nav-pills flex-column bg-light"></ul>
-    </nav>
-  </div> -->
+      <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" (click)="onSelect(role)" class="btn btn-info"
+          [class.selected]="selectedRole.Admin">{{role.Admin}}</button>
+          <button type="button" (click)="onSelect(role)" class="btn btn-info"
+          [class.selected]="selectedRole.User">{{role.User}}</button>
+      </div>
+      <!-- <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav"> -->
+        <!-- Ng If to determin User Role -->
+        <nav *ngIf="selectedRole.Admin === 'Admin'" class="navbar-nav">
+          <!-- Ng  -->
+          <div *ngFor="let sidebar of sidebars"
+            class="nav list-group flex-column nav-justified"
+            data-toggle="collapse"
+            aria-expanded="false"
+            aria-controls="submenu">
 
-  <div #variable>
-  <div class="sidebar-container" style="width: 100%;text-align:center">
-      <p>
-        Listing of crap
-  </p>
-      <nav  class="navbar-nav ">
-        <div class="nav list-group flex-column nav-justified">
+            <a *ngIf="sidebar.menu === 'main'; else mainsub"
+            class="list-group-item list-group-item-action nav-link"
+            data-toggle="tabs" aria-controls="collapseMenu" routerLink="dashboord">
+                <span id="collapseMenu">{{sidebar.name}}</span>
+          </a>
+          <ng-template #mainsub class="list-group-item list-group-item-action nav-link"
+          aria-expanded="false"
+          data-toggle="tabs">
 
-            <a class="list-group-item list-group-item-action nav-link active" data-toggle="pill" routerLink="/">Dashboard</a>
+          <a *ngIf="sidebar.menu === 'mainsub-a'" class="list-group-item list-group-item-action" data-toggle="collapse"
+            data-target="#submenuContentA" aria-controls="submenuContentA" aria-expanded="false">
+              {{sidebar.name}}
+            </a>
 
+          <a *ngIf="sidebar.menu === 'mainsub-b'" class="list-group-item list-group-item-action" data-toggle="collapse"
+            data-target="#submenuContentB" aria-controls="submenuContentB" aria-expanded="false">
+              {{sidebar.name}}
+            </a>
 
-            <a class="list-group-item list-group-item-action nav-link " data-toggle="pill" routerLink="/manageassets">Manage Assets</a>
+            <div *ngIf="sidebar.menu ==='sub-A'" class="collapse bg-warning list-group-item list-group-item-action" id="submenuContentA">
+              <a href="#">{{sidebar.name}}</a>
+            </div>
 
-
-            <a class="list-group-item list-group-item-action nav-link" data-toggle="pill" routerLink="/">Budget</a>
-
-
-            <a class="list-group-item list-group-item-action nav-link" data-toggle="pill" routerLink="/">Admin</a>
-
+            <div *ngIf="sidebar.menu ==='sub-B'" class="collapse bg-warning list-group-item list-group-item-action" id="submenuContentB">
+              <a routerlink="manageassets" >{{sidebar.name}}</a>
+            </div>
+          </ng-template>
         </div>
-        </nav>
-      </div>
-      <div class="sidebar-container" *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav col-sm-1">
-        User Header Works
-      </div>
+    </nav>
 
+    <nav *ngIf="selectedRole.User === 'User'" class="navbar-nav">
+      User Sidebar Loads
+    </nav>
   </div>
+
 
 
