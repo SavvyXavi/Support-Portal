@@ -18,7 +18,7 @@ import { NorthComponent } from './north/north.component';
 import { ReliantDashComponent } from './reliant-dash/reliant-dash.component';
 import { RelusDashComponent } from './relus-dash/relus-dash.component';
 import { GenericDashComponent } from './generic-dash/generic-dash.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './login/header/header.component';
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AccountsComponent } from './admin/accounts/accounts.component';

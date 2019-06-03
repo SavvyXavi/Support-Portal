@@ -17,7 +17,7 @@ export class ApiCallService {
 
   constructor( private http: HttpClient) { }
 
-  public getTicket(ticket: Tickets) {
+  public getTicket(ticket: Tickets): Observable<any> {
     return this.http.post(`${this.apiUrl}/tickets/createtickets`, ticket);
   }
 }

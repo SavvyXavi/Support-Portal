@@ -1,10 +1,10 @@
 import { Role } from 'src/app/types/role.enum';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../login/services/authentication.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 import { Subscription } from 'rxjs';
-import { Profile } from '../login/models/profile';
+import { Profile } from '../models/profile';
 
 @Component({
   selector: 'app-header',
