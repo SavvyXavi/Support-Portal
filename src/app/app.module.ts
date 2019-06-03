@@ -22,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AccountsComponent } from './admin/accounts/accounts.component';
+import { TicketsComponent } from './manage-assets/tickets/tickets.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AccountsComponent } from './admin/accounts/accounts.component';
     HeaderComponent,
     ManageAssetsComponent,
     SidebarComponent,
-    AccountsComponent
+    AccountsComponent,
+    TicketsComponent
   ],
   imports: [
     BrowserModule,

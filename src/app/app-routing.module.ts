@@ -11,6 +11,8 @@ import { RelusDashComponent } from './relus-dash/relus-dash.component';
 import { GenericDashComponent } from './generic-dash/generic-dash.component';
 
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
+import { TicketsComponent } from './manage-assets/tickets/tickets.component';
+
 import { AuthGuard } from './login/guards/auth.guard';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 
@@ -51,16 +53,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'manageassets',
-    component: ManageAssetsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: '',
-    component: AccountsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'login',
     component: LoginComponent
   },
@@ -93,10 +85,19 @@ const routes: Routes = [
     component: SuppdashComponent
   },
   {
+    path: 'manageassets/assets',
+    component: ManageAssetsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'manageassets/tickets',
+    component: TicketsComponent
+  },
+  {
     path: 'admin/accounts',
-    component: AccountsComponent
+    component: AccountsComponent,
+    canActivate: [AuthGuard]
   }
-
 ];
 
 @NgModule({

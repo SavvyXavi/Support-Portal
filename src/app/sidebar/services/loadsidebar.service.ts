@@ -1,6 +1,4 @@
-
 import { Sidebar } from '../model/sidebar';
-
 
 export const Sidebars: Sidebar[] = [
   {id: 1, name: 'Dashboard', visible: true, link: '/dashboard', menu: 'main', mainmenu: 'dash'},
