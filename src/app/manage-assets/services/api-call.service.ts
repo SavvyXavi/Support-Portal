@@ -17,6 +17,6 @@ export class ApiCallService {
   constructor( private http: HttpClient) { }
 
   public getTicket() {
-    return this.http.get<Tickets>(`${this.apiUrl}`);
+    return this.http.get<Tickets>(this.apiUrl);
   }
 }
