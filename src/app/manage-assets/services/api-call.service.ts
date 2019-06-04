@@ -1,9 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Tickets } from '../models/tickets';
-
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -17,7 +16,7 @@ export class ApiCallService {
 
   constructor( private http: HttpClient) { }
 
-  public getTicket(ticket: Tickets): Observable<any> {
-    return this.http.post(`${this.apiUrl}/tickets/createtickets`, ticket);
+  public getTicket() {
+    return this.http.get<Tickets>(`${this.apiUrl}/tickets/createtickets`);
   }
 }
