@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Tickets } from './../models/tickets';
 import { ApiCallService } from './../services/api-call.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketsComponent implements OnInit {
   tickets: Tickets;
+  loginForm: FormGroup;
+
   constructor(
-    private api: ApiCallService
+    private api: ApiCallService,
   ) { }
 
   ngOnInit() {
