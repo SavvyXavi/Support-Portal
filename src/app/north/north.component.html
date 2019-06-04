@@ -1,3 +1,40 @@
-<p>
-  north works!
-</p>
+<h1>Welcome to {{dashboard}}'s Dashboard!</h1>
+<h3>All registered users:</h3>
+<ul>
+    <li *ngFor="let profile of profiles">
+        {{profile.username}} ({{profile.firstName}} {{profile.lastName}})
+        - <a (click)="deleteProfile(profile.id)" class="text-danger">Delete</a>
+    </li>
+</ul>
+{{currentProfile.firstName}}  and  {{currentProfile.token}}
+
+<div class="form-group">
+  <div class="radio">
+      <label>
+          <input type="radio" name="alerts" value="Tickets" [(ngModel)]=selectedInfo > Tickets
+      </label><br>
+      <label>
+          <input type="radio" name="alerts" value="Assets" [(ngModel)]=selectedInfo > Assets
+      </label><br>
+      </div>
+  </div>
+  <button class="btn btn-primary" (click)="onClick()">Get info</button>
+  <table class="table table borderless">
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>ID</th>
+              <th>Number</th>
+              <th>Rows</th>
+
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor='let data of getInfo'>
+              <td>{{data.Name}}</td>
+              <td>{{data.ID}}</td>
+              <td>{{data.RowNumber}}</td>
+              <td>{{data.TotalRows}}</td>
+          </tr>
+      </tbody>
+  </table>

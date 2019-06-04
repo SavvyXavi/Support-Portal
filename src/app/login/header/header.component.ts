@@ -31,6 +31,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {}
 
+  onSubmit() {
+  this.loggedIn = true;
+  }
+
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);

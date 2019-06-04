@@ -10,10 +10,9 @@ import { AuthenticationService } from './login/services/authentication.service';
 })
 export class AppComponent implements OnInit {
   title = 'Support Portal';
-   loginusername = Profile;
-
+  loginusername = Profile;
   constructor (
-    private router: Router,
+    public router: Router,
     private authenticationService: AuthenticationService
     ) {
       this.authenticationService.logout();

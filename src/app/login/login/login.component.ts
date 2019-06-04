@@ -16,7 +16,7 @@ import { Role } from 'src/app/types/role.enum';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
-  submitted = false;
+  public submitted = false;
   returnUrl: string;
   role: Role;
   @Output() adminHeader: EventEmitter<boolean> = new EventEmitter();
