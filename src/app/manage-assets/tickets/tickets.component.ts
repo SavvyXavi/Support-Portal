@@ -24,11 +24,4 @@ export class TicketsComponent implements OnInit {
       }
     );
   }
-
-  organizeTicket(ticketFormat: Tickets) {
-    let i;
-    for(i = 0; i < this.ticketArray.length; i++) {
-      if (this.tickets.)
-    }
-  }
 }
