@@ -15,57 +15,57 @@
           <button type="button" (click)="onSelect(role)" class="btn btn-info"
           [class.selected]="selectedRole.User">{{role.User}}</button>
       </div>
-      <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav">
-        <!-- Ng If to determine User Role -->
-        <!-- <nav *ngIf="selectedRole.Admin === 'Admin'" class="navbar-nav"> -->
-          <!-- Ng  -->
-          <div *ngFor="let sidebar of sidebars" id="accordion"
-            class="nav list-group flex-column nav-justified"
-            data-toggle="collapse"
-            aria-expanded="false"
-            aria-controls="submenu">
 
-            <a *ngIf="sidebar.menu === 'main'; else mainsub"
-            class="list-group-item list-group-item-action nav-link"
-            data-toggle="tabs" aria-controls="collapseMenu" routerLink="{{sidebar.link}}">
-                <span id="collapseMenu">{{sidebar.name}}</span>
-          </a>
-          <ng-template #mainsub class="list-group-item list-group-item-action nav-link"
-          aria-expanded="false"
-          data-toggle="tabs">
-
-          <a *ngIf="sidebar.menu === 'mainsub-a'" class="list-group-item list-group-item-action" data-toggle="collapse"
-            data-target="#submenuContentA" aria-controls="submenuContentA" aria-expanded="false"
-            routerLink="{{sidebar.link}}">
-              {{sidebar.name}}
-            </a>
-
-          <a *ngIf="sidebar.menu === 'mainsub-b'" class="list-group-item list-group-item-action" data-toggle="collapse"
-            data-target="#submenuContentB" aria-controls="submenuContentB" aria-expanded="false"
-            routerLink="{{sidebar.link}}">
-              {{sidebar.name}}
-            </a>
-
-            <a *ngIf="sidebar.menu ==='sub-A'" routerLink="{{sidebar.link}}"
-            class="bg-info list-group-item list-group-item-action" id="submenuContentA">
-              {{sidebar.name}}
-            </a>
-
-            <a *ngIf="sidebar.menu ==='sub-B'" routerLink="{{sidebar.link}}"
-            class="bg-info list-group-item list-group-item-action" id="submenuContentB">
-              {{sidebar.name}}
-            </a>
-          </ng-template>
+        <!-- Ng If to read User Role -->
+        <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav">
+        <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
+            <div *ngIf="sidebar.menu === 'main'" class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link" routerLink="{{sidebar.link}}" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    {{sidebar.name}}
+                  </button>
+                </h2>
+              </div>
+            </div>
+            <div class="card">
+              <div *ngIf="sidebar.menu == 'mainsub-a'" class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" routerLink="{{sidebar.link}}" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    {{sidebar.name}}
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div *ngIf="sidebar?.menu =='sub-A'" routerLink="{{sidebar.link}}" class="card-body bg-info">
+                  {{sidebar.name}}
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div *ngIf="sidebar.menu === 'mainsub-b'" class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" routerLink="{{sidebar.link}}" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    {{sidebar.name}}
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div *ngIf="sidebar.menu ==='sub-B'" routerLink="{{sidebar.link}}" class="card-body bg-info">
+                  {{sidebar.name}}
+                </div>
+              </div>
+            </div>
         </div>
     </nav>
 
     <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
       User Sidebar Loads
     </nav>
-  </div>
 
-<!--
-  <div id="accordion">
+
+
+  <!-- <div id="accordion">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
@@ -80,6 +80,6 @@
         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
-  </div>
- -->
+  </div> -->
+
 

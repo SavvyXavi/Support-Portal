@@ -21,6 +21,8 @@ export class SidebarComponent implements OnInit {
   selectedRole = Role;
   role = Role;
 
+  menuOpen = false;
+
   sidebars = Sidebars;
 
   links: string;
@@ -47,14 +49,8 @@ export class SidebarComponent implements OnInit {
     this.selectedRole = role;
   }
 
-  onClick(sidebar: Sidebar) {
-    this.links = sidebar.link;
-    let i;
-    for (i = 0; i < sidebar.id; i++) {
-      if (i = sidebar.id) {
-         return this.links.link;
-      }
-    }
+  onClick() {
+    this.menuOpen = true;
   }
 
   logout() {

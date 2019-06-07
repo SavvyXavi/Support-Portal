@@ -14,7 +14,13 @@
 .nav-fill{
   border-radius: 0%;
 }
-
+.card{
+  border-bottom-color: blue;
+  border: 1px;
+}
+.card-header {
+  border-color: grey;
+}
 .btn-light {
   background-color: transparent;
   outline: none;

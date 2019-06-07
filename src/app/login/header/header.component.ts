@@ -3,7 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
-import { Subscription } from 'rxjs';
+import { first } from 'rxjs/operators';
+import { Subscription, Observable } from 'rxjs';
 import { Profile } from '../models/profile';
 
 @Component({
@@ -13,10 +14,11 @@ import { Profile } from '../models/profile';
 })
 export class HeaderComponent implements OnInit {
   title = 'Support Portal';
-  loggedIn = false;
-  currentRole: Profile;
+  currentProfile: Profile;
   role: Role;
   private roleSubscription: Subscription;
+
+  nameSubscription: Subscription;
 
   constructor (
     private router: Router,
@@ -24,15 +26,17 @@ export class HeaderComponent implements OnInit {
     ) {
         this.roleSubscription = this.authenticationService.currentUser.subscribe(
         role => {
-        this.currentRole = role;
+        this.currentProfile = role;
       }
     );
     }
 
-  ngOnInit() {}
-
-  onSubmit() {
-  this.loggedIn = true;
+  ngOnInit() {
+    this.nameSubscription = this.authenticationService.currentUser.subscribe(
+      name => {
+        this.currentProfile = name;
+      }
+    );
   }
 
   logout() {

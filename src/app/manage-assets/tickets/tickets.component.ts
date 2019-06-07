@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketsComponent implements OnInit {
   tickets: Tickets;
+  ticketArray: Tickets[] = [];
   constructor(
     private api: ApiCallService
   ) { }
@@ -22,5 +23,12 @@ export class TicketsComponent implements OnInit {
         this.tickets = returnedTicket;
       }
     );
+  }
+
+  organizeTicket(ticketFormat: Tickets) {
+    let i;
+    for(i = 0; i < this.ticketArray.length; i++) {
+      if (this.tickets.)
+    }
   }
 }
