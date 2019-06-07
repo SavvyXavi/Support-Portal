@@ -1,10 +1,10 @@
 export class Tickets {
   title: string;
   description: string;
-  customerNameOrId: string;
+  customerNameOrId?: string;
   assetRefOrId: string;
-  visibleToCustomer: true;
-  contactEmailOrId: string;
+  visibleToCustomer?: true;
+  contactEmailOrId?: string;
   ticketCategoryNameOrId: string;
   ticketTypeNameOrId: string;
 }
