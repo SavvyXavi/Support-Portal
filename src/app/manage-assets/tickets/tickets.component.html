@@ -1,17 +1,21 @@
 <table class="table table-responsive-sm">
+ <thead>
   <tr>
-    <th>Support Tickets
-      <button class="btn btn-info">Get Ticket</button>
-    </th>
-    <th>Test For Submission of Quotes</th>
-  </tr>
+      <th>Support Tickets
+        <button class="btn btn-info">Get Ticket</button>
+      </th>
+      <th>
+        Test For Submission of Quotes
+      </th>
+    </tr>
+ </thead>
   <tr>
     <td *ngFor='let ticket of tickets'>
       {{ticket.title}}
     </td>
-  </tr>
-  <tr>
-    <td>Quote Submission Here!</td>
+    <td>
+      Quote Submission Here!
+    </td>
   </tr>
 </table>
 
