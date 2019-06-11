@@ -32,7 +32,7 @@ export class TicketsComponent implements OnInit {
       title: ['', Validators.required],
       description: ['', Validators.required],
       serialNumber: ['', Validators.required],
-      ticketType: ['', Validators.required]
+      TicketType: ['', Validators.required]
     }
     );
 
