@@ -11,7 +11,7 @@
       </div>
 
         <!-- Ng If to read User Role -->
-        <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav">
+        <nav  class="navbar-nav">
         <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
             <div *ngIf="sidebar.menu === 'main'" class="card">
               <div class="card-header" id="headingOne">
@@ -31,9 +31,9 @@
                 </h2>
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div *ngIf="sidebar?.menu =='sub-A'" routerLink="{{sidebar.link}}" class="card-body btn-link bg-info">
+                <button *ngIf="sidebar?.menu =='sub-A'" routerLink="{{sidebar.link}}" class="card-body btn-block btn-link bg-info">
                   {{sidebar.name}}
-                </div>
+                </button>
               </div>
             </div>
             <div class="card">
@@ -45,9 +45,9 @@
                 </h2>
               </div>
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div *ngIf="sidebar.menu ==='sub-B'" routerLink="{{sidebar.link}}" class="card-body bg-info">
+                <button *ngIf="sidebar.menu ==='sub-B'" routerLink="{{sidebar.link}}" class="card-body btn-block bg-info">
                   {{sidebar.name}}
-                </div>
+                </button>
               </div>
             </div>
         </div>

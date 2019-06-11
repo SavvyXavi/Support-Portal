@@ -1,3 +1,4 @@
+import { catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -12,10 +13,21 @@ export class ApiCallService {
 
  apiUrl = 'https://n1sharmonypull.azurewebsites.net/api/MakeHamonyQuote?code=PJLcheEaYAITwiQ2Juxi0PBHJp8PZJZgwAAA03n9rbBbqwJ2m4gRJw==';
 
+ postUrl =  this.apiUrl + '/v1/tickets/createticket';
+
   constructor( private http: HttpClient) { }
 
-  public addTicket(ticket: Tickets) {
-     this.http.post<Tickets>(`${this.apiUrl}/v1/tickets/createticket`, ticket);
+  getTicket() {
+    return this.http.get<Tickets>(this.apiUrl);
+  }
+
+  addTicket(ticket: Tickets): Observable<Tickets> {
+     return this.http.post<Tickets>(this.postUrl, ticket);
+    //  .pipe(
+    //    catchError(
+    //      this.handleError
+    //    )
+    //  );
 }
 
 

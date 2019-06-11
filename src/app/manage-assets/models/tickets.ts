@@ -1,3 +1,5 @@
+import { TicketType } from './../../types/ticket-type.enum';
+
 export class Tickets {
   title: string;
   description: string;
@@ -6,7 +8,7 @@ export class Tickets {
   visibleToCustomer?: true;
   contactEmailOrId?: string;
   ticketCategoryNameOrId: string;
-  ticketTypeNameOrId: string;
+  ticketTypeNameOrId: TicketType;
 }
 
 // "Title": "string",  Entry Field

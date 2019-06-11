@@ -1,18 +1,26 @@
-import { Tickets } from './../models/tickets';
-import { ApiCallService } from './../services/api-call.service';
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Tickets } from './../models/tickets';
+import { TicketType } from '../../types/ticket-type.enum';
+import { ApiCallService } from './../services/api-call.service';
+
+import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/forms';
+
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tickets',
   templateUrl: './tickets.component.html',
   styleUrls: ['./tickets.component.css']
 })
+
 export class TicketsComponent implements OnInit {
   tickets: Tickets;
   ticketArray: Tickets[] = [];
   ticketForm: FormGroup;
+  newTicket: Tickets;
+
+  ticketType: TicketType;
 
   constructor(
     private api: ApiCallService,
@@ -27,17 +35,33 @@ export class TicketsComponent implements OnInit {
       ticketType: ['', Validators.required]
     }
     );
+
+    this.getTickets();
   }
 
-  // getTicket(): void {
-  //   this.api.getTicket(this.tickets).subscribe(
-  //     (returnedTicket: Tickets) => {
-  //       this.tickets = returnedTicket;
-  //     }
-  //   );
-  // }
-
-  onSubmit() {
-    this.api.addTicket(this.tickets);
+  createTicket() {
+   this.api.addTicket(this.ticketForm.value)
+    .subscribe(
+      ticket => {
+        let ticketData = this.ticketForm.value;
+        ticketData = ticket;
+      }
+    );
   }
+
+  getTickets() {
+    this.api.getTicket()
+    .subscribe(
+      data => {
+        this.tickets = data;
+      }
+    )
+  }
+
+  // getMovies() {
+	// 	this.http.get<Movie[]>(this.moviesRoute).subscribe(movies => {
+	// 		this.movies = movies;
+	// 		console.log('Movies', this.movies);
+	// 	});
+	// }
 }

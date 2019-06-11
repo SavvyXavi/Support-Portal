@@ -22,7 +22,7 @@
   border-radius: 0%;
 }
 .card{
-  border-bottom-color: blue;
+  border-bottom-color: black !important;
   border: 1px;
 }
 .card-header {
@@ -31,4 +31,9 @@
 .btn-light {
   background-color: transparent;
   outline: none;
+}
+
+.bg-info:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
 }

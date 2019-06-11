@@ -20,12 +20,12 @@
 </table>
 
 <div class="col-md-6 col-md-offset-3">
-<form [formGroup]="ticketForm" (ngsubmit)="onSubmit()">
+<form [formGroup]="ticketForm" (ngsubmit)="createTicket()">
   <h2>Ticket Form</h2>
   <div class="form-group">
     <label for="ticketType">Ticket Type:</label><br>
     <div class="radio">
-    <label><input class="form-control shadow-none" formControlName="ticketType" type="radio" name="ticketType" value="contract"> Quote</label><br>
+    <label><input class="form-control shadow-none" formControlName="ticketType" type="radio" name="ticketType" value="quote"> Quote</label><br>
    </div>
     <div class="radio">
       <label><input class="form-control shadow-none" formControlName="ticketType" type="radio" name="ticketType" value="support"> Support</label><br>
@@ -44,4 +44,9 @@
     <button class="btn btn-primary"> Submit </button>
   </div>
 </form>
+</div>
+
+<div *ngFor="let ticket of tickets">
+  Display api result here:
+  {{tickets.title}}
 </div>
