@@ -22,7 +22,7 @@ export class ApiCallService {
   }
 
   addTicket(ticket: Tickets): Observable<Tickets> {
-     return this.http.post<Tickets>(this.postUrl, ticket);
+     return this.http.post<Tickets>(this.apiUrl, ticket);
     //  .pipe(
     //    catchError(
     //      this.handleError
