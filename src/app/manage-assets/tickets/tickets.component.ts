@@ -29,14 +29,14 @@ export class TicketsComponent implements OnInit {
 
   ngOnInit() {
     this.ticketForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      serialNumber: ['', Validators.required],
-      TicketType: ['', Validators.required]
+      Title: ['', Validators.required],
+      Description: ['', Validators.required],
+      AssetRefOrId: ['', Validators.required],
+      TicketType: ['', Validators.required],
+      TicketCategoryNameOrId: ['New Quote'],
+      TicketTypeNameOrId: ['NorthSmart Quotes']
     }
     );
-
-    this.getTickets();
   }
 
   createTicket() {
