@@ -10,6 +10,7 @@ export class Tickets {
   ticketCategoryNameOrId: string;
   ticketTypeNameOrId: TicketType;
   name: string;
+  refNumber: string;
 }
 
 // "Title": "string",  Entry Field

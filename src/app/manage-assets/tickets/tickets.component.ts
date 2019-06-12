@@ -55,8 +55,8 @@ export class TicketsComponent implements OnInit {
   getTickets() {
     this.api.getTicket()
     .subscribe(
-      (data: Tickets) => {
-        this.tickets = data;
+      (returnedTickets: Tickets) => {
+        this.tickets = returnedTickets;
       }
     );
   }
