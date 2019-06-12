@@ -11,25 +11,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiCallService {
 
- apiUrl = 'https://n1sharmonypull.azurewebsites.net/api/MakeHamonyQuote?code=PJLcheEaYAITwiQ2Juxi0PBHJp8PZJZgwAAA03n9rbBbqwJ2m4gRJw==';
-
- postUrl =  this.apiUrl + '/v1/tickets/createticket';
-
+  apiPost = 'https://n1sharmonypull.azurewebsites.net/api/MakeHamonyQuote?code=PJLcheEaYAITwiQ2Juxi0PBHJp8PZJZgwAAA03n9rbBbqwJ2m4gRJw==';
+  apiGet = 'https://n1sharmonypull.azurewebsites.net/api/HttpTrigger1?code=lsPvad3uQA6s/pe1imbqoK0egnysVrGlsZXvaFsZ1jc69X6OdKQHcw==';
   constructor( private http: HttpClient) { }
 
   getTicket() {
-    return this.http.get<Tickets>(this.apiUrl);
+    return this.http.get<Tickets>(this.apiGet);
   }
 
   addTicket(ticket: Tickets): Observable<Tickets> {
-     return this.http.post<Tickets>(this.apiUrl, ticket);
-    //  .pipe(
-    //    catchError(
-    //      this.handleError
-    //    )
-    //  );
+     return this.http.post<Tickets>(this.apiPost, ticket);
 }
-
 
 }
 

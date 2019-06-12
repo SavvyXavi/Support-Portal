@@ -35,8 +35,11 @@ export class TicketsComponent implements OnInit {
       TicketType: ['', Validators.required],
       TicketCategoryNameOrId: ['New Quote'],
       TicketTypeNameOrId: ['NorthSmart Quotes']
-    }
+    },
+
     );
+
+    this.getTickets();
   }
 
   createTicket() {
@@ -52,10 +55,10 @@ export class TicketsComponent implements OnInit {
   getTickets() {
     this.api.getTicket()
     .subscribe(
-      data => {
+      (data: Tickets) => {
         this.tickets = data;
       }
-    )
+    );
   }
 
   // getMovies() {
