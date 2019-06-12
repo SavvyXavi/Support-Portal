@@ -50,6 +50,7 @@ app-header {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height: 100%;
 }
 .col-md-10 {
   height: 100%;
