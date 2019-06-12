@@ -50,15 +50,12 @@ app-header {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100%;
 }
 .col-md-10 {
   height: 100%;
   margin: 0 auto;
 }
-.col-md-2 {
-  height: 100%;
-}
+
 app-alert {
   margin-top: 250px;
   margin-left: 500px;
