@@ -13,12 +13,16 @@ textarea {
   outline: none !important;
   box-shadow: none;
 }
-
+table, th, td {
+  border: 3px solid navy;
+}
 th, td {
   padding: 15px;
   text-align: left;
 }
-
+table {
+  border-collapse: collapse;
+}
 tr:nth-child(even) {
-  background-color: navy;
+  background-color: #f2f2f2;
 }
