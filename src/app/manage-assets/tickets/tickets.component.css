@@ -1,0 +1,24 @@
+.form-container {
+  border-color: black;
+  border-style: solid;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.title, .assetRef {
+  width: 250px;
+}
+
+textarea {
+  outline: none !important;
+  box-shadow: none;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: navy;
+}
