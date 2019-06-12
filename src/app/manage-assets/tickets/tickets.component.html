@@ -56,6 +56,21 @@
     </thead>
      <tr *ngFor='let data of tickets'>
        <td>
+         {{data.Name}}
+       </td>
+       <td>
+         {{data.CustomerName}}
+       </td>
+       <td>
+         {{data.RefNumber}}
+       </td>
+       <td>
+         {{data.PrimaryContactEmail}}
+       </td>
+       <td>
+         {{data.Category}}
+       </td>
+       <td>
          {{data.Type}}
        </td>
      </tr>
