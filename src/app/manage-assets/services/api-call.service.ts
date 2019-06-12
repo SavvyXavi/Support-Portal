@@ -16,12 +16,12 @@ export class ApiCallService {
   constructor( private http: HttpClient) { }
 
   getTicket() {
-    return this.http.get<Tickets>(this.apiGet);
+    return this.http.get(this.apiGet);
   }
 
   addTicket(ticket: Tickets): Observable<Tickets> {
      return this.http.post<Tickets>(this.apiPost, ticket);
-}
+  }
 
 }
 
