@@ -9,6 +9,7 @@ export class Tickets {
   contactEmailOrId?: string;
   ticketCategoryNameOrId: string;
   ticketTypeNameOrId: TicketType;
+  name: string;
 }
 
 // "Title": "string",  Entry Field
