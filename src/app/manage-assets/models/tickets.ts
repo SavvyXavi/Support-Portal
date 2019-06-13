@@ -4,7 +4,7 @@ export class Tickets {
   title: string;
   description: string;
   customerNameOrId?: string;
-  assetId: string;
+  assetReforId: string;
   visibleToCustomer?: true;
   contactEmailOrId?: string;
   ticketCategoryNameOrId: string;
