@@ -23,6 +23,7 @@ import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 import { TicketsComponent } from './manage-assets/tickets/tickets.component';
+import { AssetsComponent } from './manage-assets/assets/assets.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { TicketsComponent } from './manage-assets/tickets/tickets.component';
     ManageAssetsComponent,
     SidebarComponent,
     AccountsComponent,
-    TicketsComponent
+    TicketsComponent,
+    AssetsComponent
   ],
   imports: [
     BrowserModule,

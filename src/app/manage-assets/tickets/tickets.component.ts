@@ -53,7 +53,7 @@ export class TicketsComponent implements OnInit {
   }
 
   getTickets() {
-    this.api.getTicket()
+    this.api.getTickets()
     .subscribe(
       (returnedTickets: Tickets) => {
         this.tickets = returnedTickets;

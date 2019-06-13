@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Assets } from './models/assets';
+import { Assets } from '../models/assets';
 
-import { ApiCallService } from './services/api-call.service';
+import { ApiCallService } from '../services/api-call.service';
 
 @Component({
-  selector: 'app-manage-assets',
-  templateUrl: './manage-assets.component.html',
-  styleUrls: ['./manage-assets.component.css']
+  selector: 'app-assets',
+  templateUrl: './assets.component.html',
+  styleUrls: ['./assets.component.css']
 })
-export class ManageAssetsComponent implements OnInit {
+export class AssetsComponent implements OnInit {
   assets: Assets;
 
   constructor(private api: ApiCallService) { }

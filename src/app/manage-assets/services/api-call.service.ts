@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Tickets } from '../models/tickets';
+import { Assets } from '../models/assets';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -11,18 +12,24 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiCallService {
 
-  apiPost = 'https://n1sharmonypull.azurewebsites.net/api/MakeHamonyQuote?code=PJLcheEaYAITwiQ2Juxi0PBHJp8PZJZgwAAA03n9rbBbqwJ2m4gRJw==';
-  apiGet = 'https://n1sharmonypull.azurewebsites.net/api/HttpTrigger1?code=lsPvad3uQA6s/pe1imbqoK0egnysVrGlsZXvaFsZ1jc69X6OdKQHcw==';
+  postTicket = 'https://n1sharmonypull.azurewebsites.net/api/MakeHamonyQuote?code=PJLcheEaYAITwiQ2Juxi0PBHJp8PZJZgwAAA03n9rbBbqwJ2m4gRJw==';
+  getTicket = 'https://n1sharmonypull.azurewebsites.net/api/HttpTrigger1?code=lsPvad3uQA6s/pe1imbqoK0egnysVrGlsZXvaFsZ1jc69X6OdKQHcw==';
+
+  getAsset = 'https://n1sharmonypull.azurewebsites.net/api/AssetsPull?code=qQXwJm1YBabl4J8QlK6a2n2/JpY/mTacr66EYRdsZ2i3RfUkAucX4g==';
+
   constructor( private http: HttpClient) { }
 
-  getTicket() {
-    return this.http.get(this.apiGet);
+  getTickets() {
+    return this.http.get(this.getTicket);
   }
 
   addTicket(ticket: Tickets): Observable<Tickets> {
-     return this.http.post<Tickets>(this.apiPost, ticket);
+     return this.http.post<Tickets>(this.postTicket, ticket);
   }
 
+  getAssets() {
+    return this.http.get(this.getAsset);
+  }
 }
 
 // module.exports =  function (context, req) {
