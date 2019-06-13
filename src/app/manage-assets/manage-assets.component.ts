@@ -14,9 +14,10 @@ export class ManageAssetsComponent implements OnInit {
   constructor(private api: ApiCallService) { }
 
   ngOnInit() {
+    this.getAssets();
   }
 
-  getTickets() {
+  getAssets() {
     this.api.getAssets()
     .subscribe(
       (returnedAssets: Assets) => {
