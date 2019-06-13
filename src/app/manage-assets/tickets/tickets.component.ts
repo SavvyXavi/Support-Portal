@@ -38,7 +38,7 @@ export class TicketsComponent implements OnInit {
 
     );
 
-    this.getTickets();
+    // this.getTickets();
   }
 
   createTicket() {
