@@ -20,6 +20,7 @@
   -webkit-transition:.5s;
   transition:.5s
 }
+
 .nav-fill{
   border-radius: 0%;
 }
@@ -42,6 +43,7 @@
 .btn-block {
   background-color: #e65c00;
 }
+
 .btn-light {
   background-color: transparent;
   outline: none;
