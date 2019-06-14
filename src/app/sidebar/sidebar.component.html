@@ -1,4 +1,4 @@
-   <div class="sidebar-container flex-column" style="text-align:center">
+   <div class="sidebar-container bg-dark flex-column" style="text-align:center">
     <div class="row flex-fill"></div>
     <h1>
         Welcome to {{ title }}
@@ -14,7 +14,7 @@
         <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav">
         <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
             <div *ngIf="sidebar.menu === 'main'" class="card">
-              <div class="card-header" id="headingOne">
+              <div class="bg-dark card-header" id="headingOne">
                 <h2 class="mb-0">
                   <button class="btn btn-link" routerLink="{{sidebar.link}}" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     {{sidebar.name}}
@@ -23,7 +23,7 @@
               </div>
             </div>
             <div class="card">
-              <div *ngIf="sidebar.menu == 'mainsub-a'" class="card-header" id="headingTwo">
+              <div *ngIf="sidebar.menu == 'mainsub-a'" class="bg-dark card-header" id="headingTwo">
                 <h2 class="mb-0">
                   <button class="btn btn-link collapsed" routerLink="{{sidebar.link}}" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     {{sidebar.name}}
@@ -31,13 +31,13 @@
                 </h2>
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <button *ngIf="sidebar?.menu =='sub-A'" routerLink="{{sidebar.link}}" class="card-body btn-block btn-link bg-info">
+                <button *ngIf="sidebar?.menu =='sub-A'" routerLink="{{sidebar.link}}" class="card-body btn-block btn-link">
                   {{sidebar.name}}
                 </button>
               </div>
             </div>
             <div class="card">
-              <div *ngIf="sidebar.menu === 'mainsub-b'" class="card-header" id="headingThree">
+              <div *ngIf="sidebar.menu === 'mainsub-b'" class="bg-dark card-header" id="headingThree">
                 <h2 class="mb-0">
                   <button class="btn btn-link collapsed" routerLink="{{sidebar.link}}" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     {{sidebar.name}}
@@ -45,7 +45,7 @@
                 </h2>
               </div>
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <button *ngIf="sidebar.menu ==='sub-B'" routerLink="{{sidebar.link}}" class="card-body btn-block bg-info">
+                <button *ngIf="sidebar.menu ==='sub-B'" routerLink="{{sidebar.link}}" class="card-body btn-block btn-link">
                   {{sidebar.name}}
                 </button>
               </div>

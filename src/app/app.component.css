@@ -39,8 +39,16 @@
   transform: translate(-50%, -50%)
 } */
 
+* {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+ }
+
+
 app-header {
   height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 .row {
@@ -50,6 +58,7 @@ app-header {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
 }
 .col-md-10 {
   height: 100%;

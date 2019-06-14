@@ -18,8 +18,8 @@
       </div>
     </div>
     <div class="row">
-      <div *ngIf="router.url !== '/login' && router.url !== '/register'" class="col-md-2">
-         <app-sidebar></app-sidebar>
+      <div class="col-md-2">
+         <app-sidebar *ngIf="router.url !== '/login' && router.url !== '/register'"></app-sidebar>
       </div>
     <div class="col-md-10">
          <app-alert></app-alert>

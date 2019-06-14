@@ -10,5 +10,5 @@ export const Sidebars: Sidebar[] = [
   {id: 4, name: 'Admin', visible: true, link: '/admin', menu: 'mainsub-b', mainmenu: 'admin'},
   {id: 4.1, name: 'Accounts', visible: false, link: '/admin/accounts', menu: 'sub-B', mainmenu: 'admin'},
   {id: 4.2, name: 'Support', visible: false, link: '/admin/support', menu: 'sub-B', mainmenu: 'admin'},
-  {id: 4.3, name: 'OEMAD', visible: false, link: '/admin/oem', menu: 'sub-B', mainmenu: 'admin'}
+  {id: 4.3, name: 'OEM', visible: false, link: '/admin/oem', menu: 'sub-B', mainmenu: 'admin'}
 ];
