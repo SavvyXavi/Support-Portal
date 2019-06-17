@@ -4,14 +4,18 @@
         Welcome to {{ title }}
       </h1>
       <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" (click)="onSelect(role)" class="btn btn-info"
-          [class.selected]="selectedRole.Admin">{{role.Admin}}</button>
-          <button type="button" (click)="onSelect(role)" class="btn btn-info"
-          [class.selected]="selectedRole.User">{{role.User}}</button>
+          <input type="checkbox" id="toggle-button-checkbox">
+    <label class="toggle-button-switch" (click)="onSelect()"
+      for="toggle-button-checkbox"></label>
+    <div class="toggle-button-text">
+      <div class="toggle-button-text-on">Ad</div>
+      <div class="toggle-button-text-off">User</div>
+    </div>
       </div>
 
         <!-- Ng If to read User Role -->
-        <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav">
+        <!-- <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav"> -->
+        <nav *ngIf="this.admin">
         <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
             <div *ngIf="sidebar.menu === 'main'" class="card">
               <div class="bg-dark card-header" id="headingOne">
@@ -53,9 +57,9 @@
         </div>
     </nav>
 
-    <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
+    <!-- <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav"> -->
+    <nav *ngIf="!this.admin">
       User Sidebar Loads
     </nav>
     </div>
-
 

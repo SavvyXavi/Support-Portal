@@ -18,10 +18,7 @@ export class SidebarComponent implements OnInit {
   title = 'Support Portal';
   loggedIn = false;
   currentRole: Profile;
-  selectedRole = Role;
-  role = Role;
-
-  menuOpen = false;
+  admin = true;
 
   sidebars = Sidebars;
 
@@ -44,13 +41,10 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {}
 
-  // For Button roles
-  onSelect(role = Role): void {
-    this.selectedRole = role;
-  }
 
-  onClick() {
-    this.menuOpen = true;
+  // For Button roles
+  onSelect() {
+    this.admin = !this.admin;
   }
 
   logout() {
