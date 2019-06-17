@@ -1,3 +1,4 @@
+import { SupportComponent } from './admin/support/support.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule,  } from '@angular/router';
 
@@ -15,6 +16,9 @@ import { TicketsComponent } from './manage-assets/tickets/tickets.component';
 
 import { AuthGuard } from './login/guards/auth.guard';
 import { AccountsComponent } from './admin/accounts/accounts.component';
+import { ListsComponent } from './manage-assets/lists/lists.component';
+import { OemComponent } from './admin/oem/oem.component';
+import { BudgetComponent } from './budget/budget.component';
 
 const routes: Routes = [
   {
@@ -94,9 +98,25 @@ const routes: Routes = [
     component: TicketsComponent
   },
   {
+    path: 'manageassets/lists',
+    component: ListsComponent
+  },
+  {
+    path: 'budgets',
+    component: BudgetComponent
+  },
+  {
     path: 'admin/accounts',
     component: AccountsComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin/support',
+    component: SupportComponent
+  },
+  {
+    path: 'admin/oem',
+    component: OemComponent
   }
 ];
 
