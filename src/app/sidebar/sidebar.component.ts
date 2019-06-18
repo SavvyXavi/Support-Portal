@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../login/services/authentication.service';
 
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { Profile } from '../login/models/profile';
 import { Role } from 'src/app/types/role.enum';
 
@@ -21,7 +21,8 @@ export class SidebarComponent implements OnInit {
   admin = true;
 
   sidebars = Sidebars;
-
+  // sidebarName: Sidebar;
+  // sidebarSubscription: Subscription;
   links: string;
 
   routerlink = this.sidebars;
@@ -30,13 +31,20 @@ export class SidebarComponent implements OnInit {
 
   constructor (
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    // private sidebarObserver: Observable<Sidebar>
     ) {
         this.roleSubscription = this.authenticationService.currentUser.subscribe(
         role => {
         this.currentRole = role;
       }
     );
+
+        // this.sidebarSubscription = this.sidebars.subscribe(
+        //   name => {
+        //     this.sidebarName = name;
+        //   }
+        // );
     }
 
   ngOnInit() {}
