@@ -16,6 +16,10 @@ textarea {
 table {
   border: 3px solid black;
 }
+th {
+  background-color: black;
+  color: white;
+}
 th, td {
   border: 1px solid black;
   padding: 15px;
@@ -26,4 +30,7 @@ table {
 }
 tr:nth-child(even) {
   background-color: #e65c00;
+}
+tr:nth-child(odd) {
+  background-color: grey;
 }
