@@ -7,8 +7,10 @@
   color: white;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
   max-width: 650px;
-  top: 100px;
+  top: 200px;
   bottom: 50%;
+  right: 165px;
+
 }
 
 .buttons {
