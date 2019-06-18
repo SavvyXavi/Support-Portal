@@ -19,6 +19,7 @@ table {
 th {
   background-color: black;
   color: white;
+  border-color: white;
 }
 th, td {
   border: 1px solid black;
@@ -32,5 +33,5 @@ tr:nth-child(even) {
   background-color: #e65c00;
 }
 tr:nth-child(odd) {
-  background-color: grey;
+  background-color: #8c8c8c;
 }
