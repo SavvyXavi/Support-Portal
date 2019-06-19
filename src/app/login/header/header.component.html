@@ -15,18 +15,19 @@
           <button class="btn bg-dark shadow-none dropdown-toggle" style="width:auto" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            <i class="fa fa-user-circle fa-3x"></i> {{currentProfile?.firstName}} {{currentProfile?.lastName}}
           </button>
-          <div class="dropdown-menu dropdown-menu-right" style="padding-right:auto; width:auto" aria-labelledby="dropdownMenuButton">
-            <span class="dropdown-item-text dropdown-separator-title">Email Goes Here</span>
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item nav-link" (click)="logout()">Logout</a>
-          </div>
+          <ul class="dropdown-menu dropdown-menu-right" style="padding-right:auto; width:auto" aria-labelledby="dropdownMenuButton">
+            <li><span class="dropdown-item-text dropdown-separator-title">
+              <h4>{{currentProfile?.partnerRole}}</h4>
+              <h5>{{currentProfile?.email}}</h5></span></li>
+            <hr>
+            <li><a class="dropdown-item" href="#">Account</a></li>
+            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+          </ul>
         </div>
 
     <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
 
   </nav>
   <div class="collapse" id="navbarSupportedContent">

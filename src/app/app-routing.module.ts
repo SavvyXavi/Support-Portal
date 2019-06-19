@@ -1,3 +1,4 @@
+import { ContractsComponent } from './manage-assets/contracts/contracts.component';
 import { SupportComponent } from './admin/support/support.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule,  } from '@angular/router';
@@ -100,6 +101,10 @@ const routes: Routes = [
   {
     path: 'manageassets/lists',
     component: ListsComponent
+  },
+  {
+    path: 'manageassets/contracts',
+    component: ContractsComponent
   },
   {
     path: 'budgets',

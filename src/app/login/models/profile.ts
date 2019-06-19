@@ -6,6 +6,7 @@ export class Profile {
   password: string;
   firstName: string;
   lastName: string;
+  email: string;
   token: string;
   partner: Partner;
   partnerRole: Role;

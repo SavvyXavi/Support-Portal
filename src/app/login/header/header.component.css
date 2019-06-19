@@ -6,7 +6,9 @@ form {
   margin-left: 150px;
   margin-right: 150px;
 }
-
+hr {
+  border-color: #8c8c8c;
+}
 
 header {
   width: 100%;
@@ -15,4 +17,8 @@ header {
 
 .account-container button {
   color: whitesmoke;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  background-color:#8c8c8c;
 }

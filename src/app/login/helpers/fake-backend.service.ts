@@ -22,9 +22,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 // find if any user matches login credentials
                 let filteredUsers = profile.filter(profile => {
                     return profile.username === request.body.username
-                    && profile.password === request.body.password
-                    && profile.partner === request.body.partner
-                    && profile.partnerRole === request.body.partnerRole;
+                    && profile.password === request.body.password;
                 });
 
                 if (filteredUsers.length) {
@@ -35,6 +33,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                         username: profile.username,
                         firstName: profile.firstName,
                         lastName: profile.lastName,
+                        email: profile.email,
                         partner: profile.partner,
                         partnerRole: profile.partnerRole,
                         token: 'fake-jwt-token'
@@ -83,9 +82,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 // validation
                 let duplicateUser = profile.filter(profile => { return profile.username === newUser.username; }).length;
                 if (duplicateUser) {
-                    return throwError({ error: { message: 'Username "' + newUser.username + '" is already taken' } });
+                  return throwError({ error: { message: 'Username "' + newUser.username + '" is already taken' } });
                 }
-
+                let duplicateEmail = profile.filter(profile => { return profile.email === newUser.email; }).length;
+                if (duplicateEmail) {
+                  return throwError({ error: { message: 'Email ' + newUser.email + ' is already in use'}});
+                }
                 // save new user
                 newUser.id = profile.length + 1;
                 profile.push(newUser);

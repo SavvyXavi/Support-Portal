@@ -37,9 +37,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required],
-      partner: ['', Validators.required],
-      partnerRole: ['', Validators.required]
+      password: ['', Validators.required]
     });
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
@@ -61,11 +59,11 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value, this.f.partner.value, this.f.partnerRole.value)
+    this.authenticationService.login(this.f.username.value, this.f.password.value)
     .pipe(first())
     .subscribe(
       data => {
-       let dash = this.f.partner.value;
+       let dash = this.authenticationService.currentUserValue.partner;
         switch (dash) {
           case 'NorthSmart':
             this.router.navigate(['/northdash']);
