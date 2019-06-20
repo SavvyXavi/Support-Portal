@@ -4,9 +4,10 @@ export class Tickets {
   title: string;
   description: string;
   customerNameOrId?: string;
-  assetReforId: string;
+  assetId: string;
+  slaSeverity: string;
   visibleToCustomer?: true;
-  contactEmailOrId?: string;
+  contact?: string;
   ticketCategoryNameOrId: string;
   ticketTypeNameOrId: TicketType;
   name: string;

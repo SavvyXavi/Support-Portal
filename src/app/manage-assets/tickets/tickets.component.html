@@ -35,14 +35,15 @@
     <thead>
      <tr>
          <th>
-           Title
+           Name
          </th>
          <th>
            Customer Name
          </th>
          <th>
-           Asset Reference/Id
+           Asset Id#
          </th>
+         <th>SLA</th>
          <th>
            Contact Email
          </th>
@@ -64,6 +65,7 @@
        <td>
          {{data.AssetId}}
        </td>
+       <td>{{data.SlaSeverity}}</td>
        <td>
          {{data.PrimaryContactEmail}}
        </td>
