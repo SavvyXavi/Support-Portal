@@ -1,7 +1,8 @@
    <div class="sidebar-container bg-dark flex-column" style="text-align:center">
-    <div>
-      <h1>
-        Welcome to {{title}}
+    <div *ngFor='let sidebar of sidebars'>
+      <h1 *ngIf='router.url === sidebar?.link'>
+        Welcome to {{title}}<hr>
+        {{sidebar.name}}
       </h1>
     </div>
       <div class="btn-group" role="group" aria-label="Basic example">

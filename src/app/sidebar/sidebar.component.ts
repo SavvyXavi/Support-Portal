@@ -12,6 +12,7 @@ import { Sidebars } from './services/loadsidebar.service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
+
 export class SidebarComponent implements OnInit {
   title = 'Support Portal';
   currentRole: Profile;
@@ -25,7 +26,7 @@ export class SidebarComponent implements OnInit {
   private sidebarSubscription: Subscription;
 
   constructor (
-    private router: Router,
+    public router: Router,
     private authenticationService: AuthenticationService,
     ) {
         this.roleSubscription = this.authenticationService.currentUser.subscribe(
