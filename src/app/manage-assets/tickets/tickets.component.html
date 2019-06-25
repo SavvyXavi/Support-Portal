@@ -35,22 +35,24 @@
     <thead>
      <tr>
          <th>Requestor</th>
-         <th>Customer Name</th>
-         <th>Asset Id#</th>
+         <th>Ticket#</th>
+         <th>Status</th>
          <th>SLA</th>
-         <th>Contact Email</th>
-         <th>Ticket Category</th>
-         <th>Ticket Type</th>
+         <th>Customer</th>
+         <th>Updated</th>
+         <th>Requested</th>
+         <th>Name</th>
        </tr>
     </thead>
      <tr *ngFor='let data of tickets'>
        <td>{{data.CreatedBy}}</td>
-       <td>{{data.CustomerName}}</td>
-       <td>{{data.AssetId}}</td>
+       <td>{{data.RefNumber}}</td>
+       <td>{{data.Status}}</td>
        <td>{{data.SlaSeverity}}</td>
-       <td>{{data.PrimaryContactEmail}}</td>
-       <td>{{data.Category}}</td>
-       <td>{{data.Type}}</td>
+       <td>{{data.CustomerName}}</td>
+       <td>{{data.UpdatedDate}}</td>
+       <td>{{data.CreatedDate}}</td>
+       <td>{{data.Name}}</td>
      </tr>
    </table>
 <!-- pull:
