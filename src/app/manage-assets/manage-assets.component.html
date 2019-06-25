@@ -1,20 +1,20 @@
 <table class="table table-responsive-sm">
     <thead>
      <tr>
-         <th>Title</th>
-         <th>ID</th>
-         <th>Description</th>
          <th>Company</th>
+         <th>Name</th>
+         <th>Serial</th>
+         <th>Type</th>
          <th>SLA</th>
          <th>Contract</th>
          <th>End Customer</th>
        </tr>
     </thead>
      <tr *ngFor='let data of assets'>
-       <td> {{data.Name}} </td>
-       <td> {{data.ID}} </td>
-       <td> {{data.description}}</td>
        <td> {{data.CompanyName}} </td>
+       <td> {{data.Name}} </td>
+       <td> {{data.Identifier}}</td>
+       <td> {{data.AssetType}} </td>
        <td> {{data.SLA}} </td>
        <td> {{data.Schedule}} </td>
        <td> {{data.EndCustomer}} </td>
