@@ -32,10 +32,9 @@ export class SidebarComponent implements OnInit {
         this.roleSubscription = this.authenticationService.currentUser.subscribe(
         role => {
         this.currentRole = role;
+          }
+        );
       }
-    );
-
-    }
 
   ngOnInit() {}
 

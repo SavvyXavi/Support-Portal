@@ -34,7 +34,7 @@
 <table class="table table-responsive-sm">
     <thead>
      <tr>
-         <th>Ticket Name</th>
+         <th>Requestor</th>
          <th>Customer Name</th>
          <th>Asset Id#</th>
          <th>SLA</th>
@@ -44,7 +44,7 @@
        </tr>
     </thead>
      <tr *ngFor='let data of tickets'>
-       <td>{{data.Name}}</td>
+       <td>{{data.CreatedBy}}</td>
        <td>{{data.CustomerName}}</td>
        <td>{{data.AssetId}}</td>
        <td>{{data.SlaSeverity}}</td>
