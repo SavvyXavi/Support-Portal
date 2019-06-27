@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SupportService } from './services/support.service';
+import { Support } from './models/support';
 
 @Component({
   selector: 'app-support',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupportComponent implements OnInit {
 
-  constructor() { }
+  supports: Support;
+
+  constructor(
+    private api: SupportService
+  ) { }
 
   ngOnInit() {
+    this.pullSupport();
   }
 
+  pullSupport() {
+    this.api.getSupport()
+    .subscribe(
+      (returnedSupport: Support) => {
+        this.supports = returnedSupport;
+      }
+    );
+  }
 }
