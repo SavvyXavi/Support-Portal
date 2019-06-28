@@ -23,7 +23,6 @@ import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 import { TicketsComponent } from './manage-assets/tickets/tickets.component';
-import { AssetsComponent } from './manage-assets/assets/assets.component';
 import { ListsComponent } from './manage-assets/lists/lists.component';
 import { BudgetComponent } from './budget/budget.component';
 import { SupportComponent } from './admin/support/support.component';
@@ -47,7 +46,6 @@ import { ContractsComponent } from './manage-assets/contracts/contracts.componen
     SidebarComponent,
     AccountsComponent,
     TicketsComponent,
-    AssetsComponent,
     ListsComponent,
     BudgetComponent,
     SupportComponent,
