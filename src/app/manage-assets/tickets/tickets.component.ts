@@ -42,7 +42,7 @@ export class TicketsComponent implements OnInit {
       CustomerNameOrId: ['Portal Testing Company', Validators.required],
       TicketType: ['', Validators.required],
       TicketCategoryNameOrId: ['', Validators.required],
-      TicketTypeNameOrId: ['', Validators.required]
+      TicketTypeNameOrId: [this.currentProfile.partner, Validators.required]
     },
 
     );
