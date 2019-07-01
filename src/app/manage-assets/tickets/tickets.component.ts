@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
+import{ Profile } from '../../login/models/profile';
 import { Tickets } from './../models/tickets';
 import { TicketType } from '../../types/ticket-type.enum';
 import { ApiCallService } from './../services/api-call.service';
 
+import { AuthenticationService } from '../../login/services/authentication.service';
+
 import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/forms';
 
-import { first } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-tickets',
@@ -22,9 +25,14 @@ export class TicketsComponent implements OnInit {
 
   ticketType: TicketType;
 
+  ticketTypeNameSubscription: Subscription;
+
+  currentProfile: Profile;
+
   constructor(
     private api: ApiCallService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -40,6 +48,12 @@ export class TicketsComponent implements OnInit {
     );
 
     this.getTickets();
+
+    this.ticketTypeNameSubscription = this.authenticationService.currentUser.subscribe(
+      typeName => {
+        this.currentProfile = typeName;
+      }
+    );
   }
 
   createTicket() {

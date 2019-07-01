@@ -1,5 +1,4 @@
-<div class="form-container col-md-6 col-md-offset-3">
-<form [formGroup]="ticketForm">
+<!-- <form [formGroup]="">
   <h2>Ticket Form</h2>
   <div class="form-group">
     <label for="ticketType">Ticket Type:</label><br>
@@ -17,10 +16,6 @@
     <input type="text" formControlName="Title" name="Title" class="form-control title shadow-none">
   </div>
   <div class="form-group">
-    <label for="ticketTypeName">Ticket Type Name: </label>
-    <input type="text" name="TicketTypeName" formControlName="TicketTypeNameOrId" class="form-control shadow-none" value="{{currentProfile?.partner}}">
-  </div>
-  <div class="form-group">
       <label for="title">Customer Name/Id: </label>
       <input name="CustomerNameOrId" type="text" formControlName="CustomerNameOrId" class="form-control shadow-none" value="Portal Testing Company">
     </div>
@@ -30,32 +25,6 @@
     </textarea>
   </div>
   <div class="form-group-button">
-    <button (click)="createTicket()" class="btn btn-primary"> Submit </button>
+    <button class="btn btn-primary"> Save Changes </button>
   </div>
-</form>
-</div>
-<hr/>
-<table class="table table-responsive-sm">
-    <thead>
-     <tr>
-         <th>Requestor</th>
-         <th>Ticket#</th>
-         <th>Status</th>
-         <th>SLA</th>
-         <th>Customer</th>
-         <th>Updated</th>
-         <th>Requested</th>
-         <th>Name</th>
-       </tr>
-    </thead>
-     <tr *ngFor='let data of tickets'>
-       <td>{{data.CreatedBy}}</td>
-       <td>{{data.RefNumber}}</td>
-       <td>{{data.Status}}</td>
-       <td>{{data.SlaSeverity}}</td>
-       <td>{{data.CustomerName}}</td>
-       <td>{{data.UpdatedDate.DateTime}}</td>
-       <td>{{data.CreatedDate.DateTime}}</td>
-       <td>{{data.Name}}</td>
-     </tr>
-   </table>
+</form> -->

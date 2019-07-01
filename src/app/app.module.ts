@@ -28,6 +28,8 @@ import { BudgetComponent } from './budget/budget.component';
 import { SupportComponent } from './admin/support/support.component';
 import { OemComponent } from './admin/oem/oem.component';
 import { ContractsComponent } from './manage-assets/contracts/contracts.component';
+import { UsersComponent } from './admin/users/users.component';
+import { AssetLocationsComponent } from './admin/asset-locations/asset-locations.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { ContractsComponent } from './manage-assets/contracts/contracts.componen
     BudgetComponent,
     SupportComponent,
     OemComponent,
-    ContractsComponent
+    ContractsComponent,
+    UsersComponent,
+    AssetLocationsComponent
   ],
   imports: [
     BrowserModule,
