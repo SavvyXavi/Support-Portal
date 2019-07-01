@@ -9,7 +9,7 @@ export class Tickets {
   visibleToCustomer?: true;
   contact?: string;
   ticketCategoryNameOrId: string;
-  ticketTypeNameOrId: TicketType;
+  ticketTypeNameOrId: string;
   name: string;
 }
 
