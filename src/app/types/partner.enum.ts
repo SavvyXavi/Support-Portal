@@ -3,7 +3,7 @@ export enum Partner {
   Reliant = 'Reliant',
   Relus = 'Relus',
   Generic = 'Generic',
-  Noble = 'Noble1',
+  Noble = 'Noble 1',
   Support = 'Support'
 }
 

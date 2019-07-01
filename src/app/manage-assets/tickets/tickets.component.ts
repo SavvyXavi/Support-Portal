@@ -10,6 +10,7 @@ import { AuthenticationService } from '../../login/services/authentication.servi
 import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/forms';
 
 import { Subscription } from 'rxjs';
+import { Partner } from '../../types/partner.enum';
 
 @Component({
   selector: 'app-tickets',
@@ -24,7 +25,7 @@ export class TicketsComponent implements OnInit {
   newTicket: Tickets;
 
   ticketType: TicketType;
-
+  ticketTypeName: Partner;
   ticketTypeNameSubscription: Subscription;
 
   currentProfile: Profile;
