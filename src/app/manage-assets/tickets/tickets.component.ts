@@ -30,6 +30,8 @@ export class TicketsComponent implements OnInit {
 
   currentProfile: Profile;
 
+  editable = false;
+
   constructor(
     private api: ApiCallService,
     private formBuilder: FormBuilder,
@@ -77,10 +79,10 @@ export class TicketsComponent implements OnInit {
   }
 
   getTicketTypeName() {
-    if ( this.authenticationService.currentUserValue.partner === this.ticketTypeName ) {
-      return this.authenticationService.currentUserValue.partner;
+    if ( this.authenticationService.currentUserValue.partner === this.currentProfile.partner ) {
+      return this.currentProfile.partner;
     } else {
-      return 'Support Quotes';
+      return 'Support';
     }
   }
 
