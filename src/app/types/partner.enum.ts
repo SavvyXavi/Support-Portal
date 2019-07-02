@@ -1,5 +1,5 @@
 export enum Partner {
-  North = 'Northsmart',
+  North = 'NorthSmart',
   Reliant = 'Reliant',
   Relus = 'Relus',
   Generic = 'Generic',
