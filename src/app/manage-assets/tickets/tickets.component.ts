@@ -78,7 +78,7 @@ export class TicketsComponent implements OnInit {
 
   getTicketTypeName() {
     if ( this.authenticationService.currentUserValue.partner === this.ticketTypeName ) {
-      return this.currentProfile.partner;
+      return this.authenticationService.currentUserValue.partner;
     } else {
       return 'Support Quotes';
     }
