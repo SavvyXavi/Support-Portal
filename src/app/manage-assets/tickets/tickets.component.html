@@ -16,10 +16,10 @@
     <label for="title">Title: </label>
     <input type="text" formControlName="Title" name="Title" class="form-control title shadow-none">
   </div>
-  <div [hidden]="!editable" class="form-group">
+  <!-- <div [hidden]="!editable" class="form-group">
     <label for="TicketTypeNameOrId">Ticket Type Name: </label>
     <input *ngIf="getTicketTypeName()" type="text" name="TicketTypeNameOrId" formControlName="TicketTypeNameOrId" class="form-control shadow-none" value="{{getTicketTypeName()}} Quotes">
-  </div>
+  </div> -->
   <div class="form-group">
       <label for="title">Customer Name/Id: </label>
       <input name="CustomerNameOrId" type="text" formControlName="CustomerNameOrId" class="form-control shadow-none">
