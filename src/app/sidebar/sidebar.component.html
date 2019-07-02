@@ -1,9 +1,9 @@
    <div class="sidebar-container bg-dark flex-column" style="text-align:center">
     <div *ngFor='let sidebar of sidebars'>
-      <h1 *ngIf='router.url === sidebar?.link'>
+      <h3 *ngIf='router.url === sidebar?.link'>
         Welcome to {{title}}<hr>
         {{sidebar.name}}
-      </h1>
+      </h3>
     </div>
       <div class="btn-group" role="group" aria-label="Basic example">
         <input type="checkbox" id="toggle-button-checkbox">

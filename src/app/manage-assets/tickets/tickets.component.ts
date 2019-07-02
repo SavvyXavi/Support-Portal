@@ -76,4 +76,12 @@ export class TicketsComponent implements OnInit {
     );
   }
 
+  getTicketTypeName() {
+    if ( this.authenticationService.currentUserValue.partner === this.ticketTypeName ) {
+      return this.currentProfile.partner;
+    } else {
+      return 'Support Quotes';
+    }
+  }
+
 }
