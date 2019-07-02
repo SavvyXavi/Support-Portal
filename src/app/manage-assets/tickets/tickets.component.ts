@@ -4,7 +4,6 @@ import { Profile } from '../../login/models/profile';
 import { Tickets } from './../models/tickets';
 import { TicketType } from '../../types/ticket-type.enum';
 import { ApiCallService } from './../services/api-call.service';
-
 import { AuthenticationService } from '../../login/services/authentication.service';
 
 import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/forms';
