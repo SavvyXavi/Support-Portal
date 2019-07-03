@@ -7,14 +7,10 @@
        <th>Contact URL</th>
      </tr>
   </thead>
-   <!-- <tr *ngFor='let data of oems'>
-     <td>{{data.PrimaryCompanyName}}</td>
-     <td>{{data.FullName}}</td>
-     <td>{{data.Telephone}}</td>
-     <td>{{data.Email}}</td>
-     <td>Harmony PSA</td>
-     <td>null</td>
-     <td>null</td>
-     <td>null</td>
-   </tr> -->
+   <tr *ngFor='let data of oems'>
+     <td>{{data.CompanyName}}</td>
+     <td>{{data.CompanyNumber}}</td>
+     <td>{{data.PrimaryContactEmail}}</td>
+     <td>{{data.Website}}</td>
+   </tr>
  </table>
