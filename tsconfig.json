@@ -18,5 +18,7 @@
       "es2018",
       "dom"
     ]
-  }
+  },
+  "connectionString": "mongodb://localhost/node-mongo-registration-login-api",
+  "secret": "Noble Solutions Portal Access"
 }
