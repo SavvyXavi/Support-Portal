@@ -76,7 +76,7 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
     // MatCheckboxModule
   ],
   providers: [
-    AuthGuard,
+    // AuthGuard,
     AlertService,
     AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
