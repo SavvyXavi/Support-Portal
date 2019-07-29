@@ -49,9 +49,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
   }
 
-  private loadAllUsers() {
-    this.profileService.getAll().pipe(first()).subscribe( profiles => {
-      this.profiles = profiles;
+  loadAllUsers() {
+    this.profileService.getAll().pipe(first()).subscribe( profile => {
+      this.profiles = profile;
     });
   }
   onClick(): void {

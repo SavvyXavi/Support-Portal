@@ -39,10 +39,10 @@
   transform: translate(-50%, -50%)
 } */
 
-* {
+/* * {
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
- }
+ } */
 
 
 app-header {
@@ -66,8 +66,8 @@ app-header {
 }
 
 app-alert {
-  margin-top: 250px;
-  margin-left: 500px;
+  margin: auto;
+  max-width: 650px;
   text-align: center;
 }
 

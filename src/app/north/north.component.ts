@@ -49,11 +49,12 @@ export class NorthComponent implements OnInit {
     });
   }
 
-  private loadAllUsers() {
-    this.profileService.getAll().pipe(first()).subscribe( profiles => {
-      this.profiles = profiles;
+   loadAllUsers() {
+    this.profileService.getAll().pipe(first()).subscribe( profile => {
+      this.profiles = profile;
     });
   }
+
   onClick(): void {
     this.funcapp.tempCall(this.selectedInfo).subscribe((returnedInfo: Info) => {
       this.getInfo = returnedInfo;

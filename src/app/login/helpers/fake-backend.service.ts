@@ -8,7 +8,7 @@ import { Profile } from '../models/profile';
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
 
-    constructor() { }
+  constructor() {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // array in local storage for registered users
@@ -36,7 +36,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                         email: profile.email,
                         partner: profile.partner,
                         partnerRole: profile.partnerRole,
-                        token: 'fake-jwt-token'
+                        token: profile.token
                     };
 
                     return of(new HttpResponse({ status: 200, body: body }));
@@ -49,7 +49,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             // get users
             if (request.url.endsWith('/profile') && request.method === 'GET') {
                 // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
-                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                if (request.headers.get('Authorization')) {
                     return of(new HttpResponse({ status: 200, body: profile }));
                 } else {
                     // return 401 not authorised if token is null or invalid
@@ -60,10 +60,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             // get user by id
             if (request.url.match(/\/profile\/\d+$/) && request.method === 'GET') {
                 // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
-                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                if (request.headers.get('Authorization') === 'Bearer ') {
                     // find user by id in users array
                     let urlParts = request.url.split('/');
-                    let id = parseInt(urlParts[urlParts.length - 1]);
+                    let id = (urlParts[urlParts.length]);
                     let matchedUsers = profile.filter(user => { return user.id === id; });
                     let user = matchedUsers.length ? matchedUsers[0] : null;
 
@@ -103,7 +103,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                     // find user by id in users array
                     let urlParts = request.url.split('/');
-                    let id = parseInt(urlParts[urlParts.length - 1]);
+                    let id = (urlParts[urlParts.length - 1]);
                     for (let i = 0; i < profile.length; i++) {
                         let profiles = profile[i];
                         if (profiles.id === id) {

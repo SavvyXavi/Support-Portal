@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule, HTTP_INTERCEPTORS, HttpErrorResponse } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { JwtInterceptor } from './login/helpers/jwt.service';
 import { ErrorInterceptor } from './login/helpers/error-interceptor.service';
+import { AuthGuard } from './login/guards/auth.guard';
+import { AuthenticationService } from './login/services/authentication.service';
+import { AlertService } from './login/services/alert.service';
+import { ProfileService } from './login/services/profile.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
@@ -30,6 +34,10 @@ import { OemComponent } from './admin/oem/oem.component';
 import { ContractsComponent } from './manage-assets/contracts/contracts.component';
 import { UsersComponent } from './admin/users/users.component';
 import { AssetLocationsComponent } from './admin/asset-locations/asset-locations.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -61,11 +69,18 @@ import { AssetLocationsComponent } from './admin/asset-locations/asset-locations
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    // NgbModule,
+    // BrowserAnimationsModule,
+    // MatButtonModule,
+    // MatCheckboxModule
   ],
   providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     // fakeBackendProvider
   ],
   bootstrap: [AppComponent]

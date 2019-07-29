@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'https://n1sxavtest.azurewebsites.net'
+  serverUrl: 'http://40.87.64.228:4000/',
+  secret: 'THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING'
+
 };
 
 /*
