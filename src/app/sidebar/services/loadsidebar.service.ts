@@ -9,7 +9,6 @@ export const Sidebars: Sidebar[] = [
   {id: 2.4, name: 'Contracts', visible: false, link: '/manageassets/contracts', menu: 'usub-A', mainmenu: 'assets'},
   {id: 2.5, name: 'Assets', visible: false, link: 'manageassets/assets', menu: 'usub-A', mainmenu: 'assets'},
   {id: 2.6, name: 'Tickets', visible: false, link: 'manageassets/tickets', menu: 'usub-A', mainmenu: 'assets'},
-  {id: 3, name: 'Budget' , visible: true, link: '/budgets', menu:  'main', mainmenu: 'budget'},
   {id: 4, name: 'Admin', visible: true, link: '/admin', menu: 'mainsub-b', mainmenu: 'admin'},
   {id: 4.1, name: 'Accounts', visible: false, link: '/admin/accounts', menu: 'sub-B', mainmenu: 'admin'},
   {id: 4.2, name: 'Support', visible: false, link: '/admin/support', menu: 'sub-B', mainmenu: 'admin'},

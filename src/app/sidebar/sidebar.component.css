@@ -5,6 +5,7 @@
   padding: 0px;
   width: 75%;
   color: white;
+  font-size: 1vw;
 }
 
 .row {
@@ -21,15 +22,15 @@
   transition:.5s
 }
 
-.nav-fill{
+.nav-fill {
   border-radius: 0%;
 }
 
 .card{
   border-bottom-color: black !important;
   border: 1px;
-
 }
+
 .card-header {
   border-color: grey;
   color: white;
@@ -38,6 +39,7 @@
 
 .btn-link {
   color: white;
+  font-size: 1vw;
 }
 
 .btn-block {

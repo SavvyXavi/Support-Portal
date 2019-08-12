@@ -8,6 +8,6 @@ export class Profile {
   lastName: string;
   email: string;
   token: string;
-  partner: Partner;
-  partnerRole: Role;
+  partner: string;
+  partnerRole: string;
 }
