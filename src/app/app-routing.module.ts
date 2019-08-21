@@ -14,6 +14,7 @@ import { GenericDashComponent } from './generic-dash/generic-dash.component';
 
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 import { TicketsComponent } from './manage-assets/tickets/tickets.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import { AuthGuard } from './login/guards/auth.guard';
 import { AccountsComponent } from './admin/accounts/accounts.component';
@@ -56,6 +57,10 @@ const routes: Routes = [
     path: '',
     component: SuppdashComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   },
   {
     path: 'login',

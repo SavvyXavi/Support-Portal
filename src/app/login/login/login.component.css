@@ -10,9 +10,14 @@
   top: 200px;
   bottom: 50%;
   right: 165px;
-
+  background-color: black;
 }
 
 .buttons {
   margin-bottom: 40px;
+}
+
+button {
+  background-color: rgb(230, 92, 0) !important;
+  border-color: rgb(230, 92, 0) !important;
 }

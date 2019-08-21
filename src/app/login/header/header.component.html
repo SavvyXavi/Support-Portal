@@ -1,8 +1,7 @@
   <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark justify-content-between">
+  <nav *ngIf="currentProfile?.partner == 'NorthSmart'" class="navbar northNav navbar-expand-lg navbar-light bg-dark justify-content-between">
     <a class="navbar-brand" routerLink="/"><img src="../../assets//favicon.ico" style="width:75px; height:75px"></a>
-
-    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -16,7 +15,7 @@
         </div>
       </form>
 
-      <div class="dropdown d-none d-md-block account-container" style="padding-right: 15px">
+      <div class="dropdown d-none d-md-block account-container northsmart" style="padding-right: 15px">
 
             <button class="btn bg-dark shadow-none dropdown-toggle" style="width:auto" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-user-circle fa-3x"></i> {{currentProfile?.firstName}} {{currentProfile?.lastName}}
@@ -31,16 +30,56 @@
               </li>
               <hr>
               <li>
-                <a class="dropdown-item" href="#">Account</a>
+                <a class="dropdown-item" href="/profile">Account</a>
               </li>
               <li>
                 <a class="dropdown-item" (click)="logout()">Logout</a>
               </li>
             </ul>
-
       </div>
-
     </div>
+  </nav>
+
+    <nav *ngIf="currentProfile?.partner == 'Relus'" class="navbar relusNav navbar-expand-lg navbar-light bg-light justify-content-between">
+      <a class="navbar-brand" routerLink="/"><img src="../../../assets/RelusLogo.png" style="height: 44px; margin-left: 20px;"></a>
+      <button class="navbar-toggler relusToggle" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbarToggle" class="collapse navbar-collapse">
+      <form class="search-bar d-none d-md-block form-inline" style="width:50%">
+        <div class="input-group">
+          <input type="text" class="form-control shadow-none" placeholder="Search">
+          <div class="input-group-append">
+            <button class="btn btn-transparent" type="button"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+
+      <div class="dropdown d-none d-md-block account-container relus" style="padding-right: 15px">
+
+            <button class="btn bg-light shadow-none dropdown-toggle" style="width:auto" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user-circle fa-3x"></i> {{currentProfile?.firstName}} {{currentProfile?.lastName}}
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-right" style="padding-right:auto; width:auto" aria-labelledby="dropdownMenuButton">
+              <li>
+                <span class="dropdown-item-text dropdown-separator-title">
+                  <h4>{{currentProfile?.partnerRole}}</h4>
+                  <h5>{{currentProfile?.email}}</h5>
+                </span>
+              </li>
+              <hr>
+              <li>
+                <a class="dropdown-item" routerLink="/profile">Account</a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="logout()">Logout</a>
+              </li>
+            </ul>
+      </div>
+    </div>
+    </nav>
     <!-- <div id="navbarToggle" class="collapseContainer justify-content-left collapse navbar-collapse">
         <form class="search-bar d-none d-md-block form-inline" style="width:50%">
             <div class="input-group">
@@ -86,7 +125,6 @@
         </form>
       </div> -->
 
-  </nav>
   <!-- <div class="collapse" id="navbarSupportedContent" data-target="#">
       <div class="bg-light p-4">
         <h5 class=" h4">Collapsed content</h5>

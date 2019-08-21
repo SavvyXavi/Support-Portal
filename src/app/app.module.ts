@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MaterialModule } from './materials/material/material.module';
 
 import { JwtInterceptor } from './login/helpers/jwt.service';
 import { ErrorInterceptor } from './login/helpers/error-interceptor.service';
@@ -34,10 +35,11 @@ import { OemComponent } from './admin/oem/oem.component';
 import { ContractsComponent } from './manage-assets/contracts/contracts.component';
 import { UsersComponent } from './admin/users/users.component';
 import { AssetLocationsComponent } from './admin/asset-locations/asset-locations.component';
+import { ProfileComponent } from './profile/profile.component';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+// import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
     OemComponent,
     ContractsComponent,
     UsersComponent,
-    AssetLocationsComponent
+    AssetLocationsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    // MaterialModule
     // NgbModule,
     // BrowserAnimationsModule,
     // MatButtonModule,

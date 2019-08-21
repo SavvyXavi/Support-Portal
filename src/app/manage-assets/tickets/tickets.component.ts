@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Profile } from '../../login/models/profile';
 import { Tickets } from './../models/tickets';
@@ -10,6 +10,7 @@ import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/for
 
 import { Subscription } from 'rxjs';
 import { Partner } from '../../types/partner.enum';
+// import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-tickets',
@@ -18,6 +19,11 @@ import { Partner } from '../../types/partner.enum';
 })
 
 export class TicketsComponent implements OnInit {
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ViewChild(MatSort) sort: MatSort;
+
+  // ticketData: MatTableDataSource<Tickets>;
+
   tickets: Tickets;
   ticketArray: Tickets[] = [];
   ticketForm: FormGroup;
@@ -76,6 +82,12 @@ export class TicketsComponent implements OnInit {
       }
     );
   }
+
+  // getTicketData() {
+  //   this.api.getTickets()
+  //   .subscribe(
+  //   )
+  // }
 
   getTicketTypeName() {
     if ( this.authenticationService.currentUserValue.partner === this.currentProfile.partner ) {
