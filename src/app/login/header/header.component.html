@@ -22,20 +22,29 @@
             </button>
 
             <ul class="dropdown-menu dropdown-menu-right" style="padding-right:auto; width:auto" aria-labelledby="dropdownMenuButton">
-              <li>
-                <span class="dropdown-item-text dropdown-separator-title">
-                  <h4>{{currentProfile?.partnerRole}}</h4>
-                  <h5>{{currentProfile?.email}}</h5>
-                </span>
-              </li>
-              <hr>
-              <li>
-                <a class="dropdown-item" routerLink="/profile">Account</a>
-              </li>
-              <li>
-                <a class="dropdown-item" (click)="logout()">Logout</a>
-              </li>
-            </ul>
+                <li>
+                  <span class="dropdown-item-text dropdown-separator-title">
+                    <h4>{{currentProfile?.partnerRole}}</h4>
+                    <h5>{{currentProfile?.email}}</h5>
+                  </span>
+                </li>
+                <hr>
+                <li>
+                  <a class="dropdown-item" routerLink="/profile">
+                    <i class="fas fa-user"></i> Account
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" routerLink="/settings">
+                    <i class="fas fa-cog"></i> Settings
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" (click)="logout()">
+                      <i class="fas fa-sign-out-alt"></i>  Logout
+                  </a>
+                </li>
+              </ul>
       </div>
     </div>
   </nav>
@@ -113,20 +122,29 @@
                 </button>
 
                 <ul class="dropdown-menu dropdown-menu-right" style="padding-right:auto; width:auto" aria-labelledby="dropdownMenuButton">
-                  <li>
-                    <span class="dropdown-item-text dropdown-separator-title">
-                      <h4>{{currentProfile?.partnerRole}}</h4>
-                      <h5>{{currentProfile?.email}}</h5>
-                    </span>
-                  </li>
-                  <hr>
-                  <li>
-                    <a class="dropdown-item" routerLink="/profile">Account</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" (click)="logout()">Logout</a>
-                  </li>
-                </ul>
+                    <li>
+                      <span class="dropdown-item-text dropdown-separator-title">
+                        <h4>{{currentProfile?.partnerRole}}</h4>
+                        <h5>{{currentProfile?.email}}</h5>
+                      </span>
+                    </li>
+                    <hr>
+                    <li>
+                      <a class="dropdown-item" routerLink="/profile">
+                        <i class="fas fa-user"></i> Account
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" routerLink="/settings">
+                        <i class="fas fa-cog"></i> Settings
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" (click)="logout()">
+                          <i class="fas fa-sign-out-alt"></i>  Logout
+                      </a>
+                    </li>
+                  </ul>
           </div>
         </div>
       </nav>
