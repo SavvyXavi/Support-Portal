@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'http://auth.noble1it.com:4000/',
+  serverUrl: 'http://noble1it.com:4000',
   secret: 'Noble1Solutions'
 
 };
