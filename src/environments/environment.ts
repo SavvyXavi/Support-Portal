@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'http://localhost:4000',
-  secret: 'THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING'
+  serverUrl: 'http://auth.noble1it.com:4000/',
+  secret: 'Noble1Solutions'
 
 };
 

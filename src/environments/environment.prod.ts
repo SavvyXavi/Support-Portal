@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  serverUrl: 'https://xavsupportportal.azurewebsites.net'
+  serverUrl: 'http://auth.noble1it.com:4000/'
 };
