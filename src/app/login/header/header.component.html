@@ -30,7 +30,7 @@
               </li>
               <hr>
               <li>
-                <a class="dropdown-item" href="/profile">Account</a>
+                <a class="dropdown-item" routerLink="/profile">Account</a>
               </li>
               <li>
                 <a class="dropdown-item" (click)="logout()">Logout</a>
@@ -71,10 +71,19 @@
               </li>
               <hr>
               <li>
-                <a class="dropdown-item" routerLink="/profile">Account</a>
+                <a class="dropdown-item" routerLink="/profile">
+                  <i class="fas fa-user"></i> Account
+                </a>
               </li>
               <li>
-                <a class="dropdown-item" (click)="logout()">Logout</a>
+                <a class="dropdown-item" routerLink="/settings">
+                  <i class="fas fa-cog"></i> Settings
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="logout()">
+                    <i class="fas fa-sign-out-alt"></i>  Logout
+                </a>
               </li>
             </ul>
       </div>

@@ -1,7 +1,6 @@
 .card {
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 30px;
-  font-size: 22px;
 }
 
 .card-header {
@@ -18,12 +17,10 @@ input {
   border-style: solid;
   padding: auto;
 }
-
 .checkbox {
   width: auto !important;
   height: auto !important;
 }
-
 button {
   background-color: rgb(230, 92, 0) !important;
   border-color: rgb(230, 92, 0) !important;

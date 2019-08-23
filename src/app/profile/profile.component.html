@@ -6,9 +6,20 @@
       </div>
       <div class="card-body">
           <form>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <select class="form-control" id="company">
+                <option>{{currentProfile?.partner}}</option>
+                <option>NorthSmart</option>
+                <option>Noble 1 Solutions</option>
+                <option>Relus Tech</option>
+                <option>Reliant</option>
+              </select>
+            </div>
               <div class="form-group">
                 <label for="firstName">First Name</label><br>
-                <input formControlName="#" type="text" name="firstName" class="shadow-none">
+                <!-- <input formControlName="#" type="text" name="firstName" class="shadow-none"> -->
+                <h4>{{currentProfile.partner}}</h4>
               </div>
               <div class="form-group">
                   <label for="lastName">Last Name</label><br>
@@ -28,19 +39,53 @@
               </div>
               <div class="form-group">
                 <label for="password">Password</label><br>
-                <button name="password" class="btn btn-primary">Change Password</button>
+                <button name="password" class="btn btn-primary" data-toggle="modal" data-target="#changePassword">
+                  <i class="fas fa-lock"></i> Change Password
+                </button>
+              </div>
+              <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="modalCentered" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Update Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label for="newPassword">New Password</label><br>
+                        <input class="passwordChange" name="newPassword" type="text">
+                      </div>
+                      <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label><br>
+                        <input class="passwordChange" name="confirmwPassword" type="text">
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="form-group form-check">
                 <label for="ticketCopy">Ticket Copy  </label>
-                <input formControlName="#" name="ticketCopy" class="shadow-none" type="checkbox">
+                <input formControlName="#" name="ticketCopy" class="checkbox shadow-none" type="checkbox">
               </div>
               <div class="form-group form-check">
                 <label for="expnotification">Expiration Notification </label>
-                <input formControlName="#" name="expnotification" class="shadow-none" type="checkbox">
+                <input formControlName="#" name="expnotification" class="checkbox shadow-none" type="checkbox">
               </div>
               <div class="form-group">
                 <label for="role">Role</label><br>
-                Insert CurrentProfile Role
+                <select class="form-control" id="role">
+                  <option>List of Roles</option>
+                  <option>Option 3</option>
+                  <option>Option 2</option>
+                  <option>option 3</option>
+                  <option>option4</option>
+                </select>
               </div>
               <div class="form-group-button">
                 <button class="btn btn-primary">Update User</button>

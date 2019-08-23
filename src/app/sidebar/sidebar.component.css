@@ -1,11 +1,20 @@
 .sidebar-container {
-  min-height: calc(100vh - 58px);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 0px;
   padding: 0px;
   width: 75%;
   color: white;
   font-size: 1vw;
+  height: 877px;
+  width: 160px;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 
 .row {
