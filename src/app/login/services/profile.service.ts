@@ -14,26 +14,6 @@ export class ProfileService {
 
   constructor(private http: HttpClient) {}
 
-  // private request(method: 'post'|'get', type: 'login'|'register'|'profile', profile?: Profile): Observable<any> {
-  //   let base;
-
-  //   if (method === 'post') {
-  //     base = this.http.post(`${environment.serverUrl}/${type}`, profile);
-  //   } else {
-  //     base = this.http.get(`${environment.serverUrl}/${type}`, { headers: { Authorization: `Bearer ${this.authenticationService.currentUserValue.token}` }});
-  //   }
-  //   const request = base.pipe(
-  //     map((data: Profile) => {
-  //       if (data.token) {
-  //         localStorage.setItem('Authorization', data.token);
-  //       }
-  //       return data;
-  //     })
-  //   );
-
-  //   return request;
-  // }
-
   getAll(): Observable<Profile[]> {
     return this.http.get<Profile[]>(`${environment.serverUrl}/profile`);
   }

@@ -20,8 +20,6 @@ export class SidebarComponent implements OnInit {
 
   sidebars = Sidebars;
 
-  // sidebarSubscription: Subscription;
-
   private roleSubscription: Subscription;
   private sidebarSubscription: Subscription;
 
@@ -38,10 +36,10 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {}
 
-  // For Button roles
-  onSelect() {
-    this.admin = !this.admin;
-  }
+  // // For Button roles
+  // onSelect() {
+  //   this.admin = !this.admin;
+  // }
 
   logout() {
     this.authenticationService.logout();

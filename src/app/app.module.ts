@@ -1,17 +1,17 @@
-import { fakeBackendProvider } from './login/helpers/fake-backend.service';
+// import { fakeBackendProvider } from './login/helpers/fake-backend.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { MaterialModule } from './materials/material/material.module';
+// import { MaterialModule } from './materials/material/material.module';
 
 import { JwtInterceptor } from './login/helpers/jwt.service';
 import { ErrorInterceptor } from './login/helpers/error-interceptor.service';
 import { AuthGuard } from './login/guards/auth.guard';
 import { AuthenticationService } from './login/services/authentication.service';
 import { AlertService } from './login/services/alert.service';
-import { ProfileService } from './login/services/profile.service';
+// import { ProfileService } from './login/services/profile.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
@@ -82,7 +82,7 @@ import { SettingsComponent } from './settings/settings.component';
     // MatCheckboxModule
   ],
   providers: [
-    // AuthGuard,
+    AuthGuard,
     AlertService,
     AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

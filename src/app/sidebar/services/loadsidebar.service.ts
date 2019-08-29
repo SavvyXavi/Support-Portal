@@ -1,7 +1,21 @@
 import { Sidebar } from '../model/sidebar';
+import { AuthenticationService } from '../../login/services/authentication.service';
+import { HttpClient } from '@angular/common/http';
 
+
+export class SidebarService {
+
+  constructor(
+    private authenticationService: AuthenticationService,
+    private http: HttpClient
+  ) { }
+
+  public linkToDash() {
+    return this.http.get(`/${this.authenticationService.currentUserValue.partner}`);
+  }
+}
 export const Sidebars: Sidebar[] = [
-  {id: 1, name: 'Dashboard', visible: true, link: '/dashboard', menu: 'main', mainmenu: 'dash'},
+  {id: 1, name: 'Dashboard', visible: true, link: this.linktoDash(), menu: 'main', mainmenu: 'dash'},
   {id: 2, name: 'Manage Assets', visible: true, link: '/manageassets', menu: 'mainsub-a', mainmenu: 'assets'},
   {id: 2.1, name: 'Lists', visible: false, link: '/manageassets/lists', menu: 'sub-A', mainmenu: 'assets'},
   {id: 2.2, name: 'Assets', visible: false, link: '/manageassets/assets', menu: 'sub-A', mainmenu: 'assets'},

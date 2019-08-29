@@ -1,11 +1,11 @@
-   <div class="sidebar-container bg-dark flex-column position-sticy" style="text-align:center">
+   <div class="sidebar-container bg-dark flex-column position-sticky" style="text-align:center">
     <div *ngFor='let sidebar of sidebars'>
       <h3 *ngIf='router.url === sidebar?.link'>
         Welcome to {{title}}<hr>
         {{sidebar.name}}
       </h3>
     </div>
-      <div class="btn-group" role="group" aria-label="Basic example">
+      <!-- <div class="btn-group" role="group" aria-label="Basic example">
         <input type="checkbox" id="toggle-button-checkbox">
         <label class="toggle-button-switch" (click)="onSelect()"
             for="toggle-button-checkbox"></label>
@@ -13,11 +13,10 @@
         <div class="toggle-button-text-on">Admin</div>
         <div class="toggle-button-text-off">User</div>
         </div>
-      </div>
+      </div> -->
 
         <!-- Ng If to read User Role -->
-        <!-- <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav"> -->
-        <nav *ngIf="this.admin">
+        <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav">
         <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
             <div *ngIf="sidebar.menu === 'main'" class="card">
               <div class="bg-dark card-header" id="headingOne">
@@ -59,8 +58,7 @@
         </div>
     </nav>
 
-    <!-- <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav"> -->
-    <nav *ngIf="!this.admin">
+    <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
       <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
             <div *ngIf="sidebar.name === 'Dashboard'" class="card">
               <div class="bg-dark card-header" id="headingOne">

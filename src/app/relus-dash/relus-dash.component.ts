@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './../login/services/authentication.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { FuncappService } from '../services/funcapp.service';
 import { Info } from '../models/info';
 import { Profile } from '../login/models/profile';
@@ -21,7 +21,7 @@ export class RelusDashComponent implements OnInit {
 
   currentProfile: Profile;
   currentProfileSubscription: Subscription;
-  profiles: Profile[] = [];
+  profiles: Profile[];
 
   constructor(
     private funcapp: FuncappService,
