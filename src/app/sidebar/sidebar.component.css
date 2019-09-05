@@ -2,11 +2,9 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 0px;
   padding: 0px;
-  width: 75%;
   color: white;
   font-size: 1vw;
-  height: 100%;
-  width: 100%;
+  height: 88%;
   position: -webkit-sticky;
   position: sticky;
   z-index: 1;
@@ -17,14 +15,17 @@
   padding-top: 10px;
 }
 
+nav {
+  position: sticky;
+}
+
+.ham-button {
+  width: 70px;
+}
 
 .row {
   margin: 0px;
   padding: 0px;
-}
-
-.nav-fill {
-  border-radius: 0%;
 }
 
 .card{
@@ -35,12 +36,13 @@
 .card-header {
   border-color: grey;
   color: white;
-
 }
 
 .btn-link {
   color: white;
-  font-size: 18px;
+  font-size: 1vw;
+  /* margin: 0px;
+  padding: 0px; */
 }
 
 .btn-block {

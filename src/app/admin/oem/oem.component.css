@@ -46,10 +46,19 @@ table {
   border-collapse: collapse;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
   background-color: #e65c00;
 }
 
 tr:nth-child(odd) {
   background-color: #8c8c8c;
+} */
+
+tr:nth-child(even) {
+  background-color: #e6e6e6;
 }
+
+tr:nth-child(odd) {
+  background-color:   white;
+}
+

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLinkActive } from '@angular/router';
 import { AuthenticationService } from '../login/services/authentication.service';
 
 import { Subscription } from 'rxjs';
@@ -39,6 +39,19 @@ export class SidebarComponent implements OnInit {
   // // For Button roles
   // onSelect() {
   //   this.admin = !this.admin;
+  // }
+
+  // w3_open() {
+  //   document.getElementById("").style.marginLeft = "25%";
+  //   document.getElementById("mySidebar").style.width = "25%";
+  //   document.getElementById("mySidebar").style.display = "block";
+  //   document.getElementById("openNav").style.display = 'none';
+  // }
+
+  // w3_close() {
+  //   document.getElementsByClassName('col-md-10').style.marginLeft = "0%";
+  //   document.getElementById("mySidebar").style.display = "none";
+  //   document.getElementById("openNav").style.display = "inline-block";
   // }
 
   logout() {
