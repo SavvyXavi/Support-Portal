@@ -38,18 +38,6 @@ export class AuthenticationService {
      }));
    }
 
-//    private getToken() {
-//     if (this.currentUser && this.currentUser.token) {
-//       request = request.clone({
-//           setHeaders: {
-//               Authorization: `Bearer ${this.currentUser.token}`
-//           }
-//       });
-//   }
-
-//   return next.handle(request);
-// }
-
    logout() {
      localStorage.removeItem('currentUser');
      this.currentUserSubject.next(null);
