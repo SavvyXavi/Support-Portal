@@ -67,19 +67,6 @@ export class SidebarComponent implements OnInit {
   //   this.admin = !this.admin;
   // }
 
-  // w3_open() {
-  //   document.getElementById("").style.marginLeft = "25%";
-  //   document.getElementById("mySidebar").style.width = "25%";
-  //   document.getElementById("mySidebar").style.display = "block";
-  //   document.getElementById("openNav").style.display = 'none';
-  // }
-
-  // w3_close() {
-  //   document.getElementsByClassName('col-md-10').style.marginLeft = "0%";
-  //   document.getElementById("mySidebar").style.display = "none";
-  //   document.getElementById("openNav").style.display = "inline-block";
-  // }
-
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
