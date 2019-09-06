@@ -34,9 +34,7 @@ export class SidebarComponent implements OnInit {
         );
       }
 
-  ngOnInit() {
-    this.dashLink();
-  }
+  ngOnInit() { }
 
   dashLink() {
     const dash = this.authenticationService.currentUserValue.partner;
