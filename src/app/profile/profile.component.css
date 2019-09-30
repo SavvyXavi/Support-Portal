@@ -14,9 +14,12 @@ input {
   height: 35px;
   outline: none !important;
   box-shadow:none;
-  border-radius: 6px;
   border-style: solid;
   padding: auto;
+  background: transparent;
+  border: 0;
+  border-bottom: solid 2px #4d4d4d;
+  font-size: 18px;
 }
 
 .checkbox {

@@ -17,7 +17,7 @@ export class ApiCallService {
 
   getAsset = 'https://n1sharmonypull.azurewebsites.net/api/AssetsPull?code=qQXwJm1YBabl4J8QlK6a2n2/JpY/mTacr66EYRdsZ2i3RfUkAucX4g==';
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient ) { }
 
   getTickets() {
     return this.http.get(this.getTicket);
@@ -30,6 +30,7 @@ export class ApiCallService {
   getAssets() {
     return this.http.get(this.getAsset);
   }
+
 }
 
 // module.exports =  function (context, req) {

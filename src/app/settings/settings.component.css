@@ -17,10 +17,12 @@ input {
   border-style: solid;
   padding: auto;
 }
+
 .checkbox {
   width: auto !important;
   height: auto !important;
 }
+
 button {
   background-color: rgb(230, 92, 0) !important;
   border-color: rgb(230, 92, 0) !important;

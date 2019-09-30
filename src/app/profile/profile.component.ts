@@ -1,43 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Profile } from '../login/models/profile';
-import { ProfileService } from '../login/services/profile.service';
 import { Role } from '../types/role.enum';
 import { AuthenticationService} from '../login/services/authentication.service';
-import { Subscription, Observable } from 'rxjs';
-import { first } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
 export class ProfileComponent implements OnInit {
   profiles: Profile[] = [];
   currentProfile: Profile;
   role: Role;
-  profileSubscription: Subscription;
   private roleSubscription: Subscription;
+  nameSubscription: Subscription;
 
   constructor(
     private authenticationService: AuthenticationService,
-    private profileService: ProfileService
-  ) {
-    this.profileSubscription = this.authenticationService.currentUser.subscribe(
-      profile => {
-        this.currentProfile = profile;
+  ) { }
+
+    changePartner() {
+      if (this.authenticationService.currentUserValue.partner !== 'Noble1') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+  ngOnInit() {
+    this.nameSubscription = this.authenticationService.currentUser.subscribe(
+      name => {
+        this.currentProfile = name;
       }
     );
   }
-
-  ngOnInit() {
-    this.loadProfile();
-  }
-
-  loadProfile() {
-    this.profileService.getAll().pipe(first()).subscribe( account => {
-      this.profiles = account;
-    });
-  }
 }
-

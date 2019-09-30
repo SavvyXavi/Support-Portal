@@ -36,6 +36,22 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() { }
 
+  collapseMenu() {
+    if (document.getElementById('container').style.width < '50%') {
+      document.getElementById('container').style.width = '100%';
+    } else {
+      document.getElementById('container').style.width = '33%';
+    }
+  }
+
+  dropdownMA() {
+    if (document.getElementById('dropdown').style.display === 'none') {
+      document.getElementById('dropdown').style.display = 'block';
+    } else {
+      document.getElementById('dropdown').style.display = 'none';
+    }
+  }
+
   dashLink() {
     const dash = this.authenticationService.currentUserValue.partner;
       switch (dash) {

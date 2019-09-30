@@ -2,30 +2,30 @@
     <div class="col-md">
       <div class="card">
         <div class="card-header">
-          <h3>(Insert Company) Settings</h3>
+          <h3>{{currentProfile?.partner}} Settings</h3>
         </div>
         <div class="card-body">
             <form>
               <h4 class="alert alert-dark">Ticket Settings</h4>
                 <div class="form-group">
                   <label for="ticketEmail">Ticketing Email</label><br>
-                  <input formControlName="#" type="text" name="ticketEmail" class="shadow-none">
+                  <input type="text" name="ticketEmail" class="shadow-none" value="{{currentProfile?.email}}">
                 </div>
                 <div class="form-group">
                     <label for="openEmail">Open Ticket Notifications Email</label><br>
-                    <input formControlName="#" type="text" name="openEmail" class="shadow-none">
+                    <input type="text" name="openEmail" class="shadow-none" value="{{currentProfile?.email}}">
                 </div>
                 <div class="form-group">
                   <label for="closedEmail">Closed Ticket Email</label><br>
-                  <input formControlName="#" type="text" name="closedEmail" class="shadow-none">
+                  <input type="text" name="closedEmail" class="shadow-none" value="{{currentProfile?.email}}">
                 </div>
                 <div class="form-group">
                   <label for="phone">Phone</label><br>
-                  <input type="text" formControlName="#" name="phone" class="shadow-none">
+                  <input type="text" name="phone" class="shadow-none">
                 </div>
                 <div class="form-group">
                   <label for="support">Default T&M Support</label><br>
-                  <input type="text" formControlName="#" name="support" class="shadow-none">
+                  <input type="text" name="support" class="shadow-none">
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label><br>
@@ -33,11 +33,11 @@
                 </div>
                 <div class="form-group form-check">
                   <label for="hardwareDesc">Replacement Hardware Desc.</label>
-                  <input formControlName="#" name="hardwareDesc" class="checkbox shadow-none" type="checkbox">
+                  <input name="hardwareDesc" class="checkbox shadow-none" type="checkbox">
                 </div>
                 <div class="form-group form-check">
                   <label for="responseLevel">Use Response Level</label>
-                  <input formControlName="#" name="responseLevel" class="checkbox shadow-none" type="checkbox">
+                  <input name="responseLevel" class="checkbox shadow-none" type="checkbox">
                 </div>
                 <h4 classs="alert alert-dark">Contract & Asset Settings</h4>
                 <div class="form-group-button">

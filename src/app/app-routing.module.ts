@@ -61,11 +61,13 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'settings',
-    component: SettingsComponent
+    component: SettingsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -77,27 +79,33 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'northdash',
-    component: NorthComponent
+    component: NorthComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'reliantdash',
-    component: ReliantDashComponent
+    component: ReliantDashComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'relusdash',
-    component: RelusDashComponent
+    component: RelusDashComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'genericdash',
-    component: GenericDashComponent
+    component: GenericDashComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'suppdash',
-    component: SuppdashComponent
+    component: SuppdashComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'manageassets/assets',
@@ -106,19 +114,23 @@ const routes: Routes = [
   },
   {
     path: 'manageassets/tickets',
-    component: TicketsComponent
+    component: TicketsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'manageassets/lists',
-    component: ListsComponent
+    component: ListsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'manageassets/contracts',
-    component: ContractsComponent
+    component: ContractsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'budgets',
-    component: BudgetComponent
+    component: BudgetComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'admin/accounts',
@@ -127,11 +139,13 @@ const routes: Routes = [
   },
   {
     path: 'admin/support',
-    component: SupportComponent
+    component: SupportComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'admin/oem',
-    component: OemComponent
+    component: OemComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
