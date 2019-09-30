@@ -1,10 +1,10 @@
    <div class="sidebar-container bg-dark flex-column col-md-9" style="text-align:center">
-    <div *ngFor='let sidebar of sidebars'>
+    <!-- <div *ngFor='let sidebar of sidebars'>
       <h3 *ngIf='router.url === sidebar?.link'>
         Welcome to {{title}}<hr>
         {{sidebar.name}}
       </h3>
-    </div>
+    </div> -->
       <!-- <div class="btn-group" role="group" aria-label="Basic example">
         <input type="checkbox" id="toggle-button-checkbox">
         <label class="toggle-button-switch" (click)="onSelect()"
@@ -18,53 +18,54 @@
         <!-- Ng If to read User Role -->
         <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav sticky-top">
 
-            <!-- <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-                <button class="w3-bar-item w3-button w3-large"
-                onclick="w3_close()">Close &times;</button>
-                <a href="#" class="w3-bar-item w3-button">Link 1</a>
-                <a href="#" class="w3-bar-item w3-button">Link 2</a>
-                <a href="#" class="w3-bar-item w3-button">Link 3</a>
-              </div> -->
+          <div id="container" class="icon-bar">
+            <div width="100%">
+            <button class="col-auto btn btn-lg custom-btn" (click)="collapseMenu()">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+                <a (click)="dashLink()" class="dashboard">
+                  <div class="dashboard-icon">
+                    <i class="icon fas fa-tachometer-alt"></i>
+                  </div>
+                <div class="dashboard-content col-auto">
+                    <span>Dashboard</span>
+                </div>
+                </a>
+                <a class="assets-btn">
+                    <div class="assets-icon">
+                      <i routerLink="manageassets/assets" class="icon fas fa-file-alt"></i>
+                  </div>
+                  <div (click)="dropdownMA()" class="dropdown-btn col-auto">
+                      <span>Assets <i class="fa fa-caret-down"></i></span>
+                  </div>
+                </a>
+              <div id="dropdown" class="dropdown-container">
+                    <a class="dropdown" routerLink="manageassets/contracts">Contracts</a>
+                    <a class="dropdown" routerLink="manageassets/assets">Assets</a>
+              </div>
+              <a routerLink="manageassets/tickets" class="tickets">
+                  <div class="tickets-icon">
+                    <i routerLink="manageassets/tickets" class="icon fas fa-ticket-alt"></i>
+                </div>
+                <div class="tickets-content col-auto">
+                    <span>Tickets</span>
+                </div>
+                </a>
+                <a class="admin">
+                  <div class="admin-icon">
+                    <i routerLink="" class="icon fas fa-users-cog"></i>
+                </div>
+                <div class="tickets-content col-auto">
+                    <span>Admin</span>
+                    <i class="fa fa-caret-down"></i>
+                </div>
+                </a>
+          </div>
 
-          <!-- <ul class="nav sibar-nav">
-            <li>
-              <a routerLink="#">Dashboard</a>
-            </li>
-            <li class="dropdown" >
-              <a class="dropdown-toggle" data-toggle="dropdown" routerLink="#">
-                Manage Assets
-                <span class="caret"></span>
-              </a>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <a routerLink="#">Lists</a>
-              </li>
-              <li>
-                <a routerLink="#">Assets</a>
-              </li>
-              <li>
-                <a routerLink="#">Tickets</a>
-              </li>
-            </ul>
-            </li>
 
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" routerLink="#">Admin</a>
-              <span class="caret"></span>
-              <ul class="dropdown-menu" role="menu">
-                <li>
-                  <a routerLink="#">Accounts</a>
-                </li>
-                <li>
-                  <a routerLink="#">Support</a>
-                </li>
-                <li>
-                  <a routerLink="#">OEM</a>
-                </li>
-              </ul>
-            </li>
-          </ul> -->
-        <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
+
+        <!-- <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
             <div *ngIf="sidebar.menu === 'main'" class="card">
               <div class="bg-dark card-header" id="headingOne">
                 <h2 class="mb-0">
@@ -102,11 +103,64 @@
                 </button>
               </div>
             </div>
-        </div>
+        </div> -->
+
     </nav>
 
     <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
-      <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
+
+        <div id="container" class="icon-bar">
+            <div width="100%">
+            <button class="col-auto btn btn-lg custom-btn" (click)="collapseMenu()">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+                <a (click)="dashLink()" class="dashboard">
+                  <div class="dashboard-icon">
+                    <i class="icon fas fa-tachometer-alt"></i>
+                  </div>
+                <div class="dashboard-content col-auto">
+                    <span>Dashboard</span>
+                    <i class="fa fa-caret-down"></i>
+                </div>
+                </a>
+                <a class="assets-btn">
+                    <div class="assets-icon">
+                      <i routerLink="manageassets/assets" class="icon fas fa-file-alt"></i>
+                  </div>
+                  <div (click)="dropdownMA()" class="dropdown-btn col-auto">
+                      <span>Assets</span>
+                      <i class="fa fa-caret-down"></i>
+                  </div>
+                </a>
+              <div id="dropdown" class="dropdown-container">
+                    <a class="dropdown" routerLink="manageassets/contracts">Contracts</a>
+                    <a class="dropdown" routerLink="manageassets/assets">Assets</a>
+              </div>
+              <a routerLink="manageassets/tickets" class="tickets">
+                  <div class="tickets-icon">
+                    <i routerLink="manageassets/tickets" class="icon fas fa-ticket-alt"></i>
+                </div>
+                <div class="tickets-content col-auto">
+                    <span>Tickets</span>
+                </div>
+                </a>
+                <a class="admin">
+                  <div class="admin-icon">
+                    <i class="icon fas fa-users-cog"></i>
+                </div>
+                <div class="admin-content col-auto">
+                    <span>Admin</span>
+                    <i class="fa fa-caret-down"></i>
+                </div>
+                </a>
+                <div id="dropdownTwo" class="dropdown-container-two">
+                    <a class="dropdown" routerLink="admin/locations">Locations</a>
+              </div>
+          </div>
+
+
+      <!-- <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
             <div *ngIf="sidebar.name === 'Dashboard'" class="card">
               <div class="bg-dark card-header" id="headingOne">
                 <h2 class="mb-0">
@@ -144,16 +198,11 @@
                 </button>
               </div>
             </div>
-        </div>
+        </div> -->
     </nav>
 
   </div>
 
-    <!--
-<button class="col-auto btn btn-lg custom-btn" data-toggle="offcanvas">
-  <i class="fa fa-bars"></i>
-</button> -->
 
-  <!-- <div class="ham-button">
-    <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-  </div> -->
+
+

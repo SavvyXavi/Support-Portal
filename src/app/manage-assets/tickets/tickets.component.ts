@@ -83,11 +83,14 @@ export class TicketsComponent implements OnInit {
     );
   }
 
-  // getTicketData() {
-  //   this.api.getTickets()
-  //   .subscribe(
-  //   )
-  // }
+  ticketFilter(ticket: Tickets) {
+    this.api.getTickets()
+    .subscribe(
+      (filteredtickets: Tickets) => {
+        ticket = filteredtickets;
+      }
+    );
+  }
 
   getTicketTypeName() {
     if ( this.authenticationService.currentUserValue.partner === this.currentProfile.partner ) {
