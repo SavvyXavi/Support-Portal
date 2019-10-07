@@ -1,26 +1,41 @@
-.sidebar-container {
+/* .sidebar-container {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 0px;
   padding: 0px;
   color: white;
   font-size: 1vw;
-  height: 88%;
+  height: 100vh;
   position: -webkit-sticky;
   position: sticky;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
-  overflow: auto;
-  padding-top: 10px;
-}
+  overflow: hidden;
+  width: 30%;
+} */
 
-nav {
+nav, .icon-bar {
+  margin: 0px;
+  padding: 0px;
+  color: white;
+  font-size: 1vw;
+  height: 100vh;
+  position: -webkit-sticky;
   position: sticky;
+  /* z-index: 1; */
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background: transparent;
+
 }
 
 nav a {
   cursor: pointer;
+}
+
+span {
+  display: inline-flex;
 }
 
 .ham-button {
@@ -32,15 +47,15 @@ nav a {
   padding: 0px;
 }
 
-.card{
+/* .card{
   border-bottom-color: black !important;
   border: 1px;
-}
+} */
 
-.card-header {
+/* .card-header {
   border-color: grey;
   color: white;
-}
+} */
 
 .btn-link {
   color: white;
@@ -66,7 +81,7 @@ nav a {
 /*        */
 
 #container {
-  transition: .5s;
+  transition:all .5s;
   height: 100vh;
 }
 
@@ -85,34 +100,29 @@ nav a {
   color: white;
 }
 
-.dropdown-container {
-  /* opacity: 0; */
-  display: none;
-  font: 20%;
-}
-
 .dropdown-btn {
   cursor: pointer;
 }
 
 .icon-bar {
-  width: 33%;
+  width: 30%;
   background-color: #555;
   height: 100%;
   margin: 0;
-  padding: 0;
+  padding-left: 18px;
   overflow-x: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .icon-bar a{
   display: flex;
   flex-direction: row;
-  padding: 15px;
+  padding: 18px 8px 18px 12px;
   transition: all 0.3s ease;
   color: white;
   font-size: 120%;
   overflow: hidden;
-  text-align: left;
 }
 
 /* #dropdown {
@@ -124,14 +134,18 @@ a {
   border-bottom: solid white 1px;
 }
 
+.fa-caret-down {
+  margin-left: 4px;
+}
+
 .icon {
   margin-right: 11px;
-  margin-left: 5px;
+  margin-left: 8px;
 }
 
 span {
-  margin-left: 13px;
-  margin-right: 4px;
+  margin-left: 10px;
+  margin-right: 0px
 }
 
 .icon-bar a:hover {

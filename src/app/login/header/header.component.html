@@ -1,6 +1,6 @@
   <header>
   <nav *ngIf="currentProfile?.partner == 'NorthSmart'" class="navbar northNav navbar-expand-lg navbar-light bg-light justify-content-between">
-    <a class="navbar-brand" routerLink="/"><img src="../../assets//favicon.ico" style="width:75px; height:75px"></a>
+    <a class="navbar-brand" (click)="dashLink()"><img src="../../assets//favicon.ico" style="width:75px; height:75px"></a>
     <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -31,17 +31,42 @@
                 <hr>
                 <li>
                   <a class="dropdown-item" routerLink="/profile">
-                    <i class="fas fa-user"></i> Account
+                    <div class="icon">
+                      <i class="fas fa-user"></i>
+                    </div>
+                    <div class="text">
+                      Account
+                    </div>
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item" routerLink="/settings">
-                    <i class="fas fa-cog"></i> Settings
+                    <div class="icon">
+                      <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="text">
+                      Settings
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" routerlink="/notifications">
+                    <div class="icon">
+                    <i class="fas fa-comment-alt"></i>
+                  </div>
+                  <div class="text">
+                    Notifications
+                  </div>
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item" (click)="logout()">
-                      <i class="fas fa-sign-out-alt"></i>  Logout
+                    <div class="icon">
+                      <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                    <div class="text">
+                      Logout
+                    </div>
                   </a>
                 </li>
               </ul>
@@ -50,7 +75,7 @@
   </nav>
 
     <nav *ngIf="currentProfile?.partner == 'Relus'" class="navbar relusNav navbar-expand-lg navbar-light bg-light justify-content-between">
-      <a class="navbar-brand" routerLink="/"><img src="../../../assets/RelusLogo.png" style="height: 44px; margin-left: 20px;"></a>
+      <a class="navbar-brand" routerLink="dashLink()"><img src="../../../assets/RelusLogo.png" style="height: 44px; margin-left: 20px;"></a>
       <button class="navbar-toggler relusToggle" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -80,27 +105,52 @@
               </li>
               <hr>
               <li>
-                <a class="dropdown-item" routerLink="/profile">
-                  <i class="fas fa-user"></i> Account
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" routerLink="/settings">
-                  <i class="fas fa-cog"></i> Settings
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" (click)="logout()">
-                    <i class="fas fa-sign-out-alt"></i>  Logout
-                </a>
-              </li>
-            </ul>
+                  <a class="dropdown-item" routerLink="/profile">
+                    <div class="icon">
+                      <i class="fas fa-user"></i>
+                    </div>
+                    <div class="text">
+                      Account
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" routerLink="/settings">
+                    <div class="icon">
+                      <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="text">
+                      Settings
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" routerlink="/notifications">
+                    <div class="icon">
+                    <i class="fas fa-comment-alt"></i>
+                  </div>
+                  <div class="text">
+                    Notifications
+                  </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" (click)="logout()">
+                    <div class="icon">
+                      <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                    <div class="text">
+                      Logout
+                    </div>
+                  </a>
+                </li>
+              </ul>
       </div>
     </div>
     </nav>
 
     <nav *ngIf="currentProfile?.partner == 'Noble1'" class="navbar northNav navbar-expand-lg navbar-light bg-light justify-content-between">
-        <a class="navbar-brand" routerLink="/"><img src="../../assets//favicon.ico" style="width:75px; height:75px"></a>
+        <a class="navbar-brand" routerLink="dashLink()"><img src="../../assets//favicon.ico" style="width:75px; height:75px"></a>
         <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

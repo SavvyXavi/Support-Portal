@@ -1,4 +1,4 @@
-   <div class="sidebar-container bg-dark flex-column col-md-9" style="text-align:center">
+   <!-- <div class="sidebar-container flex-column col-md-9" style="text-align:center"> -->
     <!-- <div *ngFor='let sidebar of sidebars'>
       <h3 *ngIf='router.url === sidebar?.link'>
         Welcome to {{title}}<hr>
@@ -24,6 +24,8 @@
               <i class="fa fa-bars"></i>
             </button>
           </div>
+
+
                 <a (click)="dashLink()" class="dashboard">
                   <div class="dashboard-icon">
                     <i class="icon fas fa-tachometer-alt"></i>
@@ -32,38 +34,50 @@
                     <span>Dashboard</span>
                 </div>
                 </a>
+
+
                 <a class="assets-btn">
                     <div class="assets-icon">
                       <i routerLink="manageassets/assets" class="icon fas fa-file-alt"></i>
                   </div>
-                  <div (click)="dropdownMA()" class="dropdown-btn col-auto">
-                      <span>Assets <i class="fa fa-caret-down"></i></span>
+                  <div class="dropdown-toggle dropdown-btn col-auto" id="dropdown" data-toggle="collapse" data-target="#dd">
+                      <span>Assets
+                    </span>
                   </div>
                 </a>
-              <div id="dropdown" class="dropdown-container">
+
+
+              <div id="dd" class="dropdown-container collapse" aria-labelledby="dropdown01">
                     <a class="dropdown" routerLink="manageassets/contracts">Contracts</a>
                     <a class="dropdown" routerLink="manageassets/assets">Assets</a>
               </div>
+
+
               <a routerLink="manageassets/tickets" class="tickets">
-                  <div class="tickets-icon">
+                <div class="tickets-icon">
                     <i routerLink="manageassets/tickets" class="icon fas fa-ticket-alt"></i>
                 </div>
                 <div class="tickets-content col-auto">
                     <span>Tickets</span>
                 </div>
                 </a>
+
+
+
                 <a class="admin">
                   <div class="admin-icon">
                     <i routerLink="" class="icon fas fa-users-cog"></i>
                 </div>
-                <div class="tickets-content col-auto">
+                <div class="dropdown-toggle dropdown-btn col-auto" id="dropdown02" data-toggle="collapse" data-target="#dd2">
                     <span>Admin</span>
-                    <i class="fa fa-caret-down"></i>
                 </div>
                 </a>
+
+                <div id="dd02" class="dropdown-container collapse" aria-labelledby="dropdown02">
+                    <a class="dropdown" routerLink="manageassets/contracts">Companies</a>
+                    <a class="dropdown" routerLink="manageassets/assets">Users</a>
+              </div>
           </div>
-
-
 
         <!-- <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
             <div *ngIf="sidebar.menu === 'main'" class="card">
@@ -201,7 +215,7 @@
         </div> -->
     </nav>
 
-  </div>
+  <!-- </div> -->
 
 
 

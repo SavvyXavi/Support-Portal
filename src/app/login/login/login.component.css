@@ -1,5 +1,5 @@
-.col-md-6 {
-  margin: auto;
+.container {
+  /* margin: auto; */
   padding-bottom: 1px;
   padding-top: 5px;
   background-color: navy;
@@ -7,10 +7,10 @@
   color: white;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
   max-width: 650px;
-  top: 200px;
-  bottom: 50%;
-  right: 165px;
+  top: 25%;
+  left: 15%;
   background-color: black;
+  position: absolute;
 }
 
 .buttons {

@@ -37,7 +37,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit() { }
 
   collapseMenu() {
-    if (document.getElementById('container').style.width < '50%') {
+    if (document.getElementById('container').style.width < '34%') {
       document.getElementById('container').style.width = '100%';
     } else {
       document.getElementById('container').style.width = '33%';

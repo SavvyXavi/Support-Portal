@@ -9,6 +9,10 @@ import { first, map } from 'rxjs/operators';
 
 import { Chart } from 'chart.js';
 
+import { Tickets } from './../manage-assets/models/tickets';
+import { Assets } from './../manage-assets/models/assets';
+import { ApiCallService } from './../manage-assets/services/api-call.service';
+
 @Component({
   selector: 'app-north',
   templateUrl: './north.component.html',
@@ -23,14 +27,18 @@ export class NorthComponent implements OnInit {
 
   currentProfile: Profile;
   currentProfileSubscription: Subscription;
-  profiles: Profile[] = [];
+  profiles: Profile[];
 
   chart = [];
+  tickets: Tickets;
+
+  assets: Assets;
 
   constructor(
     private funcapp: FuncappService,
     private authenticationService: AuthenticationService,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private api: ApiCallService
     ) {
       this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(
         profile => {
@@ -44,8 +52,70 @@ export class NorthComponent implements OnInit {
     this.displayChart();
   }
 
-  ngOnDestroy() {
-    this.currentProfileSubscription.unsubscribe();
+  // ngOnDestroy() {
+  //   this.currentProfileSubscription.unsubscribe();
+  // }
+
+  ticketsChart() {
+    this.api.getTickets().subscribe(
+      (returnedTickets: Tickets) => {
+        this.tickets = returnedTickets;
+      }
+    );
+  }
+
+  getAssets() {
+    this.api.getAssets()
+    .subscribe(
+      (returnedAssets: Assets) => {
+        this.assets = returnedAssets;
+      }
+    );
+  }
+
+  displayChart() {
+    function chartData() {
+      this.api.getTickets().pipe(map(
+        res => res
+      ));
+    }
+    let xlabels = [];
+    this.chart = new Chart('canvas', {
+        type: 'bar',
+        data: {
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          datasets: [{
+              label: '# of Contracts',
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
   }
 
   deleteProfile(id: number) {
@@ -63,51 +133,6 @@ export class NorthComponent implements OnInit {
   onClick(): void {
     this.funcapp.tempCall(this.selectedInfo).subscribe((returnedInfo: Info) => {
       this.getInfo = returnedInfo;
-    });
-  }
-
-  displayChart() {
-    function chartData() {
-      this.api.getTickets().pipe(map(
-        res => res
-      ));
-    }
-    let xlabels = [];
-    this.chart = new Chart('canvas', {
-        type: 'bar',
-        data: {
-            labels: xlabels,
-            datasets: [{
-                label: 'My Open Cases',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
     });
   }
 

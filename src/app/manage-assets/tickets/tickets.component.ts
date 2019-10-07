@@ -19,10 +19,6 @@ import { Partner } from '../../types/partner.enum';
 })
 
 export class TicketsComponent implements OnInit {
-  // @ViewChild(MatPaginator) paginator: MatPaginator;
-  // @ViewChild(MatSort) sort: MatSort;
-
-  // ticketData: MatTableDataSource<Tickets>;
 
   tickets: Tickets;
   ticketArray: Tickets[] = [];
