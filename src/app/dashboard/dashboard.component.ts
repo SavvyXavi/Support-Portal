@@ -20,7 +20,7 @@ import { Chart } from 'chart.js';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit {
   selectedInfo: Info;
   returnedInfo: Info;
   getInfo: Info;

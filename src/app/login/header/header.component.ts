@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
   title = 'Support Portal';
   currentProfile: Profile;
   role: Role;
-  private roleSubscription: Subscription;
 
   nameSubscription: Subscription;
 
@@ -61,7 +60,7 @@ export class HeaderComponent implements OnInit {
           this.router.navigate(['/suppdash']);
           break;
         default:
-          this.router.navigate(['/login']);
+          this.router.navigate(['/genericdash']);
       }
   }
 }

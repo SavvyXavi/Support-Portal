@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/suppdash']);
             break;
           default:
-            this.router.navigate(['/login']);
+            this.router.navigate(['/genericdash']);
         }
       },
       error => {
