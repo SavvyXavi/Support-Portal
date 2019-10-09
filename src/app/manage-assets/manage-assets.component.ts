@@ -21,7 +21,6 @@ export class ManageAssetsComponent implements OnInit {
   filterSubsciption: Subscription;
 
   constructor(
-    private api: ApiCallService,
     private filter: ApifilterService,
     private authserv: AuthenticationService
     ) {
@@ -37,7 +36,7 @@ export class ManageAssetsComponent implements OnInit {
   }
 
   getAssets() {
-    this.filter.profileFilter(this.filteredProfile)
+    this.filter.assetsFilter(this.filteredProfile)
       .subscribe(
       (returnedAssets: Assets) => {
         this.assets = returnedAssets;

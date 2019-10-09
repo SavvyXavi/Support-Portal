@@ -1,16 +1,18 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Profile } from '../../login/models/profile';
+import { Filter } from '../../models/filter';
 import { Tickets } from './../models/tickets';
 import { TicketType } from '../../types/ticket-type.enum';
 import { ApiCallService } from './../services/api-call.service';
 import { AuthenticationService } from '../../login/services/authentication.service';
 
-import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs';
 import { Partner } from '../../types/partner.enum';
-// import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+
+import { ApifilterService } from '../../services/apifilter.service';
 
 @Component({
   selector: 'app-tickets',
@@ -32,12 +34,23 @@ export class TicketsComponent implements OnInit {
   currentProfile: Profile;
 
   editable = false;
+    filteredProfile: Filter;
+    filterSubsciption: Subscription;
 
   constructor(
     private api: ApiCallService,
     private formBuilder: FormBuilder,
-    private authenticationService: AuthenticationService
-  ) { }
+    private authenticationService: AuthenticationService,
+    private filter: ApifilterService,
+    private authserv: AuthenticationService
+  )  {
+        this.filterSubsciption = this.authserv.currentUser.subscribe(
+          name => {
+            this.filteredProfile = name ;
+          }
+        );
+
+    }
 
   ngOnInit() {
     this.ticketForm = this.formBuilder.group({
@@ -80,10 +93,10 @@ export class TicketsComponent implements OnInit {
   }
 
   ticketFilter(ticket: Tickets) {
-    this.api.getTickets()
-    .subscribe(
-      (filteredtickets: Tickets) => {
-        ticket = filteredtickets;
+    this.filter.ticketsFilter(this.filteredProfile)
+      .subscribe(
+      (returnedTickets: Tickets) => {
+        this.tickets = returnedTickets;
       }
     );
   }
