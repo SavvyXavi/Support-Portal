@@ -1,6 +1,10 @@
   <header>
-  <nav *ngIf="currentProfile?.partner == 'NorthSmart'" class="navbar northNav navbar-expand-lg navbar-light bg-light justify-content-between">
-    <a class="navbar-brand" (click)="dashLink()"><img src="../../assets//favicon.ico" style="width:75px; height:75px"></a>
+  <nav class="navbar northNav navbar-expand-lg navbar-light bg-light justify-content-between">
+    <a class="navbar-brand" (click)="dashLink()">
+      <img *ngIf="currentProfile?.partner == 'NorthSmart (Northland)'" src="../../assets//favicon.ico" style="width:75px; height:75px">
+      <img *ngIf="currentProfile?.partner == 'Relus Technologies'" src="../../../assets/RelusLogo.png" style="height: 44px; margin-left: 20px;">
+      <img *ngIf="currentProfile?.partner == 'Noble1 Solutions'" src="../../assets//favicon.ico" style="width:75px; height:75px">
+    </a>
     <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -74,8 +78,8 @@
     </div>
   </nav>
 
-    <nav *ngIf="currentProfile?.partner == 'Relus'" class="navbar relusNav navbar-expand-lg navbar-light bg-light justify-content-between">
-      <a class="navbar-brand" routerLink="dashLink()"><img src="../../../assets/RelusLogo.png" style="height: 44px; margin-left: 20px;"></a>
+    <!-- <nav  class="navbar relusNav navbar-expand-lg navbar-light bg-light justify-content-between">
+      <a class="navbar-brand" routerLink="dashLink()"><img *ngIf="currentProfile?.partner == 'Relus Technologies'" src="../../../assets/RelusLogo.png" style="height: 44px; margin-left: 20px;"></a>
       <button class="navbar-toggler relusToggle" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -147,10 +151,10 @@
               </ul>
       </div>
     </div>
-    </nav>
+    </nav> -->
 
-    <nav *ngIf="currentProfile?.partner == 'Noble1'" class="navbar northNav navbar-expand-lg navbar-light bg-light justify-content-between">
-        <a class="navbar-brand" routerLink="dashLink()"><img src="../../assets//favicon.ico" style="width:75px; height:75px"></a>
+    <!-- <nav *ngIf="currentProfile?.partner == 'Noble1 Solutions'" class="navbar northNav navbar-expand-lg navbar-light bg-light justify-content-between">
+        <a class="navbar-brand" routerLink="dashLink()"><img *ngIf="currentProfile?.partner == 'Noble1 Solutions'" src="../../assets//favicon.ico" style="width:75px; height:75px"></a>
         <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -197,56 +201,6 @@
                   </ul>
           </div>
         </div>
-      </nav>
-    <!-- <div id="navbarToggle" class="collapseContainer justify-content-left collapse navbar-collapse">
-        <form class="search-bar d-none d-md-block form-inline" style="width:50%">
-            <div class="input-group">
-              <input type="text" class="form-control shadow-none" placeholder="Search">
-              <div class="input-group-append">
-                <button class="btn btn-transparent" type="button"><i class="fa fa-search"></i></button>
-              </div>
-            </div>
-          </form>
+      </nav> -->
 
-          <ul>
-            <hr>
-            <li>
-              <a class="dropdown-item" href="#">Account</a>
-            </li>
-            <li>
-              <a class="dropdown-item" (click)="logout()">Logout</a>
-            </li>
-          </ul>
-    </div> -->
-
-
-      <!-- <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div> -->
-
-  <!-- <div class="collapse" id="navbarSupportedContent" data-target="#">
-      <div class="bg-light p-4">
-        <h5 class=" h4">Collapsed content</h5>
-        <span class="text-muted">Toggleable via the navbar brand.</span>
-      </div>
-    </div> -->
   </header>
