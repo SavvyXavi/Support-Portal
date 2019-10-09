@@ -1,4 +1,3 @@
-import { Role } from 'src/app/types/role.enum';
 import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Assets } from './models/assets';
@@ -19,13 +18,18 @@ export class ManageAssetsComponent implements OnInit {
   assets: Assets;
   currentProfile: Profile;
   filteredProfile: Filter;
-  profileSubsciption: Subscription;
+  filterSubsciption: Subscription;
 
   constructor(
     private api: ApiCallService,
     private filter: ApifilterService,
     private authserv: AuthenticationService
     ) {
+      this.filterSubsciption = this.authserv.currentUser.subscribe(
+        name => {
+          this.filteredProfile = name ;
+        }
+      );
     }
 
   ngOnInit() {

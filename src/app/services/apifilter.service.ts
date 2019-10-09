@@ -23,16 +23,12 @@ export class ApifilterService {
   ) { }
 
   profileFilter(filter: Filter) {
-    // this.api.getAll().subscribe(
-    // )
-
-    filter.partnerRole = this.auth.currentUserValue.partnerRole;
-    filter.name = this.auth.currentUserValue.partner;
+    // filter.partnerRole = this.auth.currentUserValue.partnerRole;
+    // filter.partner = this.auth.currentUserValue.partner;
 
     const params = {
-      'name': filter.name,
       'role': filter.partnerRole,
-      // 'partner': filter.partner
+      'partner': filter.partner
     };
 
     return this.http.post(this.assetsapi, params);
