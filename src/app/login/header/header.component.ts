@@ -41,21 +41,21 @@ export class HeaderComponent implements OnInit {
   dashLink() {
     const dash = this.authenticationService.currentUserValue.partner;
       switch (dash) {
-        case 'NorthSmart':
+        case 'NorthSmart (Northland)':
           this.router.navigate(['/northdash']);
         break;
-        case 'Noble1':
+        case 'Noble1 Solutions':
           this.router.navigate(['/dashboard']);
         break;
-        case 'Reliant':
+        case 'Reliant Technology':
           this.router.navigate(['/reliantdash']);
         break;
-        case 'Relus':
+        case 'Relus Technologies':
           this.router.navigate(['/relusdash']);
         break;
-        case 'Generic':
-          this.router.navigate(['/genericdash']);
-        break;
+        // case 'Generic':
+        //   this.router.navigate(['/genericdash']);
+        // break;
         case 'Support':
           this.router.navigate(['/suppdash']);
           break;

@@ -46,11 +46,6 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  // Determines which header to load
-  onClickHeader() {
-    this.adminHeader.emit(this.f.partnerRole.value);
-  }
-
   onSubmit() {
     this.submitted = true;
 
@@ -64,29 +59,29 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
        const dash = this.authenticationService.currentUserValue.partner;
-        switch (dash) {
-          case 'NorthSmart':
-            this.router.navigate(['/northdash']);
+       switch (dash) {
+        case 'NorthSmart (Northland)':
+          this.router.navigate(['/northdash']);
+        break;
+        case 'Noble1 Solutions':
+          this.router.navigate(['/dashboard']);
+        break;
+        case 'Reliant Technology':
+          this.router.navigate(['/reliantdash']);
+        break;
+        case 'Relus Technologies':
+          this.router.navigate(['/relusdash']);
+        break;
+        // case 'Generic':
+        //   this.router.navigate(['/genericdash']);
+        // break;
+        case 'Support':
+          this.router.navigate(['/suppdash']);
           break;
-          case 'Noble1':
-            this.router.navigate(['/dashboard']);
-          break;
-          case 'Reliant':
-            this.router.navigate(['/reliantdash']);
-          break;
-          case 'Relus':
-            this.router.navigate(['/relusdash']);
-          break;
-          case 'Generic':
-            this.router.navigate(['/genericdash']);
-          break;
-          case 'Support':
-            this.router.navigate(['/suppdash']);
-            break;
-          default:
-            this.router.navigate(['/genericdash']);
-        }
-      },
+        default:
+          this.router.navigate(['/genericdash']);
+      }
+  },
       error => {
         this.alertService.error(error);
         this.loading = false;

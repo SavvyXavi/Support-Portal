@@ -23,9 +23,6 @@ export class ApifilterService {
   ) { }
 
   profileFilter(filter: Filter) {
-    // filter.partnerRole = this.auth.currentUserValue.partnerRole;
-    // filter.partner = this.auth.currentUserValue.partner;
-
     const params = {
       'role': filter.partnerRole,
       'partner': filter.partner
@@ -33,12 +30,4 @@ export class ApifilterService {
 
     return this.http.post(this.assetsapi, params);
   }
-
-  // displayFilter() {
-  //   if () {
-  //   }
-  // }
-
-
-
 }

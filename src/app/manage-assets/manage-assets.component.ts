@@ -37,10 +37,6 @@ export class ManageAssetsComponent implements OnInit {
   }
 
   getAssets() {
-    // this.filteredProfile.name = this.authserv.currentUserValue.firstName + ' ' + this.authserv.currentUserValue.lastName;
-    // this.filteredProfile.partnerRole = this.authserv.currentUserValue.partnerRole;
-    // this.filteredProfile.partner = this.authserv.currentUserValue.partner;
-
     this.filter.profileFilter(this.filteredProfile)
       .subscribe(
       (returnedAssets: Assets) => {
