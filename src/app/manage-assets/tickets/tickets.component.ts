@@ -64,7 +64,7 @@ export class TicketsComponent implements OnInit {
 
     );
 
-    this.getTickets();
+    this.ticketFilter();
 
     this.ticketTypeNameSubscription = this.authenticationService.currentUser.subscribe(
       typeName => {
@@ -83,16 +83,16 @@ export class TicketsComponent implements OnInit {
     );
   }
 
-  getTickets() {
-    this.api.getTickets()
-    .subscribe(
-      (returnedTickets: Tickets) => {
-        this.tickets = returnedTickets;
-      }
-    );
-  }
+  // getTickets() {
+  //   this.api.getTickets()
+  //   .subscribe(
+  //     (returnedTickets: Tickets) => {
+  //       this.tickets = returnedTickets;
+  //     }
+  //   );
+  // }
 
-  ticketFilter(ticket: Tickets) {
+  ticketFilter() {
     this.filter.ticketsFilter(this.filteredProfile)
       .subscribe(
       (returnedTickets: Tickets) => {
