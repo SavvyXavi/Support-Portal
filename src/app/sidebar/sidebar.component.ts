@@ -39,8 +39,8 @@ export class SidebarComponent implements OnInit {
   collapseMenu() {
     if (document.getElementById('container').style.width < '34%') {
       document.getElementById('container').style.width = '100%';
-    } else {
-      document.getElementById('container').style.width = '33%';
+    } else if (document.getElementById('container').style.width >= '100%') {
+        document.getElementById('container').style.width = '33%';
     }
   }
 
@@ -54,34 +54,29 @@ export class SidebarComponent implements OnInit {
 
   dashLink() {
     const dash = this.authenticationService.currentUserValue.partner;
-      switch (dash) {
-        case 'NorthSmart':
-          this.router.navigate(['/northdash']);
+    switch (dash) {
+      case 'NorthSmart (Northland)':
+        this.router.navigate(['/northdash']);
+      break;
+      case 'Noble1 Solutions':
+        this.router.navigate(['/dashboard']);
+      break;
+      case 'Reliant Technology':
+        this.router.navigate(['/reliantdash']);
+      break;
+      case 'Relus Technologies':
+        this.router.navigate(['/relusdash']);
+      break;
+      // case 'Generic':
+      //   this.router.navigate(['/genericdash']);
+      // break;
+      case 'Support':
+        this.router.navigate(['/suppdash']);
         break;
-        case 'Noble1':
-          this.router.navigate(['/dashboard']);
-        break;
-        case 'Reliant':
-          this.router.navigate(['/reliantdash']);
-        break;
-        case 'Relus':
-          this.router.navigate(['/relusdash']);
-        break;
-        case 'Generic':
-          this.router.navigate(['/genericdash']);
-        break;
-        case 'Support':
-          this.router.navigate(['/suppdash']);
-          break;
-        default:
-          this.router.navigate(['/login']);
-      }
+      default:
+        this.router.navigate(['/genericdash']);
+    }
   }
-
-  // // For Button roles
-  // onSelect() {
-  //   this.admin = !this.admin;
-  // }
 
   logout() {
     this.authenticationService.logout();

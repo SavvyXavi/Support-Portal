@@ -1,33 +1,16 @@
-   <!-- <div class="sidebar-container flex-column col-md-9" style="text-align:center"> -->
-    <!-- <div *ngFor='let sidebar of sidebars'>
-      <h3 *ngIf='router.url === sidebar?.link'>
-        Welcome to {{title}}<hr>
-        {{sidebar.name}}
-      </h3>
-    </div> -->
-      <!-- <div class="btn-group" role="group" aria-label="Basic example">
-        <input type="checkbox" id="toggle-button-checkbox">
-        <label class="toggle-button-switch" (click)="onSelect()"
-            for="toggle-button-checkbox"></label>
-        <div class="toggle-button-text">
-        <div class="toggle-button-text-on">Admin</div>
-        <div class="toggle-button-text-off">User</div>
-        </div>
-      </div> -->
-
         <!-- Ng If to read User Role -->
-        <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav sticky-top">
+        <nav *ngIf="currentRole?.partnerRole === 'Admin'" class="navbar-nav sticky-top text-center">
 
           <div id="container" class="icon-bar">
-            <div width="100%">
-            <button class="col-auto btn btn-lg custom-btn" (click)="collapseMenu()">
+            <div width="100%" class="ham-wrapper text-center">
+            <button class="col-auto btn btn-lg custom-btn" role="button" (click)="collapseMenu()">
               <i class="fa fa-bars"></i>
             </button>
           </div>
 
 
                 <a (click)="dashLink()" class="dashboard">
-                  <div class="dashboard-icon">
+                  <div class="dashboard-icon icon-wrapper">
                     <i class="icon fas fa-tachometer-alt"></i>
                   </div>
                 <div class="dashboard-content col-auto">
@@ -37,10 +20,10 @@
 
 
                 <a class="assets-btn">
-                    <div class="assets-icon">
+                    <div class="assets-icon icon-wrapper">
                       <i routerLink="manageassets/assets" class="icon fas fa-file-alt"></i>
                   </div>
-                  <div class="dropdown-toggle dropdown-btn col-auto" id="dropdown" data-toggle="collapse" data-target="#dd">
+                  <div class="assets-text dropdown-toggle dropdown-btn col-auto" id="dropdown" data-toggle="collapse" data-target="#dd">
                       <span>Assets
                     </span>
                   </div>
@@ -54,7 +37,7 @@
 
 
               <a routerLink="manageassets/tickets" class="tickets">
-                <div class="tickets-icon">
+                <div class="tickets-icon icon-wrapper">
                     <i routerLink="manageassets/tickets" class="icon fas fa-ticket-alt"></i>
                 </div>
                 <div class="tickets-content col-auto">
@@ -65,7 +48,7 @@
 
 
                 <a class="admin">
-                  <div class="admin-icon">
+                  <div class="admin-icon icon-wrapper">
                     <i routerLink="" class="icon fas fa-users-cog"></i>
                 </div>
                 <div class="dropdown-toggle dropdown-btn col-auto" id="dropdown02" data-toggle="collapse" data-target="#dd2">
@@ -124,7 +107,7 @@
     <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
 
         <div id="container" class="icon-bar">
-            <div width="100%">
+            <div class="ham-wrapper">
             <button class="col-auto btn btn-lg custom-btn" (click)="collapseMenu()">
               <i class="fa fa-bars"></i>
             </button>
@@ -214,8 +197,6 @@
             </div>
         </div> -->
     </nav>
-
-  <!-- </div> -->
 
 
 

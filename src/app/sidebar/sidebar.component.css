@@ -22,12 +22,10 @@ nav, .icon-bar {
   height: 100vh;
   position: -webkit-sticky;
   position: sticky;
-  /* z-index: 1; */
   top: 0;
   left: 0;
   overflow: hidden;
   background: transparent;
-
 }
 
 nav a {
@@ -38,30 +36,15 @@ span {
   display: inline-flex;
 }
 
-.ham-button {
-  width: 70px;
-}
-
 .row {
   margin: 0px;
   padding: 0px;
 }
 
-/* .card{
-  border-bottom-color: black !important;
-  border: 1px;
-} */
-
-/* .card-header {
-  border-color: grey;
-  color: white;
-} */
-
+/*
 .btn-link {
   color: white;
   font-size: 1vw;
-  /* margin: 0px;
-  padding: 0px; */
 }
 
 .btn-block {
@@ -76,7 +59,7 @@ span {
 .bg-info:focus,.btn:active {
   outline: none !important;
   box-shadow: none;
-}
+} */
 
 /*        */
 
@@ -88,6 +71,7 @@ span {
 .navbar-nav {
   height: 100vh;
 }
+
 
 .btn, .btn:focus {
   background-color: transparent;
@@ -109,13 +93,15 @@ span {
   background-color: #555;
   height: 100%;
   margin: 0;
-  padding-left: 18px;
   overflow-x: hidden;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
-.icon-bar a{
+.icon-wrapper {
+  margin-left: 10px;
+}
+
+.icon-bar a {
   display: flex;
   flex-direction: row;
   padding: 18px 8px 18px 12px;
@@ -124,10 +110,6 @@ span {
   font-size: 120%;
   overflow: hidden;
 }
-
-/* #dropdown {
-  transition: all .3s;
-} */
 
 a {
   text-decoration: none !important;
@@ -138,7 +120,7 @@ a {
   margin-left: 4px;
 }
 
-.icon {
+ .icon {
   margin-right: 11px;
   margin-left: 8px;
 }
@@ -155,61 +137,3 @@ span {
 .active {
   background-color: #e65c00;
 }
-
-/* :host {
-  display: block;
-  position: relative;
-  width: 43px;
-  height: 14px;
-}
-
-input[type="checkbox"] {
-  display: none;
-}
-
-.toggle-button-switch {
-  position: absolute;
-  top: -8px;
-  left: 1px;
-  width: 36px;
-  height: 36px;
-  background-color: #fff;
-  border-radius: 100%;
-  cursor: pointer;
-  z-index: 100;
-  transition: left 0.3s;
-}
-
-
-.toggle-button-text {
-  overflow: hidden;
-  background-color: #e65c00;
-  border-radius: 25px;
-  box-shadow: 2px 2px 5px 0 rgba(50, 50, 50, 0.75);
-  transition: background-color 0.3s;
-  width: 150px;
-}
-
-
-.toggle-button-text-on,
-.toggle-button-text-off {
-  float: left;
-  width: 25%;
-  height: 50%;
-  line-height: 20px;
-  font-family: Lato, sans-serif;
-  font-weight: bold;
-  color: #fff;
-  text-align: center;
-}
-.toggle-button-text-off {
-  float: right;
-}
-
-input[type="checkbox"]:checked ~ .toggle-button-switch {
-  left: 113px;
-}
-
-input[type="checkbox"]:checked ~ .toggle-button-text {
-  background-color: grey;
-} */
