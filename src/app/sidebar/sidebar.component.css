@@ -14,18 +14,28 @@
   width: 30%;
 } */
 
-nav, .icon-bar {
-  margin: 0px;
-  padding: 0px;
+nav {
+  margin: 0;
+  padding: 0;
   color: white;
   font-size: 1vw;
-  height: 100vh;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  height: 53.17em;
+  top: 8%;
   left: 0;
   overflow-x: hidden;
   background: transparent;
+}
+
+.icon-bar {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 1vw;
+  position: -webkit-sticky;
+  position: sticky;
+  height: 100%;
 }
 
 nav a {
@@ -61,17 +71,9 @@ span {
   box-shadow: none;
 } */
 
-/*        */
-
 #container {
   transition:all .5s;
-  height: 100vh;
 }
-
-.navbar-nav {
-  height: 100vh;
-}
-
 
 .btn, .btn:focus {
   background-color: transparent;
@@ -135,6 +137,8 @@ span {
   margin-left: 10px;
   margin-right: 0px
 } */
+
+
 
 .icon-bar a:hover {
   background-color: #000;
