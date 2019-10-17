@@ -70,7 +70,10 @@ export class NorthComponent implements OnInit {
   displayData() {
     this.filter.assetsFilter(this.currentProfile).subscribe(
       res => {
-        console.log(res);
+        const length = Object.keys(res).map(function(key) {
+          return [String(key), res[key]];
+        });
+        console.log(length);
       }
     );
   }
