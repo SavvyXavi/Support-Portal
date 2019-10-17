@@ -12,15 +12,17 @@ app-header {
   background-size: cover;
 }
 
-.sidebar {
-  padding: 0;
-  margin: 0;
-}
-
 .col-md-10 {
-  height: 100%;
-  margin: 0 auto;
+  /* display: flex; */
+  height: 100vh;
+  margin: 0;
+  top: 45px;
+  margin-top: 20px;
+  /* width: 100%; */
+  /* left: 50px; */
+  /* margin-left: 20px; */
   padding: 0;
+  /* padding-left: 30px; */
 }
 
 app-alert {

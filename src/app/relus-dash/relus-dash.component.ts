@@ -1,22 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from './../login/services/authentication.service';
 import { Subscription } from 'rxjs';
-import { FuncappService } from '../services/funcapp.service';
 import { Info } from '../models/info';
 import { Profile } from '../login/models/profile';
-import { ProfileService } from '../login/services/profile.service';
 import { first, map } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 
+import { ApifilterService } from './../services/apifilter.service';
 import { ApiCallService } from './../manage-assets/services/api-call.service';
+import { ProfileService } from '../login/services/profile.service';
+import { FuncappService } from '../services/funcapp.service';
+
 import { Tickets } from './../manage-assets/models/tickets';
 import { Assets } from './../manage-assets/models/assets';
+import { AuthenticationService } from './../login/services/authentication.service';
 
 @Component({
   selector: 'app-north',
   templateUrl: './relus-dash.component.html',
   styleUrls: ['./relus-dash.component.css']
 })
+
 
 export class RelusDashComponent implements OnInit {
   selectedInfo: Info;
@@ -38,7 +41,8 @@ export class RelusDashComponent implements OnInit {
     private funcapp: FuncappService,
     private authenticationService: AuthenticationService,
     private profileService: ProfileService,
-    private api: ApiCallService
+    private api: ApiCallService,
+    private filter: ApifilterService
     ) {
       this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(
         profile => {
@@ -50,6 +54,7 @@ export class RelusDashComponent implements OnInit {
   ngOnInit() {
     this.loadAllUsers();
     this.displayChart();
+    this.displayData();
   }
 
   // ngOnDestroy() {
@@ -72,13 +77,16 @@ export class RelusDashComponent implements OnInit {
       }
     );
   }
+  displayData() {
+    this.filter.assetsFilter(this.currentProfile).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
+  }
 
   displayChart() {
-    function chartData() {
-      this.api.getTickets().pipe(map(
-        res => res
-      ));
-    }
+
     let xlabels = [];
     this.chart = new Chart('canvas', {
         type: 'bar',
