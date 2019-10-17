@@ -88,12 +88,17 @@ export class NorthComponent implements OnInit {
   }
 
   displayChart() {
-    function chartData() {
-      this.api.getTickets().pipe(map(
-        res => res
-      ));
+    function assetsData() {
+      this.filter.assetsFilter(this.currentProfile).subscribe(
+        res => {
+          const length = Object.keys(res).map(function(key) {
+            return [String(key), res[key]];
+          });
+          console.log(res);
+          console.log(length.length);
+        }
+      );
     }
-    let xlabels = [];
     this.chart = new Chart('canvas', {
         type: 'bar',
         data: {
