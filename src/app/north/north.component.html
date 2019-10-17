@@ -1,12 +1,6 @@
 <div class="container">
     <h1>Welcome to {{dashboard}}'s Dashboard!</h1>
-    <h3>All registered users:</h3>
-    <ul>
-        <li *ngFor="let profile of profiles">
-            {{profile.username}} ({{profile.firstName}} {{profile.lastName}})
-            - <a (click)="deleteProfile(profile.id)" class="text-danger">Delete</a>
-        </li>
-    </ul>
+
     {{currentProfile.firstName}}  and  {{currentProfile.id}}
 
     <div class="container">
