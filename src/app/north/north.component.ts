@@ -12,6 +12,7 @@ import { Chart } from 'chart.js';
 import { Tickets } from './../manage-assets/models/tickets';
 import { Assets } from './../manage-assets/models/assets';
 import { ApiCallService } from './../manage-assets/services/api-call.service';
+import { ApifilterService } from './../services/apifilter.service';
 
 @Component({
   selector: 'app-north',
@@ -38,7 +39,8 @@ export class NorthComponent implements OnInit {
     private funcapp: FuncappService,
     private authenticationService: AuthenticationService,
     private profileService: ProfileService,
-    private api: ApiCallService
+    private api: ApiCallService,
+    private filter: ApifilterService
     ) {
       this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(
         profile => {
@@ -50,6 +52,7 @@ export class NorthComponent implements OnInit {
   ngOnInit() {
     this.loadAllUsers();
     this.displayChart();
+    this.displayData();
   }
 
   // ngOnDestroy() {
@@ -60,6 +63,14 @@ export class NorthComponent implements OnInit {
     this.api.getTickets().subscribe(
       (returnedTickets: Tickets) => {
         this.tickets = returnedTickets;
+      }
+    );
+  }
+
+  displayData() {
+    this.filter.assetsFilter(this.currentProfile).subscribe(
+      res => {
+        console.log(res);
       }
     );
   }
