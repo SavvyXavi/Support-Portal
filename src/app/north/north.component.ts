@@ -75,6 +75,7 @@ export class NorthComponent implements OnInit {
           return [String(key), res[key]];
         });
         console.log(length.length);
+        // let contractDates = new Date()
       }
     );
   }
@@ -100,6 +101,7 @@ export class NorthComponent implements OnInit {
         }
       );
     }
+
     this.chart = new Chart('canvas', {
         type: 'bar',
         data: {
@@ -157,3 +159,21 @@ export class NorthComponent implements OnInit {
   }
 
 }
+
+
+
+
+// {
+//   "pageno": 1,
+//   "pagesize": 10,
+//   "filters": [
+//     {
+//       "field": "Status",
+//       "op": "eq",
+//       "data": "Currently Running",
+//     }
+//   ],
+//   "filterop": "AND",
+//  "sortorder": "Asc",
+//   "resulttype": "Json",
+// }
