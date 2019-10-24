@@ -77,6 +77,7 @@ export class RelusDashComponent implements OnInit {
       }
     );
   }
+
   displayData() {
     this.filter.assetsFilter(this.currentProfile).subscribe(
       res => {

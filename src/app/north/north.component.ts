@@ -68,7 +68,7 @@ export class NorthComponent implements OnInit {
   }
 
   displayData() {
-    this.filter.assetsFilter(this.currentProfile).subscribe(
+    this.filter.contractsFilter(this.currentProfile).subscribe(
       res => {
         console.log(res);
         const length = Object.keys(res).map(function(key) {
@@ -90,22 +90,20 @@ export class NorthComponent implements OnInit {
   }
 
   displayChart() {
-    function assetsData() {
       this.filter.assetsFilter(this.currentProfile).subscribe(
         res => {
-          const length = Object.keys(res).map(function(key) {
-            return [String(key), res[key]];
-          });
+
+          // const array = Object.keys(res).map(function(key) {
+          //   return [String(key), res[key]];
+          // });
           console.log(res);
-          console.log(length.length);
-        }
-      );
-    }
+          // console.log(array.length);
+        });
 
     this.chart = new Chart('canvas', {
-        type: 'bar',
+        type: 'pie',
         data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          labels: status,
           datasets: [{
               label: '# of Contracts',
               data: [12, 19, 3, 5, 2, 3],

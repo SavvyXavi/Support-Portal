@@ -15,8 +15,10 @@ import { HttpClient } from '@angular/common/http';
 export class ApifilterService {
 
   profile: Profile;
+  contractsapi = 'https://n1sharmonypull.azurewebsites.net/api/ContractsPull?code=exD/Xcz5HraenO9WyxGEyB7HloKBbOO2GJ5Xo1CwVO6T6pv9Q/Fl8A==';
   assetsapi = 'https://n1sharmonypull.azurewebsites.net/api/AssetsPull?code=qQXwJm1YBabl4J8QlK6a2n2/JpY/mTacr66EYRdsZ2i3RfUkAucX4g==';
   ticketsapi = 'https://n1sharmonypull.azurewebsites.net/api/HttpTrigger1?code=lsPvad3uQA6s/pe1imbqoK0egnysVrGlsZXvaFsZ1jc69X6OdKQHcw==';
+
   constructor(
     private profileService: ProfileService,
     private auth: AuthenticationService,
@@ -39,5 +41,9 @@ export class ApifilterService {
     };
 
     return this.http.post(this.ticketsapi, params);
+  }
+
+  contractsFilter(filter: Filter) {
+    return this.http.get(this.contractsapi);
   }
 }
