@@ -13,6 +13,8 @@ import { Assets } from './../manage-assets/models/assets';
 import { ApiCallService } from './../manage-assets/services/api-call.service';
 import { ApifilterService } from './../services/apifilter.service';
 
+
+import { Contract } from '../models/contract';
 @Component({
   selector: 'app-north',
   templateUrl: './north.component.html',
@@ -75,7 +77,6 @@ export class NorthComponent implements OnInit {
           return [String(key), res[key]];
         });
         console.log(length);
-        // let contractDates = new Date()
       }
     );
   }
@@ -90,27 +91,21 @@ export class NorthComponent implements OnInit {
   }
 
   displayChart() {
+    const status = [];
     this.filter.contractsFilter(this.currentProfile).subscribe(
-      res => {
-
-        console.log(res);
+      (res: Contract) => {
+        console.log(res.status);
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
+        for (let i = 0; i < length.length; i++) {
+          status.push(length[i].status);
+        }
+
         console.log(length.length);
 
       }
     );
-
-    //this.filter.assetsFilter(this.currentProfile).subscribe(
-        // res => {
-
-          // const array = Object.keys(res).map(function(key) {
-          //   return [String(key), res[key]];
-          // });
-          // console.log(res);
-          // console.log(array.length);
-        // });
 
     this.chart = new Chart('canvas', {
         type: 'pie',
