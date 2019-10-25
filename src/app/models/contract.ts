@@ -1,4 +1,4 @@
 export class Contract {
-  status: String;
+  status: string;
   date: Date;
 }
