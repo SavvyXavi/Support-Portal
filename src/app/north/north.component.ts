@@ -49,7 +49,7 @@ export class NorthComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.loadAllUsers();
+    // this.loadAllUsers();
     this.displayChart();
     this.displayData();
   }
@@ -69,14 +69,12 @@ export class NorthComponent implements OnInit {
   displayData() {
    let array = this.filter.contractsFilter(this.currentProfile).subscribe(
       res => {
-        const status = res[''].map(res => res.status);
-        console.log(status);
 
         console.log(res);
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
-        console.log(length.length);
+        console.log(length);
         // let contractDates = new Date()
       }
     );
@@ -152,17 +150,17 @@ export class NorthComponent implements OnInit {
     });
   }
 
-  deleteProfile(id: number) {
-     this.profileService.delete(id).pipe(first()).subscribe(() => {
-      this.loadAllUsers();
-    });
-  }
+  // deleteProfile(id: number) {
+  //    this.profileService.delete(id).pipe(first()).subscribe(() => {
+  //     this.loadAllUsers();
+  //   });
+  // }
 
-   loadAllUsers() {
-    this.profileService.getAll().pipe(first()).subscribe( profile => {
-      this.profiles = profile;
-    });
-  }
+  //  loadAllUsers() {
+  //   this.profileService.getAll().pipe(first()).subscribe( profile => {
+  //     this.profiles = profile;
+  //   });
+  // }
 
   onClick(): void {
     this.funcapp.tempCall(this.selectedInfo).subscribe((returnedInfo: Info) => {
@@ -172,20 +170,3 @@ export class NorthComponent implements OnInit {
 
 }
 
-
-
-
-// {
-//   "pageno": 1,
-//   "pagesize": 10,
-//   "filters": [
-//     {
-//       "field": "Status",
-//       "op": "eq",
-//       "data": "Currently Running",
-//     }
-//   ],
-//   "filterop": "AND",
-//  "sortorder": "Asc",
-//   "resulttype": "Json",
-// }
