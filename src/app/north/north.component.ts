@@ -5,8 +5,7 @@ import { FuncappService } from '../services/funcapp.service';
 import { Info } from '../models/info';
 import { Profile } from '../login/models/profile';
 import { ProfileService } from '../login/services/profile.service';
-import { first, map } from 'rxjs/operators';
-
+import { first } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 
 import { Tickets } from './../manage-assets/models/tickets';
@@ -68,7 +67,7 @@ export class NorthComponent implements OnInit {
   }
 
   displayData() {
-    this.filter.contractsFilter(this.currentProfile).subscribe(
+   let array = this.filter.contractsFilter(this.currentProfile).subscribe(
       res => {
         console.log(res);
         const length = Object.keys(res).map(function(key) {
@@ -90,15 +89,28 @@ export class NorthComponent implements OnInit {
   }
 
   displayChart() {
-      this.filter.assetsFilter(this.currentProfile).subscribe(
-        res => {
+    this.filter.contractsFilter(this.currentProfile).subscribe(
+      res => {
+        let status = res[''].map(res => res.status);
+
+        console.log(res);
+        const length = Object.keys(res).map(function(key) {
+          return [String(key), res[key]];
+        });
+        console.log(length.length);
+
+      }
+    );
+
+    //this.filter.assetsFilter(this.currentProfile).subscribe(
+        // res => {
 
           // const array = Object.keys(res).map(function(key) {
           //   return [String(key), res[key]];
           // });
-          console.log(res);
+          // console.log(res);
           // console.log(array.length);
-        });
+        // });
 
     this.chart = new Chart('canvas', {
         type: 'pie',
