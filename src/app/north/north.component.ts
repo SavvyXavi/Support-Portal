@@ -98,9 +98,9 @@ export class NorthComponent implements OnInit {
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
-        for (let i = 0; i < length.length; i++) {
-          status.push(length[i]);
-        }
+        // for (let i = 0; i < length.length; i++) {
+        //   status.push(length[i]);
+        // }
 
         console.log(length.length);
 
