@@ -69,6 +69,9 @@ export class NorthComponent implements OnInit {
   displayData() {
    let array = this.filter.contractsFilter(this.currentProfile).subscribe(
       res => {
+        const status = res[''].map(res => res.status);
+        console.log(status);
+
         console.log(res);
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
@@ -91,7 +94,6 @@ export class NorthComponent implements OnInit {
   displayChart() {
     this.filter.contractsFilter(this.currentProfile).subscribe(
       res => {
-        let status = res[''].map(res => res.status);
 
         console.log(res);
         const length = Object.keys(res).map(function(key) {
