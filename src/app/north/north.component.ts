@@ -53,7 +53,7 @@ export class NorthComponent implements OnInit {
   ngOnInit() {
     // this.loadAllUsers();
     this.displayChart();
-    this.displayData();
+    // this.displayData();
   }
 
   // ngOnDestroy() {
@@ -94,12 +94,12 @@ export class NorthComponent implements OnInit {
     const status = [];
     this.filter.contractsFilter(this.currentProfile).subscribe(
       (res: Contract) => {
-        console.log(res.status);
+        status.push(res.status);
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
         for (let i = 0; i < length.length; i++) {
-          status.push(length[i].status);
+          status.push(length[i]);
         }
 
         console.log(length.length);
