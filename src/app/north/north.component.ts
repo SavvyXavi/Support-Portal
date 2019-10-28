@@ -93,13 +93,16 @@ export class NorthComponent implements OnInit {
   displayChart() {
     const status = [];
     this.filter.contractsFilter(this.currentProfile).subscribe(
-      (res: Contract) => {
-        status.push(res.status);
+      (res: Contract[]) => {
+        // status.push(res.status);
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
+        for ( let i = 0; i < res.length; i++) {
+
+        }
         console.log(res);
-        console.log(res.status);
+        // console.log(res.status);
         console.log(length);
 
       }
