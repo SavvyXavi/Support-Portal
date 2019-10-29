@@ -38,7 +38,9 @@ export class SidebarComponent implements OnInit {
 
   collapseMenu() {
     if (document.getElementById('container').style.width = '100%') {
-      document.getElementById('container').style.width = '40%';
+      return document.getElementById('container').style.width = '40%';
+    } else {
+      return document.getElementById('container').style.width = '100%';
     }
   }
 

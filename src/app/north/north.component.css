@@ -23,15 +23,68 @@
 }
 
 .contract-content {
-  /* background-image: url('../../assets/contract2.png'); */
-  background-repeat: no-repeat;
-  background-position: right top;
-  /* opacity: .5; */
+  overflow: hidden;
+}
+
+.contracts-container {
+  padding-right: 0;
+  overflow: hidden;
 }
 
 .contracts-container img{
-  opacity: .5;
+  opacity: .2;
   position: relative;
-  right: 20px;
+  left: 40px;
+  top: 10px;
+}
+
+.assets-container{
+  padding-right: 0;
+}
+
+.assets-content {
+  overflow: hidden;
+  Padding-left: 15;
+  padding-right: none !important;
+}
+
+.assets-content img{
+  opacity: .2;
+  position: relative;
+  top: 10px;
+  left: 30px;
+}
+
+.tickets-container{
+  padding-right: 0;
+}
+
+.tickets-content {
+  overflow: hidden;
+  Padding-left: 15;
+  padding-right: none !important;
+}
+
+.tickets-content img{
+  opacity: .2;
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+
+.companies-container{
+  padding-right: 0;
+}
+
+.companies-content {
+  overflow: hidden;
+  Padding-left: 15;
+  padding-right: 0;
+}
+
+.companies-content img{
+  opacity: .2;
+  position: relative;
+  top: 10px;
   left: 30px;
 }
