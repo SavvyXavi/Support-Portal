@@ -13,11 +13,10 @@ app-header {
 }
 
 .col-md-10 {
-  height: 100vh;
+  height: auto;
   margin: 0;
-  top: 45px;
+  top: 101px;
   margin-top: 20px;
-  width: 100%;
   /* left: 50px; */
   /* margin-left: 20px; */
   padding: 0;
