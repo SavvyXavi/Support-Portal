@@ -14,3 +14,108 @@
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);
 }
 
+.total-container {
+  background-color: white;
+  border-radius: 8px;
+  margin: 10px;
+  font-size: 32px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);
+}
+
+.contract-content {
+  overflow: hidden;
+}
+
+.contracts-container {
+  padding-right: 0;
+  overflow: hidden;
+}
+
+.contracts-container img{
+  opacity: .2;
+  position: relative;
+  left: 50px;
+  top: 10px;
+}
+
+.assets-container{
+  padding-right: 0;
+}
+
+.assets-content {
+  overflow: hidden;
+  Padding-left: 15;
+  padding-right: none !important;
+}
+
+.assets-content img{
+  opacity: .2;
+  position: relative;
+  top: 10px;
+  left: 40px;
+}
+
+.tickets-container{
+  padding-right: 0;
+}
+
+.tickets-content {
+  overflow: hidden;
+  Padding-left: 15;
+  padding-right: none !important;
+}
+
+.tickets-content img{
+  opacity: .2;
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+
+.companies-container{
+  padding-right: 0;
+}
+
+.companies-content {
+  overflow: hidden;
+  Padding-left: 15;
+  padding-right: 0;
+}
+
+.companies-content img{
+  opacity: .2;
+  position: relative;
+  top: 10px;
+  left: 52px;
+}
+
+.users-container {
+  padding-right: 0;
+}
+.users-content {
+  overflow: hidden;
+  Padding-left: 15;
+}
+
+.users-content img{
+  opacity: .2;
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+
+.locations-container {
+  Padding-right: 0;
+}
+
+.locations-content {
+  overflow: hidden;
+}
+
+.locations-content img{
+  opacity: .2;
+  position: relative;
+  top: 20px;
+  left: 60px;
+}
+

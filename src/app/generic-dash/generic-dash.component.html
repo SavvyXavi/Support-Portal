@@ -2,24 +2,50 @@
     <h1>Welcome to your Dashboard!</h1>
 
     <div class="container">
-      <div class="row">
-        <div class="contracts-container container col-md-2">
+      <div class="row ">
+        <div class="contracts-container total-container col-md">
+          <div class="contract-content">
+          0 <br>
             Contracts
+          </div>
+          <img src="../../assets/contract2.png">
         </div>
-        <div class="assets-container container col-md-2">
-          Assets
+        <div class="assets-container total-container col-md">
+          <div class="assets-content">
+            0 <br>
+            Assets
+            <img src="../../assets/assets.png">
+          </div>
         </div>
-        <div class="tickets-container container col-md-2">
-          Tickets
+        <div class="tickets-container total-container col-md">
+          <div class="tickets-content">
+            0 <br>
+            Tickets
+            <img src="../../assets/tickets.png">
+          </div>
         </div>
-        <div class="companies-container container col-md-2">
-          Companies
+        <div *ngIf="currentProfile.partnerRole === 'Admin'" class="companies-container total-container col-md">
+          <div class="companies-content">
+            0<br>
+            Companies
+            <img src="../../assets/company3.png">
+          </div>
         </div>
-        <div class="users-container container col-md-2">
-          Users
+        <div *ngIf="currentProfile.partnerRole === 'Admin'" class="users-container total-container col-md">
+          <div class="users-content">
+            0 <br>
+            Users
+            <img src="../../assets/users.png">
+          </div>
         </div>
-        <div class="locations-container container col-md-2">
-          Locations
+        <div class="locations-container total-container col-md">
+          <div class="locations-content">
+              0 <br>
+              Locations
+            <img src="../../assets/locations.png">
+          </div>
+
+          </div>
         </div>
       </div>
 
@@ -159,4 +185,4 @@
     </div>
     </div>
 
-    </div>
+    <!-- </div> -->

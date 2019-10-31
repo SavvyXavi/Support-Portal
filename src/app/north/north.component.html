@@ -1,9 +1,7 @@
-<div class="container">
+<div class="container wrapper">
     <h1>Welcome to {{dashboard}}'s Dashboard!</h1>
 
     {{currentProfile.firstName}}  and  {{currentProfile.id}}
-
-
 
       <div class="container">
         <div class="row ">
@@ -28,14 +26,14 @@
               <img src="../../assets/tickets.png">
             </div>
           </div>
-          <div class="companies-container total-container col-md">
+          <div *ngIf="currentProfile.partnerRole === 'Admin'" class="companies-container total-container col-md">
             <div class="companies-content">
               0<br>
               Companies
               <img src="../../assets/company3.png">
             </div>
           </div>
-          <div class="users-container total-container col-md">
+          <div *ngIf="currentProfile.partnerRole === 'Admin'" class="users-container total-container col-md">
             <div class="users-content">
               0 <br>
               Users
@@ -48,7 +46,6 @@
                 Locations
               <img src="../../assets/locations.png">
             </div>
-
             </div>
           </div>
         </div>
