@@ -26,10 +26,16 @@
   margin: 10px;
   font-size: 32px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);
+  color: black;
+}
+
+a {
+  text-decoration: none;
 }
 
 .contract-content {
   overflow: hidden;
+  color: black;
 }
 
 .contracts-container {
@@ -52,6 +58,7 @@
   overflow: hidden;
   Padding-left: 15;
   padding-right: none !important;
+  color: black;
 }
 
 .assets-content img{
@@ -69,6 +76,7 @@
   overflow: hidden;
   Padding-left: 15;
   padding-right: none !important;
+  color: black;
 }
 
 .tickets-content img{
@@ -86,6 +94,7 @@
   overflow: hidden;
   Padding-left: 15;
   padding-right: 0;
+  color: black;
 }
 
 .companies-content img{
@@ -98,9 +107,11 @@
 .users-container {
   padding-right: 0;
 }
+
 .users-content {
   overflow: hidden;
   Padding-left: 15;
+  color: black;
 }
 
 .users-content img{
@@ -116,6 +127,7 @@
 
 .locations-content {
   overflow: hidden;
+  color: black;
 }
 
 .locations-content img{
