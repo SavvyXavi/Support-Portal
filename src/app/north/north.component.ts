@@ -23,9 +23,9 @@ import { Contract } from '../models/contract';
 })
 
 export class NorthComponent implements OnInit {
-  selectedInfo: Info;
-  returnedInfo: Info;
-  getInfo: Info;
+  // selectedInfo: Info;
+  // returnedInfo: Info;
+  // getInfo: Info;
 
   dashboard = 'NorthSmart';
 
@@ -158,11 +158,11 @@ export class NorthComponent implements OnInit {
   //   });
   // }
 
-  onClick(): void {
-    this.funcapp.tempCall(this.selectedInfo).subscribe((returnedInfo: Info) => {
-      this.getInfo = returnedInfo;
-    });
-  }
+  // onClick(): void {
+  //   this.funcapp.tempCall(this.selectedInfo).subscribe((returnedInfo: Info) => {
+  //     this.getInfo = returnedInfo;
+  //   });
+  // }
 
 }
 
