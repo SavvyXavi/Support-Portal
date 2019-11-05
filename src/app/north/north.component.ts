@@ -55,7 +55,7 @@ export class NorthComponent implements OnInit {
   ngOnInit() {
     // this.loadAllUsers();
     this.displayChart();
-    // this.displayData();
+    this.displayData();
   }
 
   // ngOnDestroy() {
@@ -79,7 +79,7 @@ export class NorthComponent implements OnInit {
           return [String(key), res[key]];
         });
         console.log(length);
-        // console.log(price);
+        console.log(price);
       }
     );
   }
@@ -104,9 +104,9 @@ export class NorthComponent implements OnInit {
         for ( let i = 0; i < res.length; i++) {
 
         }
-        console.log(res);
+        // console.log(res);
         // console.log(res.status);
-        console.log(length);
+        // console.log(length);
 
       }
     );
