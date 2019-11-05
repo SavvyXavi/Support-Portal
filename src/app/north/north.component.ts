@@ -78,7 +78,7 @@ export class NorthComponent implements OnInit {
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
-        // console.log(length);
+        console.log(length);
         console.log(price);
       }
     );
