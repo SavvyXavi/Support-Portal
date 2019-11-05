@@ -15,11 +15,13 @@ import { ApifilterService } from './../services/apifilter.service';
 
 
 import { Contract } from '../models/contract';
+
 @Component({
   selector: 'app-north',
   templateUrl: './north.component.html',
   styleUrls: ['./north.component.css']
 })
+
 export class NorthComponent implements OnInit {
   selectedInfo: Info;
   returnedInfo: Info;
@@ -69,14 +71,15 @@ export class NorthComponent implements OnInit {
   }
 
   displayData() {
-   let array = this.filter.contractsFilter(this.currentProfile).subscribe(
+    let array = this.filter.contractsFilter(this.currentProfile).subscribe(
       res => {
 
-        console.log(res);
+        const price = res[3].map(res => res.AnnualValue);
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
         console.log(length);
+        console.log(price);
       }
     );
   }
