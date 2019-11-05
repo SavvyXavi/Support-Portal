@@ -78,8 +78,8 @@ export class NorthComponent implements OnInit {
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
-        console.log(length);
-        console.log(price);
+        // console.log(length);
+        // console.log(price);
       }
     );
   }
@@ -101,9 +101,6 @@ export class NorthComponent implements OnInit {
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
-        for ( let i = 0; i < res.length; i++) {
-
-        }
         // console.log(res);
         // console.log(res.status);
         // console.log(length);
