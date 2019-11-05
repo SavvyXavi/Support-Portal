@@ -79,7 +79,7 @@ export class NorthComponent implements OnInit {
           return [String(key), res[key]];
         });
         console.log(length);
-        console.log(price);
+        // console.log(price);
       }
     );
   }
