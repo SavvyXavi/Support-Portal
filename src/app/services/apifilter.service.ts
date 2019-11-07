@@ -44,6 +44,9 @@ export class ApifilterService {
   }
 
   contractsFilter(filter: Filter) {
-    return this.http.get(this.contractsapi);
+    const params = {
+      'partner': filter.partner
+    }
+    return this.http.post(this.contractsapi, params);
   }
 }

@@ -74,12 +74,13 @@ export class NorthComponent implements OnInit {
     let array = this.filter.contractsFilter(this.currentProfile).subscribe(
       res => {
 
-        const price = res['3'].map(res => res.AnnualValue);
+        // const price = res.map(res => res.AnnualValue);
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
+
         console.log(length);
-        console.log(price);
+        // console.log(price);
       }
     );
   }
@@ -104,7 +105,6 @@ export class NorthComponent implements OnInit {
         console.log(res);
         // console.log(res.status);
         // console.log(length);
-
       }
     );
 
