@@ -31,6 +31,7 @@ export class ContractsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getContracts();
   }
 
   getContracts() {
