@@ -2,7 +2,7 @@ import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Assets } from './models/assets';
 
-import { ApiCallService } from './services/api-call.service';
+// import { ApiCallService } from './services/api-call.service';
 import { ApifilterService } from './../services/apifilter.service';
 import { AuthenticationService } from '../login/services/authentication.service';
 
@@ -14,6 +14,7 @@ import { Profile } from './../login/models/profile';
   templateUrl: './manage-assets.component.html',
   styleUrls: ['./manage-assets.component.css']
 })
+
 export class ManageAssetsComponent implements OnInit {
   assets: Assets;
   currentProfile: Profile;

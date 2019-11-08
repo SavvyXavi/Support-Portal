@@ -7,21 +7,18 @@
        <th>Reseller</th>
        <th>Contract#</th>
        <th>Service Ends</th>
-       <th>Contract Type</th>
        <th>Status</th>
-       <th>Current</th>
        <th>Archived</th>
      </tr>
   </thead>
-   <!-- <tr *ngFor='let data of oems'>
-     <td>{{data.PrimaryCompanyName}}</td>
-     <td>{{data.FullName}}</td>
-     <td>{{data.Telephone}}</td>
-     <td>{{data.Email}}</td>
-     <td>Harmony PSA</td>
-     <td>null</td>
-     <td>null</td>
-     <td>null</td>
-   </tr> -->
+   <tr *ngFor='let data of contracts'>
+     <td>{{data.ScheduleName}}</td>
+     <td>{{data.EndCustomerName}}</td>
+     <td>{{data.ContractAdministrator}}</td>
+     <td>{{data.RefNumber}}</td>
+     <td>{{data.ValidTo}}</td>
+     <td>{{data.Status}}</td>
+     <td>{{data.Archived}}</td>
+   </tr>
  </table>
 </div>
