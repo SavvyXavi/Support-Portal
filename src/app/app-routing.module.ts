@@ -22,7 +22,7 @@ import { AccountsComponent } from './admin/accounts/accounts.component';
 import { ListsComponent } from './manage-assets/lists/lists.component';
 import { OemComponent } from './admin/oem/oem.component';
 import { BudgetComponent } from './budget/budget.component';
-
+import { CustomersComponent } from './admin/customers/customers.component';
 const routes: Routes = [
   {
     path: '',
@@ -145,6 +145,11 @@ const routes: Routes = [
   {
     path: 'admin/oem',
     component: OemComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin/customers',
+    component: CustomersComponent,
     canActivate: [AuthGuard]
   }
 ];

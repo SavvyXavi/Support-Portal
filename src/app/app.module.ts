@@ -37,6 +37,7 @@ import { UsersComponent } from './admin/users/users.component';
 import { AssetLocationsComponent } from './admin/asset-locations/asset-locations.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { CustomersComponent } from './admin/customers/customers.component';
 
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -67,7 +68,8 @@ import { SettingsComponent } from './settings/settings.component';
     UsersComponent,
     AssetLocationsComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    CustomersComponent
   ],
   imports: [
     BrowserModule,

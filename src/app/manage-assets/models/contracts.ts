@@ -1,7 +1,7 @@
 export class Contracts {
   id: string;
   scheduleName: string;
-  endCustomerName;
+  endCustomerName: string;
   contractAdministrator: string;
   refNumber: string;
   validTo: string;
