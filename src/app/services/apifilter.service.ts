@@ -54,12 +54,12 @@ export class ApifilterService {
 
   customerFilter(filter: Filter) {
     let params;
-    if (this.auth.currentUserValue.partnerRole === 'Admin') {
+    if (filter.partnerRole === 'Admin') {
       params = {
         'partner': filter.partner,
         'manager': filter.firstName + ' ' + filter.lastName
       };
-    } else if ( this.auth.currentUserValue.partnerRole === 'User' ) {
+    } else if (filter.partnerRole === 'User' ) {
       params = {
         'partner': filter.partner,
         'name': filter.firstName + ' ' + filter.lastName,
