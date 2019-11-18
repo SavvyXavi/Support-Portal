@@ -57,7 +57,9 @@ export class ApifilterService {
     if (filter.partnerRole === 'Admin') {
       params = {
         'partner': '',
-        'admin': ''
+        'admin': '',
+        'user': '',
+        'email': ''
       };
     } else if (filter.partnerRole === 'User' ) {
       params = {
