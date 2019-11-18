@@ -57,12 +57,12 @@ export class ApifilterService {
     if (filter.partnerRole === 'Admin') {
       params = {
         'partner': filter.partner,
-        'admin': filter.firstName + ' ' + filter.lastName
+        // 'admin': filter.firstName + ' ' + filter.lastName
       };
     } else if (filter.partnerRole === 'User' ) {
       params = {
         'partner': filter.partner,
-        'name': filter.firstName + ' ' + filter.lastName,
+        'user': filter.firstName + ' ' + filter.lastName,
         'email': filter.email
       };
     }
