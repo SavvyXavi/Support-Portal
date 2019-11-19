@@ -13,8 +13,8 @@ import { Assets } from './../manage-assets/models/assets';
 import { ApiCallService } from './../manage-assets/services/api-call.service';
 import { ApifilterService } from './../services/apifilter.service';
 
-
 import { Contract } from '../models/contract';
+import { Contracts } from '../manage-assets/models/contracts';
 
 @Component({
   selector: 'app-north',
@@ -32,6 +32,8 @@ export class NorthComponent implements OnInit {
   currentProfile: Profile;
   currentProfileSubscription: Subscription;
   profiles: Profile[];
+
+  contractLength: Contracts[];
 
   chart = [];
   tickets: Tickets;
@@ -56,11 +58,22 @@ export class NorthComponent implements OnInit {
     // this.loadAllUsers();
     this.displayChart();
     this.displayData();
+    this.contractsCount();
   }
 
   // ngOnDestroy() {
   //   this.currentProfileSubscription.unsubscribe();
   // }
+
+  contractsCount() {
+    this.filter.contractsFilter(this.currentProfile)
+    .subscribe(
+      (returnedContractsLength: Contracts[]) => {
+        this.contractLength = returnedContractsLength;
+        return this.contractLength.length;
+      }
+    );
+  }
 
   ticketsChart() {
     this.api.getTickets().subscribe(
