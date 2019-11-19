@@ -1,9 +1,5 @@
-.edit-items, .add-item{
+.d-flex {
   margin-right: 20px;
-}
-
-hr {
-  margin-right: 30px;
 }
 
 .btn {
@@ -19,10 +15,10 @@ hr {
 .btn:visited {
   margin: 10px;
   background-color: rgb(230, 92, 0) !important;
-  border-color: rgb(230, 92, 0) !important;
+  border: rgb(230, 92, 0) !important;
 }
 
-.table-container{
+.table-container {
   margin-right: 30px;
 }
 
@@ -45,14 +41,6 @@ th, td {
 table {
   border-collapse: collapse;
 }
-
-/* tr:nth-child(even) {
-  background-color: #e65c00;
-}
-
-tr:nth-child(odd) {
-  background-color: #8c8c8c;
-} */
 
 tr:nth-child(even) {
   background-color: #e6e6e6;

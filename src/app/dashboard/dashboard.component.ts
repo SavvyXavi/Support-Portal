@@ -10,6 +10,9 @@ import { FuncappService } from './../services/funcapp.service';
 import { AuthenticationService } from './../login/services/authentication.service';
 import { ProfileService } from './../login/services/profile.service';
 import { ApiCallService } from './../manage-assets/services/api-call.service';
+import { ApifilterService } from './../services/apifilter.service';
+
+import { Contracts } from './../manage-assets/models/contracts';
 
 import { Info } from './../models/info';
 
@@ -27,6 +30,7 @@ export class DashboardComponent implements OnInit {
 
   dashboard = 'Noble 1';
 
+  contractLength: Contracts[];
 
   currentProfile: Profile;
   currentProfileSubscription: Subscription;
@@ -41,7 +45,8 @@ export class DashboardComponent implements OnInit {
     private funcapp: FuncappService,
     private authenticationService: AuthenticationService,
     private profileService: ProfileService,
-    private api: ApiCallService
+    private api: ApiCallService,
+    private filter: ApifilterService
     ) {
       this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(
         profile => {
@@ -53,11 +58,22 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.loadAllUsers();
     this.displayChart();
+    this.contractsCount();
   }
 
   // ngOnDestroy() {
   //   this.currentProfileSubscription.unsubscribe();
   // }
+
+  contractsCount() {
+    this.filter.contractsFilter(this.currentProfile)
+    .subscribe(
+      (returnedContractsLength: Contracts[]) => {
+        this.contractLength = returnedContractsLength;
+        return this.contractLength.length;
+      }
+    );
+  }
 
   ticketsChart() {
     this.api.getTickets().subscribe(

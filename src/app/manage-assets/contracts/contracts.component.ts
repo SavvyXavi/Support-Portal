@@ -14,6 +14,7 @@ import { AuthenticationService } from './../../login/services/authentication.ser
   styleUrls: ['./contracts.component.css']
 })
 export class ContractsComponent implements OnInit {
+  contractLength: Contracts[];
   contracts: Contracts;
   currentProfile: Profile;
 
@@ -32,6 +33,17 @@ export class ContractsComponent implements OnInit {
 
   ngOnInit() {
     this.getContracts();
+    this.contractsCount();
+  }
+
+  contractsCount() {
+    this.filter.contractsFilter(this.filteredProfile)
+    .subscribe(
+      (returnedContractsLength: Contracts[]) => {
+        this.contractLength = returnedContractsLength;
+        return this.contractLength.length;
+      }
+    );
   }
 
   getContracts() {
