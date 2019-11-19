@@ -23,9 +23,6 @@ import { Contracts } from '../manage-assets/models/contracts';
 })
 
 export class NorthComponent implements OnInit {
-  // selectedInfo: Info;
-  // returnedInfo: Info;
-  // getInfo: Info;
 
   dashboard = 'NorthSmart';
 
@@ -34,6 +31,8 @@ export class NorthComponent implements OnInit {
   profiles: Profile[];
 
   contractLength: Contracts[];
+  assetLength: Assets[];
+  ticketLength: Tickets[];
 
   chart = [];
   tickets: Tickets;
@@ -59,6 +58,8 @@ export class NorthComponent implements OnInit {
     this.displayChart();
     this.displayData();
     this.contractsCount();
+    this.assetsCount();
+    this.ticketsCount();
   }
 
   // ngOnDestroy() {
@@ -70,7 +71,27 @@ export class NorthComponent implements OnInit {
     .subscribe(
       (returnedContractsLength: Contracts[]) => {
         this.contractLength = returnedContractsLength;
-        return this.contractLength.length;
+        // return this.contractLength.length;
+      }
+    );
+  }
+
+  assetsCount() {
+    this.filter.assetsFilter(this.currentProfile)
+    .subscribe(
+      (returnedAssets: Assets[]) => {
+        this.assetLength = returnedAssets;
+        return this.assetLength.length;
+      }
+    );
+  }
+
+  ticketsCount() {
+    this.filter.ticketsFilter(this.currentProfile)
+    .subscribe(
+      (returnedTickets: Tickets[]) => {
+        this.ticketLength = returnedTickets;
+        return this.ticketLength.length;
       }
     );
   }
