@@ -15,6 +15,7 @@ import { ApifilterService } from './../services/apifilter.service';
 
 import { Contract } from '../models/contract';
 import { Contracts } from '../manage-assets/models/contracts';
+import { Customer } from './../admin/models/customer';
 
 @Component({
   selector: 'app-north',
@@ -33,6 +34,7 @@ export class NorthComponent implements OnInit {
   contractLength: Contracts[];
   assetLength: Assets[];
   ticketLength: Tickets[];
+  companyLength: Customer[];
 
   chart = [];
   tickets: Tickets;
@@ -60,6 +62,7 @@ export class NorthComponent implements OnInit {
     this.contractsCount();
     this.assetsCount();
     this.ticketsCount();
+    this.companiesCount();
   }
 
   // ngOnDestroy() {
@@ -71,7 +74,6 @@ export class NorthComponent implements OnInit {
     .subscribe(
       (returnedContractsLength: Contracts[]) => {
         this.contractLength = returnedContractsLength;
-        // return this.contractLength.length;
       }
     );
   }
@@ -81,7 +83,6 @@ export class NorthComponent implements OnInit {
     .subscribe(
       (returnedAssets: Assets[]) => {
         this.assetLength = returnedAssets;
-        return this.assetLength.length;
       }
     );
   }
@@ -91,7 +92,15 @@ export class NorthComponent implements OnInit {
     .subscribe(
       (returnedTickets: Tickets[]) => {
         this.ticketLength = returnedTickets;
-        return this.ticketLength.length;
+      }
+    );
+  }
+
+  companiesCount() {
+    this.filter.customerFilter(this.currentProfile)
+    .subscribe(
+      (returnedCompanies: Customer[]) => {
+        this.companyLength = returnedCompanies;
       }
     );
   }
