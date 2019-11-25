@@ -56,7 +56,7 @@ export class NorthComponent implements OnInit {
      }
 
   ngOnInit() {
-    // this.loadAllUsers();
+    this.loadAllUsers();
     this.displayChart();
     this.displayData();
     this.contractsCount();
@@ -69,8 +69,8 @@ export class NorthComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
-  contractsCount() {
-    this.filter.contractsFilter(this.currentProfile)
+  async contractsCount() {
+    this.filter.contractsFilter(await this.currentProfile)
     .subscribe(
       (returnedContractsLength: Contracts[]) => {
         this.contractLength = returnedContractsLength;
@@ -78,8 +78,8 @@ export class NorthComponent implements OnInit {
     );
   }
 
-  assetsCount() {
-    this.filter.assetsFilter(this.currentProfile)
+    async assetsCount() {
+      this.filter.assetsFilter(await this.currentProfile)
     .subscribe(
       (returnedAssets: Assets[]) => {
         this.assetLength = returnedAssets;
@@ -195,11 +195,11 @@ export class NorthComponent implements OnInit {
   //   });
   // }
 
-  //  loadAllUsers() {
-  //   this.profileService.getAll().pipe(first()).subscribe( profile => {
-  //     this.profiles = profile;
-  //   });
-  // }
+  loadAllUsers() {
+    this.profileService.getAll().pipe(first()).subscribe( profile => {
+      this.profiles = profile;
+    });
+  }
 
   // onClick(): void {
   //   this.funcapp.tempCall(this.selectedInfo).subscribe((returnedInfo: Info) => {

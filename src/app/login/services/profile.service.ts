@@ -4,8 +4,6 @@ import { Profile } from '../models/profile';
 import { Role } from '../../types/role.enum';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { map } from 'rxjs/operators';
-import { AuthenticationService } from './authentication.service';
 @Injectable({
   providedIn: 'root'
 })
