@@ -69,8 +69,8 @@ export class NorthComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
-  async contractsCount() {
-    this.filter.contractsFilter(await this.currentProfile)
+  contractsCount() {
+    this.filter.contractsFilter(this.currentProfile)
     .subscribe(
       (returnedContractsLength: Contracts[]) => {
         this.contractLength = returnedContractsLength;
@@ -78,8 +78,8 @@ export class NorthComponent implements OnInit {
     );
   }
 
-    async assetsCount() {
-      this.filter.assetsFilter(await this.currentProfile)
+    assetsCount() {
+      this.filter.assetsFilter( this.currentProfile)
     .subscribe(
       (returnedAssets: Assets[]) => {
         this.assetLength = returnedAssets;
