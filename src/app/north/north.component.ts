@@ -78,7 +78,7 @@ export class NorthComponent implements OnInit {
     );
   }
 
-    assetsCount() {
+  assetsCount() {
       this.filter.assetsFilter( this.currentProfile)
     .subscribe(
       (returnedAssets: Assets[]) => {

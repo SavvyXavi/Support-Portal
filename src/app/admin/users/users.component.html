@@ -1,30 +1,58 @@
-<!-- <form [formGroup]="">
-  <h2>Ticket Form</h2>
-  <div class="form-group">
-    <label for="ticketType">Ticket Type:</label><br>
-    <div class="radio">
-        <label>
-            <input formControlName="TicketType" type="radio" name="TicketType" value="Quote" > Quote
-        </label><br>
-        <label>
-            <input formControlName="TicketType" type="radio" name="TicketType" value="Contract Support" > Support
-        </label><br>
+<div class="container">
+  <div class="col-md">
+    <div class="card">
+      <div class="card-header">
+        <h2>Manage Users</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="">
+        <div class="form-group">
+          <label for="manageUser">User Type</label><br>
+          <div class="radio">
+            <label>
+              <input formControlName="ManageUser" type="radio" name="manageUser" value="New" > New User
+            </label><br>
+            <label>
+              <input formControlName="ManageUser" type="radio" name="manageUser" value="Update" > Update User
+            </label><br>
+          </div>
+        </div>
+    <div class="form-group">
+    <label for="title">First Name </label>
+    <input type="text" formControlName="FirstName" name="Title" class="form-control title shadow-none">
     </div>
-  </div>
-  <div class="form-group">
-    <label for="title">Title: </label>
-    <input type="text" formControlName="Title" name="Title" class="form-control title shadow-none">
-  </div>
-  <div class="form-group">
-      <label for="title">Customer Name/Id: </label>
-      <input name="CustomerNameOrId" type="text" formControlName="CustomerNameOrId" class="form-control shadow-none" value="Portal Testing Company">
+    <div class="form-group">
+      <label for="title">Last Name </label>
+      <input name="CustomerNameOrId" type="text" formControlName="LastName" class="form-control shadow-none" value="">
     </div>
-  <div class="form-group">
-    <label for="description">Description: </label> <br>
-    <textarea class="shadow-none" formControlName="Description" name="Description" cols="50%" rows="5px">
-    </textarea>
-  </div>
-  <div class="form-group-button">
-    <button class="btn btn-primary"> Save Changes </button>
-  </div>
-</form> -->
+    <div class="form-group">
+      <label for="title">Email </label>
+      <input name="CustomerNameOrId" type="text" formControlName="Email" class="form-control shadow-none" value="">
+    </div>
+    <div class="form-group">
+      <label for="title">Phone</label>
+      <input name="CustomerNameOrId" type="text" formControlName="Phone" class="form-control shadow-none" value="">
+    </div>
+    <div class="form-group">
+      <label for="title">Ticketing Alias </label>
+      <input name="CustomerNameOrId" type="text" formControlName="TicketingAlias" class="form-control shadow-none" value="">
+    </div>
+    <div class="form-group">
+      <label for="title">New Password </label>
+      <input name="CustomerNameOrId" type="text" formControlName="NewPass" class="form-control shadow-none" value="">
+    </div>
+    <div class="form-group">
+      <label for="title">Confirm Password </label>
+      <input name="CustomerNameOrId" type="text" formControlName="ConfirmPass" class="form-control shadow-none" value="">
+    </div>
+    <div class="form-group">
+      <label for="roles">User Roles </label> <br>
+    </div>
+    <div class="form-group-button">
+      <button class="btn btn-primary">Save Changes</button>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
