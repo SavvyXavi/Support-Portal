@@ -1,3 +1,4 @@
+import { UsersComponent } from './admin/users/users.component';
 import { ContractsComponent } from './manage-assets/contracts/contracts.component';
 import { SupportComponent } from './admin/support/support.component';
 import { NgModule } from '@angular/core';
@@ -150,6 +151,11 @@ const routes: Routes = [
   {
     path: 'admin/customers',
     component: CustomersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin/users',
+    component: UsersComponent,
     canActivate: [AuthGuard]
   }
 ];

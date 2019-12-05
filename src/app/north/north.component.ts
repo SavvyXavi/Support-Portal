@@ -56,7 +56,7 @@ export class NorthComponent implements OnInit {
      }
 
   ngOnInit() {
-    // this.loadAllUsers();
+    this.loadAllUsers();
     this.displayChart();
     this.displayData();
     this.contractsCount();
@@ -79,7 +79,7 @@ export class NorthComponent implements OnInit {
   }
 
   assetsCount() {
-    this.filter.assetsFilter(this.currentProfile)
+      this.filter.assetsFilter( this.currentProfile)
     .subscribe(
       (returnedAssets: Assets[]) => {
         this.assetLength = returnedAssets;
@@ -195,11 +195,11 @@ export class NorthComponent implements OnInit {
   //   });
   // }
 
-  //  loadAllUsers() {
-  //   this.profileService.getAll().pipe(first()).subscribe( profile => {
-  //     this.profiles = profile;
-  //   });
-  // }
+  loadAllUsers() {
+    this.profileService.getAll().pipe(first()).subscribe( profile => {
+      this.profiles = profile;
+    });
+  }
 
   // onClick(): void {
   //   this.funcapp.tempCall(this.selectedInfo).subscribe((returnedInfo: Info) => {

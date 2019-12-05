@@ -1,7 +1,12 @@
 <div class="container">
-    <h1>Welcome to {{dashboard}}'s Dashboard!</h1>
+    <!-- <h1>Welcome to {{dashboard}}'s Dashboard!</h1> -->
 
-    {{currentProfile.firstName}}  and  {{currentProfile.id}}
+    <!-- {{currentProfile.firstName}}  and  {{currentProfile.id}} -->
+    <ul>
+      <li *ngFor="let profile of profiles">
+        {{profile.firstName}}
+      </li>
+    </ul>
 
     <div class="container">
       <div class="row ">
