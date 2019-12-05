@@ -7,46 +7,50 @@
       <div class="card-body">
         <form [formGroup]="">
         <div class="form-group">
-          <label for="manageUser">User Type</label><br>
+          <label for="manageUser"><h3>User Type</h3></label><br>
           <div class="radio">
             <label>
-              <input formControlName="ManageUser" type="radio" name="manageUser" value="New" > New User
+              <input formControlName="ManageUser" type="radio" name="manageUser" value="New"><br> New User
             </label><br>
             <label>
-              <input formControlName="ManageUser" type="radio" name="manageUser" value="Update" > Update User
+              <input formControlName="ManageUser" type="radio" name="manageUser" value="Update"> Update User
             </label><br>
           </div>
         </div>
     <div class="form-group">
-    <label for="title">First Name </label>
-    <input type="text" formControlName="FirstName" name="Title" class="form-control title shadow-none">
+    <label for="firstName">First Name</label>
+    <input type="text" formControlName="FirstName" name="firstName" class="form-control title shadow-none">
     </div>
     <div class="form-group">
-      <label for="title">Last Name </label>
-      <input name="CustomerNameOrId" type="text" formControlName="LastName" class="form-control shadow-none">
+      <label for="lastName">Last Name</label>
+      <input name="firstName" type="text" formControlName="LastName" class="form-control shadow-none">
     </div>
     <div class="form-group">
-      <label for="title">Email </label>
-      <input name="CustomerNameOrId" type="text" formControlName="Email" class="form-control shadow-none">
+        <label for="username">Username</label>
+        <input name="username" type="text" formControlName="LastName" class="form-control shadow-none">
+      </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input name="email" type="email" formControlName="Email" class="form-control shadow-none">
     </div>
     <div class="form-group">
-      <label for="title">Phone</label>
-      <input name="CustomerNameOrId" type="text" formControlName="Phone" class="form-control shadow-none">
+      <label for="phone">Phone</label>
+      <input name="phone" type="text" formControlName="Phone" class="form-control shadow-none">
     </div>
     <div class="form-group">
-      <label for="title">Ticketing Alias </label>
-      <input name="CustomerNameOrId" type="text" formControlName="TicketingAlias" class="form-control shadow-none">
+      <label for="ticketingAlias">Ticketing Alias</label>
+      <input name="ticketingAlias" type="text" formControlName="TicketingAlias" class="form-control shadow-none">
     </div>
     <div class="form-group">
-      <label for="title">New Password </label>
-      <input name="CustomerNameOrId" type="text" formControlName="NewPass" class="form-control shadow-none">
+      <label for="npassword">New Password</label>
+      <input name="npassword" type="password" formControlName="NewPass" class="form-control shadow-none">
     </div>
     <div class="form-group">
-      <label for="title">Confirm Password </label>
-      <input name="CustomerNameOrId" type="text" formControlName="ConfirmPass" class="form-control shadow-none">
+      <label for="cpassword">Confirm Password</label>
+      <input name="cpassword" type="password" formControlName="ConfirmPass" class="form-control shadow-none">
     </div>
     <div class="form-group">
-      <label for="roles">User Roles </label> <br>
+      <label for="roles">User Roles</label><br>
     </div>
     <div class="form-group-button">
       <button class="btn btn-primary">Save Changes</button>

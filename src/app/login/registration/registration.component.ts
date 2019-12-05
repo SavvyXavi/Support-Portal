@@ -17,8 +17,6 @@ export class RegistrationComponent implements OnInit {
   loading = false;
   submitted = false;
 
-
-
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
