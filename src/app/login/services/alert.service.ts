@@ -19,7 +19,7 @@ export class AlertService {
         }
       }
     });
-   }
+  }
 
    success(message: string, keepAfterNavigationChange = false) {
      this.keepAfterNavigationChange = keepAfterNavigationChange;
