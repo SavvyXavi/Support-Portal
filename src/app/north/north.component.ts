@@ -36,13 +36,13 @@ export class NorthComponent implements OnInit {
   ticketLength: Tickets[];
   companyLength: Customer[];
 
-  chart = [];
+  contractsData = [];
+  assetsData = [];
   tickets: Tickets;
 
   assets: Assets;
 
   constructor(
-    private funcapp: FuncappService,
     private authenticationService: AuthenticationService,
     private profileService: ProfileService,
     private api: ApiCallService,
@@ -56,8 +56,8 @@ export class NorthComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.loadAllUsers();
-    this.displayChart();
+    this.contractsChart();
+    this.assetsChart();
     this.displayData();
     this.contractsCount();
     this.assetsCount();
@@ -137,7 +137,7 @@ export class NorthComponent implements OnInit {
     );
   }
 
-  displayChart() {
+  contractsChart() {
     const status = [];
     this.filter.contractsFilter(this.currentProfile).subscribe(
       (res: Contract[]) => {
@@ -151,7 +151,7 @@ export class NorthComponent implements OnInit {
       }
     );
 
-    this.chart = new Chart('canvas', {
+    this.contractsData = new Chart('contracts', {
         type: 'pie',
         data: {
           labels: status,
@@ -159,12 +159,12 @@ export class NorthComponent implements OnInit {
               label: '# of Contracts',
               data: [12, 19, 3, 5, 2, 3],
               backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
+                  'rgba(255, 0, 0, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
               ],
               borderColor: [
                   'rgba(255, 99, 132, 1)',
@@ -177,16 +177,38 @@ export class NorthComponent implements OnInit {
               borderWidth: 1
           }]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
+        options: {}
     });
+  }
+
+  assetsChart() {
+   this.assetsData = new Chart('assets', {
+      type: 'pie',
+      data: {
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {}
+});
   }
 
   // deleteProfile(id: number) {
@@ -200,12 +222,6 @@ export class NorthComponent implements OnInit {
       this.profiles = profile;
     });
   }
-
-  // onClick(): void {
-  //   this.funcapp.tempCall(this.selectedInfo).subscribe((returnedInfo: Info) => {
-  //     this.getInfo = returnedInfo;
-  //   });
-  // }
 
 }
 
