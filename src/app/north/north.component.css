@@ -147,7 +147,6 @@ a {
 }
 
 
-
 .contracts-wrapper {
   background: white;
   border-radius: 8px;
@@ -156,6 +155,12 @@ a {
 .badge {
   width: 15px;
   height: 15px;
+  color: white;
+}
+
+.badge-table {
+  width: 30px !important;
+  padding-bottom: 3px;
 }
 
 p {
@@ -168,7 +173,7 @@ p {
 }
 
 .badge-15 {
-  background-color: yellow;
+  background-color: purple;
 }
 
 .badge-30 {
@@ -188,6 +193,11 @@ p {
 }
 
 .assets-wrapper {
+  background: white;
+  border-radius: 8px;
+}
+
+.tickets-wrapper {
   background: white;
   border-radius: 8px;
 }
