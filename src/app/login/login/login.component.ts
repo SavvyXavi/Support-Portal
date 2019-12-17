@@ -69,12 +69,12 @@ export class LoginComponent implements OnInit {
         case 'Reliant Technology':
           this.router.navigate(['/reliantdash']);
         break;
-        case 'Relus Technologies' || 'BB&T':
+        case 'Relus Technologies':
           this.router.navigate(['/relusdash']);
         break;
-        // case 'Generic':
-        //   this.router.navigate(['/genericdash']);
-        // break;
+        case 'BB&T':
+          this.router.navigate(['/relusdash']);
+        break;
         case 'Support':
           this.router.navigate(['/suppdash']);
           break;

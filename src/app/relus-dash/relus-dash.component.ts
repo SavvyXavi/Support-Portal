@@ -67,7 +67,6 @@ export class RelusDashComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
-
   contractsCount() {
     this.filter.contractsFilter(this.currentProfile)
     .subscribe(
