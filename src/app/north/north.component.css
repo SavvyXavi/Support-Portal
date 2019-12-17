@@ -201,3 +201,7 @@ p {
   background: white;
   border-radius: 8px;
 }
+
+.view-wrapper {
+  text-align: center;
+}

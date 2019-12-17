@@ -39,7 +39,7 @@
               </div>
             </a>
           </div>
-          <div *ngIf="currentProfile.partnerRole === 'Admin'" class="users-container total-container col-md">
+          <!-- <div *ngIf="currentProfile.partnerRole === 'Admin'" class="users-container total-container col-md">
             <a routerLink="/admin/users">
               <div class="users-content">
                 0 <br>
@@ -47,15 +47,15 @@
                 <img src="../../assets/users.png">
               </div>
             </a>
-          </div>
-          <div class="locations-container total-container col-md">
+          </div> -->
+          <!-- <div class="locations-container total-container col-md">
             <a routerLink="/admin/locations"><div class="locations-content">
                 0 <br>
                 Locations
               <img src="../../assets/locations.png">
             </div>
           </a>
-            </div>
+            </div> -->
           </div>
         </div>
       <div class="row">
@@ -261,9 +261,12 @@
               </tbody>
             </table>
             </div>
-
           </div>
-
+          <div class="row">
+            <div class="view-wrapper col-md">
+              <Button routerLink="/manageassets/tickets" class="btn btn-info"> View All</Button>
+            </div>
+          </div>
 
           </div>
       </div>

@@ -1,8 +1,9 @@
   <nav class="navbar northNav navbar-expand-lg navbar-light bg-light fixed-top justify-content-between">
     <a class="navbar-brand" (click)="dashLink()">
       <img *ngIf="currentProfile?.partner == 'NorthSmart (Northland)'" src="../../assets//favicon.ico" style="width:75px; height:75px">
-      <img *ngIf="currentProfile?.partner == 'Relus Technologies'" src="../../../assets/RelusLogo.png" style="height: 44px; margin-left: 20px;">
+      <img *ngIf="currentProfile?.partner == 'Relus Technologies' || currentProfile?.partner == 'BB&T'" src="../../../assets/RelusLogo.png" style="height: 44px; margin-left: 20px;">
       <img *ngIf="currentProfile?.partner == 'Noble1 Solutions'" src="../../assets//favicon.ico" style="width:75px; height:75px">
+      <img *ngIf="currentProfile?.partner == 'Reliant Technology'" src="../../../assets/Reliant-Logo.png" class="rel-logo">
     </a>
 
     <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">

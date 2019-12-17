@@ -1,5 +1,5 @@
         <!-- Ng If to read User Role -->
-        <nav class="navbar-nav text-center">
+        <nav class="navbar-nav sticky-top text-center">
 
           <div *ngIf="currentRole?.partnerRole === 'Admin'" id="container" class="icon-bar text-center">
             <div width="100%" class="ham-wrapper text-center">
@@ -14,7 +14,9 @@
                     <i class="icon fas fa-tachometer-alt"></i>
                   </div>
                 <div class="dashboard-content col-auto">
-                    <span>Dashboard</span>
+                    <span>
+                      Dashboard
+                    </span>
                 </div>
                 </a>
 
@@ -24,8 +26,9 @@
                       <i routerLink="manageassets/assets" class="icon fas fa-file-alt"></i>
                   </div>
                   <div class="assets-text dropdown-toggle dropdown-btn col-auto" id="dropdown" data-toggle="collapse" data-target="#dd">
-                      <span>Assets
-                    </span>
+                      <span>
+                        Assets
+                      </span>
                   </div>
                 </a>
 
