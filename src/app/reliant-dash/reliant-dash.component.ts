@@ -68,7 +68,6 @@ export class ReliantDashComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
-
   contractsCount() {
     this.filter.contractsFilter(this.currentProfile)
     .subscribe(

@@ -5,11 +5,19 @@
         <div class="row ">
           <div class="contracts-container total-container col-md">
             <a routerLink="/manageassets/contracts">
-              <div class="contract-content">
-                {{this.contractLength.length}} <br>
+              <div class="row contract-content">
+                <div class="col">
+                  {{this.contractLength.length}}
+                </div>
+              </div>
+              <div class="row justify-content-center">
                 Contracts
               </div>
-              <img src="../../assets/contract2.png">
+              <div class="row justify-content-end">
+                <div class="col-md">
+                  <img src="../../assets/contract2.png">
+                </div>
+              </div>
             </a>
           </div>
           <div class="assets-container total-container col-md">
