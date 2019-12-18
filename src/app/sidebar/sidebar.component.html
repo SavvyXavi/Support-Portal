@@ -63,49 +63,9 @@
                     <a class="dropdown" routerLink="admin/support">Support</a>
                     <a class="dropdown">Locations</a>
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
-                    <a class="dropdown" routerLink="admin/users">Users</a>
+                    <!-- <a class="dropdown" routerLink="admin/users">Users</a> -->
               </div>
           </div>
-
-        <!-- <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
-            <div *ngIf="sidebar.menu === 'main'" class="card">
-              <div class="bg-dark card-header" id="headingOne">
-                <h2 class="mb-0">
-                  <button class="btn btn-link" (click)="dashLink()" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    {{sidebar.name}}
-                  </button>
-                </h2>
-              </div>
-            </div>
-            <div class="card">
-              <div *ngIf="sidebar.menu == 'mainsub-a'" class="bg-dark card-header" id="headingTwo">
-                <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    {{sidebar.name}}
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <button *ngIf="sidebar?.menu =='sub-A'" routerLink="{{sidebar.link}}" class="card-body btn-block btn-link">
-                  {{sidebar.name}}
-                </button>
-              </div>
-            </div>
-            <div class="card">
-              <div *ngIf="sidebar.menu === 'mainsub-b'" class="bg-dark card-header" id="headingThree">
-                <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    {{sidebar.name}}
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <button *ngIf="sidebar.menu ==='sub-B'" routerLink="{{sidebar.link}}" class="card-body btn-block btn-link">
-                  {{sidebar.name}}
-                </button>
-              </div>
-            </div>
-        </div> -->
 
     </nav>
 
@@ -161,44 +121,4 @@
               </div>
           </div>
 
-
-      <!-- <div class="accordion" id="accordionExample" *ngFor="let sidebar of sidebars">
-            <div *ngIf="sidebar.name === 'Dashboard'" class="card">
-              <div class="bg-dark card-header" id="headingOne">
-                <h2 class="mb-0">
-                  <button class="btn btn-link" (click)="dashLink()"   type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    {{sidebar.name}}
-                  </button>
-                </h2>
-              </div>
-            </div>
-            <div class="card">
-              <div *ngIf="sidebar.menu == 'mainsub-a'" class="bg-dark card-header" id="headingTwo">
-                <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    {{sidebar.name}}
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <button *ngIf="sidebar?.menu =='usub-A'" routerLink="{{sidebar.link}}" class="card-body btn-block btn-link">
-                  {{sidebar.name}}
-                </button>
-              </div>
-            </div>
-            <div class="card">
-              <div *ngIf="sidebar.menu === 'mainsub-b'" class="bg-dark card-header" id="headingThree">
-                <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    {{sidebar.name}}
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <button *ngIf="sidebar.menu ==='usub-B'" routerLink="{{sidebar.link}}" class="card-body btn-block btn-link">
-                  {{sidebar.name}}
-                </button>
-              </div>
-            </div>
-        </div> -->
     </nav>
