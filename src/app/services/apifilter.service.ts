@@ -41,6 +41,15 @@ export class ApifilterService {
     return this.http.post(this.assetsapi, params);
   }
 
+  paginateAssets(filter: Filter, page: number): Observable<Assets> {
+    const params = {
+      'role': filter.partnerRole,
+      'partner': filter.partner
+    };
+
+    return this.http.post<Assets>(this.assetsapi, params);
+  }
+
   ticketsFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,

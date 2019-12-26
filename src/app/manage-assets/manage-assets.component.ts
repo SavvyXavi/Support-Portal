@@ -1,4 +1,4 @@
-import { Subscription } from 'rxjs';
+import { Subscription, merge } from 'rxjs';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Assets } from './models/assets';
 
@@ -10,6 +10,7 @@ import { Profile } from './../login/models/profile';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { MatPaginator, MatSort } from '@angular/material';
+import { startWith, switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-manage-assets',
@@ -28,7 +29,7 @@ export class ManageAssetsComponent implements OnInit {
   assetObservable: Assets[];
   dataSource: MatTableDataSource<Assets>;
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
 
   constructor(
@@ -45,7 +46,8 @@ export class ManageAssetsComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.getAssets();
+    // this.getAssets();
+    this.paginatingAssets();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
@@ -57,6 +59,22 @@ export class ManageAssetsComponent implements OnInit {
         this.assets = returnedAssets;
       }
     );
+  }
+
+  paginatingAssets() {
+    merge(this.paginator.page)
+    .pipe(
+      startWith({}),
+      switchMap(() => {
+        return this.filter!.paginateAssets(
+          this.filteredProfile,
+          this.paginator.pageIndex
+        );
+      }),
+      map((returnedAssets: Assets) => {
+        return this.assets = returnedAssets;
+      })
+    ).subscribe((returnedAssets: Assets) => this.assets = returnedAssets);
   }
   // observeAssets() {
   //   this.filter.assetObersvable(this.filteredProfile)
