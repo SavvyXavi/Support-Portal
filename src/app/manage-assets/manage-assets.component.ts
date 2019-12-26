@@ -28,7 +28,7 @@ export class ManageAssetsComponent implements OnInit {
   assetObservable: Assets[];
   dataSource: MatTableDataSource<Assets>;
 
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
 
   constructor(
@@ -40,6 +40,8 @@ export class ManageAssetsComponent implements OnInit {
           this.filteredProfile = name ;
         }
       );
+
+      // this.dataSource = new MatTableDataSource(Assets);
     }
 
   ngOnInit() {
