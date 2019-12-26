@@ -21,7 +21,7 @@ export class ManageAssetsComponent implements OnInit {
   filteredProfile: Filter;
   filterSubsciption: Subscription;
 
-  displayedColumns: string[] = ['Name'];
+  displayedColumns: string[] = ['Name', 'Identifier', 'Description', 'Schedule'];
 
   assetObservable: Assets[];
   // dataSource = new MatTableDataSource<Assets>(Assets);
