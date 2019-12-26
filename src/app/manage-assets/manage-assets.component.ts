@@ -20,6 +20,7 @@ import { startWith, switchMap, map } from 'rxjs/operators';
 
 export class ManageAssetsComponent implements OnInit {
   assets: Assets;
+  assetLength: Assets[];
   currentProfile: Profile;
   filteredProfile: Filter;
   filterSubsciption: Subscription;
@@ -60,6 +61,15 @@ export class ManageAssetsComponent implements OnInit {
       }
     );
   }
+
+  assetsCount() {
+    this.filter.assetsFilter( this.currentProfile)
+  .subscribe(
+    (returnedAssets: Assets[]) => {
+      this.assetLength = returnedAssets;
+    }
+  );
+}
 
   paginatingAssets() {
     merge(this.paginator.page)
