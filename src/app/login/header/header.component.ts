@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
         case 'Reliant Technology':
           this.router.navigate(['/reliantdash']);
         break;
-        case 'Relus Technologies':
+        case 'Relus Technologies' || 'BB&T':
           this.router.navigate(['/relusdash']);
         break;
         // case 'Generic':

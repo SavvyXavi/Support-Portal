@@ -1,3 +1,23 @@
+.edit-items-container {
+  margin-right: 20px;
+}
+
+.btn {
+  margin: 10px;
+  background-color: rgb(230, 92, 0) !important;
+  border-color: rgb(230, 92, 0) !important;
+}
+
+.btn:click,
+.btn:hover,
+.btn:focused,
+.btn:active,
+.btn:visited {
+  margin: 10px;
+  background-color: rgb(230, 92, 0) !important;
+  border-color: rgb(230, 92, 0) !important;
+}
+
 .table-container {
   margin-right: 30px;
   }

@@ -19,6 +19,12 @@ nav {
   position: -webkit-sticky; */
 }
 
+.navbar-brand {
+ cursor: pointer;
+}
+.rel-log {
+  margin-top: 10px;
+}
 .dropdown-item {
   display: flex;
   cursor: pointer;

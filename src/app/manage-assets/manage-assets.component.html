@@ -11,25 +11,39 @@
 <table class="table table-bordered">
     <thead>
      <tr>
-         <th>Company</th>
-         <th>Name</th>
-         <th>Serial</th>
-         <th>OEM</th>
-         <th>Type</th>
-         <th>SLA</th>
-         <th>Contract</th>
-         <th>End Customer</th>
-       </tr>
+        <th>Company</th>
+        <th>Name</th>
+        <th>Serial</th>
+        <th>Type</th>
+        <th>SLA</th>
+        <th>Contract</th>
+        <th>End Customer</th>
+      </tr>
     </thead>
      <tr *ngFor='let data of assets'>
-       <td> {{data.CompanyName}} </td>
-       <td> {{data.Name}} </td>
-       <td> {{data.Identifier}}</td>
-       <td> {{data.ParentCompanyName}} </td>
-       <td> {{data.Description}} </td>
-       <td> {{data.SLA}} </td>
-       <td> {{data.Schedule}} </td>
-       <td> {{data.EndCustomer}} </td>
+      <td> {{data.CompanyName}}</td>
+      <td> {{data.Name}} </td>
+      <td> {{data.Identifier}}</td>
+      <td> {{data.Description}} </td>
+      <td> {{data.SLA}} </td>
+      <td> {{data.Schedule}} </td>
+      <td> {{data.EndCustomer}} </td>
      </tr>
    </table>
 </div>
+<!-- <div class="test">
+  Testing Mat Table
+
+  <table mat-table [dataSource]="getAssets()">
+
+    <tr mat-header-row *matHeaderRowDef="assets"></tr>
+    <tr mat-row *matRowDef="let row; columns: assets;"></tr>
+
+    <div matColumnDef="Company">
+      <th mat-header-cell *matHeaderCellDef> Company </th>
+      <td mat-cell *matCellDef="let data"> {{data.CompanyName}} </td>
+    </div>
+
+  </table>
+</div> -->
+

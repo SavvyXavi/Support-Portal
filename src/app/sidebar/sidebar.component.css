@@ -1,29 +1,10 @@
-/* .sidebar-container {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin: 0px;
-  padding: 0px;
-  color: white;
-  font-size: 1vw;
-  height: 100vh;
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  width: 30%;
-} */
-
 nav {
-  margin: 0;
+  margin-top: 4.5%;
   padding: 0;
   color: white;
   font-size: 1vw;
-  /* position: -webkit-sticky; */
   position: fixed;
-  height: 53.17em;
-  top: 101px;
-  left: 0;
+  height: 53.2em;
   overflow-x: hidden;
   background: transparent;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
@@ -52,25 +33,6 @@ span {
   padding: 0px;
 }
 
-/*
-.btn-link {
-  color: white;
-  font-size: 1vw;
-}
-
-.btn-block {
-  background-color: #e65c00;
-}
-
-.btn-light {
-  background-color: transparent;
-  outline: none;
-}
-
-.bg-info:focus,.btn:active {
-  outline: none !important;
-  box-shadow: none;
-} */
 
 #container {
   transition:all .5s;
@@ -131,14 +93,6 @@ a {
   margin-right: 25px;
   margin-left: 8px;
 }
-
-/*
-span {
-  margin-left: 10px;
-  margin-right: 0px
-} */
-
-
 
 .icon-bar a:hover {
   background-color: #000;

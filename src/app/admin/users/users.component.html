@@ -2,58 +2,53 @@
   <div class="col-md">
     <div class="card">
       <div class="card-header">
+        <app-alert *ngIf="onSubmit()"></app-alert>
         <h2>Manage Users</h2>
       </div>
       <div class="card-body">
-        <form [formGroup]="">
+        <form [formGroup]="userForm">
         <div class="form-group">
           <label for="manageUser"><h3>User Type</h3></label><br>
-          <div class="radio">
-            <label>
-              <input formControlName="ManageUser" type="radio" name="manageUser" value="New"><br> New User
-            </label><br>
-            <label>
-              <input formControlName="ManageUser" type="radio" name="manageUser" value="Update"> Update User
-            </label><br>
+          <div class="select">
+            <select name="Select Type">
+              <option value="New">New User</option>
+              <option value="Update">Update User</option>
+            </select>
           </div>
         </div>
     <div class="form-group">
-    <label for="firstName">First Name</label>
-    <input type="text" formControlName="FirstName" name="firstName" class="form-control title shadow-none">
+      <label for="firstName">First Name</label>
+      <input type="text" formControlName="firstname" name="firstname" class="form-control title shadow-none">
     </div>
     <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input name="firstName" type="text" formControlName="LastName" class="form-control shadow-none">
+      <label for="lastname">Last Name</label>
+      <input name="lastname" type="text" formControlName="lastname" class="form-control shadow-none">
     </div>
     <div class="form-group">
         <label for="username">Username</label>
-        <input name="username" type="text" formControlName="LastName" class="form-control shadow-none">
-      </div>
+        <input name="username" type="text" formControlName="username" class="form-control shadow-none">
+    </div>
     <div class="form-group">
       <label for="email">Email</label>
-      <input name="email" type="email" formControlName="Email" class="form-control shadow-none">
+      <input name="email" type="email" formControlName="email" class="form-control shadow-none">
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="phone">Phone</label>
-      <input name="phone" type="text" formControlName="Phone" class="form-control shadow-none">
-    </div>
+      <input name="phone" type="text" formControlName="phone" class="form-control shadow-none">
+    </div> -->
     <div class="form-group">
-      <label for="ticketingAlias">Ticketing Alias</label>
-      <input name="ticketingAlias" type="text" formControlName="TicketingAlias" class="form-control shadow-none">
+      <label for="password">New Password</label>
+      <input name="password" type="password" formControlName="password" class="form-control shadow-none">
     </div>
-    <div class="form-group">
-      <label for="npassword">New Password</label>
-      <input name="npassword" type="password" formControlName="NewPass" class="form-control shadow-none">
-    </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="cpassword">Confirm Password</label>
       <input name="cpassword" type="password" formControlName="ConfirmPass" class="form-control shadow-none">
-    </div>
+    </div> -->
     <div class="form-group">
-      <label for="roles">User Roles</label><br>
+      <label for="partnerRole">User Roles</label><br>
     </div>
     <div class="form-group-button">
-      <button class="btn btn-primary">Save Changes</button>
+      <button class="btn btn-primary" onclick="onSubmit()">Save Changes</button>
     </div>
   </form>
 </div>

@@ -1,23 +1,11 @@
-app-header {
-  height: auto;
-  width: auto;
+* {
   margin: 0;
-}
-
-.row {
-  background: no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-.col-md-10 {
-  height: auto;
-  margin: 0;
-  top: 101px;
-  margin-top: 20px;
   padding: 0;
+}
+
+.content {
+  margin-top: 40px;
+  padding-top: 30px;
 }
 
 app-alert {
