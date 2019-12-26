@@ -66,7 +66,7 @@ export class ManageAssetsComponent implements OnInit {
     .pipe(
       startWith({}),
       switchMap(() => {
-        return this.filter!.paginateAssets(
+        return this.filter.paginateAssets(
           this.filteredProfile,
           this.paginator.pageIndex
         );
