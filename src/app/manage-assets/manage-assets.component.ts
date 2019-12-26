@@ -30,7 +30,7 @@ export class ManageAssetsComponent implements OnInit {
   assetObservable: Assets[];
   dataSource: MatTableDataSource<Assets>;
 
-  pagintotal = 0;
+  pagintotal = 100;
 
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
@@ -51,7 +51,6 @@ export class ManageAssetsComponent implements OnInit {
   ngOnInit() {
     this.getAssets();
     this.assetsCount();
-    this.pagintotal = this.assetLength.length;
     // this.paginatingAssets();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
