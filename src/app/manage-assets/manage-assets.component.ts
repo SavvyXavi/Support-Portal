@@ -26,6 +26,7 @@ export class ManageAssetsComponent implements OnInit {
   displayedColumns: string[] = ['Name', 'Identifier', 'Description', 'Schedule'];
 
   assetObservable: Assets[];
+  dataSource: MatTableDataSource<Assets>;
 
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
@@ -43,7 +44,8 @@ export class ManageAssetsComponent implements OnInit {
 
   ngOnInit() {
     this.getAssets();
-    // this.observeAssets();
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   getAssets() {
