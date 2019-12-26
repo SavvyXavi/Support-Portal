@@ -2,12 +2,12 @@ import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Assets } from './models/assets';
 
-// import { ApiCallService } from './services/api-call.service';
 import { ApifilterService } from './../services/apifilter.service';
 import { AuthenticationService } from '../login/services/authentication.service';
 
 import { Filter } from '../models/filter';
 import { Profile } from './../login/models/profile';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-manage-assets',
@@ -21,6 +21,8 @@ export class ManageAssetsComponent implements OnInit {
   filteredProfile: Filter;
   filterSubsciption: Subscription;
 
+  assetObservable: Assets[];
+  // dataSource = new MatTableDataSource<Assets>(Assets);
   constructor(
     private filter: ApifilterService,
     private authserv: AuthenticationService
@@ -34,6 +36,7 @@ export class ManageAssetsComponent implements OnInit {
 
   ngOnInit() {
     this.getAssets();
+    // this.observeAssets();
   }
 
   getAssets() {
@@ -44,4 +47,12 @@ export class ManageAssetsComponent implements OnInit {
       }
     );
   }
+  // observeAssets() {
+  //   this.filter.assetObersvable(this.filteredProfile)
+  //   .subscribe(
+  //     (returnedAssets: Assets[]) => {
+  //       this.assetObservable = returnedAssets;
+  //     }
+  //   );
+  // }
 }

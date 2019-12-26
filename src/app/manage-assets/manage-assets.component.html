@@ -21,7 +21,7 @@
       </tr>
     </thead>
      <tr *ngFor='let data of assets'>
-      <td> {{data.CompanyName}} </td>
+      <td> {{data.CompanyName}}</td>
       <td> {{data.Name}} </td>
       <td> {{data.Identifier}}</td>
       <td> {{data.Description}} </td>
@@ -31,3 +31,19 @@
      </tr>
    </table>
 </div>
+<!-- <div class="test">
+  Testing Mat Table
+
+  <table mat-table [dataSource]="getAssets()">
+
+    <tr mat-header-row *matHeaderRowDef="assets"></tr>
+    <tr mat-row *matRowDef="let row; columns: assets;"></tr>
+
+    <div matColumnDef="Company">
+      <th mat-header-cell *matHeaderCellDef> Company </th>
+      <td mat-cell *matCellDef="let data"> {{data.CompanyName}} </td>
+    </div>
+
+  </table>
+</div> -->
+

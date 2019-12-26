@@ -1,14 +1,19 @@
 import { AuthenticationService } from './../login/services/authentication.service';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Profile } from '../login/models/profile';
 import { ProfileService } from '../login/services/profile.service';
 
 import { Filter } from './../models/filter';
-
 import { Partner } from './../types/partner.enum';
 import { Role } from '../types/role.enum';
+import { Assets } from '../manage-assets/models/assets';
+
 import { HttpClient } from '@angular/common/http';
+
+// import { DataSource } from '@angular/cdk/collections';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -69,5 +74,14 @@ export class ApifilterService {
       };
     }
     return this.http.post(this.customersapi, params);
+  }
+
+  assetObersvable(filter: Filter): Observable<Assets[]> {
+    const params = {
+      'role': filter.partnerRole,
+      'partner': filter.partner
+    };
+
+    return this.http.post<Assets[]>(this.assetsapi, params);
   }
 }

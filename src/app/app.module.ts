@@ -39,10 +39,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CustomersComponent } from './admin/customers/customers.component';
 import { ForgopassComponent } from './login/forgopass/forgopass.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-// import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+// Material Import
+import { MatSliderModule } from '@angular/material/slider';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { ResetUserComponent } from './reset-user/reset-user.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +75,8 @@ import { ForgopassComponent } from './login/forgopass/forgopass.component';
     ProfileComponent,
     SettingsComponent,
     CustomersComponent,
-    ForgopassComponent
+    ForgopassComponent,
+    ResetUserComponent
   ],
   imports: [
     BrowserModule,
@@ -79,11 +84,12 @@ import { ForgopassComponent } from './login/forgopass/forgopass.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    // MaterialModule
-    // NgbModule,
-    // BrowserAnimationsModule,
-    // MatButtonModule,
-    // MatCheckboxModule
+    BrowserAnimationsModule,
+    // Material Imports
+    MatSliderModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [
     AuthGuard,
