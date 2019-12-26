@@ -42,23 +42,23 @@
     <td mat-cell *matCellDef="let asset"> {{asset.Name}} </td>
   </div>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="Identifier">
+  <!-- Identifier Column -->
+  <div matColumnDef="Identifier">
     <th mat-header-cell *matHeaderCellDef> Serial </th>
     <td mat-cell *matCellDef="let asset"> {{asset.Identifier}} </td>
-  </ng-container>
+  </div>
 
-  <!-- Weight Column -->
-  <!-- <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-  </ng-container> -->
+  <!-- Description Column -->
+  <div matColumnDef="Description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let asset"> {{asset.Description}} </td>
+  </div>
 
-  <!-- Symbol Column -->
-  <!-- <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-  </ng-container> -->
+  <!-- Schedule Column -->
+  <div matColumnDef="Schedule">
+    <th mat-header-cell *matHeaderCellDef> Contract </th>
+    <td mat-cell *matCellDef="let asset"> {{asset.Schedule}} </td>
+  </div>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
