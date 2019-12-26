@@ -46,20 +46,20 @@ export class ManageAssetsComponent implements OnInit {
     }
 
   ngOnInit() {
-    // this.getAssets();
-    this.paginatingAssets();
+    this.getAssets();
+    // this.paginatingAssets();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
-  // getAssets() {
-  //   this.filter.assetsFilter(this.filteredProfile)
-  //     .subscribe(
-  //     (returnedAssets: Assets) => {
-  //       this.assets = returnedAssets;
-  //     }
-  //   );
-  // }
+  getAssets() {
+    this.filter.assetsFilter(this.filteredProfile)
+      .subscribe(
+      (returnedAssets: Assets) => {
+        this.assets = returnedAssets;
+      }
+    );
+  }
 
   paginatingAssets() {
     merge(this.paginator.page)
