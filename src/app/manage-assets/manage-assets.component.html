@@ -31,5 +31,37 @@
      </tr>
    </table>
 </div>
+<div class="mat-table">
+  <table mat-table [dataSource]="paginatingAssets()" class="mat-elevation-z8 mat-table">
 
+    <!-- Name Column -->
+    <div matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let asset"> {{asset.Name}} </td>
+    </div>
+
+    <!-- Identifier Column -->
+    <div matColumnDef="Identifier">
+      <th mat-header-cell *matHeaderCellDef> Serial </th>
+      <td mat-cell *matCellDef="let asset"> {{asset.Identifier}} </td>
+    </div>
+
+    <!-- Description Column -->
+    <div matColumnDef="Description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let asset"> {{asset.Description}} </td>
+    </div>
+
+    <!-- Schedule Column -->
+    <div matColumnDef="Schedule">
+      <th mat-header-cell *matHeaderCellDef> Contract </th>
+      <td mat-cell *matCellDef="let asset"> {{asset.Schedule}} </td>
+    </div>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+</div>
 

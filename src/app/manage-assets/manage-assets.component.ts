@@ -46,36 +46,36 @@ export class ManageAssetsComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.getAssets();
-    // this.paginatingAssets();
+    // this.getAssets();
+    this.paginatingAssets();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
-  getAssets() {
-    this.filter.assetsFilter(this.filteredProfile)
-      .subscribe(
-      (returnedAssets: Assets) => {
-        this.assets = returnedAssets;
-      }
-    );
-  }
-
-  // paginatingAssets() {
-  //   merge(this.paginator.page)
-  //   .pipe(
-  //     startWith({}),
-  //     switchMap(() => {
-  //       return this.filter.paginateAssets(
-  //         this.filteredProfile,
-  //         this.paginator.pageIndex
-  //       );
-  //     }),
-  //     map((returnedAssets: Assets) => {
-  //       return this.assets = returnedAssets;
-  //     })
-  //   ).subscribe((returnedAssets: Assets) => this.assets = returnedAssets);
+  // getAssets() {
+  //   this.filter.assetsFilter(this.filteredProfile)
+  //     .subscribe(
+  //     (returnedAssets: Assets) => {
+  //       this.assets = returnedAssets;
+  //     }
+  //   );
   // }
+
+  paginatingAssets() {
+    merge(this.paginator.page)
+    .pipe(
+      startWith({}),
+      switchMap(() => {
+        return this.filter.paginateAssets(
+          this.filteredProfile,
+          this.paginator.pageIndex
+        );
+      }),
+      map((returnedAssets: Assets) => {
+        return this.assets = returnedAssets;
+      })
+    ).subscribe((returnedAssets: Assets) => this.assets = returnedAssets);
+  }
   // observeAssets() {
   //   this.filter.assetObersvable(this.filteredProfile)
   //   .subscribe(

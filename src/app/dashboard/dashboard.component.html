@@ -35,7 +35,7 @@
               </div>
             </a>
           </div>
-          <div *ngIf="currentProfile.partnerRole === 'Admin'" class="companies-container total-container col-md">
+          <div *ngIf="currentProfile?.partnerRole === 'Admin'" class="companies-container total-container col-md">
             <a routerLink="/admin/companies">
               <div class="companies-content">
                 {{this.companyLength.length}}<br>
