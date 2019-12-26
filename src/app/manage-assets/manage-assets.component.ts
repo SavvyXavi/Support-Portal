@@ -1,5 +1,5 @@
 import { Subscription } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Assets } from './models/assets';
 
 import { ApifilterService } from './../services/apifilter.service';
@@ -8,6 +8,8 @@ import { AuthenticationService } from '../login/services/authentication.service'
 import { Filter } from '../models/filter';
 import { Profile } from './../login/models/profile';
 import { MatTableDataSource } from '@angular/material/table';
+
+import { MatPaginator, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-manage-assets',
@@ -24,7 +26,10 @@ export class ManageAssetsComponent implements OnInit {
   displayedColumns: string[] = ['Name', 'Identifier', 'Description', 'Schedule'];
 
   assetObservable: Assets[];
-  // dataSource = new MatTableDataSource<Assets>(Assets);
+
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
+
   constructor(
     private filter: ApifilterService,
     private authserv: AuthenticationService

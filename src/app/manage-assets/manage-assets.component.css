@@ -29,6 +29,7 @@ margin-right: 30px;
 table {
   border: 3px solid black;
 }
+
 th {
   background-color: black;
   color: white;
@@ -40,13 +41,19 @@ th, td {
   padding: 15px;
   text-align: left;
 }
+
 table {
   border-collapse: collapse;
 }
+
 tr:nth-child(even) {
   background-color: #e6e6e6;
 }
 
 tr:nth-child(odd) {
   background-color:   white;
+}
+
+.mat-table {
+  width: 100%;
 }
