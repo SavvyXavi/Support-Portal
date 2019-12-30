@@ -29,7 +29,7 @@ a {
   text-decoration: none;
 }
 
-a .contract-length{
+a .contract-length, .contract-label{
  color: black;
 }
 
@@ -46,16 +46,11 @@ a .contract-length{
 
 .contract-logo{
   opacity: .2;
-
   position: relative;
   left: 20px;
   top: 15px;
 }
 
-/* .contract-logo {
-  margin: 0;
-  padding: 0;
-} */
 .assets-container{
   padding-right: 0;
 }
