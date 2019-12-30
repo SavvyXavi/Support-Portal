@@ -70,7 +70,6 @@ export class ManageAssetsComponent implements OnInit {
     this.filter.assetsFilter( this.currentProfile)
   .subscribe(
     (returnedAssets: Assets[]) => {
-      this.pagintotal = returnedAssets.length;
       this.assetLength = returnedAssets;
     }
   );
