@@ -29,7 +29,7 @@ a {
   text-decoration: none;
 }
 
-a .contract-lengthš{
+a .contract-length{
  color: black;
 }
 
@@ -44,18 +44,18 @@ a .contract-lengthš{
   overflow: hidden;
 }
 
-.contracts-container img{
+.contract-logo{
   opacity: .2;
 
-  /* position: relative;
-  left: 50px;
-  top: 10px; */
+  position: relative;
+  left: 20px;
+  top: 15px;
 }
 
-.contracts-logo {
+/* .contract-logo {
   margin: 0;
   padding: 0;
-}
+} */
 .assets-container{
   padding-right: 0;
 }
