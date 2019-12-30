@@ -11,6 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import { MatPaginator, MatSort } from '@angular/material';
 import { startWith, switchMap, map } from 'rxjs/operators';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-manage-assets',
@@ -30,7 +31,7 @@ export class ManageAssetsComponent implements OnInit {
   assetObservable: Assets[];
   dataSource: MatTableDataSource<Assets>;
 
-  pagintotal = 100;
+  pagintotal = 0;
 
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
@@ -69,6 +70,7 @@ export class ManageAssetsComponent implements OnInit {
     this.filter.assetsFilter( this.currentProfile)
   .subscribe(
     (returnedAssets: Assets[]) => {
+      this.pagintotal = returnedAssets.length;
       this.assetLength = returnedAssets;
     }
   );
@@ -85,6 +87,7 @@ export class ManageAssetsComponent implements OnInit {
         );
       }),
       map((returnedAssets: Assets) => {
+
         return this.assets = returnedAssets;
       })
     ).subscribe((returnedAssets: Assets) => this.assets = returnedAssets);
