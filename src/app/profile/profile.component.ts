@@ -5,6 +5,7 @@ import { Role } from '../types/role.enum';
 import { AuthenticationService} from '../login/services/authentication.service';
 import { Subscription } from 'rxjs';
 
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -19,8 +20,11 @@ export class ProfileComponent implements OnInit {
   private roleSubscription: Subscription;
   nameSubscription: Subscription;
 
+  profileForm: FormGroup;
+
   constructor(
     private authenticationService: AuthenticationService,
+    private formBuilder: FormBuilder
   ) { }
 
     changePartner() {
@@ -37,5 +41,22 @@ export class ProfileComponent implements OnInit {
         this.currentProfile = name;
       }
     );
+
+    this.profileForm = this.formBuilder.group({
+      company: [this.currentProfile.partner, Validators.required],
+      firstName: [this.currentProfile.firstName, Validators.required],
+      lastName: [this.currentProfile.lastName, Validators.required],
+      userName: [this.currentProfile.username, Validators.required],
+      email: [this.currentProfile.email, Validators.required],
+      phone: [''],
+      ticketingAlias: [''],
+      password: ['', Validators.minLength(7)],
+      conpass: ['', Validators.minLength(7)],
+      role: [this.currentProfile.partnerRole, Validators.required]
+    });
+  }
+
+  changePassword() {
+
   }
 }

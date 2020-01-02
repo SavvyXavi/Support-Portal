@@ -5,7 +5,7 @@
         <h3>Update Account </h3>
       </div>
       <div class="card-body">
-          <form action="">
+          <form [formGroup]="profileForm">
             <div class="form-group">
               <label for="company">Company </label>
               <select [disabled]="changePartner()" class="form-control" id="company">

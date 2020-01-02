@@ -21,8 +21,14 @@ import { HttpClient } from '@angular/common/http';
 export class ApifilterService {
 
   profile: Profile;
-  customersapi = 'https://n1sharmonypull.azurewebsites.net/api/GetCompanies?code=vQsPGD8KR7cHjSP0hENehP9P3v5LKn7eY4JsmO9ALdB4Bc0a99Nmhg==';
-  contractsapi = 'https://n1sharmonypull.azurewebsites.net/api/ContractsPull?code=exD/Xcz5HraenO9WyxGEyB7HloKBbOO2GJ5Xo1CwVO6T6pv9Q/Fl8A==';
+
+  partnerList = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
+
+  customerApi = 'https://prodharmony.azurewebsites.net/api/CompanyByPartner?code=a7VaewYNOND36Oo0A85ezo9m4bvmkQAzZPtOIfp3dPO/SROa2pE/dA==';
+// customersapi =
+// 'https://n1sharmonypull.azurewebsites.net/api/GetCompanies?code=vQsPGD8KR7cHjSP0hENehP9P3v5LKn7eY4JsmO9ALdB4Bc0a99Nmhg==';
+
+contractsapi = 'https://n1sharmonypull.azurewebsites.net/api/ContractsPull?code=exD/Xcz5HraenO9WyxGEyB7HloKBbOO2GJ5Xo1CwVO6T6pv9Q/Fl8A==';
   assetsapi = 'https://n1sharmonypull.azurewebsites.net/api/AssetsPull?code=qQXwJm1YBabl4J8QlK6a2n2/JpY/mTacr66EYRdsZ2i3RfUkAucX4g==';
   ticketsapi = 'https://n1sharmonypull.azurewebsites.net/api/HttpTrigger1?code=lsPvad3uQA6s/pe1imbqoK0egnysVrGlsZXvaFsZ1jc69X6OdKQHcw==';
 
@@ -82,7 +88,7 @@ export class ApifilterService {
         'email': filter.email
       };
     }
-    return this.http.post(this.customersapi, params);
+    return this.http.post(this.customerApi, params);
   }
 
   assetObersvable(filter: Filter): Observable<Assets[]> {
