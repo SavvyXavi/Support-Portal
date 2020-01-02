@@ -1,6 +1,4 @@
 <div class="container wrapper">
-  <h1>Dashboard: {{dashboard}}</h1>
-    {{currentProfile.firstName}}
       <div class="container-fluid">
         <div class="row ">
           <div class="contracts-container total-container col-md">
@@ -20,28 +18,46 @@
           </div>
           <div class="assets-container total-container col-md">
             <a routerLink="/manageassets/assets">
-              <div class="assets-content">
-                {{this.assetLength.length}} <br>
+              <div class="row asset-content">
+                <div class="col asset-length">
+                  {{this.assetLength.length}}
+                </div>
+              </div>
+              <div class="row asset-label justify-content-center">
                 Assets
-                <img src="../../assets/assets.png">
+              </div>
+              <div class="row asset-logo justify-content-end">
+                  <img src="../../assets/assets.png">
               </div>
             </a>
           </div>
           <div class="tickets-container total-container col-md">
             <a routerLink="/manageassets/tickets">
-              <div class="tickets-content">
-                {{this.ticketLength.length}} <br>
+              <div class="row ticket-content">
+                <div class="col ticket-length">
+                  {{this.ticketLength.length}}
+                </div>
+              </div>
+              <div class="row ticket-label justify-content-center">
                 Tickets
-                <img src="../../assets/tickets.png">
+              </div>
+              <div class="row ticket-logo justify-content-end">
+                  <img src="../../assets/tickets.png">
               </div>
             </a>
           </div>
-          <div *ngIf="currentProfile.partnerRole === 'Admin'" class="companies-container total-container col-md">
-            <a routerLink="/admin/companies">
-              <div class="companies-content">
-                {{this.companyLength.length}}<br>
+          <div class="companies-container total-container col-md">
+            <a routerLink="/manageassets/companies">
+              <div class="row companies-content">
+                <div class="col companies-length">
+                  {{this.companyLength.length}}
+                </div>
+              </div>
+              <div class="row companies-label justify-content-center">
                 Companies
-                <img src="../../assets/company3.png">
+              </div>
+              <div class="row ticket-logo justify-content-end">
+                  <img src="../../assets/company3.png">
               </div>
             </a>
           </div>

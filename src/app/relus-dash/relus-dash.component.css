@@ -42,76 +42,90 @@ a {
   text-decoration: none;
 }
 
-.contract-content {
-  overflow: hidden;
+a .contract-length, .contract-label{
   color: black;
-}
+  text-decoration: none;
+ }
 
-.contracts-container {
-  padding-right: 0;
-  overflow: hidden;
-}
+ .contract-content {
+   overflow: hidden;
+   color: black;
+ }
 
-.contracts-container img{
-  opacity: .2;
-  position: relative;
-  left: 50px;
-  top: 10px;
-}
+ .contracts-container {
+   padding-right: 0;
+   padding-bottom: 0;
+   overflow: hidden;
+ }
 
-.assets-container{
-  padding-right: 0;
-}
+ .contract-logo{
+   opacity: .2;
+   position: relative;
+   left: 20px;
+   top: 15px;
+ }
 
-.assets-content {
-  overflow: hidden;
-  Padding-left: 15;
-  padding-right: none !important;
-  color: black;
-}
+ a .asset-length, .asset-label{
+   color: black;
+   text-decoration: none;
+  }
 
-.assets-content img{
-  opacity: .2;
-  position: relative;
-  top: 10px;
-  left: 40px;
-}
+  .asset-content {
+    overflow: hidden;
+    color: black;
+  }
 
-.tickets-container{
-  padding-right: 0;
-}
+  .assets-container {
+    padding-right: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
 
-.tickets-content {
-  overflow: hidden;
-  Padding-left: 15;
-  padding-right: none !important;
-  color: black;
-}
+  .asset-logo{
+    opacity: .2;
+    position: relative;
+    left: 20px;
+    top: 15px;
+  }
 
-.tickets-content img{
-  opacity: .2;
-  position: relative;
-  top: 20px;
-  left: 50px;
-}
+ a .ticket-length, .ticket-label{
+   color: black;
+   text-decoration: none;
+  }
 
-.companies-container{
-  padding-right: 0;
-}
+  .ticket-content {
+    overflow: hidden;
+    color: black;
+  }
 
-.companies-content {
-  overflow: hidden;
-  Padding-left: 15;
-  padding-right: 0;
-  color: black;
-}
+  .tickets-container {
+    padding-right: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
 
-.companies-content img{
-  opacity: .2;
-  position: relative;
-  top: 10px;
-  left: 55px;
-}
+  .ticket-logo{
+    opacity: .2;
+    position: relative;
+    left: 20px;
+    top: 15px;
+  }
+
+  a .companies-length, .companies-label{
+   color: black;
+   text-decoration: none;
+  }
+
+  .companies-content {
+    overflow: hidden;
+    color: black;
+  }
+
+  .companies-container {
+    padding-right: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
 
 .users-container {
   padding-right: 0;
