@@ -6,11 +6,11 @@
 .content {
   margin-top: 40px;
   padding-top: 30px;
+  /* align-items: flex; */
 }
 
 app-alert {
-  left: 50%;
   margin: auto;
-  max-width: 650px;
+  max-width: 500px;
   text-align: center;
 }

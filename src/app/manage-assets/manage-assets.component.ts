@@ -1,5 +1,5 @@
-import { Subscription } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Subscription, merge } from 'rxjs';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Assets } from './models/assets';
 
 import { ApifilterService } from './../services/apifilter.service';
@@ -9,6 +9,10 @@ import { Filter } from '../models/filter';
 import { Profile } from './../login/models/profile';
 import { MatTableDataSource } from '@angular/material/table';
 
+import { MatPaginator, MatSort } from '@angular/material';
+import { startWith, switchMap, map } from 'rxjs/operators';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 @Component({
   selector: 'app-manage-assets',
   templateUrl: './manage-assets.component.html',
@@ -17,12 +21,21 @@ import { MatTableDataSource } from '@angular/material/table';
 
 export class ManageAssetsComponent implements OnInit {
   assets: Assets;
+  assetLength: Assets[];
   currentProfile: Profile;
   filteredProfile: Filter;
   filterSubsciption: Subscription;
 
+  displayedColumns: string[] = ['Name', 'Identifier', 'Description', 'Schedule'];
+
   assetObservable: Assets[];
-  // dataSource = new MatTableDataSource<Assets>(Assets);
+  dataSource: MatTableDataSource<Assets>;
+
+  pagintotal = 0;
+
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
+
   constructor(
     private filter: ApifilterService,
     private authserv: AuthenticationService
@@ -32,11 +45,16 @@ export class ManageAssetsComponent implements OnInit {
           this.filteredProfile = name ;
         }
       );
+
+      // this.dataSource = new MatTableDataSource(Assets);
     }
 
   ngOnInit() {
     this.getAssets();
-    // this.observeAssets();
+    this.assetsCount();
+    // this.paginatingAssets();
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   getAssets() {
@@ -46,6 +64,32 @@ export class ManageAssetsComponent implements OnInit {
         this.assets = returnedAssets;
       }
     );
+  }
+
+  assetsCount() {
+    this.filter.assetsFilter( this.currentProfile)
+  .subscribe(
+    (returnedAssets: Assets[]) => {
+      this.assetLength = returnedAssets;
+    }
+  );
+}
+
+  paginatingAssets() {
+    merge(this.paginator.page)
+    .pipe(
+      startWith({}),
+      switchMap(() => {
+        return this.filter.paginateAssets(
+          this.filteredProfile,
+          this.paginator.pageIndex
+        );
+      }),
+      map((returnedAssets: Assets) => {
+
+        return this.assets = returnedAssets;
+      })
+    ).subscribe((returnedAssets: Assets) => this.assets = returnedAssets);
   }
   // observeAssets() {
   //   this.filter.assetObersvable(this.filteredProfile)

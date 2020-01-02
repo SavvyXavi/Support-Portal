@@ -1,157 +1,283 @@
-<div class="container">
-    <!-- <h1>Welcome to {{dashboard}}'s Dashboard!</h1> -->
-
-    <!-- {{currentProfile.firstName}}  and  {{currentProfile.id}} -->
-    <ul>
-      <li *ngFor="let profile of profiles">
-        {{profile.firstName}}
-      </li>
-    </ul>
-
-    <div class="container">
-      <div class="row ">
-        <div class="contracts-container total-container col-md">
-          <div class="contract-content">
-          0 <br>
-            Contracts
+<div class="container wrapper">
+  <h1>Dashboard: {{dashboard}}</h1>
+    {{currentProfile.firstName}}
+      <div class="container-fluid">
+        <div class="row ">
+          <div class="contracts-container total-container col-md">
+            <a routerLink="/manageassets/contracts">
+              <div class="row contract-content">
+                <div class="col contract-length">
+                  {{this.contractLength.length}}
+                </div>
+              </div>
+              <div class="row contract-label justify-content-center">
+                Contracts
+              </div>
+              <div class="row contract-logo justify-content-end">
+                  <img src="../../assets/contract2.png">
+              </div>
+            </a>
           </div>
-          <img src="../../assets/contract2.png">
+          <div class="assets-container total-container col-md">
+            <a routerLink="/manageassets/assets">
+              <div class="assets-content">
+                {{this.assetLength.length}} <br>
+                Assets
+                <img src="../../assets/assets.png">
+              </div>
+            </a>
+          </div>
+          <div class="tickets-container total-container col-md">
+            <a routerLink="/manageassets/tickets">
+              <div class="tickets-content">
+                {{this.ticketLength.length}} <br>
+                Tickets
+                <img src="../../assets/tickets.png">
+              </div>
+            </a>
+          </div>
+          <div *ngIf="currentProfile.partnerRole === 'Admin'" class="companies-container total-container col-md">
+            <a routerLink="/admin/companies">
+              <div class="companies-content">
+                {{this.companyLength.length}}<br>
+                Companies
+                <img src="../../assets/company3.png">
+              </div>
+            </a>
+          </div>
+          <!-- <div *ngIf="currentProfile.partnerRole === 'Admin'" class="users-container total-container col-md">
+            <a routerLink="/admin/users">
+              <div class="users-content">
+                0 <br>
+                Users
+                <img src="../../assets/users.png">
+              </div>
+            </a>
+          </div> -->
+          <!-- <div class="locations-container total-container col-md">
+            <a routerLink="/admin/locations"><div class="locations-content">
+                0 <br>
+                Locations
+              <img src="../../assets/locations.png">
+            </div>
+          </a>
+            </div> -->
+          </div>
         </div>
-        <div class="assets-container total-container col-md">
-          <div class="assets-content">
-            {{this.contractLength.length}} <br>
-            Assets
-            <img src="../../assets/assets.png">
-          </div>
-        </div>
-        <div class="tickets-container total-container col-md">
-          <div class="tickets-content">
-            0 <br>
-            Tickets
-            <img src="../../assets/tickets.png">
-          </div>
-        </div>
-        <div *ngIf="currentProfile.partnerRole === 'Admin'" class="companies-container total-container col-md">
-          <div class="companies-content">
-            0<br>
-            Companies
-            <img src="../../assets/company3.png">
-          </div>
-        </div>
-        <div *ngIf="currentProfile.partnerRole === 'Admin'" class="users-container total-container col-md">
-          <div class="users-content">
-            0 <br>
-            Users
-            <img src="../../assets/users.png">
-          </div>
-        </div>
-        <div class="locations-container total-container col-md">
-          <div class="locations-content">
-              0 <br>
-              Locations
-            <img src="../../assets/locations.png">
-          </div>
+      <div class="row">
+        <div class="col-md">
+          <div class="container contracts-wrapper">
+            <div class="row">
+              <div class="title col-md">
+                <h3><i class="fa fa-calendar" aria-hidden="true"> </i> Contracts</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="legend col-md">
+                <h6>
+                  <span class="badge badge-now"><p>N</p></span> Now
+                </h6>
+                <h6>
+                  <span class="badge badge-15"><p>N</p></span> 15 Days
+                </h6>
+                <h6>
+                  <span class="badge badge-30"><p>N</p></span> 30 Days
+                </h6>
+                <h6>
+                  <span class="badge badge-60"><p>N</p></span> 60 Days
+                </h6>
+                <h6>
+                  <span class="badge badge-90"><p>N</p></span> 90 Days
+                </h6>
+                <h6>
+                  <span class="badge badge-plus"><p>N</p></span> 90+ Days
+                </h6>
+              </div>
+              <div class="chart col-md">
+                  <canvas id="contracts" width="250" height="250">{{ contractsData }}</canvas>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md">
+                <table class="table">
+                  <tr>
+                    <td>
+                      Now
+                    </td>
+                    <td>
+                      <span class="badge badge-now badge-table">0</span>
+                    </td>
+                    <td>
+                     15 Days
+                    </td>
+                    <td>
+                        <span class="badge badge-15 badge-table">0</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      30 Days
+                    </td>
+                    <td>
+                      <span class="badge badge-30 badge-table">0</span>
+                    </td>
+                    <td>
+                     60 Days
+                    </td>
+                    <td>
+                      <span class="badge badge-60 badge-table">0</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      90 Days
+                    </td>
+                    <td>
+                      <span class="badge badge-90 badge-table">0</span>
+                    </td>
+                    <td>
+                      90+ Days
+                    </td>
+                    <td>
+                      <span class="badge badge-plus badge-table">0</span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
           </div>
         </div>
       </div>
 
-    <div class="container">
-
-      <div class="row">
-
-          <div class="col-md">
-              <div class="card">
-                <div class="card-header">
-                  My Open Cases
-                </div>
-
-                <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                    </tbody>
+        <div class="col-md">
+          <div class="container assets-wrapper">
+            <div class="row">
+              <div class="title col-md">
+                <h3><i class="fa fa-calendar" aria-hidden="true"> </i> Assets</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="legend col-md">
+                <h6>
+                  <span class="badge badge-now"><p>N</p></span> Now
+                </h6>
+                <h6>
+                  <span class="badge badge-15"><p>N</p></span> 15 Days
+                </h6>
+                <h6>
+                  <span class="badge badge-30"><p>N</p></span> 30 Days
+                </h6>
+                <h6>
+                  <span class="badge badge-60"><p>N</p></span> 60 Days
+                </h6>
+                <h6>
+                  <span class="badge badge-90"><p>N</p></span> 90 Days
+                </h6>
+                <h6>
+                  <span class="badge badge-plus"><p>N</p></span> 90+ Days
+                </h6>
+              </div>
+              <div class="chart col-md">
+                  <canvas id="assets" width="250" height="250">{{ assetsChart }}</canvas>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                  <table class="table">
+                    <tr>
+                      <td>
+                        Now
+                      </td>
+                      <td>
+                        <span class="badge badge-now badge-table">0</span>
+                      </td>
+                      <td>
+                       15 Days
+                      </td>
+                      <td>
+                          <span class="badge badge-15 badge-table">0</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        30 Days
+                      </td>
+                      <td>
+                        <span class="badge badge-30 badge-table">0</span>
+                      </td>
+                      <td>
+                       60 Days
+                      </td>
+                      <td>
+                        <span class="badge badge-60 badge-table">0</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        90 Days
+                      </td>
+                      <td>
+                        <span class="badge badge-90 badge-table">0</span>
+                      </td>
+                      <td>
+                        90+ Days
+                      </td>
+                      <td>
+                        <span class="badge badge-plus badge-table">0</span>
+                      </td>
+                    </tr>
                   </table>
-
                 </div>
-            </div>
-
-        <div class="col-md">
-          <div class="card">
-            <div class="card-header">
-              Contracts
-            </div>
-            <div class="card-body">
-              <canvas id="canvas" width="400" height="400">{{ chart }}</canvas>
-
-           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
           </div>
         </div>
-
       </div>
 
       <div class="row">
 
         <div class="col-md">
-          <div class="card">
-            <div class="card-header">
-              My Open Cases
+          <div class="container tickets-wrapper">
+
+          <div class="row">
+            <div class="title col-md">
+              <h3><i class="fas fa-hdd"></i> Tickets</h3>
             </div>
-            <table class="table table-hover">
+          </div>
+          <div class="row">
+            <div class="col-md">
+             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Count</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                  <td scope="row">New</td>
+                  <td>0</td>
                 </tr>
                 <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
+                  <td scope="row">Pending</td>
+                  <td>0</td>
                 </tr>
                 <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
+                  <td scope="row">Closed</td>
+                  <td>0</td>
                 </tr>
               </tbody>
             </table>
-        </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="view-wrapper col-md">
+              <Button routerLink="/manageassets/tickets" class="btn btn-info"> View All</Button>
+            </div>
+          </div>
+
+          </div>
       </div>
 
+      </div>
 
         <div class="col-md">
           <div class="card">
@@ -189,7 +315,4 @@
             </table>
         </div>
       </div>
-    </div>
-    </div>
-
     </div>

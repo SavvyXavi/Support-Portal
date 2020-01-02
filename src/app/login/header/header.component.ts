@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
         case 'NorthSmart (Northland)':
           this.router.navigate(['/northdash']);
         break;
-        case 'Noble1 Solutions':
+        case 'Noble1 Solutions' || 'RAC King LLC' || 'Colwick Travel' || 'xByte Technologies':
           this.router.navigate(['/dashboard']);
         break;
         case 'Reliant Technology':

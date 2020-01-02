@@ -1,41 +1,55 @@
+
 .col-md {
   margin-bottom: 15px;
   margin-top: 15px;
 }
 
-.container {
+.wrapper {
+  margin: 0 !important;
+  padding-top: 20px;
+}
+
+.container-fluid {
   background-color: #d9d9d9;
   margin: 0;
   padding: 0;
-}
-
-.card {
-  border-radius: 8px;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);
+  margin-top: 10px;
 }
 
 .total-container {
   background-color: white;
   border-radius: 8px;
-  margin: 10px;
+  margin: 15px;
   font-size: 32px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+a .contract-length, .contract-label{
+ color: black;
+ text-decoration: none;
 }
 
 .contract-content {
   overflow: hidden;
+  color: black;
 }
 
 .contracts-container {
   padding-right: 0;
+  padding-bottom: 0;
   overflow: hidden;
 }
 
-.contracts-container img{
+.contract-logo{
   opacity: .2;
   position: relative;
-  left: 50px;
-  top: 10px;
+  left: 20px;
+  top: 15px;
 }
 
 .assets-container{
@@ -46,6 +60,7 @@
   overflow: hidden;
   Padding-left: 15;
   padding-right: none !important;
+  color: black;
 }
 
 .assets-content img{
@@ -63,6 +78,7 @@
   overflow: hidden;
   Padding-left: 15;
   padding-right: none !important;
+  color: black;
 }
 
 .tickets-content img{
@@ -80,21 +96,24 @@
   overflow: hidden;
   Padding-left: 15;
   padding-right: 0;
+  color: black;
 }
 
 .companies-content img{
   opacity: .2;
   position: relative;
   top: 10px;
-  left: 52px;
+  left: 55px;
 }
 
 .users-container {
   padding-right: 0;
 }
+
 .users-content {
   overflow: hidden;
   Padding-left: 15;
+  color: black;
 }
 
 .users-content img{
@@ -110,6 +129,7 @@
 
 .locations-content {
   overflow: hidden;
+  color: black;
 }
 
 .locations-content img{
@@ -117,5 +137,65 @@
   position: relative;
   top: 20px;
   left: 60px;
+}
+
+
+.contracts-wrapper {
+  background: white;
+  border-radius: 8px;
+}
+
+.badge {
+  width: 15px;
+  height: 15px;
+  color: white;
+}
+
+.badge-table {
+  width: 30px !important;
+  padding-bottom: 3px;
+}
+
+p {
+  display: none;
+}
+
+.badge-now {
+  background-color: red;
+  text-align: center;
+}
+
+.badge-15 {
+  background-color: purple;
+}
+
+.badge-30 {
+  background-color: orange;
+}
+
+.badge-60 {
+  background-color: teal;
+}
+
+.badge-90 {
+  background-color: blue;
+}
+
+.badge-plus {
+  background-color: green;
+}
+
+.assets-wrapper {
+  background: white;
+  border-radius: 8px;
+}
+
+.tickets-wrapper {
+  background: white;
+  border-radius: 8px;
+}
+
+.view-wrapper {
+  text-align: center;
 }
 
