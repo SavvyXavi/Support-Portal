@@ -24,10 +24,15 @@
 
 .table-container {
 margin-right: 30px;
+border-radius: 8px;
+-moz-border-radius: 8px;
 }
 
 table {
-  border: 3px solid black;
+  border: solid black;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-collapse: separate;
 }
 
 th {
