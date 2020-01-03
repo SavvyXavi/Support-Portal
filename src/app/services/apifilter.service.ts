@@ -90,10 +90,6 @@ export class ApifilterService {
     }
   }
 
-  // contractByRef(refNumber: string): Observable<Contracts> {
-  //   return of(this.contracts.find((contract: Contracts) => contract.refNumber === refNumber));
-  // }
-
   customerFilter(filter: Filter) {
     let params;
     if (filter.partnerRole === 'Admin') {
