@@ -73,9 +73,9 @@ contractsapi = 'https://n1sharmonypull.azurewebsites.net/api/ContractsPull?code=
     return this.http.post(this.contractsapi, params);
   }
 
-  contractByRef(refNumber: string): Observable<Contracts> {
-    return of(this.contracts.find((contract: Contracts) => contract.refNumber === refNumber));
-  }
+  // contractByRef(refNumber: string): Observable<Contracts> {
+  //   return of(this.contracts.find((contract: Contracts) => contract.refNumber === refNumber));
+  // }
 
   customerFilter(filter: Filter) {
     let params;
