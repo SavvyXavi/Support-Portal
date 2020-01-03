@@ -1,6 +1,6 @@
 import { AuthenticationService } from './../login/services/authentication.service';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import { Profile } from '../login/models/profile';
 import { ProfileService } from '../login/services/profile.service';
@@ -9,6 +9,7 @@ import { Filter } from './../models/filter';
 import { Partner } from './../types/partner.enum';
 import { Role } from '../types/role.enum';
 import { Assets } from '../manage-assets/models/assets';
+import { Contracts } from './../manage-assets/models/contracts';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -70,6 +71,9 @@ contractsapi = 'https://n1sharmonypull.azurewebsites.net/api/ContractsPull?code=
       'partner': filter.partner
     };
     return this.http.post(this.contractsapi, params);
+  }
+  contractByRef(refNumber: string): Contracts {
+    return of(find)
   }
 
   customerFilter(filter: Filter) {

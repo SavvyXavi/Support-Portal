@@ -1,10 +1,10 @@
-<div *ngIf="contracts" class="container detail-container">
+<div *ngIf="contract" class="container detail-container">
   <div>
-    <h3>Contract Name: {{contracts.scheduleName}}</h3>
+    <h3>Contract Name: {{contract.scheduleName}}</h3>
   </div>
   <div>
     <label>Contract Number:
-      <input [(ngModel)]="contracts.refNumber" placeholder="Contract Number"/>
+      <input [(ngModel)]="contract.refNumber" placeholder="Contract Number"/>
     </label>
   </div>
 </div>

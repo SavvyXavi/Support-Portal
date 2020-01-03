@@ -131,7 +131,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'contractdetail/:refNumber',
+    path: 'contractdetail/:RefNumber',
     component: ContractDetailComponent,
     canActivate: [AuthGuard]
   },

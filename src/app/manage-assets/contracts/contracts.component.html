@@ -17,21 +17,19 @@
       <th>Start Date</th>
       <th>Service Ends</th>
       <th>Status</th>
-      <th>Archived</th>
      </tr>
   </thead>
    <tr *ngFor='let data of contracts'>
     <td>
-      <a routerLink="/contractdetail/{{data.refNumber}}" class="contract-link">{{data.ScheduleName}}</a>
+      <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</a>
     </td>
     <td>{{data.EndCustomerName}}</td>
     <td>
-      <a routerLink="/contractdetail/{{data.refNumber}}" class="contract-link">{{data.RefNumber}}</a>
+      <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.RefNumber}}</a>
     </td>
     <td>{{data.StartDate}}</td>
     <td>{{data.RenewalDate}}</td>
     <td>{{data.Status}}</td>
-    <td>{{data.Archived}}</td>
    </tr>
  </table>
 </div>
