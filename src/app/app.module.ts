@@ -47,6 +47,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ResetUserComponent } from './reset-user/reset-user.component';
+import { ContractDetailComponent } from './contract-detail/contract-detail.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { ResetUserComponent } from './reset-user/reset-user.component';
     SettingsComponent,
     CustomersComponent,
     ForgopassComponent,
-    ResetUserComponent
+    ResetUserComponent,
+    ContractDetailComponent
   ],
   imports: [
     BrowserModule,

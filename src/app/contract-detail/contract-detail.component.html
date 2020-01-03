@@ -1,0 +1,10 @@
+<div *ngIf="contract" class="container detail-container">
+  <div>
+    <h3>Contract Name: {{contract.scheduleName}}</h3>
+  </div>
+  <div>
+    <label>Contract Number:
+      <input [(ngModel)]="contract.refNumber" placeholder="Contract Number"/>
+    </label>
+  </div>
+</div>

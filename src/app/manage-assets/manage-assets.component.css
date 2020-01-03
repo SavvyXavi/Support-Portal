@@ -27,7 +27,10 @@ margin-right: 30px;
 }
 
 table {
-  border: 3px solid black;
+  border: solid black;
+  border-radius: 8px !important;
+  -moz-border-radius: 8px;
+  border-collapse: separate;
 }
 
 th {
