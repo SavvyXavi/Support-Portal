@@ -20,7 +20,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class ApifilterService {
-
+  contracts: Contracts;
   profile: Profile;
 
   partnerList = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
@@ -72,8 +72,9 @@ contractsapi = 'https://n1sharmonypull.azurewebsites.net/api/ContractsPull?code=
     };
     return this.http.post(this.contractsapi, params);
   }
-  contractByRef(refNumber: string): Contracts {
-    return of(find)
+
+  contractByRef(refNumber: string): Observable<Contracts> {
+    return of(this.contracts.find((contract: Contracts) => contract.refNumber === refNumber));
   }
 
   customerFilter(filter: Filter) {
