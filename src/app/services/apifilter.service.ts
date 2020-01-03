@@ -29,8 +29,10 @@ export class ApifilterService {
 // customersapi =
 // 'https://n1sharmonypull.azurewebsites.net/api/GetCompanies?code=vQsPGD8KR7cHjSP0hENehP9P3v5LKn7eY4JsmO9ALdB4Bc0a99Nmhg==';
 
-contractsapi = 'https://n1sharmonypull.azurewebsites.net/api/ContractsPull?code=exD/Xcz5HraenO9WyxGEyB7HloKBbOO2GJ5Xo1CwVO6T6pv9Q/Fl8A==';
-  assetsapi = 'https://n1sharmonypull.azurewebsites.net/api/AssetsPull?code=qQXwJm1YBabl4J8QlK6a2n2/JpY/mTacr66EYRdsZ2i3RfUkAucX4g==';
+
+  contractsapi = 'https://n1sharmonypull.azurewebsites.net/api/ContractsPull?code=exD/Xcz5HraenO9WyxGEyB7HloKBbOO2GJ5Xo1CwVO6T6pv9Q/Fl8A==';
+  assetsapi = 'https://prodharmony.azurewebsites.net/api/PartnerPullAssets?code=BmCsQrHGSIvMr1oFRw7T6kj7/a2H/x8GeOadWjmvZgSeaRwCqZGE9g==';
+// assetsapi = 'https://n1sharmonypull.azurewebsites.net/api/AssetsPull?code=qQXwJm1YBabl4J8QlK6a2n2/JpY/mTacr66EYRdsZ2i3RfUkAucX4g==';
   ticketsapi = 'https://n1sharmonypull.azurewebsites.net/api/HttpTrigger1?code=lsPvad3uQA6s/pe1imbqoK0egnysVrGlsZXvaFsZ1jc69X6OdKQHcw==';
 
   constructor(
@@ -73,9 +75,9 @@ contractsapi = 'https://n1sharmonypull.azurewebsites.net/api/ContractsPull?code=
     return this.http.post(this.contractsapi, params);
   }
 
-  contractByRef(refNumber: string): Observable<Contracts> {
-    return of(this.contracts.find((contract: Contracts) => contract.refNumber === refNumber));
-  }
+  // contractByRef(refNumber: string): Observable<Contracts> {
+  //   return of(this.contracts.find((contract: Contracts) => contract.refNumber === refNumber));
+  // }
 
   customerFilter(filter: Filter) {
     let params;
