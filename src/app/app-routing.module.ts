@@ -24,6 +24,8 @@ import { ListsComponent } from './manage-assets/lists/lists.component';
 import { OemComponent } from './admin/oem/oem.component';
 import { BudgetComponent } from './budget/budget.component';
 import { CustomersComponent } from './admin/customers/customers.component';
+import { ContractDetailComponent } from './contract-detail/contract-detail.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -126,6 +128,11 @@ const routes: Routes = [
   {
     path: 'manageassets/contracts',
     component: ContractsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'contractdetail/:refNumber',
+    component: ContractDetailComponent,
     canActivate: [AuthGuard]
   },
   {

@@ -11,7 +11,6 @@
 <table class="table table-bordered rounded">
   <thead>
    <tr>
-      <!-- <th>Financial Counter Party</th> -->
       <th>Contract Name</th>
       <th>Customer</th>
       <th>Contract#</th>
@@ -22,10 +21,13 @@
      </tr>
   </thead>
    <tr *ngFor='let data of contracts'>
-    <!-- <td>{{data.FinancialCounterPartyName}}</td> -->
-    <td>{{data.ScheduleName}}</td>
+    <td>
+      <a routerLink="/contractdetail/{{data.refNumber}}" class="contract-link">{{data.ScheduleName}}</a>
+    </td>
     <td>{{data.EndCustomerName}}</td>
-    <td>{{data.RefNumber}}</td>
+    <td>
+      <a routerLink="/contractdetail/{{data.refNumber}}" class="contract-link">{{data.RefNumber}}</a>
+    </td>
     <td>{{data.StartDate}}</td>
     <td>{{data.RenewalDate}}</td>
     <td>{{data.Status}}</td>
