@@ -79,7 +79,7 @@ export class ApifilterService {
   contractsFilter(filter: Filter) {
     let i;
     for (i = 0; i < this.partnerlist.length; i++) {
-      if ( filter.partner == this.partnerlist[i].CompanyName ) {
+      if ( this.partnerlist[i].CompanyName.valueOf() === filter.partner ) {
         return this.http.post(this.pContractsApi, filter);
       } else
       if ( filter.partner !== this.partnerlist[i].CompanyName ) {
