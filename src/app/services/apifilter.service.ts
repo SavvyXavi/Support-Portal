@@ -81,10 +81,9 @@ export class ApifilterService {
     for (i = 0; i < this.partnerlist.length; i++) {
       if ( this.partnerlist[i].CompanyName == filter.partner ) {
         return this.http.post(this.pContractsApi, filter);
-      } else if (this.partnerlist[i].CompanyName !== filter.partner) {
-        return this.http.post(this.cContractsApi, filter.partner);
       } else {
-        console.log('Company: ' + filter.partner + 'not recognized!');
+        console.log(filter.partner + ' is not a partner!');
+        return this.http.post(this.cContractsApi, filter.partner);
       }
     }
   }
