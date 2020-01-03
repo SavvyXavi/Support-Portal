@@ -22,7 +22,7 @@ export const PartnerList: Partner[] = [
   },  {
     'AccountID': 'Part-010', 'CompanyName': 'Plurium Technologies'
   },  {
-    'AccountID': 'Part-011','CompanyName': 'Pro Network LLC'
+    'AccountID': 'Part-011', 'CompanyName': 'Pro Network LLC'
   },  {
     'AccountID': 'Part-012', 'CompanyName': 'Pyramid Technology Services, Inc'
   },  {
