@@ -58,8 +58,8 @@ export class ReliantDashComponent implements OnInit {
       this.filter.partnerCheck(this.currentProfile)
       .subscribe(
         (returnedPartners: Partner) => {
-          this.partner = returnedPartners;
-          console.log('Partner Listing 4: ' + this.partner);
+          this.partner.CompanyName = returnedPartners.CompanyName;
+          console.log('Partner Listing 5: ' + this.partner.CompanyName);
         }
       );
      }
