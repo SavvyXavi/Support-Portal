@@ -79,7 +79,7 @@ export class ReliantDashComponent implements OnInit {
   // }
 
   contractsCount() {
-    if (this.partner.CompanyName.includes(this.currentProfile.partner)) {
+    if (JSON.stringify(this.partner.CompanyName.includes(this.currentProfile.partner))) {
       this.filter.contractsFilter(this.currentProfile)
       .subscribe(
         (returnedContractsLength: Contracts[]) => {
@@ -88,13 +88,7 @@ export class ReliantDashComponent implements OnInit {
       );
       console.log('Partners: ' + this.partner.CompanyName);
     } else {
-      this.filter.custConFilter(this.currentProfile)
-      .subscribe(
-        (returnedContractsLength: Contracts[]) => {
-          this.contractLength = returnedContractsLength;
-        }
-      )
-      console.log('Welcome customer: ' + this.currentProfile.partner);
+      console.log('No Partner Found!');
     }
   }
 
