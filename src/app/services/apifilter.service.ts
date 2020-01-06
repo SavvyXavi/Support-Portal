@@ -93,9 +93,17 @@ export class ApifilterService {
       return this.http.post(this.cContractsApi, params);
     }
 
-  partnerCheck() {
-    return this.http.get(this.partnerApi);
+  partnerCheck(filter: Filter) {
+    const params = {
+      'partner': filter.partner
+    };
+    return this.http.post(this.partnerApi, params);
   }
+
+  // async partnerCheck() {
+  //   const response = await fetch(this.partnerApi);
+  //   const data: Partner = await response.json();
+  // }
 
   customerFilter(filter: Filter) {
     let params;

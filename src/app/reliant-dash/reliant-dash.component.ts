@@ -55,11 +55,11 @@ export class ReliantDashComponent implements OnInit {
           this.currentProfile = profile;
         }
       );
-      this.filter.partnerCheck()
+      this.filter.partnerCheck(this.currentProfile)
       .subscribe(
         (returnedPartners: Partner) => {
           this.partner = returnedPartners;
-          console.log('Partner Listing 4: ' + JSON.stringify(this.partner));
+          console.log('Partner Listing 4: ' + this.partner);
         }
       );
      }
@@ -79,17 +79,17 @@ export class ReliantDashComponent implements OnInit {
   // }
 
   contractsCount() {
-    if (JSON.stringify(this.partner.CompanyName.includes(this.currentProfile.partner))) {
-      this.filter.contractsFilter(this.currentProfile)
-      .subscribe(
-        (returnedContractsLength: Contracts[]) => {
-          this.contractLength = returnedContractsLength;
-        }
-      );
-      console.log('Partners: ' + this.partner.CompanyName);
-    } else {
-      console.log('No Partner Found!');
-    }
+    // if (JSON.stringify(this.partner.CompanyName.includes(this.currentProfile.partner))) {
+    //   this.filter.contractsFilter(this.currentProfile)
+    //   .subscribe(
+    //     (returnedContractsLength: Contracts[]) => {
+    //       this.contractLength = returnedContractsLength;
+    //     }
+    //   );
+    //   console.log('Partners: ' + this.partner.CompanyName);
+    // } else {
+    //   console.log('No Partner Found!');
+    // }
   }
 
   assetsCount() {
