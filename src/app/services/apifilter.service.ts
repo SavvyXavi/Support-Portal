@@ -27,8 +27,6 @@ export class ApifilterService {
   partner: Partner;
   partnerlist = PartnerList;
 
-  // partnerListapi = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
-
   customerApi = 'https://prodharmony.azurewebsites.net/api/CompanyByPartner?code=a7VaewYNOND36Oo0A85ezo9m4bvmkQAzZPtOIfp3dPO/SROa2pE/dA==';
 // customersapi =
 // 'https://n1sharmonypull.azurewebsites.net/api/GetCompanies?code=vQsPGD8KR7cHjSP0hENehP9P3v5LKn7eY4JsmO9ALdB4Bc0a99Nmhg==';
@@ -93,11 +91,8 @@ export class ApifilterService {
       return this.http.post(this.cContractsApi, params);
     }
 
-  partnerCheck(filter: Filter) {
-    const params = {
-      'partner': filter.partner
-    };
-    return this.http.post(this.partnerApi, params);
+  getPartners(): Partner[] {
+    return this.partnerlist;
   }
 
   // async partnerCheck() {

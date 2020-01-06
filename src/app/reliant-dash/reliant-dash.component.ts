@@ -56,13 +56,15 @@ export class ReliantDashComponent implements OnInit {
           this.currentProfile = profile;
         }
       );
-      this.filter.partnerCheck(this.currentProfile)
-      .subscribe(
-        (returnedPartners: Partner[]) => {
-          this.partner = returnedPartners;
-          console.log('Partner Listing 1: ' + this.partner);
-        }
-      );
+      this.partner = this.filter.getPartners();
+      console.log('Partners: ' + this.partner);
+      // this.filter.partnerCheck(this.currentProfile)
+      // .subscribe(
+      //   (returnedPartners: Partner[]) => {
+      //     this.partner = returnedPartners;
+      //     console.log('Partner Listing 1: ' + this.partner.);
+      //   }
+      // );
      }
 
   ngOnInit() {
