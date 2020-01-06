@@ -29,21 +29,10 @@ export class ApifilterService {
 
   // partnerListapi = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
 
-partner1 = 'https://nasupport.harmonypsa.com/webapi/v1/companies/getcustomers'
-partner2 = '?filter=%7B%20%20%20%22pageno%22%3A%201%2C%20%20%20%22pagesize%22%3A%201000%2C%20%20%20%22filt';
-partner3 = 'ers%22%3A%20%5B%20%20%20%20%20%7B%20%20%20%20%20%20%20%22field%22%3A%20%22';
-partner4 = 'AccountID%22%2C%20%20%20%20%20%20%20%22op%22%3A%20%22cn%22%2C%20%20%20%20%20%20';
-partner5 = '%20%22data%22%3A%20%22Part-%22%2C%20%20%20%20%20%7D%20%20%20%5D%2C%20%20%20%22filterop%22%3A%20%22';
-partner6 = 'AND%22%2C%20%20%20%22sortcolumn%22%3A%20%22string%22%2C%20%20%20%22sortorder%22%3A%20%22Asc%22%2C%20%20%20%22';
-partner7 = 'resulttype%22%3A%20%22Json%22%2C%20%20%20%22gridcolumns%22%3A%20%22CompanyName%22%20%7D&api_key=81756df42a7f4766b58a4523357'
-partner8 = 'a8ed9';
-partnerApi = this.partner1 + this.partner2 + this.partner3 + this.partner5 + this.partner6 + this.partner7 + this.partner8;
-
-
   customerApi = 'https://prodharmony.azurewebsites.net/api/CompanyByPartner?code=a7VaewYNOND36Oo0A85ezo9m4bvmkQAzZPtOIfp3dPO/SROa2pE/dA==';
 // customersapi =
 // 'https://n1sharmonypull.azurewebsites.net/api/GetCompanies?code=vQsPGD8KR7cHjSP0hENehP9P3v5LKn7eY4JsmO9ALdB4Bc0a99Nmhg==';
-  // partnerApi = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
+  partnerApi = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
 
   pContractsApi =
   'https://prodharmony.azurewebsites.net/api/ContractsByPartner?code=GCrRyi4Y8rxCQ6mKJzLXYhROqECUR1clXjK9AdqhMEXEdOFPCqK8WA==';

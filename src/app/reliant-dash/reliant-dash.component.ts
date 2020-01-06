@@ -33,7 +33,6 @@ export class ReliantDashComponent implements OnInit {
   partner: Partner;
   partnerSubscription: Subscription;
 
-  jsonbody: any;
 
   contractLength: Contracts[];
   assetLength: Assets[];
@@ -60,8 +59,8 @@ export class ReliantDashComponent implements OnInit {
       this.filter.partnerCheck(this.currentProfile)
       .subscribe(
         (returnedPartners: Partner) => {
-          this.jsonbody = returnedPartners;
-          console.log('Partner Listing 5: ' + this.jsonbody.CompanyName);
+          this.partner = returnedPartners;
+          console.log('Partner Listing 6: ' + this.partner.CompanyName);
         }
       );
      }
