@@ -86,21 +86,21 @@ export class ReliantDashComponent implements OnInit {
       .subscribe(
         partner  => this.partner = partner
       );
-      console.log('Pull 4: ' + this.partner.CompanyName);
+      console.log('Pull 5: ' + this.partner.CompanyName);
   }
 
   contractsCount() {
-    // if (JSON.stringify(this.partner.CompanyName.includes(this.currentProfile.partner))) {
-    //   this.filter.contractsFilter(this.currentProfile)
-    //   .subscribe(
-    //     (returnedContractsLength: Contracts[]) => {
-    //       this.contractLength = returnedContractsLength;
-    //     }
-    //   );
-    //   console.log('Partners: ' + this.partner.CompanyName);
-    // } else {
-    //   console.log('No Partner Found!');
-    // }
+    if (this.partner.CompanyName) {
+      this.filter.contractsFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Partners: ' + this.partner.CompanyName);
+    } else {
+      console.log('No Partner Found!');
+    }
   }
 
   assetsCount() {
