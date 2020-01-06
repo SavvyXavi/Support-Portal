@@ -75,10 +75,14 @@ export class ReliantDashComponent implements OnInit {
   getPartners() {
     this.filter.partnerCheck()
     .subscribe(
-      (returnedPartners: Partner) =>
-      this.partner = returnedPartners
+      (returnedPartners: Partner) => {
+        this.partner = returnedPartners;
+        console.log('Partner Listing 3: ' + this.partner);
+      }
+
+
+
     );
-    console.log('Partner Listing 2: ' + this.partner);
   }
 
   contractsCount() {
