@@ -82,24 +82,19 @@ export class ApifilterService {
       'role': filter.partnerRole,
       'partner': filter.partner
     };
-
-    this.partnerCheck()
-    .subscribe(
-      (returnedPartners: Partner) => {
-        this.partner = returnedPartners;
-      }
-    );
-    if ( this.partner.CompanyName.includes(params.partner) ) {
       return this.http.post(this.pContractsApi, params);
-    } else {
-      console.log(params.partner + ' is not a partner!');
     }
 
-
+    custConFilter(filter: Filter) {
+      const params = {
+        'role': filter.partnerRole,
+        'partner': filter.partner
+      };
+      return this.http.post(this.cContractsApi, params);
     }
 
-  partnerCheck() {
-    return this.http.get(this.partnerApi);
+  partnerCheck(): Observable<Partner[]> {
+    return this.http.get<Partner[]>(this.partnerApi);
   }
 
   customerFilter(filter: Filter) {

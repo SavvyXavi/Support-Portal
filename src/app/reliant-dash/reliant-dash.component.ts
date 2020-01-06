@@ -1,4 +1,3 @@
-import { ApifilterService } from './../services/apifilter.service';
 import { Component, OnInit } from '@angular/core';
 import { Profile } from './../login/models/profile';
 import { Tickets } from './../manage-assets/models/tickets';
@@ -11,11 +10,13 @@ import { FuncappService } from './../services/funcapp.service';
 import { AuthenticationService } from './../login/services/authentication.service';
 import { ProfileService } from './../login/services/profile.service';
 import { ApiCallService } from './../manage-assets/services/api-call.service';
+import { ApifilterService } from './../services/apifilter.service';
 
 import { Contracts } from '../manage-assets/models/contracts';
 import { Customer } from '../admin/models/customer';
 import { Contract } from '../models/contract';
 import { Chart } from 'chart.js';
+import { Partner } from './../models/partner';
 
 @Component({
   selector: 'app-reliant-dash',
@@ -28,7 +29,9 @@ export class ReliantDashComponent implements OnInit {
   currentProfileSubscription: Subscription;
   profiles: Profile[];
 
-  dashboard = 'Reliant';
+  partnerArr: Partner;
+  partner: Partner[];
+  partnerSubscription: Subscription;
 
   contractLength: Contracts[];
   assetLength: Assets[];
@@ -52,6 +55,13 @@ export class ReliantDashComponent implements OnInit {
           this.currentProfile = profile;
         }
       );
+      this.partnerSubscription = this.filter.partnerCheck()
+      .subscribe(
+        (returnedPartners: Partner[]) => {
+          this.partner = returnedPartners;
+        }
+      );
+
      }
 
   ngOnInit() {
@@ -69,12 +79,31 @@ export class ReliantDashComponent implements OnInit {
   // }
 
   contractsCount() {
-    this.filter.contractsFilter(this.currentProfile)
-    .subscribe(
-      (returnedContractsLength: Contracts[]) => {
-        this.contractLength = returnedContractsLength;
-      }
-    );
+    console.log(this.partner);
+  //  this.partnerArr = this.partner.map(array => {
+  //     this.partnerArr.AccountID = array.AccountID;
+  //     this.partnerArr.CompanyName = array.CompanyName;
+  //  }
+  //    );
+
+    // if (this.partner.filter(this.currentProfile.partner)) {
+    //   this.filter.contractsFilter(this.currentProfile)
+    //   .subscribe(
+    //     (returnedContractsLength: Contracts[]) => {
+    //       this.contractLength = returnedContractsLength;
+    //     }
+    //   );
+    //   console.log('Welcome ' + this.currentProfile.partner + '!');
+    // } else {
+    //   this.filter.custConFilter(this.currentProfile)
+    //   .subscribe(
+    //     (returnedContractsLength: Contracts[]) => {
+    //       this.contractLength = returnedContractsLength;
+    //     }
+    //   )
+    //   console.log('Welcome customer: ' + this.currentProfile.partner);
+    // }
+
   }
 
   assetsCount() {
