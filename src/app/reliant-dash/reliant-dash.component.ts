@@ -79,7 +79,7 @@ export class ReliantDashComponent implements OnInit {
   // }
 
   contractsCount() {
-    console.log(this.partner);
+    console.log('Partner list:' + this.partner);
   //  this.partnerArr = this.partner.map(array => {
   //     this.partnerArr.AccountID = array.AccountID;
   //     this.partnerArr.CompanyName = array.CompanyName;
