@@ -77,15 +77,26 @@ export class ApifilterService {
   }
 
   contractsFilter(filter: Filter) {
-    let i;
-    for (i = 0; i < this.partnerlist.length; i++) {
-      if ( this.partnerlist[i].CompanyName == filter.partner ) {
-        return this.http.post(this.pContractsApi, filter);
-      } else {
-        console.log('Company: ' + filter.partner + 'not recognized!');
-
-      }
+    function findPartner (partnerfilter: Filter) {
+      PartnerList.find(partner =>
+        partner.CompanyName == filter.partner);
     }
+    for (let i = 0; i < PartnerList.length; i++) {
+
+    if (partner.CompanyName[i]) {
+
+    }
+    }
+
+
+    // let i;
+    // for (i = 0; i < this.partnerlist.length; i++) {
+    //    if ( this.partnerlist[i].CompanyName == filter.partner ) {
+    //     return this.http.post(this.pContractsApi, filter);
+    //   } else {
+    //     console.log('Company: ' + filter.partner + 'not recognized!');
+    //   }
+    // }
   }
 
   customerFilter(filter: Filter) {
