@@ -79,12 +79,7 @@ export class ReliantDashComponent implements OnInit {
   // }
 
   contractsCount() {
-    console.log('Partner list:' + this.partner);
-  //  this.partnerArr = this.partner.map(array => {
-  //     this.partnerArr.AccountID = array.AccountID;
-  //     this.partnerArr.CompanyName = array.CompanyName;
-  //  }
-  //    );
+    console.log('Partner List: ' + this.partner);
 
     // if (this.partner.filter(this.currentProfile.partner)) {
     //   this.filter.contractsFilter(this.currentProfile)
@@ -103,7 +98,6 @@ export class ReliantDashComponent implements OnInit {
     //   )
     //   console.log('Welcome customer: ' + this.currentProfile.partner);
     // }
-
   }
 
   assetsCount() {
