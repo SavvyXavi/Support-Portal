@@ -76,7 +76,7 @@ export class ReliantDashComponent implements OnInit {
     .subscribe(
       (returnedPartners: Partner) =>
       this.partner = returnedPartners
-    )
+    );
   }
 
   contractsCount() {
