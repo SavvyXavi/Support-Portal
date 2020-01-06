@@ -86,7 +86,7 @@ export class ReliantDashComponent implements OnInit {
       .subscribe(
         partner  => this.partner = partner
       );
-      console.log('Pull 3: ' + this.partner);
+      console.log('Pull 4: ' + this.partner.CompanyName);
   }
 
   contractsCount() {
