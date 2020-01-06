@@ -30,7 +30,7 @@ export class ReliantDashComponent implements OnInit {
   profiles: Profile[];
 
   partnerArr: Partner;
-  partner: Partner;
+  partner: Partner[];
   partnerSubscription: Subscription;
 
 
@@ -58,9 +58,9 @@ export class ReliantDashComponent implements OnInit {
       );
       this.filter.partnerCheck(this.currentProfile)
       .subscribe(
-        (returnedPartners: Partner) => {
+        (returnedPartners: Partner[]) => {
           this.partner = returnedPartners;
-          console.log('Partner Listing 6: ' + this.partner.CompanyName);
+          console.log('Partner Listing 1: ' + this.partner);
         }
       );
      }
