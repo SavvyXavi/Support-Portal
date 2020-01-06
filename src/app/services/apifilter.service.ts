@@ -91,8 +91,8 @@ export class ApifilterService {
       return this.http.post(this.cContractsApi, params);
     }
 
-  getPartners(): Partner[] {
-    return this.partnerlist;
+  getPartners(): Observable<Partner[]> {
+    return of(this.partnerlist);
   }
 
   // async partnerCheck() {

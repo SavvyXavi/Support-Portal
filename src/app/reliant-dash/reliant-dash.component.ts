@@ -56,8 +56,7 @@ export class ReliantDashComponent implements OnInit {
           this.currentProfile = profile;
         }
       );
-      this.partner = this.filter.getPartners();
-      console.log('Partners: ' + this.partner);
+
       // this.filter.partnerCheck(this.currentProfile)
       // .subscribe(
       //   (returnedPartners: Partner[]) => {
@@ -68,6 +67,7 @@ export class ReliantDashComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.getPartners();
     this.contractsChart();
     this.assetsChart();
     this.displayData();
@@ -80,6 +80,14 @@ export class ReliantDashComponent implements OnInit {
   // ngOnDestroy() {
   //   this.currentProfileSubscription.unsubscribe();
   // }
+
+  getPartners() {
+    this.filter.getPartners()
+      .subscribe(
+        partners  => this.partner = partners
+      );
+      console.log('Pull 1: ' + this.partner);
+  }
 
   contractsCount() {
     // if (JSON.stringify(this.partner.CompanyName.includes(this.currentProfile.partner))) {
