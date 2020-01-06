@@ -79,7 +79,8 @@ export class ReliantDashComponent implements OnInit {
   // }
 
   contractsCount() {
-    console.log('Partner Listing: ' + this.partner);
+    console.log('Partner List: ' + this.partner);
+    console.log(this.currentProfile);
 
     // if (this.partner.filter(this.currentProfile.partner)) {
     //   this.filter.contractsFilter(this.currentProfile)
