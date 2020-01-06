@@ -61,7 +61,7 @@ export class ReliantDashComponent implements OnInit {
       .subscribe(
         (returnedPartners: Partner) => {
           this.jsonbody = returnedPartners;
-          console.log('Partner Listing 5: ' + this.jsonbody);
+          console.log('Partner Listing 5: ' + this.jsonbody.CompanyName);
         }
       );
      }
