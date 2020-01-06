@@ -29,7 +29,6 @@ export class ReliantDashComponent implements OnInit {
   currentProfileSubscription: Subscription;
   profiles: Profile[];
 
-  partnerArr: Partner;
   partner: Partner;
   partnerSubscription: Subscription;
 

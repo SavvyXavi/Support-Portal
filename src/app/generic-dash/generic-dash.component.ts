@@ -13,9 +13,11 @@ import { Subscription } from 'rxjs';
 import { map, first } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 
+import { Partner } from './../models/partner';
 import { Contracts } from './../manage-assets/models/contracts';
 import { Customer } from './../admin/models/customer';
 import { Contract } from './../models/contract';
+
 @Component({
   selector: 'app-generic-dash',
   templateUrl: './generic-dash.component.html',
@@ -31,6 +33,8 @@ export class GenericDashComponent implements OnInit {
   assetLength: Assets[];
   ticketLength: Tickets[];
   companyLength: Customer[];
+
+  partner: Partner;
 
   contractsData = [];
   assetsData = [];
@@ -52,6 +56,7 @@ export class GenericDashComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.getPartners();
     this.contractsChart();
     this.assetsChart();
     this.displayData();
@@ -65,13 +70,26 @@ export class GenericDashComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
+  getPartners() {
+    this.filter.getPartners(this.currentProfile.partner)
+      .subscribe(
+        partner  => this.partner = partner
+      );
+      console.log('Pull 6: ' + this.partner.CompanyName);
+  }
+
   contractsCount() {
-    this.filter.contractsFilter(this.currentProfile)
-    .subscribe(
-      (returnedContractsLength: Contracts[]) => {
-        this.contractLength = returnedContractsLength;
-      }
-    );
+    if (this.partner.CompanyName) {
+      this.filter.contractsFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Partners: ' + this.partner.CompanyName);
+    } else {
+      console.log('No Partner Found!');
+    }
   }
 
   assetsCount() {
