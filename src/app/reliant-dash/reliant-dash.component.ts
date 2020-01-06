@@ -58,6 +58,7 @@ export class ReliantDashComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.getPartners();
     this.contractsChart();
     this.assetsChart();
     this.displayData();
@@ -77,10 +78,10 @@ export class ReliantDashComponent implements OnInit {
       (returnedPartners: Partner) =>
       this.partner = returnedPartners
     );
+    console.log('Partner Listing 2: ' + this.partner);
   }
 
   contractsCount() {
-    console.log('Partner Listing: ' + this.partner);
 
     // if (this.partner.filter(this.currentProfile.partner)) {
     //   this.filter.contractsFilter(this.currentProfile)
