@@ -93,8 +93,8 @@ export class ApifilterService {
       return this.http.post(this.cContractsApi, params);
     }
 
-  partnerCheck(): Observable<Partner[]> {
-    return this.http.get<Partner[]>(this.partnerApi);
+  partnerCheck() {
+    return this.http.get(this.partnerApi);
   }
 
   customerFilter(filter: Filter) {

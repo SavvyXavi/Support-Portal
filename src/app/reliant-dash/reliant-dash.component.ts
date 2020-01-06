@@ -30,7 +30,7 @@ export class ReliantDashComponent implements OnInit {
   profiles: Profile[];
 
   partnerArr: Partner;
-  partner: Partner[];
+  partner: Partner;
   partnerSubscription: Subscription;
 
   contractLength: Contracts[];
@@ -55,13 +55,6 @@ export class ReliantDashComponent implements OnInit {
           this.currentProfile = profile;
         }
       );
-      this.partnerSubscription = this.filter.partnerCheck()
-      .subscribe(
-        (returnedPartners: Partner[]) => {
-          this.partner = returnedPartners;
-        }
-      );
-
      }
 
   ngOnInit() {
@@ -78,8 +71,16 @@ export class ReliantDashComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
+  getPartners() {
+    this.filter.partnerCheck()
+    .subscribe(
+      (returnedPartners: Partner) =>
+      this.partner = returnedPartners
+    )
+  }
+
   contractsCount() {
-    console.log('Partner List observable: ' + this.partner);
+    console.log('Partner Listing: ' + this.partner);
 
     // if (this.partner.filter(this.currentProfile.partner)) {
     //   this.filter.contractsFilter(this.currentProfile)
