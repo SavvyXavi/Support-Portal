@@ -55,10 +55,16 @@ export class ReliantDashComponent implements OnInit {
           this.currentProfile = profile;
         }
       );
+      this.filter.partnerCheck()
+      .subscribe(
+        (returnedPartners: Partner) => {
+          this.partner = returnedPartners;
+          console.log('Partner Listing 4: ' + JSON.stringify(this.partner));
+        }
+      );
      }
 
   ngOnInit() {
-    this.getPartners();
     this.contractsChart();
     this.assetsChart();
     this.displayData();
@@ -72,35 +78,24 @@ export class ReliantDashComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
-  getPartners() {
-    this.filter.partnerCheck()
-    .subscribe(
-      (returnedPartners: Partner) => {
-        this.partner = returnedPartners;
-        console.log('Partner Listing 4: ' + JSON.stringify(this.partner));
-      }
-    );
-  }
-
   contractsCount() {
-
-    // if (this.partner.filter(this.currentProfile.partner)) {
-    //   this.filter.contractsFilter(this.currentProfile)
-    //   .subscribe(
-    //     (returnedContractsLength: Contracts[]) => {
-    //       this.contractLength = returnedContractsLength;
-    //     }
-    //   );
-    //   console.log('Welcome ' + this.currentProfile.partner + '!');
-    // } else {
-    //   this.filter.custConFilter(this.currentProfile)
-    //   .subscribe(
-    //     (returnedContractsLength: Contracts[]) => {
-    //       this.contractLength = returnedContractsLength;
-    //     }
-    //   )
-    //   console.log('Welcome customer: ' + this.currentProfile.partner);
-    // }
+    if (this.partner.CompanyName.includes(this.currentProfile.partner)) {
+      this.filter.contractsFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Partners: ' + this.partner.CompanyName);
+    } else {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      )
+      console.log('Welcome customer: ' + this.currentProfile.partner);
+    }
   }
 
   assetsCount() {
