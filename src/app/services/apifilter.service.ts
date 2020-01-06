@@ -24,14 +24,15 @@ import { PartnerList } from '../partner-list';
 export class ApifilterService {
   contracts: Contracts;
   profile: Profile;
+  partner: Partner;
   partnerlist = PartnerList;
-  filteredPartner: Partner;
+
   partnerListapi = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
 
   customerApi = 'https://prodharmony.azurewebsites.net/api/CompanyByPartner?code=a7VaewYNOND36Oo0A85ezo9m4bvmkQAzZPtOIfp3dPO/SROa2pE/dA==';
 // customersapi =
 // 'https://n1sharmonypull.azurewebsites.net/api/GetCompanies?code=vQsPGD8KR7cHjSP0hENehP9P3v5LKn7eY4JsmO9ALdB4Bc0a99Nmhg==';
-
+  partnerApi = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
 
   pContractsApi =
   'https://prodharmony.azurewebsites.net/api/ContractsByPartner?code=GCrRyi4Y8rxCQ6mKJzLXYhROqECUR1clXjK9AdqhMEXEdOFPCqK8WA==';
@@ -77,19 +78,29 @@ export class ApifilterService {
   }
 
   contractsFilter(filter: Filter) {
-      // PartnerList.find(partner =>
-      //   partner.CompanyName == filter.partner);
-          let i;
-    for (i = 0; i < this.partnerlist.length; i++) {
-       if ( this.partnerlist[i].CompanyName == filter.partner ) {
-        return this.http.post(this.pContractsApi, filter);
-      } else {
-        console.log('Company: ' + filter.partner + ' not recognized!');
+    const params = {
+      'role': filter.partnerRole,
+      'partner': filter.partner
+    };
+
+    this.partnerCheck()
+    .subscribe(
+      (returnedPartners: Partner) => {
+        this.partner = returnedPartners;
       }
-    }
+    );
+    if ( this.partner.CompanyName.includes(params.partner) ) {
+      return this.http.post(this.pContractsApi, params);
+    } else {
+      console.log(params.partner + ' is not a partner!');
     }
 
 
+    }
+
+  partnerCheck() {
+    return this.http.get(this.partnerApi);
+  }
 
   customerFilter(filter: Filter) {
     let params;

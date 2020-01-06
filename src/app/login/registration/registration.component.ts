@@ -5,7 +5,6 @@ import { first } from 'rxjs/operators';
 import { AlertService } from '../services/alert.service';
 import { AuthenticationService } from '../services/authentication.service';
 import { ProfileService } from '../services/profile.service';
-import { Partner } from 'src/app/types/partner.enum';
 
 @Component({
   selector: 'app-registration',

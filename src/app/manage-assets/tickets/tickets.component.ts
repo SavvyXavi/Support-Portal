@@ -10,7 +10,6 @@ import { AuthenticationService } from '../../login/services/authentication.servi
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs';
-import { Partner } from '../../types/partner.enum';
 
 import { ApifilterService } from '../../services/apifilter.service';
 
@@ -28,7 +27,6 @@ export class TicketsComponent implements OnInit {
   newTicket: Tickets;
 
   ticketType: TicketType;
-  ticketTypeName: Partner;
   ticketTypeNameSubscription: Subscription;
 
   currentProfile: Profile;

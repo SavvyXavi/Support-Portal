@@ -88,4 +88,4 @@ export const PartnerList: Partner[] = [
   },  {
     'AccountID': 'Part-043', 'CompanyName': 'Mega Monolithic Corp'
   }
-]
+];

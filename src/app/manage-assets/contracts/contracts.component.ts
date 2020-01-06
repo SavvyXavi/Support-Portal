@@ -54,4 +54,5 @@ export class ContractsComponent implements OnInit {
       }
     );
   }
+
 }

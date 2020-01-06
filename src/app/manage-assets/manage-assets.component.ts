@@ -11,7 +11,6 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import { MatPaginator, MatSort } from '@angular/material';
 import { startWith, switchMap, map } from 'rxjs/operators';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-manage-assets',

@@ -1,4 +1,3 @@
-import { Partner } from 'src/app/types/partner.enum';
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Profile } from '../login/models/profile';
