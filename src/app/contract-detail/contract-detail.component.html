@@ -1,14 +1,13 @@
 <div class="container">
   <h2>Contract Details</h2>
-
-  <div class="detail-container">
-  <div>
-    <h3>Contract Name: {{this.contract.refNumber}}</h3>
+  <div *ngFor='let data of contract'>
+    <div class="detail-container">
+      <h3>Contract Name: {{data.RefNumber}}</h3>
+    </div>
+    <div>
+      <label>Contract Number:
+        <input [(ngModel)]="contract.refNumber" placeholder="Contract Number"/>
+      </label>
+    </div>
   </div>
-  <div>
-    <label>Contract Number:
-      <input [(ngModel)]="contract.refNumber" placeholder="Contract Number"/>
-    </label>
-  </div>
-</div>
 </div>

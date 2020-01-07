@@ -67,7 +67,6 @@ export class ContractsComponent implements OnInit {
           this.contracts = returnedContracts;
         }
       );
-      console.log(this.contracts);
       console.log('Contracts pull successful!');
     } else {
       this.filter.custConFilter(this.filteredProfile)
