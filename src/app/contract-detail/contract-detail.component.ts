@@ -30,6 +30,7 @@ export class ContractDetailComponent implements OnInit {
   getContract() {
     const refNumber =
       this.route.snapshot.paramMap.get('refNumber');
+      console.log(refNumber);
     this.filter.conByRef(refNumber)
     .subscribe(
       (returnedContract: Contracts) => {
