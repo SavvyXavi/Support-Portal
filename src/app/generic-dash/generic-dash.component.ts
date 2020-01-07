@@ -86,7 +86,7 @@ export class GenericDashComponent implements OnInit {
         }
       );
       console.log('Dash Partners: ' + this.partner.CompanyName);
-    } else {
+    } else if (this.partner.CompanyName === undefined) {
       console.log('No Partner Found!');
     }
   }
