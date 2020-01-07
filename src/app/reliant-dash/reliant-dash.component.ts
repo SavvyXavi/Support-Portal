@@ -77,10 +77,8 @@ export class ReliantDashComponent implements OnInit {
       .subscribe(
         partner  => {
           this.partner = partner;
-          sessionStorage.setItem('CompanyName', this.partner.CompanyName);
         }
       );
-      console.log(sessionStorage.getItem('CompanyName'));
   }
 
   contractsCount() {
@@ -147,7 +145,7 @@ export class ReliantDashComponent implements OnInit {
           return [String(key), res[key]];
         });
 
-        console.log(length);
+        // console.log(length);
         // console.log(price);
       }
     );
@@ -170,7 +168,7 @@ export class ReliantDashComponent implements OnInit {
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
-        console.log(res);
+        // console.log(res);
         // console.log(res.status);
         // console.log(length);
       }

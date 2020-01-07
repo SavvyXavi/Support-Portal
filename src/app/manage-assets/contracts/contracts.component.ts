@@ -39,6 +39,15 @@ export class ContractsComponent implements OnInit {
     this.contractsCount();
   }
 
+  getPartners() {
+    this.filter.getPartners(this.currentProfile.partner)
+      .subscribe(
+        partner  => {
+          this.partner = partner;
+        }
+      );
+  }
+
   contractsCount() {
     this.filter.partConFilter(this.filteredProfile)
     .subscribe(
@@ -50,14 +59,14 @@ export class ContractsComponent implements OnInit {
   }
 
   getContracts() {
-    if (sessionStorage.getItem('CompanyName').includes(this.currentProfile.partner)) {
-      this.filter.partConFilter(this.currentProfile)
+    if (this.partner.CompanyName.includes(this.filteredProfile.partner)) {
+      this.filter.partConFilter(this.filteredProfile)
       .subscribe(
         (returnedContracts: Contracts) => {
           this.contracts = returnedContracts;
         }
       );
-      console.log('Storage accepted!');
+      console.log('Contracts pull successful!');
     } else {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
