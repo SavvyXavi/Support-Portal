@@ -41,7 +41,7 @@ export class ContractsComponent implements OnInit {
   }
 
   getPartners() {
-    this.filter.getPartners(this.currentProfile.partner)
+    this.filter.getPartners(this.filteredProfile.partner)
       .subscribe(
         partner  => {
           this.partner = partner;
@@ -69,7 +69,7 @@ export class ContractsComponent implements OnInit {
       );
       console.log('Contracts pull successful!');
     } else {
-      this.filter.custConFilter(this.currentProfile)
+      this.filter.custConFilter(this.filteredProfile)
       .subscribe(
         (returnedContractsLength: Contracts[]) => {
           this.contractLength = returnedContractsLength;
