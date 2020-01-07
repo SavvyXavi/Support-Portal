@@ -88,7 +88,7 @@ export class ReliantDashComponent implements OnInit {
           this.contractLength = returnedContractsLength;
         }
       );
-      // console.log('Dash Partners: ' + this.partner.CompanyName);
+      console.log('Partner Included: ' + this.partner.CompanyName);
     } else {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
@@ -96,7 +96,7 @@ export class ReliantDashComponent implements OnInit {
           this.contractLength = returnedContractsLength;
         }
       );
-      console.log('Customer: ' + this.currentProfile.partner);
+      console.log('Company not included');
     }
   }
 
