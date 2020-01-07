@@ -37,6 +37,7 @@ export class ContractDetailComponent implements OnInit {
         this.contract = returnedContract;
       }
     );
+    console.log(this.contract);
   }
 
   goBack(): void {
