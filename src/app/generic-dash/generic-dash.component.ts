@@ -78,22 +78,22 @@ export class GenericDashComponent implements OnInit {
   }
 
   contractsCount() {
-    if (this.partner.CompanyName) {
-      this.filter.partConFilter(this.currentProfile)
-      .subscribe(
-        (returnedContractsLength: Contracts[]) => {
-          this.contractLength = returnedContractsLength;
-        }
-      );
-      console.log('Dash Partners: ' + this.partner.CompanyName);
-    } else if (this.partner.CompanyName === undefined) {
+    if (this.partner.CompanyName === undefined) {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
         (returnedContractsLength: Contracts[]) => {
           this.contractLength = returnedContractsLength;
         }
       );
-      console.log('Customer: ' + this.currentProfile.partner);
+      // console.log('Dash Partners: ' + this.partner.CompanyName);
+    } else if (this.partner.CompanyName) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      // console.log('Customer: ' + this.currentProfile.partner);
     }
   }
 
