@@ -40,6 +40,11 @@ export class ContractDetailComponent implements OnInit {
     console.log(this.contract);
   }
 
+  formatDate(date: string) {
+    let getDate = new Date(this.contract.startDate);
+    getDate.toLocaleString('en-US');
+    console.log(getDate);
+  }
   goBack(): void {
     this.location.back();
   }
