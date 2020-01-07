@@ -1,6 +1,9 @@
-<div *ngIf="contract" class="container detail-container">
+<div class="container">
+  <h2>Contract Details</h2>
+
+  <div *ngIf="contract" class="detail-container">
   <div>
-    <h3>Contract Name: {{contract.scheduleName}}</h3>
+    <h3>Contract Name: {{contract.refNumber}}</h3>
   </div>
   <div>
     <label>Contract Number:
@@ -8,3 +11,5 @@
     </label>
   </div>
 </div>
+</div>
+
