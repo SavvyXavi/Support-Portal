@@ -28,7 +28,9 @@
           <div class="detail">
             <div class="form-group">
               <label for="refNumber">
-                Reference Number: {{data.RefNumber}}
+                Reference Number:
+                <input [(ngModel)]="contract.refNumber" placeholder="Reference Number" /> <br />
+                {{data.RefNumber}}
               </label>
             </div>
             <div class="form-goup">
@@ -43,7 +45,7 @@
             </div>
             <div class="form-goup">
               <label for="renewalDate">
-                Renewal Date: {{data.RenewalDate}}
+                Renewal Date: {{data.RenewalDate | date: 'shortDate'}}
               </label>
             </div>
             <div class="form-goup">
@@ -53,29 +55,14 @@
             </div>
             <div class="form-goup">
               <label for="validFrom">
-                Valid From: {{data.ValidFrom}}
+                Valid From: {{data.ValidFrom | date: 'shortDate'}}
               </label>
             </div>
             <div class="form-goup">
               <label for="validTo">
-                Valid To: {{data.ValidTo}}
+                Valid To: {{data.ValidTo | date: 'shortDate'}}
               </label>
             </div>
-            <!-- <div class="form-goup">
-              <label for="endCustomer">
-                End Customer: {{data.EndCustomerName}}
-              </label>
-            </div>
-            <div class="form-goup">
-              <label for="endCustomer">
-                End Customer: {{data.EndCustomerName}}
-              </label>
-            </div>
-            <div class="form-goup">
-              <label for="endCustomer">
-                End Customer: {{data.EndCustomerName}}
-              </label> -->
-            <!-- /</div> -->
             <div class="row button-containers">
               <div class="col-sm">
                 <Button (click)="goBack()" class="btn btn-info">

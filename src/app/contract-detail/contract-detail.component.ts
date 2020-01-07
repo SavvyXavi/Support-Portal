@@ -15,7 +15,7 @@ import { format } from 'url';
 })
 export class ContractDetailComponent implements OnInit {
   // contract: Contract;
-  contract: Contracts;
+  @Input() contract: Contracts;
 
   filteredProfile: Filter;
   constructor(
@@ -26,7 +26,6 @@ export class ContractDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getContract();
-    this.formatDate(this.contract.startDate);
   }
 
   getContract() {
@@ -41,11 +40,6 @@ export class ContractDetailComponent implements OnInit {
     );
   }
 
-  formatDate(date: string) {
-    let getDate = new Date(date);
-    getDate.toLocaleString('en-US');
-    console.log(getDate);
-  }
   goBack(): void {
     this.location.back();
   }
