@@ -1,8 +1,8 @@
-<div class="container">
+<!-- <div class="container">
   <h2>Contract Details</h2>
   <div *ngFor='let data of contract'>
     <div class="detail-container">
-      <h3>Contract Name: {{data.RefNumber}}</h3>
+      <h3>Contract Name: {{data.ScheduleName}}</h3>
     </div>
     <div>
       <label>Contract Number:
@@ -10,4 +10,137 @@
       </label>
     </div>
   </div>
+</div> -->
+
+<div class="container">
+  <div class="col-md">
+    <div class="card">
+      <div class="card-header">
+        <h2>Contract Details</h2>
+      </div>
+      <div *ngFor='let data of contract' class="card-body">
+        <div class="row detail-container">
+          <h3 class="col-md-offset">
+            {{data.ScheduleName}}
+          </h3>
+        </div>
+        <div class="row">
+          <div class="detail">
+            <label for="refNumber">
+              Reference Number: {{data.refNumber}}
+            </label>
+            <label for="endCustomer">
+              End Customer: {{data.EndCustomerName}}
+            </label>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
+</div>
+
+<!-- <div class="container">
+  <div class="col-md">
+    <div class="card">
+      <div class="card-header">
+        <h3>Update Account </h3>
+      </div>
+      <div class="card-body">
+          <form [formGroup]="profileForm">
+            <div class="form-group">
+              <label for="partner">Company </label>
+              <select [disabled]="changePartner()" formControlName="partner" class="form-control" id="company">
+                <option selected>{{currentProfile?.partner}}</option>
+                <option >NorthSmart</option>
+                <option>Noble 1 Solutions</option>
+                <option>Relus Technologies</option>
+                <option>Reliant Technology</option>
+              </select>
+            </div>
+              <div class="form-group">
+                <label for="firstName">First Name</label><br>
+                <input type="text" formControlName="firstName" class="firstName input" value="{{currentProfile?.firstName}}">
+                <div *ngIf="submitted && !!f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.username.errors.required">First Name required!</div>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="lastName">Last Name</label><br>
+                  <input type="text" formControlName="lastName" class="lastName input" value="{{currentProfile?.lastName}}">
+                </div>
+              <div class="form-group">
+                <label for="userName">Username</label><br>
+                <input type="text" formControlName="username" class="username input" value="{{currentProfile?.username}}">
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label><br>
+                <input type="text" formControlName="email" class="email input" value="{{currentProfile?.email}}">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label><br>
+                <input type="text" formControlName="phone" class="email input">
+              </div>
+              <div class="form-group">
+                <label for="ticketingAlias">Ticketing Alias</label><br>
+                <input type="text" formControlName="ticketingAlias" class="ticketingAlias">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label><br>
+                <button name="password" class="btn btn-primary" data-toggle="modal" data-target="#changePassword">
+                  <i class="fas fa-lock"></i> Change Password
+                </button>
+              </div>
+              <div class="modal fade" id="changePassword"  role="dialog" aria-labelledby="modalCentered" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Update Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label for="newPassword">New Password</label><br>
+                        <input class="passwordChange" formControlName="password" name="newPassword" type="password">
+                      </div>
+                      <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label><br>
+                        <input class="passwordChange" formControlName="conpass" name="confirmwPassword" type="password">
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group form-check">
+                <label for="ticketCopy">Ticket Copy  </label>
+                <input name="ticketCopy" class="checkbox shadow-none" type="checkbox">
+              </div>
+              <div class="form-group form-check">
+                <label for="expnotification">Expiration Notification </label>
+                <input name="expnotification" class="checkbox shadow-none" type="checkbox">
+              </div>
+              <div class="form-group">
+                <label for="role">Role</label><br>
+                <div data-toggle="tooltip" data-placement="top" title="Changing your own role is not allowed!" class="wrapper">
+                <select [disabled]="true" formControlName="role" class="form-control" id="role">
+                  <option>List of Roles</option>
+                  <option selected>{{currentProfile?.partnerRole}}</option>
+                  <option>Option 2</option>
+                  <option>option 3</option>
+                  <option>option4</option>
+                </select>
+              </div>
+            </div>
+              <div class="form-group-button">
+                <button class="btn btn-primary">Update User</button>
+              </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div> -->
