@@ -82,7 +82,7 @@ export class ReliantDashComponent implements OnInit {
 
   contractsCount() {
     if (this.partner.CompanyName) {
-      this.filter.contractsFilter(this.currentProfile)
+      this.filter.partConFilter(this.currentProfile)
       .subscribe(
         (returnedContractsLength: Contracts[]) => {
           this.contractLength = returnedContractsLength;
@@ -131,7 +131,7 @@ export class ReliantDashComponent implements OnInit {
   }
 
   displayData() {
-    let array = this.filter.contractsFilter(this.currentProfile).subscribe(
+    let array = this.filter.partConFilter(this.currentProfile).subscribe(
       res => {
 
         // const price = res.map(res => res.AnnualValue);
@@ -156,7 +156,7 @@ export class ReliantDashComponent implements OnInit {
 
   contractsChart() {
     const status = [];
-    this.filter.contractsFilter(this.currentProfile).subscribe(
+    this.filter.partConFilter(this.currentProfile).subscribe(
       (res: Contract[]) => {
         // status.push(res.status);
         const length = Object.keys(res).map(function(key) {

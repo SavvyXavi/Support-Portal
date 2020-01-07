@@ -11,6 +11,7 @@ import { ProfileService } from '../login/services/profile.service';
 import { Contracts } from '../manage-assets/models/contracts';
 import { Customer } from '../admin/models/customer';
 import { Contract } from '../models/contract';
+import { Partner } from './../models/partner';
 
 import { Tickets } from './../manage-assets/models/tickets';
 import { Assets } from './../manage-assets/models/assets';
@@ -28,7 +29,8 @@ export class RelusDashComponent implements OnInit {
   currentProfileSubscription: Subscription;
   profiles: Profile[];
 
-  dashboard = 'ReluTech';
+  partner: Partner;
+
   contractLength: Contracts[];
   assetLength: Assets[];
   ticketLength: Tickets[];
@@ -54,6 +56,7 @@ export class RelusDashComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.getPartners();
     this.contractsChart();
     this.assetsChart();
     this.displayData();
@@ -67,13 +70,31 @@ export class RelusDashComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
+  getPartners() {
+    this.filter.getPartners(this.currentProfile.partner)
+      .subscribe(
+        partner  => this.partner = partner
+      );
+  }
+
   contractsCount() {
-    this.filter.contractsFilter(this.currentProfile)
-    .subscribe(
-      (returnedContractsLength: Contracts[]) => {
-        this.contractLength = returnedContractsLength;
-      }
-    );
+    if (this.partner.CompanyName) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Dash Partners: ' + this.partner.CompanyName);
+    } else if (this.partner.CompanyName === undefined) {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Customer: ' + this.currentProfile.partner);
+    }
   }
 
   assetsCount() {
@@ -112,7 +133,7 @@ export class RelusDashComponent implements OnInit {
   }
 
   displayData() {
-    let array = this.filter.contractsFilter(this.currentProfile).subscribe(
+    let array = this.filter.partConFilter(this.currentProfile).subscribe(
       res => {
 
         // const price = res.map(res => res.AnnualValue);
@@ -137,7 +158,7 @@ export class RelusDashComponent implements OnInit {
 
   contractsChart() {
     const status = [];
-    this.filter.contractsFilter(this.currentProfile).subscribe(
+    this.filter.partConFilter(this.currentProfile).subscribe(
       (res: Contract[]) => {
         // status.push(res.status);
         const length = Object.keys(res).map(function(key) {

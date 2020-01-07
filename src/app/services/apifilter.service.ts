@@ -75,7 +75,7 @@ export class ApifilterService {
     return this.http.post(this.ticketsapi, params);
   }
 
-  contractsFilter(filter: Filter) {
+  partConFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
       'partner': filter.partner

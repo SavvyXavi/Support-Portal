@@ -79,7 +79,7 @@ export class GenericDashComponent implements OnInit {
 
   contractsCount() {
     if (this.partner.CompanyName) {
-      this.filter.contractsFilter(this.currentProfile)
+      this.filter.partConFilter(this.currentProfile)
       .subscribe(
         (returnedContractsLength: Contracts[]) => {
           this.contractLength = returnedContractsLength;
@@ -87,7 +87,13 @@ export class GenericDashComponent implements OnInit {
       );
       console.log('Dash Partners: ' + this.partner.CompanyName);
     } else if (this.partner.CompanyName === undefined) {
-      console.log('No Partner Found!');
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Customer: ' + this.currentProfile.partner);
     }
   }
 
@@ -127,7 +133,7 @@ export class GenericDashComponent implements OnInit {
   }
 
   displayData() {
-    let array = this.filter.contractsFilter(this.currentProfile).subscribe(
+    let array = this.filter.partConFilter(this.currentProfile).subscribe(
       res => {
 
         // const price = res.map(res => res.AnnualValue);
@@ -152,7 +158,7 @@ export class GenericDashComponent implements OnInit {
 
   contractsChart() {
     const status = [];
-    this.filter.contractsFilter(this.currentProfile).subscribe(
+    this.filter.partConFilter(this.currentProfile).subscribe(
       (res: Contract[]) => {
         // status.push(res.status);
         const length = Object.keys(res).map(function(key) {

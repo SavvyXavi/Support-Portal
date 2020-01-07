@@ -37,7 +37,7 @@ export class ContractsComponent implements OnInit {
   }
 
   contractsCount() {
-    this.filter.contractsFilter(this.filteredProfile)
+    this.filter.partConFilter(this.filteredProfile)
     .subscribe(
       (returnedContractsLength: Contracts[]) => {
         this.contractLength = returnedContractsLength;
@@ -47,7 +47,7 @@ export class ContractsComponent implements OnInit {
   }
 
   getContracts() {
-    this.filter.contractsFilter(this.filteredProfile)
+    this.filter.partConFilter(this.filteredProfile)
     .subscribe(
       (returnedContracts: Contracts) => {
         this.contracts = returnedContracts;
