@@ -26,7 +26,7 @@ export class ContractDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getContract();
-    this.formatDate();
+    this.formatDate(this.contract.startDate);
   }
 
   getContract() {
@@ -41,8 +41,8 @@ export class ContractDetailComponent implements OnInit {
     );
   }
 
-  formatDate() {
-    let getDate = new Date(this.contract.startDate);
+  formatDate(date: string) {
+    let getDate = new Date(date);
     getDate.toLocaleString('en-US');
     console.log(getDate);
   }
