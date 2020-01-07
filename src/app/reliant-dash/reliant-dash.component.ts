@@ -77,20 +77,26 @@ export class ReliantDashComponent implements OnInit {
       .subscribe(
         partner  => this.partner = partner
       );
+      console.log('Got Partners!');
   }
 
   contractsCount() {
-    if (this.partner.CompanyName) {
+    if (this.partner.CompanyName.includes(this.currentProfile.partner)) {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
         (returnedContractsLength: Contracts[]) => {
           this.contractLength = returnedContractsLength;
         }
       );
-      console.log('Partners: ' + this.partner.CompanyName);
+      // console.log('Dash Partners: ' + this.partner.CompanyName);
     } else {
-
-      console.log('No Partner Found!');
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Customer: ' + this.currentProfile.partner);
     }
   }
 
