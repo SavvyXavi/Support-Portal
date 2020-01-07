@@ -6,6 +6,7 @@ import { Filter } from './../models/filter';
 
 import { Contract } from './../models/contract';
 import { Contracts } from './../manage-assets/models/contracts';
+import { format } from 'url';
 
 @Component({
   selector: 'app-contract-detail',
@@ -25,6 +26,7 @@ export class ContractDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getContract();
+    this.formatDate();
   }
 
   getContract() {
@@ -37,10 +39,9 @@ export class ContractDetailComponent implements OnInit {
         this.contract = returnedContract;
       }
     );
-    console.log(this.contract);
   }
 
-  formatDate(date: string) {
+  formatDate() {
     let getDate = new Date(this.contract.startDate);
     getDate.toLocaleString('en-US');
     console.log(getDate);
