@@ -14,7 +14,7 @@ import { Contracts } from './../manage-assets/models/contracts';
 })
 export class ContractDetailComponent implements OnInit {
   // contract: Contract;
-  contract: Contracts;
+  @Input() contract: Contracts;
 
   filteredProfile: Filter;
   constructor(

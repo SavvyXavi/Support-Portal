@@ -83,11 +83,11 @@ export class ApifilterService {
       return this.http.post(this.pContractsApi, params);
     }
 
-    conByRef(ref: string): Observable<Contracts> {
+    conByRef(ref: string) {
       const params = {
         'ref': ref,
       };
-      return this.http.post<Contracts>(this.refConApi, params);
+      return this.http.post(this.refConApi, params);
     }
 
     custConFilter(filter: Filter) {
