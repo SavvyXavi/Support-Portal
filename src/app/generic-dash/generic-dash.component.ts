@@ -75,10 +75,11 @@ export class GenericDashComponent implements OnInit {
       .subscribe(
         partner  => this.partner = partner
       );
+      console.log('Got Partners!');
   }
 
   contractsCount() {
-    if (this.partner.CompanyName === undefined) {
+    if (!this.partner.CompanyName) {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
         (returnedContractsLength: Contracts[]) => {
