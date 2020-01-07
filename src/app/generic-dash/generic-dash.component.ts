@@ -85,7 +85,7 @@ export class GenericDashComponent implements OnInit {
           this.contractLength = returnedContractsLength;
         }
       );
-      console.log('Partners: ' + this.partner.CompanyName);
+      console.log('Dash Partners: ' + this.partner.CompanyName);
     } else {
       console.log('No Partner Found!');
     }
