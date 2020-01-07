@@ -35,6 +35,7 @@ export class ContractsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getPartners();
     this.getContracts();
     this.contractsCount();
   }
