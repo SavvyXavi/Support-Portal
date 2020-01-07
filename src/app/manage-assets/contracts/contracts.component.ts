@@ -1,3 +1,4 @@
+import { Partner } from './../../models/partner';
 import { Component, OnInit } from '@angular/core';
 
 import { Contracts } from '../models/contracts';
@@ -17,6 +18,8 @@ export class ContractsComponent implements OnInit {
   contractLength: Contracts[];
   contracts: Contracts;
   currentProfile: Profile;
+
+  partner: Partner;
 
   filteredProfile: Filter;
   filterSubscription: Subscription;
@@ -47,12 +50,30 @@ export class ContractsComponent implements OnInit {
   }
 
   getContracts() {
-    this.filter.partConFilter(this.filteredProfile)
-    .subscribe(
-      (returnedContracts: Contracts) => {
-        this.contracts = returnedContracts;
-      }
-    );
+    if (sessionStorage.getItem('partner').includes(this.currentProfile.partner)) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContracts: Contracts) => {
+          this.contracts = returnedContracts;
+        }
+      );
+      console.log('Storage accepted!');
+    } else {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Company not included');
+    }
+
+    // this.filter.partConFilter(this.filteredProfile)
+    // .subscribe(
+    //   (returnedContracts: Contracts) => {
+    //     this.contracts = returnedContracts;
+    //   }
+    // );
   }
 
 }
