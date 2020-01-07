@@ -80,6 +80,7 @@ export class ReliantDashComponent implements OnInit {
           sessionStorage.setItem('CompanyName', this.partner.CompanyName);
         }
       );
+      console.log(sessionStorage.getItem('CompanyName'));
   }
 
   contractsCount() {
