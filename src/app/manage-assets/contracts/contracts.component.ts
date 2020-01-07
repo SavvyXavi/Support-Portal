@@ -50,7 +50,7 @@ export class ContractsComponent implements OnInit {
   }
 
   getContracts() {
-    if (sessionStorage.getItem('partner').includes(this.currentProfile.partner)) {
+    if (sessionStorage.getItem('CompanyName').includes(this.currentProfile.partner)) {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
         (returnedContracts: Contracts) => {
