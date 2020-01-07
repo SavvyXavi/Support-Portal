@@ -1,3 +1,4 @@
+import { Partner } from './../../models/partner';
 import { Component, OnInit } from '@angular/core';
 
 import { Contracts } from '../models/contracts';
@@ -18,6 +19,8 @@ export class ContractsComponent implements OnInit {
   contracts: Contracts;
   currentProfile: Profile;
 
+  partner: Partner;
+
   filteredProfile: Filter;
   filterSubscription: Subscription;
   constructor(
@@ -32,12 +35,22 @@ export class ContractsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getPartners();
     this.getContracts();
     this.contractsCount();
   }
 
+  getPartners() {
+    this.filter.getPartners(this.filteredProfile.partner)
+      .subscribe(
+        partner  => {
+          this.partner = partner;
+        }
+      );
+  }
+
   contractsCount() {
-    this.filter.contractsFilter(this.filteredProfile)
+    this.filter.partConFilter(this.filteredProfile)
     .subscribe(
       (returnedContractsLength: Contracts[]) => {
         this.contractLength = returnedContractsLength;
@@ -47,11 +60,30 @@ export class ContractsComponent implements OnInit {
   }
 
   getContracts() {
-    this.filter.contractsFilter(this.filteredProfile)
-    .subscribe(
-      (returnedContracts: Contracts) => {
-        this.contracts = returnedContracts;
-      }
-    );
+    if (this.partner.CompanyName.includes(this.filteredProfile.partner)) {
+      this.filter.partConFilter(this.filteredProfile)
+      .subscribe(
+        (returnedContracts: Contracts) => {
+          this.contracts = returnedContracts;
+        }
+      );
+      console.log('Contracts pull successful!');
+    } else {
+      this.filter.custConFilter(this.filteredProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Company not included');
+    }
+
+    // this.filter.partConFilter(this.filteredProfile)
+    // .subscribe(
+    //   (returnedContracts: Contracts) => {
+    //     this.contracts = returnedContracts;
+    //   }
+    // );
   }
+
 }

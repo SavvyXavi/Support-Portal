@@ -6,12 +6,14 @@ import { Profile } from '../login/models/profile';
 import { ProfileService } from '../login/services/profile.service';
 
 import { Filter } from './../models/filter';
-import { Partner } from './../types/partner.enum';
 import { Role } from '../types/role.enum';
 import { Assets } from '../manage-assets/models/assets';
 import { Contracts } from './../manage-assets/models/contracts';
 
 import { HttpClient } from '@angular/common/http';
+
+import { Partner } from '../models/partner';
+import { PartnerList } from '../partner-list';
 
 // import { DataSource } from '@angular/cdk/collections';
 
@@ -22,15 +24,22 @@ import { HttpClient } from '@angular/common/http';
 export class ApifilterService {
   contracts: Contracts;
   profile: Profile;
-
-  partnerList = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
+  partner: Partner;
+  partnerlist = PartnerList;
 
   customerApi = 'https://prodharmony.azurewebsites.net/api/CompanyByPartner?code=a7VaewYNOND36Oo0A85ezo9m4bvmkQAzZPtOIfp3dPO/SROa2pE/dA==';
 // customersapi =
 // 'https://n1sharmonypull.azurewebsites.net/api/GetCompanies?code=vQsPGD8KR7cHjSP0hENehP9P3v5LKn7eY4JsmO9ALdB4Bc0a99Nmhg==';
+  partnerApi = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
 
-contractsapi = 'https://n1sharmonypull.azurewebsites.net/api/ContractsPull?code=exD/Xcz5HraenO9WyxGEyB7HloKBbOO2GJ5Xo1CwVO6T6pv9Q/Fl8A==';
-  assetsapi = 'https://n1sharmonypull.azurewebsites.net/api/AssetsPull?code=qQXwJm1YBabl4J8QlK6a2n2/JpY/mTacr66EYRdsZ2i3RfUkAucX4g==';
+  pContractsApi =
+  'https://prodharmony.azurewebsites.net/api/ContractsByPartner?code=GCrRyi4Y8rxCQ6mKJzLXYhROqECUR1clXjK9AdqhMEXEdOFPCqK8WA==';
+  cContractsApi =
+  'https://prodharmony.azurewebsites.net/api/ContractsByCustomer?code=SQVrhe8b7rFFsPV0LS6dxBniJW8QqVoa4Jjzv5gwLVuiD/Tg8uIvbQ==';
+  refConApi = 'https://prodharmony.azurewebsites.net/api/SpecificContract?code=YcbG2hXdjXJa/o/b1nxRHhheVoY5l5AvHQ7AQGP9PhQUOppTFi3kig==';
+
+  assetsapi = 'https://prodharmony.azurewebsites.net/api/PartnerPullAssets?code=BmCsQrHGSIvMr1oFRw7T6kj7/a2H/x8GeOadWjmvZgSeaRwCqZGE9g==';
+// assetsapi = 'https://n1sharmonypull.azurewebsites.net/api/AssetsPull?code=qQXwJm1YBabl4J8QlK6a2n2/JpY/mTacr66EYRdsZ2i3RfUkAucX4g==';
   ticketsapi = 'https://n1sharmonypull.azurewebsites.net/api/HttpTrigger1?code=lsPvad3uQA6s/pe1imbqoK0egnysVrGlsZXvaFsZ1jc69X6OdKQHcw==';
 
   constructor(
@@ -66,15 +75,36 @@ contractsapi = 'https://n1sharmonypull.azurewebsites.net/api/ContractsPull?code=
     return this.http.post(this.ticketsapi, params);
   }
 
-  contractsFilter(filter: Filter) {
+  partConFilter(filter: Filter) {
     const params = {
+      'role': filter.partnerRole,
       'partner': filter.partner
     };
-    return this.http.post(this.contractsapi, params);
+      return this.http.post(this.pContractsApi, params);
+    }
+
+    conByRef(ref: string) {
+      const params = {
+        'ref': ref,
+      };
+      return this.http.post(this.refConApi, params);
+    }
+
+    custConFilter(filter: Filter) {
+      const params = {
+        'role': filter.partnerRole,
+        'partner': filter.partner
+      };
+      return this.http.post(this.cContractsApi, params);
+    }
+
+  getPartners( CompanyName: string ): Observable<Partner> {
+    return of(this.partnerlist.find( partner =>  partner.CompanyName === CompanyName));
   }
 
-  // contractByRef(refNumber: string): Observable<Contracts> {
-  //   return of(this.contracts.find((contract: Contracts) => contract.refNumber === refNumber));
+  // async partnerCheck() {
+  //   const response = await fetch(this.partnerApi);
+  //   const data: Partner = await response.json();
   // }
 
   customerFilter(filter: Filter) {

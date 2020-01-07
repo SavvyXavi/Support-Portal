@@ -16,6 +16,7 @@ import { ApifilterService } from './../services/apifilter.service';
 import { Contract } from '../models/contract';
 import { Contracts } from '../manage-assets/models/contracts';
 import { Customer } from './../admin/models/customer';
+import { Partner } from './../models/partner';
 
 @Component({
   selector: 'app-north',
@@ -25,7 +26,7 @@ import { Customer } from './../admin/models/customer';
 
 export class NorthComponent implements OnInit {
 
-  dashboard = 'NorthSmart';
+  partner: Partner;
 
   currentProfile: Profile;
   currentProfileSubscription: Subscription;
@@ -56,6 +57,7 @@ export class NorthComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.getPartners();
     this.contractsChart();
     this.assetsChart();
     this.displayData();
@@ -69,13 +71,31 @@ export class NorthComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
+  getPartners() {
+    this.filter.getPartners(this.currentProfile.partner)
+      .subscribe(
+        partner  => this.partner = partner
+      );
+  }
+
   contractsCount() {
-    this.filter.contractsFilter(this.currentProfile)
-    .subscribe(
-      (returnedContractsLength: Contracts[]) => {
-        this.contractLength = returnedContractsLength;
-      }
-    );
+    if (this.partner.CompanyName) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Dash Partners: ' + this.partner.CompanyName);
+    } else if (this.partner.CompanyName === undefined) {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Customer: ' + this.currentProfile.partner);
+    }
   }
 
   assetsCount() {
@@ -114,7 +134,7 @@ export class NorthComponent implements OnInit {
   }
 
   displayData() {
-    let array = this.filter.contractsFilter(this.currentProfile).subscribe(
+    let array = this.filter.partConFilter(this.currentProfile).subscribe(
       res => {
 
         // const price = res.map(res => res.AnnualValue);
@@ -139,7 +159,7 @@ export class NorthComponent implements OnInit {
 
   contractsChart() {
     const status = [];
-    this.filter.contractsFilter(this.currentProfile).subscribe(
+    this.filter.partConFilter(this.currentProfile).subscribe(
       (res: Contract[]) => {
         // status.push(res.status);
         const length = Object.keys(res).map(function(key) {

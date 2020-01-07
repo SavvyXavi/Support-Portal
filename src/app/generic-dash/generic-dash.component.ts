@@ -13,9 +13,11 @@ import { Subscription } from 'rxjs';
 import { map, first } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 
+import { Partner } from './../models/partner';
 import { Contracts } from './../manage-assets/models/contracts';
 import { Customer } from './../admin/models/customer';
 import { Contract } from './../models/contract';
+
 @Component({
   selector: 'app-generic-dash',
   templateUrl: './generic-dash.component.html',
@@ -31,6 +33,8 @@ export class GenericDashComponent implements OnInit {
   assetLength: Assets[];
   ticketLength: Tickets[];
   companyLength: Customer[];
+
+  partner: Partner;
 
   contractsData = [];
   assetsData = [];
@@ -52,6 +56,7 @@ export class GenericDashComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.getPartners();
     this.contractsChart();
     this.assetsChart();
     this.displayData();
@@ -65,13 +70,31 @@ export class GenericDashComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
+  getPartners() {
+    this.filter.getPartners(this.currentProfile.partner)
+      .subscribe(
+        partner  => this.partner = partner
+      );
+  }
+
   contractsCount() {
-    this.filter.contractsFilter(this.currentProfile)
-    .subscribe(
-      (returnedContractsLength: Contracts[]) => {
-        this.contractLength = returnedContractsLength;
-      }
-    );
+    if (this.partner.CompanyName.includes(this.currentProfile.partner)) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Partner Included: ' + this.partner.CompanyName);
+    } else {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Company not included');
+    }
   }
 
   assetsCount() {
@@ -110,7 +133,7 @@ export class GenericDashComponent implements OnInit {
   }
 
   displayData() {
-    let array = this.filter.contractsFilter(this.currentProfile).subscribe(
+    let array = this.filter.partConFilter(this.currentProfile).subscribe(
       res => {
 
         // const price = res.map(res => res.AnnualValue);
@@ -135,7 +158,7 @@ export class GenericDashComponent implements OnInit {
 
   contractsChart() {
     const status = [];
-    this.filter.contractsFilter(this.currentProfile).subscribe(
+    this.filter.partConFilter(this.currentProfile).subscribe(
       (res: Contract[]) => {
         // status.push(res.status);
         const length = Object.keys(res).map(function(key) {

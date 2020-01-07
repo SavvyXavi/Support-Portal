@@ -1,4 +1,3 @@
-import { ApifilterService } from './../services/apifilter.service';
 import { Component, OnInit } from '@angular/core';
 import { Profile } from './../login/models/profile';
 import { Tickets } from './../manage-assets/models/tickets';
@@ -11,11 +10,13 @@ import { FuncappService } from './../services/funcapp.service';
 import { AuthenticationService } from './../login/services/authentication.service';
 import { ProfileService } from './../login/services/profile.service';
 import { ApiCallService } from './../manage-assets/services/api-call.service';
+import { ApifilterService } from './../services/apifilter.service';
 
 import { Contracts } from '../manage-assets/models/contracts';
 import { Customer } from '../admin/models/customer';
 import { Contract } from '../models/contract';
 import { Chart } from 'chart.js';
+import { Partner } from './../models/partner';
 
 @Component({
   selector: 'app-reliant-dash',
@@ -28,7 +29,9 @@ export class ReliantDashComponent implements OnInit {
   currentProfileSubscription: Subscription;
   profiles: Profile[];
 
-  dashboard = 'Reliant';
+  partner: Partner;
+  partnerSubscription: Subscription;
+
 
   contractLength: Contracts[];
   assetLength: Assets[];
@@ -55,6 +58,7 @@ export class ReliantDashComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.getPartners();
     this.contractsChart();
     this.assetsChart();
     this.displayData();
@@ -68,13 +72,33 @@ export class ReliantDashComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
+  getPartners() {
+    this.filter.getPartners(this.currentProfile.partner)
+      .subscribe(
+        partner  => {
+          this.partner = partner;
+        }
+      );
+  }
+
   contractsCount() {
-    this.filter.contractsFilter(this.currentProfile)
-    .subscribe(
-      (returnedContractsLength: Contracts[]) => {
-        this.contractLength = returnedContractsLength;
-      }
-    );
+    if (this.partner.CompanyName.includes(this.currentProfile.partner)) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Partner Included: ' + this.partner.CompanyName);
+    } else {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Company not included');
+    }
   }
 
   assetsCount() {
@@ -113,7 +137,7 @@ export class ReliantDashComponent implements OnInit {
   }
 
   displayData() {
-    let array = this.filter.contractsFilter(this.currentProfile).subscribe(
+    let array = this.filter.partConFilter(this.currentProfile).subscribe(
       res => {
 
         // const price = res.map(res => res.AnnualValue);
@@ -121,7 +145,7 @@ export class ReliantDashComponent implements OnInit {
           return [String(key), res[key]];
         });
 
-        console.log(length);
+        // console.log(length);
         // console.log(price);
       }
     );
@@ -138,13 +162,13 @@ export class ReliantDashComponent implements OnInit {
 
   contractsChart() {
     const status = [];
-    this.filter.contractsFilter(this.currentProfile).subscribe(
+    this.filter.partConFilter(this.currentProfile).subscribe(
       (res: Contract[]) => {
         // status.push(res.status);
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
-        console.log(res);
+        // console.log(res);
         // console.log(res.status);
         // console.log(length);
       }
