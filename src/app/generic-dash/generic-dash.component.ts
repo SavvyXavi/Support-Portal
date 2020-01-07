@@ -75,7 +75,6 @@ export class GenericDashComponent implements OnInit {
       .subscribe(
         partner  => this.partner = partner
       );
-      console.log('Pull 6: ' + this.partner.CompanyName);
   }
 
   contractsCount() {

@@ -90,6 +90,7 @@ export class ReliantDashComponent implements OnInit {
       );
       console.log('Partners: ' + this.partner.CompanyName);
     } else {
+
       console.log('No Partner Found!');
     }
   }
