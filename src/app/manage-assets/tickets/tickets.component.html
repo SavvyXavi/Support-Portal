@@ -22,7 +22,7 @@
   </div>
   <div class="form-group">
       <label for="title">Customer Name/Id: </label>
-      <input value="{{this.currentProfile.partner}}" name="CustomerNameOrId" type="text" formControlName="CustomerNameOrId" class="form-control shadow-none">
+      <input value="this.filteredProfile?.partner" name="CustomerNameOrId" type="text" formControlName="CustomerNameOrId" class="form-control shadow-none">
     </div>
   <div class="form-group">
     <label for="description">Description: </label> <br>

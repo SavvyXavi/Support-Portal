@@ -54,7 +54,7 @@ export class TicketsComponent implements OnInit {
     this.ticketForm = this.formBuilder.group({
       Title: ['', Validators.required],
       Description: ['', Validators.required],
-      CustomerNameOrId: [this.currentProfile.partner, Validators.required],
+      CustomerNameOrId: [this.authenticationService.currentUserValue.partner, Validators.required],
       TicketType: ['', Validators.required],
       TicketCategoryNameOrId: ['', Validators.required],
       TicketTypeNameOrId: [ this.authenticationService.currentUserValue.partner + ' Quotes', Validators.required]
