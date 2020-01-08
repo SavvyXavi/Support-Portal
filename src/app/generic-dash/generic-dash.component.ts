@@ -78,7 +78,7 @@ export class GenericDashComponent implements OnInit {
   }
 
   contractsCount() {
-    if (this.partner) {
+    if (this.partner.CompanyName) {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
         (returnedContracts: Contracts[]) => {
