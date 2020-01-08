@@ -78,7 +78,7 @@ export class GenericDashComponent implements OnInit {
   }
 
   contractsCount() {
-    if (this.partner.CompanyName) {
+    if (this.partner.CompanyName === this.currentProfile.partner) {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
         (returnedContracts: Contracts[]) => {
@@ -86,14 +86,16 @@ export class GenericDashComponent implements OnInit {
         }
       );
       console.log(this.partner.CompanyName);
-     }
-
-     this.filter.custConFilter(this.currentProfile)
+    } else {
+      this.filter.custConFilter(this.currentProfile)
      .subscribe(
        (returnedContractLength: Contracts[]) => {
          this.contractLength = returnedContractLength;
        }
      );
+     }
+
+
     }
 
 
