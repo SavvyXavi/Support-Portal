@@ -35,8 +35,7 @@ export class GenericDashComponent implements OnInit {
   companyLength: Customer[];
 
   partner: Partner;
-  partnerList: Partner[];
-
+  isPartner = false;
   contractsData = [];
   assetsData = [];
   tickets: Tickets;
@@ -76,35 +75,25 @@ export class GenericDashComponent implements OnInit {
       .subscribe(
         partner  => this.partner = partner
       );
-      sessionStorage.setItem('CompanyName', this.partner.CompanyName);
-      console.log(this.partner);
-      console.log('Got partner!');
-      return this.partner;
   }
 
   contractsCount() {
-    if (this.partner) {
-      this.filter.partConFilter(this.currentProfile)
-      .subscribe(
-        (returnedContracts: Contracts[]) => {
-          this.contractLength = returnedContracts;
-        }
-      );
-      console.log(this.partner);
-      console.log('This is your Partner: ' + this.partner.CompanyName);
-    } else if (undefined) {
-      this.filter.custConFilter(this.currentProfile)
-     .subscribe(
-       (returnedContractLength: Contracts[]) => {
-         this.contractLength = returnedContractLength;
-       }
-     );
-     console.log(this.partner);
-     console.log(this.currentProfile.partner);
-     }
-
-
-    }
+   switch (this.partner) {
+     case this.partner:
+       this.filter.partConFilter(this.currentProfile)
+        .subscribe(
+          (returnedContractLength: Contracts[]) =>
+          this.contractLength = returnedContractLength
+         );
+         break;
+     default:
+       this.filter.custConFilter(this.currentProfile)
+       .subscribe(
+         (returnedContractLength: Contracts[]) =>
+         this.contractLength = returnedContractLength
+       )
+   }
+  }
 
 
 
