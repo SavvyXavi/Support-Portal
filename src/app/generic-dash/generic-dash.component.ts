@@ -92,13 +92,15 @@ export class GenericDashComponent implements OnInit {
       );
       console.log(this.partner);
       console.log('This is your Partner: ' + this.partner.CompanyName);
-    } else {
+    } else if (undefined) {
       this.filter.custConFilter(this.currentProfile)
      .subscribe(
        (returnedContractLength: Contracts[]) => {
          this.contractLength = returnedContractLength;
        }
      );
+     console.log(this.partner);
+     console.log(this.currentProfile.partner);
      }
 
 
