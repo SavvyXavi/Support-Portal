@@ -85,6 +85,7 @@ export class GenericDashComponent implements OnInit {
           this.contractLength = returnedContracts;
         }
       );
+      console.log(this.partner.CompanyName);
      }
 
      this.filter.custConFilter(this.currentProfile)
