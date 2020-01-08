@@ -91,7 +91,8 @@ export class GenericDashComponent implements OnInit {
        .subscribe(
          (returnedContractLength: Contracts[]) =>
          this.contractLength = returnedContractLength
-       )
+       );
+       console.log('Defaulted to Customer Api!');
    }
   }
 
