@@ -78,6 +78,16 @@ export class GenericDashComponent implements OnInit {
   }
 
   contractsCount() {
+    if (!this.partner.CompanyName) {
+        this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractsLength: Contracts[]) => {
+          this.contractLength = returnedContractsLength;
+        }
+      );
+      console.log('Company not included');
+      }
+
     if (this.partner.CompanyName.includes(this.currentProfile.partner)) {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
@@ -87,13 +97,7 @@ export class GenericDashComponent implements OnInit {
       );
       console.log('Partner Included: ' + this.partner.CompanyName);
     }
-      this.filter.custConFilter(this.currentProfile)
-      .subscribe(
-        (returnedContractsLength: Contracts[]) => {
-          this.contractLength = returnedContractsLength;
-        }
-      );
-      console.log('Company not included');
+
   }
 
   assetsCount() {
