@@ -78,9 +78,8 @@ export class GenericDashComponent implements OnInit {
   }
 
   contractsCount() {
-    const ispartner = this.partner.CompanyName;
-   switch (ispartner) {
-     case this.currentProfile.partner:
+   switch (this.partner) {
+     case this.partner:
        this.filter.partConFilter(this.currentProfile)
         .subscribe(
           (returnedContractLength: Contracts[]) =>
