@@ -91,7 +91,7 @@ export class ApifilterService {
     custConFilter(filter: Filter) {
       const params = {
         'role': filter.partnerRole,
-        'company': filter.partner
+        'partner': filter.partner
       };
       return this.http.post(this.cContractsApi, params);
     }
