@@ -74,10 +74,7 @@ export class ManageAssetsComponent implements OnInit {
   }
 
   getContract() {
-    const refNumber =
-      this.route.snapshot.paramMap.get('refNumber');
-      console.log(refNumber);
-    this.filter.conByRef('', refNumber)
+    this.filter.conByRef('', this.assets.schedule)
     .subscribe(
       (returnedContract: Contracts) => {
         this.contract = returnedContract;
