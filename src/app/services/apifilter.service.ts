@@ -100,11 +100,6 @@ export class ApifilterService {
     return of(this.partnerlist.find( partner =>  partner.CompanyName === CompanyName));
   }
 
-  // async partnerCheck() {
-  //   const response = await fetch(this.partnerApi);
-  //   const data: Partner = await response.json();
-  // }
-
   customerFilter(filter: Filter) {
     let params;
     if (filter.partnerRole === 'Admin') {
