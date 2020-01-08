@@ -35,7 +35,7 @@ export class GenericDashComponent implements OnInit {
   companyLength: Customer[];
 
   partner: Partner;
-  isPartner = false;
+
   contractsData = [];
   assetsData = [];
   tickets: Tickets;
