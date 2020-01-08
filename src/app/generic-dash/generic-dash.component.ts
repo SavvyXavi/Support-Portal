@@ -78,8 +78,17 @@ export class GenericDashComponent implements OnInit {
   }
 
   contractsCount() {
-    if (this.partner.CompanyName === undefined) {
-        this.filter.custConFilter(this.currentProfile)
+    try {
+      if (this.partner.CompanyName.includes(this.currentProfile.partner)) {
+        this.filter.partConFilter(this.currentProfile)
+        .subscribe(
+          (returnedContractsLength: Contracts[]) => {
+            this.contractLength = returnedContractsLength;
+          }
+        );
+      }
+      } catch (err) {
+      this.filter.custConFilter(this.currentProfile)
       .subscribe(
         (returnedContractsLength: Contracts[]) => {
           this.contractLength = returnedContractsLength;
@@ -88,17 +97,20 @@ export class GenericDashComponent implements OnInit {
       console.log('Company not included');
       }
 
-    if (this.partner.CompanyName.includes(this.currentProfile.partner)) {
-      this.filter.partConFilter(this.currentProfile)
-      .subscribe(
-        (returnedContractsLength: Contracts[]) => {
-          this.contractLength = returnedContractsLength;
-        }
-      );
-      console.log('Partner Included: ' + this.partner.CompanyName);
+    // if (this.partner.CompanyName.includes(this.currentProfile.partner)) {
+    //   this.filter.partConFilter(this.currentProfile)
+    //   .subscribe(
+    //     (returnedContractsLength: Contracts[]) => {
+    //       this.contractLength = returnedContractsLength;
+    //     }
+    //   );
+    //   console.log('Partner Included: ' + this.partner.CompanyName);
+    //   catch(err) {
+
+    //   }
     }
 
-  }
+
 
   assetsCount() {
       this.filter.assetsFilter( this.currentProfile)
