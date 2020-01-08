@@ -12,9 +12,6 @@
     <label for="ticketType">Ticket Type:</label><br>
     <div class="radio">
         <label>
-            <input formControlName="TicketType" type="radio" name="TicketType" value="New Quote" > Quote
-        </label><br>
-        <label>
             <input formControlName="TicketType" type="radio" name="TicketType" value="Contract Support" > Support
         </label><br>
     </div>
@@ -25,7 +22,7 @@
   </div>
   <div class="form-group">
       <label for="title">Customer Name/Id: </label>
-      <input name="CustomerNameOrId" type="text" formControlName="CustomerNameOrId" class="form-control shadow-none">
+      <input value="{{this.currentProfile.partner}}" name="CustomerNameOrId" type="text" formControlName="CustomerNameOrId" class="form-control shadow-none">
     </div>
   <div class="form-group">
     <label for="description">Description: </label> <br>
