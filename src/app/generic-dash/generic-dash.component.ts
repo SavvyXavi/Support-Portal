@@ -76,19 +76,22 @@ export class GenericDashComponent implements OnInit {
       .subscribe(
         partner  => this.partner = partner
       );
+      sessionStorage.setItem('CompanyName', this.partner.CompanyName);
       console.log(this.partner);
       console.log('Got partner!');
+      return this.partner;
   }
 
   contractsCount() {
-    if (this.partner.CompanyName === this.currentProfile.partner) {
+    if (this.partner) {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
         (returnedContracts: Contracts[]) => {
           this.contractLength = returnedContracts;
         }
       );
-      console.log(this.partner.CompanyName);
+      console.log(this.partner);
+      console.log('This is your Partner: ' + this.partner.CompanyName);
     } else {
       this.filter.custConFilter(this.currentProfile)
      .subscribe(
