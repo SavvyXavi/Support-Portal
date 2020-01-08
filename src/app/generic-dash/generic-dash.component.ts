@@ -35,6 +35,7 @@ export class GenericDashComponent implements OnInit {
   companyLength: Customer[];
 
   partner: Partner;
+  partnerList: Partner[];
 
   contractsData = [];
   assetsData = [];
@@ -75,6 +76,8 @@ export class GenericDashComponent implements OnInit {
       .subscribe(
         partner  => this.partner = partner
       );
+      console.log(this.partner);
+      console.log('Got partner!');
   }
 
   contractsCount() {
