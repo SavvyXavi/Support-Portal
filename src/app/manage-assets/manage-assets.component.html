@@ -26,7 +26,7 @@
       <td> {{data.Identifier}}</td>
       <td> {{data.Description}} </td>
       <td> {{data.SLA}} </td>
-      <td> {{data.Schedule}} </td>
+      <td> <a (click)="getContract()"> {{data.Schedule}} </a> </td>
       <td> {{data.EndCustomer}} </td>
      </tr>
    </table>

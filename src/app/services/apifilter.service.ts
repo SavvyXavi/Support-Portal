@@ -9,7 +9,7 @@ import { Filter } from './../models/filter';
 import { Role } from '../types/role.enum';
 import { Assets } from '../manage-assets/models/assets';
 import { Contracts } from './../manage-assets/models/contracts';
-
+import { SpecContract } from './../manage-assets/models/spec-contract';
 import { HttpClient } from '@angular/common/http';
 
 import { Partner } from '../models/partner';
@@ -83,9 +83,10 @@ export class ApifilterService {
       return this.http.post(this.pContractsApi, params);
     }
 
-    conByRef(ref: string) {
+    conByRef(refNum: string, schedname: string) {
       const params = {
-        'ref': ref,
+        'ref': refNum,
+        'schedname': schedname
       };
       return this.http.post(this.refConApi, params);
     }

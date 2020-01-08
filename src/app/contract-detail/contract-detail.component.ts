@@ -1,3 +1,4 @@
+import { SpecContract } from './../manage-assets/models/spec-contract';
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -32,7 +33,7 @@ export class ContractDetailComponent implements OnInit {
     const refNumber =
       this.route.snapshot.paramMap.get('refNumber');
       console.log(refNumber);
-    this.filter.conByRef(refNumber)
+    this.filter.conByRef(refNumber, '')
     .subscribe(
       (returnedContract: Contracts) => {
         this.contract = returnedContract;
