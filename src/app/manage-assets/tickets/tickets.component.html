@@ -50,10 +50,11 @@
 <table class="table">
     <thead>
      <tr>
+         <th>Case</th>
          <th>Name</th>
          <th>Status</th>
+         <th>Description</th>
          <th>Requestor</th>
-         <th>Ticket#</th>
          <th>SLA</th>
          <th>Customer</th>
          <th>Updated</th>
@@ -62,10 +63,11 @@
        </tr>
     </thead>
      <tr *ngFor='let data of tickets'>
+       <td>{{data.RefNumber}}</td>
        <td>{{data.Name}}</td>
        <td>{{data.Status}}</td>
+       <td>{{data.Body}}</td>
        <td>{{data.CreatedBy}}</td>
-       <td>{{data.RefNumber}}</td>
        <td>{{data.SlaSeverity}}</td>
        <td>{{data.CustomerName}}</td>
        <td>{{data.UpdatedDate.DateTime | date: 'shortDate'}}</td>
