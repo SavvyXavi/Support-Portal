@@ -11,22 +11,24 @@
 <table class="table table-bordered rouned">
     <thead>
      <tr>
-        <th>Company</th>
         <th>Name</th>
-        <th>Serial</th>
-        <th>Type</th>
+        <th>Location</th>
+        <th>Serial#</th>
+        <th>Asset Tag</th>
+        <th>Description</th>
         <th>SLA</th>
         <th>Contract</th>
         <th>End Customer</th>
       </tr>
     </thead>
      <tr *ngFor='let data of assets'>
-      <td> {{data.CompanyName}}</td>
       <td> {{data.Name}} </td>
+      <td> {{data.SiteAddress}} </td>
+      <td> {{data.Identifier}} </td>
       <td> {{data.Identifier}}</td>
       <td> {{data.Description}} </td>
-      <td> {{data.SLA}} </td>
-      <td> {{data.Schedule}} </td>
+      <td> {{data.Sla}} </td>
+      <td> <a (click)="getContract()"> {{data.Schedule}} </a> </td>
       <td> {{data.EndCustomer}} </td>
      </tr>
    </table>

@@ -1,9 +1,12 @@
-import { Subscription, merge } from 'rxjs';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Assets } from './models/assets';
+import { Contracts } from './models/contracts';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ApifilterService } from './../services/apifilter.service';
 import { AuthenticationService } from '../login/services/authentication.service';
+
+import { Subscription, merge } from 'rxjs';
 
 import { Filter } from '../models/filter';
 import { Profile } from './../login/models/profile';
@@ -27,6 +30,8 @@ export class ManageAssetsComponent implements OnInit {
 
   displayedColumns: string[] = ['Name', 'Identifier', 'Description', 'Schedule'];
 
+  contract: Contracts;
+
   assetObservable: Assets[];
   dataSource: MatTableDataSource<Assets>;
 
@@ -37,7 +42,9 @@ export class ManageAssetsComponent implements OnInit {
 
   constructor(
     private filter: ApifilterService,
-    private authserv: AuthenticationService
+    private authserv: AuthenticationService,
+    private route: ActivatedRoute,
+    private router: Router
     ) {
       this.filterSubsciption = this.authserv.currentUser.subscribe(
         name => {
@@ -51,6 +58,7 @@ export class ManageAssetsComponent implements OnInit {
   ngOnInit() {
     this.getAssets();
     this.assetsCount();
+    this.getContract();
     // this.paginatingAssets();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -63,6 +71,16 @@ export class ManageAssetsComponent implements OnInit {
         this.assets = returnedAssets;
       }
     );
+  }
+
+  getContract() {
+    this.filter.conByRef('', this.assets.schedule)
+    .subscribe(
+      (returnedContract: Contracts) => {
+        this.contract = returnedContract;
+      }
+    );
+    this.router.navigate(['/contractdetail/' + this.contract.refNumber]);
   }
 
   assetsCount() {
