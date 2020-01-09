@@ -94,7 +94,7 @@ export class ApifilterService {
       return this.http.post(this.pContractsApi, params);
     }
 
-    partConFilterB(filter: Filter) {
+    partConFilterB(filter: Filter): Observable<Contracts[]> {
       const params = {
         'role': filter.partnerRole,
         'partner': filter.partner
