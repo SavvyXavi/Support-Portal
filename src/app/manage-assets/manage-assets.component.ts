@@ -106,15 +106,15 @@ export class ManageAssetsComponent implements OnInit {
   // }
 
   getAsset() {
-    if (this.filterPartner(this.currentProfile.partner)) {
-      this.filter.partAssetsFilter(this.currentProfile)
+    if (this.filterPartner(this.filteredProfile.partner)) {
+      this.filter.partAssetsFilter(this.filteredProfile)
       .subscribe(
         (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
       );
       console.log(this.assetLength);
       console.log('asset length above');
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      this.filter.custAssetsFilter(this.currentProfile)
+    } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.filteredProfile)
       .subscribe(
         (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
       );
