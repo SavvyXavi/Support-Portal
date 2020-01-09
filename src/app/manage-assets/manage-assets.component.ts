@@ -121,7 +121,6 @@ export class ManageAssetsComponent implements OnInit {
         );
       }),
       map((returnedAssets: Assets) => {
-
         return this.assets = returnedAssets;
       })
     ).subscribe((returnedAssets: Assets) => this.assets = returnedAssets);
