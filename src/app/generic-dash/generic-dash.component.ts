@@ -76,6 +76,7 @@ export class GenericDashComponent implements OnInit {
     .subscribe(
       returnedPartners => this.partnerArr = returnedPartners
     );
+    console.log(this.partnerArr);
   }
 
   filterPartner(partner: String) {
