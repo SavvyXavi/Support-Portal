@@ -20,6 +20,7 @@ export class ContractsComponent implements OnInit {
   currentProfile: Profile;
 
   partner: Partner;
+  partnerArr: Partner[];
 
   filteredProfile: Filter;
   filterSubscription: Subscription;
@@ -37,53 +38,33 @@ export class ContractsComponent implements OnInit {
   ngOnInit() {
     this.getPartners();
     this.getContracts();
-    this.contractsCount();
+    // this.contractsCount();
   }
 
   getPartners() {
-    // this.filter.getPartners(this.filteredProfile.partner)
-    //   .subscribe(
-    //     partner  => {
-    //       this.partner = partner;
-    //     }
-    //   );
-  }
-
-  contractsCount() {
-    this.filter.partConFilter(this.filteredProfile)
+    this.filter.getPartners()
     .subscribe(
-      (returnedContractsLength: Contracts[]) => {
-        this.contractLength = returnedContractsLength;
-        return this.contractLength.length;
-      }
+      returnedPartners => this.partnerArr = returnedPartners
     );
   }
 
-  getContracts() {
-    if (this.partner.CompanyName.includes(this.filteredProfile.partner)) {
-      this.filter.partConFilter(this.filteredProfile)
-      .subscribe(
-        (returnedContracts: Contracts) => {
-          this.contracts = returnedContracts;
-        }
-      );
-      console.log('Contracts pull successful!');
-    } else {
-      this.filter.custConFilter(this.filteredProfile)
-      .subscribe(
-        (returnedContractsLength: Contracts[]) => {
-          this.contractLength = returnedContractsLength;
-        }
-      );
-      console.log('Company not included');
-    }
+  filterPartner(partner: String) {
+    return this.partnerArr.find(company => company.CompanyName === partner);
+  }
 
-    // this.filter.partConFilter(this.filteredProfile)
-    // .subscribe(
-    //   (returnedContracts: Contracts) => {
-    //     this.contracts = returnedContracts;
-    //   }
-    // );
+  getContracts() {
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+      );
+      console.log(this.filterPartner(this.currentProfile.partner));
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+      );
+    }
   }
 
 }

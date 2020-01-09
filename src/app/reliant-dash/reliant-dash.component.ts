@@ -37,6 +37,7 @@ export class ReliantDashComponent implements OnInit {
   assetLength: Assets[];
   ticketLength: Tickets[];
   companyLength: Customer[];
+  partnerArr: Partner[];
 
   contractsData = [];
   assetsData = [];
@@ -73,31 +74,28 @@ export class ReliantDashComponent implements OnInit {
   // }
 
   getPartners() {
-    // this.filter.getPartners(this.currentProfile.partner)
-    //   .subscribe(
-    //     partner  => {
-    //       this.partner = partner;
-    //     }
-    //   );
+    this.filter.getPartners()
+    .subscribe(
+      returnedPartners => this.partnerArr = returnedPartners
+    );
+  }
+
+  filterPartner(partner: String) {
+    return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
   contractsCount() {
-    if (this.partner.CompanyName.includes(this.currentProfile.partner)) {
+    if (this.filterPartner(this.currentProfile.partner)) {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
-        (returnedContractsLength: Contracts[]) => {
-          this.contractLength = returnedContractsLength;
-        }
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
       );
-      console.log('Partner Included: ' + this.partner.CompanyName);
-    } else {
+      console.log(this.filterPartner(this.currentProfile.partner));
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
-        (returnedContractsLength: Contracts[]) => {
-          this.contractLength = returnedContractsLength;
-        }
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
       );
-      console.log('Company not included');
     }
   }
 

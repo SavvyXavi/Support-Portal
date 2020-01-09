@@ -95,7 +95,6 @@ export class GenericDashComponent implements OnInit {
       .subscribe(
         (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
       );
-      console.log(this.filterPartner(this.currentProfile.partner));
     }
   }
 
