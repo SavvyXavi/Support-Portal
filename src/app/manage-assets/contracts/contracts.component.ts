@@ -53,14 +53,14 @@ export class ContractsComponent implements OnInit {
   }
 
   getContracts() {
-    if (this.filterPartner(this.currentProfile.partner)) {
-      this.filter.partConFilter(this.currentProfile)
+    if (this.filterPartner(this.filteredProfile.partner)) {
+      this.filter.partConFilter(this.filteredProfile)
       .subscribe(
         (returnedContracts: Contracts) => this.contracts = returnedContracts
       );
-      console.log(this.filterPartner(this.currentProfile.partner));
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      this.filter.custConFilter(this.currentProfile)
+      console.log(this.filterPartner(this.filteredProfile.partner));
+    } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
+      this.filter.custConFilter(this.filteredProfile)
       .subscribe(
         (returnedContracts: Contracts) => this.contracts = returnedContracts
       );
