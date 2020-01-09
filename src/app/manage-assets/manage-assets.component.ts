@@ -34,6 +34,7 @@ export class ManageAssetsComponent implements OnInit {
   contract: Contracts;
 
   partnerArr: Partner[];
+  assetArr: Assets[];
 
   assetObservable: Assets[];
   dataSource: MatTableDataSource<Assets>;
@@ -61,7 +62,7 @@ export class ManageAssetsComponent implements OnInit {
   ngOnInit() {
     this.getPartners();
     this.getAssets();
-    this.getAsset();
+    // this.assetsCount();
     this.getContract();
     // this.paginatingAssets();
     // this.dataSource.paginator = this.paginator;
@@ -106,8 +107,19 @@ export class ManageAssetsComponent implements OnInit {
   }
 
   getAsset() {
-    console.log(this.assets.schedule.includes(document.getElementById('assetSchedule').innerText));
-    console.log('Inner text above!');
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+      console.log(this.assetLength);
+      console.log('asset length above');
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    }
 }
 
   paginatingAssets() {
@@ -121,6 +133,7 @@ export class ManageAssetsComponent implements OnInit {
         );
       }),
       map((returnedAssets: Assets) => {
+
         return this.assets = returnedAssets;
       })
     ).subscribe((returnedAssets: Assets) => this.assets = returnedAssets);
