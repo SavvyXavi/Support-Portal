@@ -85,7 +85,7 @@ export class ManageAssetsComponent implements OnInit {
       .subscribe(
         (returnedAssets: Assets) => this.assets = returnedAssets
       );
-      console.log(this.assets);
+      console.log(this.assets.schedule);
       console.log('Assets are above!');
     } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
       this.filter.custAssetsFilter(this.filteredProfile)
@@ -107,6 +107,7 @@ export class ManageAssetsComponent implements OnInit {
 
   getAsset() {
     console.log(this.assets.schedule.includes(document.getElementById('assetSchedule').innerText));
+    console.log('Inner text above!');
 }
 
   paginatingAssets() {
