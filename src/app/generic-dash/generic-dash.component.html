@@ -1,3 +1,6 @@
+<div *ngIf ="!partner.CompanyName; else CompanySolution"> Soemething happened
+</div>
+<ng-template #CompanySolution>
 <div class="container wrapper">
       <div class="container-fluid">
         <div class="row ">
@@ -332,3 +335,4 @@
         </div>
       </div>
     </div>
+</ng-template>
