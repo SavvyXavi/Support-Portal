@@ -17,6 +17,7 @@ import { Partner } from './../models/partner';
 import { Contracts } from './../manage-assets/models/contracts';
 import { Customer } from './../admin/models/customer';
 import { Contract } from './../models/contract';
+import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-generic-dash',
@@ -78,24 +79,41 @@ export class GenericDashComponent implements OnInit {
   }
 
   contractsCount() {
-   switch (this.partner) {
-     case this.partner:
-       this.filter.partConFilter(this.currentProfile)
-        .subscribe(
-          (returnedContractLength: Contracts[]) =>
-          this.contractLength = returnedContractLength
-         );
-         console.log('Is Partner!');
-         break;
-     default:
-       this.filter.custConFilter(this.currentProfile)
-       .subscribe(
-         (returnedContractLength: Contracts[]) =>
-         this.contractLength = returnedContractLength
-       );
-       console.log('Defaulted to Customer Api!');
-   }
-  }
+    if ( this.partner.CompanyName !== undefined) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedContractLength: Contracts[]) => {
+          this.contractLength = returnedContractLength;
+        }
+      );
+        console.log('Is Partner!');
+      }
+
+    this.filter.custConFilter(this.currentProfile)
+    .subscribe(
+      (returnedContractLength: Contracts[]) =>
+      this.contractLength = returnedContractLength
+    );
+    }
+
+  //  switch (this.partner) {
+  //    case this.partner:
+  //      this.filter.partConFilter(this.currentProfile)
+  //       .subscribe(
+  //         (returnedContractLength: Contracts[]) =>
+  //         this.contractLength = returnedContractLength
+  //        );
+  //        console.log('Is Partner!');
+  //        break;
+  //    default:
+  //      this.filter.custConFilter(this.currentProfile)
+  //      .subscribe(
+  //        (returnedContractLength: Contracts[]) =>
+  //        this.contractLength = returnedContractLength
+  //      );
+  //      console.log('Defaulted to Customer Api!');
+  //  }
+  // }
 
 
 
