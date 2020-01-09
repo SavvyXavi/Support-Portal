@@ -94,6 +94,14 @@ export class ApifilterService {
       return this.http.post(this.pContractsApi, params);
     }
 
+    partConFilterB(filter: Filter): Observable<Contracts[]> {
+      const params = {
+        'role': filter.partnerRole,
+        'partner': filter.partner
+      };
+        return this.http.post<Contracts[]>(this.pContractsApi, params);
+    }
+
     conByRef(refNum: string, schedname: string) {
       const params = {
         'ref': refNum,
