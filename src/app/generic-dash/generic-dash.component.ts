@@ -77,13 +77,6 @@ export class GenericDashComponent implements OnInit {
     .subscribe(
       returnedPartners => this.partnerArr = returnedPartners
     );
-      console.log(this.partnerArr);
-    // var orderInfo = orders.map( function(order) {
-    //   if( order.status === "delivered"){
-    //       var info = { "orderName": order.name,
-    //                    "orderDesc": order.description
-    //                   }
-    //       return info;
   }
 
   filterPartner(partner: String) {
@@ -97,36 +90,14 @@ export class GenericDashComponent implements OnInit {
         (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
       );
       console.log(this.filterPartner(this.currentProfile.partner));
-      console.log('Found Partner!');
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
         (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
       );
       console.log(this.filterPartner(this.currentProfile.partner));
-      console.log('No partner found!');
     }
   }
-
-  //  switch (this.partner) {
-  //    case this.partner:
-  //      this.filter.partConFilter(this.currentProfile)
-  //       .subscribe(
-  //         (returnedContractLength: Contracts[]) =>
-  //         this.contractLength = returnedContractLength
-  //        );
-  //        console.log('Is Partner!');
-  //        break;
-  //    default:
-  //      this.filter.custConFilter(this.currentProfile)
-  //      .subscribe(
-  //        (returnedContractLength: Contracts[]) =>
-  //        this.contractLength = returnedContractLength
-  //      );
-  //      console.log('Defaulted to Customer Api!');
-  //  }
-  // }
-
 
 
   assetsCount() {
