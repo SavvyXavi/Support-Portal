@@ -56,15 +56,14 @@ export class ContractsComponent implements OnInit {
     if (this.filterPartner(this.currentProfile.partner)) {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
-        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+        (returnedContracts: Contracts) => this.contracts = returnedContracts
       );
       console.log(this.filterPartner(this.currentProfile.partner));
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
-        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+        (returnedContracts: Contracts) => this.contracts = returnedContracts
       );
     }
   }
-
 }
