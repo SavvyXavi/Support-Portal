@@ -108,7 +108,6 @@ export class ManageAssetsComponent implements OnInit {
   getAsset() {
     console.log(this.assets.schedule.includes(document.getElementById('assetSchedule').innerText));
     console.log('Inner text above!');
-
 }
 
   paginatingAssets() {
