@@ -8,6 +8,7 @@ import { AuthenticationService } from '../login/services/authentication.service'
 
 import { Subscription, merge } from 'rxjs';
 
+import { Partner } from '../models/partner';
 import { Filter } from '../models/filter';
 import { Profile } from './../login/models/profile';
 import { MatTableDataSource } from '@angular/material/table';
@@ -31,6 +32,9 @@ export class ManageAssetsComponent implements OnInit {
   displayedColumns: string[] = ['Name', 'Identifier', 'Description', 'Schedule'];
 
   contract: Contracts;
+
+  partnerArr: Partner[];
+  assetArr: Assets[];
 
   assetObservable: Assets[];
   dataSource: MatTableDataSource<Assets>;
@@ -56,40 +60,65 @@ export class ManageAssetsComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.getPartners();
     this.getAssets();
-    this.assetsCount();
-    this.getContract();
+    this.getAsset();
+    // this.getContract();
     // this.paginatingAssets();
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+  }
+
+  getPartners() {
+    this.filter.getPartners()
+    .subscribe(
+      returnedPartners => this.partnerArr = returnedPartners
+    );
+  }
+
+  filterPartner(partner: String) {
+    return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
   getAssets() {
-    this.filter.assetsFilter(this.filteredProfile)
+    if (this.filterPartner(this.filteredProfile.partner)) {
+      this.filter.partAssetsFilter(this.filteredProfile)
       .subscribe(
-      (returnedAssets: Assets) => {
-        this.assets = returnedAssets;
-      }
-    );
-  }
-
-  getContract() {
-    this.filter.conByRef('', this.assets.schedule)
-    .subscribe(
-      (returnedContract: Contracts) => {
-        this.contract = returnedContract;
-      }
-    );
-    this.router.navigate(['/contractdetail/' + this.contract.refNumber]);
-  }
-
-  assetsCount() {
-    this.filter.assetsFilter( this.currentProfile)
-  .subscribe(
-    (returnedAssets: Assets[]) => {
-      this.assetLength = returnedAssets;
+        (returnedAssets: Assets) => this.assets = returnedAssets
+      );
+      console.log('Assets are above!');
+    } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.filteredProfile)
+      .subscribe(
+        (returnedAssets: Assets) => this.assets = returnedAssets
+      );
     }
-  );
+  }
+
+  // getContract() {
+  //   this.filter.conByRef('', this.assets.schedule)
+  //   .subscribe(
+  //     (returnedContract: Contracts) => {
+  //       this.contract = returnedContract;
+  //     }
+  //   );
+  //   this.router.navigate(['/contractdetail/' + this.contract.refNumber]);
+  // }
+
+  getAsset() {
+    if (this.filterPartner(this.filteredProfile.partner)) {
+      this.filter.partAssetsFilter(this.filteredProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+      console.log(this.assetLength);
+      console.log('asset length above');
+    } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.filteredProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    }
 }
 
   paginatingAssets() {

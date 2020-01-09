@@ -21,7 +21,7 @@
             </div>
             <div class="form-goup">
               <label for="endCustomer">
-                End Customer: {{data.EndCustomerName}}
+                Customer: {{data.EndCustomerName}}
               </label>
             </div>
             <div class="form-goup">
@@ -34,7 +34,7 @@
                 Renewal Date: {{data.RenewalDate | date: 'shortDate'}}
               </label>
             </div>
-            <div class="form-goup">
+            <!-- <div class="form-goup">
               <label for="contractLength">
                 Contract Length (Months): {{data.ContractLengthInMonths}}
               </label>
@@ -47,8 +47,8 @@
             <div class="form-goup">
               <label for="validTo">
                 Valid To: {{data.ValidTo | date: 'shortDate'}}
-              </label>
-            </div>
+              </label> -->
+            <!-- </div> -->
             <div class="row button-containers">
               <div class="col-sm">
                 <Button (click)="goBack()" class="btn btn-info">
