@@ -71,10 +71,10 @@ export class RelusDashComponent implements OnInit {
   // }
 
   getPartners() {
-    this.filter.getPartners(this.currentProfile.partner)
-      .subscribe(
-        partner  => this.partner = partner
-      );
+    // this.filter.getPartners(this.currentProfile.partner)
+    //   .subscribe(
+    //     partner  => this.partner = partner
+    //   );
   }
 
   contractsCount() {

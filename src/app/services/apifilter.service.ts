@@ -96,8 +96,8 @@ export class ApifilterService {
       return this.http.post(this.cContractsApi, params);
     }
 
-  getPartners( CompanyName: string ): Observable<Partner> {
-    return of(this.partnerlist.find( partner =>  partner.CompanyName === CompanyName));
+  getPartners() {
+    return of(this.partnerlist);
   }
 
   customerFilter(filter: Filter) {

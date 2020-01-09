@@ -56,7 +56,7 @@ export class DashboardComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.getPartners();
+    // this.getPartners();
     this.contractsChart();
     this.assetsChart();
     this.displayData();
@@ -70,12 +70,12 @@ export class DashboardComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
-  getPartners() {
-    this.filter.getPartners(this.currentProfile.partner)
-      .subscribe(
-        partner  => this.partner = partner
-      );
-  }
+  // getPartners() {
+  //   this.filter.getPartners(this.currentProfile.partner)
+  //     .subscribe(
+  //       partner  => this.partner = partner
+  //     );
+  // }
 
   contractsCount() {
     if (this.partner.CompanyName) {

@@ -1,3 +1,4 @@
+import { PartnerList } from './../partner-list';
 import { Component, OnInit } from '@angular/core';
 
 import { Profile } from '../login/models/profile';
@@ -17,7 +18,7 @@ import { Partner } from './../models/partner';
 import { Contracts } from './../manage-assets/models/contracts';
 import { Customer } from './../admin/models/customer';
 import { Contract } from './../models/contract';
-import { runInThisContext } from 'vm';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-generic-dash',
@@ -35,7 +36,9 @@ export class GenericDashComponent implements OnInit {
   ticketLength: Tickets[];
   companyLength: Customer[];
 
-  partner: Partner;
+  partnerList = PartnerList;
+  partnerArr: Partner[];
+  isPartners: Partner;
 
   contractsData = [];
   assetsData = [];
@@ -72,21 +75,30 @@ export class GenericDashComponent implements OnInit {
   // }
 
   getPartners() {
-    this.filter.getPartners(this.currentProfile.partner)
-      .subscribe(
-        partner  => this.partner = partner
-      );
+    this.filter.getPartners()
+    .subscribe(
+      (returnedCompany: Partner[]) => this.partnerArr = returnedCompany
+    );
+    let partnerFilter = this.partnerArr.map((partners: Partner) => this.isPartners.CompanyName = partners.CompanyName);
+      console.log(this.isPartners);
+    // var orderInfo = orders.map( function(order) {
+    //   if( order.status === "delivered"){
+    //       var info = { "orderName": order.name,
+    //                    "orderDesc": order.description
+    //                   }
+    //       return info;
+
   }
 
   contractsCount() {
-    if ( this.partner.CompanyName !== '{}') {
+    if (this.isPartners.CompanyName.includes(this.currentProfile.partner)) {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
         (returnedContractLength: Contracts[]) => {
           this.contractLength = returnedContractLength;
         }
       );
-        console.log('Found Partner!');
+        console.log('Is a Partner!');
       }
 
     this.filter.custConFilter(this.currentProfile)
@@ -94,6 +106,7 @@ export class GenericDashComponent implements OnInit {
       (returnedContractLength: Contracts[]) =>
       this.contractLength = returnedContractLength
     );
+    console.log('No partner!');
     }
 
   //  switch (this.partner) {

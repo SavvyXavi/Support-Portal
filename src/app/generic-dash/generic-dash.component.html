@@ -1,6 +1,3 @@
-<div *ngIf ="!partner.CompanyName; else CompanySolution"> Soemething happened
-</div>
-<ng-template #CompanySolution>
 <div class="container wrapper">
       <div class="container-fluid">
         <div class="row ">
@@ -49,7 +46,7 @@
               </div>
             </a>
           </div>
-        <div *ngIf="partner" class="companies-container total-container col-md">
+        <div class="companies-container total-container col-md">
             <a routerLink="/manageassets/companies">
               <div class="row companies-content">
                 <div class="col companies-length">
@@ -335,4 +332,3 @@
         </div>
       </div>
     </div>
-</ng-template>

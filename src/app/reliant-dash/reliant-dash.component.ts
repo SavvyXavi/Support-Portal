@@ -73,12 +73,12 @@ export class ReliantDashComponent implements OnInit {
   // }
 
   getPartners() {
-    this.filter.getPartners(this.currentProfile.partner)
-      .subscribe(
-        partner  => {
-          this.partner = partner;
-        }
-      );
+    // this.filter.getPartners(this.currentProfile.partner)
+    //   .subscribe(
+    //     partner  => {
+    //       this.partner = partner;
+    //     }
+    //   );
   }
 
   contractsCount() {

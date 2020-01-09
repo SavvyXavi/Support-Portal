@@ -41,12 +41,12 @@ export class ContractsComponent implements OnInit {
   }
 
   getPartners() {
-    this.filter.getPartners(this.filteredProfile.partner)
-      .subscribe(
-        partner  => {
-          this.partner = partner;
-        }
-      );
+    // this.filter.getPartners(this.filteredProfile.partner)
+    //   .subscribe(
+    //     partner  => {
+    //       this.partner = partner;
+    //     }
+    //   );
   }
 
   contractsCount() {
