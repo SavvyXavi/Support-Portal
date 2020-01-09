@@ -8,6 +8,7 @@ import { AuthenticationService } from '../login/services/authentication.service'
 
 import { Subscription, merge } from 'rxjs';
 
+import { Partner } from '../models/partner';
 import { Filter } from '../models/filter';
 import { Profile } from './../login/models/profile';
 import { MatTableDataSource } from '@angular/material/table';
@@ -31,6 +32,8 @@ export class ManageAssetsComponent implements OnInit {
   displayedColumns: string[] = ['Name', 'Identifier', 'Description', 'Schedule'];
 
   contract: Contracts;
+
+  partnerArr: Partner[];
 
   assetObservable: Assets[];
   dataSource: MatTableDataSource<Assets>;
@@ -56,21 +59,38 @@ export class ManageAssetsComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.getPartners();
     this.getAssets();
-    this.assetsCount();
+    // this.assetsCount();
     this.getContract();
     // this.paginatingAssets();
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+  }
+
+  getPartners() {
+    this.filter.getPartners()
+    .subscribe(
+      returnedPartners => this.partnerArr = returnedPartners
+    );
+  }
+
+  filterPartner(partner: String) {
+    return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
   getAssets() {
-    // this.filter.assetsFilter(this.filteredProfile)
-    //   .subscribe(
-    //   (returnedAssets: Assets) => {
-    //     this.assets = returnedAssets;
-    //   }
-    // );
+    if (this.filterPartner(this.filteredProfile.partner)) {
+      this.filter.partAssetsFilter(this.filteredProfile)
+      .subscribe(
+        (returnedAssetLength: Assets) => this.assets = returnedAssetLength
+      );
+    } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.filteredProfile)
+      .subscribe(
+        (returnedAssetLength: Assets) => this.assets = returnedAssetLength
+      );
+    }
   }
 
   getContract() {
@@ -84,12 +104,17 @@ export class ManageAssetsComponent implements OnInit {
   }
 
   assetsCount() {
-  //   this.filter.assetsFilter( this.currentProfile)
-  // .subscribe(
-  //   (returnedAssets: Assets[]) => {
-  //     this.assetLength = returnedAssets;
-  //   }
-  // );
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    }
 }
 
   paginatingAssets() {

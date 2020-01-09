@@ -87,7 +87,6 @@ export class DashboardComponent implements OnInit {
       .subscribe(
         (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
       );
-      console.log(this.filterPartner(this.currentProfile.partner));
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
@@ -97,12 +96,17 @@ export class DashboardComponent implements OnInit {
   }
 
   assetsCount() {
-    //   this.filter.assetsFilter( this.currentProfile)
-    // .subscribe(
-    //   (returnedAssets: Assets[]) => {
-    //     this.assetLength = returnedAssets;
-    //   }
-    // );
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    }
   }
 
   ticketsCount() {
