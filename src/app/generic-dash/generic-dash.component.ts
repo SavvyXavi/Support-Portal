@@ -146,7 +146,7 @@ export class GenericDashComponent implements OnInit {
           return [String(key), res[key]];
         });
 
-        console.log(length);
+        // console.log(length);
         // console.log(price);
       }
     );
@@ -169,7 +169,7 @@ export class GenericDashComponent implements OnInit {
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
-        console.log(res);
+        // console.log(res);
         // console.log(res.status);
         // console.log(length);
       }
