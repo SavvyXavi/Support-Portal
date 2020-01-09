@@ -36,9 +36,7 @@ export class GenericDashComponent implements OnInit {
   ticketLength: Tickets[];
   companyLength: Customer[];
 
-  partnerList = PartnerList;
   partnerArr: Partner[];
-  isPartners: Partner;
 
   contractsData = [];
   assetsData = [];
@@ -80,6 +78,11 @@ export class GenericDashComponent implements OnInit {
       returnedPartners => this.partnerArr = returnedPartners
     );
       console.log(this.partnerArr);
+      const filterPartner = this.partnerArr.find(
+        (thisPartner: Partner) => {
+          this.currentProfile.partner = thisPartner.CompanyName;
+        }
+      );
     // var orderInfo = orders.map( function(order) {
     //   if( order.status === "delivered"){
     //       var info = { "orderName": order.name,
@@ -89,24 +92,23 @@ export class GenericDashComponent implements OnInit {
 
   }
 
-  contractsCount() {
-    // if (this.partnerArr.find(this.currentProfile.partner)) {
-    //   this.filter.partConFilter(this.currentProfile)
-    //   .subscribe(
-    //     (returnedContractLength: Contracts[]) => {
-    //       this.contractLength = returnedContractLength;
-    //     }
-    //   );
-    //     console.log('Is a Partner!');
-    //   }
+  filterPartner(partner: String) {
+    return this.partnerArr.find(company => company.CompanyName === partner);
+  }
 
-    // this.filter.custConFilter(this.currentProfile)
-    // .subscribe(
-    //   (returnedContractLength: Contracts[]) =>
-    //   this.contractLength = returnedContractLength
-    // );
-    // console.log('No partner!');
+  contractsCount() {
+    if (this.filterPartner(this.currentProfile.partner) !== undefined) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+      );
+    } else {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+      );
     }
+  }
 
   //  switch (this.partner) {
   //    case this.partner:
