@@ -77,10 +77,9 @@ export class GenericDashComponent implements OnInit {
   getPartners() {
     this.filter.getPartners()
     .subscribe(
-      (returnedCompany: Partner[]) => this.partnerArr = returnedCompany
+      returnedPartners => this.partnerArr = returnedPartners
     );
-    let partnerFilter = this.partnerArr.map((partners: Partner) => this.isPartners.CompanyName = partners.CompanyName);
-      console.log(this.isPartners);
+      console.log(this.partnerArr);
     // var orderInfo = orders.map( function(order) {
     //   if( order.status === "delivered"){
     //       var info = { "orderName": order.name,
@@ -91,22 +90,22 @@ export class GenericDashComponent implements OnInit {
   }
 
   contractsCount() {
-    if (this.isPartners.CompanyName.includes(this.currentProfile.partner)) {
-      this.filter.partConFilter(this.currentProfile)
-      .subscribe(
-        (returnedContractLength: Contracts[]) => {
-          this.contractLength = returnedContractLength;
-        }
-      );
-        console.log('Is a Partner!');
-      }
+    // if (this.partnerArr.find(this.currentProfile.partner)) {
+    //   this.filter.partConFilter(this.currentProfile)
+    //   .subscribe(
+    //     (returnedContractLength: Contracts[]) => {
+    //       this.contractLength = returnedContractLength;
+    //     }
+    //   );
+    //     console.log('Is a Partner!');
+    //   }
 
-    this.filter.custConFilter(this.currentProfile)
-    .subscribe(
-      (returnedContractLength: Contracts[]) =>
-      this.contractLength = returnedContractLength
-    );
-    console.log('No partner!');
+    // this.filter.custConFilter(this.currentProfile)
+    // .subscribe(
+    //   (returnedContractLength: Contracts[]) =>
+    //   this.contractLength = returnedContractLength
+    // );
+    // console.log('No partner!');
     }
 
   //  switch (this.partner) {
