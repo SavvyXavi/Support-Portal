@@ -97,12 +97,12 @@ export class DashboardComponent implements OnInit {
   }
 
   assetsCount() {
-      this.filter.assetsFilter( this.currentProfile)
-    .subscribe(
-      (returnedAssets: Assets[]) => {
-        this.assetLength = returnedAssets;
-      }
-    );
+    //   this.filter.assetsFilter( this.currentProfile)
+    // .subscribe(
+    //   (returnedAssets: Assets[]) => {
+    //     this.assetLength = returnedAssets;
+    //   }
+    // );
   }
 
   ticketsCount() {

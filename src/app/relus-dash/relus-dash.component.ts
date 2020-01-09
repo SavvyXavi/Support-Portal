@@ -98,12 +98,12 @@ export class RelusDashComponent implements OnInit {
   }
 
   assetsCount() {
-      this.filter.assetsFilter( this.currentProfile)
-    .subscribe(
-      (returnedAssets: Assets[]) => {
-        this.assetLength = returnedAssets;
-      }
-    );
+    //   this.filter.assetsFilter( this.currentProfile)
+    // .subscribe(
+    //   (returnedAssets: Assets[]) => {
+    //     this.assetLength = returnedAssets;
+    //   }
+    // );
   }
 
   ticketsCount() {

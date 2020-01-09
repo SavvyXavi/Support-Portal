@@ -36,8 +36,13 @@ export class ApifilterService {
   'https://prodharmony.azurewebsites.net/api/ContractsByCustomer?code=SQVrhe8b7rFFsPV0LS6dxBniJW8QqVoa4Jjzv5gwLVuiD/Tg8uIvbQ==';
   refConApi = 'https://prodharmony.azurewebsites.net/api/SpecificContract?code=YcbG2hXdjXJa/o/b1nxRHhheVoY5l5AvHQ7AQGP9PhQUOppTFi3kig==';
 
-  assetsapi = 'https://prodharmony.azurewebsites.net/api/PartnerPullAssets?code=BmCsQrHGSIvMr1oFRw7T6kj7/a2H/x8GeOadWjmvZgSeaRwCqZGE9g==';
-  ticketsapi = 'https://prodharmony.azurewebsites.net/api/TickersbyCustomer?code=2PgmwkpRzFu9ak1Stz6uRyGFa0LRwC61pWM9L5oSPzJLQkT33dlNvA==';
+  partassetsapi
+   = 'https://prodharmony.azurewebsites.net/api/PartnerPullAssets?code=BmCsQrHGSIvMr1oFRw7T6kj7/a2H/x8GeOadWjmvZgSeaRwCqZGE9g==';
+  custassetsapi
+  = 'https://prodharmony.azurewebsites.net/api/CompanyPullAssets?code=qyUMwbo49BKruYRYNRlQnseFOATgwD/e9zJeIyk4ZBIO0xbOmvcVlQ==';
+
+
+   ticketsapi = 'https://prodharmony.azurewebsites.net/api/TickersbyCustomer?code=2PgmwkpRzFu9ak1Stz6uRyGFa0LRwC61pWM9L5oSPzJLQkT33dlNvA==';
 
   constructor(
     private profileService: ProfileService,
@@ -45,13 +50,22 @@ export class ApifilterService {
     private http: HttpClient
   ) { }
 
-  assetsFilter(filter: Filter) {
+  partAssetsFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
       'partner': filter.partner
     };
 
-    return this.http.post(this.assetsapi, params);
+    return this.http.post(this.partassetsapi, params);
+  }
+
+  custAssetsFilter(filter: Filter) {
+    const params = {
+      'role': filter.partnerRole,
+      'partner': filter.partner
+    };
+
+    return this.http.post(this.custassetsapi, params);
   }
 
   paginateAssets(filter: Filter, page: number): Observable<Assets> {
@@ -60,7 +74,7 @@ export class ApifilterService {
       'partner': filter.partner
     };
 
-    return this.http.post<Assets>(this.assetsapi, params);
+    return this.http.post<Assets>(this.partassetsapi, params);
   }
 
   ticketsFilter(filter: Filter) {
@@ -125,6 +139,6 @@ export class ApifilterService {
       'partner': filter.partner
     };
 
-    return this.http.post<Assets[]>(this.assetsapi, params);
+    return this.http.post<Assets[]>(this.partassetsapi, params);
   }
 }

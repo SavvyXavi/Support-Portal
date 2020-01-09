@@ -65,12 +65,12 @@ export class ManageAssetsComponent implements OnInit {
   }
 
   getAssets() {
-    this.filter.assetsFilter(this.filteredProfile)
-      .subscribe(
-      (returnedAssets: Assets) => {
-        this.assets = returnedAssets;
-      }
-    );
+    // this.filter.assetsFilter(this.filteredProfile)
+    //   .subscribe(
+    //   (returnedAssets: Assets) => {
+    //     this.assets = returnedAssets;
+    //   }
+    // );
   }
 
   getContract() {
@@ -84,12 +84,12 @@ export class ManageAssetsComponent implements OnInit {
   }
 
   assetsCount() {
-    this.filter.assetsFilter( this.currentProfile)
-  .subscribe(
-    (returnedAssets: Assets[]) => {
-      this.assetLength = returnedAssets;
-    }
-  );
+  //   this.filter.assetsFilter( this.currentProfile)
+  // .subscribe(
+  //   (returnedAssets: Assets[]) => {
+  //     this.assetLength = returnedAssets;
+  //   }
+  // );
 }
 
   paginatingAssets() {
