@@ -18,7 +18,6 @@ import { Partner } from './../models/partner';
 import { Contracts } from './../manage-assets/models/contracts';
 import { Customer } from './../admin/models/customer';
 import { Contract } from './../models/contract';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-generic-dash',

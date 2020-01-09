@@ -61,7 +61,7 @@ export class ManageAssetsComponent implements OnInit {
   ngOnInit() {
     this.getPartners();
     this.getAssets();
-    // this.assetsCount();
+    this.getAsset();
     this.getContract();
     // this.paginatingAssets();
     // this.dataSource.paginator = this.paginator;
@@ -85,7 +85,7 @@ export class ManageAssetsComponent implements OnInit {
       .subscribe(
         (returnedAssets: Assets) => this.assets = returnedAssets
       );
-      console.log(this.assets.schedule);
+      console.log(this.assets);
       console.log('Assets are above!');
     } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
       this.filter.custAssetsFilter(this.filteredProfile)
@@ -105,18 +105,8 @@ export class ManageAssetsComponent implements OnInit {
     this.router.navigate(['/contractdetail/' + this.contract.refNumber]);
   }
 
-  assetsCount() {
-    if (this.filterPartner(this.currentProfile.partner)) {
-      this.filter.partAssetsFilter(this.currentProfile)
-      .subscribe(
-        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
-      );
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      this.filter.custAssetsFilter(this.currentProfile)
-      .subscribe(
-        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
-      );
-    }
+  getAsset() {
+    console.log(this.assets.schedule.includes(document.getElementById('assetSchedule').innerText));
 }
 
   paginatingAssets() {
