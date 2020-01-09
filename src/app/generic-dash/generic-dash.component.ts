@@ -78,18 +78,12 @@ export class GenericDashComponent implements OnInit {
       returnedPartners => this.partnerArr = returnedPartners
     );
       console.log(this.partnerArr);
-      const filterPartner = this.partnerArr.find(
-        (thisPartner: Partner) => {
-          this.currentProfile.partner = thisPartner.CompanyName;
-        }
-      );
     // var orderInfo = orders.map( function(order) {
     //   if( order.status === "delivered"){
     //       var info = { "orderName": order.name,
     //                    "orderDesc": order.description
     //                   }
     //       return info;
-
   }
 
   filterPartner(partner: String) {
@@ -97,13 +91,13 @@ export class GenericDashComponent implements OnInit {
   }
 
   contractsCount() {
-    if (this.filterPartner(this.currentProfile.partner) !== undefined) {
+    if (this.filterPartner(this.currentProfile.partner).CompanyName === this.currentProfile.partner) {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
         (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
       );
       console.log(this.filterPartner(this.currentProfile.partner));
-      console.log('Found Partner!')
+      console.log('Found Partner!');
     } else {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
