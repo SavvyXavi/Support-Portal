@@ -62,7 +62,7 @@ export class ManageAssetsComponent implements OnInit {
   ngOnInit() {
     this.getPartners();
     this.getAssets();
-    // this.assetsCount();
+    this.getAsset();
     this.getContract();
     // this.paginatingAssets();
     // this.dataSource.paginator = this.paginator;
