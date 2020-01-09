@@ -63,7 +63,7 @@ export class ManageAssetsComponent implements OnInit {
     this.getPartners();
     this.getAssets();
     this.getAsset();
-    this.getContract();
+    // this.getContract();
     // this.paginatingAssets();
     // this.dataSource.paginator = this.paginator;
     // this.dataSource.sort = this.sort;
@@ -86,7 +86,6 @@ export class ManageAssetsComponent implements OnInit {
       .subscribe(
         (returnedAssets: Assets) => this.assets = returnedAssets
       );
-      console.log(this.assets.schedule);
       console.log('Assets are above!');
     } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
       this.filter.custAssetsFilter(this.filteredProfile)
@@ -96,15 +95,15 @@ export class ManageAssetsComponent implements OnInit {
     }
   }
 
-  getContract() {
-    this.filter.conByRef('', this.assets.schedule)
-    .subscribe(
-      (returnedContract: Contracts) => {
-        this.contract = returnedContract;
-      }
-    );
-    this.router.navigate(['/contractdetail/' + this.contract.refNumber]);
-  }
+  // getContract() {
+  //   this.filter.conByRef('', this.assets.schedule)
+  //   .subscribe(
+  //     (returnedContract: Contracts) => {
+  //       this.contract = returnedContract;
+  //     }
+  //   );
+  //   this.router.navigate(['/contractdetail/' + this.contract.refNumber]);
+  // }
 
   getAsset() {
     if (this.filterPartner(this.currentProfile.partner)) {
