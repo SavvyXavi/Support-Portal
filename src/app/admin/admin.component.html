@@ -14,7 +14,7 @@
 
 </p>
 <h3>
-  All Users:
+  All Users: <button (click)="loadAllUsers()">Load Users</button>
   <ul>
     <li *ngFor="let profile of profiles">
       {{this.profile._id}}<br>
