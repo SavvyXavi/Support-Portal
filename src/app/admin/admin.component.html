@@ -9,10 +9,24 @@
     Token: {{this.currentProfile.token}}<br/>
     Username: {{this.currentProfile.username}}<br/>
     Partner: {{this.currentProfile.partner}}<br/>
-    PartnerRole: {{this.currentProfile.partnerRole}}
+    PartnerRole: {{this.currentProfile.partnerRole}}<br/>
+    Email: {{this.currentProfile.email}}
 
 </p>
 <h3>
-  Current User Object:
-  {{this.currentProfile}}
+  All Users:
+  <ul>
+    <li *ngFor="let profile of profiles">
+      {{this.profile._id}}<br>
+      {{this.profile.id}}<br>
+      {{this.profile.firstName}}<br>
+      {{this.profile.lastName}}<br>
+      {{this.profile.partner}}<br>
+      {{this.profile.partnerRole}}<br>
+      {{this.profile.token}}<br>
+      {{this.profile.hash}}<br>
+      {{this.profile.email}}
+    </li>
+  </ul>
+
 </h3>
