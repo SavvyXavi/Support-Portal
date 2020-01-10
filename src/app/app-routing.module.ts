@@ -1,3 +1,4 @@
+import { AdminComponent } from './admin/admin.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ContractsComponent } from './manage-assets/contracts/contracts.component';
 import { SupportComponent } from './admin/support/support.component';
@@ -143,6 +144,11 @@ const routes: Routes = [
   {
     path: 'admin/accounts',
     component: AccountsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin/admin',
+    component: AdminComponent,
     canActivate: [AuthGuard]
   },
   {
