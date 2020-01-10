@@ -81,13 +81,13 @@ export class GenericDashComponent implements OnInit {
     return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
-  contractsCount() {
+  async contractsCount() {
     if (this.filterPartner(this.currentProfile.partner)) {
       this.filter.partConFilterB(this.currentProfile)
       .subscribe(
         returnedConLength => this.contractLength = returnedConLength
       );
-      console.log( this.contractLength );
+      await console.log( this.contractLength );
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
