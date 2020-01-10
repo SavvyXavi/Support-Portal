@@ -101,7 +101,7 @@ import { AdminComponent } from './admin/admin.component';
     AuthGuard,
     AlertService,
     AuthenticationService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     // fakeBackendProvider
   ],
