@@ -16,7 +16,7 @@ export class ProfileService {
     return this.http.get<Profile[]>(`${environment.serverUrl}/profile`);
   }
 
-  getById(id: number) {
+  getById(id: string) {
     return this.http.get(`${environment.serverUrl}/profile/${id}`);
   }
 
