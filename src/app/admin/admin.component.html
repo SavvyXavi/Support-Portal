@@ -1,5 +1,6 @@
 <h2>Current User Below:</h2>
 <p>
+    _ID: {{this.currentProfile._id}}
     ID: {{this.currentProfile.id}}<br/>
     First Name: {{this.currentProfile.firstName}}<br/>
     Last Name: {{this.currentProfile.lastName}}<br/>
@@ -7,4 +8,11 @@
     Hash: {{this.currentProfile.hash}}<br/>
     Token: {{this.currentProfile.token}}<br/>
     Username: {{this.currentProfile.username}}<br/>
+    Partner: {{this.currentProfile.partner}}<br/>
+    PartnerRole: {{this.currentProfile.partnerRole}}
+
 </p>
+<h3>
+  Current User Object:
+  {{this.currentProfile}}
+</h3>
