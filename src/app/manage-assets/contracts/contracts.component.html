@@ -29,8 +29,8 @@
     <td>
       <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</a>
     </td>
-    <td>{{data.StartDate}}</td>
-    <td>{{data.RenewalDate}}</td>
+    <td>{{data.StartDate | date: 'shortDate'}}</td>
+    <td>{{data.RenewalDate | date: 'shortDate'}}</td>
     <td>
       <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.RefNumber}}</a>
     </td>

@@ -52,7 +52,10 @@ export class ContractsComponent implements OnInit {
   getCompanies() {
     this.filter.customerFilter(this.currentProfile)
     .subscribe(
-      (companies: Customer) => this.company = companies
+      (companies: Customer) => {
+        this.company = companies;
+        console.log(this.company);
+      }
     );
   }
 
