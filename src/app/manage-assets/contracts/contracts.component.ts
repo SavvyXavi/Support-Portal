@@ -54,7 +54,6 @@ export class ContractsComponent implements OnInit {
     .subscribe(
       (companies: Customer) => {
         this.company = companies;
-        console.log(this.company);
       }
     );
   }
