@@ -8,8 +8,8 @@
   </div>
 <div class="companySelector">
   Selector Here
-  <select>
-    <option *ngFor="let data of company">
+  <select *ngFor="let data of company">
+    <option>
       {{data.CompanyName}}
     </option>
   </select>

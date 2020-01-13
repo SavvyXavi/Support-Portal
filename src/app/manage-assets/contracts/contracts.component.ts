@@ -50,7 +50,7 @@ export class ContractsComponent implements OnInit {
   }
 
   getCompanies() {
-    this.filter.customerFilter(this.currentProfile)
+    this.filter.customerFilter(this.filteredProfile)
     .subscribe(
       (companies: Customer) => {
         this.company = companies;
