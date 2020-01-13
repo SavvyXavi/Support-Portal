@@ -69,7 +69,6 @@ export class ContractsComponent implements OnInit {
       .subscribe(
         (returnedContracts: Contracts) => this.contracts = returnedContracts
       );
-      console.log(this.filterPartner(this.filteredProfile.partner));
     } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
       this.filter.custConFilter(this.filteredProfile)
       .subscribe(
