@@ -8,8 +8,10 @@
   </div>
 <div class="companySelector">
   Selector Here
-  <select>
-    <option *ngFor="let data of company">
+  <select [(ngModel)]="this.company.companyName">
+    <option *ngFor="let data of company"
+    [value]="data.CompanyName"
+    [attr.selected]="this.company.companyName==data.CompanyName ? true : null">
       {{data.CompanyName}}
     </option>
   </select>
