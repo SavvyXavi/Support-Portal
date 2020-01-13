@@ -125,6 +125,12 @@ export class ApifilterService {
     return of(this.partnerlist);
   }
 
+  // getCompanies(filter: Filter) {
+  //   const Params = {
+  //     'partner'
+  //   }
+  // }
+
   customerFilter(filter: Filter) {
     let params;
     if (filter.partnerRole === 'Admin') {

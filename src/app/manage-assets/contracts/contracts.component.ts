@@ -1,10 +1,10 @@
-import { Partner } from './../../models/partner';
 import { Component, OnInit } from '@angular/core';
 
 import { Contracts } from '../models/contracts';
 import { Profile } from './../../login/models/profile';
 import { Filter } from '../../models/filter';
-import { Subscription } from 'rxjs';
+import { Partner } from '../../models/partner';
+import { Customer } from '../../models/customer';
 
 import { ApifilterService } from './../../services/apifilter.service';
 import { AuthenticationService } from './../../login/services/authentication.service';
@@ -21,14 +21,14 @@ export class ContractsComponent implements OnInit {
 
   partner: Partner;
   partnerArr: Partner[];
+  company: Customer;
 
   filteredProfile: Filter;
-  filterSubscription: Subscription;
   constructor(
     private filter: ApifilterService,
     private authserv: AuthenticationService
   ) {
-    this.filterSubscription = this.authserv.currentUser.subscribe(
+    this.authserv.currentUser.subscribe(
       name => {
         this.filteredProfile = name;
       }
@@ -38,6 +38,7 @@ export class ContractsComponent implements OnInit {
   ngOnInit() {
     this.getPartners();
     this.getContracts();
+    this.getCompanies();
     // this.contractsCount();
   }
 
@@ -45,6 +46,13 @@ export class ContractsComponent implements OnInit {
     this.filter.getPartners()
     .subscribe(
       returnedPartners => this.partnerArr = returnedPartners
+    );
+  }
+
+  getCompanies() {
+    this.filter.customerFilter(this.currentProfile)
+    .subscribe(
+      (companies: Customer) => this.company = companies
     );
   }
 

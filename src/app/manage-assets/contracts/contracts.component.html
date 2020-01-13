@@ -6,7 +6,13 @@
       <i class="far fa-eye"></i> Show Archived
     </button>
   </div>
-
+<div *ngIf="this.company" class="companySelector">
+  <select *ngFor="let data of company">
+    <option>
+      {{data.CompanyName}}
+    </option>
+  </select>
+</div>
 <div class=" table-container table-responsive-sm">
 <table class="table table-bordered rounded">
   <thead>
@@ -33,3 +39,30 @@
    </tr>
  </table>
 </div>
+
+<!-- <div class=" table-container table-responsive-sm">
+<table class="table table-bordered rounded">
+<thead>
+ <tr>
+    <th>Contract Name</th>
+    <th>Start Date</th>
+    <th>Service Ends</th>
+    <th>Contract#</th>
+    <th>Customer</th>
+    <th>Status</th>
+   </tr>
+</thead>
+ <tr *ngFor='let data of contracts'>
+  <td>
+    <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</a>
+  </td>
+  <td>{{data.StartDate}}</td>
+  <td>{{data.RenewalDate}}</td>
+  <td>
+    <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.RefNumber}}</a>
+  </td>
+  <td>{{data.EndCustomerName}}</td>
+  <td>{{data.Status}}</td>
+ </tr>
+</table>
+</div> -->
