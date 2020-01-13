@@ -7,7 +7,6 @@ import { Filter } from './../models/filter';
 
 import { Contract } from './../models/contract';
 import { Contracts } from './../manage-assets/models/contracts';
-import { format } from 'url';
 
 @Component({
   selector: 'app-contract-detail',

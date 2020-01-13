@@ -14,8 +14,9 @@
     Email: {{this.currentProfile.email}}
 
 </p>
-<h3>
-  All Users: <button (click)="loadAllUsers()">Load Users</button>
+<div *ngIf="this.profiles">
+  <h3>
+  All Users:
   <ul>
     <li *ngFor="let profile of profiles">
       {{profile.company}}<br>
@@ -32,3 +33,5 @@
   </ul>
 
 </h3>
+</div>
+

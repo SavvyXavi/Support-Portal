@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="col-md">
+    <div class="card">
+      <div class="card-header">
+        <h2>Location Details</h2>
+      </div>
+      <div *ngFor='let data of specLocation' class="card-body">
+        <div class="row detail-container">
+          <h3 class="col-md-offset">
+            {{data.CompanyName}}
+          </h3>
+        </div>
+        <div class="row">
+          <div class="detail">
+            <div class="form-group">
+              <label for="description">
+                Description: -->
+                <input [(ngModel)]="data.Description" placeholder="Reference Number" /> <br />
+                {{data.Description}}
+              </label>
+            </div>
+            <div class="form-goup">
+              <label for="street">
+                City: {{data.Town}}
+              </label>
+            </div>
+            <div class="form-goup">
+              <label for="zip">
+                Zip Code: {{data.Postcode}} -->
+              </label>
+            </div>
+            <div class="form-goup">
+              <label for="country">
+                Country: {{data.Country}}
+              </label>
+            </div>
+            <div class="row button-containers">
+              <div class="col-sm">
+                <Button (click)="goBack()" class="btn btn-info">
+                  Go Back
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>

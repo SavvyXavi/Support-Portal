@@ -42,7 +42,10 @@ export class ApifilterService {
   = 'https://prodharmony.azurewebsites.net/api/CompanyPullAssets?code=qyUMwbo49BKruYRYNRlQnseFOATgwD/e9zJeIyk4ZBIO0xbOmvcVlQ==';
 
 
-   ticketsapi = 'https://prodharmony.azurewebsites.net/api/TickersbyCustomer?code=2PgmwkpRzFu9ak1Stz6uRyGFa0LRwC61pWM9L5oSPzJLQkT33dlNvA==';
+  ticketsapi = 'https://prodharmony.azurewebsites.net/api/TickersbyCustomer?code=2PgmwkpRzFu9ak1Stz6uRyGFa0LRwC61pWM9L5oSPzJLQkT33dlNvA==';
+
+  locationsapi =
+  'https://prodharmony.azurewebsites.net/api/LocationsByCustomer?code=lOUnhasaC78wc6wyFKiG/loAC7aa0blBIca91Y/BdexlvkqGyEGMXw==';
 
   constructor(
     private profileService: ProfileService,
@@ -139,6 +142,13 @@ export class ApifilterService {
       };
     }
     return this.http.post(this.customerApi, params);
+  }
+
+  locationFilter(filter: Filter) {
+    const params = {
+      'company': filter.partner
+    };
+    return this.http.post(this.locationsapi, params);
   }
 
   assetObersvable(filter: Filter): Observable<Assets[]> {

@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit {
 
   currentProfileSubscription: Subscription;
   currentProfile: Profile;
-  profiles: Profile;
+  profiles: Profile[];
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -31,12 +31,13 @@ export class AdminComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.loadAllUsers();
   }
 
   loadAllUsers() {
-    this.profileService.getById(this.currentProfile._id).pipe(first()).subscribe( profile => {
+    this.profileService.getAll().pipe(first()).subscribe( profile => {
       this.profiles = profile;
     });
-    console.log(this.profiles._id);
+    console.log(this.profiles);
   }
 }
