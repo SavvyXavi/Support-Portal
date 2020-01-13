@@ -132,21 +132,11 @@ export class ApifilterService {
   // }
 
   customerFilter(filter: Filter) {
-    let params;
-    if (filter.partnerRole === 'Admin') {
-      params = {
-        'partner': filter.partner,
-        'admin': filter.partnerRole,
-        'user': filter.firstName + ' ' + filter.lastName,
-        'email': filter.email
-      };
-    } else if (filter.partnerRole === 'User' ) {
-      params = {
+    const params = {
         'partner': filter.partner,
         'user': filter.firstName + ' ' + filter.lastName,
         'email': filter.email
       };
-    }
     return this.http.post(this.customerApi, params);
   }
 
