@@ -14,9 +14,9 @@
     Email: {{this.currentProfile.email}}
 
 </p>
-<div *ngIf="this.profiles">
+<div>
   <h3>
-  All Users:
+  All Users: <button (click)="loadAllUsers()"
   <ul>
     <li *ngFor="let profile of profiles">
       {{profile.company}}<br>

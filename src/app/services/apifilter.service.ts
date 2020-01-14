@@ -12,6 +12,7 @@ import { Contracts } from './../manage-assets/models/contracts';
 import { SpecContract } from './../manage-assets/models/spec-contract';
 import { HttpClient } from '@angular/common/http';
 
+import { Customer } from './../admin/models/customer';
 import { Partner } from '../models/partner';
 import { PartnerList } from '../partner-list';
 
@@ -97,10 +98,9 @@ export class ApifilterService {
       return this.http.post(this.pContractsApi, params);
     }
 
-    partConFilterB(filter: Filter): Observable<Contracts[]> {
+    partConFilterSelect(customer: Customer) {
       const params = {
-        'role': filter.partnerRole,
-        'partner': filter.partner
+        'partner': customer.companyName
       };
         return this.http.post<Contracts[]>(this.pContractsApi, params);
     }

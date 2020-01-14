@@ -9,6 +9,9 @@ import { Customer } from '../../models/customer';
 import { ApifilterService } from './../../services/apifilter.service';
 import { AuthenticationService } from './../../login/services/authentication.service';
 
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { NgSelectOption } from '@angular/forms';
+
 @Component({
   selector: 'app-contracts',
   templateUrl: './contracts.component.html',
@@ -19,6 +22,9 @@ export class ContractsComponent implements OnInit {
   contracts: Contracts;
   currentProfile: Profile;
 
+  value: NgSelectOption;
+  form: FormGroup;
+
   partner: Partner;
   partnerArr: Partner[];
   company: Customer;
@@ -26,7 +32,8 @@ export class ContractsComponent implements OnInit {
   filteredProfile: Filter;
   constructor(
     private filter: ApifilterService,
-    private authserv: AuthenticationService
+    private authserv: AuthenticationService,
+    private formBuilder: FormBuilder
   ) {
     this.authserv.currentUser.subscribe(
       name => {
@@ -73,6 +80,13 @@ export class ContractsComponent implements OnInit {
       .subscribe(
         (returnedContracts: Contracts) => this.contracts = returnedContracts
       );
+    }
+  }
+
+  filterContracts() {
+    if (this.value.value === this.company.companyName) {
+      this.filter.partConFilter()
+
     }
   }
 }
