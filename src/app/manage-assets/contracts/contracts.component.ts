@@ -85,7 +85,7 @@ export class ContractsComponent implements OnInit {
 
   filterContracts() {
     if (this.value.value === this.company.companyName) {
-      this.filter.partConFilter()
+      // this.filter.partConFilter()
 
     }
   }
