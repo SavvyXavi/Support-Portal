@@ -23,7 +23,7 @@ export class ContractsComponent implements OnInit {
   currentProfile: Profile;
 
   value: NgSelectOption;
-  form: FormGroup;
+  selectorForm: FormGroup;
 
   partner: Partner;
   partnerArr: Partner[];
@@ -47,6 +47,9 @@ export class ContractsComponent implements OnInit {
     this.getContracts();
     this.getCompanies();
     // this.contractsCount();
+    this.selectorForm = this.formBuilder.group({
+      companyName: ['']
+    });
   }
 
   getPartners() {
@@ -83,10 +86,7 @@ export class ContractsComponent implements OnInit {
     }
   }
 
-  filterContracts() {
-    if (this.value.value === this.company.companyName) {
-      // this.filter.partConFilter()
-
-    }
+ get f() {
+  return this.selectorForm.controls;
   }
 }

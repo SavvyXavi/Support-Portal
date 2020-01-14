@@ -6,17 +6,22 @@
       <i class="far fa-eye"></i> Show Archived
     </button>
   </div>
-<div class="companySelector">
-  Select Company:
-  <select id="companyFilter" [(ngModel)]="this.company.companyName">
-    <option selected value="All">All</option>
-    <option *ngFor="let data of company"
-    [value]="data.CompanyName">
+<form [formGroup]="selectorForm">
+  <div class="companySelector">
+    Select Company:
+    <div class="form-group">
+
+    </div>
+    <select id="companyFilter" [(ngModel)]="this.f.companyName.value">
+      <option selected [value]="">All</option>
+      <option *ngFor="let data of company"
+      [value]="data.CompanyName">
       {{data.CompanyName}}
     </option>
-  </select>
+    </select>
+  </div>
+</form>
 
-</div>
 <div class=" table-container table-responsive-sm">
 <table class="table table-bordered rounded">
   <thead>
@@ -30,7 +35,8 @@
      </tr>
   </thead>
    <tr *ngFor='let data of contracts'>
-    <td>
+     <div *ngIf="this.f.companyName.value">
+           <td>
       <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</a>
     </td>
     <td>{{data.StartDate | date: 'shortDate'}}</td>
@@ -40,6 +46,8 @@
     </td>
     <td>{{data.EndCustomerName}}</td>
     <td>{{data.Status}}</td>
+     </div>
+
    </tr>
  </table>
 </div>
