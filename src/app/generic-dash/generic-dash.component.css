@@ -46,10 +46,15 @@ a .contract-length, .contract-label{
 }
 
 .contract-logo{
-  opacity: .2;
+  /* opacity: .2; */
   position: relative;
-  left: 20px;
-  top: 15px;
+  left: 8px;
+  top: 10px;
+}
+
+.contract-icon {
+  width: 128px !important;
+  height: 128px !important;
 }
 
 a .asset-length, .asset-label{
@@ -66,15 +71,22 @@ a .asset-length, .asset-label{
    padding-right: 0;
    padding-bottom: 0;
    overflow: hidden;
- }
+   /* background-image: url("../../assets/Mega-Assets.png");
+   background-size: cover; */
+  }
 
  .asset-logo{
    opacity: .2;
    position: relative;
-   left: 20px;
+   left: -20px;
    top: 15px;
  }
 
+ .asset-icon {
+  position: absolute;
+  width: 200px !important;
+  height: 200px !important;
+ }
 a .ticket-length, .ticket-label{
   color: black;
   text-decoration: none;

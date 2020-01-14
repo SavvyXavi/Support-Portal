@@ -7,11 +7,11 @@
     </button>
   </div>
 <div class="companySelector">
-  Selector Here
+  Select Company:
   <select [(ngModel)]="this.company.companyName">
+    <option selected>All</option>
     <option *ngFor="let data of company"
-    [value]="data.CompanyName"
-    [attr.selected]="this.company.companyName==data.CompanyName ? true : null">
+    [value]="data.CompanyName">
       {{data.CompanyName}}
     </option>
   </select>
