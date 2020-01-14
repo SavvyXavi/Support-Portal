@@ -8,7 +8,7 @@
   </div>
 <div class="companySelector">
   Select Company:
-  <select [(ngModel)]="this.company.companyName">
+  <select [(ngModel)]="this.company">
     <option selected value="All">All</option>
     <option *ngFor="let data of company"
     [value]="data.CompanyName">
