@@ -46,7 +46,7 @@ a .contract-length, .contract-label{
 }
 
 .contract-logo{
-  /* opacity: .2; */
+  opacity: .3;
   position: relative;
   left: 8px;
   top: 10px;
