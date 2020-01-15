@@ -33,8 +33,8 @@
       <th>Status</th>
      </tr>
   </thead>
-   <tr *ngFor='let data of contracts'>
-    <div *ngIf="data.EndCustomerName === this.f.companyName.value">
+  <tbody ngIf="this.f.companyName.value === ''">
+    <tr *ngFor='let data of contracts'>
       <td>
         <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</ a>
       </td>
@@ -45,20 +45,9 @@
       </td>
       <td>{{data.EndCustomerName}}</td>
       <td>{{data.Status}}</td>
-    </div>
-    <div *ngIf="this.f.companyName.value === '' ">
-      <td>
-        <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</ a>
-      </td>
-      <td>{{data.StartDate | date: 'shortDate'}}</td>
-      <td>{{data.RenewalDate | date: 'shortDate'}}</td>
-      <td>
-        <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.RefNumber}}</a>
-      </td>
-      <td>{{data.EndCustomerName}}</td>
-      <td>{{data.Status}}</td>
-    </div>
    </tr>
+  </tbody>
+
  </table>
 </div>
 
