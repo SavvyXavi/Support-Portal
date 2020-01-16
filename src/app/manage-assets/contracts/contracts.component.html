@@ -6,12 +6,12 @@
       <i class="far fa-eye"></i> Show Archived
     </button>
   </div>
-<form [formGroup]="selectorForm">
+<!-- <form [formGroup]="selectorForm">
   <div class="companySelector">
     Select Company:
     <div class="form-group">
       <select id="companyFilter" [(ngModel)]="this.company.companyName">
-        <option formControlName="companyName" selected [value]="">All</option>
+        <option selected>All</option>
         <option formControlName="companyName" *ngFor="let data of company"
         [value]="data.CompanyName">
         {{data.CompanyName}}
@@ -19,7 +19,7 @@
       </select>
     </div>
   </div>
-</form>
+</form> -->
 
 <div class=" table-container table-responsive-sm">
 <table class="table table-bordered rounded">
