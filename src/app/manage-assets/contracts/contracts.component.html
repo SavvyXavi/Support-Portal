@@ -33,7 +33,6 @@
       <th>Status</th>
      </tr>
   </thead>
-  <tbody>
     <tr *ngFor='let data of contracts'>
       <td>
         <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</ a>
@@ -46,7 +45,6 @@
       <td>{{data.EndCustomerName}}</td>
       <td>{{data.Status}}</td>
    </tr>
-  </tbody>
 
  </table>
 </div>
