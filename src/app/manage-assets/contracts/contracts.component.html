@@ -33,7 +33,7 @@
       <th>Status</th>
      </tr>
   </thead>
-  <tbody ngIf="this.f.companyName.value === ''">
+  <tbody>
     <tr *ngFor='let data of contracts'>
       <td>
         <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</ a>
