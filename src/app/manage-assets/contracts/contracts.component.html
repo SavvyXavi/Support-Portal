@@ -24,15 +24,16 @@
 <div class=" table-container table-responsive-sm">
 <table class="table table-bordered rounded">
   <thead>
-   <tr>
+    <tr>
       <th>Contract Name</th>
       <th>Start Date</th>
       <th>Service Ends</th>
       <th>Contract#</th>
       <th>Customer</th>
       <th>Status</th>
-     </tr>
+    </tr>
   </thead>
+  <tbody *ngIf="!this.f.companyName.value">
     <tr *ngFor='let data of contracts'>
       <td>
         <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</ a>
@@ -45,6 +46,8 @@
       <td>{{data.EndCustomerName}}</td>
       <td>{{data.Status}}</td>
    </tr>
+  </tbody>
+
 
  </table>
 </div>
