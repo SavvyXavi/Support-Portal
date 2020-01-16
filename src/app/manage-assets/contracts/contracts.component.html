@@ -10,7 +10,7 @@
   <div class="companySelector">
     Select Company:
     <div class="form-group">
-      <select id="companyFilter" [(ngModel)]="this.company.companyName">
+      <select id="companyFilter" [(ngModel)]="this.company">
         <option selected>All</option>
         <option formControlName="companyName" *ngFor="let data of company"
         [value]="data.CompanyName">
