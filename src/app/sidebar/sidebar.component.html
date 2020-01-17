@@ -62,12 +62,12 @@
                   <div class="admin-icon icon-wrapper">
                     <i routerLink="" class="icon fas fa-users-cog"></i>
                 </div>
-                <div class="dropdown-toggle dropdown-btn col-auto" id="dropdown02" data-toggle="collapse" data-target="#dd2">
+                <div *ngIf="filterPartner(this.currentRole.partner)" class="dropdown-toggle dropdown-btn col-auto" id="dropdown02" data-toggle="collapse" data-target="#dd2">
                     <span>Admin</span>
                 </div>
                 </a>
 
-                <div *ngIf="filterPartner(currentRole.partner)" id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
+                <div  id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
                     <!-- <a class="dropdown" routerLink="admin/oem">OEM</a> -->
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
                     <a class="dropdown" routerLink="admin/admin">Admin</a>
