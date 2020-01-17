@@ -87,8 +87,8 @@ export class ContractsComponent implements OnInit {
     }
   }
 
- get f() {
-  return this.selectorForm.controls;
+  get f() {
+    return this.selectorForm.controls;
   }
 
   filterContracts() {
