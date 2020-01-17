@@ -13,7 +13,7 @@
   width: 100%;
 }
 
-.form-group {
+.form-group, label {
   width: 100%;
 }
 
