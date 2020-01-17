@@ -1,4 +1,4 @@
-<div class="col-md-6 col-md-offset-3">
+<!-- <div class="col-md-6 col-md-offset-3">
 <h2>Register</h2>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -57,4 +57,85 @@
         <button routerLink="/login" class="btn  btn-secondary">Cancel</button>
     </div>
 </form>
+</div> -->
+
+<form action="#" class="Registration">
+  <div class="panel panel-default" >
+    <h2 class="center">Portal User Registration</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="row ">
+                <div class="col-md-10">
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  placeholder="Enter Users Email address for Username" />
+                    <div *ngIf="submitted && !!f.email.errors" class="invalid-feedback">
+                      <div *ngIf="!!f.email.errors.required">Email Address for username is required</div>
+                </div>
+            </div>
+            </div><br>
+       <div class="row ">
+          <div class="col-md-6">
+          <label for="lastName">First Name</label>
+          <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" placeholder="User First Name" />
+          <div *ngIf="submitted && !!f.lastName.errors" class="invalid-feedback">
+              <div *ngIf="!!f.lastName.errors.required">Last Name is required</div>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <label for="username">Last Name</label>
+          <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Users Last Name" />
+          <div *ngIf="submitted && !!f.username.errors" class="invalid-feedback">
+              <div *ngIf="!!f.username.errors.required">Username is required</div>
+              </div>
+          </div>
+      </div><br>
+      <div class="row ">
+    <div class="col-md-6">
+      <label for="comppart">Is this user for a Company or Partner:</label>
+      <select class="form-control" id="comppart">
+        <option>Company</option>
+        <option>Partner</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="Partner">Select Partner:</label>
+      <select class="form-control" id="Partner">
+        <option>Mega Monlothic Corp</option>
+        <option>Noble1Solutions</option>
+        <option>Relutech</option>
+        <option>Reliant Technology</option>
+      </select>
+    </div>
+  </div><br>
+  <div class="row ">
+    <div class="col-md-6">
+      <label for="comppart">Choose the User's Role:</label>
+      <select class="form-control" id="comppart">
+        <option>Admin</option>
+        <option>User</option>
+        <option>Support</option>
+      </select>
+    </div>
+<div class="col-md-6">
+    <label for="CompName">Username</label>
+    <input type="text" formControlName="CompName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Enter a Valid Company Name"  [(ngModel)]="this.f.email" />
+    <div *ngIf="submitted && !!f.company.errors" class="invalid-feedback">
+        <div *ngIf="!!f.username.errors.required">Company is required</div>
+        </div>
+    </div>
+</div><br>
+<div class="row">
+  <div class="col-md-6">
+    <label for="password">Password:</label>
+    <input type="text" formControlName="password" placeholder="Enter Password">
+  </div>
 </div>
+      <div class="row ">
+        <div class="col-md-6">
+      <div class="form-group buttons">
+        <button [disabled]="loading" style="margin-right:20px;" class="btn btn-primary">Register</button>
+        <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <button routerLink="/login" class="btn  btn-secondary">Cancel</button>
+         </div>
+    </div>
+  </div>
+    </form>
+  </div>
