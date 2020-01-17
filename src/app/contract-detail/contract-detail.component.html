@@ -28,6 +28,21 @@
 
       <div class="card-body">
         <div class="row">
+          <div class="tab-wrapper">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Details</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Covered Assets</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Asset Locations</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
           <div class="detail">
             <div class="form-group">
               <label for="refNumber">
@@ -50,6 +65,8 @@
                 Renewal Date: {{data.RenewalDate | date: 'shortDate'}}
               </label>
             </div>
+          </div>
+          </div>
             <!-- <div class="form-goup">
               <label for="contractLength">
                 Contract Length (Months): {{data.ContractLengthInMonths}}
@@ -72,8 +89,6 @@
                 </Button>
               </div>
             </div>
-          </div>
-        </div>
       </div>
   </div>
 </div>
