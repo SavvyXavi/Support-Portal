@@ -12,8 +12,8 @@
     <div class="form-group">
       <select id="companyFilter" [(ngModel)]="this.contracts.endCustomerName">
         <option selected>All</option>
-        <option formControlName="companyName" *ngFor="let data of contracts"
-        [value]="data.EndCustomerName">
+        <option formControlName="companyName" *ngFor="let data of company"
+        [value]="data.CompanyName">
         {{data.CompanyName}}
         </option>
       </select>
