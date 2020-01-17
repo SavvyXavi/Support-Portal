@@ -2,3 +2,8 @@
   padding: 15px;
   margin: 10px;
 }
+
+.card-header {
+  padding: 0;
+
+}
