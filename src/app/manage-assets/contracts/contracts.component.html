@@ -6,30 +6,71 @@
       <i class="far fa-eye"></i> Show Archived
     </button>
   </div>
+<form [formGroup]="selectorForm">
+  <div class="companySelector">
+    Select Company:
+    <div class="form-group">
+      <select id="companyFilter" [(ngModel)]="this.contracts.endCustomerName">
+        <option selected>All</option>
+        <option formControlName="companyName" *ngFor="let data of company"
+        [value]="data.CompanyName">
+        {{data.CompanyName}}
+        </option>
+      </select>
+    </div>
+  </div>
+</form>
 
 <div class=" table-container table-responsive-sm">
-<table class="table table-bordered">
+<table class="table table-bordered rounded">
   <thead>
-   <tr>
-      <th>Financial Counter Party</th>
+    <tr>
       <th>Contract Name</th>
-      <th>Customer</th>
-      <th>Contract#</th>
       <th>Start Date</th>
       <th>Service Ends</th>
+      <th>Contract#</th>
+      <th>Customer</th>
       <th>Status</th>
-      <th>Archived</th>
-     </tr>
+    </tr>
   </thead>
-   <tr *ngFor='let data of contracts'>
-    <td>{{data.FinancialCounterPartyName}}</td>
-    <td>{{data.ScheduleName}}</td>
-    <td>{{data.EndCustomerName}}</td>
-    <td>{{data.RefNumber}}</td>
-    <td>{{data.StartDate}}</td>
-    <td>{{data.RenewalDate}}</td>
-    <td>{{data.Status}}</td>
-    <td>{{data.Archived}}</td>
+    <tr *ngFor='let data of contracts'>
+      <td>
+        <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</ a>
+      </td>
+      <td>{{data.StartDate | date: 'shortDate'}}</td>
+      <td>{{data.RenewalDate | date: 'shortDate'}}</td>
+      <td>
+        <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.RefNumber}}</a>
+      </td>
+      <td>{{data.EndCustomerName}}</td>
+      <td>{{data.Status}}</td>
    </tr>
  </table>
 </div>
+
+<!-- <div class=" table-container table-responsive-sm">
+<table class="table table-bordered rounded">
+<thead>
+ <tr>
+    <th>Contract Name</th>
+    <th>Start Date</th>
+    <th>Service Ends</th>
+    <th>Contract#</th>
+    <th>Customer</th>
+    <th>Status</th>
+   </tr>
+</thead>
+ <tr *ngFor='let data of contracts'>
+  <td>
+    <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</a>
+  </td>
+  <td>{{data.StartDate}}</td>
+  <td>{{data.RenewalDate}}</td>
+  <td>
+    <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.RefNumber}}</a>
+  </td>
+  <td>{{data.EndCustomerName}}</td>
+  <td>{{data.Status}}</td>
+ </tr>
+</table>
+</div> -->

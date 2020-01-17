@@ -24,6 +24,8 @@
 
   table {
     border: 3px solid black;
+    border-radius: 8px;
+    border-collapse: separate;
   }
 
   th {

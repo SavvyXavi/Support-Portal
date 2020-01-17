@@ -16,6 +16,7 @@ import { ApifilterService } from './../services/apifilter.service';
 import { Contract } from '../models/contract';
 import { Contracts } from '../manage-assets/models/contracts';
 import { Customer } from './../admin/models/customer';
+import { Partner } from './../models/partner';
 
 @Component({
   selector: 'app-north',
@@ -25,7 +26,7 @@ import { Customer } from './../admin/models/customer';
 
 export class NorthComponent implements OnInit {
 
-  dashboard = 'NorthSmart';
+  partner: Partner;
 
   currentProfile: Profile;
   currentProfileSubscription: Subscription;
@@ -35,9 +36,10 @@ export class NorthComponent implements OnInit {
   assetLength: Assets[];
   ticketLength: Tickets[];
   companyLength: Customer[];
-
+  partnerArr: Partner[];
   contractsData = [];
   assetsData = [];
+
   tickets: Tickets;
 
   assets: Assets;
@@ -56,6 +58,7 @@ export class NorthComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.getPartners();
     this.contractsChart();
     this.assetsChart();
     this.displayData();
@@ -69,22 +72,43 @@ export class NorthComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
-  contractsCount() {
-    this.filter.contractsFilter(this.currentProfile)
+  getPartners() {
+    this.filter.getPartners()
     .subscribe(
-      (returnedContractsLength: Contracts[]) => {
-        this.contractLength = returnedContractsLength;
-      }
+      returnedPartners => this.partnerArr = returnedPartners
     );
   }
 
+  filterPartner(partner: String) {
+    return this.partnerArr.find(company => company.CompanyName === partner);
+  }
+
+  contractsCount() {
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+      );
+    }
+  }
+
   assetsCount() {
-      this.filter.assetsFilter( this.currentProfile)
-    .subscribe(
-      (returnedAssets: Assets[]) => {
-        this.assetLength = returnedAssets;
-      }
-    );
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    }
   }
 
   ticketsCount() {
@@ -114,7 +138,7 @@ export class NorthComponent implements OnInit {
   }
 
   displayData() {
-    let array = this.filter.contractsFilter(this.currentProfile).subscribe(
+    let array = this.filter.partConFilter(this.currentProfile).subscribe(
       res => {
 
         // const price = res.map(res => res.AnnualValue);
@@ -139,7 +163,7 @@ export class NorthComponent implements OnInit {
 
   contractsChart() {
     const status = [];
-    this.filter.contractsFilter(this.currentProfile).subscribe(
+    this.filter.partConFilter(this.currentProfile).subscribe(
       (res: Contract[]) => {
         // status.push(res.status);
         const length = Object.keys(res).map(function(key) {

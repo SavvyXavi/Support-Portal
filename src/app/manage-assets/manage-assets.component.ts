@@ -1,13 +1,20 @@
-import { Subscription } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Assets } from './models/assets';
+import { Contracts } from './models/contracts';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ApifilterService } from './../services/apifilter.service';
 import { AuthenticationService } from '../login/services/authentication.service';
 
+import { Subscription, merge } from 'rxjs';
+
+import { Partner } from '../models/partner';
 import { Filter } from '../models/filter';
 import { Profile } from './../login/models/profile';
 import { MatTableDataSource } from '@angular/material/table';
+
+import { MatPaginator, MatSort } from '@angular/material';
+import { startWith, switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-manage-assets',
@@ -17,35 +24,118 @@ import { MatTableDataSource } from '@angular/material/table';
 
 export class ManageAssetsComponent implements OnInit {
   assets: Assets;
+  assetLength: Assets[];
   currentProfile: Profile;
   filteredProfile: Filter;
   filterSubsciption: Subscription;
 
+  displayedColumns: string[] = ['Name', 'Identifier', 'Description', 'Schedule'];
+
+  contract: Contracts;
+
+  partnerArr: Partner[];
+  assetArr: Assets[];
+
   assetObservable: Assets[];
-  // dataSource = new MatTableDataSource<Assets>(Assets);
+  dataSource: MatTableDataSource<Assets>;
+
+  pagintotal = 0;
+
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
+
   constructor(
     private filter: ApifilterService,
-    private authserv: AuthenticationService
+    private authserv: AuthenticationService,
+    private route: ActivatedRoute,
+    private router: Router
     ) {
       this.filterSubsciption = this.authserv.currentUser.subscribe(
         name => {
           this.filteredProfile = name ;
         }
       );
+
+      // this.dataSource = new MatTableDataSource(Assets);
     }
 
   ngOnInit() {
+    this.getPartners();
     this.getAssets();
-    // this.observeAssets();
+    this.getAsset();
+    // this.getContract();
+    // this.paginatingAssets();
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+  }
+
+  getPartners() {
+    this.filter.getPartners()
+    .subscribe(
+      returnedPartners => this.partnerArr = returnedPartners
+    );
+  }
+
+  filterPartner(partner: String) {
+    return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
   getAssets() {
-    this.filter.assetsFilter(this.filteredProfile)
+    if (this.filterPartner(this.filteredProfile.partner)) {
+      this.filter.partAssetsFilter(this.filteredProfile)
       .subscribe(
-      (returnedAssets: Assets) => {
-        this.assets = returnedAssets;
-      }
-    );
+        (returnedAssets: Assets) => this.assets = returnedAssets
+      );
+      console.log('Assets are above!');
+    } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.filteredProfile)
+      .subscribe(
+        (returnedAssets: Assets) => this.assets = returnedAssets
+      );
+    }
+  }
+
+  // getContract() {
+  //   this.filter.conByRef('', this.assets.schedule)
+  //   .subscribe(
+  //     (returnedContract: Contracts) => {
+  //       this.contract = returnedContract;
+  //     }
+  //   );
+  //   this.router.navigate(['/contractdetail/' + this.contract.refNumber]);
+  // }
+
+  getAsset() {
+    if (this.filterPartner(this.filteredProfile.partner)) {
+      this.filter.partAssetsFilter(this.filteredProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+      console.log(this.assetLength);
+      console.log('asset length above');
+    } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.filteredProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    }
+}
+
+  paginatingAssets() {
+    merge(this.paginator.page)
+    .pipe(
+      startWith({}),
+      switchMap(() => {
+        return this.filter.paginateAssets(
+          this.filteredProfile,
+          this.paginator.pageIndex
+        );
+      }),
+      map((returnedAssets: Assets) => {
+
+        return this.assets = returnedAssets;
+      })
+    ).subscribe((returnedAssets: Assets) => this.assets = returnedAssets);
   }
   // observeAssets() {
   //   this.filter.assetObersvable(this.filteredProfile)

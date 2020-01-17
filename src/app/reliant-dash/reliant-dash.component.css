@@ -16,11 +16,6 @@
   margin-top: 10px;
 }
 
-.card {
-  border-radius: 8px;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);
-}
-
 .total-container {
   background-color: white;
   border-radius: 8px;
@@ -30,90 +25,94 @@
   color: black;
 }
 
-/* .contract-content:hover {
-  color: orange;
-} */
-
-/* .contracts-container:hover{
-  opacity:1;
-} */
-
 a {
   text-decoration: none;
 }
 
-.contract-content {
-  overflow: hidden;
+a .contract-length, .contract-label{
   color: black;
-}
+  text-decoration: none;
+ }
 
-.contracts-container {
-  padding-right: 0;
-  padding-bottom: 0;
-  overflow: hidden;
-}
+ .contract-content {
+   overflow: hidden;
+   color: black;
+ }
 
-.contracts-container img{
-  opacity: .2;
+ .contracts-container {
+   padding-right: 0;
+   padding-bottom: 0;
+   overflow: hidden;
+ }
 
-  /* position: relative;
-  left: 50px;
-  top: 10px; */
-}
+ .contract-logo{
+   opacity: .2;
+   position: relative;
+   left: 20px;
+   top: 15px;
+ }
 
-.assets-container{
-  padding-right: 0;
-}
+ a .asset-length, .asset-label{
+   color: black;
+   text-decoration: none;
+  }
 
-.assets-content {
-  overflow: hidden;
-  Padding-left: 15;
-  padding-right: none !important;
-  color: black;
-}
+  .asset-content {
+    overflow: hidden;
+    color: black;
+  }
 
-.assets-content img{
-  opacity: .2;
-  position: relative;
-  top: 10px;
-  left: 40px;
-}
+  .assets-container {
+    padding-right: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
 
-.tickets-container{
-  padding-right: 0;
-}
+  .asset-logo{
+    opacity: .2;
+    position: relative;
+    left: 20px;
+    top: 15px;
+  }
 
-.tickets-content {
-  overflow: hidden;
-  Padding-left: 15;
-  padding-right: none !important;
-  color: black;
-}
+ a .ticket-length, .ticket-label{
+   color: black;
+   text-decoration: none;
+  }
 
-.tickets-content img{
-  opacity: .2;
-  position: relative;
-  top: 20px;
-  left: 50px;
-}
+  .ticket-content {
+    overflow: hidden;
+    color: black;
+  }
 
-.companies-container{
-  padding-right: 0;
-}
+  .tickets-container {
+    padding-right: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
 
-.companies-content {
-  overflow: hidden;
-  Padding-left: 15;
-  padding-right: 0;
-  color: black;
-}
+  .ticket-logo{
+    opacity: .2;
+    position: relative;
+    left: 20px;
+    top: 15px;
+  }
 
-.companies-content img{
-  opacity: .2;
-  position: relative;
-  top: 10px;
-  left: 55px;
-}
+  a .companies-length, .companies-label{
+   color: black;
+   text-decoration: none;
+  }
+
+  .companies-content {
+    overflow: hidden;
+    color: black;
+  }
+
+  .companies-container {
+    padding-right: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
 
 .users-container {
   padding-right: 0;

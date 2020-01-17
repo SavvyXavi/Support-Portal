@@ -1,0 +1,30 @@
+<div class="edit-items-container d-flex justify-content-end">
+  <button class="assign-assets btn btn-primary">
+    <i class="fas fa-file-export" aria-hidden="true"></i> Export Locations
+  </button>
+  <button class="btn btn-primary">
+    <i class="far fa-eye"></i> Show Archived
+  </button>
+</div>
+<div class="table-container table-responsive-sm">
+<table class="table table-bordered rouned">
+    <thead>
+     <tr>
+        <th>Description</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>Zip</th>
+        <th>Country</th>
+        <th>Company</th>
+      </tr>
+    </thead>
+     <tr *ngFor='let data of locations'>
+      <td> {{data.Description}} </td>
+      <td> {{data.Address1}} </td>
+      <td> {{data.Town}} </td>
+      <td> {{data.Postcode}}</td>
+      <td> {{data.Country}} </td>
+      <td> {{data.CompanyName}} </td>
+     </tr>
+   </table>
+</div>

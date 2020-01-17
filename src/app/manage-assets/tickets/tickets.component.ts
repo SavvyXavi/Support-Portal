@@ -10,7 +10,6 @@ import { AuthenticationService } from '../../login/services/authentication.servi
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs';
-import { Partner } from '../../types/partner.enum';
 
 import { ApifilterService } from '../../services/apifilter.service';
 
@@ -28,7 +27,6 @@ export class TicketsComponent implements OnInit {
   newTicket: Tickets;
 
   ticketType: TicketType;
-  ticketTypeName: Partner;
   ticketTypeNameSubscription: Subscription;
 
   currentProfile: Profile;
@@ -56,7 +54,7 @@ export class TicketsComponent implements OnInit {
     this.ticketForm = this.formBuilder.group({
       Title: ['', Validators.required],
       Description: ['', Validators.required],
-      CustomerNameOrId: ['Portal Testing Company', Validators.required],
+      CustomerNameOrId: [this.authenticationService.currentUserValue.partner, Validators.required],
       TicketType: ['', Validators.required],
       TicketCategoryNameOrId: ['', Validators.required],
       TicketTypeNameOrId: [ this.authenticationService.currentUserValue.partner + ' Quotes', Validators.required]

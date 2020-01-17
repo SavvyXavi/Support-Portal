@@ -13,8 +13,9 @@ import { ApiCallService } from './../manage-assets/services/api-call.service';
 import { ApifilterService } from './../services/apifilter.service';
 
 import { Contracts } from './../manage-assets/models/contracts';
-
-import { Info } from './../models/info';
+import { Customer } from './../admin/models/customer';
+import { Contract } from './../models/contract';
+import { Partner } from './../models/partner';
 
 import { Chart } from 'chart.js';
 
@@ -24,25 +25,24 @@ import { Chart } from 'chart.js';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  selectedInfo: Info;
-  returnedInfo: Info;
-  getInfo: Info;
-
-  dashboard = 'Noble 1';
-
-  contractLength: Contracts[];
+  partner: Partner;
 
   currentProfile: Profile;
   currentProfileSubscription: Subscription;
   profiles: Profile[];
 
-  chart = [];
+  contractLength: Contracts[];
+  assetLength: Assets[];
+  ticketLength: Tickets[];
+  companyLength: Customer[];
+  partnerArr: Partner[];
+
+  contractsData = [];
+  assetsData = [];
   tickets: Tickets;
 
   assets: Assets;
-
   constructor(
-    private funcapp: FuncappService,
     private authenticationService: AuthenticationService,
     private profileService: ProfileService,
     private api: ApiCallService,
@@ -56,21 +56,73 @@ export class DashboardComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.loadAllUsers();
-    this.displayChart();
+    this.getPartners();
+    this.contractsChart();
+    this.assetsChart();
+    this.displayData();
     this.contractsCount();
+    this.assetsCount();
+    this.ticketsCount();
+    this.companiesCount();
   }
 
   // ngOnDestroy() {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
-  contractsCount() {
-    this.filter.contractsFilter(this.currentProfile)
+  getPartners() {
+    this.filter.getPartners()
     .subscribe(
-      (returnedContractsLength: Contracts[]) => {
-        this.contractLength = returnedContractsLength;
-        return this.contractLength.length;
+      returnedPartners => this.partnerArr = returnedPartners
+    );
+  }
+
+  filterPartner(partner: String) {
+    return this.partnerArr.find(company => company.CompanyName === partner);
+  }
+
+  contractsCount() {
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+      );
+    }
+  }
+
+  assetsCount() {
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    }
+  }
+
+  ticketsCount() {
+    this.filter.ticketsFilter(this.currentProfile)
+    .subscribe(
+      (returnedTickets: Tickets[]) => {
+        this.ticketLength = returnedTickets;
+      }
+    );
+  }
+
+  companiesCount() {
+    this.filter.customerFilter(this.currentProfile)
+    .subscribe(
+      (returnedCompanies: Customer[]) => {
+        this.companyLength = returnedCompanies;
       }
     );
   }
@@ -79,6 +131,21 @@ export class DashboardComponent implements OnInit {
     this.api.getTickets().subscribe(
       (returnedTickets: Tickets) => {
         this.tickets = returnedTickets;
+      }
+    );
+  }
+
+  displayData() {
+    let array = this.filter.partConFilter(this.currentProfile).subscribe(
+      res => {
+
+        // const price = res.map(res => res.AnnualValue);
+        const length = Object.keys(res).map(function(key) {
+          return [String(key), res[key]];
+        });
+
+        console.log(length);
+        // console.log(price);
       }
     );
   }
@@ -92,30 +159,37 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  displayChart() {
-    function chartData() {
-      this.api.getTickets().pipe(map(
-        res => res
-      ));
-    }
-    let xlabels = [];
-    this.chart = new Chart('canvas', {
-        type: 'bar',
+  contractsChart() {
+    const status = [];
+    this.filter.partConFilter(this.currentProfile).subscribe(
+      (res: Contract[]) => {
+        // status.push(res.status);
+        const length = Object.keys(res).map(function(key) {
+          return [String(key), res[key]];
+        });
+        console.log(res);
+        // console.log(res.status);
+        // console.log(length);
+      }
+    );
+
+    this.contractsData = new Chart('contracts', {
+        type: 'pie',
         data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          labels: status,
           datasets: [{
               label: '# of Contracts',
               data: [12, 19, 3, 5, 2, 3],
               backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
+                  'rgba(255, 0, 0, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
               ],
               borderColor: [
-                  'rgba(255, 99, 132, 1)',
+                  'rgba(255, 0, 0, 1)',
                   'rgba(54, 162, 235, 1)',
                   'rgba(255, 206, 86, 1)',
                   'rgba(75, 192, 192, 1)',
@@ -125,16 +199,38 @@ export class DashboardComponent implements OnInit {
               borderWidth: 1
           }]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
+        options: {}
     });
+  }
+
+  assetsChart() {
+   this.assetsData = new Chart('assets', {
+      type: 'pie',
+      data: {
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {}
+});
   }
 
   deleteProfile(id: number) {
@@ -146,12 +242,6 @@ export class DashboardComponent implements OnInit {
    loadAllUsers() {
     this.profileService.getAll().pipe(first()).subscribe( profile => {
       this.profiles = profile;
-    });
-  }
-
-  onClick(): void {
-    this.funcapp.tempCall(this.selectedInfo).subscribe((returnedInfo: Info) => {
-      this.getInfo = returnedInfo;
     });
   }
 

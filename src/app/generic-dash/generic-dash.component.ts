@@ -1,18 +1,23 @@
+import { PartnerList } from './../partner-list';
 import { Component, OnInit } from '@angular/core';
 
-import { Info } from '../models/info';
 import { Profile } from '../login/models/profile';
 import { Tickets } from '../manage-assets/models/tickets';
 import { Assets } from '../manage-assets/models/assets';
 
 import { AuthenticationService } from '../login/services/authentication.service';
 import { ProfileService } from '../login/services/profile.service';
-import { FuncappService } from '../services/funcapp.service';
+import { ApifilterService } from './../services/apifilter.service';
 import { ApiCallService } from './../manage-assets/services/api-call.service';
 
 import { Subscription } from 'rxjs';
 import { map, first } from 'rxjs/operators';
 import { Chart } from 'chart.js';
+
+import { Partner } from './../models/partner';
+import { Contracts } from './../manage-assets/models/contracts';
+import { Customer } from './../admin/models/customer';
+import { Contract } from './../models/contract';
 
 @Component({
   selector: 'app-generic-dash',
@@ -20,26 +25,29 @@ import { Chart } from 'chart.js';
   styleUrls: ['./generic-dash.component.css']
 })
 export class GenericDashComponent implements OnInit {
-  selectedInfo: Info;
-  returnedInfo: Info;
-  getInfo: Info;
-
-  // dashboard = 'Noble 1';
 
   currentProfile: Profile;
   currentProfileSubscription: Subscription;
   profiles: Profile[];
 
-  chart = [];
+  contractLength: Contracts[];
+  assetLength: Assets[];
+  ticketLength: Tickets[];
+  companyLength: Customer[];
+
+  partnerArr: Partner[];
+
+  contractsData = [];
+  assetsData = [];
   tickets: Tickets;
 
   assets: Assets;
 
   constructor(
-    private funcapp: FuncappService,
     private authenticationService: AuthenticationService,
     private profileService: ProfileService,
-    private api: ApiCallService
+    private api: ApiCallService,
+    private filter: ApifilterService
     ) {
       this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(
         profile => {
@@ -49,18 +57,96 @@ export class GenericDashComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.loadAllUsers();
-    this.displayChart();
+    this.getPartners();
+    this.contractsChart();
+    this.assetsChart();
+    this.displayData();
+    this.contractsCount();
+    this.assetsCount();
+    this.ticketsCount();
+    this.companiesCount();
   }
 
   // ngOnDestroy() {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
+  getPartners() {
+    this.filter.getPartners()
+    .subscribe(
+      returnedPartners => this.partnerArr = returnedPartners
+    );
+  }
+
+  filterPartner(partner: String) {
+    return this.partnerArr.find(company => company.CompanyName === partner);
+  }
+
+  contractsCount() {
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+      );
+    }
+  }
+
+  assetsCount() {
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    }
+  }
+
+  ticketsCount() {
+    this.filter.ticketsFilter(this.currentProfile)
+    .subscribe(
+      (returnedTickets: Tickets[]) => {
+        this.ticketLength = returnedTickets;
+      }
+    );
+  }
+
+  companiesCount() {
+    this.filter.customerFilter(this.currentProfile)
+    .subscribe(
+      (returnedCompanies: Customer[]) => {
+        this.companyLength = returnedCompanies;
+      }
+    );
+  }
+
   ticketsChart() {
     this.api.getTickets().subscribe(
       (returnedTickets: Tickets) => {
         this.tickets = returnedTickets;
+      }
+    );
+  }
+
+  displayData() {
+    let array = this.filter.partConFilter(this.currentProfile).subscribe(
+      res => {
+
+        // const price = res.map(res => res.AnnualValue);
+        const length = Object.keys(res).map(function(key) {
+          return [String(key), res[key]];
+        });
+
+        // console.log(length);
+        // console.log(price);
       }
     );
   }
@@ -74,30 +160,37 @@ export class GenericDashComponent implements OnInit {
     );
   }
 
-  displayChart() {
-    function chartData() {
-      this.api.getTickets().pipe(map(
-        res => res
-      ));
-    }
-    let xlabels = [];
-    this.chart = new Chart('canvas', {
-        type: 'bar',
+  contractsChart() {
+    const status = [];
+    this.filter.partConFilter(this.currentProfile).subscribe(
+      (res: Contract[]) => {
+        // status.push(res.status);
+        const length = Object.keys(res).map(function(key) {
+          return [String(key), res[key]];
+        });
+        // console.log(res);
+        // console.log(res.status);
+        // console.log(length);
+      }
+    );
+
+    this.contractsData = new Chart('contracts', {
+        type: 'pie',
         data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          labels: status,
           datasets: [{
               label: '# of Contracts',
               data: [12, 19, 3, 5, 2, 3],
               backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
+                  'rgba(255, 0, 0, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
               ],
               borderColor: [
-                  'rgba(255, 99, 132, 1)',
+                  'rgba(255, 0, 0, 1)',
                   'rgba(54, 162, 235, 1)',
                   'rgba(255, 206, 86, 1)',
                   'rgba(75, 192, 192, 1)',
@@ -107,22 +200,38 @@ export class GenericDashComponent implements OnInit {
               borderWidth: 1
           }]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
+        options: {}
     });
   }
 
-  deleteProfile(id: number) {
-     this.profileService.delete(id).pipe(first()).subscribe(() => {
-      this.loadAllUsers();
-    });
+  assetsChart() {
+   this.assetsData = new Chart('assets', {
+      type: 'pie',
+      data: {
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {}
+});
   }
 
    loadAllUsers() {
@@ -130,11 +239,4 @@ export class GenericDashComponent implements OnInit {
       this.profiles = profile;
     });
   }
-
-  onClick(): void {
-    this.funcapp.tempCall(this.selectedInfo).subscribe((returnedInfo: Info) => {
-      this.getInfo = returnedInfo;
-    });
-  }
-
 }

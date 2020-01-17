@@ -34,6 +34,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
+    sessionStorage.clear();
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
@@ -44,18 +45,15 @@ export class HeaderComponent implements OnInit {
         case 'NorthSmart (Northland)':
           this.router.navigate(['/northdash']);
         break;
-        case 'Noble1 Solutions':
+        case 'Noble1 Solutions'  || 'Colwick Travel' || 'xByte Technologies':
           this.router.navigate(['/dashboard']);
         break;
         case 'Reliant Technology':
           this.router.navigate(['/reliantdash']);
         break;
-        case 'Relus Technologies' || 'BB&T':
+        case 'Relus Technologies' || 'RAC King LLC' || 'BB&T':
           this.router.navigate(['/relusdash']);
         break;
-        // case 'Generic':
-        //   this.router.navigate(['/genericdash']);
-        // break;
         case 'Support':
           this.router.navigate(['/suppdash']);
           break;

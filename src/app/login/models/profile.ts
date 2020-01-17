@@ -1,6 +1,5 @@
-import { Role } from 'src/app/types/role.enum';
-import { Partner } from '../../types/partner.enum';
 export class Profile {
+  _id: string;
   id: string;
   username: string;
   password: string;
@@ -11,4 +10,7 @@ export class Profile {
   token: string;
   partner: string;
   partnerRole: string;
+  company: string;
+  companypartner: string;
+  createdDate: Date;
 }

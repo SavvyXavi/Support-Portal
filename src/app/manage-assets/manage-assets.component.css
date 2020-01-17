@@ -27,8 +27,12 @@ margin-right: 30px;
 }
 
 table {
-  border: 3px solid black;
+  border: solid black;
+  border-radius: 8px !important;
+  -moz-border-radius: 8px;
+  border-collapse: separate;
 }
+
 th {
   background-color: black;
   color: white;
@@ -40,13 +44,19 @@ th, td {
   padding: 15px;
   text-align: left;
 }
+
 table {
   border-collapse: collapse;
 }
+
 tr:nth-child(even) {
   background-color: #e6e6e6;
 }
 
 tr:nth-child(odd) {
   background-color:   white;
+}
+
+.mat-table {
+  width: 100%;
 }

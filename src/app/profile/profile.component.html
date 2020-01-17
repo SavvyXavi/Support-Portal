@@ -5,40 +5,43 @@
         <h3>Update Account </h3>
       </div>
       <div class="card-body">
-          <form action="">
+          <form [formGroup]="profileForm">
             <div class="form-group">
-              <label for="company">Company </label>
-              <select [disabled]="changePartner()" class="form-control" id="company">
-                <option selected>{{currentProfile?.partner}}</option>
+              <label for="partner">Company </label>
+              <select [disabled]="changePartner()" formControlName="partner" class="form-control" id="company">
+                <option default>{{currentProfile?.partner}}</option>
                 <option >NorthSmart</option>
                 <option>Noble 1 Solutions</option>
-                <option>Relus Tech</option>
-                <option>Reliant</option>
+                <option>Relus Technologies</option>
+                <option>Reliant Technology</option>
               </select>
             </div>
               <div class="form-group">
                 <label for="firstName">First Name</label><br>
-                <input type="text" class="firstName input" value="{{currentProfile?.firstName}}">
+                <input type="text" formControlName="firstName" class="firstName input" value="{{currentProfile?.firstName}}">
+                <div *ngIf="submitted && !!f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="!!f.username.errors.required">First Name required!</div>
+                </div>
               </div>
               <div class="form-group">
                   <label for="lastName">Last Name</label><br>
-                  <input type="text" class="lastName input" value="{{currentProfile?.lastName}}">
+                  <input type="text" formControlName="lastName" class="lastName input" value="{{currentProfile?.lastName}}">
                 </div>
               <div class="form-group">
                 <label for="userName">Username</label><br>
-                <input type="text" class="username input" value="{{currentProfile?.username}}">
+                <input type="text" formControlName="username" class="username input" value="{{currentProfile?.username}}">
               </div>
               <div class="form-group">
                 <label for="email">Email</label><br>
-                <input type="text" class="email input" value="{{currentProfile?.email}}">
+                <input type="text" formControlName="email" class="email input" value="{{currentProfile?.email}}">
               </div>
               <div class="form-group">
                 <label for="phone">Phone</label><br>
-                <input type="text" class="email input">
+                <input type="text" formControlName="phone" class="email input">
               </div>
               <div class="form-group">
                 <label for="ticketingAlias">Ticketing Alias</label><br>
-                <input type="text" class="ticketingAlias">
+                <input type="text" formControlName="ticketingAlias" class="ticketingAlias">
               </div>
               <div class="form-group">
                 <label for="password">Password</label><br>
@@ -58,11 +61,11 @@
                     <div class="modal-body">
                       <div class="form-group">
                         <label for="newPassword">New Password</label><br>
-                        <input class="passwordChange" name="newPassword" type="password">
+                        <input class="passwordChange" formControlName="password" name="newPassword" type="password">
                       </div>
                       <div class="form-group">
                         <label for="confirmPassword">Confirm Password</label><br>
-                        <input class="passwordChange" name="confirmwPassword" type="password">
+                        <input class="passwordChange" formControlName="conpass" name="confirmwPassword" type="password">
                       </div>
                     </div>
                     <div class="modal-footer">
@@ -83,7 +86,7 @@
               <div class="form-group">
                 <label for="role">Role</label><br>
                 <div data-toggle="tooltip" data-placement="top" title="Changing your own role is not allowed!" class="wrapper">
-                <select [disabled]="true" class="form-control" id="role">
+                <select [disabled]="true" formControlName="role" class="form-control" id="role">
                   <option>List of Roles</option>
                   <option selected>{{currentProfile?.partnerRole}}</option>
                   <option>Option 2</option>
@@ -95,7 +98,7 @@
               <div class="form-group-button">
                 <button class="btn btn-primary">Update User</button>
               </div>
-            </form>
+          </form>
       </div>
     </div>
   </div>

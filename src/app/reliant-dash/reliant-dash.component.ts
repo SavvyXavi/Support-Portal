@@ -1,4 +1,3 @@
-import { ApifilterService } from './../services/apifilter.service';
 import { Component, OnInit } from '@angular/core';
 import { Profile } from './../login/models/profile';
 import { Tickets } from './../manage-assets/models/tickets';
@@ -11,11 +10,13 @@ import { FuncappService } from './../services/funcapp.service';
 import { AuthenticationService } from './../login/services/authentication.service';
 import { ProfileService } from './../login/services/profile.service';
 import { ApiCallService } from './../manage-assets/services/api-call.service';
+import { ApifilterService } from './../services/apifilter.service';
 
 import { Contracts } from '../manage-assets/models/contracts';
 import { Customer } from '../admin/models/customer';
 import { Contract } from '../models/contract';
 import { Chart } from 'chart.js';
+import { Partner } from './../models/partner';
 
 @Component({
   selector: 'app-reliant-dash',
@@ -28,12 +29,15 @@ export class ReliantDashComponent implements OnInit {
   currentProfileSubscription: Subscription;
   profiles: Profile[];
 
-  dashboard = 'Reliant';
+  partner: Partner;
+  partnerSubscription: Subscription;
+
 
   contractLength: Contracts[];
   assetLength: Assets[];
   ticketLength: Tickets[];
   companyLength: Customer[];
+  partnerArr: Partner[];
 
   contractsData = [];
   assetsData = [];
@@ -55,6 +59,7 @@ export class ReliantDashComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.getPartners();
     this.contractsChart();
     this.assetsChart();
     this.displayData();
@@ -68,22 +73,43 @@ export class ReliantDashComponent implements OnInit {
   //   this.currentProfileSubscription.unsubscribe();
   // }
 
-  contractsCount() {
-    this.filter.contractsFilter(this.currentProfile)
+  getPartners() {
+    this.filter.getPartners()
     .subscribe(
-      (returnedContractsLength: Contracts[]) => {
-        this.contractLength = returnedContractsLength;
-      }
+      returnedPartners => this.partnerArr = returnedPartners
     );
   }
 
+  filterPartner(partner: String) {
+    return this.partnerArr.find(company => company.CompanyName === partner);
+  }
+
+  contractsCount() {
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
+      );
+    }
+  }
+
   assetsCount() {
-      this.filter.assetsFilter( this.currentProfile)
-    .subscribe(
-      (returnedAssets: Assets[]) => {
-        this.assetLength = returnedAssets;
-      }
-    );
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      );
+    }
   }
 
   ticketsCount() {
@@ -113,7 +139,7 @@ export class ReliantDashComponent implements OnInit {
   }
 
   displayData() {
-    let array = this.filter.contractsFilter(this.currentProfile).subscribe(
+    let array = this.filter.partConFilter(this.currentProfile).subscribe(
       res => {
 
         // const price = res.map(res => res.AnnualValue);
@@ -121,7 +147,7 @@ export class ReliantDashComponent implements OnInit {
           return [String(key), res[key]];
         });
 
-        console.log(length);
+        // console.log(length);
         // console.log(price);
       }
     );
@@ -138,13 +164,13 @@ export class ReliantDashComponent implements OnInit {
 
   contractsChart() {
     const status = [];
-    this.filter.contractsFilter(this.currentProfile).subscribe(
+    this.filter.partConFilter(this.currentProfile).subscribe(
       (res: Contract[]) => {
         // status.push(res.status);
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
-        console.log(res);
+        // console.log(res);
         // console.log(res.status);
         // console.log(length);
       }
@@ -166,7 +192,7 @@ export class ReliantDashComponent implements OnInit {
                   'rgba(255, 159, 64, 1)'
               ],
               borderColor: [
-                  'rgba(255, 99, 132, 1)',
+                  'rgba(255, 0, 0, 1)',
                   'rgba(54, 162, 235, 1)',
                   'rgba(255, 206, 86, 1)',
                   'rgba(75, 192, 192, 1)',
@@ -188,7 +214,7 @@ export class ReliantDashComponent implements OnInit {
             label: '# of Votes',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
-                'rgba(255, 99, 132, 1)',
+                'rgba(255, 0, 0, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
@@ -196,7 +222,7 @@ export class ReliantDashComponent implements OnInit {
                 'rgba(255, 159, 64, 1)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
+              ' rgba(255, 0, 0, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',

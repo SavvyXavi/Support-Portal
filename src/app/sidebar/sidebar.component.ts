@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLinkActive } from '@angular/router';
 import { AuthenticationService } from '../login/services/authentication.service';
+import { ApifilterService } from './../services/apifilter.service';
 
 import { Subscription } from 'rxjs';
 import { Profile } from '../login/models/profile';
+import { Partner } from './../models/partner';
 
 import { Sidebars } from './services/loadsidebar.service';
 
@@ -20,12 +22,15 @@ export class SidebarComponent implements OnInit {
 
   sidebars = Sidebars;
 
+  partnerArr: Partner[];
+
   private roleSubscription: Subscription;
   private sidebarSubscription: Subscription;
 
   constructor (
     public router: Router,
     private authenticationService: AuthenticationService,
+    private filter: ApifilterService
     ) {
         this.roleSubscription = this.authenticationService.currentUser.subscribe(
         role => {
@@ -42,6 +47,17 @@ export class SidebarComponent implements OnInit {
     } else {
       return document.getElementById('container').style.width = '100%';
     }
+  }
+
+  getPartners() {
+    this.filter.getPartners()
+    .subscribe(
+      returnedPartners => this.partnerArr = returnedPartners
+    );
+  }
+
+  filterPartner(partner: String) {
+    return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
   dropdownMA() {

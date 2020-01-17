@@ -1,6 +1,4 @@
 <div class="container wrapper">
-  <h1>Dashboard: {{dashboard}}</h1>
-    {{currentProfile.firstName}}
       <div class="container-fluid">
         <div class="row ">
           <div class="contracts-container total-container col-md">
@@ -30,7 +28,7 @@
               </div>
             </a>
           </div>
-          <div *ngIf="currentProfile.partnerRole === 'Admin'" class="companies-container total-container col-md">
+          <div *ngIf="this.filterPartner(this.currentProfile.partner)" class="companies-container total-container col-md">
             <a routerLink="/admin/companies">
               <div class="companies-content">
                 {{this.companyLength.length}}<br>

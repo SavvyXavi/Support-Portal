@@ -63,13 +63,13 @@ export class LoginComponent implements OnInit {
         case 'NorthSmart (Northland)':
           this.router.navigate(['/northdash']);
         break;
-        case 'Noble1 Solutions':
+        case 'Noble1 Solutions' || 'Colwick Travel' || 'xByte Technologies':
           this.router.navigate(['/dashboard']);
         break;
         case 'Reliant Technology':
           this.router.navigate(['/reliantdash']);
         break;
-        case 'Relus Technologies':
+        case 'Relus Technologies' || 'RAC King LLC':
           this.router.navigate(['/relusdash']);
         break;
         case 'BB&T':
