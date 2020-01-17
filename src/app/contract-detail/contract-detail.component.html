@@ -49,23 +49,25 @@
             <div class="form-group">
               <label for="refNumber">
                 Reference Number <br>
-                <input disabled [(ngModel)]="data.RefNumber" placeholder="Reference Number" />
+                <input readonly [(ngModel)]="data.RefNumber" placeholder="Reference Number" />
               </label>
             </div>
             <div class="form-goup">
               <label for="endCustomer">
                 Customer <br>
-                <input [(ngModel)]="data.EndCustomerName" placeholder="End Customer" />
+                <input readonly [(ngModel)]="data.EndCustomerName" placeholder="End Customer" />
               </label>
             </div>
             <div class="form-goup">
               <label for="startDate">
-                Start Date: {{data.StartDate | date: 'shortDate'}}
+                Start Date <br>
+                <input readonly [(ngModel)]="data.StartDate" placeholder="Start Date" />
               </label>
             </div>
             <div class="form-goup">
               <label for="renewalDate">
-                Renewal Date: {{data.RenewalDate | date: 'shortDate'}}
+                Renewal Date <br>
+                <input readonly [(ngModel)]="data.RenewalDate" placeholder="Renewal Date" />
               </label>
             </div>
           </div>
