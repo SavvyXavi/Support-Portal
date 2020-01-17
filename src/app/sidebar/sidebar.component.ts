@@ -39,9 +39,7 @@ export class SidebarComponent implements OnInit {
         );
       }
 
-  ngOnInit() {
-    this.filterPartner(this.currentRole.partner);
-  }
+  ngOnInit() { }
 
   collapseMenu() {
     if (document.getElementById('container').style.width = '100%') {
