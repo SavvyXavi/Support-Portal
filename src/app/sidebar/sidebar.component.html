@@ -3,7 +3,7 @@
 
           <div *ngIf="currentRole?.partnerRole === 'Admin'" id="container" class="icon-bar text-center">
             <div width="100%" class="ham-wrapper text-center">
-            <button class="col-auto btn btn-lg custom-btn" role="button" (click)="collapseMenu()">
+            <button class="col-auto btn btn-lg custom-btn" role="button">
               <i class="fa fa-bars"></i>
             </button>
           </div>
@@ -48,6 +48,15 @@
                 </div>
                 </a>
 
+                <a routerLink="locations" class="locations">
+                  <div class="locations-icon icon-wrapper">
+                      <i routerLink="locations" class="icon fas fa-map"></i>
+                  </div>
+                  <div class="tickets-content col-auto">
+                      <span>Locations</span>
+                  </div>
+                  </a>
+
 
                 <a class="admin">
                   <div class="admin-icon icon-wrapper">
@@ -58,10 +67,10 @@
                 </div>
                 </a>
 
-                <div id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
+                <div  id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
                     <!-- <a class="dropdown" routerLink="admin/oem">OEM</a> -->
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
-                    <a class="dropdown" routerLink="admin/users">Users</a>
+                    <a class="dropdown" routerLink="admin/admin">Admin</a>
               </div>
           </div>
 
@@ -109,7 +118,7 @@
                   <div class="admin-icon">
                     <i class="icon fas fa-users-cog"></i>
                 </div>
-                <div class="admin-content col-auto">
+                <div *ngIf="" class="admin-content col-auto">
                     <span>Admin</span>
                     <i class="fa fa-caret-down"></i>
                 </div>

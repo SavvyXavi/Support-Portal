@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  serverUrl: 'https://newauth.noble1it.com'
+  serverUrl: 'https://prodauth.noble1it.com',
+  secret: 'Noble1Solutions'
 };

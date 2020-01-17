@@ -1,39 +1,78 @@
 <div class="container">
   <div class="col-md">
-    <div class="card">
+    <div *ngFor='let data of contract' class="card">
       <div class="card-header">
-        <h2>Contract Details</h2>
-      </div>
-      <div *ngFor='let data of contract' class="card-body">
-        <div class="row detail-container">
-          <h3 class="col-md-offset">
-            {{data.ScheduleName}}
-          </h3>
+        <div class="row">
+          <div class="contract-header-wrapper">
+            <!-- <div class="contract-header-icon">
+              <i class="fas fa-file-alt"></i>
+            </div> -->
+            <div class="contract-header-text">
+              <div>Contract</div>
+              <h4>{{data.ScheduleName}}</h4>
+            </div>
+          </div>
         </div>
+        <br>
+        <div class="row">
+          <div class="col-md con-ref">
+            <h6>
+              Contract #
+            </h6>
+            <p>
+              {{data.RefNumber}}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="tab-wrapper">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" >Details</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" >Covered Assets</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Asset Locations</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <br>
+        <br>
         <div class="row">
           <div class="detail">
             <div class="form-group">
               <label for="refNumber">
-                Reference Number:
-                <input [(ngModel)]="data.RefNumber" placeholder="Reference Number" /> <br />
-                {{data.RefNumber}}
+                Reference Number <br>
+                <input readonly type="text" [(ngModel)]="data.RefNumber" placeholder="Reference Number" />
               </label>
             </div>
             <div class="form-goup">
               <label for="endCustomer">
-                Customer: {{data.EndCustomerName}}
+                Customer <br>
+                <input readonly type="text" [(ngModel)]="data.EndCustomerName" placeholder="End Customer" />
               </label>
             </div>
             <div class="form-goup">
               <label for="startDate">
-                Start Date: {{data.StartDate | date: 'shortDate'}}
+                Start Date <br>
+                <input readonly type="text" [(ngModel)]="data.StartDate" placeholder="Start Date" />
               </label>
             </div>
             <div class="form-goup">
               <label for="renewalDate">
-                Renewal Date: {{data.RenewalDate | date: 'shortDate'}}
+                Renewal Date <br>
+                <input readonly type="text" [(ngModel)]="data.RenewalDate" placeholder="Renewal Date" />
               </label>
             </div>
+          </div>
+          </div>
+          <br>
             <!-- <div class="form-goup">
               <label for="contractLength">
                 Contract Length (Months): {{data.ContractLengthInMonths}}
@@ -56,12 +95,37 @@
                 </Button>
               </div>
             </div>
-          </div>
-        </div>
       </div>
   </div>
 </div>
 </div>
+
+
+
+
+
+
+<!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+</div> -->
+
+
+
+
+
 
 <!-- <div class="container">
   <div class="col-md">

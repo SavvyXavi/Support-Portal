@@ -49,6 +49,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { ResetUserComponent } from './reset-user/reset-user.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
 import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.component';
+import { AdminComponent } from './admin/admin.component';
+import { LocationsComponent } from './locations/locations.component';
+import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +83,10 @@ import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.
     ForgopassComponent,
     ResetUserComponent,
     ContractDetailComponent,
-    AssetDetailComponent
+    AssetDetailComponent,
+    AdminComponent,
+    LocationsComponent,
+    LocationDetailsComponent
   ],
   imports: [
     BrowserModule,

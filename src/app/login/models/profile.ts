@@ -1,4 +1,5 @@
 export class Profile {
+  _id: string;
   id: string;
   username: string;
   password: string;
@@ -9,4 +10,7 @@ export class Profile {
   token: string;
   partner: string;
   partnerRole: string;
+  company: string;
+  companypartner: string;
+  createdDate: Date;
 }

@@ -1,3 +1,4 @@
+import { PartnerList } from './../partner-list';
 import { Component, OnInit } from '@angular/core';
 
 import { Profile } from '../login/models/profile';
@@ -9,7 +10,7 @@ import { ProfileService } from '../login/services/profile.service';
 import { ApifilterService } from './../services/apifilter.service';
 import { ApiCallService } from './../manage-assets/services/api-call.service';
 
-import { Subscription, Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { map, first } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 
@@ -83,11 +84,10 @@ export class GenericDashComponent implements OnInit {
 
   contractsCount() {
     if (this.filterPartner(this.currentProfile.partner)) {
-      this.filter.partConFilterB(this.currentProfile)
+      this.filter.partConFilter(this.currentProfile)
       .subscribe(
-        returnedConLength => this.contractLength = returnedConLength
+        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
       );
-      console.log( this.contractLength );
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(

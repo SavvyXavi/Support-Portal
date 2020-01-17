@@ -7,7 +7,6 @@ import { Filter } from './../models/filter';
 
 import { Contract } from './../models/contract';
 import { Contracts } from './../manage-assets/models/contracts';
-import { format } from 'url';
 
 @Component({
   selector: 'app-contract-detail',
@@ -32,7 +31,6 @@ export class ContractDetailComponent implements OnInit {
   getContract() {
     const refNumber =
       this.route.snapshot.paramMap.get('refNumber');
-      console.log(refNumber);
     this.filter.conByRef(refNumber, '')
     .subscribe(
       (returnedContract: Contracts) => {

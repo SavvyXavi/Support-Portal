@@ -1,3 +1,4 @@
+import { AdminComponent } from './admin/admin.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ContractsComponent } from './manage-assets/contracts/contracts.component';
 import { SupportComponent } from './admin/support/support.component';
@@ -17,6 +18,7 @@ import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 import { TicketsComponent } from './manage-assets/tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { LocationsComponent } from './locations/locations.component';
 
 import { AuthGuard } from './login/guards/auth.guard';
 import { AccountsComponent } from './admin/accounts/accounts.component';
@@ -141,8 +143,18 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'locations',
+    component: LocationsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'admin/accounts',
     component: AccountsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin/admin',
+    component: AdminComponent,
     canActivate: [AuthGuard]
   },
   {
