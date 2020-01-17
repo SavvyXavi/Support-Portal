@@ -13,8 +13,12 @@
   width: 100%;
 }
 
-.detail, label {
+.detail {
   width: 100%;
+}
+
+label {
+  width: 75%;
 }
 
 input {
