@@ -10,7 +10,7 @@
   <div class="companySelector">
     Select Company:
     <div class="form-group">
-      <select id="companyFilter" [(ngModel)]="this.company">
+      <select id="companyFilter" [(ngModel)]="this.contracts.endCustomerName">
         <option selected>All</option>
         <option formControlName="companyName" *ngFor="let data of company"
         [value]="data.CompanyName">
@@ -33,7 +33,6 @@
       <th>Status</th>
     </tr>
   </thead>
-  <tbody *ngIf="!this.f.companyName.value">
     <tr *ngFor='let data of contracts'>
       <td>
         <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</ a>
@@ -46,22 +45,6 @@
       <td>{{data.EndCustomerName}}</td>
       <td>{{data.Status}}</td>
    </tr>
-  </tbody>
-  <tbody *ngIf="this.f.companyName.value === this.contracts.endCustomerName">
-    <tr *ngFor='let data of contracts'>
-      <td>
-        <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</ a>
-      </td>
-      <td>{{data.StartDate | date: 'shortDate'}}</td>
-      <td>{{data.RenewalDate | date: 'shortDate'}}</td>
-      <td>
-        <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.RefNumber}}</a>
-      </td>
-      <td>{{data.EndCustomerName}}</td>
-      <td>{{data.Status}}</td>
-   </tr>
-  </tbody>
-
  </table>
 </div>
 

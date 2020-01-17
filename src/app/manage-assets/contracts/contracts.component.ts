@@ -11,6 +11,7 @@ import { AuthenticationService } from './../../login/services/authentication.ser
 
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgSelectOption } from '@angular/forms';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-contracts',
@@ -46,7 +47,7 @@ export class ContractsComponent implements OnInit {
     this.getPartners();
     this.getContracts();
     this.getCompanies();
-    // this.contractsCount();
+    this.filterContracts();
     this.selectorForm = this.formBuilder.group({
       companyName: ['']
     });
@@ -88,5 +89,14 @@ export class ContractsComponent implements OnInit {
 
  get f() {
   return this.selectorForm.controls;
+  }
+
+  filterContracts() {
+    if (this.f.compamyName.value !== this.contracts.endCustomerName) {
+      return;
+    }
+    if (this.f.companyName.value === this.contracts.endCustomerName) {
+      return this.contracts.endCustomerName.includes(this.f.companyName.value);
+    }
   }
 }
