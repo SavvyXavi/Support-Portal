@@ -1,10 +1,31 @@
 <div class="container">
   <div class="col-md">
-    <div class="card">
+    <div *ngFor='let data of contract' class="card">
       <div class="card-header">
-        <h2>Contract Details</h2>
+        <div class="row">
+          <div class="contract-header-wrapper">
+            <div class="contract-header-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="contract-header-text">
+              <h5>Contract</h5><br>
+              <h3>{{data.ScheduleName}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md con-ref">
+            <h5>
+              Contract #
+            </h5>
+            <p>
+              {{data.RefNumber}}
+            </p>
+          </div>
+        </div>
       </div>
-      <div *ngFor='let data of contract' class="card-body">
+
+      <div class="card-body">
         <div class="row detail-container">
           <h3 class="col-md-offset">
             {{data.ScheduleName}}
