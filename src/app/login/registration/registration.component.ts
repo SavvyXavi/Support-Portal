@@ -64,6 +64,7 @@ export class RegistrationComponent implements OnInit {
     }
 
     this.loading = true;
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
     this.profileService.register(this.registerForm.value)
       .pipe(first())
       .subscribe(
