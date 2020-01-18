@@ -36,7 +36,7 @@ export class RegistrationComponent implements OnInit {
       lastName:  ['', Validators.required],
       company: ['', Validators.required],
       companypartner: ['', Validators.required],
-      email:     ['', [Validators.email, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$') ]],
+      email:     ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$') ]],
       partner:   ['', Validators.required],
       partnerRole: ['', Validators.required],
       password:  ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$') ]],
@@ -58,10 +58,6 @@ export class RegistrationComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // stop here if form is invalid
-    if ( this.registerForm.invalid) {
-      return;
-    }
 
     this.loading = true;
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
