@@ -1,3 +1,4 @@
+import { RegisterComponent } from './admin/register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ContractsComponent } from './manage-assets/contracts/contracts.component';
@@ -165,6 +166,11 @@ const routes: Routes = [
   {
     path: 'admin/support',
     component: SupportComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin/register',
+    component: RegisterComponent,
     canActivate: [AuthGuard]
   },
   {

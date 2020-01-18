@@ -54,6 +54,7 @@ import { AdminComponent } from './admin/admin.component';
 import { LocationsComponent } from './locations/locations.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { ResetComponent } from './login/reset/reset.component';
+import { RegisterComponent } from './admin/register/register.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { ResetComponent } from './login/reset/reset.component';
     AdminComponent,
     LocationsComponent,
     LocationDetailsComponent,
-    ResetComponent
+    ResetComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
