@@ -16,6 +16,9 @@ export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
+  randNumberOne = Math.random() * 1000;
+  randNumberTwo = Math.random() * 1000;
+  randNumber = this.randNumberOne * this.randNumberTwo;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,7 +44,8 @@ export class RegistrationComponent implements OnInit {
       partnerRole: ['', Validators.required],
       password:  ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$') ]],
       confirmpassword: ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$') ]],
-      username:  ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$') ]]
+      username:  ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$') ]],
+      id: [this.randNumber]
     },
     {
       validator: [
@@ -58,6 +62,10 @@ export class RegistrationComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
+    // stop here if form is invalid
+    if ( this.registerForm.invalid) {
+      return;
+    }
 
     this.loading = true;
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
