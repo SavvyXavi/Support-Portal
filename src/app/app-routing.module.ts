@@ -79,8 +79,9 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'register',
-    component: RegistrationComponent
+    path: 'login/register',
+    component: RegistrationComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'reset',
