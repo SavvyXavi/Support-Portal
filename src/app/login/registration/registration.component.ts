@@ -16,9 +16,9 @@ export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
-  randNumberOne = Math.random() * 1000;
-  randNumberTwo = Math.random() * 1000;
-  randNumber = this.randNumberOne * this.randNumberTwo;
+  randNumberOne = Math.random() * 10000;
+  randNumberTwo = Math.random() * 10000;
+  randNumber = this.randNumberOne * this.randNumberTwo * 1000;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -63,9 +63,9 @@ export class RegistrationComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
-    if ( this.registerForm.invalid) {
-      return;
-    }
+ //   if ( this.registerForm.invalid) {
+  //    return;
+ //   }
 
     this.loading = true;
 //    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
