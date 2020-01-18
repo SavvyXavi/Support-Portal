@@ -44,7 +44,6 @@
       <div class="form-group">
       <label for="companypartner">Is this user for a Company or Partner:</label>
       <select class="form-control" id="companypartner" formControlName="companypartner" [ngClass]="{ 'is-invalid': submitted && f.companypartner.errors}">
-        <option>Please choose</option>
         <option>Company</option>
         <option>Partner</option>
       </select>
@@ -53,8 +52,7 @@
     <div class="col-md-6">
       <div class="form-group">
       <label for="partner">Select Partner:</label>
-      <select class="form-control" id="partner" formControlName="partner" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
-        <option>Please Choose</option>
+      <select class="form-control" id="partner" formControlName="partner" placeholder="Partner Name" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
         <option>Mega Monolothic Corp</option>
         <option>Noble1Solutions</option>
         <option>Relutech</option>
@@ -76,7 +74,6 @@
       <div class="form-group">
       <label for="partnerRole">Choose the User's Role:</label>
       <select class="form-control" id="partnerRole" formControlName="partnerRole" [ngClass]="{ 'is-invalid': submitted && f.partnerRole.errors}">
-        <option>Please Choose</option>
         <option>Admin</option>
         <option>User</option>
         <option>Support</option>
@@ -87,7 +84,6 @@
       <div class="form-group">
       <label for="company">Select Company:</label>
       <select class="form-control" id="company" formControlName="company" [ngClass]="{ 'is-invalid': submitted && f.company.errors}">
-        <option>Please choose</option>
         <option>Mega Monolothic Corp</option>
         <option>Noble1Solutions</option>
         <option>Relutech</option>
