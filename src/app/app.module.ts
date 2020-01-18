@@ -52,6 +52,7 @@ import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.
 import { AdminComponent } from './admin/admin.component';
 import { LocationsComponent } from './locations/locations.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
+import { ResetComponent } from './login/reset/reset.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { LocationDetailsComponent } from './locations/location-details/location-
     AssetDetailComponent,
     AdminComponent,
     LocationsComponent,
-    LocationDetailsComponent
+    LocationDetailsComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,

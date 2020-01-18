@@ -127,5 +127,7 @@
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
               </div>
           </div>
-
+          <nav *ngIf="currentRole?.partner === 'Noble1Solutions'" class="navbar-nav">
+            <a class="dropdown" routerLink="login/Registration">Register Users</a>
+          </nav>
     </nav>
