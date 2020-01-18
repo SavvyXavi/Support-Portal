@@ -6,6 +6,7 @@ import { AlertService } from '../../login/services/alert.service';
 import { AuthenticationService } from '../../login/services/authentication.service';
 import { ProfileService } from '../../login/services/profile.service';
 import { MustMatch } from '../../login/helpers/must-match';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -28,9 +29,9 @@ export class RegisterComponent implements OnInit {
     private profileService: ProfileService
   ) {
     // redirects to dashboard if already logged in
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/dashboard']);
-    }
+ //   if (this.authenticationService.currentUserValue) {
+ //     this.router.navigate(['/dashboard']);
+ //   }
    }
 
   ngOnInit() {
