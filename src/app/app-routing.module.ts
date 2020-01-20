@@ -1,3 +1,4 @@
+import { RegisterComponent } from './admin/register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ContractsComponent } from './manage-assets/contracts/contracts.component';
@@ -19,7 +20,7 @@ import { TicketsComponent } from './manage-assets/tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LocationsComponent } from './locations/locations.component';
-
+import { ResetComponent } from './login/reset/reset.component';
 import { AuthGuard } from './login/guards/auth.guard';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 import { ListsComponent } from './manage-assets/lists/lists.component';
@@ -79,8 +80,13 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'register',
-    component: RegistrationComponent
+    path: 'login/register',
+    component: RegistrationComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'reset',
+    component: ResetComponent
   },
   {
     path: 'dashboard',
@@ -160,6 +166,11 @@ const routes: Routes = [
   {
     path: 'admin/support',
     component: SupportComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin/register',
+    component: RegisterComponent,
     canActivate: [AuthGuard]
   },
   {
