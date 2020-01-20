@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { MaterialModule } from './materials/material/material.module';
@@ -52,6 +53,8 @@ import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.
 import { AdminComponent } from './admin/admin.component';
 import { LocationsComponent } from './locations/locations.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
+import { ResetComponent } from './login/reset/reset.component';
+import { RegisterComponent } from './admin/register/register.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +89,9 @@ import { LocationDetailsComponent } from './locations/location-details/location-
     AssetDetailComponent,
     AdminComponent,
     LocationsComponent,
-    LocationDetailsComponent
+    LocationDetailsComponent,
+    ResetComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

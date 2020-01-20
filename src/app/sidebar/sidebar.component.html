@@ -71,12 +71,12 @@
                     <!-- <a class="dropdown" routerLink="admin/oem">OEM</a> -->
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
                     <a class="dropdown" routerLink="admin/admin">Admin</a>
+                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/register">Register Users</a>
               </div>
           </div>
-
     </nav>
 
-    <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
+     <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
 
         <div id="container" class="icon-bar">
             <div class="ham-wrapper">
@@ -127,5 +127,4 @@
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
               </div>
           </div>
-
     </nav>
