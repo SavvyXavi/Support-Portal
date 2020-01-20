@@ -115,7 +115,7 @@
                   <div class="admin-icon">
                     <i class="icon fas fa-users-cog"></i>
                 </div>
-                <div *ngIf="" class="admin-content col-auto">
+                <div *ngIf="this.filterPartner(this.currentRole?.partner)" class="admin-content col-auto">
                     <span>Admin</span>
                     <i class="fa fa-caret-down"></i>
                 </div>

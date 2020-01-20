@@ -9,7 +9,9 @@
          <app-sidebar *ngIf="router.url !== '/login' && router.url !== '/register'"></app-sidebar>
       </div>
     <div class="col-md content">
-         <app-alert *ngIf="router.url == '/login' || router.url == '/register'"></app-alert>
+      <ng-template *ngIf="router.url == '/login' || router.url == '/register'">
+        <app-alert ></app-alert>
+      </ng-template>
          <br>
          <router-outlet> </router-outlet>
     </div>
