@@ -1,6 +1,8 @@
+import { AuthenticationService } from './../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MustMatch } from '../helpers/must-match';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset',
@@ -8,40 +10,48 @@ import { MustMatch } from '../helpers/must-match';
   styleUrls: ['./reset.component.css']
 })
 export class ResetComponent implements OnInit {
-  registerForm: FormGroup;
-  submitted = false;
+    RequestResetForm: FormGroup;
+    forbiddenEmails: any;
+    errorMessage: string;
+    successMessage: string;
+    IsvalidForm = true;
 
-  constructor(private formBuilder: FormBuilder) { }
+    constructor(
+      private authService: AuthenticationService,
+      private router: Router,
+     ) {
 
-  ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required],
-      acceptTerms: [false, Validators.requiredTrue]
-  }, {
-      validator: MustMatch('password', 'confirmPassword')
-  });
-  }
-  get f() { return this.registerForm.controls; }
+    }
+    ngOnInit() {
 
-  onSubmit() {
-      this.submitted = true;
+      this.RequestResetForm = new FormGroup({
+        'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails),
+      });
+    }
 
-      // stop here if form is invalid
-      if (this.registerForm.invalid) {
-          return;
+
+    RequestResetUser(form) {
+      console.log(form)
+      if (form.valid) {
+        this.IsvalidForm = true;
+        this.authService.requestReset(this.RequestResetForm.value).subscribe(
+          data => {
+            this.RequestResetForm.reset();
+            this.successMessage = 'Reset password link send to email sucessfully.';
+            setTimeout(() => {
+              this.successMessage = null;
+              this.router.navigate(['sign-in']);
+            }, 3000);
+          },
+          err => {
+
+            if (err.error.message) {
+              this.errorMessage = err.error.message;
+            }
+          }
+        );
+      } else {
+        this.IsvalidForm = false;
       }
-
-      // display form values on success
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+    }
   }
-
-  onReset() {
-      this.submitted = false;
-      this.registerForm.reset();
-  }
-}

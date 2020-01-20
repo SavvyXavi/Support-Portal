@@ -37,7 +37,17 @@ export class AuthenticationService {
        return profile;
      }));
    }
+   requestReset(body): Observable<any> {
+    return this.http.post(`${environment.serverUrl}/req-reset-password`, body);
+  }
 
+  newPassword(body): Observable<any> {
+    return this.http.post(`${environment.serverUrl}/new-password`, body);
+  }
+
+  ValidPasswordToken(body): Observable<any> {
+    return this.http.post(`${environment.serverUrl}/valid-password-token`, body);
+  }
    logout() {
      localStorage.removeItem('currentUser');
      this.currentUserSubject.next(null);
