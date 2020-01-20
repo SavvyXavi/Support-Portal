@@ -62,22 +62,20 @@
                   <div class="admin-icon icon-wrapper">
                     <i routerLink="" class="icon fas fa-users-cog"></i>
                 </div>
-                <div class="dropdown-toggle dropdown-btn col-auto" id="dropdown02" data-toggle="collapse" data-target="#dd2">
+                <div *ngIf="currentRole?.partner === filterPartner(currentRole?.partner)" class="dropdown-toggle dropdown-btn col-auto" id="dropdown02" data-toggle="collapse" data-target="#dd2">
                     <span>Admin</span>
                 </div>
                 </a>
 
-                <div  id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
+                <div id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
                     <!-- <a class="dropdown" routerLink="admin/oem">OEM</a> -->
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
                     <a class="dropdown" routerLink="admin/admin">Admin</a>
               </div>
           </div>
-
     </nav>
 
     <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
-
         <div id="container" class="icon-bar">
             <div class="ham-wrapper">
             <button class="col-auto btn btn-lg custom-btn" (click)="collapseMenu()">
