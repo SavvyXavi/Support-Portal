@@ -77,6 +77,15 @@ tr:nth-child(odd) {
   background-color: #e6e6e6;
   border-radius: 5px;
 }
+
+.search-form-field div.mat-form-field-underline {
+  display: none;
+}
+
+.search-form-field div.mat-form-field-suffix button {
+  height: 32px;
+  width: 32px;
+}
 /* mat-table {
   border-radius: 8px;
 }

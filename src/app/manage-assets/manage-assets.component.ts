@@ -43,7 +43,7 @@ export class ManageAssetsComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
-  searchKey: Assets;
+  searchKey: string;
 
   constructor(
     private filter: ApifilterService,
