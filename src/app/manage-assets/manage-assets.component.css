@@ -64,3 +64,22 @@ tr:nth-child(odd) {
 mat-table {
   border-radius: 8px;
 }
+
+mat-table {
+  border: solid black;
+  border-radius: 8px !important;
+  -moz-border-radius: 8px;
+  border-collapse: separate;
+}
+
+mat-header-cel {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+mat-header-cell, mat-cell {
+  border: 1px solid black;
+  padding: 15px;
+  text-align: left;
+}
