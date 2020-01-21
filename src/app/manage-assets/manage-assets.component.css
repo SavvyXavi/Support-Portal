@@ -57,8 +57,8 @@ tr:nth-child(odd) {
   background-color:   white;
 }
 
-.mat-table {
-  width: 80%;
+.mattable-container {
+  width: 100%;
   margin-right: 25px;
 }
 
