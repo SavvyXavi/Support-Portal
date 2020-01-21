@@ -78,13 +78,14 @@ tr:nth-child(odd) {
   border-radius: 5px;
 }
 
-.search-form-field div.mat-form-field-underline {
+/* .search-form-field div.mat-form-field-underline {
   display: none;
-}
+} */
 
-.search-form-field div.mat-form-field-suffix button {
+.search-form-field button {
   height: 32px;
   width: 32px;
+  border-radius: 8px;
 }
 /* mat-table {
   border-radius: 8px;
