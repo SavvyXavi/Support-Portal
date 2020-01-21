@@ -64,7 +64,6 @@ export class ManageAssetsComponent implements OnInit {
     this.getAsset();
     // this.getContract();
     // this.paginatingAssets();
-    // this.dataSource.paginator = this.paginator;
   }
 
   getPartners() {
@@ -111,6 +110,8 @@ export class ManageAssetsComponent implements OnInit {
           this.assetLength = returnedAssetLength;
           this.assetDataSource = new MatTableDataSource(returnedAssetLength);
           this.assetDataSource.sort = this.sort;
+          this.assetDataSource.paginator = this.paginator;
+
         }
       );
     } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
@@ -120,6 +121,7 @@ export class ManageAssetsComponent implements OnInit {
           this.assetLength = returnedAssetLength;
           this.assetDataSource = new MatTableDataSource(returnedAssetLength);
           this.assetDataSource.sort = this.sort;
+          this.assetDataSource.paginator = this.paginator;
         }
       );
     }
