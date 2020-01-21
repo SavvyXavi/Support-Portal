@@ -31,13 +31,16 @@ table {
   border-radius: 8px !important;
   -moz-border-radius: 8px;
   border-collapse: separate;
-  font-size: medium;
 }
 
 th {
   background-color: black;
   color: white;
   border-color: white;
+}
+
+th,td {
+  font-size: medium;
 }
 
 th, td {
