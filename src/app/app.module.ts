@@ -12,6 +12,7 @@ import { AuthGuard } from './login/guards/auth.guard';
 import { AuthenticationService } from './login/services/authentication.service';
 import { AlertService } from './login/services/alert.service';
 // import { ProfileService } from './login/services/profile.service';
+import { JwPaginationComponent } from 'jw-angular-pagination';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
@@ -86,7 +87,8 @@ import { LocationDetailsComponent } from './locations/location-details/location-
     AssetDetailComponent,
     AdminComponent,
     LocationsComponent,
-    LocationDetailsComponent
+    LocationDetailsComponent,
+    JwPaginationComponent
   ],
   imports: [
     BrowserModule,
