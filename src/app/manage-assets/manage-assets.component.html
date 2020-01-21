@@ -33,7 +33,7 @@
      </tr>
    </table>
 </div>
-data source worked
+data source working
 <div class="mat-table">
   <mat-table mat-table [dataSource]="assetDataSource" class="mat-elevation-z8 table" matSort>
 
@@ -49,10 +49,20 @@ data source worked
       <mat-cell *matCellDef="let asset"> {{asset.Identifier}} </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="Asset Tag">
+      <mat-header-cell *matHeaderCellDef> Asset Tag </mat-header-cell>
+      <mat-cell *matCellDef="let asset"> {{asset.Identifier}} </mat-cell>
+    </ng-container>
+
     <!-- Description Column -->
-    <ng-container matColumnDef="Description">
+    <!-- <ng-container matColumnDef="Description">
       <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
       <mat-cell *matCellDef="let asset"> {{asset.Description}} </mat-cell>
+    </ng-container> -->
+
+    <ng-container matColumnDef="Location">
+      <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
+      <mat-cell *matCellDef="let asset"> {{asset.SiteAddress}} </mat-cell>
     </ng-container>
 
     <!-- Schedule Column -->

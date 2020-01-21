@@ -29,7 +29,7 @@ export class ManageAssetsComponent implements OnInit {
   filteredProfile: Filter;
   filterSubsciption: Subscription;
 
-  displayedColumns: string[] = ['Name', 'Identifier', 'Description', 'Schedule'];
+  displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Description', 'Schedule'];
 
   contract: Contracts;
 
@@ -113,12 +113,14 @@ export class ManageAssetsComponent implements OnInit {
           this.assetDataSource.sort = this.sort;
         }
       );
-      console.log(this.assetLength);
-      console.log('asset length above');
     } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
       this.filter.custAssetsFilter(this.filteredProfile)
       .subscribe(
-        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+        (returnedAssetLength: Assets[]) => {
+          this.assetLength = returnedAssetLength;
+          this.assetDataSource = new MatTableDataSource(returnedAssetLength);
+          this.assetDataSource.sort = this.sort;
+        }
       );
     }
 }
