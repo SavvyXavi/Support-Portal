@@ -29,7 +29,7 @@ export class ManageAssetsComponent implements OnInit {
   filteredProfile: Filter;
   filterSubsciption: Subscription;
 
-  displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Description', 'Schedule'];
+  displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Schedule'];
 
   contract: Contracts;
 
