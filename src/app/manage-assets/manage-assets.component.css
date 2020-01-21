@@ -31,7 +31,7 @@ table {
   border-radius: 8px !important;
   -moz-border-radius: 8px;
   border-collapse: separate;
-  font-size: '40pt';
+  font-size: medium;
 }
 
 th {
