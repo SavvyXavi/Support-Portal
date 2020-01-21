@@ -35,7 +35,7 @@
 </div>
 data source working
 <div class="mat-table mattable-container">
-  <mat-table mat-table [dataSource]="assetDataSource" class="mat-elevation-z8 table" matSort>
+  <table mat-table [dataSource]="assetDataSource" class="mat-elevation-z8 table" matSort>
 
     <!-- Name Column -->
     <ng-container matColumnDef="Name">
@@ -73,7 +73,7 @@ data source working
 
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+  </table>
 
   <!-- <mat-paginator [length]="assetLength.length" [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator> -->
 </div>
