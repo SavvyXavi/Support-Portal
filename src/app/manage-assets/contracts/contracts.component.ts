@@ -32,9 +32,6 @@ export class ContractsComponent implements OnInit {
 
   filteredProfile: Filter;
 
-  items = [];
-  pageOfItems: any[];
-
   constructor(
     private filter: ApifilterService,
     private authserv: AuthenticationService,
@@ -55,8 +52,6 @@ export class ContractsComponent implements OnInit {
     this.selectorForm = this.formBuilder.group({
       companyName: ['']
     });
-    this.items = Array(2000).fill(0).map((x, i) => ({ id: (i + 1), name: `Item ${i + 1}`}
-    ));
   }
 
   getPartners() {
@@ -105,9 +100,4 @@ export class ContractsComponent implements OnInit {
       return this.contracts.endCustomerName.includes(this.f.companyName.value);
     }
   }
-
-  onChangePage(pageOfItems: Array<any>) {
-    // update current page of items
-    this.pageOfItems = pageOfItems;
-}
 }

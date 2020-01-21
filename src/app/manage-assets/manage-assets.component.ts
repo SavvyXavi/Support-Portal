@@ -66,7 +66,7 @@ export class ManageAssetsComponent implements OnInit {
     // this.getContract();
     // this.paginatingAssets();
     // this.dataSource.paginator = this.paginator;
-    // this.dataSource.sort = this.sort;
+    this.dataSource.sort = this.sort;
   }
 
   getPartners() {
