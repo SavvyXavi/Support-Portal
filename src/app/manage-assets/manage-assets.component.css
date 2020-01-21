@@ -41,6 +41,7 @@ th {
 
 th,td {
   font-size: medium;
+  text-align: center !important;
 }
 
 th, td {
