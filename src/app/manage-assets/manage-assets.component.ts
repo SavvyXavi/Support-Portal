@@ -43,6 +43,7 @@ export class ManageAssetsComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
+  searchKey: Assets;
 
   constructor(
     private filter: ApifilterService,
@@ -127,22 +128,6 @@ export class ManageAssetsComponent implements OnInit {
     }
 }
 
-  paginatingAssets() {
-    merge(this.paginator.page)
-    .pipe(
-      startWith({}),
-      switchMap(() => {
-        return this.filter.paginateAssets(
-          this.filteredProfile,
-          this.paginator.pageIndex
-        );
-      }),
-      map((returnedAssets: Assets) => {
-
-        return this.assets = returnedAssets;
-      })
-    ).subscribe((returnedAssets: Assets) => this.assets = returnedAssets);
-  }
   // observeAssets() {
   //   this.filter.assetObersvable(this.filteredProfile)
   //   .subscribe(

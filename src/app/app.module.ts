@@ -47,6 +47,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatIconModule, MatInputModule, MatFormFieldModule } from '@angular/material';
+
 import { ResetUserComponent } from './reset-user/reset-user.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
 import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.component';
@@ -104,7 +106,10 @@ import { RegisterComponent } from './admin/register/register.component';
     MatSliderModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [
     AuthGuard,
