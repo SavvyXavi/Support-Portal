@@ -57,10 +57,10 @@ tr:nth-child(odd) {
   background-color:   white;
 }
 
-.mat-table {
+/* .mat-table {
   width: 100%;
   margin-right: 25px;
-}
+} */
 
 mat-table {
   border-radius: 8px;
