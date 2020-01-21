@@ -33,7 +33,7 @@ export class ContractsComponent implements OnInit {
   filteredProfile: Filter;
 
   items = [];
-  pageOfItems: Contracts[];
+  pageOfItems: any[];
 
   constructor(
     private filter: ApifilterService,
