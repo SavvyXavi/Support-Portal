@@ -65,7 +65,6 @@ export class ManageAssetsComponent implements OnInit {
     // this.getContract();
     // this.paginatingAssets();
     // this.dataSource.paginator = this.paginator;
-    this.assetDataSource.sort = this.sort;
   }
 
   getPartners() {
@@ -111,6 +110,7 @@ export class ManageAssetsComponent implements OnInit {
         (returnedAssetLength: Assets[]) => {
           this.assetLength = returnedAssetLength;
           this.assetDataSource = new MatTableDataSource(returnedAssetLength);
+          this.assetDataSource.sort = this.sort;
         }
       );
       console.log(this.assetLength);
