@@ -38,21 +38,21 @@ data source working
   <table mat-table [dataSource]="assetDataSource" class="mat-elevation-z8 table" matSort>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="Name">
+    <div matColumnDef="Name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
       <tr mat-cell *matCellDef="let asset"> {{asset.Name}} </tr>
-    </ng-container>
+    </div>
 
     <!-- Identifier Column -->
-    <ng-container matColumnDef="Identifier">
+    <div matColumnDef="Identifier">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Serial </th>
       <tr *matCellDef="let asset"> {{asset.Identifier}} </tr>
-    </ng-container>
+    </div>
 
-    <ng-container matColumnDef="Asset Tag">
+    <div matColumnDef="Asset Tag">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Asset Tag </th>
       <tr mat-cell *matCellDef="let asset"> {{asset.Identifier}} </tr>
-    </ng-container>
+    </div>
 
     <!-- Description Column -->
     <!-- <ng-container matColumnDef="Description">
@@ -60,16 +60,16 @@ data source working
       <mat-cell *matCellDef="let asset"> {{asset.Description}} </mat-cell>
     </ng-container> -->
 
-    <ng-container matColumnDef="Location">
+    <div matColumnDef="Location">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
       <tr mat-cell *matCellDef="let asset"> {{asset.SiteAddress}} </tr>
-    </ng-container>
+    </div>
 
     <!-- Schedule Column -->
-    <ng-container matColumnDef="Schedule">
+    <div matColumnDef="Schedule">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract </th>
       <tr mat-cell *matCellDef="let asset"> {{asset.Schedule}} </tr>
-    </ng-container>
+    </div>
 
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
