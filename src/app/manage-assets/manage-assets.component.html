@@ -40,18 +40,18 @@ data source working
     <!-- Name Column -->
     <div matColumnDef="Name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <tr mat-cell *matCellDef="let asset"> {{asset.Name}} </tr>
+      <td mat-cell *matCellDef="let asset"> {{asset.Name}} </td>
     </div>
 
     <!-- Identifier Column -->
     <div matColumnDef="Identifier">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Serial </th>
-      <tr *matCellDef="let asset"> {{asset.Identifier}} </tr>
+      <td *matCellDef="let asset"> {{asset.Identifier}} </td>
     </div>
 
     <div matColumnDef="Asset Tag">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Asset Tag </th>
-      <tr mat-cell *matCellDef="let asset"> {{asset.Identifier}} </tr>
+      <td mat-cell *matCellDef="let asset"> {{asset.Identifier}} </td>
     </div>
 
     <!-- Description Column -->
@@ -62,13 +62,13 @@ data source working
 
     <div matColumnDef="Location">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
-      <tr mat-cell *matCellDef="let asset"> {{asset.SiteAddress}} </tr>
+      <td mat-cell *matCellDef="let asset"> {{asset.SiteAddress}} </td>
     </div>
 
     <!-- Schedule Column -->
     <div matColumnDef="Schedule">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract </th>
-      <tr mat-cell *matCellDef="let asset"> {{asset.Schedule}} </tr>
+      <td mat-cell *matCellDef="let asset"> {{asset.Schedule}} </td>
     </div>
 
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
