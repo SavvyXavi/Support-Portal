@@ -71,8 +71,8 @@ data source working
       <td mat-cell *matCellDef="let asset"> {{asset.Schedule}} </td>
     </div>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
   <!-- <mat-paginator [length]="assetLength.length" [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator> -->
