@@ -38,28 +38,28 @@ template test
   <mat-table mat-table [dataSource]="assets" class="mat-elevation-z8 table" mat-sort>
 
     <!-- Name Column -->
-    <div matColumnDef="Name">
+    <ng-container matColumnDef="Name">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
       <mat-cell *matCellDef="let asset"> {{asset.Name}} </mat-cell>
-    </div>
+    </ng-container>
 
     <!-- Identifier Column -->
-    <div matColumnDef="Identifier">
+    <ng-container matColumnDef="Identifier">
       <mat-header-cell *matHeaderCellDef> Serial </mat-header-cell>
       <mat-cell *matCellDef="let asset"> {{asset.Identifier}} </mat-cell>
-    </div>
+    </ng-container>
 
     <!-- Description Column -->
-    <div matColumnDef="Description">
+    <ng-container matColumnDef="Description">
       <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
       <mat-cell *matCellDef="let asset"> {{asset.Description}} </mat-cell>
-    </div>
+    </ng-container>
 
     <!-- Schedule Column -->
-    <div matColumnDef="Schedule">
+    <ng-container matColumnDef="Schedule">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Contract </mat-header-cell>
       <mat-cell *matCellDef="let asset"> {{asset.Schedule}} </mat-cell>
-    </div>
+    </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
