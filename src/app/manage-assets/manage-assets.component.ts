@@ -84,7 +84,6 @@ export class ManageAssetsComponent implements OnInit {
       .subscribe(
         (returnedAssets: Assets) => this.assets = returnedAssets
       );
-      console.log('Assets are above!');
     } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
       this.filter.custAssetsFilter(this.filteredProfile)
       .subscribe(

@@ -29,15 +29,15 @@
       <div class="card-body">
         <div class="row">
           <div class="tab-wrapper">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs" id="contractTabs" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" >Details</a>
+                <a class="nav-link active" id="detail-tab" data-toggle="tab" href="#detail" role="tab" aria-controls="detail" aria-selected="true">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" >Covered Assets</a>
+                <a class="nav-link" id="asset-tab" data-toggle="tab" href="#assets" role="tab" aria-controls="assets" aria-selected="false">Profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">Asset Locations</a>
+                <a class="nav-link" id="location-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
               </li>
             </ul>
           </div>
@@ -45,7 +45,7 @@
         <br>
         <br>
         <div class="row">
-          <div class="detail">
+          <div class="tab-pane detail fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">
             <div class="form-group">
               <label for="refNumber">
                 Reference Number <br>
@@ -71,23 +71,12 @@
               </label>
             </div>
           </div>
+
+          <div class="tabe-pane assets fade" id="assets" role="tabpanel" aria-labelledby="asset-tab">
+            Assets go here!
           </div>
+        </div>
           <br>
-            <!-- <div class="form-goup">
-              <label for="contractLength">
-                Contract Length (Months): {{data.ContractLengthInMonths}}
-              </label>
-            </div>
-            <div class="form-goup">
-              <label for="validFrom">
-                Valid From: {{data.ValidFrom | date: 'shortDate'}}
-              </label>
-            </div>
-            <div class="form-goup">
-              <label for="validTo">
-                Valid To: {{data.ValidTo | date: 'shortDate'}}
-              </label> -->
-            <!-- </div> -->
             <div class="row button-containers">
               <div class="col-sm">
                 <Button (click)="goBack()" class="btn btn-info">
