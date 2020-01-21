@@ -33,37 +33,37 @@
      </tr>
    </table>
 </div>
-sort test
+template test
 <div class="mat-table">
-  <table mat-table [dataSource]="assets" class="mat-elevation-z8 table" mat-sort>
+  <mat-table mat-table [dataSource]="assets" class="mat-elevation-z8 table" mat-sort>
 
     <!-- Name Column -->
     <div matColumnDef="Name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell *matCellDef="let asset"> {{asset.Name}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let asset"> {{asset.Name}} </mat-cell>
     </div>
 
     <!-- Identifier Column -->
     <div matColumnDef="Identifier">
-      <th mat-header-cell *matHeaderCellDef> Serial </th>
-      <td mat-cell *matCellDef="let asset"> {{asset.Identifier}} </td>
+      <mat-header-cell *matHeaderCellDef> Serial </mat-header-cell>
+      <mat-cell *matCellDef="let asset"> {{asset.Identifier}} </mat-cell>
     </div>
 
     <!-- Description Column -->
     <div matColumnDef="Description">
-      <th mat-header-cell *matHeaderCellDef> Description </th>
-      <td mat-cell *matCellDef="let asset"> {{asset.Description}} </td>
+      <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+      <mat-cell *matCellDef="let asset"> {{asset.Description}} </mat-cell>
     </div>
 
     <!-- Schedule Column -->
     <div matColumnDef="Schedule">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract </th>
-      <td mat-cell *matCellDef="let asset"> {{asset.Schedule}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Contract </mat-header-cell>
+      <mat-cell *matCellDef="let asset"> {{asset.Schedule}} </mat-cell>
     </div>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
 
-  <mat-paginator [length]="assetLength.length" [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+  <!-- <mat-paginator [length]="assetLength.length" [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator> -->
 </div>
