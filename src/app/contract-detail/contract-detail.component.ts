@@ -5,8 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ApifilterService } from './../services/apifilter.service';
 import { Filter } from './../models/filter';
 
-import { Contract } from './../models/contract';
 import { Contracts } from './../manage-assets/models/contracts';
+import { Assets } from './../manage-assets/models/assets';
 
 @Component({
   selector: 'app-contract-detail',
@@ -16,6 +16,8 @@ import { Contracts } from './../manage-assets/models/contracts';
 export class ContractDetailComponent implements OnInit {
   // contract: Contract;
   @Input() contract: Contracts;
+  assets: Assets;
+  assetLength: Assets[];
 
   filteredProfile: Filter;
   constructor(
@@ -26,6 +28,7 @@ export class ContractDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getContract();
+    this.getAssets();
   }
 
   getContract() {
@@ -37,6 +40,21 @@ export class ContractDetailComponent implements OnInit {
         this.contract = returnedContract;
       }
     );
+  }
+
+  getAssets() {
+      this.filter.assetsBySchedule(this.contract)
+      .subscribe(
+        (returnedAssets: Assets) => {
+          this.assets = returnedAssets;
+        }
+      );
+      this.filter.assetsBySchedule(this.contract)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => {
+          this.assetLength = returnedAssetLength;
+        }
+      );
   }
 
   goBack(): void {

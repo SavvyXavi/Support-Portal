@@ -37,10 +37,13 @@ export class ApifilterService {
   'https://prodharmony.azurewebsites.net/api/ContractsByCustomer?code=SQVrhe8b7rFFsPV0LS6dxBniJW8QqVoa4Jjzv5gwLVuiD/Tg8uIvbQ==';
   refConApi = 'https://prodharmony.azurewebsites.net/api/SpecificContract?code=YcbG2hXdjXJa/o/b1nxRHhheVoY5l5AvHQ7AQGP9PhQUOppTFi3kig==';
 
+
   partassetsapi
    = 'https://prodharmony.azurewebsites.net/api/PartnerPullAssets?code=BmCsQrHGSIvMr1oFRw7T6kj7/a2H/x8GeOadWjmvZgSeaRwCqZGE9g==';
   custassetsapi
   = 'https://prodharmony.azurewebsites.net/api/CompanyPullAssets?code=qyUMwbo49BKruYRYNRlQnseFOATgwD/e9zJeIyk4ZBIO0xbOmvcVlQ==';
+  schedassetsapi
+  = 'https://prodharmony.azurewebsites.net/api/PullAssets?code=wZCo/nd961lZQyWL5EG8V6v9FFt9fiwk8m1x3cFekACWep3LQiipTA==';
 
 
   ticketsapi = 'https://prodharmony.azurewebsites.net/api/TickersbyCustomer?code=2PgmwkpRzFu9ak1Stz6uRyGFa0LRwC61pWM9L5oSPzJLQkT33dlNvA==';
@@ -79,6 +82,13 @@ export class ApifilterService {
     };
 
     return this.http.post<Assets>(this.partassetsapi, params);
+  }
+
+  assetsBySchedule(filter: Contracts) {
+    const params = {
+      'schedule': filter.scheduleName
+    };
+    return this.http.post(this.schedassetsapi, params);
   }
 
   ticketsFilter(filter: Filter) {
