@@ -45,12 +45,12 @@ data source working
 
     <!-- Identifier Column -->
     <ng-container matColumnDef="Identifier">
-      <mat-header-cell *matHeaderCellDef> Serial </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Serial </mat-header-cell>
       <mat-cell *matCellDef="let asset"> {{asset.Identifier}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="Asset Tag">
-      <mat-header-cell *matHeaderCellDef> Asset Tag </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Asset Tag </mat-header-cell>
       <mat-cell *matCellDef="let asset"> {{asset.Identifier}} </mat-cell>
     </ng-container>
 
@@ -61,7 +61,7 @@ data source working
     </ng-container> -->
 
     <ng-container matColumnDef="Location">
-      <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Location </mat-header-cell>
       <mat-cell *matCellDef="let asset"> {{asset.SiteAddress}} </mat-cell>
     </ng-container>
 
