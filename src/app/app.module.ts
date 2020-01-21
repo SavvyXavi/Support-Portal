@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { MaterialModule } from './materials/material/material.module';
@@ -12,7 +13,6 @@ import { AuthGuard } from './login/guards/auth.guard';
 import { AuthenticationService } from './login/services/authentication.service';
 import { AlertService } from './login/services/alert.service';
 // import { ProfileService } from './login/services/profile.service';
-import { JwPaginationComponent } from 'jw-angular-pagination';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
@@ -53,6 +53,8 @@ import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.
 import { AdminComponent } from './admin/admin.component';
 import { LocationsComponent } from './locations/locations.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
+import { ResetComponent } from './login/reset/reset.component';
+import { RegisterComponent } from './admin/register/register.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +90,8 @@ import { LocationDetailsComponent } from './locations/location-details/location-
     AdminComponent,
     LocationsComponent,
     LocationDetailsComponent,
-    JwPaginationComponent
+    ResetComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

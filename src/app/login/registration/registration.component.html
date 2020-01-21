@@ -9,7 +9,7 @@
                       <div *ngIf="!!f.email.errors.required">Email Address for username is required</div>
                     </div>
             </div>
-            </div><br>
+            </div>
             <div class="row">
               <div class="form-group col-md-10">
                 <label for="username">Re-enter Email for username</label>
@@ -18,14 +18,14 @@
                     <div *ngIf="!!f.username.errors.required">Email Address must be valid and match</div>
                   </div>
           </div>
-          </div><br>
+          </div>
        <div class="row ">
           <div class="col-md-6">
             <div class="form-group">
           <label for="firstName">First Name</label>
           <input type="text" formControlName="firstName" class="form-control" autocomplete="first name" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" placeholder="User First Name" />
           <div *ngIf="submitted && !!f.firstName.errors" class="invalid-feedback">
-              <div *ngIf="!!f.firstname.errors.required">First Name is required</div>
+              <div *ngIf="!!f.firstName.errors.required">First Name is required</div>
           </div>
           </div>
       </div>
@@ -38,13 +38,12 @@
           </div>
           </div>
           </div>
-      </div><br>
+      </div>
       <div class="row ">
     <div class="col-md-6">
       <div class="form-group">
       <label for="companypartner">Is this user for a Company or Partner:</label>
-      <select class="form-control" id="companypartner">
-        <option>Please choose</option>
+      <select class="form-control" id="companypartner" formControlName="companypartner" [ngClass]="{ 'is-invalid': submitted && f.companypartner.errors}">
         <option>Company</option>
         <option>Partner</option>
       </select>
@@ -53,8 +52,7 @@
     <div class="col-md-6">
       <div class="form-group">
       <label for="partner">Select Partner:</label>
-      <select class="form-control" id="partner">
-        <option>Please Choose</option>
+      <select class="form-control" id="partner" formControlName="partner" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
         <option>Mega Monolothic Corp</option>
         <option>Noble1Solutions</option>
         <option>Relutech</option>
@@ -75,8 +73,7 @@
     <div class="col-md-6">
       <div class="form-group">
       <label for="partnerRole">Choose the User's Role:</label>
-      <select class="form-control" id="partnerRole">
-        <option>Please Choose</option>
+      <select class="form-control" id="partnerRole" formControlName="partnerRole" [ngClass]="{ 'is-invalid': submitted && f.partnerRole.errors}">
         <option>Admin</option>
         <option>User</option>
         <option>Support</option>
@@ -86,8 +83,7 @@
     <div class="col-md-6">
       <div class="form-group">
       <label for="company">Select Company:</label>
-      <select class="form-control" id="company">
-        <option>Please choose</option>
+      <select class="form-control" id="company" formControlName="company" [ngClass]="{ 'is-invalid': submitted && f.company.errors}">
         <option>Mega Monolothic Corp</option>
         <option>Noble1Solutions</option>
         <option>Relutech</option>
@@ -124,13 +120,13 @@
       </select>
     </div>
     </div>
-</div><br>
+</div>
 <div class="row">
   <div class="col-md-6">
     <div class="form-group">
     <label for="password">Password:</label>
     <input type="password" formControlName="password" placeholder="Enter Password">
-    <div *ngIf="submitted && !!f.password.errors" class="invalid-feedback" autocomplete="current password">
+    <div *ngIf="submitted && !!f.password.errors" class="invalid-feedback" autocomplete="new-password">
       <div *ngIf="!!f.password.errors.required">Passwords must be 8 characters containing 1 letter, 1 number, and one special character.</div>
   </div>
 </div>
@@ -139,20 +135,20 @@
     <div class="form-group">
     <label for="confirmpassword">Password:</label>
     <input type="password" formControlName="confirmpassword" placeholder="Re-enter Password">
-    <div *ngIf="submitted && !!f.confirmpassword.errors" class="invalid-feedback" autocomplete="current password">
+    <div *ngIf="submitted && !!f.confirmpassword.errors" class="invalid-feedback" autocomplete="new-password">
       <div *ngIf="!!f.confirmpassword.errors.required">Passwords must be 8 characters containing 1 letter, 1 number, and one special character.</div>
-  </div>
-</div>
+      </div>
+    </div>
   </div>
 </div>
       <div class="row ">
         <div class="col-md-6">
-      <div class="form-group buttons">
-        <button [disabled]="loading" style="margin-right:20px;" class="btn btn-primary">Register</button>
-        <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-        <button routerLink="/login" class="btn  btn-secondary">Cancel</button>
+          <div class="form-group buttons">
+           <button type="submit" style="margin-right:20px;" class="btn btn-primary">Register</button>
+            <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <button routerLink="/login" type="button" class="btn btn-secondary">Cancel</button>
+          </div>
          </div>
-    </div>
-  </div>
-    </form>
-  </div>
+      </div>
+  </form>
+</div>

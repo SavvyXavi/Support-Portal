@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { AlertService } from '../services/alert.service';
-import { AuthenticationService } from '../services/authentication.service';
-import { ProfileService } from '../services/profile.service';
-import { MustMatch } from '../helpers/must-match';
+import { AlertService } from '../../login/services/alert.service';
+import { AuthenticationService } from '../../login/services/authentication.service';
+import { ProfileService } from '../../login/services/profile.service';
+import { MustMatch } from '../../login/helpers/must-match';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class RegistrationComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -28,9 +29,9 @@ export class RegistrationComponent implements OnInit {
     private profileService: ProfileService
   ) {
     // redirects to dashboard if already logged in
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/dashboard']);
-    }
+ //   if (this.authenticationService.currentUserValue) {
+ //     this.router.navigate(['/dashboard']);
+ //   }
    }
 
   ngOnInit() {
@@ -74,7 +75,7 @@ export class RegistrationComponent implements OnInit {
       .subscribe(
         data => {
           this.alertService.success('Registration successful', true);
-          this.router.navigate(['/login']);
+ //         this.router.navigate(['/login']);
         },
         error => {
           this.alertService.error(error);
@@ -82,4 +83,5 @@ export class RegistrationComponent implements OnInit {
         }
       );
   }
+
 }

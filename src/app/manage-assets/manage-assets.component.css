@@ -58,8 +58,7 @@ tr:nth-child(odd) {
 }
 
 .mattable-container {
-  width: 100%;
-  margin-right: 25px;
+  width: 90%;
 }
 
 mat-table {
