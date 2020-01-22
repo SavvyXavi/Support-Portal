@@ -58,8 +58,7 @@
          <th>Customer</th>
          <th>Asset ID</th>
          <th>Updated On</th>
-         <th>Updated Since</th>
-
+         <th>Last Update</th>
        </tr>
     </thead>
      <tr *ngFor='let data of tickets'>
@@ -68,11 +67,10 @@
        <td>{{data.Status}}</td>
        <td>{{data.Body}}</td>
        <td>{{data.CustomerName}}</td>
-       <td>{{data.AssetIdetifier}}</td>
+       <td>{{data.AssetIdentifier}}</td>
        <td>{{data.Schedule}}</td>
        <td>{{data.UpdatedDate | date: 'shortDate'}}</td>
-       <td>{{data.TimeSinceLastUpdate | date: 'shortDate'}}</td>
-
+       <td>{{data.TimeSinceLastUpdate}}</td>
      </tr>
    </table>
 </div>
