@@ -62,7 +62,7 @@ export class TicketsComponent implements OnInit {
     },
 
     );
-
+    this.getPartners();
     this.ticketFilter();
   }
 
@@ -73,6 +73,13 @@ export class TicketsComponent implements OnInit {
         let ticketData = this.ticketForm.value;
         ticketData = ticket;
       }
+    );
+  }
+
+  getPartners() {
+    this.filter.getPartners()
+    .subscribe(
+      returnedPartners => this.partnerArr = returnedPartners
     );
   }
 
