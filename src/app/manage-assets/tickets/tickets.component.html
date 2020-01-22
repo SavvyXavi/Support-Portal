@@ -53,12 +53,12 @@
          <th>Case</th>
          <th>Name</th>
          <th>Status</th>
+         <th>Assigned</th>
          <th>Description</th>
-         <th>Requestor</th>
-         <th>SLA</th>
          <th>Customer</th>
-         <th>Updated</th>
-         <th>Requested</th>
+         <th>Asset ID</th>
+         <th>Updated On</th>
+         <th>Updated Since</th>
 
        </tr>
     </thead>
@@ -67,11 +67,11 @@
        <td>{{data.Name}}</td>
        <td>{{data.Status}}</td>
        <td>{{data.Body}}</td>
-       <td>{{data.CreatedBy}}</td>
-       <td>{{data.SlaSeverity}}</td>
        <td>{{data.CustomerName}}</td>
-       <td>{{data.UpdatedDate.DateTime | date: 'shortDate'}}</td>
-       <td>{{data.CreatedDate.DateTime | date: 'shortDate'}}</td>
+       <td>{{data.AssetIdetifier}}</td>
+       <td>{{data.Schedule}}</td>
+       <td>{{data.UpdatedDate | date: 'shortDate'}}</td>
+       <td>{{data.TimeSinceLastUpdate | date: 'shortDate'}}</td>
 
      </tr>
    </table>
