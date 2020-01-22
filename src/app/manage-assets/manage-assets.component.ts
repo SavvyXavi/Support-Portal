@@ -91,14 +91,10 @@ export class ManageAssetsComponent implements OnInit {
     }
   }
 
-  applyFilter() {
-    this.assetDataSource.filter = this.searchKey.trim().toLowerCase();
-  }
 
-  searchClear() {
-    this.searchKey = '';
-    this.applyFilter();
-  }
+
+
+
   // getContract() {
   //   this.filter.conByRef('', this.assets.schedule)
   //   .subscribe(
@@ -134,12 +130,12 @@ export class ManageAssetsComponent implements OnInit {
     }
 }
 
-  // observeAssets() {
-  //   this.filter.assetObersvable(this.filteredProfile)
-  //   .subscribe(
-  //     (returnedAssets: Assets[]) => {
-  //       this.assetObservable = returnedAssets;
-  //     }
-  //   );
-  // }
+  applyFilter() {
+    this.assetDataSource.filter = this.searchKey.trim().toLowerCase();
+  }
+
+  searchClear() {
+    this.searchKey = '';
+    this.applyFilter();
+  }
 }
