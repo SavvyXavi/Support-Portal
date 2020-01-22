@@ -39,11 +39,10 @@ export class ManageAssetsComponent implements OnInit {
   assetObservable: Assets[];
   assetDataSource: MatTableDataSource<Assets>;
 
-  pagintotal = 0;
+  searchKey: string;
 
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
-  searchKey: string;
 
   constructor(
     private filter: ApifilterService,
@@ -63,7 +62,6 @@ export class ManageAssetsComponent implements OnInit {
     this.getAssets();
     this.getAsset();
     // this.getContract();
-    // this.paginatingAssets();
   }
 
   getPartners() {
@@ -132,6 +130,7 @@ export class ManageAssetsComponent implements OnInit {
 
   applyFilter() {
     this.assetDataSource.filter = this.searchKey.trim().toLowerCase();
+    console.log(this.searchKey);
   }
 
   searchClear() {

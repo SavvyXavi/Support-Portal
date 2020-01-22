@@ -1,10 +1,3 @@
-.container {
-  margin: 0;
-  margin-bottom: 35px !important;
-  padding: 0;
-  width: 100%;
-}
-
 .title, .assetRef {
   width: 250px;
 }
@@ -71,6 +64,7 @@ tr:nth-child(odd) {
 
 .mattable-container {
   width: 94%;
+  margin-bottom: 50px;
 }
 
 .search-div {
