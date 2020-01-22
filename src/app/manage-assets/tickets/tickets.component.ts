@@ -87,15 +87,6 @@ export class TicketsComponent implements OnInit {
     return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
-  // getTickets() {
-  //   this.api.getTickets()
-  //   .subscribe(
-  //     (returnedTickets: Tickets) => {
-  //       this.tickets = returnedTickets;
-  //     }
-  //   );
-  // }
-
   ticketFilter() {
     if (this.filterPartner(this.currentProfile.partner)) {
       this.filter.partTicketsFilter(this.currentProfile)
