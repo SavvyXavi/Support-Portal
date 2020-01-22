@@ -41,12 +41,13 @@ export class ApifilterService {
   partassetsapi
    = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullAssets?code=jZK5Np57XB8xaTlNIlnyj9Pga9ar34hvOD4fkzGj/xTAlHNCemQvpw==';
   custassetsapi
-  = 'https://prodharmony.azurewebsites.net/api/CompanyPullAssets?code=qyUMwbo49BKruYRYNRlQnseFOATgwD/e9zJeIyk4ZBIO0xbOmvcVlQ==';
+  = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetByCustomer?code=srg4TRFO6Uvo2YxaFGKlpJ59714bHNlgBTtSXdxDvk7WwBfX8VkdTw==';
   schedassetsapi
   = 'https://prodharmony.azurewebsites.net/api/PullAssets?code=wZCo/nd961lZQyWL5EG8V6v9FFt9fiwk8m1x3cFekACWep3LQiipTA==';
 
 
-  ticketsapi = 'https://prodharmony.azurewebsites.net/api/TickersbyCustomer?code=2PgmwkpRzFu9ak1Stz6uRyGFa0LRwC61pWM9L5oSPzJLQkT33dlNvA==';
+  pTicketsApi
+   = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
 
   locationsapi =
   'https://prodharmony.azurewebsites.net/api/LocationsByCustomer?code=lOUnhasaC78wc6wyFKiG/loAC7aa0blBIca91Y/BdexlvkqGyEGMXw==';
@@ -91,13 +92,13 @@ export class ApifilterService {
     return this.http.post(this.schedassetsapi, params);
   }
 
-  ticketsFilter(filter: Filter) {
+  partTicketsFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
-      'company': filter.partner
+      'partner': filter.partner
     };
 
-    return this.http.post(this.ticketsapi, params);
+    return this.http.post(this.pTicketsApi, params);
   }
 
   partConFilter(filter: Filter) {

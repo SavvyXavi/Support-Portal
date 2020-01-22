@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Profile } from '../../login/models/profile';
+import { Partner } from './../../models/partner';
 import { Filter } from '../../models/filter';
 import { Tickets } from './../models/tickets';
 import { TicketType } from '../../types/ticket-type.enum';
@@ -20,6 +21,7 @@ import { ApifilterService } from '../../services/apifilter.service';
 })
 
 export class TicketsComponent implements OnInit {
+  partnerArr: Partner[];
 
   tickets: Tickets;
   ticketArray: Tickets[] = [];
@@ -40,13 +42,12 @@ export class TicketsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
     private filter: ApifilterService,
-    private authserv: AuthenticationService
   )  {
-        this.filterSubsciption = this.authserv.currentUser.subscribe(
-          name => {
-            this.filteredProfile = name ;
-          }
-        );
+    this.authenticationService.currentUser.subscribe(
+      typeName => {
+        this.currentProfile = typeName;
+      }
+    );
 
     }
 
@@ -63,12 +64,6 @@ export class TicketsComponent implements OnInit {
     );
 
     this.ticketFilter();
-
-    this.ticketTypeNameSubscription = this.authenticationService.currentUser.subscribe(
-      typeName => {
-        this.currentProfile = typeName;
-      }
-    );
   }
 
   createTicket() {
@@ -81,6 +76,10 @@ export class TicketsComponent implements OnInit {
     );
   }
 
+  filterPartner(partner: String) {
+    return this.partnerArr.find(company => company.CompanyName === partner);
+  }
+
   // getTickets() {
   //   this.api.getTickets()
   //   .subscribe(
@@ -91,12 +90,17 @@ export class TicketsComponent implements OnInit {
   // }
 
   ticketFilter() {
-    this.filter.ticketsFilter(this.filteredProfile)
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partTicketsFilter(this.currentProfile)
       .subscribe(
-      (returnedTickets: Tickets) => {
-        this.tickets = returnedTickets;
-      }
-    );
+        (returnedTickets: Tickets) => this.tickets = returnedTickets
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      // this.filter.custAssetsFilter(this.currentProfile)
+      // .subscribe(
+      //   (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      // );
+    }
   }
 
   getTicketTypeName() {
