@@ -1,3 +1,5 @@
+<div class="container">
+
 
 <div class="edit-items-container d-flex justify-content-end">
   <button class="assign-assets btn btn-primary">
@@ -38,7 +40,7 @@
 
   </button> -->
   <mat-form-field class="search-form-field" floatLabel="never">
-    <input matInput [(ngModel)]='searchKey' placeholder="Search" autocomplete="off">
+    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off">
     <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey">
       <mat-icon>close</mat-icon>
     </button>
@@ -86,4 +88,5 @@
   </table>
 
   <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" [pageSize]="10"></mat-paginator>
+</div>
 </div>
