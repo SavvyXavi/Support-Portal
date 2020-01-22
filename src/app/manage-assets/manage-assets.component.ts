@@ -130,7 +130,9 @@ export class ManageAssetsComponent implements OnInit {
 
   applyFilter() {
     this.assetDataSource.filter = this.searchKey.trim().toLowerCase();
-    console.log(this.searchKey);
+    if (this.assetDataSource.paginator) {
+      this.assetDataSource.paginator.firstPage();
+    }
   }
 
   searchClear() {

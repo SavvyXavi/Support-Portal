@@ -67,6 +67,14 @@ tr:nth-child(odd) {
   margin-bottom: 50px;
 }
 
+.mat-focused .mat-form-field-label {
+  color: rgb(230, 92, 0) !important;
+}
+
+.mat-form-field-ripple {
+  background-color: rgb(230, 92, 0) !important;
+}
+
 .search-div {
   margin: 10px;
 }
