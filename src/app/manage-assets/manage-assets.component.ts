@@ -91,10 +91,14 @@ export class ManageAssetsComponent implements OnInit {
     }
   }
 
-  applyFilter(filterValue: string) {
-    this.assetDataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter() {
+    this.assetDataSource.filter = this.searchKey.trim().toLowerCase();
   }
 
+  searchClear() {
+    this.searchKey = '';
+    this.applyFilter();
+  }
   // getContract() {
   //   this.filter.conByRef('', this.assets.schedule)
   //   .subscribe(
