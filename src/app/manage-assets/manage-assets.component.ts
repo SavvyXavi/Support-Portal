@@ -56,7 +56,6 @@ export class ManageAssetsComponent implements OnInit {
           this.filteredProfile = name ;
         }
       );
-
     }
 
   ngOnInit() {
@@ -90,6 +89,10 @@ export class ManageAssetsComponent implements OnInit {
         (returnedAssets: Assets) => this.assets = returnedAssets
       );
     }
+  }
+
+  applyFilter(filterValue: string) {
+    this.assetDataSource.filter = filterValue.trim().toLowerCase();
   }
 
   // getContract() {
