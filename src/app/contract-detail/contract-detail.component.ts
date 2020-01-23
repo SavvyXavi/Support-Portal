@@ -35,16 +35,9 @@ export class ContractDetailComponent implements OnInit {
     private filter: ApifilterService,
     private location: Location,
     private route: ActivatedRoute
-  ) { }
-
-  ngOnInit() {
-    this.getContract();
-    this.getAssets();
-  }
-
-  getContract() {
+  ) {
     const refNumber =
-      this.route.snapshot.paramMap.get('refNumber');
+    this.route.snapshot.paramMap.get('refNumber');
     this.filter.conByRef(refNumber)
     .subscribe(
       (returnedContract: Contracts) => {
@@ -52,11 +45,13 @@ export class ContractDetailComponent implements OnInit {
         console.log(this.contract);
       }
     );
+   }
+
+  ngOnInit() {
+    this.getAssets();
   }
 
   getAssets() {
-    console.log(this.contract);
-
       this.filter.assetsBySchedule(this.contract.scheduleName)
       .subscribe(
         (returnedAssets: Assets) => {
