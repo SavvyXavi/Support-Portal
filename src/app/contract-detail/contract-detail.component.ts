@@ -43,26 +43,26 @@ export class ContractDetailComponent implements OnInit {
   }
 
   getItems() {
-    const refNumber =
-    this.route.snapshot.paramMap.get('refNumber');
-    this.filter.conByRef(refNumber)
-    .subscribe(
-      (returnedContract: Contracts) => {
-        this.contract = returnedContract;
-        this.filter.assetsBySchedule(this.contract)
-        .subscribe(
-          (returnedAssets: Assets) => {
-            this.assets = returnedAssets;
-          }
-        );
-        this.filter.assetsBySchedule(this.contract)
-        .subscribe(
-          (returnedAssetLength: Assets[]) => {
-            this.assetLength = returnedAssetLength;
-          }
-        );
-      }
-    );
+    // const refNumber =
+    // this.route.snapshot.paramMap.get('refNumber');
+    // this.filter.conByRef(refNumber)
+    // .subscribe(
+    //   (returnedContract: Contracts) => {
+    //     this.contract = returnedContract;
+    //     this.filter.assetsBySchedule(this.contract)
+    //     .subscribe(
+    //       (returnedAssets: Assets) => {
+    //         this.assets = returnedAssets;
+    //       }
+    //     );
+    //     this.filter.assetsBySchedule(this.contract)
+    //     .subscribe(
+    //       (returnedAssetLength: Assets[]) => {
+    //         this.assetLength = returnedAssetLength;
+    //       }
+    //     );
+    //   }
+    // );
   }
 
   goBack(): void {
