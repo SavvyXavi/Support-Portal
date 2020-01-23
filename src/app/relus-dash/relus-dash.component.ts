@@ -111,12 +111,17 @@ export class RelusDashComponent implements OnInit {
   }
 
   ticketsCount() {
-    this.filter.ticketsFilter(this.currentProfile)
-    .subscribe(
-      (returnedTickets: Tickets[]) => {
-        this.ticketLength = returnedTickets;
-      }
-    );
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partTicketsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Tickets[]) => this.ticketLength = returnedAssetLength
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      // this.filter.custAssetsFilter(this.currentProfile)
+      // .subscribe(
+      //   (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+      // );
+    }
   }
 
   companiesCount() {

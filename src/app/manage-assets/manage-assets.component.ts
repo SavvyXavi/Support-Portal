@@ -29,7 +29,7 @@ export class ManageAssetsComponent implements OnInit {
   filteredProfile: Filter;
   filterSubsciption: Subscription;
 
-  displayedColumns: string[] = ['Name', 'Identifier', 'Description', 'Schedule'];
+  displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
 
   contract: Contracts;
 
@@ -37,9 +37,9 @@ export class ManageAssetsComponent implements OnInit {
   assetArr: Assets[];
 
   assetObservable: Assets[];
-  dataSource: MatTableDataSource<Assets>;
+  assetDataSource: MatTableDataSource<Assets>;
 
-  pagintotal = 0;
+  searchKey: string;
 
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
@@ -55,18 +55,12 @@ export class ManageAssetsComponent implements OnInit {
           this.filteredProfile = name ;
         }
       );
-
-      // this.dataSource = new MatTableDataSource(Assets);
     }
 
   ngOnInit() {
     this.getPartners();
     this.getAssets();
-    this.getAsset();
     // this.getContract();
-    // this.paginatingAssets();
-    // this.dataSource.paginator = this.paginator;
-    // this.dataSource.sort = this.sort;
   }
 
   getPartners() {
@@ -80,21 +74,6 @@ export class ManageAssetsComponent implements OnInit {
     return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
-  getAssets() {
-    if (this.filterPartner(this.filteredProfile.partner)) {
-      this.filter.partAssetsFilter(this.filteredProfile)
-      .subscribe(
-        (returnedAssets: Assets) => this.assets = returnedAssets
-      );
-      console.log('Assets are above!');
-    } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
-      this.filter.custAssetsFilter(this.filteredProfile)
-      .subscribe(
-        (returnedAssets: Assets) => this.assets = returnedAssets
-      );
-    }
-  }
-
   // getContract() {
   //   this.filter.conByRef('', this.assets.schedule)
   //   .subscribe(
@@ -105,44 +84,39 @@ export class ManageAssetsComponent implements OnInit {
   //   this.router.navigate(['/contractdetail/' + this.contract.refNumber]);
   // }
 
-  getAsset() {
+  getAssets() {
     if (this.filterPartner(this.filteredProfile.partner)) {
       this.filter.partAssetsFilter(this.filteredProfile)
       .subscribe(
-        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+        (returnedAssets: Assets[]) => {
+          this.assetLength = returnedAssets;
+          this.assetDataSource = new MatTableDataSource(returnedAssets);
+          this.assetDataSource.sort = this.sort;
+          this.assetDataSource.paginator = this.paginator;
+        }
       );
-      console.log(this.assetLength);
-      console.log('asset length above');
     } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
       this.filter.custAssetsFilter(this.filteredProfile)
       .subscribe(
-        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+        (returnedAssetLength: Assets[]) => {
+          this.assetLength = returnedAssetLength;
+          this.assetDataSource = new MatTableDataSource(returnedAssetLength);
+          this.assetDataSource.sort = this.sort;
+          this.assetDataSource.paginator = this.paginator;
+        }
       );
     }
-}
-
-  paginatingAssets() {
-    merge(this.paginator.page)
-    .pipe(
-      startWith({}),
-      switchMap(() => {
-        return this.filter.paginateAssets(
-          this.filteredProfile,
-          this.paginator.pageIndex
-        );
-      }),
-      map((returnedAssets: Assets) => {
-
-        return this.assets = returnedAssets;
-      })
-    ).subscribe((returnedAssets: Assets) => this.assets = returnedAssets);
   }
-  // observeAssets() {
-  //   this.filter.assetObersvable(this.filteredProfile)
-  //   .subscribe(
-  //     (returnedAssets: Assets[]) => {
-  //       this.assetObservable = returnedAssets;
-  //     }
-  //   );
-  // }
+
+  applyFilter() {
+    this.assetDataSource.filter = this.searchKey.trim().toLowerCase();
+    if (this.assetDataSource.paginator) {
+      this.assetDataSource.paginator.firstPage();
+    }
+  }
+
+  searchClear() {
+    this.searchKey = '';
+    this.applyFilter();
+  }
 }

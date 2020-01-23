@@ -57,7 +57,6 @@
                   </div>
                   </a>
 
-
                 <a class="admin">
                   <div class="admin-icon icon-wrapper">
                     <i routerLink="" class="icon fas fa-users-cog"></i>
@@ -67,7 +66,7 @@
                 </div>
                 </a>
 
-                <div  id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
+                <div id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
                     <!-- <a class="dropdown" routerLink="admin/oem">OEM</a> -->
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
                     <a class="dropdown" routerLink="admin/admin">Admin</a>
@@ -76,8 +75,12 @@
           </div>
     </nav>
 
+<<<<<<< HEAD
+    <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
+=======
      <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
 
+>>>>>>> origin/merge
         <div id="container" class="icon-bar">
             <div class="ham-wrapper">
             <button class="col-auto btn btn-lg custom-btn" (click)="collapseMenu()">
@@ -118,7 +121,7 @@
                   <div class="admin-icon">
                     <i class="icon fas fa-users-cog"></i>
                 </div>
-                <div *ngIf="" class="admin-content col-auto">
+                <div  class="admin-content col-auto">
                     <span>Admin</span>
                     <i class="fa fa-caret-down"></i>
                 </div>

@@ -53,13 +53,12 @@
          <th>Case</th>
          <th>Name</th>
          <th>Status</th>
+         <th>Assigned</th>
          <th>Description</th>
-         <th>Requestor</th>
-         <th>SLA</th>
          <th>Customer</th>
-         <th>Updated</th>
-         <th>Requested</th>
-
+         <th>Asset ID</th>
+         <th>Updated On</th>
+         <th>Last Update</th>
        </tr>
     </thead>
      <tr *ngFor='let data of tickets'>
@@ -67,12 +66,11 @@
        <td>{{data.Name}}</td>
        <td>{{data.Status}}</td>
        <td>{{data.Body}}</td>
-       <td>{{data.CreatedBy}}</td>
-       <td>{{data.SlaSeverity}}</td>
        <td>{{data.CustomerName}}</td>
-       <td>{{data.UpdatedDate.DateTime | date: 'shortDate'}}</td>
-       <td>{{data.CreatedDate.DateTime | date: 'shortDate'}}</td>
-
+       <td>{{data.AssetIdentifier}}</td>
+       <td>{{data.Schedule}}</td>
+       <td>{{data.UpdatedDate | date: 'shortDate'}}</td>
+       <td>{{data.TimeSinceLastUpdate}}</td>
      </tr>
    </table>
 </div>

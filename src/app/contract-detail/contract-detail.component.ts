@@ -1,12 +1,15 @@
-import { SpecContract } from './../manage-assets/models/spec-contract';
-import { Component, OnInit, Input } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ApifilterService } from './../services/apifilter.service';
 import { Filter } from './../models/filter';
 
-import { Contract } from './../models/contract';
 import { Contracts } from './../manage-assets/models/contracts';
+import { Assets } from './../manage-assets/models/assets';
+
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-contract-detail',
@@ -16,8 +19,19 @@ import { Contracts } from './../manage-assets/models/contracts';
 export class ContractDetailComponent implements OnInit {
   // contract: Contract;
   @Input() contract: Contracts;
+  assets: Assets;
+  assetLength: Assets[];
 
   filteredProfile: Filter;
+
+  displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
+  assetDataSource: MatTableDataSource<Assets>;
+
+  searchKey: string;
+
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
+
   constructor(
     private filter: ApifilterService,
     private location: Location,
@@ -25,16 +39,29 @@ export class ContractDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getContract();
+    this.getItems();
   }
 
-  getContract() {
+  getItems() {
     const refNumber =
-      this.route.snapshot.paramMap.get('refNumber');
-    this.filter.conByRef(refNumber, '')
+    this.route.snapshot.paramMap.get('refNumber');
+    this.filter.conByRef(refNumber)
     .subscribe(
       (returnedContract: Contracts) => {
         this.contract = returnedContract;
+        this.filter.assetsBySchedule(this.contract)
+        .subscribe(
+          (returnedAssets: Assets) => {
+            this.assets = returnedAssets;
+            console.log(this.contract);
+
+          }
+        );
+        this.filter.assetsBySchedule(this.contract)
+        .subscribe(
+          (returnedAssetLength: Assets[]) =>
+            this.assetLength = returnedAssetLength
+        );
       }
     );
   }

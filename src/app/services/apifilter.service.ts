@@ -28,22 +28,29 @@ export class ApifilterService {
   partner: Partner;
   partnerlist = PartnerList;
 
-  customerApi = 'https://prodharmony.azurewebsites.net/api/CompanyByPartner?code=a7VaewYNOND36Oo0A85ezo9m4bvmkQAzZPtOIfp3dPO/SROa2pE/dA==';
+  customerApi =
+'https://harmonyprodcustomersone.azurewebsites.net/api/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
   partnerApi = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
 
+
   pContractsApi =
-  'https://prodharmony.azurewebsites.net/api/ContractsByPartner?code=GCrRyi4Y8rxCQ6mKJzLXYhROqECUR1clXjK9AdqhMEXEdOFPCqK8WA==';
+  'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByPartner?code=4QQzdPj2j4LgMuJ9wnzmomSadWCLJEpbSOKcJqhBPRDswDZUCq6NqA==';
   cContractsApi =
-  'https://prodharmony.azurewebsites.net/api/ContractsByCustomer?code=SQVrhe8b7rFFsPV0LS6dxBniJW8QqVoa4Jjzv5gwLVuiD/Tg8uIvbQ==';
-  refConApi = 'https://prodharmony.azurewebsites.net/api/SpecificContract?code=YcbG2hXdjXJa/o/b1nxRHhheVoY5l5AvHQ7AQGP9PhQUOppTFi3kig==';
+  'https://harmonyprodcustomersone.azurewebsites.net/api/ContractsByCustomer?code=bpca1PGS/szLyokaPXrzwhbTmpIv1NIC8St234Ce8anUtUKo8uUWkg==';
+  refConApi =
+   'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
+
 
   partassetsapi
-   = 'https://prodharmony.azurewebsites.net/api/PartnerPullAssets?code=BmCsQrHGSIvMr1oFRw7T6kj7/a2H/x8GeOadWjmvZgSeaRwCqZGE9g==';
+   = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullAssets?code=jZK5Np57XB8xaTlNIlnyj9Pga9ar34hvOD4fkzGj/xTAlHNCemQvpw==';
   custassetsapi
-  = 'https://prodharmony.azurewebsites.net/api/CompanyPullAssets?code=qyUMwbo49BKruYRYNRlQnseFOATgwD/e9zJeIyk4ZBIO0xbOmvcVlQ==';
+  = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetByCustomer?code=srg4TRFO6Uvo2YxaFGKlpJ59714bHNlgBTtSXdxDvk7WwBfX8VkdTw==';
+  schedassetsapi
+  = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsBySchedule?code=Q3Yjx/KXbuErLesg4oBVs5BJrdFdOMkXn0T/HoLO6hDrCavd45iN9A==';
 
 
-  ticketsapi = 'https://prodharmony.azurewebsites.net/api/TickersbyCustomer?code=2PgmwkpRzFu9ak1Stz6uRyGFa0LRwC61pWM9L5oSPzJLQkT33dlNvA==';
+  pTicketsApi
+   = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
 
   locationsapi =
   'https://prodharmony.azurewebsites.net/api/LocationsByCustomer?code=lOUnhasaC78wc6wyFKiG/loAC7aa0blBIca91Y/BdexlvkqGyEGMXw==';
@@ -72,22 +79,20 @@ export class ApifilterService {
     return this.http.post(this.custassetsapi, params);
   }
 
-  paginateAssets(filter: Filter, page: number): Observable<Assets> {
+  assetsBySchedule(filter: Contracts) {
+    const params = {
+      'schedule': filter.scheduleName
+    };
+    return this.http.post(this.schedassetsapi, params);
+  }
+
+  partTicketsFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
       'partner': filter.partner
     };
 
-    return this.http.post<Assets>(this.partassetsapi, params);
-  }
-
-  ticketsFilter(filter: Filter) {
-    const params = {
-      'role': filter.partnerRole,
-      'company': filter.partner
-    };
-
-    return this.http.post(this.ticketsapi, params);
+    return this.http.post(this.pTicketsApi, params);
   }
 
   partConFilter(filter: Filter) {
@@ -105,10 +110,9 @@ export class ApifilterService {
         return this.http.post<Contracts[]>(this.pContractsApi, params);
     }
 
-    conByRef(refNum: string, schedname: string) {
+    conByRef(refNum: string) {
       const params = {
-        'ref': refNum,
-        'schedname': schedname
+        'refnumber': refNum,
       };
       return this.http.post(this.refConApi, params);
     }
