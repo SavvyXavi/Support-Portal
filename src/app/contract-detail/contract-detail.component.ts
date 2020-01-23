@@ -53,7 +53,7 @@ export class ContractDetailComponent implements OnInit {
         console.log(this.contract);
       }
     );
-    console.log(this.getContract);
+    console.log(this.contract);
   }
 
   getItems() {
