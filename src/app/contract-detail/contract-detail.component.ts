@@ -49,13 +49,13 @@ export class ContractDetailComponent implements OnInit {
     .subscribe(
       (returnedContract: Contracts) => {
         this.contract = returnedContract;
-        this.filter.assetsBySchedule(this.contract.scheduleName)
+        this.filter.assetsBySchedule(this.contract)
         .subscribe(
           (returnedAssets: Assets) => {
             this.assets = returnedAssets;
           }
         );
-        this.filter.assetsBySchedule(this.contract.scheduleName)
+        this.filter.assetsBySchedule(this.contract)
         .subscribe(
           (returnedAssetLength: Assets[]) => {
             this.assetLength = returnedAssetLength;
