@@ -79,9 +79,9 @@ export class ApifilterService {
     return this.http.post(this.custassetsapi, params);
   }
 
-  assetsBySchedule(filter: Contracts) {
+  assetsBySchedule(filter: string) {
     const params = {
-      'schedule': filter.scheduleName
+      'schedule': filter
     };
     return this.http.post(this.schedassetsapi, params);
   }
@@ -149,14 +149,5 @@ export class ApifilterService {
       'company': filter.partner
     };
     return this.http.post(this.locationsapi, params);
-  }
-
-  assetObersvable(filter: Filter): Observable<Assets[]> {
-    const params = {
-      'role': filter.partnerRole,
-      'partner': filter.partner
-    };
-
-    return this.http.post<Assets[]>(this.partassetsapi, params);
   }
 }
