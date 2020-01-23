@@ -39,16 +39,20 @@ export class ContractDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getContracts();
     this.getItems();
   }
-
-  getItems() {
+  getContracts() {
     const refNumber =
     this.route.snapshot.paramMap.get('refNumber');
     this.filter.conByRef(refNumber)
     .subscribe(
-      (returnedContract: Contracts) => {
-        this.contract = returnedContract;
+      (returnedContract: Contracts) =>
+        this.contract = returnedContract
+    );
+  }
+
+  getItems() {
         this.filter.assetsBySchedule(this.contract)
         .subscribe(
           (returnedAssets: Assets) => {
@@ -63,8 +67,6 @@ export class ContractDetailComponent implements OnInit {
             this.assetLength = returnedAssetLength
         );
       }
-    );
-  }
 
   goBack(): void {
     this.location.back();
