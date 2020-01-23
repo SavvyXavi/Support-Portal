@@ -56,12 +56,9 @@
 <!--   <select class="form-control" id="partner" formControlName="partner" value={{ga?.company}} [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
        </select>
       -->
-      <select>
-        <option *ngFor="let ga of twoprofile"
-                value={{ga?.CompanyName}}>
+        <select *ngFor="let ga of twoprofile" class="form-control" formControlName="partner" [(ngModel)]='partner' value={{ga?.CompanyName}}>
             {{ga?.CompanyName}}
-        </option>
-</select>
+        </select>
     </div>
     </div>
   </div><br>
