@@ -7,6 +7,8 @@ import { AuthenticationService } from '../../login/services/authentication.servi
 import { ProfileService } from '../../login/services/profile.service';
 import { MustMatch } from '../../login/helpers/must-match';
 import { Subscription } from 'rxjs';
+import { LoginpullsService } from '../../login/services/loginpulls.service';
+import { Profile } from '../../login/models/profile';
 
 @Component({
   selector: 'app-register',
@@ -20,13 +22,16 @@ export class RegisterComponent implements OnInit {
   randNumberOne = Math.random() * 10000;
   randNumberTwo = Math.random() * 10000;
   randNumber = this.randNumberOne * this.randNumberTwo * 1000;
+  profile: Profile[];
+  twoprofile: Profile;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService,
     private alertService: AlertService,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private loginpullsService: LoginpullsService
   ) {
     // redirects to dashboard if already logged in
  //   if (this.authenticationService.currentUserValue) {
@@ -35,6 +40,11 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    this.loginpullsService.getPartnerList().subscribe((profile: Profile) => {
+      this.twoprofile = profile;
+    });
+
     this.registerForm = this.formBuilder.group({
       firstName: ['',  Validators.required],
       lastName:  ['', Validators.required],

@@ -49,10 +49,10 @@
     </select>
   </div>
   </div>
-  <div class="col-md-6">
+<!--  <div class="col-md-6">
     <div class="form-group">
-    <label for="partner">Select Partner:</label>
-    <select class="form-control" id="partner" formControlName="partner" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
+    <label for="partner">Select Partner:</label> -->
+ <!--   <select class="form-control" id="partner" formControlName="partner" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
       <option>Mega Monolothic Corp</option>
       <option>Noble1Solutions</option>
       <option>Relutech</option>
@@ -66,9 +66,22 @@
       <option>Legacy Integration & Technologies</option>
       <option>Other</option>
     </select>
-  </div>
-  </div>
+  -->
+  <div class="col-md-6">
+    <label for="partner">Select Partner:</label>
+<select class="form-group" id="partner" formControlName="partner" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
+ <option value="0">--Select--</option>
+ <option *ngFor="let ga of profile" value={{ga?.CompanyName}}> {{ga?.CompanyName}}
+ </option>
+<!--      <select *ngFor="let ga of profile" class="form-control" formControlName="partner" value={{ga?.CompanyName}} [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
+       {{ga?.CompanyName}} -->
+   </select>
+
+</div>
 </div><br>
+<!--  </div>
+  </div>
+</div><br> -->
 <div class="row ">
   <div class="col-md-6">
     <div class="form-group">

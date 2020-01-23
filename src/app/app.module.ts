@@ -12,6 +12,7 @@ import { ErrorInterceptor } from './login/helpers/error-interceptor.service';
 import { AuthGuard } from './login/guards/auth.guard';
 import { AuthenticationService } from './login/services/authentication.service';
 import { AlertService } from './login/services/alert.service';
+import { LoginpullsService } from './login/services/loginpulls.service';
 // import { ProfileService } from './login/services/profile.service';
 
 import { AppComponent } from './app.component';
@@ -115,6 +116,7 @@ import { RegisterComponent } from './admin/register/register.component';
     AuthGuard,
     AlertService,
     AuthenticationService,
+    LoginpullsService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     // fakeBackendProvider
