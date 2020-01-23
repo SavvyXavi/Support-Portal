@@ -49,8 +49,7 @@ export class ContractDetailComponent implements OnInit {
     this.filter.conByRef(refNumber)
     .subscribe(
       (returnedContract: Contracts) => {
-        this.contract = returnedContract;
-        console.log(this.contract);
+        return this.contract = returnedContract;
       }
     );
     console.log(this.contract);
