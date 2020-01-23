@@ -16,8 +16,6 @@ import { Customer } from './../admin/models/customer';
 import { Partner } from '../models/partner';
 import { PartnerList } from '../partner-list';
 
-// import { DataSource } from '@angular/cdk/collections';
-
 @Injectable({
   providedIn: 'root'
 })
