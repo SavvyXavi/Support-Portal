@@ -39,6 +39,7 @@ export class ContractDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getContract();
     this.getItems();
   }
 
