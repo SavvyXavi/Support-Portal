@@ -31,42 +31,48 @@
           <div class="tab-wrapper">
             <ul class="nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link active" href="#">Details</a>
+                <a class="nav-link active" >Details</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Covered Assets</a>
+                <a class="nav-link" >Covered Assets</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Asset Locations</a>
+                <a class="nav-link">Asset Locations</a>
               </li>
             </ul>
           </div>
         </div>
+        <br>
+        <br>
         <div class="row">
           <div class="detail">
             <div class="form-group">
               <label for="refNumber">
                 Reference Number <br>
-                <input [(ngModel)]="data.RefNumber" placeholder="Reference Number" />
+                <input readonly type="text" [(ngModel)]="data.RefNumber" placeholder="Reference Number" />
               </label>
             </div>
             <div class="form-goup">
               <label for="endCustomer">
-                Customer: {{data.EndCustomerName}}
+                Customer <br>
+                <input readonly type="text" [(ngModel)]="data.EndCustomerName" placeholder="End Customer" />
               </label>
             </div>
             <div class="form-goup">
               <label for="startDate">
-                Start Date: {{data.StartDate | date: 'shortDate'}}
+                Start Date <br>
+                <input readonly type="text" [(ngModel)]="data.StartDate" placeholder="Start Date" />
               </label>
             </div>
             <div class="form-goup">
               <label for="renewalDate">
-                Renewal Date: {{data.RenewalDate | date: 'shortDate'}}
+                Renewal Date <br>
+                <input readonly type="text" [(ngModel)]="data.RenewalDate" placeholder="Renewal Date" />
               </label>
             </div>
           </div>
           </div>
+          <br>
             <!-- <div class="form-goup">
               <label for="contractLength">
                 Contract Length (Months): {{data.ContractLengthInMonths}}

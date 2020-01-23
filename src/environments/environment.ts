@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   serverUrl: 'http://localhost:4000',
-  secret: 'Noble1Solutions'
+  secret: 'Noble1Solutions',
+  LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/'
 };
 
 /*
