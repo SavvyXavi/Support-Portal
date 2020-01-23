@@ -60,7 +60,6 @@ export class ManageAssetsComponent implements OnInit {
   ngOnInit() {
     this.getPartners();
     this.getAssets();
-    this.getAsset();
     // this.getContract();
   }
 
@@ -75,19 +74,19 @@ export class ManageAssetsComponent implements OnInit {
     return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
-  getAssets() {
-    if (this.filterPartner(this.filteredProfile.partner)) {
-      this.filter.partAssetsFilter(this.filteredProfile)
-      .subscribe(
-        (returnedAssets: Assets) => this.assets = returnedAssets
-      );
-    } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
-      this.filter.custAssetsFilter(this.filteredProfile)
-      .subscribe(
-        (returnedAssets: Assets) => this.assets = returnedAssets
-      );
-    }
-  }
+  // getAssets() {
+  //   if (this.filterPartner(this.filteredProfile.partner)) {
+  //     this.filter.partAssetsFilter(this.filteredProfile)
+  //     .subscribe(
+  //       (returnedAssets: Assets) => this.assets = returnedAssets
+  //     );
+  //   } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
+  //     this.filter.custAssetsFilter(this.filteredProfile)
+  //     .subscribe(
+  //       (returnedAssets: Assets) => this.assets = returnedAssets
+  //     );
+  //   }
+  // }
 
 
 
@@ -103,13 +102,13 @@ export class ManageAssetsComponent implements OnInit {
   //   this.router.navigate(['/contractdetail/' + this.contract.refNumber]);
   // }
 
-  getAsset() {
+  getAssets() {
     if (this.filterPartner(this.filteredProfile.partner)) {
       this.filter.partAssetsFilter(this.filteredProfile)
       .subscribe(
-        (returnedAssetLength: Assets[]) => {
-          this.assetLength = returnedAssetLength;
-          this.assetDataSource = new MatTableDataSource(returnedAssetLength);
+        (returnedAssets: Assets[]) => {
+          this.assetLength = returnedAssets;
+          this.assetDataSource = new MatTableDataSource(returnedAssets);
           this.assetDataSource.sort = this.sort;
           this.assetDataSource.paginator = this.paginator;
 

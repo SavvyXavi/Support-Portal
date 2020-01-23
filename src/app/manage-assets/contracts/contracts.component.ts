@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Contracts } from '../models/contracts';
 import { Profile } from './../../login/models/profile';
@@ -9,9 +9,8 @@ import { Customer } from '../../models/customer';
 import { ApifilterService } from './../../services/apifilter.service';
 import { AuthenticationService } from './../../login/services/authentication.service';
 
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { NgSelectOption } from '@angular/forms';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-contracts',
@@ -19,27 +18,28 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./contracts.component.css']
 })
 export class ContractsComponent implements OnInit {
-  contractLength: Contracts[];
   contracts: Contracts;
   currentProfile: Profile;
-
-  value: NgSelectOption;
-  selectorForm: FormGroup;
 
   partner: Partner;
   partnerArr: Partner[];
   company: Customer;
 
-  filteredProfile: Filter;
+  contractDataSource: MatTableDataSource<Contracts>;
+  displayedColumns: string[] = ['Contract#', 'Contract Name', 'Start Date', 'Renewal Date', 'Customer', 'Status'];
+
+  searchKey: string;
+
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
 
   constructor(
     private filter: ApifilterService,
     private authserv: AuthenticationService,
-    private formBuilder: FormBuilder
   ) {
     this.authserv.currentUser.subscribe(
       name => {
-        this.filteredProfile = name;
+        this.currentProfile = name;
       }
     );
   }
@@ -49,9 +49,6 @@ export class ContractsComponent implements OnInit {
     this.getContracts();
     this.getCompanies();
     this.filterContracts();
-    this.selectorForm = this.formBuilder.group({
-      companyName: ['']
-    });
   }
 
   getPartners() {
@@ -62,7 +59,7 @@ export class ContractsComponent implements OnInit {
   }
 
   getCompanies() {
-    this.filter.customerFilter(this.filteredProfile)
+    this.filter.customerFilter(this.currentProfile)
     .subscribe(
       (companies: Customer) => {
         this.company = companies;
@@ -75,29 +72,41 @@ export class ContractsComponent implements OnInit {
   }
 
   getContracts() {
-    if (this.filterPartner(this.filteredProfile.partner)) {
-      this.filter.partConFilter(this.filteredProfile)
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partConFilter(this.currentProfile)
       .subscribe(
-        (returnedContracts: Contracts) => this.contracts = returnedContracts
+        (returnedContracts: Contracts[]) => {
+          this.contractDataSource = new MatTableDataSource(returnedContracts);
+          this.contractDataSource.sort = this.sort;
+          this.contractDataSource.paginator = this.paginator;
+        }
       );
-    } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
-      this.filter.custConFilter(this.filteredProfile)
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custConFilter(this.currentProfile)
       .subscribe(
-        (returnedContracts: Contracts) => this.contracts = returnedContracts
+        (returnedContracts: Contracts[]) => {
+          this.contractDataSource = new MatTableDataSource(returnedContracts);
+          this.contractDataSource.sort = this.sort;
+          this.contractDataSource.paginator = this.paginator;
+        }
       );
     }
   }
 
-  get f() {
-    return this.selectorForm.controls;
-  }
 
   filterContracts() {
-    if (this.f.compamyName.value !== this.contracts.endCustomerName) {
-      return;
+
+  }
+
+  applyFilter() {
+    this.contractDataSource.filter = this.searchKey.trim().toLowerCase();
+    if (this.contractDataSource.paginator) {
+      this.contractDataSource.paginator.firstPage();
     }
-    if (this.f.companyName.value === this.contracts.endCustomerName) {
-      return this.contracts.endCustomerName.includes(this.f.companyName.value);
-    }
+  }
+
+  searchClear() {
+    this.searchKey = '';
+    this.applyFilter();
   }
 }
