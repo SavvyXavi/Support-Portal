@@ -52,20 +52,17 @@
     <div class="col-md-6">
       <div class="form-group">
       <label for="partner">Select Partner:</label>
-      <select class="form-control" id="partner" formControlName="partner" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
-        <option>Mega Monolothic Corp</option>
-        <option>Noble1Solutions</option>
-        <option>Relutech</option>
-        <option>Reliant Technology</option>
-        <option>North American Systems International</option>
-        <option>Riverstone Technology LLC</option>
-        <option>Scale Logic</option>
-        <option>Spadafy</option>
-        <option>Xbyte Technologies</option>
-        <option>Aracion Technology Pte LTD</option>
-        <option>Legacy Integration & Technologies</option>
-        <option>Other</option>
-      </select>
+      <div *ngFor='let ga of twoprofile'></div>
+<!--   <select class="form-control" id="partner" formControlName="partner" value={{ga?.company}} [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
+       </select>
+      -->
+      <select>
+        <option value="0">--Select--</option>
+        <option *ngFor="let ga of twoprofile"
+                value={{ga?.company}}>
+            {{ga?.company}}
+        </option>
+</select>
     </div>
     </div>
   </div><br>
