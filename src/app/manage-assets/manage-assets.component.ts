@@ -74,24 +74,6 @@ export class ManageAssetsComponent implements OnInit {
     return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
-  // getAssets() {
-  //   if (this.filterPartner(this.filteredProfile.partner)) {
-  //     this.filter.partAssetsFilter(this.filteredProfile)
-  //     .subscribe(
-  //       (returnedAssets: Assets) => this.assets = returnedAssets
-  //     );
-  //   } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
-  //     this.filter.custAssetsFilter(this.filteredProfile)
-  //     .subscribe(
-  //       (returnedAssets: Assets) => this.assets = returnedAssets
-  //     );
-  //   }
-  // }
-
-
-
-
-
   // getContract() {
   //   this.filter.conByRef('', this.assets.schedule)
   //   .subscribe(
@@ -111,7 +93,6 @@ export class ManageAssetsComponent implements OnInit {
           this.assetDataSource = new MatTableDataSource(returnedAssets);
           this.assetDataSource.sort = this.sort;
           this.assetDataSource.paginator = this.paginator;
-
         }
       );
     } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
@@ -125,7 +106,7 @@ export class ManageAssetsComponent implements OnInit {
         }
       );
     }
-}
+  }
 
   applyFilter() {
     this.assetDataSource.filter = this.searchKey.trim().toLowerCase();

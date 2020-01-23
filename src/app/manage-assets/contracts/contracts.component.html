@@ -67,7 +67,9 @@
     <!-- Contract Name Column -->
     <div matColumnDef="Contract Name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract Name </th>
-      <td mat-cell *matCellDef="let contract"> {{contract.ScheduleName}} </td>
+      <td mat-cell *matCellDef="let contract">
+        <a routerLink="/contractdetail/{{data.RefNumber}}" class="contract-link">{{data.ScheduleName}}</ a>
+      </td>
     </div>
 
     <!-- Start Date Column -->
