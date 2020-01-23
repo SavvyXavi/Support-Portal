@@ -39,6 +39,9 @@ export class RegistrationComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.loginpullsService.getPartnerList().subscribe((profile: Profile) => {
+      this.twoprofile = profile;
+    });
     this.registerForm = this.formBuilder.group({
       firstName: ['',  Validators.required],
       lastName:  ['', Validators.required],
@@ -62,12 +65,6 @@ export class RegistrationComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() {
     return this.registerForm.controls;
-
-      this.loginpullsService.getPartnerList().subscribe((profile: Profile) => {
-        this.twoprofile = profile;
-
-      });
-
   }
 
   onSubmit() {
