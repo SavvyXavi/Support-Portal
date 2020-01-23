@@ -46,7 +46,7 @@ export class ApifilterService {
   custassetsapi
   = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetByCustomer?code=srg4TRFO6Uvo2YxaFGKlpJ59714bHNlgBTtSXdxDvk7WwBfX8VkdTw==';
   schedassetsapi
-  = 'https://prodharmony.azurewebsites.net/api/PullAssets?code=wZCo/nd961lZQyWL5EG8V6v9FFt9fiwk8m1x3cFekACWep3LQiipTA==';
+  = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsBySchedule?code=Q3Yjx/KXbuErLesg4oBVs5BJrdFdOMkXn0T/HoLO6hDrCavd45iN9A==';
 
 
   pTicketsApi

@@ -1,5 +1,4 @@
-import { SpecContract } from './../manage-assets/models/spec-contract';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ApifilterService } from './../services/apifilter.service';
@@ -7,6 +6,9 @@ import { Filter } from './../models/filter';
 
 import { Contracts } from './../manage-assets/models/contracts';
 import { Assets } from './../manage-assets/models/assets';
+
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-contract-detail',
@@ -20,6 +22,15 @@ export class ContractDetailComponent implements OnInit {
   assetLength: Assets[];
 
   filteredProfile: Filter;
+
+  displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
+  assetDataSource: MatTableDataSource<Assets>;
+
+  searchKey: string;
+
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
+
   constructor(
     private filter: ApifilterService,
     private location: Location,
