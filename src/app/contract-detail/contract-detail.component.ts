@@ -35,36 +35,37 @@ export class ContractDetailComponent implements OnInit {
     private filter: ApifilterService,
     private location: Location,
     private route: ActivatedRoute
-  ) {
+  ) { }
+
+  ngOnInit() {
+    this.getItems();
+  }
+
+  getContract() {
+
+  }
+
+  getItems() {
     const refNumber =
     this.route.snapshot.paramMap.get('refNumber');
     this.filter.conByRef(refNumber)
     .subscribe(
       (returnedContract: Contracts) => {
         this.contract = returnedContract;
-        console.log(this.contract);
       }
     );
-   }
-
-  ngOnInit() {
-    this.getAssets();
-  }
-
-  getAssets() {
-    console.log(this.contract);
-      this.filter.assetsBySchedule(this.contract.scheduleName)
-      .subscribe(
-        (returnedAssets: Assets) => {
-          this.assets = returnedAssets;
-        }
-      );
-      this.filter.assetsBySchedule(this.contract.scheduleName)
-      .subscribe(
-        (returnedAssetLength: Assets[]) => {
-          this.assetLength = returnedAssetLength;
-        }
-      );
+    this.filter.assetsBySchedule(this.contract.scheduleName)
+    .subscribe(
+      (returnedAssets: Assets) => {
+        this.assets = returnedAssets;
+      }
+    );
+    this.filter.assetsBySchedule(this.contract.scheduleName)
+    .subscribe(
+      (returnedAssetLength: Assets[]) => {
+        this.assetLength = returnedAssetLength;
+      }
+    );
   }
 
   goBack(): void {
