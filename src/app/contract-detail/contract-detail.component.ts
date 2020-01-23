@@ -49,6 +49,7 @@ export class ContractDetailComponent implements OnInit {
     .subscribe(
       (returnedContract: Contracts) => {
         this.contract = returnedContract;
+        console.log(this.contract);
       }
     );
   }
