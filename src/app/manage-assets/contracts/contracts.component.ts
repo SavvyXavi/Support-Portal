@@ -47,7 +47,7 @@ export class ContractsComponent implements OnInit {
   ngOnInit() {
     this.getPartners();
     this.getContracts();
-    this.getCompanies();
+    // this.getCompanies();
     this.filterContracts();
   }
 
@@ -58,14 +58,14 @@ export class ContractsComponent implements OnInit {
     );
   }
 
-  getCompanies() {
-    this.filter.customerFilter(this.currentProfile)
-    .subscribe(
-      (companies: Customer) => {
-        this.company = companies;
-      }
-    );
-  }
+  // getCompanies() {
+  //   this.filter.customerFilter(this.currentProfile)
+  //   .subscribe(
+  //     (companies: Customer) => {
+  //       this.company = companies;
+  //     }
+  //   );
+  // }
 
   filterPartner(partner: String) {
     return this.partnerArr.find(company => company.CompanyName === partner);
