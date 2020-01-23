@@ -37,7 +37,8 @@ export class ApifilterService {
   'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByPartner?code=4QQzdPj2j4LgMuJ9wnzmomSadWCLJEpbSOKcJqhBPRDswDZUCq6NqA==';
   cContractsApi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/ContractsByCustomer?code=bpca1PGS/szLyokaPXrzwhbTmpIv1NIC8St234Ce8anUtUKo8uUWkg==';
-  refConApi = 'https://prodharmony.azurewebsites.net/api/SpecificContract?code=YcbG2hXdjXJa/o/b1nxRHhheVoY5l5AvHQ7AQGP9PhQUOppTFi3kig==';
+  refConApi =
+   'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
 
 
   partassetsapi
@@ -78,15 +79,6 @@ export class ApifilterService {
     return this.http.post(this.custassetsapi, params);
   }
 
-  paginateAssets(filter: Filter, page: number): Observable<Assets> {
-    const params = {
-      'role': filter.partnerRole,
-      'partner': filter.partner
-    };
-
-    return this.http.post<Assets>(this.partassetsapi, params);
-  }
-
   assetsBySchedule(filter: Contracts) {
     const params = {
       'schedule': filter.scheduleName
@@ -118,10 +110,9 @@ export class ApifilterService {
         return this.http.post<Contracts[]>(this.pContractsApi, params);
     }
 
-    conByRef(refNum: string, schedname: string) {
+    conByRef(refNum: string) {
       const params = {
-        'ref': refNum,
-        'schedname': schedname
+        'refnumber': refNum,
       };
       return this.http.post(this.refConApi, params);
     }
