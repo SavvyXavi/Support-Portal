@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Contracts } from '../models/contracts';
 import { Profile } from './../../login/models/profile';
-import { Filter } from '../../models/filter';
 import { Partner } from '../../models/partner';
 import { Customer } from '../../models/customer';
 
@@ -48,7 +47,6 @@ export class ContractsComponent implements OnInit {
     this.getPartners();
     this.getContracts();
     // this.getCompanies();
-    this.filterContracts();
   }
 
   getPartners() {
@@ -91,11 +89,6 @@ export class ContractsComponent implements OnInit {
         }
       );
     }
-  }
-
-
-  filterContracts() {
-
   }
 
   applyFilter() {
