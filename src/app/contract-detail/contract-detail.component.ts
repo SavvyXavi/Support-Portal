@@ -59,6 +59,7 @@ export class ContractDetailComponent implements OnInit {
       .subscribe(
         (returnedAssets: Assets) => {
           this.assets = returnedAssets;
+          console.log(this.contract);
         }
       );
       this.filter.assetsBySchedule(this.contract.scheduleName)
