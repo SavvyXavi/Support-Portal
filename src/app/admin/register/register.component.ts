@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
   randNumber = this.randNumberOne * this.randNumberTwo * 1000;
   profile: Profile[];
   twoprofile: Profile;
+  selectedPartner: Profile;
 
   constructor(
     private formBuilder: FormBuilder,

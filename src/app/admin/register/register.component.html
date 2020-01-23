@@ -69,16 +69,16 @@
   -->
   <div class="col-md-6">
     <label for="partner">Select Partner:</label>
-<select class="form-group" id="partner" formControlName="partner" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
+<select class="form-group" id="partner" formControlName="partner" [(ngModel)]="selectedPartner" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
  <option value="0">--Select--</option>
- <option *ngFor="let ga of profile" value={{ga?.CompanyName}}> {{ga?.CompanyName}}
- </option>
+ <option *ngFor="let ga of profile" value={{ga.CompanyName}}> {{ga.CompanyName}} </option>
 <!--      <select *ngFor="let ga of profile" class="form-control" formControlName="partner" value={{ga?.CompanyName}} [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
        {{ga?.CompanyName}} -->
    </select>
 
 </div>
 </div><br>
+<div><p>You selected: {{selectedPartner}}</p></div><br>
 <!--  </div>
   </div>
 </div><br> -->
