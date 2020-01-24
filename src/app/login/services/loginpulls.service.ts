@@ -19,6 +19,6 @@ export class LoginpullsService {
     return this.http.get(`${environment.LoginPull}PartnerList?code=6W5az23O1cyKatIJp7F/ayclp8hQal5rYbCywjOXN6kF5ZMzNluuVA==`);
   }
   getCompanyList(partner: string): Observable<any> {
-    return this.http.get(this.code + {partner});
+    return this.http.get(this.code + partner);
   }
 }
