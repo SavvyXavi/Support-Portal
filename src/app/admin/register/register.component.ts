@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
   partner: Profile;
   company: Profile;
   twocompany: Profile;
+  selpartner: Profile;
 
   constructor(
     private formBuilder: FormBuilder,
