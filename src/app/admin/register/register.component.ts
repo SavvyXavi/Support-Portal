@@ -46,9 +46,6 @@ export class RegisterComponent implements OnInit {
     this.loginpullsService.getPartnerList().subscribe((profile: Profile) => {
       this.twoprofile = profile;
     });
-    this.loginpullsService.getCompanyList(this.twoprofile).subscribe((profile: Profile) => {
-      this.twocompany = this.company;
-    });
 
     this.registerForm = this.formBuilder.group({
       firstName: ['',  Validators.required],
@@ -99,4 +96,9 @@ export class RegisterComponent implements OnInit {
       );
   }
 
+  getcompany(){
+  this.loginpullsService.getCompanyList(this.twoprofile).subscribe((profile: Profile) => {
+    this.twocompany = this.company;
+  });
+  }
 }
