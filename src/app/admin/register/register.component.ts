@@ -25,6 +25,8 @@ export class RegisterComponent implements OnInit {
   profile: Profile[];
   twoprofile: Profile;
   partner: Profile;
+  company: Profile;
+  twocompany: Profile;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,9 +43,11 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit() {
-
     this.loginpullsService.getPartnerList().subscribe((profile: Profile) => {
       this.twoprofile = profile;
+    });
+    this.loginpullsService.getCompanyList(this.twoprofile).subscribe((profile: Profile) => {
+      this.twocompany = this.company;
     });
 
     this.registerForm = this.formBuilder.group({
