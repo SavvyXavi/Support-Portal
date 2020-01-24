@@ -96,7 +96,7 @@ export class RegisterComponent implements OnInit {
       );
   }
 
-  getcompany(partner){
+  getcompany(partner) {
   this.loginpullsService.getCompanyList(partner).subscribe((profile: Profile) => {
     this.twocompany = this.company;
   });
