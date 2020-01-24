@@ -18,6 +18,6 @@ export class LoginpullsService {
     return this.http.get(`${environment.LoginPull}/PartnerList?code=6W5az23O1cyKatIJp7F/ayclp8hQal5rYbCywjOXN6kF5ZMzNluuVA==`);
   }
   getCompanyList(partner: Profile): Observable<any> {
-    return this.http.get(`${environment.LoginPull}/PartnerList?code=6W5az23O1cyKatIJp7F/ayclp8hQal5rYbCywjOXN6kF5ZMzNluuVA==`);
+    return this.http.get(`${environment.LoginPull}/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==`);
   }
 }
