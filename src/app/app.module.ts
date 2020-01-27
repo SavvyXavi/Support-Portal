@@ -95,7 +95,6 @@ import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.c
     LocationDetailsComponent,
     ResetComponent,
     RegisterComponent,
-    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,
