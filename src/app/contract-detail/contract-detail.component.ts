@@ -52,12 +52,12 @@ export class ContractDetailComponent implements OnInit {
     .subscribe(
       (returnedContract: Contracts) => {
         this.contract = returnedContract;
-        console.log(this.contract.scheduleName + ' 1');
+        console.log(JSON.parse(this.contract.scheduleName) + ' 1');
         this.filter.assetsBySchedule(this.contract)
         .subscribe(
           (returnedAssets: Assets) => {
             this.assets = returnedAssets;
-            console.log(this.contract + ' 2');
+            console.log(JSON.stringify(this.contract) + ' 2');
 
           }
         );
