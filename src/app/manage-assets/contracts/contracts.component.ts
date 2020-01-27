@@ -46,7 +46,7 @@ export class ContractsComponent implements OnInit {
   ngOnInit() {
     this.getPartners();
     this.getContracts();
-    this.getCompanies();
+    // this.getCompanies();
   }
 
   getPartners() {
@@ -61,10 +61,8 @@ export class ContractsComponent implements OnInit {
     .subscribe(
       (companies: Customer) => {
         this.company = companies;
-        console.log(this.company);
       }
     );
-      console.log(this.company + ' 2');
   }
 
   filterPartner(partner: String) {
