@@ -6,6 +6,7 @@ import { ApifilterService } from './../../services/apifilter.service';
 
 import { Assets } from './../models/assets';
 import { Contracts } from './../models/contracts';
+import { map } from 'rxjs/operators';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatSort } from '@angular/material';
@@ -41,11 +42,13 @@ export class AssetDetailComponent implements OnInit {
     const assetid =
     this.route.snapshot.paramMap.get('identifier');
     this.filter.assetsBySerial(assetid)
-    .subscribe(
-      (returnedAsset: Assets) => {
-        this.asset = returnedAsset[0];
-        console.log(this.asset);
-      }
+    .pipe(
+      map(
+        (returnedAsset: Assets) => {
+          this.asset = returnedAsset;
+          console.log(this.asset);
+        }
+      )
     );
   }
 
