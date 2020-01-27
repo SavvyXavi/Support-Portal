@@ -46,7 +46,7 @@
         <br>
         <div class="tab-content" id="nav-tabContent">
 
-          <ng-container class="tab-pane detail fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">
+          <div class="tab-pane detail fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">
             <div class="form-group">
               <label for="refNumber">
                 Reference Number <br>
@@ -71,10 +71,10 @@
                 <input readonly type="text" [(ngModel)]="data.RenewalDate" placeholder="Renewal Date" />
               </label>
             </div>
-          </ng-container>
+          </div>
 
 
-          <ng-container class="tabe-pane assets fade" id="assets" role="tabpanel" aria-labelledby="asset-tab">
+          <div class="tabe-pane assets fade" id="assets" role="tabpanel" aria-labelledby="asset-tab">
             <div class="form-group">
               <div class="search-div">
                 <!-- <button mat-raised-button>
@@ -126,7 +126,7 @@
                 <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" [pageSize]="10"></mat-paginator>
               </div>
             </div>
-          </ng-container>
+          </div>
 
           <div class="tabe-pane locations fade" id="location" role="tabpanel" aria-labelledby="location-tab">
             Locations go here!
