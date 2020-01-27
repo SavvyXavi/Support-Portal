@@ -24,16 +24,16 @@ export class ForgotpasswordComponent implements OnInit {
    ) {
 
   }
-  token = '1f4914e8f3ffdccd28220e';
-  username = 'xjohnson@nasupport.com';
-  password = 'Pass123Word!'
+ // token = '1f4914e8f3ffdccd28220e';
+ // username = 'xjohnson@nasupport.com';
+//  password = 'Pass123Word!'
   ngOnInit() {
 
     this.forgotForm = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails),
-      'token': new FormControl(this.token),
-      'username': new FormControl(this.username),
-      'password': new FormControl(this.password)
+ //     'token': new FormControl(this.token),
+  //    'username': new FormControl(this.username),
+ //     'password': new FormControl(this.password)
     });
   }
 

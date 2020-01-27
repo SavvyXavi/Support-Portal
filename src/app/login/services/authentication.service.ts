@@ -37,6 +37,7 @@ export class AuthenticationService {
        return profile;
      }));
    }
+   
    requestForgotPassword(body): Observable<any> {
     return this.http.post(`${environment.serverUrl}/profile/forgotpassword`, body);
   }
@@ -48,6 +49,7 @@ export class AuthenticationService {
   validResetToken(body): Observable<any> {
     return this.http.post(`${environment.serverUrl}/profile/valid-reset-token`, body);
   }
+
    logout() {
      localStorage.removeItem('currentUser');
      this.currentUserSubject.next(null);
