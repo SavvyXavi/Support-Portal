@@ -50,6 +50,7 @@ export class AssetDetailComponent implements OnInit {
         }
       )
     );
+    console.log(this.asset + ' 2');
   }
 
   getContract() {
