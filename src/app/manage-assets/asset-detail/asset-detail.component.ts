@@ -39,12 +39,12 @@ export class AssetDetailComponent implements OnInit {
   }
 
   getAssets() {
-    const assetName =
-    this.route.snapshot.paramMap.get('name');
-    this.filter.conByRef(assetName)
+    const assetid =
+    this.route.snapshot.paramMap.get('identifier');
+    this.filter.assetsBySerial(assetid)
     .subscribe(
-      (returnedAssets: Assets) => {
-        this.asset = returnedAssets;
+      (returnedAsset: Assets) => {
+        this.asset = returnedAsset;
         // this.filter.assetsBySchedule(this.contract.scheduleName)
         // .subscribe(
         //   (returnedAssets: Assets) => {

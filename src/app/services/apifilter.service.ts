@@ -45,6 +45,8 @@ export class ApifilterService {
   = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetByCustomer?code=srg4TRFO6Uvo2YxaFGKlpJ59714bHNlgBTtSXdxDvk7WwBfX8VkdTw==';
   schedassetsapi
   = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsBySchedule?code=Q3Yjx/KXbuErLesg4oBVs5BJrdFdOMkXn0T/HoLO6hDrCavd45iN9A==';
+  serialassetsapi
+  = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetDrillDown?code=cwjoeQCF3Qx5PwX0xfLJDclqyxjEyW/gZppvvS6K/g07nFSOTfudrg==';
 
 
   pTicketsApi
@@ -82,6 +84,13 @@ export class ApifilterService {
       'schedule': schedule
     };
     return this.http.post(this.schedassetsapi, params);
+  }
+
+  assetsBySerial(serial: string) {
+    const params = {
+      'serial': serial
+    };
+    return this.http.post(this.serialassetsapi, params);
   }
 
   partTicketsFilter(filter: Filter) {
