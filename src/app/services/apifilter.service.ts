@@ -57,8 +57,6 @@ export class ApifilterService {
   locationsapi =
   'https://prodharmony.azurewebsites.net/api/LocationsByCustomer?code=lOUnhasaC78wc6wyFKiG/loAC7aa0blBIca91Y/BdexlvkqGyEGMXw==';
 
-
-
   constructor(
     private profileService: ProfileService,
     private auth: AuthenticationService,
