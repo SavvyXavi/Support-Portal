@@ -60,7 +60,7 @@ export class ContractDetailComponent implements OnInit {
         .subscribe(
           (returnedAssets: Assets) => {
             this.assets = returnedAssets;
-            console.log(this.contract);
+            console.log(this.getContracts);
 
           }
         );
