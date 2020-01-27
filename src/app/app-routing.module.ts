@@ -144,7 +144,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'assetdetail/:name',
+    path: 'assetdetail/:identifier',
     component: AssetDetailComponent,
     canActivate: [AuthGuard]
   },
