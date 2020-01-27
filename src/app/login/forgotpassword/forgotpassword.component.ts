@@ -18,7 +18,7 @@ export class ForgotpasswordComponent implements OnInit {
   IsvalidForm = true;
 
   constructor(
-    private authService: AuthenticationService,
+    private authenticationService: AuthenticationService,
     private router: Router,
     private alertService: AlertService,
    ) {
@@ -36,10 +36,10 @@ export class ForgotpasswordComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.forgotForm)
+//    console.log(this.forgotForm)
     if (this.forgotForm.valid) {
       this.IsvalidForm = true;
-      this.authService.requestForgotPassword(this.forgotForm.value).subscribe(
+      this.authenticationService.requestForgotPassword(this.forgotForm.value).subscribe(
         data => {
           this.forgotForm.reset();
           this.successMessage = 'Forgot password link sent to email sucessfully.';
