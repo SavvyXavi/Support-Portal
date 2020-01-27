@@ -58,6 +58,7 @@ import { LocationsComponent } from './locations/locations.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { ResetComponent } from './login/reset/reset.component';
 import { RegisterComponent } from './admin/register/register.component';
+import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { RegisterComponent } from './admin/register/register.component';
     LocationsComponent,
     LocationDetailsComponent,
     ResetComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,
