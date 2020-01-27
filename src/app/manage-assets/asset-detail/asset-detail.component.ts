@@ -34,10 +34,7 @@ export class AssetDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getAssets();
-  }
-
-  getContracts() {
-
+    this.getContract();
   }
 
   getAssets() {
