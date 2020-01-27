@@ -35,4 +35,8 @@ export class ProfileService {
   delete(id: number) {
    return this.http.delete(`${environment.serverUrl}/profile/${id}`);
   }
+
+  resetPassword(body) {
+    return this.http.post(`${environment.serverUrl}/profile/reset-password`, body);
+  }
 }

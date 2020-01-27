@@ -14,7 +14,7 @@ import { NorthComponent } from './north/north.component';
 import { ReliantDashComponent } from './reliant-dash/reliant-dash.component';
 import { RelusDashComponent } from './relus-dash/relus-dash.component';
 import { GenericDashComponent } from './generic-dash/generic-dash.component';
-
+import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 import { TicketsComponent } from './manage-assets/tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -84,7 +84,11 @@ const routes: Routes = [
     component: RegistrationComponent,
   },
   {
-    path: 'reset',
+  path: 'forgot',
+  component: ForgotpasswordComponent
+},
+  {
+    path: 'reset-password',
     component: ResetComponent
   },
   {

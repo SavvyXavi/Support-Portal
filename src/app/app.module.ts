@@ -40,7 +40,6 @@ import { AssetLocationsComponent } from './admin/asset-locations/asset-locations
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CustomersComponent } from './admin/customers/customers.component';
-import { ForgopassComponent } from './login/forgopass/forgopass.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Material Import
@@ -87,7 +86,7 @@ import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.c
     ProfileComponent,
     SettingsComponent,
     CustomersComponent,
-    ForgopassComponent,
+    ForgotpasswordComponent,
     ResetUserComponent,
     ContractDetailComponent,
     AssetDetailComponent,

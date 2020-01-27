@@ -2,6 +2,7 @@ import { Profile } from './login/models/profile';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './login/services/authentication.service';
+import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 
 @Component({
   selector: 'app-root',
