@@ -37,6 +37,8 @@ export class ApifilterService {
   'https://harmonyprodcustomersone.azurewebsites.net/api/ContractsByCustomer?code=bpca1PGS/szLyokaPXrzwhbTmpIv1NIC8St234Ce8anUtUKo8uUWkg==';
   refConApi =
    'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
+  nameConApi =
+  'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByName?code=IZMBTTmJ5l7M3WPeKg46l/3lfEaAKMgKdagfNCM8T07vyO05QqqBSg==';
 
 
   partassetsapi
@@ -110,18 +112,18 @@ export class ApifilterService {
       return this.http.post(this.pContractsApi, params);
     }
 
-    partConFilterSelect(customer: Customer) {
-      const params = {
-        'partner': customer.companyName
-      };
-        return this.http.post<Contracts[]>(this.pContractsApi, params);
-    }
-
     conByRef(refNum: string) {
       const params = {
         'refnumber': refNum,
       };
       return this.http.post(this.refConApi, params);
+    }
+
+    conByName(name: string) {
+      const params = {
+        'schedName': name
+      };
+      return this.http.post(this.nameConApi, params);
     }
 
     custConFilter(filter: Filter) {

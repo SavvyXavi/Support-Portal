@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApifilterService } from './../../services/apifilter.service';
 
 import { Assets } from './../models/assets';
+import { Contracts } from './../models/contracts';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatSort } from '@angular/material';
@@ -16,6 +17,7 @@ import { MatPaginator, MatSort } from '@angular/material';
 })
 export class AssetDetailComponent implements OnInit {
   asset: Assets;
+  contract: Contracts;
 
   displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
 
@@ -45,20 +47,18 @@ export class AssetDetailComponent implements OnInit {
     .subscribe(
       (returnedAsset: Assets) => {
         this.asset = returnedAsset;
-        // this.filter.assetsBySchedule(this.contract.scheduleName)
-        // .subscribe(
-        //   (returnedAssets: Assets) => {
-        //     this.assets = returnedAssets;
-        //     console.log(JSON.parse(this.contract.scheduleName) + ' 2 parse');
-
-        //   }
-        // );
-        // this.filter.assetsBySchedule(JSON.stringify(this.contract.scheduleName))
-        // .subscribe(
-        //   (returnedAssetLength: Assets[]) =>
-        //     this.assetLength = returnedAssetLength
-        // );
       }
+    );
+  }
+
+  getContract() {
+    this.filter.conByName(this.asset.schedule)
+    .subscribe(
+      (returnedContract: Contracts) => {
+        this.contract = returnedContract;
+        console.log(this.contract);
+      }
+
     );
   }
 
