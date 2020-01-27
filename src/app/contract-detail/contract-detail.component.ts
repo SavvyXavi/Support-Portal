@@ -1,4 +1,3 @@
-import { map } from 'rxjs/operators';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -53,7 +52,7 @@ export class ContractDetailComponent implements OnInit {
       (returnedContract: Contracts) => {
         this.contract = returnedContract;
         console.log(this.contract.scheduleName + ' 1');
-        this.filter.assetsBySchedule(JSON.parse(this.contract.scheduleName))
+        this.filter.assetsBySchedule(this.contract.scheduleName)
         .subscribe(
           (returnedAssets: Assets) => {
             this.assets = returnedAssets;

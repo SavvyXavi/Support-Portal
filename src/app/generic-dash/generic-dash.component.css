@@ -130,6 +130,10 @@ a .ticket-length, .ticket-label{
    padding-bottom: 0;
    overflow: hidden;
  }
+ .company-icon {
+  width: 128px !important;
+  height: 128px !important;
+}
 
  .ticket-logo{
    opacity: .2;
