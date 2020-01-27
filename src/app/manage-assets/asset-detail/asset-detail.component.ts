@@ -43,7 +43,7 @@ export class AssetDetailComponent implements OnInit {
     this.filter.assetsBySerial(assetid)
     .subscribe(
       (returnedAsset: Assets) => {
-        this.asset = returnedAsset;
+        this.asset = returnedAsset[0];
         console.log(this.asset);
       }
     );
