@@ -45,7 +45,7 @@ export class AssetDetailComponent implements OnInit {
     .pipe(
       map(
         (returnedAsset: Assets) => {
-          this.asset = returnedAsset;
+          this.asset = returnedAsset[0];
           console.log(this.asset);
         }
       )
