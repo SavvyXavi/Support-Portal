@@ -88,7 +88,7 @@ const routes: Routes = [
   component: ForgotpasswordComponent
   },
   {
-    path: 'forgot-password',
+    path: 'forgotpassword',
     component: ForgotpasswordComponent
     },
   {

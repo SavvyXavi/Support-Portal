@@ -38,7 +38,7 @@ export class AuthenticationService {
      }));
    }
    requestForgotPassword(body): Observable<any> {
-    return this.http.post(`${environment.serverUrl}/profile/forgot-password`, body);
+    return this.http.post(`${environment.serverUrl}/profile/forgotpassword`, body);
   }
 
   newPassword(body): Observable<any> {
