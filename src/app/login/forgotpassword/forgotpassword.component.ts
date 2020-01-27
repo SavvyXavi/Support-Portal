@@ -25,11 +25,15 @@ export class ForgotpasswordComponent implements OnInit {
 
   }
   token = '1f4914e8f3ffdccd28220e';
+  username = 'xjohnson@nasupport.com';
+  password = 'Pass123Word!'
   ngOnInit() {
 
     this.forgotForm = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails),
-      'token': new FormControl(this.token)
+      'token': new FormControl(this.token),
+      'username': new FormControl(this.username),
+      'password': new FormControl(this.password)
     });
   }
 
@@ -46,6 +50,7 @@ export class ForgotpasswordComponent implements OnInit {
           this.forgotForm.reset();
           this.successMessage = 'Forgot password link sent to email sucessfully.';
           this.alertService.success('We have just sent you a link to reset password', true);
+          this.router.navigate(['login']);
         },
         err => {
           this.alertService.error(err);
