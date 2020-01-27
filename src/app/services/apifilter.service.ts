@@ -77,9 +77,9 @@ export class ApifilterService {
     return this.http.post(this.custassetsapi, params);
   }
 
-  assetsBySchedule(filter: Contracts) {
+  assetsBySchedule(schedule: string) {
     const params = {
-      'schedule': filter.scheduleName
+      'schedule': schedule
     };
     return this.http.post(this.schedassetsapi, params);
   }
