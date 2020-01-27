@@ -44,6 +44,7 @@ export class AssetDetailComponent implements OnInit {
     .subscribe(
       (returnedAsset: Assets) => {
         this.asset = returnedAsset;
+        console.log(this.asset);
       }
     );
   }
