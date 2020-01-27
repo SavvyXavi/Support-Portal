@@ -57,7 +57,7 @@ export class ContractDetailComponent implements OnInit {
         .subscribe(
           (returnedAssets: Assets) => {
             this.assets = returnedAssets;
-            console.log(JSON.stringify(this.contract) + ' 2');
+            console.log(JSON.stringify(this.contract.scheduleName) + ' 2');
 
           }
         );
