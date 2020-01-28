@@ -39,9 +39,9 @@ import { PartnerList } from '../../partner-list';
 //  oldgetCompanyList(filter: Filter): Observable<any> {
 //     return this.http.get(this.code, filter.partner);
 //  }
-  getCompanyList(partner: Filter) {
+  getCompanyList(partner: any) {
     const params = {
-      'partner': partner.partner
+      'partner': partner
     };
     return this.http.post(this.code, params);
   }
