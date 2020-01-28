@@ -25,7 +25,7 @@
               Start Date
             </h6>
             <p>
-              {{this.contract?.startDate | date: 'shortDate'}}
+              {{this.contract[0]?.startDate | date: 'shortDate'}}
             </p>
           </div>
           <div class="col-md con-ref">
@@ -33,7 +33,7 @@
               Renewal Date
             </h6>
             <p>
-              {{this.contract?.RenewalDate | date: 'shortDate'}}
+              {{this.contract[0]?.RenewalDate | date: 'shortDate'}}
             </p>
           </div>
         </div>
