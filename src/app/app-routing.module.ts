@@ -80,10 +80,6 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'login/register',
-    component: RegistrationComponent,
-  },
-  {
     path: 'reset-password',
     component: ResetComponent
   },
