@@ -68,7 +68,7 @@
     <div matColumnDef="Case#">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Case# </th>
       <td mat-cell *matCellDef="let ticket">
-        <a routerLink="/assetdetail/{{ticket.RefNumber}}" class="asset-link"> {{asset.Name}} </a>
+        <a routerLink="/ticketdetail/{{ticket.RefNumber}}" class="asset-link"> {{ticket.RefNumber}} </a>
       </td>
     </div>
 

@@ -101,9 +101,9 @@ export class TicketsComponent implements OnInit {
     if (this.filterPartner(this.currentProfile.partner)) {
       this.filter.partTicketsFilter(this.currentProfile)
       .subscribe(
-        (returnedAssets: Tickets[]) => {
-          this.ticketLength = returnedAssets;
-          this.ticketDataSource = new MatTableDataSource(returnedAssets);
+        (returnedTickets: Tickets[]) => {
+          this.ticketLength = returnedTickets;
+          this.ticketDataSource = new MatTableDataSource(returnedTickets);
           this.ticketDataSource.sort = this.sort;
           this.ticketDataSource.paginator = this.paginator;
         }
@@ -111,9 +111,9 @@ export class TicketsComponent implements OnInit {
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
       this.filter.partTicketsFilter(this.currentProfile)
       .subscribe(
-        (returnedAssetLength: Tickets[]) => {
-          this.ticketLength = returnedAssetLength;
-          this.ticketDataSource = new MatTableDataSource(returnedAssetLength);
+        (returnedTicketLength: Tickets[]) => {
+          this.ticketLength = returnedTicketLength;
+          this.ticketDataSource = new MatTableDataSource(returnedTicketLength);
           this.ticketDataSource.sort = this.sort;
           this.ticketDataSource.paginator = this.paginator;
         }
