@@ -20,7 +20,7 @@ export class ContractDetailComponent implements OnInit {
   contract: Contracts;
   assets: Assets;
   assetLength: Assets[];
-
+  contractInput = this.contract;
   filteredProfile: Filter;
 
   displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
