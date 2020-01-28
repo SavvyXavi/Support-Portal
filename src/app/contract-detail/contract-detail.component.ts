@@ -16,17 +16,13 @@ import { MatPaginator, MatSort } from '@angular/material';
   styleUrls: ['./contract-detail.component.css']
 })
 export class ContractDetailComponent implements OnInit {
-  // contract: Contract;
   contract: Contracts;
   assets: Assets;
   assetLength: Assets[];
-  filteredProfile: Filter;
 
   displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
   assetDataSource: MatTableDataSource<Assets>;
-
   searchKey: string;
-
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
 
@@ -38,10 +34,6 @@ export class ContractDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getItems();
-  }
-
-  getContracts() {
-
   }
 
   getItems() {
@@ -64,7 +56,6 @@ export class ContractDetailComponent implements OnInit {
         .subscribe(
           (returnedAsset: Assets) => {
             this.assets = returnedAsset;
-            console.log(this.assets);
           }
         );
       }
