@@ -63,6 +63,18 @@ export class AssetDetailComponent implements OnInit {
     );
   }
 
+  applyFilter() {
+    this.contractDataSource.filter = this.searchKey.trim().toLowerCase();
+    if (this.contractDataSource.paginator) {
+      this.contractDataSource.paginator.firstPage();
+    }
+  }
+
+  searchClear() {
+    this.searchKey = '';
+    this.applyFilter();
+  }
+
   goBack(): void {
     this.location.back();
   }
