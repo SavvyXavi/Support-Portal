@@ -39,6 +39,7 @@ export class ContractDetailComponent implements OnInit {
   ngOnInit() {
     this.getItems();
   }
+
   getContracts() {
 
   }
@@ -51,7 +52,7 @@ export class ContractDetailComponent implements OnInit {
       (returnedContract: Contracts) => {
         this.contract = returnedContract;
         console.log(this.contract);
-        console.log(this.contract.scheduleName);
+        console.log(this.contract[0].scheduleName);
         const rcsname = this.contract.scheduleName;
         console.log(rcsname);
         this.filter.assetsBySchedule(rcsname)
