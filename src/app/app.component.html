@@ -4,20 +4,20 @@
 <!--        <app-header *ngIf="router.url !== '/login' && router.url !== '/register' && router.url !== '/reset'"></app-header>
             <app-header *ngIf="router.url !== '/login' && router.url !== '/forgot' && router.url.indexOf('reset-password') == -1"></app-header>
 -->
-             <app-header *ngIf="router.url !== '/login' && router.url !== '/forgot' && router.url !=='reset-password'"></app-header>
+             <app-header *ngIf="router.url !== '/login' && router.url !== '/forgot' && router.url !=='/reset-password'"></app-header>
 </div>
     </div>
     <div class="row">
       <div class="col-md-2 sidebar">
  <!--        <app-sidebar *ngIf="router.url !== '/login' && router.url !== '/register'"></app-sidebar>
       -->
-             <app-sidebar *ngIf="router.url !== '/login' && router.url !== '/forgot' && router.url !== 'reset-password'"></app-sidebar>
+             <app-sidebar *ngIf="router.url !== '/login' && router.url !== '/forgot' && router.url !== '/reset-password'"></app-sidebar>
 
       </div>
     <div class="col-md content">
 <!--         <app-alert *ngIf="router.url == '/login' || router.url == '/register'"></app-alert>
 -->
-             <app-alert *ngIf="router.url == '/login' || router.url == '/forgot' || router.url !=='reset-password'"></app-alert>
+             <app-alert *ngIf="router.url == '/login' || router.url == '/forgot' || router.url !=='/reset-password'"></app-alert>
   <br>
          <router-outlet> </router-outlet>
     </div>

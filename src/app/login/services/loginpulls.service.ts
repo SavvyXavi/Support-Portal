@@ -37,12 +37,11 @@ import { PartnerList } from '../../partner-list';
 //  oldgetCompanyList(filter: Filter): Observable<any> {
 //     return this.http.get(this.code, filter.partner);
 //  }
-  getCompanyList(filter: Filter) {
+  getCompanyList(partner: Filter) {
     const params = {
-      'role': filter.partnerRole,
       'partner': this.partner
     };
-    return this.http.post(this.code, this.partner);
+    return this.http.post(this.code, params);
   }
 
 }
