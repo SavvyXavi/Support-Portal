@@ -53,7 +53,7 @@
     <label for="partner">Select Partner:</label>
 <select class="form-group" id="partner" formControlName="partner" [(ngModel)]="partner" (ngModelChange)="getcompany(partner)" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
  <option value="0">--Select--</option>
- <option *ngFor="let ga of twoprofile" value={{ga.CompanyName}}> {{ga.CompanyName}} </option>
+ <option *ngFor="let ga of twoprofile" value={{ga?.CompanyName}}> {{ga?.CompanyName}} </option>
 </select>
 </div>
 </div><br>
@@ -72,7 +72,7 @@
     <label for="company">Select Company:</label>
     <select class="form-group" id="company" formControlName="company" [(ngModel)]="company" [ngClass]="{ 'is-invalid': submitted && f.company.errors}">
      <option value="0">--Select--</option>
-     <option *ngFor="let ha of twocompany" value={{ha.CompanyName}}> {{ha.CompanyName}} </option>
+     <option *ngFor="let ha of twocompany" value={{ha?.CompanyName}}> {{ha?.CompanyName}} </option>
     </select>
     </div>
  <!--  <div class="form-group">
