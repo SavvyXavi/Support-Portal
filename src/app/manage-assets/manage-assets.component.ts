@@ -14,8 +14,6 @@ import { Profile } from './../login/models/profile';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { MatPaginator, MatSort } from '@angular/material';
-import { startWith, switchMap, map } from 'rxjs/operators';
-
 @Component({
   selector: 'app-manage-assets',
   templateUrl: './manage-assets.component.html',

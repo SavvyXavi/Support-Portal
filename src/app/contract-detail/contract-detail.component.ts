@@ -1,4 +1,3 @@
-import { map } from 'rxjs/operators';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -18,7 +17,7 @@ import { MatPaginator, MatSort } from '@angular/material';
 })
 export class ContractDetailComponent implements OnInit {
   // contract: Contract;
-  @Input() contract: Contracts;
+  contract: Contracts;
   assets: Assets;
   assetLength: Assets[];
 
@@ -41,6 +40,9 @@ export class ContractDetailComponent implements OnInit {
   ngOnInit() {
     this.getItems();
   }
+  getContracts() {
+
+  }
 
   getItems() {
     const refNumber =
@@ -49,19 +51,24 @@ export class ContractDetailComponent implements OnInit {
     .subscribe(
       (returnedContract: Contracts) => {
         this.contract = returnedContract;
-        this.filter.assetsBySchedule(this.contract)
+        console.log(this.contract);
+        console.log(this.contract.scheduleName);
+        const rcsname = this.contract.scheduleName;
+        console.log(rcsname);
+        this.filter.assetsBySchedule(rcsname)
         .subscribe(
           (returnedAssets: Assets) => {
             this.assets = returnedAssets;
-            console.log(this.contract);
-
+            console.log(this.assets);
+            console.log(rcsname);
           }
         );
-        this.filter.assetsBySchedule(this.contract)
-        .subscribe(
-          (returnedAssetLength: Assets[]) =>
-            this.assetLength = returnedAssetLength
-        );
+        // );
+        // this.filter.assetsBySchedule(JSON.stringify(this.contract.scheduleName))
+        // .subscribe(
+        //   (returnedAssetLength: Assets[]) =>
+        //     this.assetLength = returnedAssetLength
+        // );
       }
     );
   }

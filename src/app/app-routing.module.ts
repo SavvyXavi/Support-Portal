@@ -28,6 +28,7 @@ import { OemComponent } from './admin/oem/oem.component';
 import { BudgetComponent } from './budget/budget.component';
 import { CustomersComponent } from './admin/customers/customers.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
+import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.component';
 
 const routes: Routes = [
   {
@@ -152,6 +153,11 @@ const routes: Routes = [
   {
     path: 'contractdetail/:refNumber',
     component: ContractDetailComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'assetdetail/:identifier',
+    component: AssetDetailComponent,
     canActivate: [AuthGuard]
   },
   {

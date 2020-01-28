@@ -16,8 +16,6 @@ import { Customer } from './../admin/models/customer';
 import { Partner } from '../models/partner';
 import { PartnerList } from '../partner-list';
 
-// import { DataSource } from '@angular/cdk/collections';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -39,6 +37,8 @@ export class ApifilterService {
   'https://harmonyprodcustomersone.azurewebsites.net/api/ContractsByCustomer?code=bpca1PGS/szLyokaPXrzwhbTmpIv1NIC8St234Ce8anUtUKo8uUWkg==';
   refConApi =
    'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
+  nameConApi =
+  'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByName?code=IZMBTTmJ5l7M3WPeKg46l/3lfEaAKMgKdagfNCM8T07vyO05QqqBSg==';
 
 
   oldpartassetsapi
@@ -49,6 +49,8 @@ export class ApifilterService {
   = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetByCustomer?code=srg4TRFO6Uvo2YxaFGKlpJ59714bHNlgBTtSXdxDvk7WwBfX8VkdTw==';
   schedassetsapi
   = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsBySchedule?code=Q3Yjx/KXbuErLesg4oBVs5BJrdFdOMkXn0T/HoLO6hDrCavd45iN9A==';
+  serialassetsapi
+  = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetDrillDown?code=cwjoeQCF3Qx5PwX0xfLJDclqyxjEyW/gZppvvS6K/g07nFSOTfudrg==';
 
 
   pTicketsApi
@@ -81,11 +83,18 @@ export class ApifilterService {
     return this.http.post(this.custassetsapi, params);
   }
 
-  assetsBySchedule(filter: Contracts) {
+  assetsBySchedule(schedule: string) {
     const params = {
-      'schedule': filter.scheduleName
+      'schedule': schedule
     };
     return this.http.post(this.schedassetsapi, params);
+  }
+
+  assetsBySerial(serial: string) {
+    const params = {
+      'serial': serial
+    };
+    return this.http.post(this.serialassetsapi, params);
   }
 
   partTicketsFilter(filter: Filter) {
@@ -105,18 +114,18 @@ export class ApifilterService {
       return this.http.post(this.pContractsApi, params);
     }
 
-    partConFilterSelect(customer: Customer) {
-      const params = {
-        'partner': customer.companyName
-      };
-        return this.http.post<Contracts[]>(this.pContractsApi, params);
-    }
-
     conByRef(refNum: string) {
       const params = {
         'refnumber': refNum,
       };
       return this.http.post(this.refConApi, params);
+    }
+
+    conByName(name: string) {
+      const params = {
+        'schedName': name
+      };
+      return this.http.post(this.nameConApi, params);
     }
 
     custConFilter(filter: Filter) {
@@ -151,14 +160,5 @@ export class ApifilterService {
       'company': filter.partner
     };
     return this.http.post(this.locationsapi, params);
-  }
-
-  assetObersvable(filter: Filter): Observable<Assets[]> {
-    const params = {
-      'role': filter.partnerRole,
-      'partner': filter.partner
-    };
-
-    return this.http.post<Assets[]>(this.partassetsapi, params);
   }
 }

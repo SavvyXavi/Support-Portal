@@ -56,14 +56,14 @@ export class ContractsComponent implements OnInit {
     );
   }
 
-  // getCompanies() {
-  //   this.filter.customerFilter(this.currentProfile)
-  //   .subscribe(
-  //     (companies: Customer) => {
-  //       this.company = companies;
-  //     }
-  //   );
-  // }
+  getCompanies() {
+    this.filter.customerFilter(this.currentProfile)
+    .subscribe(
+      (companies: Customer) => {
+        this.company = companies;
+      }
+    );
+  }
 
   filterPartner(partner: String) {
     return this.partnerArr.find(company => company.CompanyName === partner);
