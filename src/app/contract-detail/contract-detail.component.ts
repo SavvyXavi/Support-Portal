@@ -53,16 +53,12 @@ export class ContractDetailComponent implements OnInit {
         this.contract = returnedContract;
         this.filter.assetsBySchedule(this.contract[0].ScheduleName)
         .subscribe(
-          (returnedAssets: Assets) => {
-            this.assets = returnedAssets;
-            console.log(this.assets);
-            console.log(this.contract[0].SheduleName);
+          (returnedAssetLength: Assets[]) => {
+          this.assetLength = returnedAssetLength;
+          this.assetDataSource = new MatTableDataSource(returnedAssetLength);
+          this.assetDataSource.sort = this.sort;
+          this.assetDataSource.paginator = this.paginator;
           }
-        );
-        this.filter.assetsBySchedule(this.contract[0].ScheduleName)
-        .subscribe(
-          (returnedAssetLength: Assets[]) =>
-            this.assetLength = returnedAssetLength
         );
       }
     );
