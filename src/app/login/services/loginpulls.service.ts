@@ -42,7 +42,7 @@ import { PartnerList } from '../../partner-list';
       'role': filter.partnerRole,
       'partner': this.partner
     };
-    return this.http.post(this.code, params);
+    return this.http.post(this.code, this.partner);
   }
 
 }
