@@ -71,8 +71,6 @@ a .asset-length, .asset-label{
    padding-right: 0;
    padding-bottom: 0;
    overflow: hidden;
-   /* background-image: url("../../assets/Mega-Assets.png");
-   background-size: cover; */
   }
 
  .asset-logo{
@@ -104,15 +102,15 @@ a .ticket-length, .ticket-label{
  }
 
  .ticket-logo{
-   opacity: .2;
+   opacity: .3;
    position: relative;
    left: 20px;
-   top: 15px;
+   top: 10px;
  }
 
  .ticket-icon {
-  width: 128px !important;
-  height: 128px !important;
+  width: 130px !important;
+  height: 130px !important;
  }
 
  a .companies-length, .companies-label{
@@ -130,6 +128,14 @@ a .ticket-length, .ticket-label{
    padding-bottom: 0;
    overflow: hidden;
  }
+
+ .company-logo{
+  opacity: .3;
+  position: relative;
+  left: 8px;
+  top: 10px;
+}
+
  .company-icon {
   width: 128px !important;
   height: 128px !important;
