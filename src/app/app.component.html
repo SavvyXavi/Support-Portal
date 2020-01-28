@@ -3,7 +3,7 @@
       <div class="header fixed-top col-md">
 <!--        <app-header *ngIf="router.url !== '/login' && router.url !== '/register' && router.url !== '/reset'"></app-header>
             <app-header *ngIf="router.url !== '/login' && router.url !== '/forgot' && router.url.indexOf('reset-password') == -1"></app-header> -->
-            <app-header *ngIf="router.url !== '/login?returnUrl=%2F' && router.url !== '/forgot' && router.url.indexOf('reset-password') < -1"></app-header>
+            <app-header *ngIf="router.url !== '/login?returnUrl=%2F' && router.url !== '/forgot' && router.url.indexOf('reset-password') > -1"></app-header>
 </div>
     </div>
     <div class="row">
