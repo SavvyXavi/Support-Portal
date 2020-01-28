@@ -17,7 +17,7 @@ import { MatPaginator, MatSort } from '@angular/material';
 })
 export class ContractDetailComponent implements OnInit {
   // contract: Contract;
-  contract: Contracts;
+  contract: Contracts[];
   assets: Assets;
   assetLength: Assets[];
 
@@ -49,22 +49,22 @@ export class ContractDetailComponent implements OnInit {
     this.route.snapshot.paramMap.get('refNumber');
     this.filter.conByRef(refNumber)
     .subscribe(
-      (returnedContract: Contracts) => {
+      (returnedContract: Contracts[]) => {
         this.contract = returnedContract;
         console.log(this.contract + ' 1');
-        this.filter.assetsBySchedule(this.contract.scheduleName)
-        .subscribe(
-          (returnedAssets: Assets) => {
-            this.assets = returnedAssets;
-            console.log(this.contract.scheduleName + ' 2 parse');
+        // this.filter.assetsBySchedule(this.contract.scheduleName)
+        // .subscribe(
+        //   (returnedAssets: Assets) => {
+        //     this.assets = returnedAssets;
+        //     console.log(this.contract + ' 2 parse');
 
-          }
-        );
-        this.filter.assetsBySchedule(JSON.stringify(this.contract.scheduleName))
-        .subscribe(
-          (returnedAssetLength: Assets[]) =>
-            this.assetLength = returnedAssetLength
-        );
+        //   }
+        // );
+        // this.filter.assetsBySchedule(JSON.stringify(this.contract.scheduleName))
+        // .subscribe(
+        //   (returnedAssetLength: Assets[]) =>
+        //     this.assetLength = returnedAssetLength
+        // );
       }
     );
   }
