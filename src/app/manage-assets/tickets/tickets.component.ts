@@ -99,7 +99,7 @@ export class TicketsComponent implements OnInit {
 
   getTickets() {
     if (this.filterPartner(this.currentProfile.partner)) {
-      this.filter.partAssetsFilter(this.filteredProfile)
+      this.filter.partTicketsFilter(this.filteredProfile)
       .subscribe(
         (returnedAssets: Tickets[]) => {
           this.ticketLength = returnedAssets;
@@ -109,7 +109,7 @@ export class TicketsComponent implements OnInit {
         }
       );
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      this.filter.custAssetsFilter(this.filteredProfile)
+      this.filter.partTicketsFilter(this.filteredProfile)
       .subscribe(
         (returnedAssetLength: Tickets[]) => {
           this.ticketLength = returnedAssetLength;
