@@ -17,13 +17,14 @@ import { PartnerList } from '../../partner-list';
 
  export class LoginpullsService {
   profile: Profile;
-  partner: Partner;
+  // partner: Partner;
   partnerlist = PartnerList;
 
   code = 
   '$https://harmonyprodpartnersone.azurewebsites.net/api/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
   locationsapi =
   'https://prodharmony.azurewebsites.net/api/LocationsByCustomer?code=lOUnhasaC78wc6wyFKiG/loAC7aa0blBIca91Y/BdexlvkqGyEGMXw==';
+partner = 'Mega Monolithic Corp';
 
   constructor(
     private auth: AuthenticationService,
