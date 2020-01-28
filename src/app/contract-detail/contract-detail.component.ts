@@ -53,13 +53,15 @@ export class ContractDetailComponent implements OnInit {
         this.contract = JSON.parse(returnedContract[0]);
         console.log(this.contract);
         console.log(this.contract.scheduleName);
-        // this.filter.assetsBySchedule(this.contract.scheduleName)
-        // .subscribe(
-        //   (returnedAssets: Assets) => {
-        //     this.assets = returnedAssets;
-        //     console.log(this.contract + ' 2 parse');
-
-        //   }
+        const rcsname = this.contract.scheduleName;
+        this.filter.assetsBySchedule(rcsname)
+        .subscribe(
+          (returnedAssets: Assets) => {
+            this.assets = returnedAssets;
+            console.log(this.assets);
+            console.log(rcsname);
+          }
+        );
         // );
         // this.filter.assetsBySchedule(JSON.stringify(this.contract.scheduleName))
         // .subscribe(
