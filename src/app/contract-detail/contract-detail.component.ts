@@ -60,6 +60,12 @@ export class ContractDetailComponent implements OnInit {
           this.assetDataSource.paginator = this.paginator;
           }
         );
+        this.filter.assetsBySchedule(this.contract[0].ScheduleName)
+        .subscribe(
+          (returnedAsset: Assets) => {
+            this.assets = returnedAsset;
+          }
+        );
       }
     );
   }

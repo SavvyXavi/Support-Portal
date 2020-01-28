@@ -129,7 +129,12 @@
           </div>
 
           <div class="tabe-pane locations fade" id="location" role="tabpanel" aria-labelledby="location-tab">
-            Locations go here!
+            <div class="form-goup">
+              <label for="siteAddress">
+                Address of Asset <br>
+                <input readonly type="text" [(ngModel)]="this.assets.siteAddress" placeholder="Start Date" />
+              </label>
+            </div>
           </div>
         </div>
           <br>
