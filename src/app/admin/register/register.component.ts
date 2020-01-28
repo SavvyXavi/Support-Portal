@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   profile: Profile[];
   twoprofile: Profile;
   partner: Profile;
-  company: Profile;
+  company: Profile[];
   twocompany: Profile;
   selpartner: Profile;
 
@@ -98,8 +98,8 @@ export class RegisterComponent implements OnInit {
   }
 
   getcompany(partner: any) {
-  this.loginpullsService.getCompanyList(partner).subscribe((profile: Profile) => {
-    this.twocompany = this.company;
+  this.loginpullsService.getCompanyList(partner).subscribe((company: Profile) => {
+    this.twocompany = company;
   });
   }
 }
