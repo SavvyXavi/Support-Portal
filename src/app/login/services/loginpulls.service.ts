@@ -40,7 +40,7 @@ import { PartnerList } from '../../partner-list';
   getCompanyList(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
-      'partner': filter.partner
+      'partner': this.partner
     };
     return this.http.post(this.code, params);
   }
