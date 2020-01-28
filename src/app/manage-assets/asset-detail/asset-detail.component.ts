@@ -20,7 +20,7 @@ export class AssetDetailComponent implements OnInit {
   contract: Contracts;
   contractLength: Contracts[];
 
-  displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
+  displayedColumns: string[] = ['Contract Name', 'Start Date', 'Renewal Date', 'Contract#', 'Customer', 'Status'];
   contractDataSource: MatTableDataSource<Contracts>;
   searchKey: string;
 
