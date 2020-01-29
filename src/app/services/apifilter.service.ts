@@ -6,13 +6,9 @@ import { Profile } from '../login/models/profile';
 import { ProfileService } from '../login/services/profile.service';
 
 import { Filter } from './../models/filter';
-import { Role } from '../types/role.enum';
-import { Assets } from '../manage-assets/models/assets';
 import { Contracts } from './../manage-assets/models/contracts';
-import { SpecContract } from './../manage-assets/models/spec-contract';
 import { HttpClient } from '@angular/common/http';
 
-import { Customer } from './../admin/models/customer';
 import { Partner } from '../models/partner';
 import { PartnerList } from '../partner-list';
 
@@ -56,7 +52,7 @@ export class ApifilterService {
   pTicketsApi
    = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
 
-  locationsapi =
+  pLocationsapi =
   'https://prodharmony.azurewebsites.net/api/LocationsByCustomer?code=lOUnhasaC78wc6wyFKiG/loAC7aa0blBIca91Y/BdexlvkqGyEGMXw==';
 
   constructor(
@@ -155,10 +151,10 @@ export class ApifilterService {
     return this.http.post(this.customerApi, params);
   }
 
-  locationFilter(filter: Filter) {
+  partLocationFilter(filter: Filter) {
     const params = {
       'company': filter.partner
     };
-    return this.http.post(this.locationsapi, params);
+    return this.http.post(this.pLocationsapi, params);
   }
 }

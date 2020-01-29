@@ -3,7 +3,7 @@ import { TicketType } from './../../types/ticket-type.enum';
 export class Tickets {
   title: string;
   description: string;
-  customerNameOrId?: string;
+  CustomerName: string;
   assetId: string;
   slaSeverity: string;
   visibleToCustomer?: true;

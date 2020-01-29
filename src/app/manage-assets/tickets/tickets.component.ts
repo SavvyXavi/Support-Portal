@@ -141,4 +141,32 @@ export class TicketsComponent implements OnInit {
     }
   }
 
+
+
+
+  // getCustomers() {
+  //   this.filter.companyFilter(this.currentProfile.partner)
+  //   .subscribe(
+  //     (returnedCompanies: Customer)  => this.customerArr = returnedCompanies
+  //   );
+  // }
+
+
+  // getTickets() {
+  //   this.filter.ticketsFilter()
+  //   .subscribe(
+  //     (returnedTickets: Tickets[]) => {
+  //       this.ticketLength = returnedTickets;
+  //     }
+  //   );
+  // }
+
+  // filterTickets(tickets: string) {
+  //   return this.ticketLength.find(ticket => ticket.CustomerName === tickets);
+  // }
+
+  // displayTickets() {
+  //  console.log(this.filterTickets(this.customerArr.companyName));
+  // }
+
 }

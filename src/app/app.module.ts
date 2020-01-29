@@ -1,11 +1,9 @@
-// import { fakeBackendProvider } from './login/helpers/fake-backend.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-// import { MaterialModule } from './materials/material/material.module';
 
 import { JwtInterceptor } from './login/helpers/jwt.service';
 import { ErrorInterceptor } from './login/helpers/error-interceptor.service';
@@ -13,7 +11,6 @@ import { AuthGuard } from './login/guards/auth.guard';
 import { AuthenticationService } from './login/services/authentication.service';
 import { AlertService } from './login/services/alert.service';
 import { LoginpullsService } from './login/services/loginpulls.service';
-// import { ProfileService } from './login/services/profile.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
@@ -50,7 +47,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 
 import { ResetUserComponent } from './reset-user/reset-user.component';
-import { ContractDetailComponent } from './contract-detail/contract-detail.component';
+import { ContractDetailComponent } from './manage-assets/contracts/contract-detail/contract-detail.component';
 import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.component';
 import { AdminComponent } from './admin/admin.component';
 import { LocationsComponent } from './locations/locations.component';
@@ -58,6 +55,7 @@ import { LocationDetailsComponent } from './locations/location-details/location-
 import { ResetComponent } from './login/reset/reset.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
+import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/ticket-detail.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +93,7 @@ import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.c
     LocationDetailsComponent,
     ResetComponent,
     RegisterComponent,
+    TicketDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -119,7 +118,6 @@ import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.c
     LoginpullsService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    // fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })
