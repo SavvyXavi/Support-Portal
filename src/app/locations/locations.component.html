@@ -7,27 +7,6 @@
   </button>
 </div>
 <div class="table-container table-responsive-sm">
-<table class="table table-bordered rouned">
-    <thead>
-     <tr>
-        <th>Description</th>
-        <th>Street</th>
-        <th>City</th>
-        <th>Zip</th>
-        <th>Country</th>
-        <th>Company</th>
-      </tr>
-    </thead>
-     <tr *ngFor='let data of locations'>
-      <td> {{data.Description}} </td>
-      <td> {{data.Address1}} </td>
-      <td> {{data.Town}} </td>
-      <td> {{data.Postcode}}</td>
-      <td> {{data.Country}} </td>
-      <td> {{data.CompanyName}} </td>
-     </tr>
-   </table>
-</div>
 
 <div class="search-div">
   <!-- <button mat-raised-button>
@@ -52,19 +31,19 @@
     </div>
 
     <!-- Address1 Column -->
-    <div matColumnDef="Address1">
+    <div matColumnDef="Street">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Street </th>
       <td *matCellDef="let location"> {{location.Address1}} </td>
     </div>
 
     <!-- Town Column -->
-    <div matColumnDef="Town">
+    <div matColumnDef="City">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
       <td mat-cell *matCellDef="let location"> {{location.Town}} </td>
     </div>
 
     <!-- PostCode Column -->
-    <div matColumnDef="PostCode">
+    <div matColumnDef="Zip Code">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Zip Code </th>
       <td mat-cell *matCellDef="let location"> {{location.PostCode}} </td>
     </div>
@@ -76,7 +55,7 @@
     </div>
 
     <!-- Company Column -->
-    <div matColumnDef="CompanyName">
+    <div matColumnDef="Company">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Company </th>
       <td mat-cell *matCellDef="let location"> {{location.CompanyName}} </td>
     </div>
@@ -86,4 +65,5 @@
   </table>
 
   <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" [pageSize]="10"></mat-paginator>
+</div>
 </div>

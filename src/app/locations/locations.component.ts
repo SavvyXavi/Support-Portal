@@ -23,7 +23,7 @@ export class LocationsComponent implements OnInit {
   locationLength: Location[];
 
   locationDataSource: MatTableDataSource<Location>;
-  displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
+  displayedColumns: string[] = ['Description', 'Street', 'City', 'Zip Code', 'Country', 'Company'];
 
   searchKey: string;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
