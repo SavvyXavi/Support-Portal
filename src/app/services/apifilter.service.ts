@@ -153,7 +153,7 @@ export class ApifilterService {
 
   partLocationFilter(filter: Filter) {
     const params = {
-      'company': filter.partner
+      'partner': filter.partner
     };
     return this.http.post(this.pLocationsapi, params);
   }
