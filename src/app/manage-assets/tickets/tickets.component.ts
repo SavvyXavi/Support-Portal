@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Profile } from '../../login/models/profile';
 import { Partner } from './../../models/partner';
 import { Filter } from '../../models/filter';
 import { Tickets } from './../models/tickets';
 import { TicketType } from '../../types/ticket-type.enum';
-import { ApiCallService } from './../services/api-call.service';
+
 import { AuthenticationService } from '../../login/services/authentication.service';
+import { ApifilterService } from '../../services/apifilter.service';
+import { ApiCallService } from './../services/api-call.service';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
 import { Subscription } from 'rxjs';
 
-import { ApifilterService } from '../../services/apifilter.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-tickets',
@@ -21,10 +23,8 @@ import { ApifilterService } from '../../services/apifilter.service';
 })
 
 export class TicketsComponent implements OnInit {
-  partnerArr: Partner[];
-
   tickets: Tickets;
-  ticketArray: Tickets[] = [];
+  ticketLength: Tickets[];
   ticketForm: FormGroup;
   newTicket: Tickets;
 
@@ -32,8 +32,18 @@ export class TicketsComponent implements OnInit {
   ticketTypeNameSubscription: Subscription;
 
   currentProfile: Profile;
+  displayedColumns: string[] =
+   ['Case#', 'Name', 'Status', 'Description', 'Schedule', 'Asset ID', 'Customer', 'Update Date', 'Update Since'];
 
-  editable = false;
+  partnerArr: Partner[];
+
+  ticketDataSource: MatTableDataSource<Tickets>;
+
+  searchKey: string;
+
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
+
     filteredProfile: Filter;
     filterSubsciption: Subscription;
 
@@ -63,7 +73,7 @@ export class TicketsComponent implements OnInit {
 
     );
     this.getPartners();
-    this.ticketFilter();
+    this.getTickets();
   }
 
   createTicket() {
@@ -87,18 +97,40 @@ export class TicketsComponent implements OnInit {
     return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
-  ticketFilter() {
+  getTickets() {
     if (this.filterPartner(this.currentProfile.partner)) {
       this.filter.partTicketsFilter(this.currentProfile)
       .subscribe(
-        (returnedTickets: Tickets) => this.tickets = returnedTickets
+        (returnedTickets: Tickets[]) => {
+          this.ticketLength = returnedTickets;
+          this.ticketDataSource = new MatTableDataSource(returnedTickets);
+          this.ticketDataSource.sort = this.sort;
+          this.ticketDataSource.paginator = this.paginator;
+        }
       );
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      // this.filter.custAssetsFilter(this.currentProfile)
-      // .subscribe(
-      //   (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
-      // );
+      this.filter.partTicketsFilter(this.currentProfile)
+      .subscribe(
+        (returnedTicketLength: Tickets[]) => {
+          this.ticketLength = returnedTicketLength;
+          this.ticketDataSource = new MatTableDataSource(returnedTicketLength);
+          this.ticketDataSource.sort = this.sort;
+          this.ticketDataSource.paginator = this.paginator;
+        }
+      );
     }
+  }
+
+  applyFilter() {
+    this.ticketDataSource.filter = this.searchKey.trim().toLowerCase();
+    if (this.ticketDataSource.paginator) {
+      this.ticketDataSource.paginator.firstPage();
+    }
+  }
+
+  searchClear() {
+    this.searchKey = '';
+    this.applyFilter();
   }
 
   getTicketTypeName() {

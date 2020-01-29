@@ -1,12 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Assets } from './models/assets';
-import { Contracts } from './models/contracts';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ApifilterService } from './../services/apifilter.service';
 import { AuthenticationService } from '../login/services/authentication.service';
-
-import { Subscription, merge } from 'rxjs';
 
 import { Partner } from '../models/partner';
 import { Filter } from '../models/filter';
@@ -25,16 +22,11 @@ export class ManageAssetsComponent implements OnInit {
   assetLength: Assets[];
   currentProfile: Profile;
   filteredProfile: Filter;
-  filterSubsciption: Subscription;
 
   displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
 
-  contract: Contracts;
-
   partnerArr: Partner[];
-  assetArr: Assets[];
 
-  assetObservable: Assets[];
   assetDataSource: MatTableDataSource<Assets>;
 
   searchKey: string;
@@ -48,7 +40,7 @@ export class ManageAssetsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
     ) {
-      this.filterSubsciption = this.authserv.currentUser.subscribe(
+      this.authserv.currentUser.subscribe(
         name => {
           this.filteredProfile = name ;
         }
@@ -58,7 +50,6 @@ export class ManageAssetsComponent implements OnInit {
   ngOnInit() {
     this.getPartners();
     this.getAssets();
-    // this.getContract();
   }
 
   getPartners() {
@@ -71,16 +62,6 @@ export class ManageAssetsComponent implements OnInit {
   filterPartner(partner: String) {
     return this.partnerArr.find(company => company.CompanyName === partner);
   }
-
-  // getContract() {
-  //   this.filter.conByRef('', this.assets.schedule)
-  //   .subscribe(
-  //     (returnedContract: Contracts) => {
-  //       this.contract = returnedContract;
-  //     }
-  //   );
-  //   this.router.navigate(['/contractdetail/' + this.contract.refNumber]);
-  // }
 
   getAssets() {
     if (this.filterPartner(this.filteredProfile.partner)) {

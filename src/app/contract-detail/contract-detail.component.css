@@ -9,6 +9,7 @@
 }
 
 
+
 .tab-wrapper {
   width: 100%;
 }
@@ -18,7 +19,7 @@
 }
 
 label {
-  width: 75%;
+  width: 80%;
 }
 
 input {
@@ -103,7 +104,11 @@ input {
     display: none;
   } */
 
-  .search-form-field button {
+  .mat-focused .mat-form-field-label {
+    color: rgb(230, 92, 0) !important;
+}
+
+.search-form-field button {
     height: 32px;
     width: 32px;
     border-radius: 8px;
