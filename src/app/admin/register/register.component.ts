@@ -77,18 +77,18 @@ export class RegisterComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
- //   if ( this.registerForm.invalid) {
-  //    return;
- //   }
+    if ( this.registerForm.invalid) {
+      return;
+    }
 
     this.loading = true;
-//    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
     this.profileService.register(this.registerForm.value)
       .pipe(first())
       .subscribe(
         data => {
           this.alertService.success('Registration successful', true);
- //         this.router.navigate(['/login']);
+          this.router.navigate(['/']);
         },
         error => {
           this.alertService.error(error);
