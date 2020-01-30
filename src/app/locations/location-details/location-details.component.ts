@@ -59,7 +59,7 @@ export class LocationDetailsComponent implements OnInit {
     .subscribe(
       (returnedLocation: CustomerLocation) => {
         this.specLocation = returnedLocation;
-        this.filter.assetsByLocation(this.specLocation[0])
+        this.filter.assetsByLocation(this.specLocation)
         .subscribe(
           (returnedAssets: Assets[]) => {
           this.assetLocationLength = returnedAssets;
