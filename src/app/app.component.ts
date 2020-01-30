@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     private authenticationService: AuthenticationService
     ) {
       this.authenticationService.logout();
-      this.router.navigate(['/login']);
+ //     this.router.navigate(['/login']);
     }
 
   ngOnInit() {}
