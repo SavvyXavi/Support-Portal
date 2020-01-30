@@ -31,9 +31,15 @@
     </div>
 
     <!-- Address1 Column -->
-    <div matColumnDef="Street">
+    <div matColumnDef="Street Address">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Street Address </th>
       <td *matCellDef="let company"> {{company.AddressLine1}} </td>
+    </div>
+
+    <!-- State -->
+    <div matColumnDef="State">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
+      <td *matCellDef="let company"> {{company.County}} </td>
     </div>
 
     <!-- Town Column -->
