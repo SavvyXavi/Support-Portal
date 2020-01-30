@@ -56,6 +56,7 @@ export class LocationsComponent implements OnInit {
 
 
   getLocations() {
+    console.log(this.currentProfile);
     if (this.filterPartner(this.currentProfile.partner)) {
       this.filter.partLocationFilter(this.currentProfile)
       .subscribe(
@@ -67,7 +68,7 @@ export class LocationsComponent implements OnInit {
         }
       );
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      this.filter.custAssetsFilter(this.currentProfile)
+      this.filter.custLocationFilter(this.currentProfile)
       .subscribe(
         (returnedLocations: CustomerLocation[]) => {
           this.locationLength = returnedLocations;
