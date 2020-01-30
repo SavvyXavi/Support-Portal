@@ -160,9 +160,7 @@ export class ApifilterService {
 
   customerFilter(filter: Filter) {
     const params = {
-        'partner': filter.partner,
-        'user': filter.firstName + ' ' + filter.lastName,
-        'email': filter.email
+        'partner': filter.partner
       };
     return this.http.post(this.customerApi, params);
   }

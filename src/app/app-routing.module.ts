@@ -1,3 +1,4 @@
+import { CompaniesComponent } from './companies/companies.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { AdminComponent } from './admin/admin.component';
@@ -164,6 +165,11 @@ const routes: Routes = [
   {
     path: 'locationdetail/:description',
     component: LocationDetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'companies',
+    component: CompaniesComponent,
     canActivate: [AuthGuard]
   },
   {
