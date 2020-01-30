@@ -33,9 +33,9 @@ export class LocationDetailsComponent implements OnInit {
   }
 
   getLocation() {
-    const companyname =
-      this.route.snapshot.paramMap.get('CompanyName');
-      console.log(companyname);
+    const description =
+      this.route.snapshot.paramMap.get('Description');
+      console.log(description);
     this.filter.partLocationFilter(this.currentProfile)
     .subscribe(
       (returnedLocation: Location) => {
