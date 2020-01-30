@@ -60,8 +60,8 @@ export class ApifilterService {
 
   pLocationsapi =
   'https://harmonyprodpartnersone.azurewebsites.net/api/LocationsByPartner?code=4rYRhjsKV710lRV0tXwOXlfMJkzwUp3mPnvpn2dpKA/FgbAYEPIxow==';
-  locationfilterapi =
-  '';
+  locationdescfilterapi =
+'https://harmonyprodcustomersone.azurewebsites.net/api/LocationByDescription?code=LlWycAaW502tdZ9EMsNbkqapKMVLR7yfsFJRapYhwAlXuqwpnp9ELA==';
   constructor(
     private profileService: ProfileService,
     private auth: AuthenticationService,
@@ -182,8 +182,8 @@ export class ApifilterService {
 
   locationFilter(desc: string) {
     const params = {
-      'desc': desc
+      'description': desc
     };
-    return this.http.post(this.locationfilterapi, params);
+    return this.http.post(this.locationdescfilterapi, params);
   }
 }
