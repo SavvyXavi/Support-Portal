@@ -30,7 +30,14 @@ export class AuthenticationService {
      return this.http.post<Profile>(`${environment.serverUrl}/profile/authenticate`, {username, password})
      .pipe(map( profile => {
        if (profile && profile.token) {
-         localStorage.setItem('currentUser', JSON.stringify(profile));
+        const saveInfo = {
+          'token': profile.token,
+          'partner': profile.partner,
+          'company': profile.company,
+          'companyPartner': profile.companyPartner,
+          'partnerRole': profile.partnerRole
+        };
+         localStorage.setItem('currentUser', JSON.stringify(saveInfo));
          this.currentUserSubject.next(profile);
        }
 

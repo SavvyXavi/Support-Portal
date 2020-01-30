@@ -3,8 +3,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
-import { first } from 'rxjs/operators';
-import { Subscription, Observable } from 'rxjs';
 import { Profile } from '../models/profile';
 
 @Component({
@@ -18,15 +16,13 @@ export class HeaderComponent implements OnInit {
   currentProfile: Profile;
   role: Role;
 
-  nameSubscription: Subscription;
-
   constructor (
     private router: Router,
     private authenticationService: AuthenticationService
     ) { }
 
   ngOnInit() {
-    this.nameSubscription = this.authenticationService.currentUser.subscribe(
+    this.authenticationService.currentUser.subscribe(
       name => {
         this.currentProfile = name;
       }

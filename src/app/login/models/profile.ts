@@ -13,5 +13,4 @@ export class Profile {
   company: string;
   companyPartner: string;
   createdDate: Date;
-  CompanyName: string;
 }
