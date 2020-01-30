@@ -61,13 +61,13 @@ export class LocationDetailsComponent implements OnInit {
         this.specLocation = returnedLocation;
         const siteAddress: string
          =
-    this.specLocation[0].Desrciption +
+      description +
       ' - ' +
       this.specLocation[0].Address1 +
-       ', ' + this.specLocation[0].Town +
-        ', ' + this.specLocation[0].County +
-         ', ' + this.specLocation[0].Postcode +
-          ', ' + this.specLocation[0].Country;
+      ', ' + this.specLocation[0].Town +
+      ', ' + this.specLocation[0].County +
+      ', ' + this.specLocation[0].Postcode +
+      ', ' + this.specLocation[0].Country;
         this.filter.assetsByLocation(siteAddress)
         .subscribe(
           (returnedAssets: Assets[]) => {
