@@ -4,7 +4,7 @@ import { ApifilterService } from './../services/apifilter.service';
 import { AuthenticationService } from './../login/services/authentication.service';
 
 import { Profile } from './../login/models/profile';
-import { Location } from './models/location';
+import { CustomerLocation } from './models/location';
 import { Partner } from './../models/partner';
 
 import { MatTableDataSource } from '@angular/material/table';
@@ -15,14 +15,14 @@ import { MatPaginator, MatSort } from '@angular/material';
   styleUrls: ['./locations.component.css']
 })
 export class LocationsComponent implements OnInit {
-  locations: Location;
+  locations: CustomerLocation;
   currentProfile: Profile;
 
   partnerArr: Partner[];
 
-  locationLength: Location[];
+  locationLength: CustomerLocation[];
 
-  locationDataSource: MatTableDataSource<Location>;
+  locationDataSource: MatTableDataSource<CustomerLocation>;
   displayedColumns: string[] = ['Description', 'Street', 'City', 'Zip Code', 'Country', 'Company'];
 
   searchKey: string;
@@ -59,7 +59,7 @@ export class LocationsComponent implements OnInit {
     if (this.filterPartner(this.currentProfile.partner)) {
       this.filter.partLocationFilter(this.currentProfile)
       .subscribe(
-        (returnedLocations: Location[]) => {
+        (returnedLocations: CustomerLocation[]) => {
           this.locationLength = returnedLocations;
           this.locationDataSource = new MatTableDataSource(returnedLocations);
           this.locationDataSource.sort = this.sort;
@@ -69,7 +69,7 @@ export class LocationsComponent implements OnInit {
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
       this.filter.custAssetsFilter(this.currentProfile)
       .subscribe(
-        (returnedLocations: Location[]) => {
+        (returnedLocations: CustomerLocation[]) => {
           this.locationLength = returnedLocations;
           this.locationDataSource = new MatTableDataSource(returnedLocations);
           this.locationDataSource.sort = this.sort;

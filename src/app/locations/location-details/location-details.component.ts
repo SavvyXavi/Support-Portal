@@ -1,12 +1,16 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { ApifilterService } from './../../services/apifilter.service';
 import { AuthenticationService } from './../../login/services/authentication.service';
 
 import { Profile } from '../../login/models/profile';
+import { CustomerLocation } from '../models/location';
+
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-location-details',
@@ -14,8 +18,16 @@ import { Profile } from '../../login/models/profile';
   styleUrls: ['./location-details.component.css']
 })
 export class LocationDetailsComponent implements OnInit {
-  @Input() specLocation: Location;
+  specLocation: CustomerLocation;
+  specLocationLength: CustomerLocation[];
+  locationDet: CustomerLocation[];
   currentProfile: Profile;
+
+  locationDataSource: MatTableDataSource<CustomerLocation>;
+
+  searchKey: string;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
 
   constructor(
     private location: Location,
@@ -34,12 +46,21 @@ export class LocationDetailsComponent implements OnInit {
 
   getLocation() {
     const description =
-      this.route.snapshot.paramMap.get('Description');
+      this.route.snapshot.paramMap.get('description');
       console.log(description);
     this.filter.partLocationFilter(this.currentProfile)
     .subscribe(
-      (returnedLocation: Location) => {
-        this.location = returnedLocation;
+      (returnedLocation: CustomerLocation) => {
+        this.specLocation = returnedLocation;
+        // this.filter.assetsBySchedule(this.contract[0].ScheduleName)
+        // .subscribe(
+        //   (returnedAssetLength: Assets[]) => {
+        //   this.assetLength = returnedAssetLength;
+        //   this.locationDataSource = new MatTableDataSource(returnedAssetLength);
+        //   this.locationDataSource.sort = this.sort;
+        //   this.locationDataSource.paginator = this.paginator;
+        //   }
+        // );
       }
     );
   }
