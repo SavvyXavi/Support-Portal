@@ -61,6 +61,8 @@ export class LocationDetailsComponent implements OnInit {
         this.specLocation = returnedLocation;
         console.log(this.specLocation);
         console.log(this.specLocation[0]);
+        console.log(this.specLocation.address1);
+        console.log(this.specLocation[0].Address1);
         this.filter.assetsByLocation(this.specLocation)
         .subscribe(
           (returnedAssets: Assets[]) => {
