@@ -4,7 +4,7 @@
       <div class="row">
               <div class="form-group col-md-10">
                 <label for="email">Enter Email for username</label>
-                  <input type="text" formControlName="email" class="form-control" autocomplete="username" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  placeholder="Enter Users Email address for Username" lowercase />
+                  <input type="text" formControlName="email" lowercase class="form-control" autocomplete="username" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  placeholder="Enter Users Email address for Username" />
                   <div *ngIf="submitted && !!f.email.errors" class="invalid-feedback">
                     <div *ngIf="!!f.email.errors.required">Email Address for username is required</div>
                   </div>
@@ -13,7 +13,7 @@
           <div class="row">
             <div class="form-group col-md-10">
               <label for="username">Re-enter Email for username</label>
-                <input type="text" formControlName="username" class="form-control" autocomplete="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"  placeholder="Re-enter Users Email address for Username" lowercase />
+                <input type="text" formControlName="username" lowercase class="form-control" autocomplete="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"  placeholder="Re-enter Users Email address for Username" />
                 <div *ngIf="submitted && !!f.username.errors" class="invalid-feedback">
                   <div *ngIf="!!f.username.errors.required">Email Address must be valid and match</div>
                 </div>
