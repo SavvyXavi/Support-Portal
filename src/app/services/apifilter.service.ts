@@ -100,10 +100,9 @@ export class ApifilterService {
     return this.http.post(this.serialassetsapi, params);
   }
 
-  assetsByLocation(filter: CustomerLocation) {
+  assetsByLocation(filter: string) {
     const params = {
-      'location':
-   filter.desription + ' - ' + filter.address1 + ', ' + filter.town + ', ' + filter.county + ', ' + filter.postcode + ', ' + filter.country
+      'location': filter
     };
     return this.http.post(this.assetlocationapi, params);
   }
@@ -116,10 +115,9 @@ export class ApifilterService {
     return this.http.post(this.pTicketsApi, params);
   }
 
-  ticketsLocationFilter(filter: CustomerLocation) {
+  ticketsLocationFilter(filter: string) {
     const params = {
-      'location':
-   filter.desription + ' - ' + filter.address1 + ', ' + filter.town + ', ' + filter.county + ', ' + filter.postcode + ', ' + filter.country
+      'location': filter
     };
     return this.http.post(this.ticketsLocationapi, params);
   }

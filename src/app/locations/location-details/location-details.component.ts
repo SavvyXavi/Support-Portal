@@ -59,11 +59,16 @@ export class LocationDetailsComponent implements OnInit {
     .subscribe(
       (returnedLocation: CustomerLocation) => {
         this.specLocation = returnedLocation;
-        console.log(this.specLocation);
-        console.log(this.specLocation[0]);
-        console.log(this.specLocation.address1);
-        console.log(this.specLocation[0].Address1);
-        this.filter.assetsByLocation(this.specLocation)
+        const siteAddress: string
+         =
+    this.specLocation[0].Desrciption +
+      ' - ' +
+      this.specLocation[0].Address1 +
+       ', ' + this.specLocation[0].Town +
+        ', ' + this.specLocation[0].County +
+         ', ' + this.specLocation[0].Postcode +
+          ', ' + this.specLocation[0].Country;
+        this.filter.assetsByLocation(siteAddress)
         .subscribe(
           (returnedAssets: Assets[]) => {
           this.assetLocationLength = returnedAssets;
@@ -72,7 +77,7 @@ export class LocationDetailsComponent implements OnInit {
           this.assetLocationDataSource.paginator = this.paginator;
           }
         );
-        this.filter.ticketsLocationFilter(this.specLocation[0])
+        this.filter.ticketsLocationFilter(siteAddress)
         .subscribe(
           (returnedTickets: Tickets[]) => {
             this.ticketLocationLength = returnedTickets;
