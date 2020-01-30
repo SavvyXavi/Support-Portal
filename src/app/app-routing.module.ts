@@ -1,3 +1,4 @@
+import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { UsersComponent } from './admin/users/users.component';
@@ -158,6 +159,11 @@ const routes: Routes = [
   {
     path: 'assetdetail/:identifier',
     component: AssetDetailComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'locationdetail/:description',
+    component: LocationDetailsComponent,
     canActivate: [AuthGuard]
   },
   {

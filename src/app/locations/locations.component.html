@@ -26,7 +26,7 @@
     <div matColumnDef="Description">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
       <td mat-cell *matCellDef="let location">
-        <a class="asset-link"> {{location.Description}} </a>
+        <a routerLink="/locationdetail/{{location.Description}}" class="asset-link"> {{location.Description}} </a>
       </td>
     </div>
 
@@ -45,7 +45,7 @@
     <!-- PostCode Column -->
     <div matColumnDef="Zip Code">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Zip Code </th>
-      <td mat-cell *matCellDef="let location"> {{location.PostCode}} </td>
+      <td mat-cell *matCellDef="let location"> {{location.Postcode}} </td>
     </div>
 
     <!-- Country Column -->

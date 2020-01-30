@@ -92,7 +92,7 @@
 
     <!-- Customer Column -->
     <div matColumnDef="Customer">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer </th>
       <td mat-cell *matCellDef="let ticket"> {{ticket.CustomerName}} </td>
     </div>
 
@@ -110,7 +110,7 @@
 
     <!-- Update Column -->
     <div matColumnDef="Update Date">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Update Date </th>
       <td mat-cell *matCellDef="let ticket"> {{ticket.UpdatedDate | date: 'shortDate'}} </td>
     </div>
 
