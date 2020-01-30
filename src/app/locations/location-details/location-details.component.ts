@@ -31,6 +31,8 @@ export class LocationDetailsComponent implements OnInit {
   ticketLocationDataSource: MatTableDataSource<Tickets>;
 
   assetDisplayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
+  ticketDisplayedColumns: string[] =
+  ['Case#', 'Name', 'Status', 'Description', 'Schedule', 'Asset ID', 'Customer', 'Update Date', 'Update Since'];
 
   assetSearchKey: string;
   ticketSearchKey: string;

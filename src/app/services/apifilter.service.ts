@@ -60,6 +60,8 @@ export class ApifilterService {
 
   pLocationsapi =
   'https://harmonyprodpartnersone.azurewebsites.net/api/LocationsByPartner?code=4rYRhjsKV710lRV0tXwOXlfMJkzwUp3mPnvpn2dpKA/FgbAYEPIxow==';
+  cLocationsapi =
+  '';
   locationdescfilterapi =
 'https://harmonyprodcustomersone.azurewebsites.net/api/LocationByDescription?code=LlWycAaW502tdZ9EMsNbkqapKMVLR7yfsFJRapYhwAlXuqwpnp9ELA==';
   constructor(
@@ -156,12 +158,6 @@ export class ApifilterService {
     return of(this.partnerlist);
   }
 
-  // getCompanies(filter: Filter) {
-  //   const Params = {
-  //     'partner'
-  //   }
-  // }
-
   customerFilter(filter: Filter) {
     const params = {
         'partner': filter.partner,
@@ -176,6 +172,13 @@ export class ApifilterService {
       'partner': filter.partner
     };
     return this.http.post(this.pLocationsapi, params);
+  }
+
+  custLocationFilter(filter: Filter) {
+    const params = {
+      'company': filter.company
+    };
+    return this.http.post(this.cLocationsapi, params);
   }
 
   locationFilter(desc: string) {
