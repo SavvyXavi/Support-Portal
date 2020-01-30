@@ -8,9 +8,11 @@ import { AuthenticationService } from './../../login/services/authentication.ser
 
 import { Profile } from '../../login/models/profile';
 import { CustomerLocation } from '../models/location';
+import { Assets } from './../../manage-assets/models/assets';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatSort } from '@angular/material';
+import { Tickets } from 'src/app/manage-assets/models/tickets';
 
 @Component({
   selector: 'app-location-details',
@@ -20,12 +22,18 @@ import { MatPaginator, MatSort } from '@angular/material';
 export class LocationDetailsComponent implements OnInit {
   specLocation: CustomerLocation;
   specLocationLength: CustomerLocation[];
-  locationDet: CustomerLocation[];
   currentProfile: Profile;
 
-  locationDataSource: MatTableDataSource<CustomerLocation>;
+  assetLocationLength: Assets[];
+  assetLocationDataSource: MatTableDataSource<Assets>;
 
-  searchKey: string;
+  ticketLocationLength: Tickets[];
+  ticketLocationDataSource: MatTableDataSource<Tickets>;
+
+  assetDisplayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
+
+  assetSearchKey: string;
+  ticketSearchKey: string;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
 
@@ -47,25 +55,57 @@ export class LocationDetailsComponent implements OnInit {
   getLocation() {
     const description =
       this.route.snapshot.paramMap.get('description');
-      console.log(description);
-    this.filter.partLocationFilter(this.currentProfile)
+    this.filter.locationFilter(description)
     .subscribe(
       (returnedLocation: CustomerLocation) => {
         this.specLocation = returnedLocation;
-        // this.filter.assetsBySchedule(this.contract[0].ScheduleName)
-        // .subscribe(
-        //   (returnedAssetLength: Assets[]) => {
-        //   this.assetLength = returnedAssetLength;
-        //   this.locationDataSource = new MatTableDataSource(returnedAssetLength);
-        //   this.locationDataSource.sort = this.sort;
-        //   this.locationDataSource.paginator = this.paginator;
-        //   }
-        // );
+        this.filter.assetsByLocation(this.specLocation[0])
+        .subscribe(
+          (returnedAssets: Assets[]) => {
+          this.assetLocationLength = returnedAssets;
+          this.assetLocationDataSource = new MatTableDataSource(returnedAssets);
+          this.assetLocationDataSource.sort = this.sort;
+          this.assetLocationDataSource.paginator = this.paginator;
+          }
+        );
+        this.filter.ticketsLocationFilter(this.specLocation[0])
+        .subscribe(
+          (returnedTickets: Tickets[]) => {
+            this.ticketLocationLength = returnedTickets;
+            this.ticketLocationDataSource = new MatTableDataSource(returnedTickets);
+            this.ticketLocationDataSource.sort = this.sort;
+            this.ticketLocationDataSource.paginator = this.paginator;
+          }
+        );
       }
     );
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  applyTicketFilter() {
+    this.ticketLocationDataSource.filter = this.assetSearchKey.trim().toLowerCase();
+    if (this.ticketLocationDataSource.paginator) {
+      this.ticketLocationDataSource.paginator.firstPage();
+    }
+  }
+
+  searchTicketClear() {
+    this.ticketSearchKey = '';
+    this.applyTicketFilter();
+  }
+
+  applyAssetFilter() {
+    this.assetLocationDataSource.filter = this.assetSearchKey.trim().toLowerCase();
+    if (this.assetLocationDataSource.paginator) {
+      this.assetLocationDataSource.paginator.firstPage();
+    }
+  }
+
+  searchAssetClear() {
+    this.assetSearchKey = '';
+    this.applyAssetFilter();
   }
 }

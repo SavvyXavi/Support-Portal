@@ -3,6 +3,7 @@ export class CustomerLocation {
   address1: string;
   address2: string;
   town: string;
+  county: string;
   postcode: string;
   country: string;
   companyname: string;

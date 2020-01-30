@@ -9,6 +9,7 @@ import { Filter } from './../models/filter';
 import { Contracts } from './../manage-assets/models/contracts';
 import { HttpClient } from '@angular/common/http';
 
+import { CustomerLocation } from './../locations/models/location';
 import { Partner } from '../models/partner';
 import { PartnerList } from '../partner-list';
 
@@ -47,14 +48,20 @@ export class ApifilterService {
   = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsBySchedule?code=Q3Yjx/KXbuErLesg4oBVs5BJrdFdOMkXn0T/HoLO6hDrCavd45iN9A==';
   serialassetsapi
   = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetDrillDown?code=cwjoeQCF3Qx5PwX0xfLJDclqyxjEyW/gZppvvS6K/g07nFSOTfudrg==';
+  assetlocationapi =
+  'https://harmonyprodcustomersone.azurewebsites.net/api/AssetsByLocation?code=aO2JTfqrHEJNatGh3FIlDHs90/fGncezd7CVxMfZX/lqR9ZoyHvIYw==';
 
 
   pTicketsApi
    = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
+  ticketsLocationapi =
+  'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByLocation?code=Dj9Nn0m5gd3RuNDO5E/xq9r7AqN7S0z34mrL2bsSwxkANwga/1iJyQ==';
+
 
   pLocationsapi =
   'https://harmonyprodpartnersone.azurewebsites.net/api/LocationsByPartner?code=4rYRhjsKV710lRV0tXwOXlfMJkzwUp3mPnvpn2dpKA/FgbAYEPIxow==';
-
+  locationfilterapi =
+  '';
   constructor(
     private profileService: ProfileService,
     private auth: AuthenticationService,
@@ -93,13 +100,28 @@ export class ApifilterService {
     return this.http.post(this.serialassetsapi, params);
   }
 
+  assetsByLocation(filter: CustomerLocation) {
+    const params = {
+      'location':
+   filter.desription + ' - ' + filter.address1 + ', ' + filter.town + ', ' + filter.county + ', ' + filter.postcode + ', ' + filter.country
+    };
+    return this.http.post(this.assetlocationapi, params);
+  }
+
   partTicketsFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
       'partner': filter.partner
     };
-
     return this.http.post(this.pTicketsApi, params);
+  }
+
+  ticketsLocationFilter(filter: CustomerLocation) {
+    const params = {
+      'location':
+   filter.desription + ' - ' + filter.address1 + ', ' + filter.town + ', ' + filter.county + ', ' + filter.postcode + ', ' + filter.country
+    };
+    return this.http.post(this.ticketsLocationapi, params);
   }
 
   partConFilter(filter: Filter) {
@@ -156,5 +178,12 @@ export class ApifilterService {
       'partner': filter.partner
     };
     return this.http.post(this.pLocationsapi, params);
+  }
+
+  locationFilter(desc: string) {
+    const params = {
+      'desc': desc
+    };
+    return this.http.post(this.locationfilterapi, params);
   }
 }
