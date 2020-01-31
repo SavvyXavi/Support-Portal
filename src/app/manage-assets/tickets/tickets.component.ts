@@ -29,6 +29,9 @@ export class TicketsComponent implements OnInit {
   ticketForm: FormGroup;
   newTicket: Tickets;
 
+  testin: string;
+
+
   ticketType: TicketType;
   ticketTypeNameSubscription: Subscription;
 
@@ -100,6 +103,8 @@ export class TicketsComponent implements OnInit {
 
   getTickets() {
     if (this.currentProfile.companypartner === 'Partner') {
+      this.testin = 'ran well';
+
       this.filter.ticketsFilter()
       .subscribe(
         (returnedTickets: Tickets[]) => {
@@ -122,6 +127,7 @@ export class TicketsComponent implements OnInit {
         }
       );
     } else {
+      this.testin = 'ran under else';
       this.filter.ticketsFilter()
       .subscribe(
         (returnedTickets: Tickets[]) => {
