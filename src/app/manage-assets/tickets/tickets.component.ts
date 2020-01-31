@@ -110,19 +110,18 @@ export class TicketsComponent implements OnInit {
           this.filter.customerFilter(this.currentProfile)
           .subscribe(
             (returnedCompanies: Company) => {
-              if (
-                returnedTickets.find(tickets => tickets.CustomerName === returnedCompanies.CompanyName)
-                // returnedCompanies.CompanyName.includes(returnedTickets)
-                ){
-                  this.testin = 'ran well part 2';
+             for (let i; i < returnedTickets.length; i++)
+             {
+               if (returnedTickets[i].CustomerName === returnedCompanies.CompanyName) {
+                   this.testin = 'ran well part 2';
                   this.ticketLength = returnedTickets;
                   this.ticketDataSource = new MatTableDataSource(returnedTickets);
                   this.ticketDataSource.sort = this.sort;
                   this.ticketDataSource.paginator = this.paginator;
                   console.log(this.ticketLength + ' Partner');
-
+               }
+               this.testin = 'skipped';
               }
-              this.testin = 'skipped';
             }
           );
         }

@@ -1,7 +1,7 @@
 import { TicketType } from './../../types/ticket-type.enum';
 
 export class Tickets {
-  title: string;
+  Title: string;
   RefNumber: string;
   description: string;
   CustomerName: string;
