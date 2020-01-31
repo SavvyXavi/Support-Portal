@@ -1,3 +1,4 @@
+import { Customer } from './../../admin/models/customer';
 import { Company } from './../../companies/model/company';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
@@ -105,46 +106,30 @@ export class TicketsComponent implements OnInit {
 
   getTickets() {
     if (this.currentProfile.companypartner === 'Partner') {
-
-      this.filter.ticketsFilter()
+      this.filter.customerFilter(this.currentProfile)
       .subscribe(
-        (returnedTickets: Tickets) => {
-          this.filter.customerFilter(this.currentProfile)
-          .subscribe(
-            (returnedCompanies: Company) => {
-              this.twocompanylist = returnedCompanies;
-              console.log(this.twocompanylist);
-              console.log(returnedTickets);
-            //  for (let i; i < returnedTickets.length; i++)
-            //   {
-            //    if (returnedTickets[i].CustomerName === returnedCompanies.CompanyName) {
-            //        this.testin = 'ran well part 2';
-            //       this.ticketLength = returnedTickets;
-            //       this.ticketDataSource = new MatTableDataSource(returnedTickets);
-            //       this.ticketDataSource.sort = this.sort;
-            //       this.ticketDataSource.paginator = this.paginator;
-            //       console.log(this.ticketLength + ' Partner');
-            //    }
-            //    this.testin = 'skipped';
-            //   }
-            }
-          );
+        (returnedCustomers: Company[]) => {
+          for (let i; i <= returnedCustomers.length; i++) {
+            this.filter.ticketsFilter(returnedCustomers[i].CompanyName)
+            .subscribe(
+              (returnedTickets: Tickets[]) => {
+                this.ticketLength = returnedTickets;
+                this.ticketDataSource = new MatTableDataSource(returnedTickets);
+                this.ticketDataSource.sort = this.sort;
+                this.ticketDataSource.paginator = this.paginator;
+              }
+            );
+          }
         }
       );
     } else {
-      this.filter.ticketsFilter()
+      this.filter.ticketsFilter(this.currentProfile.company)
       .subscribe(
         (returnedTickets: Tickets[]) => {
-          if (
-            returnedTickets.find(tickets => tickets.CustomerName === this.currentProfile.company)
-            // returnedCompanies.CompanyName.includes(returnedTickets)
-            ) {
-              this.ticketLength = returnedTickets;
-              this.ticketDataSource = new MatTableDataSource(returnedTickets);
-              this.ticketDataSource.sort = this.sort;
-              this.ticketDataSource.paginator = this.paginator;
-          }
-          console.log(this.ticketLength + ' Company');
+          this.ticketLength = returnedTickets;
+          this.ticketDataSource = new MatTableDataSource(returnedTickets);
+          this.ticketDataSource.sort = this.sort;
+          this.ticketDataSource.paginator = this.paginator;
         }
       );
     }
