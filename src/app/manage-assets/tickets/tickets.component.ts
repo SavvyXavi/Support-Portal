@@ -99,6 +99,7 @@ export class TicketsComponent implements OnInit {
   }
 
   getTickets() {
+    console.log(this.currentProfile.companyPartner);
     if (this.currentProfile.companyPartner === 'Partner') {
       this.filter.ticketsFilter()
       .subscribe(
