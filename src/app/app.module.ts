@@ -15,7 +15,6 @@ import { LoginpullsService } from './login/services/loginpulls.service';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
 import { AlertComponent } from './login/alert/alert.component';
-import { RegistrationComponent } from './login/registration/registration.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
 import { NorthComponent } from './north/north.component';
@@ -63,7 +62,7 @@ import { CompaniesComponent } from './companies/companies.component';
     AppComponent,
     LoginComponent,
     AlertComponent,
-    RegistrationComponent,
+    RegisterComponent,
     DashboardComponent,
     SuppdashComponent,
     NorthComponent,

@@ -9,7 +9,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule,  } from '@angular/router';
 
 import { LoginComponent } from './login/login/login.component';
-import { RegistrationComponent } from './login/registration/registration.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
 import { NorthComponent } from './north/north.component';
