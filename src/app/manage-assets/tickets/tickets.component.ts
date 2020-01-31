@@ -115,6 +115,7 @@ export class TicketsComponent implements OnInit {
               this.twocompanylist = returnedCompanies;
               console.log(this.twocompanylist.AddressLine1);
               console.log(this.twocompanylist);
+              console.log(returnedTickets);
              for (let i; i < returnedTickets.length; i++)
               {
                if (returnedTickets[i].CustomerName === returnedCompanies.CompanyName) {
