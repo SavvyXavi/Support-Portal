@@ -111,8 +111,8 @@ export class ApifilterService {
     return this.http.post(this.assetlocationapi, params);
   }
 
-  ticketsFilter(): Observable<Tickets[]> {
-    return this.http.get<Tickets[]>(this.ticketsApi);
+  ticketsFilter() {
+    return this.http.get(this.ticketsApi);
   }
 
   partTicketsFilter(filter: Filter) {
