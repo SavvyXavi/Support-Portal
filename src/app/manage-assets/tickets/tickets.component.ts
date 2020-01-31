@@ -112,6 +112,8 @@ export class TicketsComponent implements OnInit {
           this.filter.customerFilter(this.currentProfile)
           .subscribe(
             (returnedCompanies: Company[]) => {
+              console.log(returnedCompanies + ' company 1');
+              console.log(returnedTickets + ' ticket 1');
              for (let a; a <= returnedCompanies.length; a++) {
                 for (let b; b <= returnedTickets.length; b++) {
                   console.log(returnedTickets + ' Tickets');
