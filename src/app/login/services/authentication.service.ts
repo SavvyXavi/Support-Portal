@@ -34,7 +34,7 @@ export class AuthenticationService {
           'token': profile.token,
           'partner': profile.partner,
           'company': profile.company,
-          'companyPartner': profile.companyPartner,
+          'companypartner': profile.companyPartner,
           'partnerRole': profile.partnerRole
         };
          localStorage.setItem('currentUser', JSON.stringify(saveInfo));
