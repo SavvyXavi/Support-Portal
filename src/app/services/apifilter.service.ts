@@ -9,6 +9,7 @@ import { Filter } from './../models/filter';
 import { Contracts } from './../manage-assets/models/contracts';
 import { HttpClient } from '@angular/common/http';
 
+import { Tickets } from './../manage-assets/models/tickets';
 import { CustomerLocation } from './../locations/models/location';
 import { Partner } from '../models/partner';
 import { PartnerList } from '../partner-list';
@@ -52,8 +53,10 @@ export class ApifilterService {
   'https://harmonyprodcustomersone.azurewebsites.net/api/AssetsByLocation?code=aO2JTfqrHEJNatGh3FIlDHs90/fGncezd7CVxMfZX/lqR9ZoyHvIYw==';
 
 
-  pTicketsApi
-   = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
+  // pTicketsApi
+  //  = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
+  ticketsApi =
+  'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
   ticketsLocationapi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByLocation?code=Dj9Nn0m5gd3RuNDO5E/xq9r7AqN7S0z34mrL2bsSwxkANwga/1iJyQ==';
 
@@ -109,12 +112,12 @@ export class ApifilterService {
     return this.http.post(this.assetlocationapi, params);
   }
 
-  partTicketsFilter(filter: Filter) {
-    const params = {
-      'role': filter.partnerRole,
-      'partner': filter.partner
-    };
-    return this.http.post(this.pTicketsApi, params);
+  ticketsFilter() {
+    // const params = {
+    //   'role': filter.partnerRole,
+    //   'partner': filter.partner
+    // };
+    return this.http.get(this.ticketsApi);
   }
 
   ticketsLocationFilter(filter: string) {

@@ -98,27 +98,33 @@ export class TicketsComponent implements OnInit {
   }
 
   getTickets() {
-    if (this.filterPartner(this.currentProfile.partner)) {
-      this.filter.partTicketsFilter(this.currentProfile)
-      .subscribe(
-        (returnedTickets: Tickets[]) => {
-          this.ticketLength = returnedTickets;
-          this.ticketDataSource = new MatTableDataSource(returnedTickets);
-          this.ticketDataSource.sort = this.sort;
-          this.ticketDataSource.paginator = this.paginator;
-        }
-      );
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      this.filter.partTicketsFilter(this.currentProfile)
-      .subscribe(
-        (returnedTicketLength: Tickets[]) => {
-          this.ticketLength = returnedTicketLength;
-          this.ticketDataSource = new MatTableDataSource(returnedTicketLength);
-          this.ticketDataSource.sort = this.sort;
-          this.ticketDataSource.paginator = this.paginator;
-        }
-      );
-    }
+    this.filter.ticketsFilter()
+    .subscribe(
+      (returnedTickets: Tickets) => {
+        if (returnedTickets.CustomerName ) {}
+      }
+    );
+    // if (this.filterPartner(this.currentProfile.partner)) {
+    //   this.filter.ticketsFilter(this.currentProfile)
+    //   .subscribe(
+    //     (returnedTickets: Tickets[]) => {
+    //       this.ticketLength = returnedTickets;
+    //       this.ticketDataSource = new MatTableDataSource(returnedTickets);
+    //       this.ticketDataSource.sort = this.sort;
+    //       this.ticketDataSource.paginator = this.paginator;
+    //     }
+    //   );
+    // } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+    //   this.filter.ticketsFilter(this.currentProfile)
+    //   .subscribe(
+    //     (returnedTicketLength: Tickets[]) => {
+    //       this.ticketLength = returnedTicketLength;
+    //       this.ticketDataSource = new MatTableDataSource(returnedTicketLength);
+    //       this.ticketDataSource.sort = this.sort;
+    //       this.ticketDataSource.paginator = this.paginator;
+    //     }
+    //   );
+    // }
   }
 
   applyFilter() {
