@@ -98,6 +98,7 @@ export class TicketsComponent implements OnInit {
   }
 
   getTickets() {
+    console.log(this.currentProfile);
     this.filter.ticketsFilter()
     .subscribe(
       (returnedTickets: Tickets) => {
