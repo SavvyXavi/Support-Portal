@@ -114,10 +114,11 @@ export class TicketsComponent implements OnInit {
                   this.ticketDataSource = new MatTableDataSource(returnedTickets);
                   this.ticketDataSource.sort = this.sort;
                   this.ticketDataSource.paginator = this.paginator;
+                  console.log(this.ticketLength + ' Partner');
+
               }
             }
           );
-          console.log(this.ticketLength);
         }
       );
     } else {
@@ -133,6 +134,7 @@ export class TicketsComponent implements OnInit {
               this.ticketDataSource.sort = this.sort;
               this.ticketDataSource.paginator = this.paginator;
           }
+          console.log(this.ticketLength + ' Company');
         }
       );
     }
