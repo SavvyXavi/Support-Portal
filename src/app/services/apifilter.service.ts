@@ -77,7 +77,6 @@ export class ApifilterService {
       'role': filter.partnerRole,
       'partner': filter.partner
     };
-
     return this.http.post(this.partassetsapi, params);
   }
 
@@ -86,7 +85,6 @@ export class ApifilterService {
       'role': filter.partnerRole,
       'partner': filter.partner
     };
-
     return this.http.post(this.custassetsapi, params);
   }
 
