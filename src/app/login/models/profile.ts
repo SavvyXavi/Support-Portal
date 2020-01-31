@@ -11,6 +11,6 @@ export class Profile {
   partner: string;
   partnerRole: string;
   company: string;
-  companyPartner: string;
+  companypartner: string;
   createdDate: Date;
 }
