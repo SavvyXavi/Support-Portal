@@ -113,7 +113,6 @@ export class TicketsComponent implements OnInit {
           .subscribe(
             (returnedCompanies: Company) => {
               this.twocompanylist = returnedCompanies;
-              console.log(this.twocompanylist.AddressLine1);
               console.log(this.twocompanylist);
               console.log(returnedTickets);
             //  for (let i; i < returnedTickets.length; i++)
