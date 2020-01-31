@@ -103,7 +103,6 @@ export class TicketsComponent implements OnInit {
 
   getTickets() {
     if (this.currentProfile.companypartner === 'Partner') {
-      this.testin = 'ran well';
 
       this.filter.ticketsFilter()
       .subscribe(
@@ -114,7 +113,8 @@ export class TicketsComponent implements OnInit {
               if (
                 returnedTickets.find(tickets => tickets.CustomerName === returnedCompanies.CompanyName)
                 // returnedCompanies.CompanyName.includes(returnedTickets)
-                ) {
+                ){
+                  this.testin = 'ran well part 2';
                   this.ticketLength = returnedTickets;
                   this.ticketDataSource = new MatTableDataSource(returnedTickets);
                   this.ticketDataSource.sort = this.sort;
@@ -122,12 +122,12 @@ export class TicketsComponent implements OnInit {
                   console.log(this.ticketLength + ' Partner');
 
               }
+              this.testin = 'skipped';
             }
           );
         }
       );
     } else {
-      this.testin = 'ran under else';
       this.filter.ticketsFilter()
       .subscribe(
         (returnedTickets: Tickets[]) => {
