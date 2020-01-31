@@ -114,6 +114,8 @@ export class TicketsComponent implements OnInit {
             (returnedCompanies: Company[]) => {
              for (let a; a <= returnedCompanies.length; a++) {
                 for (let b; b <= returnedTickets.length; b++) {
+                  console.log(returnedTickets + ' Tickets');
+                  console.log(returnedCompanies + ' Companies');
                   if (returnedCompanies[a].CompanyName === returnedTickets[b].CustomerName) {
                   this.testin = 'ran well part 2';
                   this.ticketLength = returnedTickets;
