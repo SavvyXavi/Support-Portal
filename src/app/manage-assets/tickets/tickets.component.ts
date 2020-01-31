@@ -112,8 +112,8 @@ export class TicketsComponent implements OnInit {
           this.filter.customerFilter(this.currentProfile)
           .subscribe(
             (returnedCompanies: Company[]) => {
-             for (let i; i < returnedTickets.length; i++) {
-               if (returnedTickets[i].CustomerName === returnedCompanies[i].CompanyName) {
+             for (let i; i <= returnedTickets.length; i++) {
+               if (returnedCompanies[i].CompanyName === returnedTickets[i].CustomerName) {
                    this.testin = 'ran well part 2';
                   this.ticketLength = returnedTickets;
                   this.ticketDataSource = new MatTableDataSource(returnedTickets);
