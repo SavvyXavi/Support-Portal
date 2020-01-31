@@ -111,7 +111,7 @@ export class TicketsComponent implements OnInit {
         (returnedTickets: Tickets[]) => {
           this.filter.customerFilter(this.currentProfile)
           .subscribe(
-            (returnedCompanies: Company) => {
+            (returnedCompanies: Company[]) => {
              for (let i; i < returnedTickets.length; i++) {
                if (returnedTickets[i].CustomerName === returnedCompanies[i].CompanyName) {
                    this.testin = 'ran well part 2';
