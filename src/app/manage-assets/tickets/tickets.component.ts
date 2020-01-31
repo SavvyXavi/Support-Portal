@@ -99,9 +99,6 @@ export class TicketsComponent implements OnInit {
   }
 
   getTickets() {
-    console.log(this.currentProfile.companypartner);
-    console.log(this.currentProfile.partner);
-    console.log(this.currentProfile);
     if (this.currentProfile.companypartner === 'Partner') {
       this.filter.ticketsFilter()
       .subscribe(
@@ -120,9 +117,10 @@ export class TicketsComponent implements OnInit {
               }
             }
           );
+          console.log(this.ticketLength);
         }
       );
-    } else if (this.currentProfile.companypartner === 'Company') {
+    } else {
       this.filter.ticketsFilter()
       .subscribe(
         (returnedTickets: Tickets[]) => {
