@@ -29,6 +29,8 @@ export class TicketsComponent implements OnInit {
   ticketForm: FormGroup;
   newTicket: Tickets;
 
+  companylist: Company[];
+  twocompanylist: Company;
   testin: string;
 
 
@@ -110,10 +112,11 @@ export class TicketsComponent implements OnInit {
           this.filter.customerFilter(this.currentProfile)
           .subscribe(
             (returnedCompanies: Company) => {
-              console.log(returnedCompanies.CompanyName);
-              console.log(returnedCompanies);
+              this.twocompanylist = returnedCompanies;
+              console.log(this.twocompanylist.CompanyName);
+              console.log(this.twocompanylist);
              for (let i; i < returnedTickets.length; i++)
-             {
+              {
                if (returnedTickets[i].CustomerName === returnedCompanies.CompanyName) {
                    this.testin = 'ran well part 2';
                   this.ticketLength = returnedTickets;
