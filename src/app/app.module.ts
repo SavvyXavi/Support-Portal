@@ -56,6 +56,7 @@ import { ResetComponent } from './login/reset/reset.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/ticket-detail.component';
+import { CompaniesComponent } from './companies/companies.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/tic
     ResetComponent,
     RegisterComponent,
     TicketDetailComponent,
+    CompaniesComponent,
   ],
   imports: [
     BrowserModule,

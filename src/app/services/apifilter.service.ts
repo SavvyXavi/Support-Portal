@@ -54,6 +54,8 @@ export class ApifilterService {
 
   pTicketsApi
    = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
+  ticketsApi =
+  'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
   ticketsLocationapi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByLocation?code=Dj9Nn0m5gd3RuNDO5E/xq9r7AqN7S0z34mrL2bsSwxkANwga/1iJyQ==';
 
@@ -109,6 +111,10 @@ export class ApifilterService {
     return this.http.post(this.assetlocationapi, params);
   }
 
+  ticketsFilter() {
+    return this.http.get(this.ticketsApi);
+  }
+
   partTicketsFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
@@ -160,9 +166,7 @@ export class ApifilterService {
 
   customerFilter(filter: Filter) {
     const params = {
-        'partner': filter.partner,
-        'user': filter.firstName + ' ' + filter.lastName,
-        'email': filter.email
+        'partner': filter.partner
       };
     return this.http.post(this.customerApi, params);
   }
