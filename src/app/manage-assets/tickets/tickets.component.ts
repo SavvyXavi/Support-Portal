@@ -108,7 +108,7 @@ export class TicketsComponent implements OnInit {
 
       this.filter.ticketsFilter()
       .subscribe(
-        (returnedTickets: Tickets[]) => {
+        returnedTickets => {
           this.filter.customerFilter(this.currentProfile)
           .subscribe(
             (returnedCompanies: Company) => {

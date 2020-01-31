@@ -9,7 +9,7 @@ import { Filter } from './../models/filter';
 import { Contracts } from './../manage-assets/models/contracts';
 import { HttpClient } from '@angular/common/http';
 
-import { CustomerLocation } from './../locations/models/location';
+import { Tickets } from 'src/app/manage-assets/models/tickets';
 import { Partner } from '../models/partner';
 import { PartnerList } from '../partner-list';
 
@@ -111,8 +111,8 @@ export class ApifilterService {
     return this.http.post(this.assetlocationapi, params);
   }
 
-  ticketsFilter() {
-    return this.http.get(this.ticketsApi);
+  ticketsFilter(): Observable<Tickets[]> {
+    return this.http.get<Tickets[]>(this.ticketsApi);
   }
 
   partTicketsFilter(filter: Filter) {
