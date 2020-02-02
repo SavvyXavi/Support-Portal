@@ -108,8 +108,8 @@ export class TicketsComponent implements OnInit {
     if (this.currentProfile.companypartner === 'Partner') {
       this.filter.customerFilter(this.currentProfile)
       .subscribe(
-        (returnedCustomers: Company[]) => {
-          console.log(returnedCustomers.find(c => c.CompanyName));
+        (returnedCustomers: Company) => {
+          console.log(returnedCustomers.CompanyName.valueOf());
           console.log(returnedCustomers);
             this.filter.ticketsFilter(returnedCustomers[1].CompanyName)
             .subscribe(
