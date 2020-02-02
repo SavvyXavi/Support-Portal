@@ -109,7 +109,7 @@ export class TicketsComponent implements OnInit {
       this.filter.customerFilter(this.currentProfile)
       .subscribe(
         (returnedCustomers: Company[]) => {
-          for (let i; i <= returnedCustomers.length; i++) {
+          for (let i = 1; i <= returnedCustomers.length; i++) {
             this.filter.ticketsFilter(returnedCustomers[i].CompanyName)
             .subscribe(
               (returnedTickets: Tickets[]) => {
