@@ -113,7 +113,7 @@ export class TicketsComponent implements OnInit {
             this.filter.ticketsFilter(returnedCustomers[1].CompanyName)
             .subscribe(
               (returnedTickets: Tickets[]) => {
-                this.testin = 'still in the loop';
+                this.testin = 'still in the loop 1';
                 this.ticketLength = returnedTickets;
                 this.ticketDataSource = new MatTableDataSource(returnedTickets);
                 this.ticketDataSource.sort = this.sort;
