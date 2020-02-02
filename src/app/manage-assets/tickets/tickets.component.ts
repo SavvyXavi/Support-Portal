@@ -108,12 +108,12 @@ export class TicketsComponent implements OnInit {
     if (this.currentProfile.companypartner === 'Partner') {
       this.filter.customerFilter(this.currentProfile)
       .subscribe(
-        (returnedCustomers: Company) => {
+        (returnedCustomers: Company[]) => {
           console.log(returnedCustomers);
             this.filter.ticketsFilter(returnedCustomers[1].CompanyName)
             .subscribe(
               (returnedTickets: Tickets[]) => {
-                this.testin = 'still in the loop 1';
+                this.testin = 'still in the loop 2';
                 this.ticketLength = returnedTickets;
                 this.ticketDataSource = new MatTableDataSource(returnedTickets);
                 this.ticketDataSource.sort = this.sort;
