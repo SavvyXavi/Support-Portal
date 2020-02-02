@@ -110,6 +110,7 @@ export class TicketsComponent implements OnInit {
       .subscribe(
         (returnedCustomers: Company[]) => {
           for (let i = 1; i <= returnedCustomers.length; i++) {
+            this.testin = 'in the loop';
             this.filter.ticketsFilter(returnedCustomers[i].CompanyName)
             .subscribe(
               (returnedTickets: Tickets[]) => {
