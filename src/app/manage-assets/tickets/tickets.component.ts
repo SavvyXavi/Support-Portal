@@ -109,8 +109,12 @@ export class TicketsComponent implements OnInit {
       this.filter.customerFilter(this.currentProfile)
       .subscribe(
         (returnedCustomers: Company[]) => {
-          console.log(returnedCustomers);
-            this.filter.ticketsFilter(returnedCustomers[1].CompanyName)
+          this.companylist = returnedCustomers;
+          for (let i = 0; i<=this.companylist.length; i++) {
+            console.log(this.companylist[i].CompanyName + ' values');
+
+          }
+          this.filter.ticketsFilter(returnedCustomers[1].CompanyName)
             .subscribe(
               (returnedTickets: Tickets[]) => {
                 this.testin = 'still in the loop 2';
