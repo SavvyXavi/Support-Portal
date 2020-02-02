@@ -56,7 +56,6 @@ export class LocationsComponent implements OnInit {
 
 
   getLocations() {
-    console.log(this.currentProfile);
     if (this.filterPartner(this.currentProfile.partner)) {
       this.filter.partLocationFilter(this.currentProfile)
       .subscribe(

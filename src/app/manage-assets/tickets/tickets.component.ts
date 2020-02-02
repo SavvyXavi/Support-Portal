@@ -31,7 +31,7 @@ export class TicketsComponent implements OnInit {
   newTicket: Tickets;
 
   companylist: Company[];
-  twocompanylist: Company;
+  company: Company;
   testin: string;
 
 
@@ -108,20 +108,18 @@ export class TicketsComponent implements OnInit {
     if (this.currentProfile.companypartner === 'Partner') {
       this.filter.customerFilter(this.currentProfile)
       .subscribe(
-        (returnedCustomers: Company[]) => {
-          for (let i = 1; i <= returnedCustomers.length; i++) {
-            this.filter.ticketsFilter(returnedCustomers[i].CompanyName)
+        (returnedCustomers: Company) => {
+            this.filter.ticketsFilter(returnedCustomers.CompanyName)
             .subscribe(
               (returnedTickets: Tickets[]) => {
                 this.testin = 'still in the loop';
-
                 this.ticketLength = returnedTickets;
                 this.ticketDataSource = new MatTableDataSource(returnedTickets);
                 this.ticketDataSource.sort = this.sort;
                 this.ticketDataSource.paginator = this.paginator;
               }
             );
-          }
+
         }
       );
     } else {
