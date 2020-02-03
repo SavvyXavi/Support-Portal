@@ -116,7 +116,7 @@ export class TicketsComponent implements OnInit {
             .subscribe(
               (returnedTickets: Tickets[]) => {
               this.ticketLength = returnedTickets.filter(tickets => tickets.CustomerName === this.company.CompanyName);
-
+                console.log(this.ticketLength);
                     this.testin = 'in the loop';
                     // this.ticketLength = returnedTickets;
                     this.ticketDataSource = new MatTableDataSource(this.ticketLength);
