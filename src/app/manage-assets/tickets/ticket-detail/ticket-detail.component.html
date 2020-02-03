@@ -39,10 +39,10 @@
                 <a class="nav-link active" id="detail-tab" data-toggle="tab" href="#detail" role="tab" aria-controls="detail" aria-selected="true">Details</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="asset-tab" data-toggle="tab" href="#assets" role="tab" aria-controls="assets" aria-selected="false">Assets ({{this.assetLength?.length}})</a>
+                <a class="nav-link" id="asset-tab" data-toggle="tab" href="#assets" role="tab" aria-controls="assets" aria-selected="false">Asset</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="contract-tab" data-toggle="tab" href="#contract" role="tab" aria-controls="contracts" aria-selected="false">Contracts</a>
+                <a class="nav-link" id="contract-tab" data-toggle="tab" href="#contract" role="tab" aria-controls="contracts" aria-selected="false">Contract</a>
               </li>
             </ul>
           </div>
@@ -60,20 +60,26 @@
             </div>
             <div class="form-goup">
               <label for="endCustomer">
-                Customer <br>
-                <input readonly type="text" [(ngModel)]="data.EndCustomerName" placeholder="End Customer" />
+                Status <br>
+                <input readonly type="text" [(ngModel)]="data.Status" placeholder="Status" />
               </label>
             </div>
             <div class="form-goup">
               <label for="startDate">
-                Start Date <br>
-                <input readonly type="text" [(ngModel)]="data.StartDate" placeholder="Start Date" />
+                Description <br>
+                <input readonly type="text" [(ngModel)]="data.Body" placeholder="Description" />
               </label>
             </div>
             <div class="form-goup">
               <label for="renewalDate">
-                Renewal Date <br>
-                <input readonly type="text" [(ngModel)]="data.RenewalDate" placeholder="Renewal Date" />
+                Created Date <br>
+                <input readonly type="text" [(ngModel)]="data.CreatedDate" placeholder="Renewal Date" />
+              </label>
+            </div>
+            <div class="form-goup">
+              <label for="renewalDate">
+                Updated On <br>
+                <input readonly type="text" [(ngModel)]="data.UpdatedDate" placeholder="Renewal Date" />
               </label>
             </div>
           </div>
