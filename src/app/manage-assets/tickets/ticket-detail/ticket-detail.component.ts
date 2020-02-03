@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Tickets } from 'src/app/manage-assets/models/tickets';
+import { Assets } from './../../models/assets';
 
 import { ApifilterService } from '../../../services/apifilter.service';
 import { Location } from '@angular/common';
@@ -17,9 +18,11 @@ import { MatPaginator, MatSort } from '@angular/material';
 export class TicketDetailComponent implements OnInit {
   ticket: Tickets;
 
-  displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
-  ticketDataSource: MatTableDataSource<Tickets>;
+  assetdisplayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
+  assetDataSource: MatTableDataSource<Assets>;
   searchKey: string;
+
+
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
 
@@ -38,9 +41,34 @@ export class TicketDetailComponent implements OnInit {
     this.route.snapshot.paramMap.get('RefNumber');
     this.filter.ticketRefFilter(refNumber)
     .subscribe(
-      (returnedTickets: Tickets) =>
-      this.ticket = returnedTickets
+      (returnedTickets: Tickets) =>{
+        this.ticket = returnedTickets;
+        this.filter.assetsBySerial(this.ticket.assetId)
+        .subscribe(
+          (returnedAsset: Assets[]) => {
+            this.assetDataSource = new MatTableDataSource(returnedAsset);
+            this.assetDataSource.sort = this.sort;
+            this.assetDataSource.paginator = this.paginator;
+          }
+        );
+      }
     );
+  }
+
+  applyFilter() {
+    this.assetDataSource.filter = this.searchKey.trim().toLowerCase();
+    if (this.assetDataSource.paginator) {
+      this.assetDataSource.paginator.firstPage();
+    }
+  }
+
+  searchClear() {
+    this.searchKey = '';
+    this.applyFilter();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

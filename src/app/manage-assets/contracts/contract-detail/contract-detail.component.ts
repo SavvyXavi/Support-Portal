@@ -72,6 +72,7 @@ export class ContractDetailComponent implements OnInit {
     this.searchKey = '';
     this.applyFilter();
   }
+
   goBack(): void {
     this.location.back();
   }
