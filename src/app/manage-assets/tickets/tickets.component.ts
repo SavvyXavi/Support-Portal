@@ -115,15 +115,15 @@ export class TicketsComponent implements OnInit {
           this.filter.ticketsFilter(this.company.CompanyName)
             .subscribe(
               (returnedTickets: Tickets[]) => {
-                for ( let i = 0; i <= returnedTickets.length; i++) {
-                  if (returnedTickets[i].CustomerName === this.company.CompanyName) {
+              this.ticketLength = returnedTickets.filter(tickets => tickets.CustomerName === this.company.CompanyName);
+
                     this.testin = 'in the loop';
-                    this.ticketLength = returnedTickets;
-                    this.ticketDataSource = new MatTableDataSource(returnedTickets);
+                    // this.ticketLength = returnedTickets;
+                    this.ticketDataSource = new MatTableDataSource(this.ticketLength);
                     this.ticketDataSource.sort = this.sort;
                     this.ticketDataSource.paginator = this.paginator;
-                  }
-                }
+
+
               }
             );
           }
