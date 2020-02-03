@@ -185,7 +185,7 @@ export class ApifilterService {
     const params = {
       'partner': filter.partner
     };
-    return this.http.post(this.pLocationsapi, params);
+    return this.http.get(this.pLocationsapi);
   }
 
   custLocationFilter(filter: Filter) {
