@@ -108,25 +108,15 @@ export class TicketsComponent implements OnInit {
 
   getTickets() {
     if (this.currentProfile.companypartner === 'Partner') {
-      this.filter.customerFilter(this.currentProfile)
+      this.filter.partTicketsFilter(this.currentProfile)
       .subscribe(
-        (returnedCustomers: Company) => {
-          this.company = returnedCustomers;
-          this.filter.ticketsFilter(this.company.CompanyName)
-            .subscribe(
-              (returnedTickets: Tickets[]) => {
-              this.ticketLength = returnedTickets.filter(tickets => tickets.CustomerName.valueOf() === this.company.CompanyName);
-                console.log(this.ticketLength);
-                    this.testin = 'in the loop';
-                    // this.ticketLength = returnedTickets;
-                    this.ticketDataSource = new MatTableDataSource(this.ticketLength);
-                    this.ticketDataSource.sort = this.sort;
-                    this.ticketDataSource.paginator = this.paginator;
-
-
-              }
-            );
-          }
+        (returnedTickets: Tickets[]) => {
+          this.testin = 'in the loop';
+          this.ticketLength = returnedTickets;
+          this.ticketDataSource = new MatTableDataSource(this.ticketLength);
+          this.ticketDataSource.sort = this.sort;
+          this.ticketDataSource.paginator = this.paginator;
+        }
       );
     } else {
       this.filter.ticketsFilter(this.currentProfile.company)
