@@ -111,8 +111,11 @@ export class ApifilterService {
     return this.http.post(this.assetlocationapi, params);
   }
 
-  ticketsFilter() {
-    return this.http.get(this.ticketsApi);
+  ticketsFilter(filter: string[]) {
+    const params = {
+      'company': filter
+    };
+    return this.http.post(this.ticketsApi, params);
   }
 
   partTicketsFilter(filter: Filter) {

@@ -32,7 +32,7 @@ export class TicketsComponent implements OnInit {
   ticketForm: FormGroup;
   newTicket: Tickets;
 
-  companylist: Company[];
+  companylist: string[];
   company: Company[];
   testin: string;
 
@@ -111,13 +111,12 @@ export class TicketsComponent implements OnInit {
       this.filter.customerFilter(this.currentProfile)
       .subscribe(
         (returnedCustomers: Company[]) => {
-          this.companylist = returnedCustomers;
-            // console.log(this.companylist[i].CompanyName + ' values');
-            // this.company.CompanyName.valueOf() = this.companylist.map(c => c.CompanyName
-          this.filter.ticketsFilter()
+          this.companylist = returnedCustomers.map(cust => cust.CompanyName);
+
+          this.filter.ticketsFilter(this.companylist)
             .subscribe(
               (returnedTickets: Tickets[]) => {
-                // this.ticketCustomer = returnedTickets.map(c => c.CustomerName);
+                this.ticketCustomer = returnedTickets.map(c => c.CustomerName);
                 // for (let i = 0; i <= returnedTickets.length; i++) {
                 //   for (let b = 0; b <= this.companylist.length; b++) {
                 //     if (returnedTickets[i].CustomerName.includes(this.companylist[b].CompanyName)) {
@@ -140,7 +139,7 @@ export class TicketsComponent implements OnInit {
         }
       );
     } else {
-      this.filter.ticketsFilter()
+      this.filter.ticketsFilter(this.currentProfile[1])
       .subscribe(
         (returnedTickets: Tickets[]) => {
           this.testin = 'Completely skipped';
