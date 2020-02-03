@@ -39,10 +39,10 @@
                 <a class="nav-link active" id="detail-tab" data-toggle="tab" href="#detail" role="tab" aria-controls="detail" aria-selected="true">Details</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="asset-tab" data-toggle="tab" href="#assets" role="tab" aria-controls="assets" aria-selected="false">Covered Assets ({{this.assetLength?.length}})</a>
+                <a class="nav-link" id="asset-tab" data-toggle="tab" href="#assets" role="tab" aria-controls="assets" aria-selected="false">Assets ({{this.assetLength?.length}})</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="location" aria-selected="false">Locations</a>
+                <a class="nav-link" id="contract-tab" data-toggle="tab" href="#contract" role="tab" aria-controls="contracts" aria-selected="false">Contracts</a>
               </li>
             </ul>
           </div>
@@ -138,7 +138,7 @@
             </div>
           </div>
 
-          <div class="tab-pane locations fade" id="location" role="tabpanel" aria-labelledby="location-tab">
+          <div class="tab-pane contract fade" id="contract" role="tabpanel" aria-labelledby="contract-tab">
             <div class="form-goup">
               <label *ngFor="let asset of assets" for="siteAddress">
                 Address of Asset

@@ -111,7 +111,7 @@ export class ApifilterService {
     return this.http.post(this.assetlocationapi, params);
   }
 
-  ticketsFilter(filter: string[]) {
+  ticketsFilter(filter: string) {
     const params = {
       'company': filter
     };

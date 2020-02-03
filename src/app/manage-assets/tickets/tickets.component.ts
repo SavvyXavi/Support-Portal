@@ -112,30 +112,18 @@ export class TicketsComponent implements OnInit {
       .subscribe(
         (returnedCustomers: Company[]) => {
           this.companylist = returnedCustomers.map(cust => cust.CompanyName);
-
-          this.filter.ticketsFilter(this.companylist)
+          for (let i = 0; i <= this.companylist.length; i++) {
+          this.filter.ticketsFilter(this.companylist[i])
             .subscribe(
               (returnedTickets: Tickets[]) => {
-                this.ticketCustomer = returnedTickets.map(c => c.CustomerName);
-                // for (let i = 0; i <= returnedTickets.length; i++) {
-                //   for (let b = 0; b <= this.companylist.length; b++) {
-                //     if (returnedTickets[i].CustomerName.includes(this.companylist[b].CompanyName)) {
-                //       this.testin = 'It came this far!';
-                //       this.ticketLength = returnedTickets;
-                //       this.ticketDataSource = new MatTableDataSource(returnedTickets);
-                //       this.ticketDataSource.sort = this.sort;
-                //       this.ticketDataSource.paginator = this.paginator;
-                //     }
-                //   }
-                // }
-                this.testin = 'still in the loop 2';
+                this.testin = 'in the loop';
                 this.ticketLength = returnedTickets;
                 this.ticketDataSource = new MatTableDataSource(returnedTickets);
                 this.ticketDataSource.sort = this.sort;
                 this.ticketDataSource.paginator = this.paginator;
               }
             );
-
+          }
         }
       );
     } else {
