@@ -1,3 +1,4 @@
+import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/ticket-detail.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { RegisterComponent } from './admin/register/register.component';
@@ -164,6 +165,11 @@ const routes: Routes = [
   {
     path: 'locationdetail/:description',
     component: LocationDetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'ticketdetail/:refNumber',
+    component: TicketDetailComponent,
     canActivate: [AuthGuard]
   },
   {

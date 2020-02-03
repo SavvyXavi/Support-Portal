@@ -26,6 +26,8 @@ import { MatPaginator, MatSort } from '@angular/material';
 
 export class TicketsComponent implements OnInit {
   tickets: Tickets;
+  ticketCustomer: string[];
+
   ticketLength: Tickets[];
   ticketForm: FormGroup;
   newTicket: Tickets;
@@ -110,13 +112,23 @@ export class TicketsComponent implements OnInit {
       .subscribe(
         (returnedCustomers: Company[]) => {
           this.companylist = returnedCustomers;
-          for (let i = 0; i <= this.companylist.length; i++) {
             // console.log(this.companylist[i].CompanyName + ' values');
             // this.company.CompanyName.valueOf() = this.companylist.map(c => c.CompanyName
-
-          this.filter.ticketsFilter(this.companylist[i].CompanyName)
+          this.filter.ticketsFilter()
             .subscribe(
               (returnedTickets: Tickets[]) => {
+                // this.ticketCustomer = returnedTickets.map(c => c.CustomerName);
+                for (let i = 0; i <= returnedTickets.length; i++) {
+                  for (let b = 0; b <= this.companylist.length; b++) {
+                    if (returnedTickets[i].CustomerName.includes(this.companylist[b].CompanyName)) {
+                      this.testin = 'It came this far!';
+                      this.ticketLength = returnedTickets;
+                      this.ticketDataSource = new MatTableDataSource(returnedTickets);
+                      this.ticketDataSource.sort = this.sort;
+                      this.ticketDataSource.paginator = this.paginator;
+                    }
+                  }
+                }
                 this.testin = 'still in the loop 2';
                 this.ticketLength = returnedTickets;
                 this.ticketDataSource = new MatTableDataSource(returnedTickets);
@@ -124,13 +136,14 @@ export class TicketsComponent implements OnInit {
                 this.ticketDataSource.paginator = this.paginator;
               }
             );
-          }
+
         }
       );
     } else {
-      this.filter.ticketsFilter(this.currentProfile.company)
+      this.filter.ticketsFilter()
       .subscribe(
         (returnedTickets: Tickets[]) => {
+          this.testin = 'Completely skipped';
           this.ticketLength = returnedTickets;
           this.ticketDataSource = new MatTableDataSource(returnedTickets);
           this.ticketDataSource.sort = this.sort;

@@ -1,6 +1,6 @@
-import { AuthenticationService } from './../login/services/authentication.service';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
+import { AuthenticationService } from './../login/services/authentication.service';
 
 import { Profile } from '../login/models/profile';
 import { ProfileService } from '../login/services/profile.service';
@@ -9,7 +9,6 @@ import { Filter } from './../models/filter';
 import { Contracts } from './../manage-assets/models/contracts';
 import { HttpClient } from '@angular/common/http';
 
-import { Tickets } from 'src/app/manage-assets/models/tickets';
 import { Partner } from '../models/partner';
 import { PartnerList } from '../partner-list';
 
@@ -58,7 +57,8 @@ export class ApifilterService {
   'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
   ticketsLocationapi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByLocation?code=Dj9Nn0m5gd3RuNDO5E/xq9r7AqN7S0z34mrL2bsSwxkANwga/1iJyQ==';
-
+  ticketRefApi =
+  'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByRefNumber?code=O1Sok3K9e4QIPE/IGmb7YPdn/WlwY97zxeufiVVCmD2iw5FN8/8jyg==';
 
   pLocationsapi =
   'https://harmonyprodpartnersone.azurewebsites.net/api/LocationsByPartner?code=4rYRhjsKV710lRV0tXwOXlfMJkzwUp3mPnvpn2dpKA/FgbAYEPIxow==';
@@ -109,11 +109,8 @@ export class ApifilterService {
     return this.http.post(this.assetlocationapi, params);
   }
 
-  ticketsFilter(filter: string) {
-    const params = {
-      'company': filter
-    };
-    return this.http.post(this.ticketsApi, params);
+  ticketsFilter() {
+    return this.http.get(this.ticketsApi);
   }
 
   partTicketsFilter(filter: Filter) {
@@ -129,6 +126,13 @@ export class ApifilterService {
       'location': filter
     };
     return this.http.post(this.ticketsLocationapi, params);
+  }
+
+  ticketRefFilter(filter: string) {
+    const params = {
+      'refnumber': filter
+    };
+    return this.http.post(this.ticketRefApi, params);
   }
 
   partConFilter(filter: Filter) {
