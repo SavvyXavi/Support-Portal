@@ -38,7 +38,7 @@ export class TicketDetailComponent implements OnInit {
 
   getItems() {
     const refNumber =
-    this.route.snapshot.paramMap.get('RefNumber');
+    this.route.snapshot.paramMap.get('refNumber');
     this.filter.ticketRefFilter(refNumber)
     .subscribe(
       (returnedTickets: Tickets) => {
