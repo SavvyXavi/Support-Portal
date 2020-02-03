@@ -32,7 +32,6 @@ import { SupportComponent } from './admin/support/support.component';
 import { OemComponent } from './admin/oem/oem.component';
 import { ContractsComponent } from './manage-assets/contracts/contracts.component';
 import { UsersComponent } from './admin/users/users.component';
-import { AssetLocationsComponent } from './admin/asset-locations/asset-locations.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CustomersComponent } from './admin/customers/customers.component';
@@ -80,7 +79,6 @@ import { CompaniesComponent } from './companies/companies.component';
     OemComponent,
     ContractsComponent,
     UsersComponent,
-    AssetLocationsComponent,
     ProfileComponent,
     SettingsComponent,
     CustomersComponent,
