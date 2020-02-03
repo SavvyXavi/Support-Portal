@@ -31,7 +31,7 @@ export class TicketsComponent implements OnInit {
   newTicket: Tickets;
 
   companylist: Company[];
-  company: Company;
+  company: Company[];
   testin: string;
 
 
@@ -110,11 +110,11 @@ export class TicketsComponent implements OnInit {
       .subscribe(
         (returnedCustomers: Company[]) => {
           this.companylist = returnedCustomers;
-          for (let i = 0; i<=this.companylist.length; i++) {
-            console.log(this.companylist[i].CompanyName + ' values');
+          for (let i = 0; i <= this.companylist.length; i++) {
+            // console.log(this.companylist[i].CompanyName + ' values');
+            // this.company.CompanyName.valueOf() = this.companylist.map(c => c.CompanyName
 
-          }
-          this.filter.ticketsFilter(returnedCustomers[1].CompanyName)
+          this.filter.ticketsFilter(this.companylist[i].CompanyName)
             .subscribe(
               (returnedTickets: Tickets[]) => {
                 this.testin = 'still in the loop 2';
@@ -124,7 +124,7 @@ export class TicketsComponent implements OnInit {
                 this.ticketDataSource.paginator = this.paginator;
               }
             );
-
+          }
         }
       );
     } else {
