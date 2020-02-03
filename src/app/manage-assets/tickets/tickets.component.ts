@@ -32,8 +32,8 @@ export class TicketsComponent implements OnInit {
   ticketForm: FormGroup;
   newTicket: Tickets;
 
-  companylist: string[];
-  company: Company[];
+  companylist: Company[];
+  company: Company;
   testin: string;
 
 
@@ -110,24 +110,26 @@ export class TicketsComponent implements OnInit {
     if (this.currentProfile.companypartner === 'Partner') {
       this.filter.customerFilter(this.currentProfile)
       .subscribe(
-        (returnedCustomers: Company[]) => {
-          this.companylist = returnedCustomers.map(cust => cust.CompanyName);
-          for (let i = 0; i <= this.companylist.length; i++) {
-          this.filter.ticketsFilter(this.companylist[i])
+        (returnedCustomers: Company) => {
+          this.company = returnedCustomers;
+          this.filter.ticketsFilter(this.company.CompanyName)
             .subscribe(
               (returnedTickets: Tickets[]) => {
-                this.testin = 'in the loop';
-                this.ticketLength = returnedTickets;
-                this.ticketDataSource = new MatTableDataSource(returnedTickets);
-                this.ticketDataSource.sort = this.sort;
-                this.ticketDataSource.paginator = this.paginator;
+                for ( let i = 0; i <= returnedTickets.length; i++) {
+                  if (returnedTickets[i].CustomerName === this.company.CompanyName) {
+                    this.testin = 'in the loop';
+                    this.ticketLength = returnedTickets;
+                    this.ticketDataSource = new MatTableDataSource(returnedTickets);
+                    this.ticketDataSource.sort = this.sort;
+                    this.ticketDataSource.paginator = this.paginator;
+                  }
+                }
               }
             );
           }
-        }
       );
     } else {
-      this.filter.ticketsFilter(this.currentProfile[1])
+      this.filter.ticketsFilter(this.currentProfile.company)
       .subscribe(
         (returnedTickets: Tickets[]) => {
           this.testin = 'Completely skipped';
