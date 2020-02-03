@@ -115,7 +115,7 @@ export class TicketsComponent implements OnInit {
           this.filter.ticketsFilter(this.company.CompanyName)
             .subscribe(
               (returnedTickets: Tickets[]) => {
-              this.ticketLength = returnedTickets.filter(tickets => tickets.CustomerName === this.company.CompanyName);
+              this.ticketLength = returnedTickets.filter(tickets => tickets.CustomerName.valueOf() === this.company.CompanyName);
                 console.log(this.ticketLength);
                     this.testin = 'in the loop';
                     // this.ticketLength = returnedTickets;
