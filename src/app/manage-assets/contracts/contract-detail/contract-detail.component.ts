@@ -61,6 +61,14 @@ export class ContractDetailComponent implements OnInit {
     );
   }
 
+  groupAddress() {
+    for ( let i = 0; i <= this.assetLength.length; i++) {
+      if (this.assetLength[i].SiteAddress !== this.assetLength[i + 1].SiteAddress) {
+        return this.assetLength[i].SiteAddress;
+      }
+    }
+  }
+
   applyFilter() {
     this.assetDataSource.filter = this.searchKey.trim().toLowerCase();
     if (this.assetDataSource.paginator) {

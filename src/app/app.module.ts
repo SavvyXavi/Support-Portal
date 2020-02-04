@@ -55,6 +55,7 @@ import { RegisterComponent } from './admin/register/register.component';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/ticket-detail.component';
 import { CompaniesComponent } from './companies/companies.component';
+import { AssetLocFilterPipe } from './manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { CompaniesComponent } from './companies/companies.component';
     RegisterComponent,
     TicketDetailComponent,
     CompaniesComponent,
+    AssetLocFilterPipe,
   ],
   imports: [
     BrowserModule,

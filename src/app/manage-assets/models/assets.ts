@@ -9,4 +9,5 @@ export class Assets {
   archived: boolean;
   assetType: string;
   assetStatus: string;
+  SiteAddress: string;
 }
