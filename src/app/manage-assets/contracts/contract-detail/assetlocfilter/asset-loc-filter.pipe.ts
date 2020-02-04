@@ -7,12 +7,9 @@ import { Assets } from './../../../models/assets';
 export class AssetLocFilterPipe implements PipeTransform {
 
   transform(value: any[], filter: Object): any {
-    const address = [ ...new Set(value.map( ad => ad.SiteAddress))];
-    console.log(address);
+     return [...new Set(value.map( ad => ad.SiteAddress)) ];
 
-    // filter items array, items which match and return true will be
-    // kept, false will be filtered out
-    return address;
+
 }
 
 }
