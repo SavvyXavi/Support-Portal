@@ -35,6 +35,8 @@ export class GenericDashComponent implements OnInit {
   ticketLength: Tickets[];
   companyLength: Customer[];
 
+  contractChartData: Date[];
+
   partnerArr: Partner[];
 
   contractsData = [];
@@ -169,13 +171,14 @@ export class GenericDashComponent implements OnInit {
     const status = [];
     this.filter.partConFilter(this.currentProfile).subscribe(
       (res: Contract[]) => {
-        // status.push(res.status);
+        // this.contractChartData = JS;
+
+        // if(date > new Date(2011, 0, 1))
+        // filteredData.push(obj);
         const length = Object.keys(res).map(function(key) {
           return [String(key), res[key]];
         });
-        // console.log(res);
-        // console.log(res.status);
-        // console.log(length);
+
       }
     );
 
@@ -221,16 +224,14 @@ export class GenericDashComponent implements OnInit {
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+
             ],
             borderColor: [
                 'rgba(255, 0, 0, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+
             ],
             borderWidth: 1
         }]
