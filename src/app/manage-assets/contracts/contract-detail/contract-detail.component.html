@@ -141,7 +141,7 @@
           <div class="tab-pane locations fade" id="location" role="tabpanel" aria-labelledby="location-tab">
             <div class="form-goup">
               <label *ngFor="let asset of assets" for="siteAddress">
-                <div *ngIf="asset.SiteAddress == asset.SiteAddress">
+                <div *ngIf="asset.SiteAddress !== asset.SiteAddress">
                   <input readonly type="text" [(ngModel)]="asset.Identifier + ' - ' + asset.SiteAddress" placeholder="Asset Location">
 
                 </div>
