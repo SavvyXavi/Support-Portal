@@ -224,6 +224,7 @@ export class GenericDashComponent implements OnInit {
   }
 
   assetsChart() {
+    let status;
     if (this.filterPartner(this.currentProfile.partner)) {
       this.filter.partAssetsFilter(this.currentProfile)
       .subscribe(
@@ -234,8 +235,7 @@ export class GenericDashComponent implements OnInit {
           // this.assetDataSource = new MatTableDataSource(returnedAssets);
           // this.assetDataSource.sort = this.sort;
           // this.assetDataSource.paginator = this.paginator;
-        const status = this.assets.map(asset => asset.AssetStatus);
-        console.log(status);
+        return status = this.assets.map(asset => asset.ContractCoverage);
         }
       );
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
@@ -251,7 +251,7 @@ export class GenericDashComponent implements OnInit {
         }
       );
     }
-    console.log('out of statement call: ' + this.assets);
+    console.log(status);
 
     this.contractsData = new Chart('assets', {
       type: 'pie',
