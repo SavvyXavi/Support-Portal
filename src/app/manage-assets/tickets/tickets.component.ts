@@ -76,6 +76,7 @@ export class TicketsComponent implements OnInit {
       Description: ['', Validators.required],
       CustomerNameOrId: [this.authenticationService.currentUserValue.partner, Validators.required],
       TicketType: ['', Validators.required],
+      AssetId: ['', Validators.required],
       TicketCategoryNameOrId: ['', Validators.required],
       TicketTypeNameOrId: [ this.authenticationService.currentUserValue.partner + ' Quotes', Validators.required]
     },

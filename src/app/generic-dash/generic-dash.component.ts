@@ -235,7 +235,7 @@ export class GenericDashComponent implements OnInit {
         }]
     },
     options: {}
-});
+    });
   }
 
    loadAllUsers() {
