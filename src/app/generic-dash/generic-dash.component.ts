@@ -43,7 +43,7 @@ export class GenericDashComponent implements OnInit {
   assetsData = [];
   tickets: Tickets;
 
-  assets: Assets;
+  assets: Assets[];
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -68,10 +68,6 @@ export class GenericDashComponent implements OnInit {
     this.ticketsCount();
     this.companiesCount();
   }
-
-  // ngOnDestroy() {
-  //   this.currentProfileSubscription.unsubscribe();
-  // }
 
   getPartners() {
     this.filter.getPartners()
@@ -159,9 +155,9 @@ export class GenericDashComponent implements OnInit {
   }
 
   getAssets() {
-    this.api.getAssets()
+    return this.api.getAssets()
     .subscribe(
-      (returnedAssets: Assets) => {
+      (returnedAssets: Assets[]) => {
         this.assets = returnedAssets;
       }
     );
@@ -172,7 +168,6 @@ export class GenericDashComponent implements OnInit {
     this.filter.partConFilter(this.currentProfile).subscribe(
       (res: Contract[]) => {
         // this.contractChartData = JS;
-
         // if(date > new Date(2011, 0, 1))
         // filteredData.push(obj);
         const length = Object.keys(res).map(function(key) {
@@ -181,7 +176,6 @@ export class GenericDashComponent implements OnInit {
 
       }
     );
-
     this.contractsData = new Chart('contracts', {
         type: 'pie',
         data: {
@@ -213,11 +207,13 @@ export class GenericDashComponent implements OnInit {
   }
 
   assetsChart() {
-   this.assetsData = new Chart('assets', {
+   const status = this.assets.map( asset => asset.assetStatus);
+
+    Chart('assets', {
       type: 'pie',
       data: {
         datasets: [{
-            label: '# of Votes',
+            label: status,
             data: [12, 19, 3, 5],
             backgroundColor: [
                 'rgba(255, 0, 0, 1)',

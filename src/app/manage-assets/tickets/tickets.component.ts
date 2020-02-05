@@ -67,7 +67,6 @@ export class TicketsComponent implements OnInit {
         this.currentProfile = typeName;
       }
     );
-
     }
 
   ngOnInit() {
@@ -77,6 +76,7 @@ export class TicketsComponent implements OnInit {
       CustomerNameOrId: [this.authenticationService.currentUserValue.partner, Validators.required],
       TicketType: ['', Validators.required],
       AssetId: ['', Validators.required],
+      Location: ['', Validators.required],
       TicketCategoryNameOrId: ['', Validators.required],
       TicketTypeNameOrId: [ this.authenticationService.currentUserValue.partner + ' Quotes', Validators.required]
     },
