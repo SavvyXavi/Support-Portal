@@ -250,8 +250,8 @@ export class GenericDashComponent implements OnInit {
       );
     }
 
-      // const status = this.assets.map(asset => asset.assetStatus);
-      // console.log(status);
+      const status = this.assets.map(asset => asset.assetStatus);
+      console.log(status);
     this.contractsData = new Chart('assets', {
       type: 'pie',
       data: {
