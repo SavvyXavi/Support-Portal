@@ -155,12 +155,27 @@ export class GenericDashComponent implements OnInit {
   }
 
   getAssets() {
-    // return this.api.getAssets()
-    // .subscribe(
-    //   (returnedAssets: Assets[]) => {
-    //     this.assets = returnedAssets;
-    //   }
-    // );
+    if (this.filterPartner(this.currentProfile.partner)) {
+      return this.filter.partAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssets: Assets[]) => {
+          return this.assets = returnedAssets;
+          // this.assetDataSource = new MatTableDataSource(returnedAssets);
+          // this.assetDataSource.sort = this.sort;
+          // this.assetDataSource.paginator = this.paginator;
+        }
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+       return this.filter.custAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => {
+          return this.assets = returnedAssetLength;
+          // this.assetDataSource = new MatTableDataSource(returnedAssetLength);
+          // this.assetDataSource.sort = this.sort;
+          // this.assetDataSource.paginator = this.paginator;
+        }
+      );
+    }
   }
 
   contractsChart() {
@@ -208,12 +223,12 @@ export class GenericDashComponent implements OnInit {
 
   assetsChart() {
 
-    this.api.getAssets()
-      .subscribe(
-        (returnedAssets: Assets[]) => {
-          this.assets = returnedAssets;
-        }
-      );
+    // this.api.getAssets()
+    //   .subscribe(
+    //     (returnedAssets: Assets[]) => {
+    //       this.assets = returnedAssets;
+    //     }
+    //   );
 
       const status = this.assets.map(asset => asset.assetStatus);
       console.log(status);
