@@ -207,8 +207,17 @@ export class GenericDashComponent implements OnInit {
   }
 
   assetsChart() {
-   const status = this.assets.map( asset => asset.assetStatus);
 
+    // this.api.getAssets()
+    //   .subscribe(
+    //     (returnedAssets: Assets[]) => {
+    //       this.assets = returnedAssets;
+    //     }
+    //   );
+
+      const status = this.assets.map(asset => asset.assetStatus);
+      console.log(status);
+      console.log(this.assets);
     Chart('assets', {
       type: 'pie',
       data: {
