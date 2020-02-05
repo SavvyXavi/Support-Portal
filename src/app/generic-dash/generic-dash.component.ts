@@ -228,6 +228,7 @@ export class GenericDashComponent implements OnInit {
       this.filter.partAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
+          this.assets = returnedAssets;
           console.log(this.assets);
           console.log('in first if');
           // this.assetDataSource = new MatTableDataSource(returnedAssets);
@@ -238,8 +239,8 @@ export class GenericDashComponent implements OnInit {
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
       this.filter.custAssetsFilter(this.currentProfile)
       .subscribe(
-        (returnedAssetLength: Assets[]) => {
-          this.assets = returnedAssetLength;
+        (returnedAssets: Assets[]) => {
+          this.assets = returnedAssets;
           console.log(this.assets);
           console.log('in second if');
           // this.assetDataSource = new MatTableDataSource(returnedAssetLength);
@@ -251,7 +252,7 @@ export class GenericDashComponent implements OnInit {
 
       // const status = this.assets.map(asset => asset.assetStatus);
       // console.log(status);
-    Chart('assets', {
+    this.contractsData = new Chart('assets', {
       type: 'pie',
       data: {
         datasets: [{
