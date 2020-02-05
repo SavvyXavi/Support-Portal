@@ -228,7 +228,8 @@ export class GenericDashComponent implements OnInit {
       this.filter.partAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
-          return this.assets = returnedAssets;
+          console.log(this.assets);
+
           // this.assetDataSource = new MatTableDataSource(returnedAssets);
           // this.assetDataSource.sort = this.sort;
           // this.assetDataSource.paginator = this.paginator;
@@ -238,7 +239,9 @@ export class GenericDashComponent implements OnInit {
       this.filter.custAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssetLength: Assets[]) => {
-         return  this.assets = returnedAssetLength;
+          this.assets = returnedAssetLength;
+          console.log(this.assets);
+
           // this.assetDataSource = new MatTableDataSource(returnedAssetLength);
           // this.assetDataSource.sort = this.sort;
           // this.assetDataSource.paginator = this.paginator;
@@ -248,7 +251,6 @@ export class GenericDashComponent implements OnInit {
 
       const status = this.assets.map(asset => asset.assetStatus);
       console.log(status);
-      console.log(this.assets);
     Chart('assets', {
       type: 'pie',
       data: {
