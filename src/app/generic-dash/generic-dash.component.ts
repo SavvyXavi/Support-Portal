@@ -229,7 +229,7 @@ export class GenericDashComponent implements OnInit {
       .subscribe(
         (returnedAssets: Assets[]) => {
           console.log(this.assets);
-
+          console.log('in first if');
           // this.assetDataSource = new MatTableDataSource(returnedAssets);
           // this.assetDataSource.sort = this.sort;
           // this.assetDataSource.paginator = this.paginator;
@@ -241,7 +241,7 @@ export class GenericDashComponent implements OnInit {
         (returnedAssetLength: Assets[]) => {
           this.assets = returnedAssetLength;
           console.log(this.assets);
-
+          console.log('in second if');
           // this.assetDataSource = new MatTableDataSource(returnedAssetLength);
           // this.assetDataSource.sort = this.sort;
           // this.assetDataSource.paginator = this.paginator;
