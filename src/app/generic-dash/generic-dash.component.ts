@@ -218,20 +218,18 @@ export class GenericDashComponent implements OnInit {
       data: {
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, 19, 3, 5],
             backgroundColor: [
                 'rgba(255, 0, 0, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-
             ],
             borderColor: [
                 'rgba(255, 0, 0, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-
             ],
             borderWidth: 1
         }]
