@@ -155,12 +155,12 @@ export class GenericDashComponent implements OnInit {
   }
 
   getAssets() {
-    return this.api.getAssets()
-    .subscribe(
-      (returnedAssets: Assets[]) => {
-        this.assets = returnedAssets;
-      }
-    );
+    // return this.api.getAssets()
+    // .subscribe(
+    //   (returnedAssets: Assets[]) => {
+    //     this.assets = returnedAssets;
+    //   }
+    // );
   }
 
   contractsChart() {
@@ -208,12 +208,12 @@ export class GenericDashComponent implements OnInit {
 
   assetsChart() {
 
-    // this.api.getAssets()
-    //   .subscribe(
-    //     (returnedAssets: Assets[]) => {
-    //       this.assets = returnedAssets;
-    //     }
-    //   );
+    this.api.getAssets()
+      .subscribe(
+        (returnedAssets: Assets[]) => {
+          this.assets = returnedAssets;
+        }
+      );
 
       const status = this.assets.map(asset => asset.assetStatus);
       console.log(status);
