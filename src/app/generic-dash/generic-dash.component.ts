@@ -234,8 +234,8 @@ export class GenericDashComponent implements OnInit {
           // this.assetDataSource = new MatTableDataSource(returnedAssets);
           // this.assetDataSource.sort = this.sort;
           // this.assetDataSource.paginator = this.paginator;
-        const status = this.assets.map(asset => asset.assetStatus);
-      console.log(status);
+        const status = this.assets.map(asset => asset.AssetStatus);
+        console.log(status);
         }
       );
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {

@@ -8,6 +8,6 @@ export class Assets {
   endCustomer: string;
   archived: boolean;
   assetType: string;
-  assetStatus: string;
+  AssetStatus: string;
   SiteAddress: string;
 }
