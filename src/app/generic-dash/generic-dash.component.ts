@@ -68,7 +68,7 @@ export class GenericDashComponent implements OnInit {
     this.ticketsCount();
     this.companiesCount();
 
-    this.getAssets();
+    // this.getAssets();
   }
 
   getPartners() {
@@ -224,27 +224,27 @@ export class GenericDashComponent implements OnInit {
   }
 
   assetsChart() {
-    // if (this.filterPartner(this.filteredProfile.partner)) {
-    //   this.filter.partAssetsFilter(this.filteredProfile)
-    //   .subscribe(
-    //     (returnedAssets: Assets[]) => {
-    //       this.assets = returnedAssets;
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssets: Assets[]) => {
+          return this.assets = returnedAssets;
           // this.assetDataSource = new MatTableDataSource(returnedAssets);
           // this.assetDataSource.sort = this.sort;
           // this.assetDataSource.paginator = this.paginator;
-    //     }
-    //   );
-    // } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
-    //   this.filter.custAssetsFilter(this.filteredProfile)
-    //   .subscribe(
-    //     (returnedAssetLength: Assets[]) => {
-    //       this.assets = returnedAssetLength;
+        }
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Assets[]) => {
+         return  this.assets = returnedAssetLength;
           // this.assetDataSource = new MatTableDataSource(returnedAssetLength);
           // this.assetDataSource.sort = this.sort;
           // this.assetDataSource.paginator = this.paginator;
-    //     }
-    //   );
-    // }
+        }
+      );
+    }
 
       const status = this.assets.map(asset => asset.assetStatus);
       console.log(status);
