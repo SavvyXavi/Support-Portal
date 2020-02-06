@@ -244,6 +244,10 @@ export class GenericDashComponent implements OnInit {
           this.active++;
         } else if (status[i] === 'Terminated') {
           this.terminated++;
+        } else if (status[i] === 'Unmapped') {
+          this.unmapped++;
+        } else if (status[i] === 'Yet to Start') {
+          this.yetToStart++;
         }
       }
          this.contractsData = new Chart('assets', {
@@ -251,7 +255,7 @@ export class GenericDashComponent implements OnInit {
           data: {
             datasets: [{
                 labels: 'Active',
-                data: [12, 19, 3, 5],
+                data: [this.active, this.terminated, this.unmapped, this.unmapped],
                 backgroundColor: [
                     'rgba(255, 0, 0, 1)',
                     'rgba(54, 162, 235, 1)',
