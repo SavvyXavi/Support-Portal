@@ -65,7 +65,7 @@ export class GenericDashComponent implements OnInit {
 
   ngOnInit() {
     this.getPartners();
-    this.contractsChart();
+    // this.contractsChart();
     this.assetsChart();
     this.displayData();
     this.contractsCount();
