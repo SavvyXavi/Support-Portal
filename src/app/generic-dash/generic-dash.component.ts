@@ -119,7 +119,7 @@ export class GenericDashComponent implements OnInit {
     this.filter.partConFilter(this.currentProfile).subscribe(
       (returnedContracts: Contracts[]) => {
         this.contractLength = returnedContracts.length;
-        status = returnedContracts.map( x => new Date(x.startDate));
+        status = returnedContracts.map( x => Date.parse(x.startDate));
         console.log(status);
       }
     );
@@ -176,7 +176,6 @@ export class GenericDashComponent implements OnInit {
          this.contractsData = new Chart('assets', {
           type: 'pie',
           data: {
-            labels: ['Active', 'Terminated', 'Unmapped', 'Yet to Start'],
             datasets: [{
               label: 'Asset Status',
                 data: [this.active, this.terminated, this.unmapped, this.yetToStart],
