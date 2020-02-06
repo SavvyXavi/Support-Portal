@@ -229,14 +229,32 @@ export class GenericDashComponent implements OnInit {
       this.filter.partAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
-          this.assets = returnedAssets;
-          console.log(this.assets);
-          console.log('in first if');
-          // this.assetDataSource = new MatTableDataSource(returnedAssets);
-          // this.assetDataSource.sort = this.sort;
-          // this.assetDataSource.paginator = this.paginator;
-        return status = this.assets.map(asset => asset.ContractCoverage);
-        }
+         this.assets = returnedAssets;
+         status = this.assets.map(asset => asset.ContractCoverage);
+         this.contractsData = new Chart('assets', {
+          type: 'pie',
+          data: {
+            datasets: [{
+                labels: status,
+                data: [12, 19, 3, 5],
+                backgroundColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {}
+        });
+      }
       );
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
       this.filter.custAssetsFilter(this.currentProfile)
