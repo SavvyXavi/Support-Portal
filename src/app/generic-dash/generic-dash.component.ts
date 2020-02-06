@@ -65,7 +65,7 @@ export class GenericDashComponent implements OnInit {
 
   ngOnInit() {
     this.getPartners();
-    // this.contractsChart();
+    this.contractsChart();
     this.assetsChart();
     this.displayData();
     this.contractsCount();
@@ -285,12 +285,7 @@ export class GenericDashComponent implements OnInit {
           // this.assetDataSource = new MatTableDataSource(returnedAssetLength);
           // this.assetDataSource.sort = this.sort;
           // this.assetDataSource.paginator = this.paginator;
-        }
-      );
-    }
-    console.log(status);
-
-    this.contractsData = new Chart('assets', {
+            this.contractsData = new Chart('assets', {
       type: 'pie',
       data: {
         datasets: [{
@@ -313,6 +308,11 @@ export class GenericDashComponent implements OnInit {
     },
     options: {}
     });
+  }
+
+      );
+    }
+
   }
 
    loadAllUsers() {
