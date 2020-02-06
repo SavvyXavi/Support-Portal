@@ -31,7 +31,7 @@ export class GenericDashComponent implements OnInit {
   profiles: Profile[];
 
   contractLength: Contracts[];
-  assetLength: Assets[];
+  assetLength: number;
   ticketLength: Tickets[];
   companyLength: Customer[];
 
@@ -101,19 +101,19 @@ export class GenericDashComponent implements OnInit {
     }
   }
 
-  assetsCount() {
-    if (this.filterPartner(this.currentProfile.partner)) {
-      this.filter.partAssetsFilter(this.currentProfile)
-      .subscribe(
-        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
-      );
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      this.filter.custAssetsFilter(this.currentProfile)
-      .subscribe(
-        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
-      );
-    }
-  }
+  // assetsCount() {
+  //   if (this.filterPartner(this.currentProfile.partner)) {
+  //     this.filter.partAssetsFilter(this.currentProfile)
+  //     .subscribe(
+  //       (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength.length
+  //     );
+  //   } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+  //     this.filter.custAssetsFilter(this.currentProfile)
+  //     .subscribe(
+  //       (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
+  //     );
+  //   }
+  // }
 
   ticketsCount() {
     if (this.filterPartner(this.currentProfile.partner)) {
@@ -235,7 +235,7 @@ export class GenericDashComponent implements OnInit {
       this.filter.partAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
-          this.assetLength = returnedAssets;
+          this.assetLength = returnedAssets.length;
          this.assets = returnedAssets;
          status = this.assets.map(asset => asset.ContractCoverage);
          console.log(status);
@@ -279,7 +279,7 @@ export class GenericDashComponent implements OnInit {
       this.filter.custAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
-          this.assetLength = returnedAssets;
+          this.assetLength = returnedAssets.length;
           this.assets = returnedAssets;
           console.log(this.assets);
           console.log('in second if');
