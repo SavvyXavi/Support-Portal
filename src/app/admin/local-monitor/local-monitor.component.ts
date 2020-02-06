@@ -16,7 +16,7 @@ export class LocalMonitorComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.api.getOem()
+    this.api.getMon()
     .subscribe(
       (returnedMon: Monitor) => {
         this.monitor = returnedMon;
@@ -25,7 +25,7 @@ export class LocalMonitorComponent implements OnInit {
   }
 
   pullMon() {
-    this.api.getOem()
+    this.api.getMon()
     .subscribe(
       (returnedMon: Monitor) => {
         this.monitor = returnedMon;
