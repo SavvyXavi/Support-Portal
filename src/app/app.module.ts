@@ -32,7 +32,6 @@ import { SupportComponent } from './admin/support/support.component';
 import { OemComponent } from './admin/oem/oem.component';
 import { ContractsComponent } from './manage-assets/contracts/contracts.component';
 import { UsersComponent } from './admin/users/users.component';
-import { AssetLocationsComponent } from './admin/asset-locations/asset-locations.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CustomersComponent } from './admin/customers/customers.component';
@@ -56,6 +55,8 @@ import { RegisterComponent } from './admin/register/register.component';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/ticket-detail.component';
 import { CompaniesComponent } from './companies/companies.component';
+import { AssetLocFilterPipe } from './manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe';
+import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,6 @@ import { CompaniesComponent } from './companies/companies.component';
     OemComponent,
     ContractsComponent,
     UsersComponent,
-    AssetLocationsComponent,
     ProfileComponent,
     SettingsComponent,
     CustomersComponent,
@@ -95,6 +95,8 @@ import { CompaniesComponent } from './companies/companies.component';
     RegisterComponent,
     TicketDetailComponent,
     CompaniesComponent,
+    AssetLocFilterPipe,
+    LocalMonitorComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,7 +112,7 @@ import { CompaniesComponent } from './companies/companies.component';
     MatSortModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
   ],
   providers: [
     AuthGuard,

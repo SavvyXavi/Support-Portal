@@ -1,3 +1,4 @@
+import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/ticket-detail.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { RegisterComponent } from './admin/register/register.component';
@@ -30,7 +31,7 @@ import { BudgetComponent } from './budget/budget.component';
 import { CustomersComponent } from './admin/customers/customers.component';
 import { ContractDetailComponent } from './manage-assets/contracts/contract-detail/contract-detail.component';
 import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.component';
-
+import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 const routes: Routes = [
   {
     path: '',
@@ -167,6 +168,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'ticketdetail/:refNumber',
+    component: TicketDetailComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'companies',
     component: CompaniesComponent,
     canActivate: [AuthGuard]
@@ -214,6 +220,11 @@ const routes: Routes = [
   {
     path: 'admin/users',
     component: UsersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin/localMonitor',
+    component: LocalMonitorComponent,
     canActivate: [AuthGuard]
   }
 ];

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AssetLocationsComponent } from './asset-locations.component';
+import { LocalMonitorComponent } from './local-monitor.component';
 
-describe('AssetLocationsComponent', () => {
-  let component: AssetLocationsComponent;
-  let fixture: ComponentFixture<AssetLocationsComponent>;
+describe('LocalMonitorComponent', () => {
+  let component: LocalMonitorComponent;
+  let fixture: ComponentFixture<LocalMonitorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AssetLocationsComponent ]
+      declarations: [ LocalMonitorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AssetLocationsComponent);
+    fixture = TestBed.createComponent(LocalMonitorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

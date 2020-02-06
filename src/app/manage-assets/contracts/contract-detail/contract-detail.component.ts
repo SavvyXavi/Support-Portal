@@ -2,7 +2,6 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ApifilterService } from '../../../services/apifilter.service';
-import { Filter } from '../../../models/filter';
 
 import { Contracts } from '../../models/contracts';
 import { Assets } from '../../models/assets';
@@ -62,6 +61,14 @@ export class ContractDetailComponent implements OnInit {
     );
   }
 
+  groupAddress() {
+    for ( let i = 0; i <= this.assetLength.length; i++) {
+      if (this.assetLength[i].SiteAddress !== this.assetLength[i + 1].SiteAddress) {
+        return this.assetLength[i].SiteAddress;
+      }
+    }
+  }
+
   applyFilter() {
     this.assetDataSource.filter = this.searchKey.trim().toLowerCase();
     if (this.assetDataSource.paginator) {
@@ -73,6 +80,7 @@ export class ContractDetailComponent implements OnInit {
     this.searchKey = '';
     this.applyFilter();
   }
+
   goBack(): void {
     this.location.back();
   }

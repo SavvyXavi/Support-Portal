@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Profile } from '../login/models/profile';
 import { Tickets } from '../manage-assets/models/tickets';
 import { Assets } from '../manage-assets/models/assets';
+import * as moment from 'moment';
 
 import { AuthenticationService } from '../login/services/authentication.service';
 import { ProfileService } from '../login/services/profile.service';
@@ -30,10 +31,12 @@ export class GenericDashComponent implements OnInit {
   currentProfileSubscription: Subscription;
   profiles: Profile[];
 
-  contractLength: Contracts[];
-  assetLength: Assets[];
+  contractLength: number;
+  assetLength: number;
   ticketLength: Tickets[];
   companyLength: Customer[];
+
+  contractChartData: Date[];
 
   partnerArr: Partner[];
 
@@ -41,7 +44,12 @@ export class GenericDashComponent implements OnInit {
   assetsData = [];
   tickets: Tickets;
 
-  assets: Assets;
+  assets: Assets[];
+
+  active = 0;
+  terminated = 0;
+  unmapped = 0;
+  yetToStart = 0;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -60,16 +68,9 @@ export class GenericDashComponent implements OnInit {
     this.getPartners();
     this.contractsChart();
     this.assetsChart();
-    this.displayData();
-    this.contractsCount();
-    this.assetsCount();
     this.ticketsCount();
     this.companiesCount();
   }
-
-  // ngOnDestroy() {
-  //   this.currentProfileSubscription.unsubscribe();
-  // }
 
   getPartners() {
     this.filter.getPartners()
@@ -80,34 +81,6 @@ export class GenericDashComponent implements OnInit {
 
   filterPartner(partner: String) {
     return this.partnerArr.find(company => company.CompanyName === partner);
-  }
-
-  contractsCount() {
-    if (this.filterPartner(this.currentProfile.partner)) {
-      this.filter.partConFilter(this.currentProfile)
-      .subscribe(
-        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
-      );
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      this.filter.custConFilter(this.currentProfile)
-      .subscribe(
-        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
-      );
-    }
-  }
-
-  assetsCount() {
-    if (this.filterPartner(this.currentProfile.partner)) {
-      this.filter.partAssetsFilter(this.currentProfile)
-      .subscribe(
-        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
-      );
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      this.filter.custAssetsFilter(this.currentProfile)
-      .subscribe(
-        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
-      );
-    }
   }
 
   ticketsCount() {
@@ -141,44 +114,21 @@ export class GenericDashComponent implements OnInit {
     );
   }
 
-  displayData() {
-    let array = this.filter.partConFilter(this.currentProfile).subscribe(
-      res => {
-
-        // const price = res.map(res => res.AnnualValue);
-        const length = Object.keys(res).map(function(key) {
-          return [String(key), res[key]];
-        });
-
-        // console.log(length);
-        // console.log(price);
-      }
-    );
-  }
-
-  getAssets() {
-    this.api.getAssets()
-    .subscribe(
-      (returnedAssets: Assets) => {
-        this.assets = returnedAssets;
-      }
-    );
-  }
-
   contractsChart() {
-    const status = [];
+    let status = [];
     this.filter.partConFilter(this.currentProfile).subscribe(
-      (res: Contract[]) => {
-        // status.push(res.status);
-        const length = Object.keys(res).map(function(key) {
-          return [String(key), res[key]];
+      (returnedContracts: Contracts[]) => {
+        this.contractLength = returnedContracts.length;
+        status = returnedContracts.map( x => {
+          const date1 = Date.now();
+          const date2 = Date.parse(x.StartDate);
+          const diff = date2 - date1;
+          const diff2 = diff / (1000 * 3600 * 24);
+          return diff2;
         });
-        // console.log(res);
-        // console.log(res.status);
-        // console.log(length);
+        console.log(status);
       }
     );
-
     this.contractsData = new Chart('contracts', {
         type: 'pie',
         data: {
@@ -210,33 +160,97 @@ export class GenericDashComponent implements OnInit {
   }
 
   assetsChart() {
-   this.assetsData = new Chart('assets', {
-      type: 'pie',
-      data: {
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 0, 0, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderColor: [
-                'rgba(255, 0, 0, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {}
-});
+    let status = [];
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssets: Assets[]) => {
+          this.assetLength = returnedAssets.length;
+          this.assets = returnedAssets;
+          status = this.assets.map(asset => asset.ContractCoverage);
+        for (let i = 0; i <= status.length; i++) {
+          if (status[i] === 'Active') {
+            this.active++;
+          } else if (status[i] === 'Terminated') {
+            this.terminated++;
+          } else if (status[i] === 'Unmapped') {
+            this.unmapped++;
+          } else if (status[i] === 'Yet to Start') {
+            this.yetToStart++;
+          }
+        }
+         this.contractsData = new Chart('assets', {
+          type: 'pie',
+          data: {
+            datasets: [{
+              label: 'Asset Status',
+                data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                backgroundColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {}
+        });
+      }
+      );
+    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+      this.filter.custAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssets: Assets[]) => {
+          this.assetLength = returnedAssets.length;
+          this.assets = returnedAssets;
+          status = this.assets.map(asset => asset.ContractCoverage);
+        for (let i = 0; i <= status.length; i++) {
+          if (status[i] === 'Active') {
+            this.active++;
+          } else if (status[i] === 'Terminated') {
+            this.terminated++;
+          } else if (status[i] === 'Unmapped') {
+            this.unmapped++;
+          } else if (status[i] === 'Yet to Start') {
+            this.yetToStart++;
+          }
+        }
+        this.assetsData = new Chart('assets', {
+          type: 'pie',
+          data: {
+            labels: ['Active', 'Terminated', 'Unmapped', 'Yet to Start'],
+            datasets: [{
+              label: 'Asset Status',
+                data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                backgroundColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {}
+    });
+  }
+
+      );
+    }
+
   }
 
    loadAllUsers() {
