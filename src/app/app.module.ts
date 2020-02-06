@@ -110,7 +110,7 @@ import { AssetLocFilterPipe } from './manage-assets/contracts/contract-detail/as
     MatSortModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
   ],
   providers: [
     AuthGuard,
