@@ -236,6 +236,7 @@ export class GenericDashComponent implements OnInit {
       .subscribe(
         (returnedAssets: Assets[]) => {
          this.assets = returnedAssets;
+         console.log(this.assets);
          status = this.assets.map(asset => asset.ContractCoverage);
          console.log(status);
       for (let i = 0; i <= status.length; i++) {
