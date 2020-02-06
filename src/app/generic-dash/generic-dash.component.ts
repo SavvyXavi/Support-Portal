@@ -237,6 +237,7 @@ export class GenericDashComponent implements OnInit {
         (returnedAssets: Assets[]) => {
          this.assets = returnedAssets;
          status = this.assets.map(asset => asset.ContractCoverage);
+         console.log(status);
       for (let i = 0; i <= status.length; i++) {
         if (status[i] === 'Active') {
           this.active++;
