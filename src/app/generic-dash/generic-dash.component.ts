@@ -45,6 +45,11 @@ export class GenericDashComponent implements OnInit {
 
   assets: Assets[];
 
+  active = 0;
+  terminated = 0;
+  unmapped = 0;
+  yetToStart = 0;
+
   constructor(
     private authenticationService: AuthenticationService,
     private profileService: ProfileService,
@@ -224,18 +229,26 @@ export class GenericDashComponent implements OnInit {
   }
 
   assetsChart() {
-    let status;
+    let status = [];
+
     if (this.filterPartner(this.currentProfile.partner)) {
       this.filter.partAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
          this.assets = returnedAssets;
          status = this.assets.map(asset => asset.ContractCoverage);
+      for (let i = 0; i <= status.length; i++) {
+        if (status[i] === 'Active') {
+          this.active++;
+        } else if (status[i] === 'Terminated') {
+          this.terminated++;
+        }
+      }
          this.contractsData = new Chart('assets', {
           type: 'pie',
           data: {
             datasets: [{
-                labels: status,
+                labels: 'Active',
                 data: [12, 19, 3, 5],
                 backgroundColor: [
                     'rgba(255, 0, 0, 1)',
