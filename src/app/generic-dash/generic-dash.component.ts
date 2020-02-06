@@ -255,7 +255,7 @@ export class GenericDashComponent implements OnInit {
           data: {
             datasets: [{
                 labels: 'Active',
-                data: [this.active, this.terminated, this.unmapped, this.unmapped],
+                data: [this.active, this.terminated, this.unmapped, this.yetToStart],
                 backgroundColor: [
                     'rgba(255, 0, 0, 1)',
                     'rgba(54, 162, 235, 1)',

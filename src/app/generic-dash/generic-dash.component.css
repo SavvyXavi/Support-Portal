@@ -227,6 +227,23 @@ p {
   background-color: green;
 }
 
+.badge-active {
+  background-color: rgba(255, 0, 0, 1);
+  text-align: center;
+}
+
+.badge-terminated {
+  background-color: rgba(54, 162, 235, 1);
+}
+
+.badge-unmapped {
+  background-color: rgba(255, 206, 86, 1);
+}
+
+.badge-yetToStart {
+  background-color: rgba(75, 192, 192, 1);
+}
+
 .assets-wrapper {
   background: white;
   border-radius: 8px;
