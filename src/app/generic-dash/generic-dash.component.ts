@@ -119,7 +119,7 @@ export class GenericDashComponent implements OnInit {
     this.filter.partConFilter(this.currentProfile).subscribe(
       (returnedContracts: Contracts[]) => {
         this.contractLength = returnedContracts.length;
-        status = returnedContracts.map( x => Date.parse(x.StartDate));
+        status = returnedContracts.map( x => new Date(x.StartDate));
         console.log(status);
       }
     );
