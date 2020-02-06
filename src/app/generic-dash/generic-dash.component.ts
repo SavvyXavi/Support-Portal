@@ -69,7 +69,7 @@ export class GenericDashComponent implements OnInit {
     this.assetsChart();
     this.displayData();
     this.contractsCount();
-    this.assetsCount();
+    // this.assetsCount();
     this.ticketsCount();
     this.companiesCount();
 
@@ -166,7 +166,7 @@ export class GenericDashComponent implements OnInit {
       return this.filter.partAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
-          return this.assets = returnedAssets;
+          this.assets = returnedAssets;
           // this.assetDataSource = new MatTableDataSource(returnedAssets);
           // this.assetDataSource.sort = this.sort;
           // this.assetDataSource.paginator = this.paginator;
@@ -176,7 +176,7 @@ export class GenericDashComponent implements OnInit {
        return this.filter.custAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssetLength: Assets[]) => {
-          return this.assets = returnedAssetLength;
+           this.assets = returnedAssetLength;
           // this.assetDataSource = new MatTableDataSource(returnedAssetLength);
           // this.assetDataSource.sort = this.sort;
           // this.assetDataSource.paginator = this.paginator;
@@ -235,8 +235,8 @@ export class GenericDashComponent implements OnInit {
       this.filter.partAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
+          this.assetLength = returnedAssets;
          this.assets = returnedAssets;
-         console.log(this.assets);
          status = this.assets.map(asset => asset.ContractCoverage);
          console.log(status);
       for (let i = 0; i <= status.length; i++) {
@@ -279,6 +279,7 @@ export class GenericDashComponent implements OnInit {
       this.filter.custAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
+          this.assetLength = returnedAssets;
           this.assets = returnedAssets;
           console.log(this.assets);
           console.log('in second if');
