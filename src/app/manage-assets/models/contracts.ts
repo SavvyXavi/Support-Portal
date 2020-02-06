@@ -1,13 +1,13 @@
 export class Contracts {
   id: string;
-  scheduleName: string;
-  refNumber: string;
-  endCustomerName: string;
-  contractAdministrator: string;
-  startDate: string;
-  renewalDate: string;
-  validFrom: string;
-  validTo: string;
-  status: string;
-  archived: boolean;
+  ScheduleName: string;
+  RefNumber: string;
+  EndCustomerName: string;
+  ContractAdministrator: string;
+  StartDate: string;
+  RenewalDate: string;
+  ValidFrom: string;
+  ValidTo: string;
+  Status: string;
+  Archived: boolean;
 }
