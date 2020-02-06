@@ -56,6 +56,7 @@ import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.c
 import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/ticket-detail.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { AssetLocFilterPipe } from './manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe';
+import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { AssetLocFilterPipe } from './manage-assets/contracts/contract-detail/as
     TicketDetailComponent,
     CompaniesComponent,
     AssetLocFilterPipe,
+    LocalMonitorComponent,
   ],
   imports: [
     BrowserModule,

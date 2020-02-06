@@ -69,8 +69,9 @@
                 <div id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
                     <!-- <a class="dropdown" routerLink="admin/oem">OEM</a> -->
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
-                    <a class="dropdown" routerLink="admin/admin">Admin</a>
+                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/admin">Admin</a>
                     <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/register">Register Users</a>
+                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/localMonitor">Local Monitor</a>
               </div>
           </div>
     </nav>
