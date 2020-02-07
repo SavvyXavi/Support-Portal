@@ -46,6 +46,11 @@ export class GenericDashComponent implements OnInit {
 
   assets: Assets[];
 
+  fifteenDays = 0;
+  thirtyDays = 0;
+  sixtyDays = 0;
+  ninetyDays = 0;
+
   active = 0;
   terminated = 0;
   unmapped = 0;
@@ -116,7 +121,8 @@ export class GenericDashComponent implements OnInit {
 
   contractsChart() {
     let status = [];
-    this.filter.partConFilter(this.currentProfile).subscribe(
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.partConFilter(this.currentProfile).subscribe(
       (returnedContracts: Contracts[]) => {
         this.contractLength = returnedContracts.length;
         status = returnedContracts.map( x => {
@@ -126,7 +132,17 @@ export class GenericDashComponent implements OnInit {
           const diff2 = diff / (1000 * 3600 * 24);
           return diff2.toFixed(0);
         });
-        console.log(status);
+        for (let i = 0; i <= status.length; i++) {
+          if (status[i] <= 14) {
+            this.fifteenDays++;
+          } else if (status[i] <= 30) {
+            this.thirtyDays++;
+          } else if (status[i] <= 60) {
+            this.sixtyDays++;
+          } else if ( status[i] <= 90) {
+            this.ninetyDays++;
+          }
+        }
       }
     );
     this.contractsData = new Chart('contracts', {
@@ -135,7 +151,7 @@ export class GenericDashComponent implements OnInit {
           labels: status,
           datasets: [{
               label: '# of Contracts',
-              data: [12, 19, 3, 5, 2, 3],
+              data: [this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays],
               backgroundColor: [
                   'rgba(255, 0, 0, 1)',
                   'rgba(54, 162, 235, 1)',
@@ -157,6 +173,8 @@ export class GenericDashComponent implements OnInit {
         },
         options: {}
     });
+    }
+
   }
 
   assetsChart() {
