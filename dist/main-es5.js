@@ -10055,7 +10055,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var environment = {
       production: false,
-      serverUrl: 'http://finalauth.noble1it.com',
+      serverUrl: 'https://finalauth.noble1it.com',
       secret: 'Noble1Solutions',
       LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
       CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/'

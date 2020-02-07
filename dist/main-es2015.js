@@ -6310,7 +6310,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const environment = {
     production: false,
-    serverUrl: 'http://finalauth.noble1it.com',
+    serverUrl: 'https://finalauth.noble1it.com',
     secret: 'Noble1Solutions',
     LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
     CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/'
