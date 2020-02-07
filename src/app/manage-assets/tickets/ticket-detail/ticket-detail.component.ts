@@ -59,8 +59,7 @@ export class TicketDetailComponent implements OnInit {
                 this.contractDataSource.sort = this.sort;
                 this.contractDataSource.paginator = this.paginator;
               }
-            )
-
+            );
           }
         );
       }
