@@ -4709,7 +4709,7 @@ let TicketDetailComponent = class TicketDetailComponent {
         this.filter.ticketRefFilter(refNumber.substring(1))
             .subscribe((returnedTicket) => {
             this.ticket = returnedTicket;
-            console.log(this.ticket.AssetId);
+            console.log(this.ticket[0].AssetId);
             this.filter.assetsBySerial(this.ticket.AssetId)
                 .subscribe((returnedAsset) => {
                 this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAsset);

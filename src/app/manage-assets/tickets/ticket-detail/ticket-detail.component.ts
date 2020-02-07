@@ -43,7 +43,7 @@ export class TicketDetailComponent implements OnInit {
     .subscribe(
       (returnedTicket: Tickets) => {
         this.ticket = returnedTicket;
-        console.log(this.ticket.AssetId);
+        console.log(this.ticket[0].AssetId);
         this.filter.assetsBySerial(this.ticket.AssetId)
         .subscribe(
           (returnedAsset: Assets[]) => {
