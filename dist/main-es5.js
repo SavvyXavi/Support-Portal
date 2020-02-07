@@ -7613,8 +7613,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this56 = this;
 
           var refNumber = this.route.snapshot.paramMap.get('refNumber');
-          this.filter.ticketRefFilter(refNumber.substring(1)).subscribe(function (returnedTickets) {
-            _this56.ticket = returnedTickets;
+          this.filter.ticketRefFilter(refNumber.substring(1)).subscribe(function (returnedTicket) {
+            _this56.ticket = returnedTicket;
+            console.log(_this56.ticket.AssetId);
 
             _this56.filter.assetsBySerial(_this56.ticket.AssetId).subscribe(function (returnedAsset) {
               _this56.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAsset);

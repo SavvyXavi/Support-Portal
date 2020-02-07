@@ -41,8 +41,9 @@ export class TicketDetailComponent implements OnInit {
     this.route.snapshot.paramMap.get('refNumber');
     this.filter.ticketRefFilter(refNumber.substring(1))
     .subscribe(
-      (returnedTickets: Tickets) => {
-        this.ticket = returnedTickets;
+      (returnedTicket: Tickets) => {
+        this.ticket = returnedTicket;
+        console.log(this.ticket.AssetId);
         this.filter.assetsBySerial(this.ticket.AssetId)
         .subscribe(
           (returnedAsset: Assets[]) => {
