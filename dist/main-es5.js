@@ -4392,7 +4392,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var date2 = Date.parse(x.StartDate);
                 var diff = date1 - date2;
                 var diff2 = diff / (1000 * 3600 * 24);
-                console.log(date2);
+                console.log(diff);
                 return diff2.toFixed(0);
               });
 
