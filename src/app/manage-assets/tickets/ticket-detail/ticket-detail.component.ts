@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Tickets } from 'src/app/manage-assets/models/tickets';
 import { Assets } from './../../models/assets';
+import { Contracts } from './../../models/contracts';
 
 import { ApifilterService } from '../../../services/apifilter.service';
 import { Location } from '@angular/common';
@@ -22,6 +23,8 @@ export class TicketDetailComponent implements OnInit {
   assetDataSource: MatTableDataSource<Assets>;
   searchKey: string;
 
+  contractDisplayedColumns: string[] = ['Contract#', 'Contract Name', 'Start Date', 'Renewal Date', 'Customer', 'Status'];
+  contractDataSource: MatTableDataSource<Contracts>;
 
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
@@ -49,6 +52,15 @@ export class TicketDetailComponent implements OnInit {
             this.assetDataSource = new MatTableDataSource(returnedAsset);
             this.assetDataSource.sort = this.sort;
             this.assetDataSource.paginator = this.paginator;
+            this.filter.conByName(returnedAsset[0].Schedule)
+            .subscribe(
+              (returnedContract: Contracts[]) => {
+                this.contractDataSource = new MatTableDataSource(returnedContract);
+                this.contractDataSource.sort = this.sort;
+                this.contractDataSource.paginator = this.paginator;
+              }
+            )
+
           }
         );
       }
