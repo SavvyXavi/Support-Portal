@@ -43,7 +43,7 @@ export class TicketDetailComponent implements OnInit {
     .subscribe(
       (returnedTickets: Tickets) => {
         this.ticket = returnedTickets;
-        this.filter.assetsBySerial(this.ticket[0].assetId)
+        this.filter.assetsBySerial(this.ticket.AssetId)
         .subscribe(
           (returnedAsset: Assets[]) => {
             this.assetDataSource = new MatTableDataSource(returnedAsset);

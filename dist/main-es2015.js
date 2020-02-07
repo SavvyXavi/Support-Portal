@@ -4709,7 +4709,7 @@ let TicketDetailComponent = class TicketDetailComponent {
         this.filter.ticketRefFilter(refNumber.substring(1))
             .subscribe((returnedTickets) => {
             this.ticket = returnedTickets;
-            this.filter.assetsBySerial(this.ticket[0].assetId)
+            this.filter.assetsBySerial(this.ticket.AssetId)
                 .subscribe((returnedAsset) => {
                 this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAsset);
                 this.assetDataSource.sort = this.sort;

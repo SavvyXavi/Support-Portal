@@ -5,7 +5,7 @@ export class Tickets {
   RefNumber: string;
   description: string;
   CustomerName: string;
-  assetId: string;
+  AssetId: string;
   slaSeverity: string;
   visibleToCustomer?: true;
   contact?: string;
