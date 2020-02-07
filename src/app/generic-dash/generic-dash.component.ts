@@ -45,11 +45,12 @@ export class GenericDashComponent implements OnInit {
   tickets: Tickets;
 
   assets: Assets[];
-
+  now = 0;
   fifteenDays = 0;
   thirtyDays = 0;
   sixtyDays = 0;
   ninetyDays = 0;
+  ninetyPlusDays = 0;
 
   active = 0;
   terminated = 0;
@@ -134,20 +135,23 @@ export class GenericDashComponent implements OnInit {
         });
         for (let i = 0; i <= status.length; i++) {
           if (status[i] <= 14) {
+            this.now++;
+          } else if (status[i] <= 29) {
             this.fifteenDays++;
-          } else if (status[i] <= 30) {
+          } else if (status[i] <= 59) {
             this.thirtyDays++;
-          } else if (status[i] <= 60) {
+          } else if ( status[i] <= 89) {
             this.sixtyDays++;
-          } else if ( status[i] <= 90) {
+          } else if (status[i] = 90) {
             this.ninetyDays++;
+          } else if (status[i] > 90) {
+            this.ninetyPlusDays++;
           }
         }
 
     this.contractsData = new Chart('contracts', {
         type: 'pie',
         data: {
-          labels: status,
           datasets: [{
               label: '# of Contracts',
               data: [this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays],
