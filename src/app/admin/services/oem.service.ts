@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class OemService {
   monApi = '?apikey=ZKA6LZUGglahNSrnisEm2EoSj3qeee5kouo0W7aq4AlHTZpoCN5hLG98TW8uVN0I&pretty=1';
   oemPull = 'https://n1sharmonypull.azurewebsites.net/api/OEMPull?code=1d9quTWcruk3APk5NqxpPyN8Qez0flIun778ihBgIfB/QKj1eGDMyQ==';
-  monPull = 'http://n1slocalmonitor.eastus.cloudapp.azure.com/nagiosxi/api/v1/objects/servicestatus';
+  monPull = 'https://localmonitor.noble1it.com/nagiosxi/api/v1/objects/servicestatus';
 
 
   constructor( private http: HttpClient ) { }
