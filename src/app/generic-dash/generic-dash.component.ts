@@ -50,7 +50,6 @@ export class GenericDashComponent implements OnInit {
   thirtyDays = 0;
   sixtyDays = 0;
   ninetyDays = 0;
-  ninetyPlusDays = 0;
 
   active = 0;
   terminated = 0;
@@ -143,9 +142,7 @@ export class GenericDashComponent implements OnInit {
           } else if ( status[i] <= 90) {
             this.sixtyDays++;
           } else if (status[i] = 90) {
-            this.ninetyDays++;
-          } else if (status[i] > 90) {
-            this.ninetyPlusDays++;
+            this.ninetyDays++
           }
         }
 
