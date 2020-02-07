@@ -122,9 +122,9 @@ export class GenericDashComponent implements OnInit {
         status = returnedContracts.map( x => {
           const date1 = Date.now();
           const date2 = Date.parse(x.StartDate);
-          const diff = date2 - date1;
+          const diff = date1 - date2;
           const diff2 = diff / (1000 * 3600 * 24);
-          return diff2;
+          return diff2.toFixed(0);
         });
         console.log(status);
       }
