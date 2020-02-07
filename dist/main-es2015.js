@@ -2715,16 +2715,16 @@ let GenericDashComponent = class GenericDashComponent {
                     if (status[i] <= 14) {
                         this.now++;
                     }
-                    else if (status[i] <= 30) {
+                    if (status[i] <= 30) {
                         this.fifteenDays++;
                     }
-                    else if (status[i] <= 60) {
+                    if (status[i] <= 60) {
                         this.thirtyDays++;
                     }
-                    else if (status[i] <= 90) {
+                    if (status[i] <= 90) {
                         this.sixtyDays++;
                     }
-                    else if (status[i] = 90) {
+                    if (status[i] = 90) {
                         this.ninetyDays++;
                     }
                 }

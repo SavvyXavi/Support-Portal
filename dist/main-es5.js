@@ -4398,13 +4398,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               for (var i = 0; i <= status.length; i++) {
                 if (status[i] <= 14) {
                   _this30.now++;
-                } else if (status[i] <= 30) {
+                }
+
+                if (status[i] <= 30) {
                   _this30.fifteenDays++;
-                } else if (status[i] <= 60) {
+                }
+
+                if (status[i] <= 60) {
                   _this30.thirtyDays++;
-                } else if (status[i] <= 90) {
+                }
+
+                if (status[i] <= 90) {
                   _this30.sixtyDays++;
-                } else if (status[i] = 90) {
+                }
+
+                if (status[i] = 90) {
                   _this30.ninetyDays++;
                 }
               }
