@@ -2709,9 +2709,11 @@ let GenericDashComponent = class GenericDashComponent {
                     const date2 = Date.parse(x.StartDate);
                     const diff = date1 - date2;
                     const diff2 = diff / (1000 * 3600 * 24);
+                    console.log(date2);
                     return diff2.toFixed(0);
                 });
-                console.log(status);
+                for (let i = 0; i <= status.length; i++) {
+                }
                 this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('contracts', {
                     type: 'pie',
                     data: {

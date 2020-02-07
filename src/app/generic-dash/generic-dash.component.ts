@@ -19,6 +19,7 @@ import { Partner } from './../models/partner';
 import { Contracts } from './../manage-assets/models/contracts';
 import { Customer } from './../admin/models/customer';
 import { Contract } from './../models/contract';
+import { stat } from 'fs';
 
 @Component({
   selector: 'app-generic-dash',
@@ -130,9 +131,13 @@ export class GenericDashComponent implements OnInit {
           const date2 = Date.parse(x.StartDate);
           const diff = date1 - date2;
           const diff2 = diff / (1000 * 3600 * 24);
+          console.log(date2);
+
           return diff2.toFixed(0);
         });
-        console.log(status);
+        for (let i = 0; i <= status.length; i++) {
+
+        }
 
     this.contractsData = new Chart('contracts', {
         type: 'pie',
