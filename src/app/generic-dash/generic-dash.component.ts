@@ -143,8 +143,7 @@ export class GenericDashComponent implements OnInit {
             this.ninetyDays++;
           }
         }
-      }
-    );
+
     this.contractsData = new Chart('contracts', {
         type: 'pie',
         data: {
@@ -174,7 +173,8 @@ export class GenericDashComponent implements OnInit {
         options: {}
     });
     }
-
+      );
+    }
   }
 
   assetsChart() {
