@@ -7615,9 +7615,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var refNumber = this.route.snapshot.paramMap.get('refNumber');
           this.filter.ticketRefFilter(refNumber.substring(1)).subscribe(function (returnedTicket) {
             _this56.ticket = returnedTicket;
-            console.log(_this56.ticket[0].AssetId);
+            console.log(_this56.ticket);
 
-            _this56.filter.assetsBySerial(_this56.ticket.AssetId).subscribe(function (returnedAsset) {
+            _this56.filter.assetsBySerial(_this56.ticket.AssetIdentifier).subscribe(function (returnedAsset) {
               _this56.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAsset);
               _this56.assetDataSource.sort = _this56.sort;
               _this56.assetDataSource.paginator = _this56.paginator;
