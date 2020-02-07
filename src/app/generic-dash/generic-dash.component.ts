@@ -132,9 +132,7 @@ export class GenericDashComponent implements OnInit {
           const diff2 = diff / (1000 * 3600 * 24);
           return diff2.toFixed(0);
         });
-        // for (let i = 0; i <= status.length; i++) {
-
-        // }
+        console.log(status);
 
     this.contractsData = new Chart('contracts', {
         type: 'pie',

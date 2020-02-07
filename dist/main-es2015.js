@@ -2711,8 +2711,7 @@ let GenericDashComponent = class GenericDashComponent {
                     const diff2 = diff / (1000 * 3600 * 24);
                     return diff2.toFixed(0);
                 });
-                // for (let i = 0; i <= status.length; i++) {
-                // }
+                console.log(status);
                 this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('contracts', {
                     type: 'pie',
                     data: {

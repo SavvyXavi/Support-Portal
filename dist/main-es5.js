@@ -4393,9 +4393,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var diff = date1 - date2;
                 var diff2 = diff / (1000 * 3600 * 24);
                 return diff2.toFixed(0);
-              }); // for (let i = 0; i <= status.length; i++) {
-              // }
-
+              });
+              console.log(status);
               _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('contracts', {
                 type: 'pie',
                 data: {
