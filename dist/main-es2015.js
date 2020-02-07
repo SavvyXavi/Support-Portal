@@ -2711,23 +2711,8 @@ let GenericDashComponent = class GenericDashComponent {
                     const diff2 = diff / (1000 * 3600 * 24);
                     return diff2.toFixed(0);
                 });
-                for (let i = 0; i <= status.length; i++) {
-                    if (status[i] <= 14) {
-                        this.now++;
-                    }
-                    if (status[i] <= 30) {
-                        this.fifteenDays++;
-                    }
-                    if (status[i] <= 60) {
-                        this.thirtyDays++;
-                    }
-                    if (status[i] <= 90) {
-                        this.sixtyDays++;
-                    }
-                    if (status[i] = 90) {
-                        this.ninetyDays++;
-                    }
-                }
+                // for (let i = 0; i <= status.length; i++) {
+                // }
                 this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('contracts', {
                     type: 'pie',
                     data: {
@@ -4721,7 +4706,7 @@ let TicketDetailComponent = class TicketDetailComponent {
     }
     getItems() {
         const refNumber = this.route.snapshot.paramMap.get('refNumber');
-        this.filter.ticketRefFilter(refNumber)
+        this.filter.ticketRefFilter(refNumber.substring(1))
             .subscribe((returnedTickets) => {
             this.ticket = returnedTickets;
             this.filter.assetsBySerial(this.ticket[0].assetId)

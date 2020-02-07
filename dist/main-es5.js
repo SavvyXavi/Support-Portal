@@ -4393,29 +4393,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var diff = date1 - date2;
                 var diff2 = diff / (1000 * 3600 * 24);
                 return diff2.toFixed(0);
-              });
-
-              for (var i = 0; i <= status.length; i++) {
-                if (status[i] <= 14) {
-                  _this30.now++;
-                }
-
-                if (status[i] <= 30) {
-                  _this30.fifteenDays++;
-                }
-
-                if (status[i] <= 60) {
-                  _this30.thirtyDays++;
-                }
-
-                if (status[i] <= 90) {
-                  _this30.sixtyDays++;
-                }
-
-                if (status[i] = 90) {
-                  _this30.ninetyDays++;
-                }
-              }
+              }); // for (let i = 0; i <= status.length; i++) {
+              // }
 
               _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('contracts', {
                 type: 'pie',
@@ -7634,7 +7613,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this56 = this;
 
           var refNumber = this.route.snapshot.paramMap.get('refNumber');
-          this.filter.ticketRefFilter(refNumber).subscribe(function (returnedTickets) {
+          this.filter.ticketRefFilter(refNumber.substring(1)).subscribe(function (returnedTickets) {
             _this56.ticket = returnedTickets;
 
             _this56.filter.assetsBySerial(_this56.ticket[0].assetId).subscribe(function (returnedAsset) {

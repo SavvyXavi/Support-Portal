@@ -132,23 +132,9 @@ export class GenericDashComponent implements OnInit {
           const diff2 = diff / (1000 * 3600 * 24);
           return diff2.toFixed(0);
         });
-        for (let i = 0; i <= status.length; i++) {
-          if (status[i] <= 14) {
-            this.now++;
-          }
-          if (status[i] <= 30) {
-            this.fifteenDays++;
-          }
-          if (status[i] <= 60) {
-            this.thirtyDays++;
-          }
-          if ( status[i] <= 90) {
-            this.sixtyDays++;
-          }
-          if (status[i] = 90) {
-            this.ninetyDays++;
-          }
-        }
+        // for (let i = 0; i <= status.length; i++) {
+
+        // }
 
     this.contractsData = new Chart('contracts', {
         type: 'pie',
