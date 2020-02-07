@@ -133,21 +133,21 @@ export class GenericDashComponent implements OnInit {
           const diff2 = diff / (1000 * 3600 * 24);
           return diff2.toFixed(0);
         });
-        for (let i = 0; i <= status.length; i++) {
-          if (status[i] <= 14) {
-            this.now++;
-          } else if (status[i] <= 29) {
-            this.fifteenDays++;
-          } else if (status[i] <= 59) {
-            this.thirtyDays++;
-          } else if ( status[i] <= 89) {
-            this.sixtyDays++;
-          } else if (status[i] = 90) {
-            this.ninetyDays++;
-          } else if (status[i] > 90) {
-            this.ninetyPlusDays++;
-          }
-        }
+        // for (let i = 0; i <= status.length; i++) {
+        //   if (status[i] <= 14) {
+        //     this.now++;
+        //   } else if (status[i] <= 29) {
+        //     this.fifteenDays++;
+        //   } else if (status[i] <= 59) {
+        //     this.thirtyDays++;
+        //   } else if ( status[i] <= 89) {
+        //     this.sixtyDays++;
+        //   } else if (status[i] = 90) {
+        //     this.ninetyDays++;
+        //   } else if (status[i] > 90) {
+        //     this.ninetyPlusDays++;
+        //   }
+        // }
 
     this.contractsData = new Chart('contracts', {
         type: 'pie',
