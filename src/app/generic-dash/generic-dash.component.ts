@@ -46,11 +46,14 @@ export class GenericDashComponent implements OnInit {
   tickets: Tickets;
 
   assets: Assets[];
+  contractDays: string[];
+
   now = 0;
   fifteenDays = 0;
   thirtyDays = 0;
   sixtyDays = 0;
   ninetyDays = 0;
+  plus =0;
 
   active = 0;
   terminated = 0;
@@ -123,21 +126,26 @@ export class GenericDashComponent implements OnInit {
   contractsChart() {
     let status = [];
     if (this.filterPartner(this.currentProfile.partner)) {
-      this.filter.partConFilter(this.currentProfile).subscribe(
-      (returnedContracts: Contracts[]) => {
-        this.contractLength = returnedContracts.length;
-        status = returnedContracts.map( x => {
-          const date1 = Date.now();
-          const date2 = Date.parse(x.StartDate);
-          const diff = date1 - date2;
-          const diff2 = diff / (1000 * 3600 * 24);
-          console.log(diff);
+      this.filter.conByDays(this.currentProfile)
+      .subscribe(
+        (returnedDays: string[]) => {
+          this.contractDays = returnedDays;
 
-          return diff2.toFixed(0);
-        });
-        for (let i = 0; i <= status.length; i++) {
-
-        }
+          for (let i = 0; i <= this.contractDays.length; ) {
+            if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
+              this.now++;
+            } else if (Number(this.contractDays[i]) <= 29) {
+              this.fifteenDays++;
+            } else if (Number(this.contractDays[i]) <= 59) {
+              this.thirtyDays++;
+            } else if (Number(this.contractDays[i]) <= 89) {
+              this.sixtyDays++;
+            } else if (Number(this.contractDays[i]) === 90) {
+              this.ninetyDays++;
+            } else if (Number(this.contractDays[i]) > 90) {
+              this.plus++;
+            }
+          }
 
     this.contractsData = new Chart('contracts', {
         type: 'pie',
@@ -165,9 +173,10 @@ export class GenericDashComponent implements OnInit {
           }]
         },
         options: {}
-    });
-    }
-      );
+    } );
+        }
+        );
+
     }
   }
 

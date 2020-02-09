@@ -2654,6 +2654,7 @@ let GenericDashComponent = class GenericDashComponent {
         this.thirtyDays = 0;
         this.sixtyDays = 0;
         this.ninetyDays = 0;
+        this.plus = 0;
         this.active = 0;
         this.terminated = 0;
         this.unmapped = 0;
@@ -2702,17 +2703,28 @@ let GenericDashComponent = class GenericDashComponent {
     contractsChart() {
         let status = [];
         if (this.filterPartner(this.currentProfile.partner)) {
-            this.filter.partConFilter(this.currentProfile).subscribe((returnedContracts) => {
-                this.contractLength = returnedContracts.length;
-                status = returnedContracts.map(x => {
-                    const date1 = Date.now();
-                    const date2 = Date.parse(x.StartDate);
-                    const diff = date1 - date2;
-                    const diff2 = diff / (1000 * 3600 * 24);
-                    console.log(diff);
-                    return diff2.toFixed(0);
-                });
-                for (let i = 0; i <= status.length; i++) {
+            this.filter.conByDays(this.currentProfile)
+                .subscribe((returnedDays) => {
+                this.contractDays = returnedDays;
+                for (let i = 0; i <= this.contractDays.length;) {
+                    if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
+                        this.now++;
+                    }
+                    else if (Number(this.contractDays[i]) <= 29) {
+                        this.fifteenDays++;
+                    }
+                    else if (Number(this.contractDays[i]) <= 59) {
+                        this.thirtyDays++;
+                    }
+                    else if (Number(this.contractDays[i]) <= 89) {
+                        this.sixtyDays++;
+                    }
+                    else if (Number(this.contractDays[i]) === 90) {
+                        this.ninetyDays++;
+                    }
+                    else if (Number(this.contractDays[i]) > 90) {
+                        this.plus++;
+                    }
                 }
                 this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('contracts', {
                     type: 'pie',
@@ -5912,6 +5924,7 @@ let ApifilterService = class ApifilterService {
         this.cContractsApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/ContractsByCustomer?code=bpca1PGS/szLyokaPXrzwhbTmpIv1NIC8St234Ce8anUtUKo8uUWkg==';
         this.refConApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
         this.nameConApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByName?code=IZMBTTmJ5l7M3WPeKg46l/3lfEaAKMgKdagfNCM8T07vyO05QqqBSg==';
+        this.schedDayCountApi = 'https://prodharmonytwo.azurewebsites.net/api/getSchedDaysToGo?code=NxVHnZOpdgRSQCa35OBTA7g/r6wm3euGe0a8pWHG6hDNG7PTCkPJNQ==';
         this.oldpartassetsapi = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullAssets?code=jZK5Np57XB8xaTlNIlnyj9Pga9ar34hvOD4fkzGj/xTAlHNCemQvpw==';
         this.partassetsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
         this.custassetsapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetByCustomer?code=srg4TRFO6Uvo2YxaFGKlpJ59714bHNlgBTtSXdxDvk7WwBfX8VkdTw==';
@@ -6008,6 +6021,12 @@ let ApifilterService = class ApifilterService {
             'partner': filter.partner
         };
         return this.http.post(this.cContractsApi, params);
+    }
+    conByDays(filter) {
+        const params = {
+            'partner': filter.partner
+        };
+        return this.http.post(this.schedDayCountApi, params);
     }
     getPartners() {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(this.partnerlist);

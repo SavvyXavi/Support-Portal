@@ -4310,6 +4310,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.thirtyDays = 0;
         this.sixtyDays = 0;
         this.ninetyDays = 0;
+        this.plus = 0;
         this.active = 0;
         this.terminated = 0;
         this.unmapped = 0;
@@ -4385,18 +4386,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var status = [];
 
           if (this.filterPartner(this.currentProfile.partner)) {
-            this.filter.partConFilter(this.currentProfile).subscribe(function (returnedContracts) {
-              _this30.contractLength = returnedContracts.length;
-              status = returnedContracts.map(function (x) {
-                var date1 = Date.now();
-                var date2 = Date.parse(x.StartDate);
-                var diff = date1 - date2;
-                var diff2 = diff / (1000 * 3600 * 24);
-                console.log(diff);
-                return diff2.toFixed(0);
-              });
+            this.filter.conByDays(this.currentProfile).subscribe(function (returnedDays) {
+              _this30.contractDays = returnedDays;
 
-              for (var i = 0; i <= status.length; i++) {}
+              for (var i = 0; i <= _this30.contractDays.length;) {
+                if (Number(_this30.contractDays[i]) > -1 || Number(_this30.contractDays[i]) <= 14) {
+                  _this30.now++;
+                } else if (Number(_this30.contractDays[i]) <= 29) {
+                  _this30.fifteenDays++;
+                } else if (Number(_this30.contractDays[i]) <= 59) {
+                  _this30.thirtyDays++;
+                } else if (Number(_this30.contractDays[i]) <= 89) {
+                  _this30.sixtyDays++;
+                } else if (Number(_this30.contractDays[i]) === 90) {
+                  _this30.ninetyDays++;
+                } else if (Number(_this30.contractDays[i]) > 90) {
+                  _this30.plus++;
+                }
+              }
 
               _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('contracts', {
                 type: 'pie',
@@ -9354,6 +9361,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.cContractsApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/ContractsByCustomer?code=bpca1PGS/szLyokaPXrzwhbTmpIv1NIC8St234Ce8anUtUKo8uUWkg==';
         this.refConApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
         this.nameConApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByName?code=IZMBTTmJ5l7M3WPeKg46l/3lfEaAKMgKdagfNCM8T07vyO05QqqBSg==';
+        this.schedDayCountApi = 'https://prodharmonytwo.azurewebsites.net/api/getSchedDaysToGo?code=NxVHnZOpdgRSQCa35OBTA7g/r6wm3euGe0a8pWHG6hDNG7PTCkPJNQ==';
         this.oldpartassetsapi = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullAssets?code=jZK5Np57XB8xaTlNIlnyj9Pga9ar34hvOD4fkzGj/xTAlHNCemQvpw==';
         this.partassetsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
         this.custassetsapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetByCustomer?code=srg4TRFO6Uvo2YxaFGKlpJ59714bHNlgBTtSXdxDvk7WwBfX8VkdTw==';
@@ -9477,6 +9485,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             'partner': filter.partner
           };
           return this.http.post(this.cContractsApi, params);
+        }
+      }, {
+        key: "conByDays",
+        value: function conByDays(filter) {
+          var params = {
+            'partner': filter.partner
+          };
+          return this.http.post(this.schedDayCountApi, params);
         }
       }, {
         key: "getPartners",
