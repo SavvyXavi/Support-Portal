@@ -2706,17 +2706,15 @@ let GenericDashComponent = class GenericDashComponent {
             this.filter.conByDays(this.currentProfile)
                 .subscribe((returnedDays) => {
                 this.contractDays = returnedDays;
-                for (let i = 0; i <= this.contractDays.length;) {
-                    if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
-                        this.now++;
-                    }
-                    else if (Number(this.contractDays[i]) <= 29) {
-                        this.fifteenDays++;
-                    }
-                    else if (Number(this.contractDays[i]) <= 59) {
-                        this.thirtyDays++;
-                    }
-                }
+                // for (let i = 0; i <= this.contractDays.length; ) {
+                //   if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
+                //     this.now++;
+                //   } else if (Number(this.contractDays[i]) <= 29) {
+                //     this.fifteenDays++;
+                //   } else if (Number(this.contractDays[i]) <= 59) {
+                //     this.thirtyDays++;
+                //   }
+                // }
                 this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('contracts', {
                     type: 'pie',
                     data: {

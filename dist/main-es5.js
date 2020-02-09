@@ -4387,17 +4387,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.conByDays(this.currentProfile).subscribe(function (returnedDays) {
-              _this30.contractDays = returnedDays;
-
-              for (var i = 0; i <= _this30.contractDays.length;) {
-                if (Number(_this30.contractDays[i]) > -1 || Number(_this30.contractDays[i]) <= 14) {
-                  _this30.now++;
-                } else if (Number(_this30.contractDays[i]) <= 29) {
-                  _this30.fifteenDays++;
-                } else if (Number(_this30.contractDays[i]) <= 59) {
-                  _this30.thirtyDays++;
-                }
-              }
+              _this30.contractDays = returnedDays; // for (let i = 0; i <= this.contractDays.length; ) {
+              //   if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
+              //     this.now++;
+              //   } else if (Number(this.contractDays[i]) <= 29) {
+              //     this.fifteenDays++;
+              //   } else if (Number(this.contractDays[i]) <= 59) {
+              //     this.thirtyDays++;
+              //   }
+              // }
 
               _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('contracts', {
                 type: 'pie',
