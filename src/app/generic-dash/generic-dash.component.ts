@@ -138,12 +138,6 @@ export class GenericDashComponent implements OnInit {
               this.fifteenDays++;
             } else if (Number(this.contractDays[i]) <= 59) {
               this.thirtyDays++;
-            } else if (Number(this.contractDays[i]) <= 89) {
-              this.sixtyDays++;
-            } else if (Number(this.contractDays[i]) === 90) {
-              this.ninetyDays++;
-            } else if (Number(this.contractDays[i]) > 90) {
-              this.plus++;
             }
           }
 
