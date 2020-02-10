@@ -1451,7 +1451,7 @@ __webpack_require__.r(__webpack_exports__);
 let OemService = class OemService {
     constructor(http) {
         this.http = http;
-        this.monApi = 'nagiosxi/api/v1/objects/servicestatus?apikey=0R3eFd6iCnPNJUGDgpWY0RAWTfjiGQ4ZskVsbMP4cCoPdi4eYgYo89FWUIqEQJNk';
+        this.monApi = 'nagiosxi/api/v1/objects/servicestatus?apikey=oP8HKeRjL6ejiZuqkbkRJWrG5ZqbGUTEkhUaSshWWrH3bnZDgvhqH8CFeXGkAZcV';
         this.oemPull = 'https://n1sharmonypull.azurewebsites.net/api/OEMPull?code=1d9quTWcruk3APk5NqxpPyN8Qez0flIun778ihBgIfB/QKj1eGDMyQ==';
         this.monPull = 'https://localmonitor.noble1it.com/nagiosxi/api/v1/objects/servicestatus?apikey=';
         this.combPull = this.monPull + this.monApi;
