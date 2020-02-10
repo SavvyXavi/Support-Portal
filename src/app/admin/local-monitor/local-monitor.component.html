@@ -16,7 +16,7 @@
    </tr>
 </thead>
  <tr *ngFor='let data of monitor'>
-   <td>{{data.servicestatus.current_state}}</td>
+   <td>{{data.servicestatus[0].current_state}}</td>
    <td>{{data.servicestatus.host_name}}</td>
    <td>{{data.servicestatus.name}}</td>
    <td>{{data.servicestatus.host_address}}</td>
