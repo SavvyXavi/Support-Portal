@@ -4355,7 +4355,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return _this27.ticketLength = returnedAssetLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-            this.filter.ticketsFilter(this.currentProfile.company).subscribe(function (returnedTicketLength) {
+            this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTicketLength) {
               return _this27.ticketLength = returnedTicketLength;
             });
           }
@@ -7854,7 +7854,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this60.ticketDataSource.paginator = _this60.paginator;
             });
           } else {
-            this.filter.ticketsFilter(this.currentProfile.company).subscribe(function (returnedTickets) {
+            this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTickets) {
               _this60.testin = 'Completely skipped';
               _this60.ticketLength = returnedTickets;
               _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedTickets);
@@ -9369,7 +9369,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.serialassetsapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetDrillDown?code=cwjoeQCF3Qx5PwX0xfLJDclqyxjEyW/gZppvvS6K/g07nFSOTfudrg==';
         this.assetlocationapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetsByLocation?code=aO2JTfqrHEJNatGh3FIlDHs90/fGncezd7CVxMfZX/lqR9ZoyHvIYw==';
         this.pTicketsApi = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
-        this.ticketsApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
+        this.cTicketsApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
         this.ticketsLocationapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByLocation?code=Dj9Nn0m5gd3RuNDO5E/xq9r7AqN7S0z34mrL2bsSwxkANwga/1iJyQ==';
         this.ticketRefApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByRefNumber?code=O1Sok3K9e4QIPE/IGmb7YPdn/WlwY97zxeufiVVCmD2iw5FN8/8jyg==';
         this.pLocationsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/LocationsByPartner?code=4rYRhjsKV710lRV0tXwOXlfMJkzwUp3mPnvpn2dpKA/FgbAYEPIxow==';
@@ -9420,12 +9420,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.http.post(this.assetlocationapi, params);
         }
       }, {
-        key: "ticketsFilter",
-        value: function ticketsFilter(filter) {
+        key: "cusTicketsFilter",
+        value: function cusTicketsFilter(filter) {
           var params = {
             'company': filter
           };
-          return this.http.post(this.ticketsApi, params);
+          return this.http.post(this.cTicketsApi, params);
         }
       }, {
         key: "partTicketsFilter",

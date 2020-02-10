@@ -53,7 +53,7 @@ export class GenericDashComponent implements OnInit {
   thirtyDays = 0;
   sixtyDays = 0;
   ninetyDays = 0;
-  plus =0;
+  plus = 0;
 
   active = 0;
   terminated = 0;
@@ -99,7 +99,7 @@ export class GenericDashComponent implements OnInit {
         (returnedAssetLength: Tickets[]) => this.ticketLength = returnedAssetLength
       );
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      this.filter.ticketsFilter(this.currentProfile.company)
+      this.filter.cusTicketsFilter(this.currentProfile.company)
       .subscribe(
         (returnedTicketLength: Tickets[]) => this.ticketLength = returnedTicketLength
       );

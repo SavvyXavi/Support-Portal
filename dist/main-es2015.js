@@ -2683,7 +2683,7 @@ let GenericDashComponent = class GenericDashComponent {
                 .subscribe((returnedAssetLength) => this.ticketLength = returnedAssetLength);
         }
         else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-            this.filter.ticketsFilter(this.currentProfile.company)
+            this.filter.cusTicketsFilter(this.currentProfile.company)
                 .subscribe((returnedTicketLength) => this.ticketLength = returnedTicketLength);
         }
     }
@@ -4864,7 +4864,7 @@ let TicketsComponent = class TicketsComponent {
             });
         }
         else {
-            this.filter.ticketsFilter(this.currentProfile.company)
+            this.filter.cusTicketsFilter(this.currentProfile.company)
                 .subscribe((returnedTickets) => {
                 this.testin = 'Completely skipped';
                 this.ticketLength = returnedTickets;
@@ -5927,7 +5927,7 @@ let ApifilterService = class ApifilterService {
         this.serialassetsapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetDrillDown?code=cwjoeQCF3Qx5PwX0xfLJDclqyxjEyW/gZppvvS6K/g07nFSOTfudrg==';
         this.assetlocationapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetsByLocation?code=aO2JTfqrHEJNatGh3FIlDHs90/fGncezd7CVxMfZX/lqR9ZoyHvIYw==';
         this.pTicketsApi = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
-        this.ticketsApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
+        this.cTicketsApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
         this.ticketsLocationapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByLocation?code=Dj9Nn0m5gd3RuNDO5E/xq9r7AqN7S0z34mrL2bsSwxkANwga/1iJyQ==';
         this.ticketRefApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByRefNumber?code=O1Sok3K9e4QIPE/IGmb7YPdn/WlwY97zxeufiVVCmD2iw5FN8/8jyg==';
         this.pLocationsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/LocationsByPartner?code=4rYRhjsKV710lRV0tXwOXlfMJkzwUp3mPnvpn2dpKA/FgbAYEPIxow==';
@@ -5966,11 +5966,11 @@ let ApifilterService = class ApifilterService {
         };
         return this.http.post(this.assetlocationapi, params);
     }
-    ticketsFilter(filter) {
+    cusTicketsFilter(filter) {
         const params = {
             'company': filter
         };
-        return this.http.post(this.ticketsApi, params);
+        return this.http.post(this.cTicketsApi, params);
     }
     partTicketsFilter(filter) {
         const params = {
