@@ -5946,7 +5946,7 @@ let ApifilterService = class ApifilterService {
     custAssetsFilter(filter) {
         const params = {
             'role': filter.partnerRole,
-            'partner': filter.company
+            'company': filter.company
         };
         return this.http.post(this.custassetsapi, params);
     }
