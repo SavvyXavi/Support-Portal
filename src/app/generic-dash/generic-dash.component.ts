@@ -247,7 +247,6 @@ export class GenericDashComponent implements OnInit {
         this.assetsData = new Chart('assets', {
           type: 'pie',
           data: {
-            labels: ['Active', 'Terminated', 'Unmapped', 'Yet to Start'],
             datasets: [{
               label: 'Asset Status',
                 data: [this.active, this.terminated, this.unmapped, this.yetToStart],

@@ -2823,7 +2823,6 @@ let GenericDashComponent = class GenericDashComponent {
                 this.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('assets', {
                     type: 'pie',
                     data: {
-                        labels: ['Active', 'Terminated', 'Unmapped', 'Yet to Start'],
                         datasets: [{
                                 label: 'Asset Status',
                                 data: [this.active, this.terminated, this.unmapped, this.yetToStart],

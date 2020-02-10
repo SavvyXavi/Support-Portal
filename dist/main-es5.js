@@ -4486,7 +4486,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this31.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('assets', {
                 type: 'pie',
                 data: {
-                  labels: ['Active', 'Terminated', 'Unmapped', 'Yet to Start'],
                   datasets: [{
                     label: 'Asset Status',
                     data: [_this31.active, _this31.terminated, _this31.unmapped, _this31.yetToStart],
