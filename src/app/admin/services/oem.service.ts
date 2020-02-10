@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class OemService {
-  monApi = '0R3eFd6iCnPNJUGDgpWY0RAWTfjiGQ4ZskVsbMP4cCoPdi4eYgYo89FWUIqEQJNk';
+  monApi = '?token=0R3eFd6iCnPNJUGDgpWY0RAWTfjiGQ4ZskVsbMP4cCoPdi4eYgYo89FWUIqEQJNk';
   oemPull = 'https://n1sharmonypull.azurewebsites.net/api/OEMPull?code=1d9quTWcruk3APk5NqxpPyN8Qez0flIun778ihBgIfB/QKj1eGDMyQ==';
   monPull = 'https://localmonitor.noble1it.com/nagiosxi/api/v1/objects/servicestatus';
   combPull = this.monPull + this.monApi;
@@ -16,9 +16,6 @@ export class OemService {
     return this.http.get(this.oemPull);
   }
   getMon() {
-    const params = {
-      'APIKEY': this.monApi
-    };
     return this.http.get(this.combPull);
   }
 }
