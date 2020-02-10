@@ -9,6 +9,7 @@ export class OemService {
   oemPull = 'https://n1sharmonypull.azurewebsites.net/api/OEMPull?code=1d9quTWcruk3APk5NqxpPyN8Qez0flIun778ihBgIfB/QKj1eGDMyQ==';
   monPull = 'https://localmonitor.noble1it.com/nagiosxi/api/v1/objects/servicestatus';
   combPull = this.monPull + this.monApi;
+  azureMonitor = 'https://prodharmonytwo.azurewebsites.net/api/NagiosCall?code=b99vLlCwafNeOtiqbk1VlJ6upDuWsCo06ox9oxr65sggj3KtLv2qFQ==';
 
   constructor( private http: HttpClient ) { }
 
@@ -16,6 +17,6 @@ export class OemService {
     return this.http.get(this.oemPull);
   }
   getMon() {
-    return this.http.get(this.combPull);
+    return this.http.get(this.azureMonitor);
   }
 }

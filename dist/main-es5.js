@@ -2390,6 +2390,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.oemPull = 'https://n1sharmonypull.azurewebsites.net/api/OEMPull?code=1d9quTWcruk3APk5NqxpPyN8Qez0flIun778ihBgIfB/QKj1eGDMyQ==';
         this.monPull = 'https://localmonitor.noble1it.com/nagiosxi/api/v1/objects/servicestatus';
         this.combPull = this.monPull + this.monApi;
+        this.azureMonitor = 'https://prodharmonytwo.azurewebsites.net/api/NagiosCall?code=b99vLlCwafNeOtiqbk1VlJ6upDuWsCo06ox9oxr65sggj3KtLv2qFQ==';
       }
 
       _createClass(OemService, [{
@@ -2400,7 +2401,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getMon",
         value: function getMon() {
-          return this.http.get(this.combPull);
+          return this.http.get(this.azureMonitor);
         }
       }]);
 
