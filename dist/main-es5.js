@@ -2276,10 +2276,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this9 = this;
 
           this.submitted = true; // stop here if form is invalid
-
-          if (this.registerForm.invalid) {
-            return;
-          }
+          //  if ( this.registerForm.invalid) {
+          //    return;
+          //  }
 
           this.loading = true;
           alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
