@@ -70,7 +70,7 @@ export class ContractsComponent implements OnInit {
   }
 
   getContracts() {
-    if (this.filterPartner(this.currentProfile.partner)) {
+    if (this.currentProfile.companypartner === 'Partner') {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
         (returnedContracts: Contracts[]) => {
@@ -79,7 +79,7 @@ export class ContractsComponent implements OnInit {
           this.contractDataSource.paginator = this.paginator;
         }
       );
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+    } else {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
         (returnedContracts: Contracts[]) => {

@@ -451,7 +451,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container wrapper\">\n      <div class=\"container-fluid\">\n        <div class=\"row \">\n          <div class=\"contracts-container total-container col-md\">\n            <a routerLink=\"/manageassets/contracts\">\n              <div class=\"row contract-content\">\n                <div class=\"col contract-length\">\n                  {{this.contractLength}}\n                </div>\n              </div>\n              <div class=\"row contract-label justify-content-center\">\n                Contracts\n              </div>\n              <div class=\"row contract-logo justify-content-end\">\n                  <img class=\"contract-icon\" src=\"../../assets/Mega-Contracts.png\">\n              </div>\n            </a>\n          </div>\n          <div class=\"assets-container total-container col-md\">\n            <a routerLink=\"/manageassets/assets\">\n              <div class=\"row asset-content\">\n                <div class=\"col asset-length\">\n                  {{this.assetLength}}\n                </div>\n              </div>\n              <div class=\"row asset-label justify-content-center\">\n                Assets\n              </div>\n              <div class=\"row asset-logo justify-content-end\">\n                  <img class=\"asset-icon\" src=\"../../assets/Mega-Assets.png\">\n              </div>\n            </a>\n          </div>\n          <div class=\"tickets-container total-container col-md\">\n            <a routerLink=\"/manageassets/tickets\">\n              <div class=\"row ticket-content\">\n                <div class=\"col ticket-length\">\n                  {{this.ticketLength?.length}}\n                </div>\n              </div>\n              <div class=\"row ticket-label justify-content-center\">\n                Tickets\n              </div>\n              <div class=\"row ticket-logo justify-content-end\">\n                  <img class=\"ticket-icon\" src=\"../../assets/Mega-Tickets.png\">\n              </div>\n            </a>\n          </div>\n\n        <div *ngIf=\"this.filterPartner(this.currentProfile.partner)\" class=\"companies-container total-container col-md\">\n            <a routerLink=\"/companies\">\n              <div class=\"row companies-content\">\n                <div class=\"col companies-length\">\n                  {{this.companyLength?.length}}\n                </div>\n              </div>\n              <div class=\"row companies-label justify-content-center\">\n                Companies\n              </div>\n              <div class=\"row company-logo justify-content-end\">\n                  <img class=\"company-icon\" src=\"../../assets/Mega-Compannies.png\">\n              </div>\n            </a>\n          </div>\n          <!-- <div *ngIf=\"currentProfile.partnerRole === 'Admin'\" class=\"users-container total-container col-md\">\n            <a routerLink=\"/admin/users\">\n              <div class=\"users-content\">\n                0 <br>\n                Users\n                <img src=\"../../assets/users.png\">\n              </div>\n            </a>\n          </div> -->\n          <!-- <div class=\"locations-container total-container col-md\">\n            <a routerLink=\"/admin/locations\"><div class=\"locations-content\">\n                0 <br>\n                Locations\n              <img src=\"../../assets/locations.png\">\n            </div>\n          </a>\n            </div> -->\n          </div>\n        </div>\n      <div class=\"row\">\n        <div class=\"col-md\">\n          <div class=\"container contracts-wrapper\">\n            <div class=\"row\">\n              <div class=\"title col-md\">\n                <h3><i class=\"fa fa-calendar\" aria-hidden=\"true\"> </i> Contracts</h3>\n              </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"legend col-md\">\n                <h6>\n                  <span class=\"badge badge-now\"><p>N</p></span> Now\n                </h6>\n                <h6>\n                  <span class=\"badge badge-15\"><p>N</p></span> 15 Days\n                </h6>\n                <h6>\n                  <span class=\"badge badge-30\"><p>N</p></span> 30 Days\n                </h6>\n                <h6>\n                  <span class=\"badge badge-60\"><p>N</p></span> 60 Days\n                </h6>\n                <h6>\n                  <span class=\"badge badge-90\"><p>N</p></span> 90 Days\n                </h6>\n                <h6>\n                  <span class=\"badge badge-plus\"><p>N</p></span> 90+ Days\n                </h6>\n              </div>\n              <div class=\"chart col-md\">\n                  <canvas id=\"contracts\" width=\"250\" height=\"250\">{{ contractsData }}</canvas>\n              </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"col-md\">\n                <table class=\"table\">\n                  <tr>\n                    <td>\n                      Now\n                    </td>\n                    <td>\n                      <span class=\"badge badge-now badge-table\">{{this.now}}</span>\n                    </td>\n                    <td>\n                     15 Days\n                    </td>\n                    <td>\n                    <span class=\"badge badge-15 badge-table\">{{this.fifteenDays}}</span>\n                    </td>\n                  </tr>\n                  <tr>\n                    <td>\n                      30 Days\n                    </td>\n                    <td>\n                      <span class=\"badge badge-30 badge-table\">{{this.sixtyDays}}</span>\n                    </td>\n                    <td>\n                     60 Days\n                    </td>\n                    <td>\n                    <span class=\"badge badge-60 badge-table\"></span>\n                    </td>\n                  </tr>\n                  <tr>\n                    <td>\n                      90 Days\n                    </td>\n                    <td>\n                      <span class=\"badge badge-90 badge-table\"></span>\n                    </td>\n                    <td>\n                      90+ Days\n                    </td>\n                    <td>\n                      <span class=\"badge badge-plus badge-table\"></span>\n                    </td>\n                  </tr>\n                </table>\n              </div>\n          </div>\n        </div>\n      </div>\n\n        <div class=\"col-md\">\n          <div class=\"container assets-wrapper\">\n            <div class=\"row\">\n              <div class=\"title col-md\">\n                <h3><i class=\"fa fa-calendar\" aria-hidden=\"true\"> </i> Assets</h3>\n              </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"legend col-md\">\n                <h6>\n                  <span class=\"badge badge-active\"><p>N</p></span> Active\n                </h6>\n                <h6>\n                  <span class=\"badge badge-terminated\"><p>N</p></span> Terminated\n                </h6>\n                <h6>\n                  <span class=\"badge badge-unmapped\"><p>N</p></span> Unmapped\n                </h6>\n                <h6>\n                  <span class=\"badge badge-yetToStart\"><p>N</p></span> Yet to Start\n                </h6>\n              </div>\n              <div class=\"chart col-md\">\n                  <canvas id=\"assets\" width=\"250\" height=\"250\">{{ assetsChart }}</canvas>\n              </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-md\">\n                  <table class=\"table\">\n                    <tr>\n                      <td>\n                        Active\n                      </td>\n                      <td>\n                        <span class=\"badge badge-active badge-table\">{{this.active}}</span>\n                      </td>\n                      <td>\n                        Terminated\n                      </td>\n                      <td>\n                          <span class=\"badge badge-terminated badge-table\">{{this.terminated}}</span>\n                      </td>\n                    </tr>\n                    <tr>\n                      <td>\n                        Unmapped\n                      </td>\n                      <td>\n                        <span class=\"badge badge-unmapped badge-table\">{{this.unmapped}}</span>\n                      </td>\n                      <td>\n                        Yet to Start\n                      </td>\n                      <td>\n                        <span class=\"badge badge-yetToStart badge-table\">{{this.yetToStart}}</span>\n                      </td>\n                    </tr>\n                  </table>\n                </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"row\">\n\n        <div class=\"col-md\">\n          <div class=\"container tickets-wrapper\">\n\n          <div class=\"row\">\n            <div class=\"title col-md\">\n              <h3><i class=\"fas fa-hdd\"></i> Tickets</h3>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-md\">\n             <table class=\"table table-hover\">\n              <thead>\n                <tr>\n                  <th scope=\"col\">Status</th>\n                  <th scope=\"col\">Count</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td scope=\"row\">New</td>\n                  <td>0</td>\n                </tr>\n                <tr>\n                  <td scope=\"row\">Pending</td>\n                  <td>0</td>\n                </tr>\n                <tr>\n                  <td scope=\"row\">Closed</td>\n                  <td>0</td>\n                </tr>\n              </tbody>\n            </table>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"view-wrapper col-md\">\n              <Button routerLink=\"/manageassets/tickets\" class=\"btn btn-info\"> View All</Button>\n            </div>\n          </div>\n\n          </div>\n      </div>\n\n      </div>\n\n        <div class=\"col-md\">\n          <div class=\"card\">\n            <div class=\"card-header\">\n              My Open Cases\n            </div>\n            <table class=\"table table-hover\">\n              <thead>\n                <tr>\n                  <th scope=\"col\">#</th>\n                  <th scope=\"col\">First</th>\n                  <th scope=\"col\">Last</th>\n                  <th scope=\"col\">Handle</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <th scope=\"row\">1</th>\n                  <td>Mark</td>\n                  <td>Otto</td>\n                  <td>@mdo</td>\n                </tr>\n                <tr>\n                  <th scope=\"row\">2</th>\n                  <td>Jacob</td>\n                  <td>Thornton</td>\n                  <td>@fat</td>\n                </tr>\n                <tr>\n                  <th scope=\"row\">3</th>\n                  <td colspan=\"2\">Larry the Bird</td>\n                  <td>@twitter</td>\n                </tr>\n              </tbody>\n            </table>\n        </div>\n      </div>\n    </div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container wrapper\">\n      <div class=\"container-fluid\">\n        <div class=\"row \">\n          <div class=\"contracts-container total-container col-md\">\n            <a routerLink=\"/manageassets/contracts\">\n              <div class=\"row contract-content\">\n                <div class=\"col contract-length\">\n                  {{this.contractLength}}\n                </div>\n              </div>\n              <div class=\"row contract-label justify-content-center\">\n                Contracts\n              </div>\n              <div class=\"row contract-logo justify-content-end\">\n                  <img class=\"contract-icon\" src=\"../../assets/Mega-Contracts.png\">\n              </div>\n            </a>\n          </div>\n          <div class=\"assets-container total-container col-md\">\n            <a routerLink=\"/manageassets/assets\">\n              <div class=\"row asset-content\">\n                <div class=\"col asset-length\">\n                  {{this.assetLength}}\n                </div>\n              </div>\n              <div class=\"row asset-label justify-content-center\">\n                Assets\n              </div>\n              <div class=\"row asset-logo justify-content-end\">\n                  <img class=\"asset-icon\" src=\"../../assets/Mega-Assets.png\">\n              </div>\n            </a>\n          </div>\n          <div class=\"tickets-container total-container col-md\">\n            <a routerLink=\"/manageassets/tickets\">\n              <div class=\"row ticket-content\">\n                <div class=\"col ticket-length\">\n                  {{this.ticketLength?.length}}\n                </div>\n              </div>\n              <div class=\"row ticket-label justify-content-center\">\n                Tickets\n              </div>\n              <div class=\"row ticket-logo justify-content-end\">\n                  <img class=\"ticket-icon\" src=\"../../assets/Mega-Tickets.png\">\n              </div>\n            </a>\n          </div>\n\n        <div *ngIf=\"this.currentProfile.companypartner === 'Partner'\" class=\"companies-container total-container col-md\">\n            <a routerLink=\"/companies\">\n              <div class=\"row companies-content\">\n                <div class=\"col companies-length\">\n                  {{this.companyLength?.length}}\n                </div>\n              </div>\n              <div class=\"row companies-label justify-content-center\">\n                Companies\n              </div>\n              <div class=\"row company-logo justify-content-end\">\n                  <img class=\"company-icon\" src=\"../../assets/Mega-Compannies.png\">\n              </div>\n            </a>\n          </div>\n          <!-- <div *ngIf=\"currentProfile.partnerRole === 'Admin'\" class=\"users-container total-container col-md\">\n            <a routerLink=\"/admin/users\">\n              <div class=\"users-content\">\n                0 <br>\n                Users\n                <img src=\"../../assets/users.png\">\n              </div>\n            </a>\n          </div> -->\n          <!-- <div class=\"locations-container total-container col-md\">\n            <a routerLink=\"/admin/locations\"><div class=\"locations-content\">\n                0 <br>\n                Locations\n              <img src=\"../../assets/locations.png\">\n            </div>\n          </a>\n            </div> -->\n          </div>\n        </div>\n      <div class=\"row\">\n        <div class=\"col-md\">\n          <div class=\"container contracts-wrapper\">\n            <div class=\"row\">\n              <div class=\"title col-md\">\n                <h3><i class=\"fa fa-calendar\" aria-hidden=\"true\"> </i> Contracts</h3>\n              </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"legend col-md\">\n                <h6>\n                  <span class=\"badge badge-now\"><p>N</p></span> Now\n                </h6>\n                <h6>\n                  <span class=\"badge badge-15\"><p>N</p></span> 15 Days\n                </h6>\n                <h6>\n                  <span class=\"badge badge-30\"><p>N</p></span> 30 Days\n                </h6>\n                <h6>\n                  <span class=\"badge badge-60\"><p>N</p></span> 60 Days\n                </h6>\n                <h6>\n                  <span class=\"badge badge-90\"><p>N</p></span> 90 Days\n                </h6>\n                <h6>\n                  <span class=\"badge badge-plus\"><p>N</p></span> 90+ Days\n                </h6>\n              </div>\n              <div class=\"chart col-md\">\n                  <canvas id=\"contracts\" width=\"250\" height=\"250\">{{ contractsData }}</canvas>\n              </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"col-md\">\n                <table class=\"table\">\n                  <tr>\n                    <td>\n                      Now\n                    </td>\n                    <td>\n                      <span class=\"badge badge-now badge-table\">{{this.now}}</span>\n                    </td>\n                    <td>\n                     15 Days\n                    </td>\n                    <td>\n                    <span class=\"badge badge-15 badge-table\">{{this.fifteenDays}}</span>\n                    </td>\n                  </tr>\n                  <tr>\n                    <td>\n                      30 Days\n                    </td>\n                    <td>\n                      <span class=\"badge badge-30 badge-table\">{{this.sixtyDays}}</span>\n                    </td>\n                    <td>\n                     60 Days\n                    </td>\n                    <td>\n                    <span class=\"badge badge-60 badge-table\"></span>\n                    </td>\n                  </tr>\n                  <tr>\n                    <td>\n                      90 Days\n                    </td>\n                    <td>\n                      <span class=\"badge badge-90 badge-table\"></span>\n                    </td>\n                    <td>\n                      90+ Days\n                    </td>\n                    <td>\n                      <span class=\"badge badge-plus badge-table\"></span>\n                    </td>\n                  </tr>\n                </table>\n              </div>\n          </div>\n        </div>\n      </div>\n\n        <div class=\"col-md\">\n          <div class=\"container assets-wrapper\">\n            <div class=\"row\">\n              <div class=\"title col-md\">\n                <h3><i class=\"fa fa-calendar\" aria-hidden=\"true\"> </i> Assets</h3>\n              </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"legend col-md\">\n                <h6>\n                  <span class=\"badge badge-active\"><p>N</p></span> Active\n                </h6>\n                <h6>\n                  <span class=\"badge badge-terminated\"><p>N</p></span> Terminated\n                </h6>\n                <h6>\n                  <span class=\"badge badge-unmapped\"><p>N</p></span> Unmapped\n                </h6>\n                <h6>\n                  <span class=\"badge badge-yetToStart\"><p>N</p></span> Yet to Start\n                </h6>\n              </div>\n              <div class=\"chart col-md\">\n                  <canvas id=\"assets\" width=\"250\" height=\"250\">{{ assetsChart }}</canvas>\n              </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-md\">\n                  <table class=\"table\">\n                    <tr>\n                      <td>\n                        Active\n                      </td>\n                      <td>\n                        <span class=\"badge badge-active badge-table\">{{this.active}}</span>\n                      </td>\n                      <td>\n                        Terminated\n                      </td>\n                      <td>\n                          <span class=\"badge badge-terminated badge-table\">{{this.terminated}}</span>\n                      </td>\n                    </tr>\n                    <tr>\n                      <td>\n                        Unmapped\n                      </td>\n                      <td>\n                        <span class=\"badge badge-unmapped badge-table\">{{this.unmapped}}</span>\n                      </td>\n                      <td>\n                        Yet to Start\n                      </td>\n                      <td>\n                        <span class=\"badge badge-yetToStart badge-table\">{{this.yetToStart}}</span>\n                      </td>\n                    </tr>\n                  </table>\n                </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"row\">\n\n        <div class=\"col-md\">\n          <div class=\"container tickets-wrapper\">\n\n          <div class=\"row\">\n            <div class=\"title col-md\">\n              <h3><i class=\"fas fa-hdd\"></i> Tickets</h3>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-md\">\n             <table class=\"table table-hover\">\n              <thead>\n                <tr>\n                  <th scope=\"col\">Status</th>\n                  <th scope=\"col\">Count</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td scope=\"row\">New</td>\n                  <td>0</td>\n                </tr>\n                <tr>\n                  <td scope=\"row\">Pending</td>\n                  <td>0</td>\n                </tr>\n                <tr>\n                  <td scope=\"row\">Closed</td>\n                  <td>0</td>\n                </tr>\n              </tbody>\n            </table>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"view-wrapper col-md\">\n              <Button routerLink=\"/manageassets/tickets\" class=\"btn btn-info\"> View All</Button>\n            </div>\n          </div>\n\n          </div>\n      </div>\n\n      </div>\n\n        <div class=\"col-md\">\n          <div class=\"card\">\n            <div class=\"card-header\">\n              My Open Cases\n            </div>\n            <table class=\"table table-hover\">\n              <thead>\n                <tr>\n                  <th scope=\"col\">#</th>\n                  <th scope=\"col\">First</th>\n                  <th scope=\"col\">Last</th>\n                  <th scope=\"col\">Handle</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <th scope=\"row\">1</th>\n                  <td>Mark</td>\n                  <td>Otto</td>\n                  <td>@mdo</td>\n                </tr>\n                <tr>\n                  <th scope=\"row\">2</th>\n                  <td>Jacob</td>\n                  <td>Thornton</td>\n                  <td>@fat</td>\n                </tr>\n                <tr>\n                  <th scope=\"row\">3</th>\n                  <td colspan=\"2\">Larry the Bird</td>\n                  <td>@twitter</td>\n                </tr>\n              </tbody>\n            </table>\n        </div>\n      </div>\n    </div>\n");
 
 /***/ }),
 
@@ -633,7 +633,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"createItem d-flex justify-content-end\">\n<button class=\"add-ticket btn btn-primary\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapseExample\" aria-expanded=\"false\" aria-controls=\"collapseExample\">\n    <i class=\"fa fa-plus\" aria-hidden=\"true\"></i> Create New Ticket\n</button>\n</div>\n<div class=\"collapse\" id=\"collapseExample\">\n<div class=\"card card-body no-outline\">\n<div class=\"form-container col-md-6 col-md-offset-3\">\n<form [formGroup]=\"ticketForm\">\n  <h2>Ticket Form</h2>\n  <div class=\"form-group\">\n    <label for=\"ticketType\">Ticket Type:</label><br>\n    <div class=\"radio\">\n        <label>\n            <input formControlName=\"TicketType\" type=\"radio\" name=\"TicketType\" value=\"Contract Support\" > Support\n        </label><br>\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"title\">Title: </label>\n    <input type=\"text\" formControlName=\"Title\" name=\"Title\" class=\"form-control title shadow-none\">\n  </div>\n  <div class=\"form-group\">\n      <label for=\"title\">Asset Id: </label>\n      <input value=\"\" name=\"CustomerNameOrId\" type=\"text\" formControlName=\"AssetId\" class=\"form-control shadow-none\">\n    </div>\n  <div class=\"form-group\">\n    <label for=\"description\">Description: </label> <br>\n    <textarea class=\"shadow-none\" formControlName=\"Description\" name=\"Description\" cols=\"50%\" rows=\"5px\">\n    </textarea>\n  </div>\n  <div class=\"form-group-button\">\n    <button (click)=\"createTicket()\" class=\"btn btn-primary\"> Submit </button>\n  </div>\n</form>\n</div>\n</div>\n</div>\n<hr/>\n\n<div class=\"table-container table-responsive-sm\">\n    <div class=\"edit-items d-flex justify-content-end\">\n        <button class=\"btn btn-primary\">\n            <i class=\"fas fa-edit\"></i> Edit List\n        </button>\n        <button class=\"btn btn-primary\">\n          <i class=\"fas fa-info-circle\" aria-hidden=\"true\"></i> Ticket Details\n        </button>\n    </div>\n\n\n    <!-- <div class=\"table-container table-responsive-sm\">\n      <table class=\"table table-bordered\">\n          <thead>\n           <tr>\n               <th>Title</th>\n               <th>Description</th>\n               <th>Ticket#</th>\n\n             </tr>\n          </thead>\n          <tr *ngFor='let data of ticketLength'>\n            <td> {{data.Name}} </td>\n            <td> {{data.Body}} </td>\n            <td> {{data.RefNumber}}</td>\n          </tr>\n         </table>\n         {{this.testin}}\n      </div> -->\n\n<div class=\"search-div\">\n\n  <mat-form-field class=\"search-form-field\" floatLabel=\"never\">\n    <input matInput [(ngModel)]=\"searchKey\" (keyup)=\"applyFilter()\" placeholder=\"Search\" autocomplete=\"off\">\n    <button mat-button matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"searchClear()\" *ngIf=\"searchKey\">\n      <mat-icon>close</mat-icon>\n    </button>\n  </mat-form-field>\n</div>\n\n<div class=\"mat-table mattable-container\">\n  <table mat-table [dataSource]=\"ticketDataSource\" class=\"mat-elevation-z8 table\" matSort>\n\n    <!-- Case Column -->\n    <div matColumnDef=\"Case#\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Case# </th>\n      <td mat-cell *matCellDef=\"let ticket\">\n        <a routerLink=\"/ticketdetail/{{ticket.RefNumber}}\" class=\"asset-link\"> {{ticket.RefNumber}} </a>\n      </td>\n    </div>\n\n    <!-- Name Column -->\n    <div matColumnDef=\"Name\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>\n      <td *matCellDef=\"let ticket\"> {{ticket.Name}} </td>\n    </div>\n\n    <!-- Status Column -->\n   <div matColumnDef=\"Status\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.Status}} </td>\n    </div>\n\n    <!-- Description Column -->\n <div matColumnDef=\"Description\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.Body}} </td>\n    </div>\n\n    <!-- Customer Column -->\n  <div matColumnDef=\"Customer\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.CustomerName}} </td>\n    </div>\n\n    <!-- Asset ID Column -->\n  <div matColumnDef=\"Asset ID\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Asset ID </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.AssetIdentifier}} </td>\n    </div>\n\n    <!-- Schedule Column -->\n    <div matColumnDef=\"Schedule\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.Schedule}} </td>\n    </div>\n\n    <!-- Update Column -->\n <div matColumnDef=\"Update Date\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Update Date </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.UpdatedDate | date: 'shortDate'}} </td>\n    </div>\n\n    <!-- Update Since -->\n  <div matColumnDef=\"Update Since\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Since Last Update </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.TimeSinceLastUpdate}} </td>\n    </div>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: true\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>\n\n   <mat-paginator [pageSizeOptions]=\"[10, 25, 50, 100]\" [pageSize]=\"10\"></mat-paginator>\n</div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"createItem d-flex justify-content-end\">\n<button class=\"add-ticket btn btn-primary\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapseExample\" aria-expanded=\"false\" aria-controls=\"collapseExample\">\n    <i class=\"fa fa-plus\" aria-hidden=\"true\"></i> Create New Ticket\n</button>\n</div>\n<div class=\"collapse\" id=\"collapseExample\">\n<div class=\"card card-body no-outline\">\n<div class=\"form-container col-md-6 col-md-offset-3\">\n<form [formGroup]=\"ticketForm\">\n  <h2>Ticket Form</h2>\n  <div class=\"form-group\">\n    <label for=\"ticketType\">Ticket Type:</label><br>\n    <div class=\"radio\">\n        <label>\n            <input formControlName=\"TicketType\" type=\"radio\" name=\"TicketType\" value=\"Contract Support\" > Support\n        </label><br>\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"title\">Title: </label>\n    <input type=\"text\" formControlName=\"Title\" name=\"Title\" class=\"form-control title shadow-none\">\n  </div>\n  <div class=\"form-group\">\n      <label for=\"title\">Asset Id: </label>\n      <input value=\"\" name=\"CustomerNameOrId\" type=\"text\" formControlName=\"AssetId\" class=\"form-control shadow-none\">\n    </div>\n  <div class=\"form-group\">\n    <label for=\"description\">Description: </label> <br>\n    <textarea class=\"shadow-none\" formControlName=\"Description\" name=\"Description\" cols=\"50%\" rows=\"5px\">\n    </textarea>\n  </div>\n  <div class=\"form-group-button\">\n    <button (click)=\"createTicket()\" class=\"btn btn-primary\"> Submit </button>\n  </div>\n</form>\n</div>\n</div>\n</div>\n<hr/>\n\n<div class=\"table-container table-responsive-sm\">\n    <div class=\"edit-items d-flex justify-content-end\">\n        <button class=\"btn btn-primary\">\n            <i class=\"fas fa-edit\"></i> Edit List\n        </button>\n        <button class=\"btn btn-primary\">\n          <i class=\"fas fa-info-circle\" aria-hidden=\"true\"></i> Ticket Details\n        </button>\n    </div>\n\n\n<div class=\"search-div\">\n\n  <mat-form-field class=\"search-form-field\" floatLabel=\"never\">\n    <input matInput [(ngModel)]=\"searchKey\" (keyup)=\"applyFilter()\" placeholder=\"Search\" autocomplete=\"off\">\n    <button mat-button matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"searchClear()\" *ngIf=\"searchKey\">\n      <mat-icon>close</mat-icon>\n    </button>\n  </mat-form-field>\n</div>\n\n<div class=\"mat-table mattable-container\">\n  <table mat-table [dataSource]=\"ticketDataSource\" class=\"mat-elevation-z8 table\" matSort>\n\n    <!-- Case Column -->\n    <div matColumnDef=\"Case#\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Case# </th>\n      <td mat-cell *matCellDef=\"let ticket\">\n        <a routerLink=\"/ticketdetail/{{ticket.RefNumber}}\" class=\"asset-link\"> {{ticket.RefNumber}} </a>\n      </td>\n    </div>\n\n    <!-- Name Column -->\n    <div matColumnDef=\"Name\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>\n      <td *matCellDef=\"let ticket\"> {{ticket.Name}} </td>\n    </div>\n\n    <!-- Status Column -->\n   <div matColumnDef=\"Status\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.Status}} </td>\n    </div>\n\n    <!-- Description Column -->\n <div matColumnDef=\"Description\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.Body}} </td>\n    </div>\n\n    <!-- Customer Column -->\n  <div matColumnDef=\"Customer\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.CustomerName}} </td>\n    </div>\n\n    <!-- Asset ID Column -->\n  <div matColumnDef=\"Asset ID\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Asset ID </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.AssetIdentifier}} </td>\n    </div>\n\n    <!-- Schedule Column -->\n    <div matColumnDef=\"Schedule\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.Schedule}} </td>\n    </div>\n\n    <!-- Update Column -->\n <div matColumnDef=\"Update Date\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Update Date </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.UpdatedDate | date: 'shortDate'}} </td>\n    </div>\n\n    <!-- Update Since -->\n  <div matColumnDef=\"Update Since\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Since Last Update </th>\n      <td mat-cell *matCellDef=\"let ticket\"> {{ticket.TimeSinceLastUpdate}} </td>\n    </div>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: true\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>\n\n   <mat-paginator [pageSizeOptions]=\"[10, 25, 50, 100]\" [pageSize]=\"10\"></mat-paginator>\n</div>\n</div>\n");
 
 /***/ }),
 
@@ -2681,15 +2681,13 @@ let GenericDashComponent = class GenericDashComponent {
         return this.partnerArr.find(company => company.CompanyName === partner);
     }
     ticketsCount() {
-        if (this.filterPartner(this.currentProfile.partner)) {
+        if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partTicketsFilter(this.currentProfile)
                 .subscribe((returnedAssetLength) => this.ticketLength = returnedAssetLength);
         }
-        else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-            // this.filter.custAssetsFilter(this.currentProfile)
-            // .subscribe(
-            //   (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
-            // );
+        else if (this.currentProfile.companypartner === 'Company') {
+            this.filter.cusTicketsFilter(this.currentProfile.company)
+                .subscribe((returnedTicketLength) => this.ticketLength = returnedTicketLength);
         }
     }
     companiesCount() {
@@ -2705,7 +2703,65 @@ let GenericDashComponent = class GenericDashComponent {
     }
     contractsChart() {
         let status = [];
-        if (this.filterPartner(this.currentProfile.partner)) {
+        if (this.currentProfile.companypartner === 'Partner') {
+            this.filter.partConFilter(this.currentProfile)
+                .subscribe((returnedCons) => {
+                this.contractLength = returnedCons.length;
+            });
+            this.filter.conByDays(this.currentProfile)
+                .subscribe((returnedDays) => {
+                this.contractDays = returnedDays;
+                console.log(this.contractDays);
+                // for (let i = 0; i <= this.contractDays.length; i++) {
+                //   switch (Number(this.contractDays[i]).valueOf()) {
+                //     case <= 14:
+                //       this.now++;
+                //     break;
+                //   }
+                // }
+                // for (let i = 0; i <= this.contractDays.length; ) {
+                //   if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
+                //     this.now++;
+                //   } else if (Number(this.contractDays[i]) <= 29) {
+                //     this.fifteenDays++;
+                //   } else if (Number(this.contractDays[i]) <= 59) {
+                //     this.thirtyDays++;
+                //   }
+                // }
+                this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('contracts', {
+                    type: 'pie',
+                    data: {
+                        datasets: [{
+                                label: '# of Contracts',
+                                data: [this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays],
+                                backgroundColor: [
+                                    'rgba(255, 0, 0, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 0, 0, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                    },
+                    options: {}
+                });
+            });
+        }
+        else {
+            this.filter.custConFilter(this.currentProfile)
+                .subscribe((returnedCons) => {
+                this.contractLength = returnedCons.length;
+            });
             this.filter.conByDays(this.currentProfile)
                 .subscribe((returnedDays) => {
                 this.contractDays = returnedDays;
@@ -2758,7 +2814,7 @@ let GenericDashComponent = class GenericDashComponent {
     }
     assetsChart() {
         let status = [];
-        if (this.filterPartner(this.currentProfile.partner)) {
+        if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partAssetsFilter(this.currentProfile)
                 .subscribe((returnedAssets) => {
                 this.assetLength = returnedAssets.length;
@@ -2803,7 +2859,7 @@ let GenericDashComponent = class GenericDashComponent {
                 });
             });
         }
-        else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+        else {
             this.filter.custAssetsFilter(this.currentProfile)
                 .subscribe((returnedAssets) => {
                 this.assetLength = returnedAssets.length;
@@ -2826,7 +2882,6 @@ let GenericDashComponent = class GenericDashComponent {
                 this.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('assets', {
                     type: 'pie',
                     data: {
-                        labels: ['Active', 'Terminated', 'Unmapped', 'Yet to Start'],
                         datasets: [{
                                 label: 'Asset Status',
                                 data: [this.active, this.terminated, this.unmapped, this.yetToStart],
@@ -3066,7 +3121,7 @@ let LocationsComponent = class LocationsComponent {
         return this.partnerArr.find(company => company.CompanyName === partner);
     }
     getLocations() {
-        if (this.filterPartner(this.currentProfile.partner)) {
+        if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partLocationFilter(this.currentProfile)
                 .subscribe((returnedLocations) => {
                 this.locationLength = returnedLocations;
@@ -3075,7 +3130,7 @@ let LocationsComponent = class LocationsComponent {
                 this.locationDataSource.paginator = this.paginator;
             });
         }
-        else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+        else {
             this.filter.custLocationFilter(this.currentProfile)
                 .subscribe((returnedLocations) => {
                 this.locationLength = returnedLocations;
@@ -4362,7 +4417,7 @@ let ContractsComponent = class ContractsComponent {
         return this.partnerArr.find(company => company.CompanyName === partner);
     }
     getContracts() {
-        if (this.filterPartner(this.currentProfile.partner)) {
+        if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partConFilter(this.currentProfile)
                 .subscribe((returnedContracts) => {
                 this.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedContracts);
@@ -4370,7 +4425,7 @@ let ContractsComponent = class ContractsComponent {
                 this.contractDataSource.paginator = this.paginator;
             });
         }
-        else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+        else {
             this.filter.custConFilter(this.currentProfile)
                 .subscribe((returnedContracts) => {
                 this.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedContracts);
@@ -4506,7 +4561,7 @@ let ManageAssetsComponent = class ManageAssetsComponent {
         this.router = router;
         this.displayedColumns = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
         this.authserv.currentUser.subscribe(name => {
-            this.filteredProfile = name;
+            this.currentProfile = name;
         });
     }
     ngOnInit() {
@@ -4521,8 +4576,8 @@ let ManageAssetsComponent = class ManageAssetsComponent {
         return this.partnerArr.find(company => company.CompanyName === partner);
     }
     getAssets() {
-        if (this.filterPartner(this.filteredProfile.partner)) {
-            this.filter.partAssetsFilter(this.filteredProfile)
+        if (this.currentProfile.companypartner === 'Partner') {
+            this.filter.partAssetsFilter(this.currentProfile)
                 .subscribe((returnedAssets) => {
                 this.assetLength = returnedAssets;
                 this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAssets);
@@ -4530,8 +4585,8 @@ let ManageAssetsComponent = class ManageAssetsComponent {
                 this.assetDataSource.paginator = this.paginator;
             });
         }
-        else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
-            this.filter.custAssetsFilter(this.filteredProfile)
+        else {
+            this.filter.custAssetsFilter(this.currentProfile)
                 .subscribe((returnedAssetLength) => {
                 this.assetLength = returnedAssetLength;
                 this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAssetLength);
@@ -4869,7 +4924,7 @@ let TicketsComponent = class TicketsComponent {
             });
         }
         else {
-            this.filter.ticketsFilter(this.currentProfile.company)
+            this.filter.cusTicketsFilter(this.currentProfile.company)
                 .subscribe((returnedTickets) => {
                 this.testin = 'Completely skipped';
                 this.ticketLength = returnedTickets;
@@ -5932,7 +5987,7 @@ let ApifilterService = class ApifilterService {
         this.serialassetsapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetDrillDown?code=cwjoeQCF3Qx5PwX0xfLJDclqyxjEyW/gZppvvS6K/g07nFSOTfudrg==';
         this.assetlocationapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetsByLocation?code=aO2JTfqrHEJNatGh3FIlDHs90/fGncezd7CVxMfZX/lqR9ZoyHvIYw==';
         this.pTicketsApi = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
-        this.ticketsApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
+        this.cTicketsApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
         this.ticketsLocationapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByLocation?code=Dj9Nn0m5gd3RuNDO5E/xq9r7AqN7S0z34mrL2bsSwxkANwga/1iJyQ==';
         this.ticketRefApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByRefNumber?code=O1Sok3K9e4QIPE/IGmb7YPdn/WlwY97zxeufiVVCmD2iw5FN8/8jyg==';
         this.pLocationsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/LocationsByPartner?code=4rYRhjsKV710lRV0tXwOXlfMJkzwUp3mPnvpn2dpKA/FgbAYEPIxow==';
@@ -5949,7 +6004,7 @@ let ApifilterService = class ApifilterService {
     custAssetsFilter(filter) {
         const params = {
             'role': filter.partnerRole,
-            'partner': filter.partner
+            'company': filter.company
         };
         return this.http.post(this.custassetsapi, params);
     }
@@ -5971,11 +6026,11 @@ let ApifilterService = class ApifilterService {
         };
         return this.http.post(this.assetlocationapi, params);
     }
-    ticketsFilter(filter) {
+    cusTicketsFilter(filter) {
         const params = {
             'company': filter
         };
-        return this.http.post(this.ticketsApi, params);
+        return this.http.post(this.cTicketsApi, params);
     }
     partTicketsFilter(filter) {
         const params = {
@@ -6018,7 +6073,7 @@ let ApifilterService = class ApifilterService {
     custConFilter(filter) {
         const params = {
             'role': filter.partnerRole,
-            'partner': filter.partner
+            'customer': filter.company
         };
         return this.http.post(this.cContractsApi, params);
     }

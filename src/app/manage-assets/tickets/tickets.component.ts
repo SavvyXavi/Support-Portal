@@ -120,7 +120,7 @@ export class TicketsComponent implements OnInit {
         }
       );
     } else {
-      this.filter.ticketsFilter(this.currentProfile.company)
+      this.filter.cusTicketsFilter(this.currentProfile.company)
       .subscribe(
         (returnedTickets: Tickets[]) => {
           this.testin = 'Completely skipped';

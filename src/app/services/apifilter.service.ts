@@ -55,7 +55,7 @@ export class ApifilterService {
 
   pTicketsApi
    = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
-  ticketsApi =
+  cTicketsApi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
   ticketsLocationapi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByLocation?code=Dj9Nn0m5gd3RuNDO5E/xq9r7AqN7S0z34mrL2bsSwxkANwga/1iJyQ==';
@@ -87,7 +87,7 @@ export class ApifilterService {
   custAssetsFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
-      'partner': filter.partner
+      'company': filter.company
     };
     return this.http.post(this.custassetsapi, params);
   }
@@ -113,11 +113,11 @@ export class ApifilterService {
     return this.http.post(this.assetlocationapi, params);
   }
 
-  ticketsFilter(filter: string) {
+  cusTicketsFilter(filter: string) {
     const params = {
       'company': filter
     };
-    return this.http.post(this.ticketsApi, params);
+    return this.http.post(this.cTicketsApi, params);
   }
 
   partTicketsFilter(filter: Filter) {
@@ -169,7 +169,7 @@ export class ApifilterService {
     custConFilter(filter: Filter) {
       const params = {
         'role': filter.partnerRole,
-        'partner': filter.partner
+        'customer': filter.company
       };
       return this.http.post(this.cContractsApi, params);
     }
