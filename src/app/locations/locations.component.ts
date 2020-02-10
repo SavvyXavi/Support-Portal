@@ -56,7 +56,7 @@ export class LocationsComponent implements OnInit {
 
 
   getLocations() {
-    if (this.filterPartner(this.currentProfile.partner)) {
+    if (this.currentProfile.companypartner === 'Partner') {
       this.filter.partLocationFilter(this.currentProfile)
       .subscribe(
         (returnedLocations: CustomerLocation[]) => {
@@ -66,7 +66,7 @@ export class LocationsComponent implements OnInit {
           this.locationDataSource.paginator = this.paginator;
         }
       );
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+    } else {
       this.filter.custLocationFilter(this.currentProfile)
       .subscribe(
         (returnedLocations: CustomerLocation[]) => {

@@ -4,6 +4,7 @@
     </button>
 </div>
 <div class="table-container table-responsive-sm">
+  Total Services Monitored = {{monitor?.recordcount}}
 <table class="table">
 <thead>
  <tr>
@@ -14,7 +15,7 @@
      <th>Last Check</th>
    </tr>
 </thead>
- <tr *ngFor='let data of monitor'>
+ <tr *ngFor='let data of monitor.servicestatus'>
    <td>{{data.current_state}}</td>
    <td>{{data.host_name}}</td>
    <td>{{data.name}}</td>

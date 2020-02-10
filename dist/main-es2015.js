@@ -334,7 +334,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"edit-items d-flex justify-content-end\">\n    <button class=\"btn btn-primary\">\n      <i class=\"far fa-edit\" aria-hidden=\"true\"></i> Refresh\n    </button>\n</div>\n<div class=\"table-container table-responsive-sm\">\n<table class=\"table\">\n<thead>\n <tr>\n     <th>State</th>\n     <th>Host Name</th>\n     <th>Name</th>\n     <th>Host Address</th>\n     <th>Last Check</th>\n   </tr>\n</thead>\n <tr *ngFor='let data of monitor'>\n   <td>{{data.current_state}}</td>\n   <td>{{data.host_name}}</td>\n   <td>{{data.name}}</td>\n   <td>{{data.host_address}}</td>\n   <td>{{data.last_check}}</td>\n </tr>\n</table>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"edit-items d-flex justify-content-end\">\n    <button class=\"btn btn-primary\">\n      <i class=\"far fa-edit\" aria-hidden=\"true\"></i> Refresh\n    </button>\n</div>\n<div class=\"table-container table-responsive-sm\">\n  Total Services Monitored = {{monitor?.recordcount}}\n<table class=\"table\">\n<thead>\n <tr>\n     <th>State</th>\n     <th>Host Name</th>\n     <th>Name</th>\n     <th>Host Address</th>\n     <th>Last Check</th>\n   </tr>\n</thead>\n <tr *ngFor='let data of monitor.servicestatus'>\n   <td>{{data.current_state}}</td>\n   <td>{{data.host_name}}</td>\n   <td>{{data.name}}</td>\n   <td>{{data.host_address}}</td>\n   <td>{{data.last_check}}</td>\n </tr>\n</table>\n</div>\n");
 
 /***/ }),
 
@@ -360,7 +360,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"panel panel-default\" >\n  <h2 class=\"center\">Portal User Registration</h2>\n  <form [formGroup]=\"registerForm\" (ngSubmit)=\"onSubmit()\">\n    <div class=\"row \">\n      <div class=\"col-md-6\">\n        <div class=\"form-group\">\n        <label for=\"companypartner\">Is this user for a Company or Partner:</label>\n        <select class=\"form-control\" id=\"companypartner\" formControlName=\"companypartner\" [ngClass]=\"{ 'is-invalid': submitted && f.companypartner.errors}\">\n          <option>Company</option>\n          <option>Partner</option>\n        </select>\n        </div>\n      </div>\n   </div>\n      <div class=\"row \">\n        <div class=\"col-md-6\">\n          <label for=\"partner\">Select Partner:</label>\n          <select class=\"form-group\" id=\"partner\" formControlName=\"partner\" [(ngModel)]=\"partner\" (ngModelChange)=\"getcompany(partner)\" [ngClass]=\"{ 'is-invalid': submitted && f.partner.errors}\">\n          <option value=\"0\">--Select--</option>\n          <option *ngFor=\"let ga of twoprofile\" value={{ga?.CompanyName}}> {{ga?.CompanyName}} </option>\n          </select>\n        </div>\n      </div><br> \n      <div class=\"row\">\n              <div class=\"form-group col-md-10\">\n                <label for=\"email\">Enter Email for username</label>\n                  <input type=\"text\" formControlName=\"email\" lowercase class=\"form-control\" autocomplete=\"username\" [ngClass]=\"{ 'is-invalid': submitted && f.email.errors }\"  placeholder=\"Enter Users Email address for Username\" />\n                  <div *ngIf=\"submitted && !!f.email.errors\" class=\"invalid-feedback\">\n                    <div *ngIf=\"!!f.email.errors.required\">Email Address must be valid and match</div>\n                  </div>\n              </div>\n      </div>\n          <div class=\"row\">\n            <div class=\"form-group col-md-10\">\n              <label for=\"username\">Re-enter Email for username</label>\n                <input type=\"text\" formControlName=\"username\" lowercase class=\"form-control\" autocomplete=\"username\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\"  placeholder=\"Re-enter Users Email address for Username\" />\n                <div *ngIf=\"submitted && !!f.username.errors\" class=\"invalid-feedback\">\n                  <div *ngIf=\"!!f.username.errors.required\">Email Address must be valid and match</div>\n                </div>\n          </div>\n        </div>\n     <div class=\"row \">\n        <div class=\"col-md-6\">\n          <div class=\"form-group\">\n        <label for=\"firstName\">First Name</label>\n        <input type=\"text\" formControlName=\"firstName\" class=\"form-control\" autocomplete=\"first name\" [ngClass]=\"{ 'is-invalid': submitted && f.firstName.errors }\" placeholder=\"User First Name\" />\n        <div *ngIf=\"submitted && !!f.firstName.errors\" class=\"invalid-feedback\">\n            <div *ngIf=\"!!f.firstName.errors.required\">First Name is required</div>\n        </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n      <div class=\"form-group\">\n        <label for=\"lastName\">Last Name</label>\n        <input type=\"text\" formControlName=\"lastName\" class=\"form-control\" autocomplete=\"last name\" [ngClass]=\"{ 'is-invalid': submitted && f.lastName.errors }\" placeholder=\"Users Last Name\" />\n        <div *ngIf=\"submitted && !!f.lastName.errors\" class=\"invalid-feedback\">\n            <div *ngIf=\"!!f.lastName.errors.required\">Last name is required</div>\n        </div>\n        </div>\n        </div>\n    </div>\n\n<div class=\"row \">\n  <div class=\"col-md-6\">\n    <div class=\"form-group\">\n    <label for=\"partnerRole\">Choose the User's Role:</label>\n    <select class=\"form-control\" id=\"partnerRole\" formControlName=\"partnerRole\" [ngClass]=\"{ 'is-invalid': submitted && f.partnerRole.errors}\">\n      <option>Admin</option>\n      <option>User</option>\n      <option>Support</option>\n    </select>\n  </div>\n  </div>\n  <div class=\"col-md-6\">\n    <label for=\"company\">Select Company:</label>\n    <select class=\"form-group\" id=\"company\" formControlName=\"company\" [(ngModel)]=\"company\" [ngClass]=\"{ 'is-invalid': submitted && f.company.errors}\">\n     <option value=\"0\">--Select--</option>\n     <option *ngFor=\"let ha of twocompany\" value={{ha?.CompanyName}}> {{ha?.CompanyName}} </option>\n    </select>\n    </div>\n</div>\n<div class=\"row\">\n<div class=\"col-md-6\">\n  <div class=\"form-group\">\n  <label for=\"password\">Password:</label>\n  <input type=\"password\" formControlName=\"password\" placeholder=\"Enter Password\">\n  <div *ngIf=\"submitted && !!f.password.errors\" class=\"invalid-feedback\" autocomplete=\"new-password\">\n    <div *ngIf=\"!!f.password.errors.required\">Passwords must be 8 characters containing 1 letter, 1 number, and one special character.</div>\n</div>\n</div>\n</div>\n<div class=\"col-md-6\">\n  <div class=\"form-group\">\n  <label for=\"confirmpassword\">Password:</label>\n  <input type=\"password\" formControlName=\"confirmpassword\" placeholder=\"Re-enter Password\">\n  <div *ngIf=\"submitted && !!f.confirmpassword.errors\" class=\"invalid-feedback\" autocomplete=\"new-password\">\n    <div *ngIf=\"!!f.confirmpassword.errors.required\">Passwords must be 8 characters containing 1 letter, 1 number, and one special character.</div>\n    </div>\n  </div>\n</div>\n</div>\n    <div class=\"row \">\n      <div class=\"col-md-6\">\n        <div class=\"form-group buttons\">\n         <button type=\"submit\" style=\"margin-right:20px;\" class=\"btn btn-primary\">Register</button>\n          <img *ngIf=\"loading\" class=\"pl-3\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\" />\n          <button routerLink=\"admin/register\" type=\"button\" class=\"btn btn-secondary\">Cancel</button>\n        </div>\n       </div>\n    </div>\n</form>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"panel panel-default\" >\n  <h2 class=\"center\">Portal User Registration</h2>\n  <form [formGroup]=\"registerForm\" (ngSubmit)=\"onSubmit()\">\n    <div class=\"row \">\n      <div class=\"col-md-6\">\n        <div class=\"form-group\">\n        <label for=\"companypartner\">Is this user for a Company or Partner:</label>\n        <select class=\"form-control\" id=\"companypartner\" formControlName=\"companypartner\" [ngClass]=\"{ 'is-invalid': submitted && f.companypartner.errors}\">\n          <option value=\"0\">--Select--</option>\n          <option>Company</option>\n          <option>Partner</option>\n        </select>\n        </div>\n      </div>\n   </div>\n      <div class=\"row \">\n        <div class=\"col-md-6\">\n          <label for=\"partner\">Select Partner:</label>\n          <select class=\"form-group\" id=\"partner\" formControlName=\"partner\" [(ngModel)]=\"partner\" (ngModelChange)=\"getcompany(partner)\" [ngClass]=\"{ 'is-invalid': submitted && f.partner.errors}\">\n          <option value=\"0\">--Select--</option>\n          <option *ngFor=\"let ga of twoprofile\" value={{ga?.CompanyName}}> {{ga?.CompanyName}} </option>\n          </select>\n        </div>\n      </div>\n      <div class=\"row\">\n              <div class=\"form-group col-md-10\">\n                <label for=\"email\">Enter Email for username</label>\n                  <input type=\"text\" formControlName=\"email\" lowercase class=\"form-control\" autocomplete=\"username\" [ngClass]=\"{ 'is-invalid': submitted && f.email.errors }\"  placeholder=\"Enter Users Email address for Username\" />\n                  <div *ngIf=\"submitted && !!f.email.errors\" class=\"invalid-feedback\">\n                    <div *ngIf=\"!!f.email.errors.required\">Email Address must be valid and match</div>\n                  </div>\n              </div>\n      </div>\n          <div class=\"row\">\n            <div class=\"form-group col-md-10\">\n              <label for=\"username\">Re-enter Email for username</label>\n                <input type=\"text\" formControlName=\"username\" lowercase class=\"form-control\" autocomplete=\"username\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\"  placeholder=\"Re-enter Users Email address for Username\" />\n                <div *ngIf=\"submitted && !!f.username.errors\" class=\"invalid-feedback\">\n                  <div *ngIf=\"!!f.username.errors.required\">Email Address must be valid and match</div>\n                </div>\n          </div>\n        </div>\n     <div class=\"row \">\n        <div class=\"col-md-6\">\n          <div class=\"form-group\">\n        <label for=\"firstName\">First Name</label>\n        <input type=\"text\" formControlName=\"firstName\" class=\"form-control\" autocomplete=\"first name\" [ngClass]=\"{ 'is-invalid': submitted && f.firstName.errors }\" placeholder=\"User First Name\" />\n        <div *ngIf=\"submitted && !!f.firstName.errors\" class=\"invalid-feedback\">\n            <div *ngIf=\"!!f.firstName.errors.required\">First Name is required</div>\n        </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n      <div class=\"form-group\">\n        <label for=\"lastName\">Last Name</label>\n        <input type=\"text\" formControlName=\"lastName\" class=\"form-control\" autocomplete=\"last name\" [ngClass]=\"{ 'is-invalid': submitted && f.lastName.errors }\" placeholder=\"Users Last Name\" />\n        <div *ngIf=\"submitted && !!f.lastName.errors\" class=\"invalid-feedback\">\n            <div *ngIf=\"!!f.lastName.errors.required\">Last name is required</div>\n        </div>\n        </div>\n        </div>\n    </div>\n\n<div class=\"row \">\n  <div class=\"col-md-6\">\n    <div class=\"form-group\">\n    <label for=\"partnerRole\">Choose the User's Role:</label>\n    <select class=\"form-control\" id=\"partnerRole\" formControlName=\"partnerRole\" [ngClass]=\"{ 'is-invalid': submitted && f.partnerRole.errors}\">\n      <option>Admin</option>\n      <option>User</option>\n      <option>Support</option>\n    </select>\n  </div>\n  </div>\n  <div class=\"col-md-6\">\n    <label for=\"company\">Select Company:</label>\n    <select class=\"form-group\" id=\"company\" formControlName=\"company\" [(ngModel)]=\"company\" [ngClass]=\"{ 'is-invalid': submitted && f.company.errors}\">\n     <option value=\"0\">--Select--</option>\n     <option *ngFor=\"let ha of twocompany\" value={{ha?.CompanyName}}> {{ha?.CompanyName}} </option>\n    </select>\n    </div>\n</div>\n<div class=\"row\">\n<div class=\"col-md-6\">\n  <div class=\"form-group\">\n  <label for=\"password\">Password:</label>\n  <input type=\"password\" formControlName=\"password\" placeholder=\"Enter Password\">\n  <div *ngIf=\"submitted && !!f.password.errors\" class=\"invalid-feedback\" autocomplete=\"new-password\">\n    <div *ngIf=\"!!f.password.errors.required\">Passwords must be 8 characters containing 1 letter, 1 number, and one special character.</div>\n</div>\n</div>\n</div>\n<div class=\"col-md-6\">\n  <div class=\"form-group\">\n  <label for=\"confirmpassword\">Password:</label>\n  <input type=\"password\" formControlName=\"confirmpassword\" placeholder=\"Re-enter Password\">\n  <div *ngIf=\"submitted && !!f.confirmpassword.errors\" class=\"invalid-feedback\" autocomplete=\"new-password\">\n    <div *ngIf=\"!!f.confirmpassword.errors.required\">Passwords must be 8 characters containing 1 letter, 1 number, and one special character.</div>\n    </div>\n  </div>\n</div>\n</div>\n    <div class=\"row \">\n      <div class=\"col-md-6\">\n        <div class=\"form-group buttons\">\n         <button type=\"submit\" style=\"margin-right:20px;\" class=\"btn btn-primary\">Register</button>\n      <!--   <img *ngIf=\"loading\" class=\"pl-3\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\" />\n      -->\n        <button routerLink=\"/\" type=\"button\" class=\"btn btn-primary\">Cancel</button>\n        </div>\n       </div>\n    </div>\n</form>\n</div>\n");
 
 /***/ }),
 
@@ -1302,7 +1302,7 @@ OemComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/* .col-md-6 {\n  margin: auto;\n  padding-bottom: 1px;\n  padding-top: 5px;\n  background-color: navy;\n  border-radius: 10px;\n  color: white;\n  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);\n  max-width: 650px;\n  top: 100px;\n  bottom: 50%;\n}\n\n.buttons {\n  margin-bottom: 40px;\n} */\n\n.panel {\n  margin: auto;\n  padding-bottom: 1px;\n  padding-top: 5px;\n  background-color: black;\n  border-radius: 10px;\n  color: #d9d9d9;\n  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);\n  max-width: 650px;\n  top: 100px;\n  bottom: 50%;\n}\n\n.row {\n  margin: auto;\n  padding-bottom: 1px;\n  padding-top: 5px;\n  background-color: black;\n  border-radius: 10px;\n  color: #d9d9d9;\n  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);\n  max-width: 650px;\n  top: 100px;\n  bottom: 50%;\n}\n\n.center {\n  height: 90%;\ntext-align:center;\ndisplay:table;\nwidth:100%;\n}\n\n.buttons {\n  margin-bottom: 40px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7O0dBZUc7O0FBRUg7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQix1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLGNBQWM7RUFDZCx3RUFBd0U7RUFDeEUsZ0JBQWdCO0VBQ2hCLFVBQVU7RUFDVixXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQix1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLGNBQWM7RUFDZCx3RUFBd0U7RUFDeEUsZ0JBQWdCO0VBQ2hCLFVBQVU7RUFDVixXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0FBQ2IsaUJBQWlCO0FBQ2pCLGFBQWE7QUFDYixVQUFVO0FBQ1Y7O0FBQ0E7RUFDRSxtQkFBbUI7QUFDckIiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9yZWdpc3Rlci9yZWdpc3Rlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyogLmNvbC1tZC02IHtcbiAgbWFyZ2luOiBhdXRvO1xuICBwYWRkaW5nLWJvdHRvbTogMXB4O1xuICBwYWRkaW5nLXRvcDogNXB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBuYXZ5O1xuICBib3JkZXItcmFkaXVzOiAxMHB4O1xuICBjb2xvcjogd2hpdGU7XG4gIGJveC1zaGFkb3c6IDAgMCA4cHggMCByZ2JhKDAsIDAsIDAsIDAuMiksIDAgMCAyMHB4IDAgcmdiYSgwLCAwLCAwLCAwLjE5KTtcbiAgbWF4LXdpZHRoOiA2NTBweDtcbiAgdG9wOiAxMDBweDtcbiAgYm90dG9tOiA1MCU7XG59XG5cbi5idXR0b25zIHtcbiAgbWFyZ2luLWJvdHRvbTogNDBweDtcbn0gKi9cblxuLnBhbmVsIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBwYWRkaW5nLWJvdHRvbTogMXB4O1xuICBwYWRkaW5nLXRvcDogNXB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcbiAgY29sb3I6ICNkOWQ5ZDk7XG4gIGJveC1zaGFkb3c6IDAgMCA4cHggMCByZ2JhKDAsIDAsIDAsIDAuMiksIDAgMCAyMHB4IDAgcmdiYSgwLCAwLCAwLCAwLjE5KTtcbiAgbWF4LXdpZHRoOiA2NTBweDtcbiAgdG9wOiAxMDBweDtcbiAgYm90dG9tOiA1MCU7XG59XG4ucm93IHtcbiAgbWFyZ2luOiBhdXRvO1xuICBwYWRkaW5nLWJvdHRvbTogMXB4O1xuICBwYWRkaW5nLXRvcDogNXB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcbiAgY29sb3I6ICNkOWQ5ZDk7XG4gIGJveC1zaGFkb3c6IDAgMCA4cHggMCByZ2JhKDAsIDAsIDAsIDAuMiksIDAgMCAyMHB4IDAgcmdiYSgwLCAwLCAwLCAwLjE5KTtcbiAgbWF4LXdpZHRoOiA2NTBweDtcbiAgdG9wOiAxMDBweDtcbiAgYm90dG9tOiA1MCU7XG59XG4uY2VudGVyIHtcbiAgaGVpZ2h0OiA5MCU7XG50ZXh0LWFsaWduOmNlbnRlcjtcbmRpc3BsYXk6dGFibGU7XG53aWR0aDoxMDAlO1xufVxuLmJ1dHRvbnMge1xuICBtYXJnaW4tYm90dG9tOiA0MHB4O1xufVxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (" /* .col-md-6 {\n  margin: auto;\n  padding-bottom: 1px;\n  padding-top: 5px;\n  background-color: navy;\n  border-radius: 10px;\n  color: white;\n  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);\n  max-width: 650px;\n  top: 100px;\n  bottom: 50%;\n}\n*/\n\n.buttons {\n  margin-bottom: 40px;\n}\n\n.panel {\n  margin: auto;\n  padding-bottom: 1px;\n  padding-top: 5px;\n  background-color: black;\n  border-radius: 10px;\n  color: #d9d9d9;\n  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);\n  max-width: 650px;\n  top: 100px;\n  bottom: 50%;\n}\n\n.row {\n  margin: auto;\n  padding-bottom: 1px;\n  padding-top: 5px;\n  background-color: black;\n  border-radius: 10px;\n  color: #d9d9d9;\n  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);\n  max-width: 650px;\n  top: 100px;\n  bottom: 50%;\n}\n\n.center {\n  height: 90%;\ntext-align:center;\ndisplay:table;\nwidth:100%;\n}\n\n.buttons {\n  margin-bottom: 40px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQ0FBQzs7Ozs7Ozs7Ozs7O0NBWUE7O0FBRUQ7RUFDRSxtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQix1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLGNBQWM7RUFDZCx3RUFBd0U7RUFDeEUsZ0JBQWdCO0VBQ2hCLFVBQVU7RUFDVixXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQix1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLGNBQWM7RUFDZCx3RUFBd0U7RUFDeEUsZ0JBQWdCO0VBQ2hCLFVBQVU7RUFDVixXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0FBQ2IsaUJBQWlCO0FBQ2pCLGFBQWE7QUFDYixVQUFVO0FBQ1Y7O0FBQ0E7RUFDRSxtQkFBbUI7QUFDckIiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9yZWdpc3Rlci9yZWdpc3Rlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiIC8qIC5jb2wtbWQtNiB7XG4gIG1hcmdpbjogYXV0bztcbiAgcGFkZGluZy1ib3R0b206IDFweDtcbiAgcGFkZGluZy10b3A6IDVweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogbmF2eTtcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcbiAgY29sb3I6IHdoaXRlO1xuICBib3gtc2hhZG93OiAwIDAgOHB4IDAgcmdiYSgwLCAwLCAwLCAwLjIpLCAwIDAgMjBweCAwIHJnYmEoMCwgMCwgMCwgMC4xOSk7XG4gIG1heC13aWR0aDogNjUwcHg7XG4gIHRvcDogMTAwcHg7XG4gIGJvdHRvbTogNTAlO1xufVxuKi9cblxuLmJ1dHRvbnMge1xuICBtYXJnaW4tYm90dG9tOiA0MHB4O1xufVxuXG4ucGFuZWwge1xuICBtYXJnaW46IGF1dG87XG4gIHBhZGRpbmctYm90dG9tOiAxcHg7XG4gIHBhZGRpbmctdG9wOiA1cHg7XG4gIGJhY2tncm91bmQtY29sb3I6IGJsYWNrO1xuICBib3JkZXItcmFkaXVzOiAxMHB4O1xuICBjb2xvcjogI2Q5ZDlkOTtcbiAgYm94LXNoYWRvdzogMCAwIDhweCAwIHJnYmEoMCwgMCwgMCwgMC4yKSwgMCAwIDIwcHggMCByZ2JhKDAsIDAsIDAsIDAuMTkpO1xuICBtYXgtd2lkdGg6IDY1MHB4O1xuICB0b3A6IDEwMHB4O1xuICBib3R0b206IDUwJTtcbn1cbi5yb3cge1xuICBtYXJnaW46IGF1dG87XG4gIHBhZGRpbmctYm90dG9tOiAxcHg7XG4gIHBhZGRpbmctdG9wOiA1cHg7XG4gIGJhY2tncm91bmQtY29sb3I6IGJsYWNrO1xuICBib3JkZXItcmFkaXVzOiAxMHB4O1xuICBjb2xvcjogI2Q5ZDlkOTtcbiAgYm94LXNoYWRvdzogMCAwIDhweCAwIHJnYmEoMCwgMCwgMCwgMC4yKSwgMCAwIDIwcHggMCByZ2JhKDAsIDAsIDAsIDAuMTkpO1xuICBtYXgtd2lkdGg6IDY1MHB4O1xuICB0b3A6IDEwMHB4O1xuICBib3R0b206IDUwJTtcbn1cbi5jZW50ZXIge1xuICBoZWlnaHQ6IDkwJTtcbnRleHQtYWxpZ246Y2VudGVyO1xuZGlzcGxheTp0YWJsZTtcbndpZHRoOjEwMCU7XG59XG4uYnV0dG9ucyB7XG4gIG1hcmdpbi1ib3R0b206IDQwcHg7XG59XG4iXX0= */");
 
 /***/ }),
 
@@ -1384,9 +1384,9 @@ let RegisterComponent = class RegisterComponent {
     onSubmit() {
         this.submitted = true;
         // stop here if form is invalid
-        if (this.registerForm.invalid) {
-            return;
-        }
+        //   if ( this.registerForm.invalid) {
+        //    return;
+        //  }
         this.loading = true;
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
         this.profileService.register(this.registerForm.value)
@@ -1451,15 +1451,17 @@ __webpack_require__.r(__webpack_exports__);
 let OemService = class OemService {
     constructor(http) {
         this.http = http;
-        this.monApi = '?apikey=ZKA6LZUGglahNSrnisEm2EoSj3qeee5kouo0W7aq4AlHTZpoCN5hLG98TW8uVN0I&pretty=1';
+        this.monApi = '?apikey=oP8HKeRjL6ejiZuqkbkRJWrG5ZqbGUTEkhUaSshWWrH3bnZDgvhqH8CFeXGkAZcV';
         this.oemPull = 'https://n1sharmonypull.azurewebsites.net/api/OEMPull?code=1d9quTWcruk3APk5NqxpPyN8Qez0flIun778ihBgIfB/QKj1eGDMyQ==';
         this.monPull = 'https://localmonitor.noble1it.com/nagiosxi/api/v1/objects/servicestatus';
+        this.combPull = this.monPull + this.monApi;
+        this.azureMonitor = 'https://prodharmonytwo.azurewebsites.net/api/NagiosCall?code=b99vLlCwafNeOtiqbk1VlJ6upDuWsCo06ox9oxr65sggj3KtLv2qFQ==';
     }
     getOem() {
         return this.http.get(this.oemPull);
     }
     getMon() {
-        return this.http.get(this.monPull + this.monApi);
+        return this.http.get(this.azureMonitor);
     }
 };
 OemService.ctorParameters = () => [
@@ -2753,7 +2755,7 @@ let GenericDashComponent = class GenericDashComponent {
     }
     assetsChart() {
         let status = [];
-        if (this.filterPartner(this.currentProfile.partner)) {
+        if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partAssetsFilter(this.currentProfile)
                 .subscribe((returnedAssets) => {
                 this.assetLength = returnedAssets.length;
@@ -2798,7 +2800,7 @@ let GenericDashComponent = class GenericDashComponent {
                 });
             });
         }
-        else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+        else {
             this.filter.custAssetsFilter(this.currentProfile)
                 .subscribe((returnedAssets) => {
                 this.assetLength = returnedAssets.length;
@@ -3061,7 +3063,7 @@ let LocationsComponent = class LocationsComponent {
         return this.partnerArr.find(company => company.CompanyName === partner);
     }
     getLocations() {
-        if (this.filterPartner(this.currentProfile.partner)) {
+        if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partLocationFilter(this.currentProfile)
                 .subscribe((returnedLocations) => {
                 this.locationLength = returnedLocations;
@@ -3070,7 +3072,7 @@ let LocationsComponent = class LocationsComponent {
                 this.locationDataSource.paginator = this.paginator;
             });
         }
-        else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+        else {
             this.filter.custLocationFilter(this.currentProfile)
                 .subscribe((returnedLocations) => {
                 this.locationLength = returnedLocations;
@@ -4357,7 +4359,7 @@ let ContractsComponent = class ContractsComponent {
         return this.partnerArr.find(company => company.CompanyName === partner);
     }
     getContracts() {
-        if (this.filterPartner(this.currentProfile.partner)) {
+        if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partConFilter(this.currentProfile)
                 .subscribe((returnedContracts) => {
                 this.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedContracts);
@@ -4365,7 +4367,7 @@ let ContractsComponent = class ContractsComponent {
                 this.contractDataSource.paginator = this.paginator;
             });
         }
-        else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+        else {
             this.filter.custConFilter(this.currentProfile)
                 .subscribe((returnedContracts) => {
                 this.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedContracts);
@@ -4501,7 +4503,7 @@ let ManageAssetsComponent = class ManageAssetsComponent {
         this.router = router;
         this.displayedColumns = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
         this.authserv.currentUser.subscribe(name => {
-            this.filteredProfile = name;
+            this.currentProfile = name;
         });
     }
     ngOnInit() {
@@ -4516,8 +4518,8 @@ let ManageAssetsComponent = class ManageAssetsComponent {
         return this.partnerArr.find(company => company.CompanyName === partner);
     }
     getAssets() {
-        if (this.filterPartner(this.filteredProfile.partner)) {
-            this.filter.partAssetsFilter(this.filteredProfile)
+        if (this.currentProfile.companypartner === 'Partner') {
+            this.filter.partAssetsFilter(this.currentProfile)
                 .subscribe((returnedAssets) => {
                 this.assetLength = returnedAssets;
                 this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAssets);
@@ -4525,8 +4527,8 @@ let ManageAssetsComponent = class ManageAssetsComponent {
                 this.assetDataSource.paginator = this.paginator;
             });
         }
-        else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
-            this.filter.custAssetsFilter(this.filteredProfile)
+        else {
+            this.filter.custAssetsFilter(this.currentProfile)
                 .subscribe((returnedAssetLength) => {
                 this.assetLength = returnedAssetLength;
                 this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAssetLength);

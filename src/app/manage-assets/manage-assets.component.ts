@@ -21,7 +21,6 @@ export class ManageAssetsComponent implements OnInit {
   assets: Assets;
   assetLength: Assets[];
   currentProfile: Profile;
-  filteredProfile: Filter;
 
   displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
 
@@ -42,7 +41,7 @@ export class ManageAssetsComponent implements OnInit {
     ) {
       this.authserv.currentUser.subscribe(
         name => {
-          this.filteredProfile = name ;
+          this.currentProfile = name ;
         }
       );
     }
@@ -64,8 +63,8 @@ export class ManageAssetsComponent implements OnInit {
   }
 
   getAssets() {
-    if (this.filterPartner(this.filteredProfile.partner)) {
-      this.filter.partAssetsFilter(this.filteredProfile)
+    if (this.currentProfile.companypartner === 'Partner') {
+      this.filter.partAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
           this.assetLength = returnedAssets;
@@ -74,8 +73,8 @@ export class ManageAssetsComponent implements OnInit {
           this.assetDataSource.paginator = this.paginator;
         }
       );
-    } else if (this.filterPartner(this.filteredProfile.partner) === undefined) {
-      this.filter.custAssetsFilter(this.filteredProfile)
+    } else {
+      this.filter.custAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssetLength: Assets[]) => {
           this.assetLength = returnedAssetLength;

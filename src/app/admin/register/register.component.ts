@@ -76,10 +76,10 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // stop here if form is invalid
-    if ( this.registerForm.invalid) {
-      return;
-    }
+   // stop here if form is invalid
+ //   if ( this.registerForm.invalid) {
+  //    return;
+  //  }
 
     this.loading = true;
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));

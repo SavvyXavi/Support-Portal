@@ -183,7 +183,7 @@ export class GenericDashComponent implements OnInit {
 
   assetsChart() {
     let status = [];
-    if (this.filterPartner(this.currentProfile.partner)) {
+    if (this.currentProfile.companypartner === 'Partner') {
       this.filter.partAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
@@ -226,7 +226,7 @@ export class GenericDashComponent implements OnInit {
         });
       }
       );
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+    } else {
       this.filter.custAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
