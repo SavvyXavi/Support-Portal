@@ -67,6 +67,10 @@
     background-color:   white;
   }
 
+  .mat-sort-header-container {
+    text-align: center;
+  }
+
   .mattable-container {
     width: 94%;
     margin-bottom: 50px;
