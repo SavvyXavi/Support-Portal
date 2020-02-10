@@ -4354,10 +4354,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
               return _this27.ticketLength = returnedAssetLength;
             });
-          } else if (this.filterPartner(this.currentProfile.partner) === undefined) {// this.filter.custAssetsFilter(this.currentProfile)
-            // .subscribe(
-            //   (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
-            // );
+          } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+            this.filter.ticketsFilter(this.currentProfile.company).subscribe(function (returnedTicketLength) {
+              return _this27.ticketLength = returnedTicketLength;
+            });
           }
         }
       }, {

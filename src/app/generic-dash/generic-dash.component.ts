@@ -99,10 +99,10 @@ export class GenericDashComponent implements OnInit {
         (returnedAssetLength: Tickets[]) => this.ticketLength = returnedAssetLength
       );
     } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      // this.filter.custAssetsFilter(this.currentProfile)
-      // .subscribe(
-      //   (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
-      // );
+      this.filter.ticketsFilter(this.currentProfile.company)
+      .subscribe(
+        (returnedTicketLength: Tickets[]) => this.ticketLength = returnedTicketLength
+      );
     }
   }
 
