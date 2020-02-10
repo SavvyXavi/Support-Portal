@@ -381,7 +381,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"edit-items d-flex justify-content-end\">\n    <button class=\"btn btn-primary\">\n      <i class=\"far fa-edit\" aria-hidden=\"true\"></i> Refresh\n    </button>\n</div>\n<div class=\"table-container table-responsive-sm\">\n  Total Services Monitored = {{monitor?.recordcount}}\n<table class=\"table\">\n<thead>\n <tr>\n     <th>State</th>\n     <th>Host Name</th>\n     <th>Name</th>\n     <th>Host Address</th>\n     <th>Last Check</th>\n   </tr>\n</thead>\n <tr *ngFor='let data of monitor'>\n   <td>{{data.servicestatus[0].current_state}}</td>\n   <td>{{data.servicestatus.host_name}}</td>\n   <td>{{data.servicestatus.name}}</td>\n   <td>{{data.servicestatus.host_address}}</td>\n   <td>{{data.servicestatus.last_check}}</td>\n </tr>\n</table>\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"edit-items d-flex justify-content-end\">\n    <button class=\"btn btn-primary\">\n      <i class=\"far fa-edit\" aria-hidden=\"true\"></i> Refresh\n    </button>\n</div>\n<div class=\"table-container table-responsive-sm\">\n  Total Services Monitored = {{monitor?.recordcount}}\n<table class=\"table\">\n<thead>\n <tr>\n     <th>State</th>\n     <th>Host Name</th>\n     <th>Name</th>\n     <th>Host Address</th>\n     <th>Last Check</th>\n   </tr>\n</thead>\n <tr *ngFor='let data of monitor.servicestatus'>\n   <td>{{data.current_state}}</td>\n   <td>{{data.host_name}}</td>\n   <td>{{data.name}}</td>\n   <td>{{data.host_address}}</td>\n   <td>{{data.last_check}}</td>\n </tr>\n</table>\n</div>\n";
     /***/
   },
 

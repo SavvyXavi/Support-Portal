@@ -15,12 +15,12 @@
      <th>Last Check</th>
    </tr>
 </thead>
- <tr *ngFor='let data of monitor'>
-   <td>{{data.servicestatus[0].current_state}}</td>
-   <td>{{data.servicestatus.host_name}}</td>
-   <td>{{data.servicestatus.name}}</td>
-   <td>{{data.servicestatus.host_address}}</td>
-   <td>{{data.servicestatus.last_check}}</td>
+ <tr *ngFor='let data of monitor.servicestatus'>
+   <td>{{data.current_state}}</td>
+   <td>{{data.host_name}}</td>
+   <td>{{data.name}}</td>
+   <td>{{data.host_address}}</td>
+   <td>{{data.last_check}}</td>
  </tr>
 </table>
 </div>

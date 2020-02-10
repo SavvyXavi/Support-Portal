@@ -5,4 +5,5 @@ export class Monitor {
   current_state: string;
   last_check: string;
   recordcount: string;
+  servicestatus: string;
 }
