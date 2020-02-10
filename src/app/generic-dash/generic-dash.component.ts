@@ -79,7 +79,6 @@ export class GenericDashComponent implements OnInit {
     this.assetsChart();
     this.ticketsCount();
     this.companiesCount();
-    console.log(this.currentProfile);
   }
 
   getPartners() {
@@ -94,12 +93,12 @@ export class GenericDashComponent implements OnInit {
   }
 
   ticketsCount() {
-    if (this.filterPartner(this.currentProfile.partner)) {
+    if (this.currentProfile.companypartner === 'Partner') {
       this.filter.partTicketsFilter(this.currentProfile)
       .subscribe(
         (returnedAssetLength: Tickets[]) => this.ticketLength = returnedAssetLength
       );
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+    } else if (this.currentProfile.companypartner === 'Company') {
       this.filter.cusTicketsFilter(this.currentProfile.company)
       .subscribe(
         (returnedTicketLength: Tickets[]) => this.ticketLength = returnedTicketLength

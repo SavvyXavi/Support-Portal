@@ -4328,7 +4328,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.assetsChart();
           this.ticketsCount();
           this.companiesCount();
-          console.log(this.currentProfile);
         }
       }, {
         key: "getPartners",
@@ -4351,11 +4350,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ticketsCount() {
           var _this27 = this;
 
-          if (this.filterPartner(this.currentProfile.partner)) {
+          if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
               return _this27.ticketLength = returnedAssetLength;
             });
-          } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+          } else if (this.currentProfile.companypartner === 'Company') {
             this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTicketLength) {
               return _this27.ticketLength = returnedTicketLength;
             });

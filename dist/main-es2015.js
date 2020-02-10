@@ -2669,7 +2669,6 @@ let GenericDashComponent = class GenericDashComponent {
         this.assetsChart();
         this.ticketsCount();
         this.companiesCount();
-        console.log(this.currentProfile);
     }
     getPartners() {
         this.filter.getPartners()
@@ -2679,11 +2678,11 @@ let GenericDashComponent = class GenericDashComponent {
         return this.partnerArr.find(company => company.CompanyName === partner);
     }
     ticketsCount() {
-        if (this.filterPartner(this.currentProfile.partner)) {
+        if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partTicketsFilter(this.currentProfile)
                 .subscribe((returnedAssetLength) => this.ticketLength = returnedAssetLength);
         }
-        else if (this.filterPartner(this.currentProfile.partner) === undefined) {
+        else if (this.currentProfile.companypartner === 'Company') {
             this.filter.cusTicketsFilter(this.currentProfile.company)
                 .subscribe((returnedTicketLength) => this.ticketLength = returnedTicketLength);
         }
