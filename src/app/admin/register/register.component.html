@@ -6,6 +6,7 @@
         <div class="form-group">
         <label for="companypartner">Is this user for a Company or Partner:</label>
         <select class="form-control" id="companypartner" formControlName="companypartner" [ngClass]="{ 'is-invalid': submitted && f.companypartner.errors}">
+          <option value="0">--Select--</option>
           <option>Company</option>
           <option>Partner</option>
         </select>
