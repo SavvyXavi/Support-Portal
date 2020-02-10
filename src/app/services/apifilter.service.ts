@@ -66,7 +66,7 @@ export class ApifilterService {
   pLocationsapi =
   'https://harmonyprodpartnersone.azurewebsites.net/api/LocationsByPartner?code=4rYRhjsKV710lRV0tXwOXlfMJkzwUp3mPnvpn2dpKA/FgbAYEPIxow==';
   cLocationsapi =
-  '';
+  'https://harmonyprodcustomersone.azurewebsites.net/api/LocationsByCustomer?code=S5urk3EhAuuuMATbFA8E5/ixHQPJhcaC6wlLAP4GPxs4qN0tPsfuIA==';
   locationdescfilterapi =
 'https://harmonyprodcustomersone.azurewebsites.net/api/LocationByDescription?code=LlWycAaW502tdZ9EMsNbkqapKMVLR7yfsFJRapYhwAlXuqwpnp9ELA==';
 
@@ -193,6 +193,8 @@ export class ApifilterService {
       };
     return this.http.post(this.customerApi, params);
   }
+
+
 
   partLocationFilter(filter: Filter) {
     const params = {
