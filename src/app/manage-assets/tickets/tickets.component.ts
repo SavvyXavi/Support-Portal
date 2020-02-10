@@ -42,7 +42,7 @@ export class TicketsComponent implements OnInit {
 
   currentProfile: Profile;
   displayedColumns: string[] =
-   ['Case#', 'Name', 'Status', 'Description', 'Schedule', 'Asset ID', 'Customer', 'Update Date', 'Update Since'];
+   ['Case#', 'Name', 'Status', 'Description', 'Schedule', 'Asset ID', 'Customer', 'Update Date'];
 
   partnerArr: Partner[];
 

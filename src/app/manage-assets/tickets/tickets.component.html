@@ -112,12 +112,6 @@
       <td mat-cell *matCellDef="let ticket"> {{ticket.UpdatedDate | date: 'shortDate'}} </td>
     </div>
 
-    <!-- Update Since -->
-  <div matColumnDef="Update Since">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Since Last Update </th>
-      <td mat-cell *matCellDef="let ticket"> {{ticket.TimeSinceLastUpdate}} </td>
-    </div>
-
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
