@@ -4387,7 +4387,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.conByDays(this.currentProfile).subscribe(function (returnedDays) {
-              _this30.contractDays = returnedDays; // for (let i = 0; i <= this.contractDays.length; ) {
+              _this30.contractDays = returnedDays;
+              console.log(_this30.contractDays); // for (let i = 0; i <= this.contractDays.length; i++) {
+              //   switch (Number(this.contractDays[i]).valueOf()) {
+              //     case <= 14:
+              //       this.now++;
+              //     break;
+              //   }
+              // }
+              // for (let i = 0; i <= this.contractDays.length; ) {
               //   if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
               //     this.now++;
               //   } else if (Number(this.contractDays[i]) <= 29) {
@@ -6728,7 +6736,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AssetLocFilterPipe, [{
         key: "transform",
         value: function transform(value, filter) {
-          return _toConsumableArray(new Set(value.map(function (ad) {
+          return _toConsumableArray(new Set(filter.map(function (ad) {
             return ad.SiteAddress;
           })));
         }

@@ -2706,6 +2706,14 @@ let GenericDashComponent = class GenericDashComponent {
             this.filter.conByDays(this.currentProfile)
                 .subscribe((returnedDays) => {
                 this.contractDays = returnedDays;
+                console.log(this.contractDays);
+                // for (let i = 0; i <= this.contractDays.length; i++) {
+                //   switch (Number(this.contractDays[i]).valueOf()) {
+                //     case <= 14:
+                //       this.now++;
+                //     break;
+                //   }
+                // }
                 // for (let i = 0; i <= this.contractDays.length; ) {
                 //   if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
                 //     this.now++;
@@ -4161,7 +4169,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let AssetLocFilterPipe = class AssetLocFilterPipe {
     transform(value, filter) {
-        return [...new Set(value.map(ad => ad.SiteAddress))];
+        return [...new Set(filter.map(ad => ad.SiteAddress))];
     }
 };
 AssetLocFilterPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
