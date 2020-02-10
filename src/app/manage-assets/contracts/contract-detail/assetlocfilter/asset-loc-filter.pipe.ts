@@ -7,7 +7,7 @@ import { Assets } from './../../../models/assets';
 export class AssetLocFilterPipe implements PipeTransform {
 
   transform(value: Assets[], filter: Object): any {
-    return [...new Set(value.map( ad => ad.SiteAddress)).values() ];
+    return [...new Set(value.map( ad => ad.SiteAddress)) ];
 
 }
 

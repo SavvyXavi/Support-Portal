@@ -6738,7 +6738,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function transform(value, filter) {
           return _toConsumableArray(new Set(value.map(function (ad) {
             return ad.SiteAddress;
-          })).values());
+          })));
         }
       }]);
 

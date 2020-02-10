@@ -4169,7 +4169,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let AssetLocFilterPipe = class AssetLocFilterPipe {
     transform(value, filter) {
-        return [...new Set(value.map(ad => ad.SiteAddress)).values()];
+        return [...new Set(value.map(ad => ad.SiteAddress))];
     }
 };
 AssetLocFilterPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
