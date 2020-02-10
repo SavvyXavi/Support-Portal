@@ -26,6 +26,11 @@
   margin-right: 30px;
   }
 
+  div {
+    text-align: center;
+
+  }
+
   table {
     border: solid black;
     border-radius: 8px !important;
@@ -52,7 +57,6 @@
 
   table {
     border-collapse: collapse;
-    text-align: center;
   }
 
   tr:nth-child(even) {
