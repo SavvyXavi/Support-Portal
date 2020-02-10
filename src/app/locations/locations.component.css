@@ -80,11 +80,11 @@
   }
 
   .search-div {
-    margin: 10px;
+    margin-right: 30px;
   }
 
   .search-form-field {
-    width: 100%;
+    width: 94%;
     margin-left: 10px;
     padding:  5px 10px;
     background-color: #e6e6e6;
