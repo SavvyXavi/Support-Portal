@@ -79,6 +79,7 @@ export class GenericDashComponent implements OnInit {
     this.assetsChart();
     this.ticketsCount();
     this.companiesCount();
+    console.log(this.currentProfile);
   }
 
   getPartners() {

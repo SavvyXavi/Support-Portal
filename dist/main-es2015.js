@@ -2669,6 +2669,7 @@ let GenericDashComponent = class GenericDashComponent {
         this.assetsChart();
         this.ticketsCount();
         this.companiesCount();
+        console.log(this.currentProfile);
     }
     getPartners() {
         this.filter.getPartners()

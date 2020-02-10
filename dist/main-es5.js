@@ -4328,6 +4328,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.assetsChart();
           this.ticketsCount();
           this.companiesCount();
+          console.log(this.currentProfile);
         }
       }, {
         key: "getPartners",
