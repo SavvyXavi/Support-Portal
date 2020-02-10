@@ -72,6 +72,7 @@
     </select>
   </div>
   </div>
+  <div class="row ">
   <div class="col-md-6">
     <label for="company">Select Company:</label>
     <select class="form-group" id="company" formControlName="company" [(ngModel)]="company" [ngClass]="{ 'is-invalid': submitted && f.company.errors}">
@@ -79,6 +80,7 @@
      <option *ngFor="let ha of twocompany" value={{ha?.CompanyName}}> {{ha?.CompanyName}} </option>
     </select>
     </div>
+</div>
 </div>
 <div class="row">
 <div class="col-md-6">
