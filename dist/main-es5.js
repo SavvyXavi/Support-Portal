@@ -9392,7 +9392,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function custAssetsFilter(filter) {
           var params = {
             'role': filter.partnerRole,
-            'partner': filter.partner
+            'partner': filter.company
           };
           return this.http.post(this.custassetsapi, params);
         }

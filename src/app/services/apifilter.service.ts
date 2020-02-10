@@ -87,7 +87,7 @@ export class ApifilterService {
   custAssetsFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
-      'partner': filter.partner
+      'partner': filter.company
     };
     return this.http.post(this.custassetsapi, params);
   }
