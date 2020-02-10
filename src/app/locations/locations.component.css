@@ -68,7 +68,7 @@
   }
 
   .mat-sort-header-container {
-    text-align: center;
+    align-items: center;
   }
 
   .mattable-container {
