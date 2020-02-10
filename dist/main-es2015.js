@@ -6072,7 +6072,7 @@ let ApifilterService = class ApifilterService {
     custConFilter(filter) {
         const params = {
             'role': filter.partnerRole,
-            'customer': filter.partner
+            'customer': filter.company
         };
         return this.http.post(this.cContractsApi, params);
     }
