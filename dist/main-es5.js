@@ -6736,9 +6736,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AssetLocFilterPipe, [{
         key: "transform",
         value: function transform(value, filter) {
-          return _toConsumableArray(new Set(filter.map(function (ad) {
+          return _toConsumableArray(new Set(value.map(function (ad) {
             return ad.SiteAddress;
-          })));
+          })).values());
         }
       }]);
 
