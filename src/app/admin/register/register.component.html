@@ -86,7 +86,7 @@
 <div class="col-md-6">
   <div class="form-group">
   <label for="password">Password:</label>
-  <input type="password" formControlName="password" placeholder="Enter Password">
+  <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Enter Password">
   <div *ngIf="submitted && !!f.password.errors" class="invalid-feedback" autocomplete="new-password">
     <div *ngIf="!!f.password.errors.required">Passwords must be 8 characters containing 1 letter, 1 number, and one special character.</div>
 </div>
@@ -95,7 +95,7 @@
 <div class="col-md-6">
   <div class="form-group">
   <label for="confirmpassword">Password:</label>
-  <input type="password" formControlName="confirmpassword" placeholder="Re-enter Password">
+  <input type="password" formControlName="confirmpassword" [ngClass]="{ 'is-invalid': submitted && f.confirmpassword.errors }" placeholder="Re-enter Password">
   <div *ngIf="submitted && !!f.confirmpassword.errors" class="invalid-feedback" autocomplete="new-password">
     <div *ngIf="!!f.confirmpassword.errors.required">Passwords must be 8 characters containing 1 letter, 1 number, and one special character.</div>
     </div>
