@@ -35,6 +35,8 @@ export class ApifilterService {
    'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
   nameConApi =
   'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByName?code=IZMBTTmJ5l7M3WPeKg46l/3lfEaAKMgKdagfNCM8T07vyO05QqqBSg==';
+  schedDayCountApi =
+  'https://prodharmonytwo.azurewebsites.net/api/getSchedDaysToGo?code=NxVHnZOpdgRSQCa35OBTA7g/r6wm3euGe0a8pWHG6hDNG7PTCkPJNQ==';
 
 
   oldpartassetsapi
@@ -140,6 +142,8 @@ export class ApifilterService {
     return this.http.post(this.ticketRefApi, params);
   }
 
+
+
   partConFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
@@ -169,6 +173,15 @@ export class ApifilterService {
       };
       return this.http.post(this.cContractsApi, params);
     }
+
+    conByDays(filter: Filter) {
+      const params = {
+        'partner': filter.partner
+      };
+      return this.http.post(this.schedDayCountApi, params);
+    }
+
+
 
   getPartners() {
     return of(this.partnerlist);

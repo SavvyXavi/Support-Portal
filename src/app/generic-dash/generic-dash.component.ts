@@ -19,6 +19,7 @@ import { Partner } from './../models/partner';
 import { Contracts } from './../manage-assets/models/contracts';
 import { Customer } from './../admin/models/customer';
 import { Contract } from './../models/contract';
+import { stat } from 'fs';
 
 @Component({
   selector: 'app-generic-dash',
@@ -45,6 +46,14 @@ export class GenericDashComponent implements OnInit {
   tickets: Tickets;
 
   assets: Assets[];
+  contractDays: string[];
+
+  now = 0;
+  fifteenDays = 0;
+  thirtyDays = 0;
+  sixtyDays = 0;
+  ninetyDays = 0;
+  plus =0;
 
   active = 0;
   terminated = 0;
@@ -116,26 +125,28 @@ export class GenericDashComponent implements OnInit {
 
   contractsChart() {
     let status = [];
-    this.filter.partConFilter(this.currentProfile).subscribe(
-      (returnedContracts: Contracts[]) => {
-        this.contractLength = returnedContracts.length;
-        status = returnedContracts.map( x => {
-          const date1 = Date.now();
-          const date2 = Date.parse(x.StartDate);
-          const diff = date2 - date1;
-          const diff2 = diff / (1000 * 3600 * 24);
-          return diff2;
-        });
-        console.log(status);
-      }
-    );
+    if (this.filterPartner(this.currentProfile.partner)) {
+      this.filter.conByDays(this.currentProfile)
+      .subscribe(
+        (returnedDays: string[]) => {
+          this.contractDays = returnedDays;
+
+          // for (let i = 0; i <= this.contractDays.length; ) {
+          //   if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
+          //     this.now++;
+          //   } else if (Number(this.contractDays[i]) <= 29) {
+          //     this.fifteenDays++;
+          //   } else if (Number(this.contractDays[i]) <= 59) {
+          //     this.thirtyDays++;
+          //   }
+          // }
+
     this.contractsData = new Chart('contracts', {
         type: 'pie',
         data: {
-          labels: status,
           datasets: [{
               label: '# of Contracts',
-              data: [12, 19, 3, 5, 2, 3],
+              data: [this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays],
               backgroundColor: [
                   'rgba(255, 0, 0, 1)',
                   'rgba(54, 162, 235, 1)',
@@ -156,7 +167,11 @@ export class GenericDashComponent implements OnInit {
           }]
         },
         options: {}
-    });
+    } );
+        }
+        );
+
+    }
   }
 
   assetsChart() {
