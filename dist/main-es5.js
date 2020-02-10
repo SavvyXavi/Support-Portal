@@ -4386,7 +4386,47 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           var status = [];
 
-          if (this.filterPartner(this.currentProfile.partner)) {
+          if (this.currentProfile.companypartner === 'Partner') {
+            this.filter.partConFilter(this.currentProfile).subscribe(function (returnedCons) {
+              _this30.contractLength = returnedCons.length;
+            });
+            this.filter.conByDays(this.currentProfile).subscribe(function (returnedDays) {
+              _this30.contractDays = returnedDays;
+              console.log(_this30.contractDays); // for (let i = 0; i <= this.contractDays.length; i++) {
+              //   switch (Number(this.contractDays[i]).valueOf()) {
+              //     case <= 14:
+              //       this.now++;
+              //     break;
+              //   }
+              // }
+              // for (let i = 0; i <= this.contractDays.length; ) {
+              //   if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
+              //     this.now++;
+              //   } else if (Number(this.contractDays[i]) <= 29) {
+              //     this.fifteenDays++;
+              //   } else if (Number(this.contractDays[i]) <= 59) {
+              //     this.thirtyDays++;
+              //   }
+              // }
+
+              _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_7__["Chart"]('contracts', {
+                type: 'pie',
+                data: {
+                  datasets: [{
+                    label: '# of Contracts',
+                    data: [_this30.fifteenDays, _this30.thirtyDays, _this30.sixtyDays, _this30.ninetyDays],
+                    backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+                    borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+                    borderWidth: 1
+                  }]
+                },
+                options: {}
+              });
+            });
+          } else {
+            this.filter.custConFilter(this.currentProfile).subscribe(function (returnedCons) {
+              _this30.contractLength = returnedCons.length;
+            });
             this.filter.conByDays(this.currentProfile).subscribe(function (returnedDays) {
               _this30.contractDays = returnedDays;
               console.log(_this30.contractDays); // for (let i = 0; i <= this.contractDays.length; i++) {
@@ -9482,7 +9522,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function custConFilter(filter) {
           var params = {
             'role': filter.partnerRole,
-            'partner': filter.partner
+            'customer': filter.partner
           };
           return this.http.post(this.cContractsApi, params);
         }

@@ -125,7 +125,13 @@ export class GenericDashComponent implements OnInit {
 
   contractsChart() {
     let status = [];
-    if (this.filterPartner(this.currentProfile.partner)) {
+    if (this.currentProfile.companypartner === 'Partner') {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedCons: Contracts[]) => {
+          this.contractLength = returnedCons.length;
+        }
+      );
       this.filter.conByDays(this.currentProfile)
       .subscribe(
         (returnedDays: string[]) => {
@@ -178,8 +184,67 @@ export class GenericDashComponent implements OnInit {
         }
         );
 
+    } else {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedCons: Contracts[]) => {
+          this.contractLength = returnedCons.length;
+        }
+      );
+      this.filter.conByDays(this.currentProfile)
+      .subscribe(
+        (returnedDays: string[]) => {
+          this.contractDays = returnedDays;
+          console.log(this.contractDays);
+          // for (let i = 0; i <= this.contractDays.length; i++) {
+          //   switch (Number(this.contractDays[i]).valueOf()) {
+          //     case <= 14:
+          //       this.now++;
+          //     break;
+          //   }
+          // }
+          // for (let i = 0; i <= this.contractDays.length; ) {
+          //   if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
+          //     this.now++;
+          //   } else if (Number(this.contractDays[i]) <= 29) {
+          //     this.fifteenDays++;
+          //   } else if (Number(this.contractDays[i]) <= 59) {
+          //     this.thirtyDays++;
+          //   }
+          // }
+
+    this.contractsData = new Chart('contracts', {
+        type: 'pie',
+        data: {
+          datasets: [{
+              label: '# of Contracts',
+              data: [this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays],
+              backgroundColor: [
+                  'rgba(255, 0, 0, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderColor: [
+                  'rgba(255, 0, 0, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+        },
+        options: {}
+    } );
+        }
+        );
+      }
     }
-  }
+
 
   assetsChart() {
     let status = [];
