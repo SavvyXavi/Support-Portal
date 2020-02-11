@@ -20,9 +20,6 @@
       "dom"
     ]
   },
-  "angularCompilerOptions": {
-    "enableIvy": false
-  },
   "connectionString": "mongodb://40.87.64.228:4000/node-mongo-registration-login-api",
   "secret": "Noble1Solutions"
 }
