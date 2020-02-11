@@ -9,7 +9,8 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-ticket-detail',
