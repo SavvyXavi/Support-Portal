@@ -124,7 +124,7 @@ export class GenericDashComponent implements OnInit {
   }
 
   contractsChart() {
-    let status = [];
+    const status = [];
     if (this.currentProfile.companypartner === 'Partner') {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
