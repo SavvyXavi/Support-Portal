@@ -22,8 +22,8 @@ export class ContractDetailComponent implements OnInit {
   displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
   assetDataSource: MatTableDataSource<Assets>;
   searchKey: string;
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private filter: ApifilterService,
