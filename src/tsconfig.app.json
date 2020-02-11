@@ -10,8 +10,11 @@
     "polyfills.ts"
   ]
 ,
+<<<<<<< HEAD
 "angularCompilerOptions": {
   "enableIvy": false
 }
+=======
+>>>>>>> origin/newshawn
 
 }
