@@ -50,8 +50,8 @@ export class TicketsComponent implements OnInit {
 
   searchKey: string;
 
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
     filteredProfile: Filter;
     filterSubsciption: Subscription;

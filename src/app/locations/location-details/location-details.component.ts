@@ -36,8 +36,8 @@ export class LocationDetailsComponent implements OnInit {
 
   assetSearchKey: string;
   ticketSearchKey: string;
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private location: Location,
