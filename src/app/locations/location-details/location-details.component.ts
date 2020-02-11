@@ -11,7 +11,8 @@ import { CustomerLocation } from '../models/location';
 import { Assets } from './../../manage-assets/models/assets';
 
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { Tickets } from 'src/app/manage-assets/models/tickets';
 
 @Component({

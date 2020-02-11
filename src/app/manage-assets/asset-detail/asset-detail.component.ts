@@ -8,7 +8,8 @@ import { Assets } from './../models/assets';
 import { Contracts } from './../models/contracts';
 
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-asset-detail',

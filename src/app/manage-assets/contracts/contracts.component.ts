@@ -8,7 +8,8 @@ import { Customer } from '../../models/customer';
 import { ApifilterService } from './../../services/apifilter.service';
 import { AuthenticationService } from './../../login/services/authentication.service';
 
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
