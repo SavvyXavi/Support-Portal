@@ -46,10 +46,6 @@
     padding: 15px;
   }
 
-  table {
-    border-collapse: collapse;
-  }
-
   tr:nth-child(even) {
     background-color: #e6e6e6;
   }
