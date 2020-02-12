@@ -5421,8 +5421,7 @@ class HeaderComponent {
         this.router.navigate(['/login']);
     }
     displayLogo() {
-        const partner = this.currentProfile.partner;
-        this.displayLo = this.logo.find(x => x.CompanyName === partner);
+        this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile.partner);
     }
     dashLink() {
         const dash = this.authenticationService.currentUserValue.partner;
