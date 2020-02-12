@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   role: Role;
 
   logo = LogoList;
+  displayLo: any;
 
   constructor (
     private router: Router,
@@ -33,7 +34,7 @@ export class HeaderComponent implements OnInit {
       }
 
   ngOnInit() {
-    // this.displayLogo();
+    this.displayLogo();
   }
 
   logout() {
@@ -44,8 +45,7 @@ export class HeaderComponent implements OnInit {
 
   displayLogo() {
     const partner = this.currentProfile.partner;
-    const display = this.logo.find(x => x.CompanyName === partner );
-    return display.Logo;
+    this.displayLo = this.logo.find(x => x.CompanyName === partner );
   }
 
 
