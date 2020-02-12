@@ -18,8 +18,6 @@ import { Chart } from 'chart.js';
 import { Partner } from './../models/partner';
 import { Contracts } from './../manage-assets/models/contracts';
 import { Customer } from './../admin/models/customer';
-import { Contract } from './../models/contract';
-import { stat } from 'fs';
 
 @Component({
   selector: 'app-generic-dash',

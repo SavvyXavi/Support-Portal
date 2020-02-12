@@ -1,9 +1,11 @@
-import { Role } from 'src/app/types/role.enum';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
 import { Profile } from '../models/profile';
+import { Role } from 'src/app/types/role.enum';
+
+import { LogoList } from './../../logo-list';
 
 @Component({
   selector: 'app-header',
@@ -16,17 +18,21 @@ export class HeaderComponent implements OnInit {
   currentProfile: Profile;
   role: Role;
 
+  logo = LogoList;
+
   constructor (
     private router: Router,
     private authenticationService: AuthenticationService
-    ) { }
+    ) {
+        this.authenticationService.currentUser.subscribe(
+          name => {
+            this.currentProfile = name;
+          }
+        );
+      }
 
   ngOnInit() {
-    this.authenticationService.currentUser.subscribe(
-      name => {
-        this.currentProfile = name;
-      }
-    );
+    this.displayLogo();
   }
 
   logout() {
@@ -35,6 +41,16 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  displayLogo() {
+    const partner = this.currentProfile.partner;
+    const display = this.logo.find(x => {
+        if (x.CompanyName === partner) {
+           return x.Logo;
+        }
+      }
+    );
+    return display;
+  }
   dashLink() {
     const dash = this.authenticationService.currentUserValue.partner;
       switch (dash) {
