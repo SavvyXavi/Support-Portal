@@ -102,6 +102,10 @@
     border-radius: 8px;
   }
 
+  .mat-icon {
+    position: relative;
+  }
+
   /* mat-table {
     border-radius: 8px;
   }
