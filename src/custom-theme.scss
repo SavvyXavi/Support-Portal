@@ -53,4 +53,10 @@ $support-portal-theme: mat-light-theme($support-portal-primary, $support-portal-
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($support-portal-theme);
+@import '~@angular/material/theming';
 
+@mixin mat-ripple-theme($theme) {
+  .mat-ripple-element {
+    background-color: rgba(230, 92, 0, 1);
+  }
+}
