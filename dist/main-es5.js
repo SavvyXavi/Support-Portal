@@ -10028,9 +10028,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
       _createClass(HeaderComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {
-          this.displayLogo();
-        }
+        value: function ngOnInit() {}
       }, {
         key: "logout",
         value: function logout() {

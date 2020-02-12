@@ -5412,7 +5412,6 @@ class HeaderComponent {
         });
     }
     ngOnInit() {
-        this.displayLogo();
     }
     logout() {
         localStorage.clear();
