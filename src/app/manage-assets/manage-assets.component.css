@@ -70,8 +70,9 @@ tr:nth-child(odd) {
   color: rgb(230, 92, 0) !important;
 }
 
-.mat-form-field-ripple {
+span {
   border-bottom-color: rgb(230, 92, 0) !important;
+  color: rgb(230, 92, 0) !important;
 }
 
 .search-div {
