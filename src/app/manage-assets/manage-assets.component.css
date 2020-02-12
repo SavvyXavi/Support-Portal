@@ -71,7 +71,7 @@ tr:nth-child(odd) {
 }
 
 .mat-form-field-ripple {
-  color: rgb(230, 92, 0) !important;
+  border-bottom-color: rgb(230, 92, 0) !important;
 }
 
 .search-div {
