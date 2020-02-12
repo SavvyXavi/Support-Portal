@@ -10042,11 +10042,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function displayLogo() {
           var partner = this.currentProfile.partner;
           var display = this.logo.find(function (x) {
-            if (x.CompanyName === partner) {
-              return x.Logo;
-            }
+            return x.CompanyName === partner;
           });
-          return display;
+          return display.Logo;
         }
       }, {
         key: "dashLink",

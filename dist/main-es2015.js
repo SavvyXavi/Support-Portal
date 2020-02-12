@@ -5421,12 +5421,8 @@ class HeaderComponent {
     }
     displayLogo() {
         const partner = this.currentProfile.partner;
-        const display = this.logo.find(x => {
-            if (x.CompanyName === partner) {
-                return x.Logo;
-            }
-        });
-        return display;
+        const display = this.logo.find(x => x.CompanyName === partner);
+        return display.Logo;
     }
     dashLink() {
         const dash = this.authenticationService.currentUserValue.partner;
