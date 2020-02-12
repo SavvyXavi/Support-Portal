@@ -5421,7 +5421,7 @@ class HeaderComponent {
         this.router.navigate(['/login']);
     }
     displayLogo() {
-        this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile.partner);
+        this.displayLo = this.logo.find(x => { var _a; return x.CompanyName === ((_a = this.currentProfile) === null || _a === void 0 ? void 0 : _a.partner); });
     }
     dashLink() {
         const dash = this.authenticationService.currentUserValue.partner;

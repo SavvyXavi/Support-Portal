@@ -10045,7 +10045,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this41 = this;
 
           this.displayLo = this.logo.find(function (x) {
-            return x.CompanyName === _this41.currentProfile.partner;
+            var _a;
+
+            return x.CompanyName === ((_a = _this41.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
           });
         }
       }, {
