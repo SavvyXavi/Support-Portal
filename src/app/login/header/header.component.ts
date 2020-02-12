@@ -42,7 +42,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  displayLogo() {
+  async displayLogo() {
+    await this.currentProfile;
     return this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
   }
 
