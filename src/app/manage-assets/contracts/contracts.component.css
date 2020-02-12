@@ -87,7 +87,10 @@
   } */
 
   .search-form-field button {
+    margin: 0;
+    padding: 0;
     height: 32px;
     width: 32px;
     border-radius: 8px;
+    align-content: center;
   }
