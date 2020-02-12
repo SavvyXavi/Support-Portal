@@ -75,7 +75,7 @@ tr:nth-child(odd) {
 }
 
 .search-div {
-  margin: 10px;
+  margin: 10px 30px 10px 0px;
 }
 
 .search-form-field {
@@ -95,7 +95,9 @@ tr:nth-child(odd) {
   height: 32px;
   width: 32px;
   border-radius: 8px;
+  align-content: center;
 }
+
 /* mat-table {
   border-radius: 8px;
 }
