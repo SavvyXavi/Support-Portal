@@ -5416,6 +5416,8 @@ class HeaderComponent {
     }
     displayLogo() {
         const partner = this.currentProfile.partner;
+        console.log(this.currentProfile);
+        console.log(this.currentProfile.partner);
         const display = this.logo.find(x => {
             if (x.CompanyName === partner) {
                 return x.Logo;

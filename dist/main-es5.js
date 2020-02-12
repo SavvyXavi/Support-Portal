@@ -10032,6 +10032,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "displayLogo",
         value: function displayLogo() {
           var partner = this.currentProfile.partner;
+          console.log(this.currentProfile);
+          console.log(this.currentProfile.partner);
           var display = this.logo.find(function (x) {
             if (x.CompanyName === partner) {
               return x.Logo;
