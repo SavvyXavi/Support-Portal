@@ -32,6 +32,7 @@ export class HeaderComponent implements OnInit {
       }
 
   ngOnInit() {
+    this.displayLogo();
   }
 
   logout() {
@@ -40,7 +41,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  displayLogo() {
+  async displayLogo() {
+    await this.currentProfile;
     const partner = this.currentProfile.partner;
     console.log(this.currentProfile);
     console.log(this.currentProfile.partner);
