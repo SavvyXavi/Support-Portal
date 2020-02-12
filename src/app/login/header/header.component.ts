@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
       }
 
   ngOnInit() {
-    this.displayLogo();
+    // this.displayLogo();
   }
 
   logout() {
@@ -41,11 +41,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  async displayLogo() {
-    await this.currentProfile;
+  displayLogo() {
     const partner = this.currentProfile.partner;
-    console.log(this.currentProfile);
-    console.log(this.currentProfile.partner);
     const display = this.logo.find(x => {
         if (x.CompanyName === partner) {
            return x.Logo;
