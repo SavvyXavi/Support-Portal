@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
   }
 
   displayLogo() {
-    this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
+    return this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
   }
 
 
