@@ -10034,7 +10034,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.authenticationService.currentUser.subscribe(function (name) {
           _this40.currentProfile = name;
         });
-        console.log(this.displayLogo());
       }
 
       _createClass(HeaderComponent, [{

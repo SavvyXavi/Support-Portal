@@ -30,7 +30,6 @@ export class HeaderComponent implements OnInit {
             this.currentProfile = name;
           }
         );
-        console.log(this.displayLogo());
       }
 
   ngOnInit() {
