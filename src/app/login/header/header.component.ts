@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
       }
 
   ngOnInit() {
-    // this.displayLogo();
+    this.displayLogo();
   }
 
   logout() {
@@ -43,9 +43,10 @@ export class HeaderComponent implements OnInit {
   }
 
    displayLogo() {
-     console.log(this.currentProfile);
-    return this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
-  }
+     this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
+     console.log(this.displayLo);
+
+    }
 
 
   dashLink() {

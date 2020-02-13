@@ -10028,7 +10028,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
       _createClass(HeaderComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {// this.displayLogo();
+        value: function ngOnInit() {
+          this.displayLogo();
         }
       }, {
         key: "logout",
@@ -10042,12 +10043,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function displayLogo() {
           var _this41 = this;
 
-          console.log(this.currentProfile);
-          return this.displayLo = this.logo.find(function (x) {
+          this.displayLo = this.logo.find(function (x) {
             var _a;
 
             return x.CompanyName === ((_a = _this41.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
           });
+          console.log(this.displayLo);
         }
       }, {
         key: "dashLink",
