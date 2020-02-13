@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   role: Role;
 
   logo = LogoList;
-  displayLo: Object;
+  displayLo: any;
 
   constructor (
     private router: Router,
