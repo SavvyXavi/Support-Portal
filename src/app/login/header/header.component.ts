@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
       }
 
   ngOnInit() {
-    // this.displayLogo();
+    this.displayLogo();
   }
 
   logout() {
