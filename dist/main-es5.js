@@ -10009,7 +10009,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r368.displayLo[0], " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r368.displayLo, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](13);
 
@@ -10059,11 +10059,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function displayLogo() {
           var _this41 = this;
 
-          return this.displayLo = this.logo.find(function (x) {
+          return console.log(this.displayLo = this.logo.find(function (x) {
             var _a;
 
             return x.CompanyName === ((_a = _this41.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
-          });
+          }));
         }
       }, {
         key: "dashLink",
