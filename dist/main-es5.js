@@ -10152,11 +10152,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function displayLogo() {
           var _this44 = this;
 
-          return console.log(this.displayLo = this.logo.find(function (x) {
+          return this.displayLo = this.logo.find(function (x) {
             var _a;
 
             return x.CompanyName === ((_a = _this44.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
-          }));
+          });
         }
       }, {
         key: "dashLink",
