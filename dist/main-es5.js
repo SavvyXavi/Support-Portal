@@ -10087,7 +10087,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r368.currentProfile == null ? null : ctx_r368.currentProfile.partner);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (ctx_r368.currentProfile == null ? null : ctx_r368.currentProfile.partner) !== undefined);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
@@ -10127,8 +10127,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           return x.CompanyName === ((_a = _this43.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
         });
-        console.log(this.displayLo);
-        console.log(this.currentProfile);
       }
 
       _createClass(HeaderComponent, [{
