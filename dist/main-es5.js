@@ -9897,7 +9897,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       if (rf & 2) {
         var ctx_r369 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("src", ctx_r369.displayLogo(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("src", ctx_r369.displayLogo().Logo, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
       }
     }
 
@@ -10141,7 +10141,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.displayLo = this.logo.find(function (x) {
             var _a;
 
-            return x.CompanyName === ((_a = _this44.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
+            return x[0].CompanyName === ((_a = _this44.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
           });
         }
       }, {

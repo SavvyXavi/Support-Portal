@@ -5347,7 +5347,7 @@ function HeaderComponent_nav_0_img_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 29);
 } if (rf & 2) {
     const ctx_r369 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("src", ctx_r369.displayLogo(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("src", ctx_r369.displayLogo().Logo, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 } }
 function HeaderComponent_nav_0_Template(rf, ctx) { if (rf & 1) {
     const _r371 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
@@ -5464,7 +5464,7 @@ class HeaderComponent {
         this.router.navigate(['/login']);
     }
     displayLogo() {
-        return this.displayLo = this.logo.find(x => { var _a; return x.CompanyName === ((_a = this.currentProfile) === null || _a === void 0 ? void 0 : _a.partner); });
+        return this.displayLo = this.logo.find(x => { var _a; return x[0].CompanyName === ((_a = this.currentProfile) === null || _a === void 0 ? void 0 : _a.partner); });
     }
     dashLink() {
         const dash = this.authenticationService.currentUserValue.partner;

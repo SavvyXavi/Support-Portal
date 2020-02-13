@@ -45,8 +45,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-   displayLogo(): Observable<Logo>{
-    return this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
+   displayLogo() {
+    return this.displayLo = this.logo.find(x => x[0].CompanyName === this.currentProfile?.partner);
   }
 
 
