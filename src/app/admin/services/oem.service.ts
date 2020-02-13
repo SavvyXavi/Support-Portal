@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { LogoList } from '../../logo-list';
+import { Logo } from '../../logolist';
+import { of } from 'rxjs';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +15,9 @@ export class OemService {
   monPull = 'https://localmonitor.noble1it.com/nagiosxi/api/v1/objects/servicestatus';
   combPull = this.monPull + this.monApi;
   azureMonitor = 'https://prodharmonytwo.azurewebsites.net/api/NagiosCall?code=b99vLlCwafNeOtiqbk1VlJ6upDuWsCo06ox9oxr65sggj3KtLv2qFQ==';
+logolist: Logo[];
+
+
 
   constructor( private http: HttpClient ) { }
 
@@ -19,4 +27,10 @@ export class OemService {
   getMon() {
     return this.http.get(this.azureMonitor);
   }
+  getLogo(): Observable<Logo[]> {
+    return of(LogoList);
+  }
+
+
+
 }

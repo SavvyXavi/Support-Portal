@@ -4,6 +4,7 @@ import { AuthenticationService } from '../services/authentication.service';
 
 import { Profile } from '../models/profile';
 import { Role } from 'src/app/types/role.enum';
+import { Logo } from './../../logolist';
 
 import { LogoList } from './../../logo-list';
 
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
   role: Role;
 
   logo = LogoList;
-  displayLo: any;
+  displayLo: Logo;
 
   constructor (
     private router: Router,
