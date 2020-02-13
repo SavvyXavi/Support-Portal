@@ -27,23 +27,17 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService
     ) {
-   /*     this.authenticationService.currentUser.subscribe(
+        this.authenticationService.currentUser.subscribe(
           name => {
             this.currentProfile = name;
           }
         );
         this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
-*/
+
       }
 
   ngOnInit() {
     // this.displayLogo();
-    this.authenticationService.currentUser.subscribe(
-      name => {
-        this.currentProfile = name;
-      }
-    );
-    this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
   }
 
   logout() {
