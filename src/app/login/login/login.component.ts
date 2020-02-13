@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
         default:
           setTimeout(() => {
         this.router.navigate(['/genericdash']);
-          }, 10);
+          }, 5000);
       }
   },
       error => {
