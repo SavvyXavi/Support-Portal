@@ -1,20 +1,18 @@
   <nav *ngIf="currentProfile" class="navbar northNav navbar-expand-lg navbar-light bg-light justify-content-between">
-
-    <div class= 'logo-container'>
-      <a class="navbar-brand" ng-defer-load (click)="dashLink()">
-      <img *ngIf="currentProfile?.partner" (onLoad)='displayLog()' src={{this.logo}} style="width:auto; height:auto">
-      <!-- <img *ngIf="currentProfile?.partner == 'NorthSmart (Northland)'" src="../../assets//favicon.ico" style="width:50px; height:50px">
+<!--    <a class="navbar-brand" (click)="dashLink()"> -->
+      <img *ngIf="currentProfile?.partner == 'Noble1Solutions'" src = {{this.displayLo}} style="width:50px; height:50px">
+      <img *ngIf="currentProfile?.partner == 'Noble1Solutions'" src="../../assets//favicon.ico" style="width:50px; height:50px"> <img src = 'this.displayLo' style="width:50px; height:50px"> {{this.displayLo}}
+      <!--
+      <img *ngIf="currentProfile?.partner == 'NorthSmart (Northland)'" src="../../assets//favicon.ico" style="width:50px; height:50px">
       <img *ngIf="currentProfile?.partner == 'Relus Technologies' || currentProfile?.partner == 'RAC King LLC' || currentProfile?.partner == 'BB&T'" src="../../../assets/RelusLogo.png" style="height: 50px; margin-left: 20px;">
       <img *ngIf="currentProfile?.partner == 'Noble1 Solutions' || currentProfile?.partner == 'Colwick Travel' || currentProfile?.partner == 'xByte Technologies'" src="../../assets//favicon.ico" style="width:50px; height:50px">
       <img *ngIf="currentProfile?.partner == 'Reliant Technology'" src="../../../assets/Reliant-Logo.png" class="rel-logo">
-      <img *ngIf="currentProfile?.partner == 'Mega Monolithic Corp'" src="../../../assets/Mega Monolithic Corp - Logo Light Small.png" style="height: 50px; margin-left: 20px;"> -->
+      <img *ngIf="currentProfile?.partner == 'Mega Monolithic Corp'" src="../../../assets/Mega Monolithic Corp - Logo Light Small.png" style="height: 50px; margin-left: 20px;">
     </a>
-    </div>
-
-    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+     <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+  -->
     <div id="navbarToggle" class="collapse navbar-collapse">
       <form class="search-bar d-none d-md-block form-inline" style="width:50%">
         <div class="input-group">
