@@ -32,8 +32,7 @@ export class HeaderComponent implements OnInit {
           }
         );
         this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
-        console.log(this.displayLo);
-        console.log(this.currentProfile);
+
       }
 
   ngOnInit() {
