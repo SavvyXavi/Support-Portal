@@ -24,8 +24,6 @@
  </tr>
 </table>
 </div>
-<img (onLoad)="displayLogo()" src="this.displayLo.Logo">
-<br> --- <br>
-<div *ngFor="let brochure of logo">
-  <img class="brochure-poster" [src]="brochure.Logo" />
-</div>
+
+<img class="logo" [src]="this.logo" />
+
