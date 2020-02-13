@@ -5414,7 +5414,7 @@ class HeaderComponent {
         });
     }
     ngOnInit() {
-        this.displayLogo();
+        // this.displayLogo();
     }
     logout() {
         localStorage.clear();
@@ -5422,8 +5422,8 @@ class HeaderComponent {
         this.router.navigate(['/login']);
     }
     displayLogo() {
-        this.displayLo = this.logo.find(x => { var _a; return x.CompanyName === ((_a = this.currentProfile) === null || _a === void 0 ? void 0 : _a.partner); });
-        console.log(this.displayLo);
+        console.log(this.currentProfile);
+        return this.displayLo = this.logo.find(x => { var _a; return x.CompanyName === ((_a = this.currentProfile) === null || _a === void 0 ? void 0 : _a.partner); });
     }
     dashLink() {
         const dash = this.authenticationService.currentUserValue.partner;
