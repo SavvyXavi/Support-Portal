@@ -10071,11 +10071,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r368.currentProfile == null ? null : ctx_r368.currentProfile.partner, " ");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("src", ctx_r368.displayLo, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](12);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"](" ", ctx_r368.currentProfile == null ? null : ctx_r368.currentProfile.firstName, " ", ctx_r368.currentProfile == null ? null : ctx_r368.currentProfile.lastName, " ");
 
@@ -10169,10 +10165,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-header"]],
       decls: 1,
       vars: 1,
-      consts: [["class", "navbar northNav navbar-expand-lg navbar-light bg-light justify-content-between", 4, "ngIf"], [1, "navbar", "northNav", "navbar-expand-lg", "navbar-light", "bg-light", "justify-content-between"], ["src", "../../assets//favicon.ico", "style", "width:50px; height:50px", 4, "ngIf"], [2, "width", "50px", "height", "50px", 3, "src"], ["id", "navbarToggle", 1, "collapse", "navbar-collapse"], [1, "search-bar", "d-none", "d-md-block", "form-inline", 2, "width", "50%"], [1, "input-group"], ["type", "text", "placeholder", "Search", 1, "form-control", "shadow-none"], [1, "input-group-append"], ["type", "button", 1, "btn", "btn-transparent"], [1, "fa", "fa-search"], [1, "dropdown", "d-none", "d-md-block", "account-container", "northsmart", 2, "padding-right", "15px"], ["type", "button", "id", "dropdownMenuButton", "data-toggle", "dropdown", "aria-haspopup", "true", "aria-expanded", "false", 1, "btn", "bg-light", "shadow-none", "dropdown-toggle", 2, "width", "auto"], [1, "fa", "fa-user-circle", "fa-3x"], ["aria-labelledby", "dropdownMenuButton", 1, "dropdown-menu", "dropdown-menu-right", 2, "padding-right", "auto", "width", "auto"], [1, "dropdown-item-text", "dropdown-separator-title"], ["routerLink", "/profile", 1, "dropdown-item"], [1, "icon"], [1, "fas", "fa-user"], [1, "text"], ["routerLink", "/settings", 1, "dropdown-item"], [1, "fas", "fa-cog"], ["routerlink", "/notifications", 1, "dropdown-item"], [1, "fas", "fa-comment-alt"], [1, "dropdown-item", 3, "click"], [1, "fas", "fa-sign-out-alt"], ["src", "../../assets//favicon.ico", 2, "width", "50px", "height", "50px"]],
+      consts: [["class", "navbar northNav navbar-expand-lg navbar-light bg-light justify-content-between", 4, "ngIf"], [1, "navbar", "northNav", "navbar-expand-lg", "navbar-light", "bg-light", "justify-content-between"], ["src", "../../assets//favicon.ico", "style", "width:50px; height:50px", 4, "ngIf"], ["src", "this.displayLo", 2, "width", "50px", "height", "50px"], ["id", "navbarToggle", 1, "collapse", "navbar-collapse"], [1, "search-bar", "d-none", "d-md-block", "form-inline", 2, "width", "50%"], [1, "input-group"], ["type", "text", "placeholder", "Search", 1, "form-control", "shadow-none"], [1, "input-group-append"], ["type", "button", 1, "btn", "btn-transparent"], [1, "fa", "fa-search"], [1, "dropdown", "d-none", "d-md-block", "account-container", "northsmart", 2, "padding-right", "15px"], ["type", "button", "id", "dropdownMenuButton", "data-toggle", "dropdown", "aria-haspopup", "true", "aria-expanded", "false", 1, "btn", "bg-light", "shadow-none", "dropdown-toggle", 2, "width", "auto"], [1, "fa", "fa-user-circle", "fa-3x"], ["aria-labelledby", "dropdownMenuButton", 1, "dropdown-menu", "dropdown-menu-right", 2, "padding-right", "auto", "width", "auto"], [1, "dropdown-item-text", "dropdown-separator-title"], ["routerLink", "/profile", 1, "dropdown-item"], [1, "icon"], [1, "fas", "fa-user"], [1, "text"], ["routerLink", "/settings", 1, "dropdown-item"], [1, "fas", "fa-cog"], ["routerlink", "/notifications", 1, "dropdown-item"], [1, "fas", "fa-comment-alt"], [1, "dropdown-item", 3, "click"], [1, "fas", "fa-sign-out-alt"], ["src", "../../assets//favicon.ico", 2, "width", "50px", "height", "50px"]],
       template: function HeaderComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, HeaderComponent_nav_0_Template, 47, 7, "nav", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, HeaderComponent_nav_0_Template, 47, 6, "nav", 0);
         }
 
         if (rf & 2) {
