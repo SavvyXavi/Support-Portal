@@ -10127,6 +10127,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           return x.CompanyName === ((_a = _this43.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
         });
+        console.log(this.displayLo);
+        console.log(this.currentProfile);
       }
 
       _createClass(HeaderComponent, [{

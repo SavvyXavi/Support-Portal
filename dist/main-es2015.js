@@ -5456,6 +5456,8 @@ class HeaderComponent {
             this.currentProfile = name;
         });
         this.displayLo = this.logo.find(x => { var _a; return x.CompanyName === ((_a = this.currentProfile) === null || _a === void 0 ? void 0 : _a.partner); });
+        console.log(this.displayLo);
+        console.log(this.currentProfile);
     }
     ngOnInit() {
         // this.displayLogo();
