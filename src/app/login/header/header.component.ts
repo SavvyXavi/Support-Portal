@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   title = 'Support Portal';
   currentProfile: Profile;
   role: Role;
+  selectedLogo: Logo;
 
   logo = LogoList;
   displayLo: Logo;
