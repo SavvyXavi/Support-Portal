@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   role: Role;
 
   logo = LogoList;
-  displayLo: any;
+  displayLo: Object;
 
   constructor (
     private router: Router,
@@ -43,7 +43,6 @@ export class HeaderComponent implements OnInit {
   }
 
    displayLogo() {
-     console.log(this.currentProfile);
     return this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
   }
 
