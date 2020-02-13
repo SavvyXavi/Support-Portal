@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
+import { Observable } from 'rxjs';
+
 import { Profile } from '../models/profile';
 import { Role } from 'src/app/types/role.enum';
 import { Logo } from './../../logolist';
@@ -31,8 +33,6 @@ export class HeaderComponent implements OnInit {
             this.currentProfile = name;
           }
         );
-        this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
-
       }
 
   ngOnInit() {
@@ -45,9 +45,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  //  displayLogo() {
-  //   return
-  // }
+   displayLogo(): Observable<Logo>{
+    return this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
+  }
 
 
   dashLink() {
