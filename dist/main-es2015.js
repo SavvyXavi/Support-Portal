@@ -792,7 +792,7 @@ class LocalMonitorComponent {
     getLogo() {
         this.api.getLogo()
             .subscribe((logolist) => {
-            this.logo = logolist;
+            this.logo = logolist.find(x => { var _a; return x.CompanyName === ((_a = this.currentProfile) === null || _a === void 0 ? void 0 : _a.partner); });
         });
     }
     pullMon() {

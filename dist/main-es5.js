@@ -1330,7 +1330,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this8 = this;
 
           this.api.getLogo().subscribe(function (logolist) {
-            _this8.logo = logolist;
+            _this8.logo = logolist.find(function (x) {
+              var _a;
+
+              return x.CompanyName === ((_a = _this8.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
+            });
           });
         }
       }, {
