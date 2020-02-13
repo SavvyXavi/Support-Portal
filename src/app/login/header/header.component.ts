@@ -32,18 +32,12 @@ export class HeaderComponent implements OnInit {
             this.currentProfile = name;
           }
         );
-        this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
+        this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile.partner);
 
       }
 
   ngOnInit() {
     // this.displayLogo();
-    this.authenticationService.currentUser.subscribe(
-      name => {
-        this.currentProfile = name;
-      }
-    );
-    this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
   }
 
   logout() {

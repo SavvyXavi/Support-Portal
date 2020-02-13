@@ -5452,14 +5452,10 @@ class HeaderComponent {
         this.authenticationService.currentUser.subscribe(name => {
             this.currentProfile = name;
         });
-        this.displayLo = this.logo.find(x => { var _a; return x.CompanyName === ((_a = this.currentProfile) === null || _a === void 0 ? void 0 : _a.partner); });
+        this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile.partner);
     }
     ngOnInit() {
         // this.displayLogo();
-        this.authenticationService.currentUser.subscribe(name => {
-            this.currentProfile = name;
-        });
-        this.displayLo = this.logo.find(x => { var _a; return x.CompanyName === ((_a = this.currentProfile) === null || _a === void 0 ? void 0 : _a.partner); });
     }
     logout() {
         localStorage.clear();
