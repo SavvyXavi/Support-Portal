@@ -42,6 +42,15 @@ export class LocalMonitorComponent implements OnInit {
    return this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
  }
 
+ getLogo() {
+  this.api.getLogo()
+  .subscribe(
+    (logolist: any) => {
+      this.logo = logolist;
+    }
+  );
+}
+
   pullMon() {
     this.api.getMon()
     .subscribe(

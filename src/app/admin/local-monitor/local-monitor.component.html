@@ -26,4 +26,6 @@
 </div>
 <img (onLoad)="displayLogo()" src="this.displayLo.Logo">
 <br> --- <br>
-<img (onLoad)="displayLogo()" src="../../../favicon.ico">
+<div *ngFor="let brochure of logo">
+  <img class="brochure-poster" [src]="brochure.Logo" />
+</div>
