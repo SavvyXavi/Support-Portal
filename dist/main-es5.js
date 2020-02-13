@@ -10089,27 +10089,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function HeaderComponent(router, authenticationService) {
-        var _this43 = this;
-
         _classCallCheck(this, HeaderComponent);
 
         this.router = router;
         this.authenticationService = authenticationService;
         this.title = 'Support Portal';
         this.logo = _logo_list__WEBPACK_IMPORTED_MODULE_3__["LogoList"];
-        this.authenticationService.currentUser.subscribe(function (name) {
-          _this43.currentProfile = name;
-        });
-        this.displayLo = this.logo.find(function (x) {
-          var _a;
-
-          return x.CompanyName === ((_a = _this43.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
-        });
+        /*     this.authenticationService.currentUser.subscribe(
+               name => {
+                 this.currentProfile = name;
+               }
+             );
+             this.displayLo = this.logo.find(x => x.CompanyName === this.currentProfile?.partner);
+        */
       }
 
       _createClass(HeaderComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {// this.displayLogo();
+        value: function ngOnInit() {
+          var _this43 = this;
+
+          // this.displayLogo();
+          this.authenticationService.currentUser.subscribe(function (name) {
+            _this43.currentProfile = name;
+          });
+          this.displayLo = this.logo.find(function (x) {
+            var _a;
+
+            return x.CompanyName === ((_a = _this43.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
+          });
         }
       }, {
         key: "logout",
