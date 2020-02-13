@@ -714,8 +714,16 @@ CustomersComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LocalMonitorComponent", function() { return LocalMonitorComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _services_oem_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/oem.service */ "./src/app/admin/services/oem.service.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _login_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../login/services/authentication.service */ "./src/app/login/services/authentication.service.ts");
+/* harmony import */ var _services_oem_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/oem.service */ "./src/app/admin/services/oem.service.ts");
+/* harmony import */ var _logo_list__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../logo-list */ "./src/app/logo-list.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+
+
+
+
 
 
 
@@ -753,14 +761,24 @@ function LocalMonitorComponent_tr_19_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](data_r363.last_check);
 } }
 class LocalMonitorComponent {
-    constructor(api) {
+    constructor(router, api, authenticationService) {
+        this.router = router;
         this.api = api;
+        this.authenticationService = authenticationService;
+        this.logo = _logo_list__WEBPACK_IMPORTED_MODULE_4__["LogoList"];
+        this.authenticationService.currentUser.subscribe(name => {
+            this.currentProfile = name;
+        });
     }
     ngOnInit() {
         this.api.getMon()
             .subscribe((returnedMon) => {
             this.monitor = returnedMon;
         });
+    }
+    displayLogo() {
+        console.log(this.currentProfile);
+        return this.displayLo = this.logo.find(x => { var _a; return x.CompanyName === ((_a = this.currentProfile) === null || _a === void 0 ? void 0 : _a.partner); });
     }
     pullMon() {
         this.api.getMon()
@@ -769,8 +787,8 @@ class LocalMonitorComponent {
         });
     }
 }
-LocalMonitorComponent.ɵfac = function LocalMonitorComponent_Factory(t) { return new (t || LocalMonitorComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_oem_service__WEBPACK_IMPORTED_MODULE_1__["OemService"])); };
-LocalMonitorComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: LocalMonitorComponent, selectors: [["app-local-monitor"]], decls: 20, vars: 2, consts: [[1, "edit-items", "d-flex", "justify-content-end"], [1, "btn", "btn-primary"], ["aria-hidden", "true", 1, "far", "fa-edit"], [1, "table-container", "table-responsive-sm"], [1, "table"], [4, "ngFor", "ngForOf"]], template: function LocalMonitorComponent_Template(rf, ctx) { if (rf & 1) {
+LocalMonitorComponent.ɵfac = function LocalMonitorComponent_Factory(t) { return new (t || LocalMonitorComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_oem_service__WEBPACK_IMPORTED_MODULE_3__["OemService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_login_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"])); };
+LocalMonitorComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: LocalMonitorComponent, selectors: [["app-local-monitor"]], decls: 21, vars: 2, consts: [[1, "edit-items", "d-flex", "justify-content-end"], [1, "btn", "btn-primary"], ["aria-hidden", "true", 1, "far", "fa-edit"], [1, "table-container", "table-responsive-sm"], [1, "table"], [4, "ngFor", "ngForOf"], ["src", "this.displayLo.Logo", 3, "onLoad"]], template: function LocalMonitorComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "i", 2);
@@ -802,12 +820,15 @@ LocalMonitorComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, LocalMonitorComponent_tr_19_Template, 11, 5, "tr", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "img", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("onLoad", function LocalMonitorComponent_Template_img_onLoad_20_listener($event) { return ctx.displayLogo(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" Total Services Monitored = ", ctx.monitor == null ? null : ctx.monitor.recordcount, "\n");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](14);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.monitor.servicestatus);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2xvY2FsLW1vbml0b3IvbG9jYWwtbW9uaXRvci5jb21wb25lbnQuY3NzIn0= */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2xvY2FsLW1vbml0b3IvbG9jYWwtbW9uaXRvci5jb21wb25lbnQuY3NzIn0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LocalMonitorComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -815,7 +836,7 @@ LocalMonitorComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
                 templateUrl: './local-monitor.component.html',
                 styleUrls: ['./local-monitor.component.css']
             }]
-    }], function () { return [{ type: _services_oem_service__WEBPACK_IMPORTED_MODULE_1__["OemService"] }]; }, null); })();
+    }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] }, { type: _services_oem_service__WEBPACK_IMPORTED_MODULE_3__["OemService"] }, { type: _login_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"] }]; }, null); })();
 
 
 /***/ }),

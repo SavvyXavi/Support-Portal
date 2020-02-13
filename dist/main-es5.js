@@ -1178,13 +1178,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _services_oem_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _login_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../login/services/authentication.service */
+    "./src/app/login/services/authentication.service.ts");
+    /* harmony import */
+
+
+    var _services_oem_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../services/oem.service */
     "./src/app/admin/services/oem.service.ts");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _logo_list__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../logo-list */
+    "./src/app/logo-list.ts");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
@@ -1253,28 +1271,48 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var LocalMonitorComponent =
     /*#__PURE__*/
     function () {
-      function LocalMonitorComponent(api) {
+      function LocalMonitorComponent(router, api, authenticationService) {
+        var _this5 = this;
+
         _classCallCheck(this, LocalMonitorComponent);
 
+        this.router = router;
         this.api = api;
+        this.authenticationService = authenticationService;
+        this.logo = _logo_list__WEBPACK_IMPORTED_MODULE_4__["LogoList"];
+        this.authenticationService.currentUser.subscribe(function (name) {
+          _this5.currentProfile = name;
+        });
       }
 
       _createClass(LocalMonitorComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this5 = this;
+          var _this6 = this;
 
           this.api.getMon().subscribe(function (returnedMon) {
-            _this5.monitor = returnedMon;
+            _this6.monitor = returnedMon;
+          });
+        }
+      }, {
+        key: "displayLogo",
+        value: function displayLogo() {
+          var _this7 = this;
+
+          console.log(this.currentProfile);
+          return this.displayLo = this.logo.find(function (x) {
+            var _a;
+
+            return x.CompanyName === ((_a = _this7.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
           });
         }
       }, {
         key: "pullMon",
         value: function pullMon() {
-          var _this6 = this;
+          var _this8 = this;
 
           this.api.getMon().subscribe(function (returnedMon) {
-            _this6.monitor = returnedMon;
+            _this8.monitor = returnedMon;
           });
         }
       }]);
@@ -1283,15 +1321,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     LocalMonitorComponent.ɵfac = function LocalMonitorComponent_Factory(t) {
-      return new (t || LocalMonitorComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_oem_service__WEBPACK_IMPORTED_MODULE_1__["OemService"]));
+      return new (t || LocalMonitorComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_oem_service__WEBPACK_IMPORTED_MODULE_3__["OemService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_login_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]));
     };
 
     LocalMonitorComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: LocalMonitorComponent,
       selectors: [["app-local-monitor"]],
-      decls: 20,
+      decls: 21,
       vars: 2,
-      consts: [[1, "edit-items", "d-flex", "justify-content-end"], [1, "btn", "btn-primary"], ["aria-hidden", "true", 1, "far", "fa-edit"], [1, "table-container", "table-responsive-sm"], [1, "table"], [4, "ngFor", "ngForOf"]],
+      consts: [[1, "edit-items", "d-flex", "justify-content-end"], [1, "btn", "btn-primary"], ["aria-hidden", "true", 1, "far", "fa-edit"], [1, "table-container", "table-responsive-sm"], [1, "table"], [4, "ngFor", "ngForOf"], ["src", "this.displayLo.Logo", 3, "onLoad"]],
       template: function LocalMonitorComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -1355,6 +1393,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "img", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("onLoad", function LocalMonitorComponent_Template_img_onLoad_20_listener($event) {
+            return ctx.displayLogo();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
 
         if (rf & 2) {
@@ -1367,7 +1413,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.monitor.servicestatus);
         }
       },
-      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"]],
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2xvY2FsLW1vbml0b3IvbG9jYWwtbW9uaXRvci5jb21wb25lbnQuY3NzIn0= */"]
     });
     /*@__PURE__*/
@@ -1382,7 +1428,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }]
       }], function () {
         return [{
-          type: _services_oem_service__WEBPACK_IMPORTED_MODULE_1__["OemService"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]
+        }, {
+          type: _services_oem_service__WEBPACK_IMPORTED_MODULE_3__["OemService"]
+        }, {
+          type: _login_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]
         }];
       }, null);
     })();
@@ -1495,10 +1545,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "pullOem",
         value: function pullOem() {
-          var _this7 = this;
+          var _this9 = this;
 
           this.api.getOem().subscribe(function (returnedOem) {
-            _this7.oems = returnedOem;
+            _this9.oems = returnedOem;
           });
         }
       }]);
@@ -1943,10 +1993,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(RegisterComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this8 = this;
+          var _this10 = this;
 
           this.loginpullsService.getPartnerList().subscribe(function (profile) {
-            _this8.twoprofile = profile;
+            _this10.twoprofile = profile;
           });
           this.registerForm = this.formBuilder.group({
             firstName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -1968,7 +2018,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this9 = this;
+          var _this11 = this;
 
           this.submitted = true; // stop here if form is invalid
 
@@ -1980,23 +2030,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.loading = true;
           alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
           this.profileService.register(this.registerForm.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
-            _this9.alertService.success('Registration successful', true);
+            _this11.alertService.success('Registration successful', true);
 
-            _this9.router.navigate(['/']);
+            _this11.router.navigate(['/']);
           }, function (error) {
-            _this9.alertService.error(error);
+            _this11.alertService.error(error);
 
-            _this9.loading = false;
+            _this11.loading = false;
           });
         }
       }, {
         key: "getcompany",
         value: function getcompany(partner) {
-          var _this10 = this;
+          var _this12 = this;
 
           this.loginpullsService.getCompanyList(partner).subscribe(function (company) {
-            _this10.twocompany = company;
-            console.log(_this10.twocompany);
+            _this12.twocompany = company;
+            console.log(_this12.twocompany);
           });
         }
       }, {
@@ -2733,10 +2783,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "pullSupport",
         value: function pullSupport() {
-          var _this11 = this;
+          var _this13 = this;
 
           this.api.getSupport().subscribe(function (returnedSupport) {
-            _this11.supports = returnedSupport;
+            _this13.supports = returnedSupport;
           });
         }
       }]);
@@ -2998,7 +3048,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this12 = this;
+          var _this14 = this;
 
           this.submitted = true; // let subalert = false;
           // let fname = false;
@@ -3014,9 +3064,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.f.userType.value === 'New') {
             this.profileService.register(this.userForm.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["first"])()).subscribe(function (data) {
-              _this12.alertService.success('Registration Successful', true);
+              _this14.alertService.success('Registration Successful', true);
             }, function (error) {
-              _this12.alertService.error(error);
+              _this14.alertService.error(error);
             });
           }
         }
@@ -4735,7 +4785,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function CompaniesComponent(filter, authserv) {
-        var _this13 = this;
+        var _this15 = this;
 
         _classCallCheck(this, CompaniesComponent);
 
@@ -4743,7 +4793,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.authserv = authserv;
         this.displayedColumns = ['Company Name', 'Account Manager', 'Street Address', 'City', 'State', 'Zip Code', 'Country', 'Primary Contact'];
         this.authserv.currentUser.subscribe(function (profile) {
-          return _this13.currentProfile = profile;
+          return _this15.currentProfile = profile;
         });
       }
 
@@ -4755,13 +4805,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCompanies",
         value: function getCompanies() {
-          var _this14 = this;
+          var _this16 = this;
 
           this.filter.customerFilter(this.currentProfile).subscribe(function (returnedLocations) {
-            _this14.companiesLength = returnedLocations;
-            _this14.companyDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedLocations);
-            _this14.companyDataSource.sort = _this14.sort;
-            _this14.companyDataSource.paginator = _this14.paginator;
+            _this16.companiesLength = returnedLocations;
+            _this16.companyDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedLocations);
+            _this16.companyDataSource.sort = _this16.sort;
+            _this16.companyDataSource.paginator = _this16.paginator;
           });
         }
       }, {
@@ -5119,7 +5169,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function DashboardComponent(authenticationService, profileService, api, filter) {
-        var _this15 = this;
+        var _this17 = this;
 
         _classCallCheck(this, DashboardComponent);
 
@@ -5130,7 +5180,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.contractsData = [];
         this.assetsData = [];
         this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(function (profile) {
-          _this15.currentProfile = profile;
+          _this17.currentProfile = profile;
         });
       }
 
@@ -5152,10 +5202,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this16 = this;
+          var _this18 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this16.partnerArr = returnedPartners;
+            return _this18.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -5168,41 +5218,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "contractsCount",
         value: function contractsCount() {
-          var _this17 = this;
+          var _this19 = this;
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.partConFilter(this.currentProfile).subscribe(function (returnedConLength) {
-              return _this17.contractLength = returnedConLength;
+              return _this19.contractLength = returnedConLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
             this.filter.custConFilter(this.currentProfile).subscribe(function (returnedConLength) {
-              return _this17.contractLength = returnedConLength;
+              return _this19.contractLength = returnedConLength;
             });
           }
         }
       }, {
         key: "assetsCount",
         value: function assetsCount() {
-          var _this18 = this;
+          var _this20 = this;
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this18.assetLength = returnedAssetLength;
+              return _this20.assetLength = returnedAssetLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this18.assetLength = returnedAssetLength;
+              return _this20.assetLength = returnedAssetLength;
             });
           }
         }
       }, {
         key: "ticketsCount",
         value: function ticketsCount() {
-          var _this19 = this;
+          var _this21 = this;
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this19.ticketLength = returnedAssetLength;
+              return _this21.ticketLength = returnedAssetLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {// this.filter.custAssetsFilter(this.currentProfile)
             // .subscribe(
@@ -5213,19 +5263,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "companiesCount",
         value: function companiesCount() {
-          var _this20 = this;
+          var _this22 = this;
 
           this.filter.customerFilter(this.currentProfile).subscribe(function (returnedCompanies) {
-            _this20.companyLength = returnedCompanies;
+            _this22.companyLength = returnedCompanies;
           });
         }
       }, {
         key: "ticketsChart",
         value: function ticketsChart() {
-          var _this21 = this;
+          var _this23 = this;
 
           this.api.getTickets().subscribe(function (returnedTickets) {
-            _this21.tickets = returnedTickets;
+            _this23.tickets = returnedTickets;
           });
         }
       }, {
@@ -5242,10 +5292,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAssets",
         value: function getAssets() {
-          var _this22 = this;
+          var _this24 = this;
 
           this.api.getAssets().subscribe(function (returnedAssets) {
-            _this22.assets = returnedAssets;
+            _this24.assets = returnedAssets;
           });
         }
       }, {
@@ -5295,19 +5345,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteProfile",
         value: function deleteProfile(id) {
-          var _this23 = this;
+          var _this25 = this;
 
           this.profileService.delete(id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["first"])()).subscribe(function () {
-            _this23.loadAllUsers();
+            _this25.loadAllUsers();
           });
         }
       }, {
         key: "loadAllUsers",
         value: function loadAllUsers() {
-          var _this24 = this;
+          var _this26 = this;
 
           this.profileService.getAll().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["first"])()).subscribe(function (profile) {
-            _this24.profiles = profile;
+            _this26.profiles = profile;
           });
         }
       }]);
@@ -6391,7 +6441,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function GenericDashComponent(authenticationService, profileService, api, filter) {
-        var _this25 = this;
+        var _this27 = this;
 
         _classCallCheck(this, GenericDashComponent);
 
@@ -6412,7 +6462,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.unmapped = 0;
         this.yetToStart = 0;
         this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(function (profile) {
-          _this25.currentProfile = profile;
+          _this27.currentProfile = profile;
         });
       }
 
@@ -6428,10 +6478,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this26 = this;
+          var _this28 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this26.partnerArr = returnedPartners;
+            return _this28.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -6444,50 +6494,50 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ticketsCount",
         value: function ticketsCount() {
-          var _this27 = this;
+          var _this29 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this27.ticketLength = returnedAssetLength;
+              return _this29.ticketLength = returnedAssetLength;
             });
           } else if (this.currentProfile.companypartner === 'Company') {
             this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTicketLength) {
-              return _this27.ticketLength = returnedTicketLength;
+              return _this29.ticketLength = returnedTicketLength;
             });
           }
         }
       }, {
         key: "companiesCount",
         value: function companiesCount() {
-          var _this28 = this;
+          var _this30 = this;
 
           this.filter.customerFilter(this.currentProfile).subscribe(function (returnedCompanies) {
-            _this28.companyLength = returnedCompanies;
+            _this30.companyLength = returnedCompanies;
           });
         }
       }, {
         key: "ticketsChart",
         value: function ticketsChart() {
-          var _this29 = this;
+          var _this31 = this;
 
           this.api.getTickets().subscribe(function (returnedTickets) {
-            _this29.tickets = returnedTickets;
+            _this31.tickets = returnedTickets;
           });
         }
       }, {
         key: "contractsChart",
         value: function contractsChart() {
-          var _this30 = this;
+          var _this32 = this;
 
           var status = [];
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partConFilter(this.currentProfile).subscribe(function (returnedCons) {
-              _this30.contractLength = returnedCons.length;
+              _this32.contractLength = returnedCons.length;
             });
             this.filter.conByDays(this.currentProfile).subscribe(function (returnedDays) {
-              _this30.contractDays = returnedDays;
-              console.log(_this30.contractDays); // for (let i = 0; i <= this.contractDays.length; i++) {
+              _this32.contractDays = returnedDays;
+              console.log(_this32.contractDays); // for (let i = 0; i <= this.contractDays.length; i++) {
               //   switch (Number(this.contractDays[i]).valueOf()) {
               //     case <= 14:
               //       this.now++;
@@ -6504,12 +6554,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               //   }
               // }
 
-              _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('contracts', {
+              _this32.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('contracts', {
                 type: 'pie',
                 data: {
                   datasets: [{
                     label: '# of Contracts',
-                    data: [_this30.fifteenDays, _this30.thirtyDays, _this30.sixtyDays, _this30.ninetyDays],
+                    data: [_this32.fifteenDays, _this32.thirtyDays, _this32.sixtyDays, _this32.ninetyDays],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderWidth: 1
@@ -6520,11 +6570,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
           } else {
             this.filter.custConFilter(this.currentProfile).subscribe(function (returnedCons) {
-              _this30.contractLength = returnedCons.length;
+              _this32.contractLength = returnedCons.length;
             });
             this.filter.conByDays(this.currentProfile).subscribe(function (returnedDays) {
-              _this30.contractDays = returnedDays;
-              console.log(_this30.contractDays); // for (let i = 0; i <= this.contractDays.length; i++) {
+              _this32.contractDays = returnedDays;
+              console.log(_this32.contractDays); // for (let i = 0; i <= this.contractDays.length; i++) {
               //   switch (Number(this.contractDays[i]).valueOf()) {
               //     case <= 14:
               //       this.now++;
@@ -6541,12 +6591,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               //   }
               // }
 
-              _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('contracts', {
+              _this32.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('contracts', {
                 type: 'pie',
                 data: {
                   datasets: [{
                     label: '# of Contracts',
-                    data: [_this30.fifteenDays, _this30.thirtyDays, _this30.sixtyDays, _this30.ninetyDays],
+                    data: [_this32.fifteenDays, _this32.thirtyDays, _this32.sixtyDays, _this32.ninetyDays],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderWidth: 1
@@ -6560,36 +6610,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "assetsChart",
         value: function assetsChart() {
-          var _this31 = this;
+          var _this33 = this;
 
           var status = [];
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
-              _this31.assetLength = returnedAssets.length;
-              _this31.assets = returnedAssets;
-              status = _this31.assets.map(function (asset) {
+              _this33.assetLength = returnedAssets.length;
+              _this33.assets = returnedAssets;
+              status = _this33.assets.map(function (asset) {
                 return asset.ContractCoverage;
               });
 
               for (var i = 0; i <= status.length; i++) {
                 if (status[i] === 'Active') {
-                  _this31.active++;
+                  _this33.active++;
                 } else if (status[i] === 'Terminated') {
-                  _this31.terminated++;
+                  _this33.terminated++;
                 } else if (status[i] === 'Unmapped') {
-                  _this31.unmapped++;
+                  _this33.unmapped++;
                 } else if (status[i] === 'Yet to Start') {
-                  _this31.yetToStart++;
+                  _this33.yetToStart++;
                 }
               }
 
-              _this31.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('assets', {
+              _this33.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('assets', {
                 type: 'pie',
                 data: {
                   datasets: [{
                     label: 'Asset Status',
-                    data: [_this31.active, _this31.terminated, _this31.unmapped, _this31.yetToStart],
+                    data: [_this33.active, _this33.terminated, _this33.unmapped, _this33.yetToStart],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                     borderWidth: 1
@@ -6600,30 +6650,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
           } else {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
-              _this31.assetLength = returnedAssets.length;
-              _this31.assets = returnedAssets;
-              status = _this31.assets.map(function (asset) {
+              _this33.assetLength = returnedAssets.length;
+              _this33.assets = returnedAssets;
+              status = _this33.assets.map(function (asset) {
                 return asset.ContractCoverage;
               });
 
               for (var i = 0; i <= status.length; i++) {
                 if (status[i] === 'Active') {
-                  _this31.active++;
+                  _this33.active++;
                 } else if (status[i] === 'Terminated') {
-                  _this31.terminated++;
+                  _this33.terminated++;
                 } else if (status[i] === 'Unmapped') {
-                  _this31.unmapped++;
+                  _this33.unmapped++;
                 } else if (status[i] === 'Yet to Start') {
-                  _this31.yetToStart++;
+                  _this33.yetToStart++;
                 }
               }
 
-              _this31.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('assets', {
+              _this33.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('assets', {
                 type: 'pie',
                 data: {
                   datasets: [{
                     label: 'Asset Status',
-                    data: [_this31.active, _this31.terminated, _this31.unmapped, _this31.yetToStart],
+                    data: [_this33.active, _this33.terminated, _this33.unmapped, _this33.yetToStart],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                     borderWidth: 1
@@ -6637,10 +6687,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadAllUsers",
         value: function loadAllUsers() {
-          var _this32 = this;
+          var _this34 = this;
 
           this.profileService.getAll().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])()).subscribe(function (profile) {
-            _this32.profiles = profile;
+            _this34.profiles = profile;
           });
         }
       }]);
@@ -8555,7 +8605,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function LocationDetailsComponent(location, route, filter, authserv) {
-        var _this33 = this;
+        var _this35 = this;
 
         _classCallCheck(this, LocationDetailsComponent);
 
@@ -8566,7 +8616,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.assetDisplayedColumns = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
         this.ticketDisplayedColumns = ['Case#', 'Name', 'Status', 'Description', 'Schedule', 'Asset ID', 'Customer', 'Update Date', 'Update Since'];
         this.authserv.currentUser.subscribe(function (profile) {
-          return _this33.currentProfile = profile;
+          return _this35.currentProfile = profile;
         });
       }
 
@@ -8578,25 +8628,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getLocation",
         value: function getLocation() {
-          var _this34 = this;
+          var _this36 = this;
 
           var description = this.route.snapshot.paramMap.get('description');
           this.filter.locationFilter(description).subscribe(function (returnedLocation) {
-            _this34.specLocation = returnedLocation;
-            var siteAddress = description + ' - ' + _this34.specLocation[0].Address1 + ', ' + _this34.specLocation[0].Town + ', ' + _this34.specLocation[0].County + ', ' + _this34.specLocation[0].Postcode + ', ' + _this34.specLocation[0].Country;
+            _this36.specLocation = returnedLocation;
+            var siteAddress = description + ' - ' + _this36.specLocation[0].Address1 + ', ' + _this36.specLocation[0].Town + ', ' + _this36.specLocation[0].County + ', ' + _this36.specLocation[0].Postcode + ', ' + _this36.specLocation[0].Country;
 
-            _this34.filter.assetsByLocation(siteAddress).subscribe(function (returnedAssets) {
-              _this34.assetLocationLength = returnedAssets;
-              _this34.assetLocationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAssets);
-              _this34.assetLocationDataSource.sort = _this34.sort;
-              _this34.assetLocationDataSource.paginator = _this34.paginator;
+            _this36.filter.assetsByLocation(siteAddress).subscribe(function (returnedAssets) {
+              _this36.assetLocationLength = returnedAssets;
+              _this36.assetLocationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAssets);
+              _this36.assetLocationDataSource.sort = _this36.sort;
+              _this36.assetLocationDataSource.paginator = _this36.paginator;
             });
 
-            _this34.filter.ticketsLocationFilter(siteAddress).subscribe(function (returnedTickets) {
-              _this34.ticketLocationLength = returnedTickets;
-              _this34.ticketLocationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedTickets);
-              _this34.ticketLocationDataSource.sort = _this34.sort;
-              _this34.ticketLocationDataSource.paginator = _this34.paginator;
+            _this36.filter.ticketsLocationFilter(siteAddress).subscribe(function (returnedTickets) {
+              _this36.ticketLocationLength = returnedTickets;
+              _this36.ticketLocationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedTickets);
+              _this36.ticketLocationDataSource.sort = _this36.sort;
+              _this36.ticketLocationDataSource.paginator = _this36.paginator;
             });
           });
         }
@@ -9034,7 +9084,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function LocationsComponent(filter, authserv) {
-        var _this35 = this;
+        var _this37 = this;
 
         _classCallCheck(this, LocationsComponent);
 
@@ -9042,7 +9092,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.authserv = authserv;
         this.displayedColumns = ['Description', 'Street', 'City', 'Zip Code', 'Country', 'Company'];
         this.authserv.currentUser.subscribe(function (profile) {
-          return _this35.currentProfile = profile;
+          return _this37.currentProfile = profile;
         });
       }
 
@@ -9055,10 +9105,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this36 = this;
+          var _this38 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this36.partnerArr = returnedPartners;
+            return _this38.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -9071,21 +9121,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getLocations",
         value: function getLocations() {
-          var _this37 = this;
+          var _this39 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partLocationFilter(this.currentProfile).subscribe(function (returnedLocations) {
-              _this37.locationLength = returnedLocations;
-              _this37.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedLocations);
-              _this37.locationDataSource.sort = _this37.sort;
-              _this37.locationDataSource.paginator = _this37.paginator;
+              _this39.locationLength = returnedLocations;
+              _this39.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedLocations);
+              _this39.locationDataSource.sort = _this39.sort;
+              _this39.locationDataSource.paginator = _this39.paginator;
             });
           } else {
             this.filter.custLocationFilter(this.currentProfile).subscribe(function (returnedLocations) {
-              _this37.locationLength = returnedLocations;
-              _this37.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedLocations);
-              _this37.locationDataSource.sort = _this37.sort;
-              _this37.locationDataSource.paginator = _this37.paginator;
+              _this39.locationLength = returnedLocations;
+              _this39.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedLocations);
+              _this39.locationDataSource.sort = _this39.sort;
+              _this39.locationDataSource.paginator = _this39.paginator;
             });
           }
         }
@@ -9380,10 +9430,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AlertComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this38 = this;
+          var _this40 = this;
 
           this.subcscription = this.alertService.getMessage().subscribe(function (message) {
-            _this38.message = message;
+            _this40.message = message;
           });
         }
       }, {
@@ -9529,21 +9579,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this39 = this;
+          var _this41 = this;
 
           //    console.log(this.forgotForm)
           if (this.forgotForm.valid) {
             this.IsvalidForm = true;
             this.authenticationService.requestForgotPassword(this.forgotForm.value).subscribe(function (data) {
-              _this39.forgotForm.reset();
+              _this41.forgotForm.reset();
 
-              _this39.successMessage = 'Forgot password link sent to email sucessfully.';
+              _this41.successMessage = 'Forgot password link sent to email sucessfully.';
 
-              _this39.alertService.success('We have just sent you a link to reset password', true);
+              _this41.alertService.success('We have just sent you a link to reset password', true);
 
-              _this39.router.navigate(['login']);
+              _this41.router.navigate(['login']);
             }, function (err) {
-              _this39.alertService.error(err);
+              _this41.alertService.error(err);
             });
           } else {
             this.IsvalidForm = false;
@@ -10013,7 +10063,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function HeaderComponent(router, authenticationService) {
-        var _this40 = this;
+        var _this42 = this;
 
         _classCallCheck(this, HeaderComponent);
 
@@ -10022,7 +10072,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.title = 'Support Portal';
         this.logo = _logo_list__WEBPACK_IMPORTED_MODULE_3__["LogoList"];
         this.authenticationService.currentUser.subscribe(function (name) {
-          _this40.currentProfile = name;
+          _this42.currentProfile = name;
         });
       }
 
@@ -10040,13 +10090,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "displayLogo",
         value: function displayLogo() {
-          var _this41 = this;
+          var _this43 = this;
 
           console.log(this.currentProfile);
           return this.displayLo = this.logo.find(function (x) {
             var _a;
 
-            return x.CompanyName === ((_a = _this41.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
+            return x.CompanyName === ((_a = _this43.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
           });
         }
       }, {
@@ -10184,12 +10234,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ErrorInterceptor, [{
         key: "intercept",
         value: function intercept(request, next) {
-          var _this42 = this;
+          var _this44 = this;
 
           return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (err) {
             if (err.status === 401) {
               // auto-logout if 401 response returned from api
-              _this42.authenticationService.logout();
+              _this44.authenticationService.logout();
 
               location.reload(true);
             }
@@ -10512,7 +10562,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this43 = this;
+          var _this45 = this;
 
           this.submitted = true;
 
@@ -10522,47 +10572,47 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.loading = true;
           this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
-            var dash = _this43.authenticationService.currentUserValue.partner;
+            var dash = _this45.authenticationService.currentUserValue.partner;
 
             switch (dash) {
               case 'NorthSmart (Northland)':
-                _this43.router.navigate(['/northdash']);
+                _this45.router.navigate(['/northdash']);
 
                 break;
 
               case 'Noble1 Solutions' || false || false:
-                _this43.router.navigate(['/dashboard']);
+                _this45.router.navigate(['/dashboard']);
 
                 break;
 
               case 'Reliant Technology':
-                _this43.router.navigate(['/reliantdash']);
+                _this45.router.navigate(['/reliantdash']);
 
                 break;
 
               case 'Relus Technologies' || false:
-                _this43.router.navigate(['/relusdash']);
+                _this45.router.navigate(['/relusdash']);
 
                 break;
 
               case 'BB&T':
-                _this43.router.navigate(['/relusdash']);
+                _this45.router.navigate(['/relusdash']);
 
                 break;
 
               case 'Support':
-                _this43.router.navigate(['/suppdash']);
+                _this45.router.navigate(['/suppdash']);
 
                 break;
 
               default:
-                _this43.router.navigate(['/genericdash']);
+                _this45.router.navigate(['/genericdash']);
 
             }
           }, function (error) {
-            _this43.alertService.error(error);
+            _this45.alertService.error(error);
 
-            _this43.loading = false;
+            _this45.loading = false;
           });
         }
       }, {
@@ -11035,7 +11085,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ResetComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this44 = this;
+          var _this46 = this;
 
           this.resetPasswordForm = this.formBuilder.group({
             // password:  ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$') ]],
@@ -11049,19 +11099,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.authService.validResetToken({
             resetToken: resetToken
           }).subscribe(function (data) {
-            _this44.validToken = true;
-            _this44.errorMessage = '';
+            _this46.validToken = true;
+            _this46.errorMessage = '';
           }, function (err) {
-            _this44.validToken = false;
+            _this46.validToken = false;
 
-            _this44.alertService.error(err);
+            _this46.alertService.error(err);
           });
         } // convenience getter for easy access to form fields
 
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this45 = this;
+          var _this47 = this;
 
           this.submitted = true;
 
@@ -11074,13 +11124,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             params: this.resetPasswordForm.value,
             token: this.route.snapshot.queryParams['token']
           }).subscribe(function (data) {
-            _this45.alertService.success('Password reset successful', true);
+            _this47.alertService.success('Password reset successful', true);
 
-            _this45.loading = false;
+            _this47.loading = false;
           }, function (error) {
-            _this45.alertService.error(error);
+            _this47.alertService.error(error);
 
-            _this45.loading = false;
+            _this47.loading = false;
           });
         }
       }, {
@@ -11187,7 +11237,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function AlertService(router) {
-        var _this46 = this;
+        var _this48 = this;
 
         _classCallCheck(this, AlertService);
 
@@ -11196,10 +11246,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.keepAfterNavigationChange = false;
         router.events.subscribe(function (event) {
           if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationStart"]) {
-            if (_this46.keepAfterNavigationChange) {
-              _this46.keepAfterNavigationChange = false;
+            if (_this48.keepAfterNavigationChange) {
+              _this48.keepAfterNavigationChange = false;
             } else {
-              _this46.subject.next();
+              _this48.subject.next();
             }
           }
         });
@@ -11326,7 +11376,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AuthenticationService, [{
         key: "login",
         value: function login(username, password) {
-          var _this47 = this;
+          var _this49 = this;
 
           return this.http.post("".concat(src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].serverUrl, "/profile/authenticate"), {
             username: username,
@@ -11342,7 +11392,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               };
               localStorage.setItem('currentUser', JSON.stringify(saveInfo));
 
-              _this47.currentUserSubject.next(profile);
+              _this49.currentUserSubject.next(profile);
             }
 
             return profile;
@@ -12440,21 +12490,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getItems",
         value: function getItems() {
-          var _this48 = this;
+          var _this50 = this;
 
           var assetid = this.route.snapshot.paramMap.get('identifier');
           this.filter.assetsBySerial(assetid).subscribe(function (returnedAsset) {
-            _this48.asset = returnedAsset;
+            _this50.asset = returnedAsset;
 
-            _this48.filter.conByName(_this48.asset[0].Schedule).subscribe(function (returnedContractLength) {
-              _this48.contractLength = returnedContractLength;
-              _this48.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContractLength);
-              _this48.contractDataSource.sort = _this48.sort;
-              _this48.contractDataSource.paginator = _this48.paginator;
+            _this50.filter.conByName(_this50.asset[0].Schedule).subscribe(function (returnedContractLength) {
+              _this50.contractLength = returnedContractLength;
+              _this50.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContractLength);
+              _this50.contractDataSource.sort = _this50.sort;
+              _this50.contractDataSource.paginator = _this50.paginator;
             });
 
-            _this48.filter.conByName(_this48.asset[0].Schedule).subscribe(function (returnedContract) {
-              _this48.contract = returnedContract;
+            _this50.filter.conByName(_this50.asset[0].Schedule).subscribe(function (returnedContract) {
+              _this50.contract = returnedContract;
             });
           });
         }
@@ -13352,21 +13402,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getItems",
         value: function getItems() {
-          var _this49 = this;
+          var _this51 = this;
 
           var refNumber = this.route.snapshot.paramMap.get('refNumber');
           this.filter.conByRef(refNumber).subscribe(function (returnedContract) {
-            _this49.contract = returnedContract;
+            _this51.contract = returnedContract;
 
-            _this49.filter.assetsBySchedule(_this49.contract[0].ScheduleName).subscribe(function (returnedAssetLength) {
-              _this49.assetLength = returnedAssetLength;
-              _this49.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAssetLength);
-              _this49.assetDataSource.sort = _this49.sort;
-              _this49.assetDataSource.paginator = _this49.paginator;
+            _this51.filter.assetsBySchedule(_this51.contract[0].ScheduleName).subscribe(function (returnedAssetLength) {
+              _this51.assetLength = returnedAssetLength;
+              _this51.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAssetLength);
+              _this51.assetDataSource.sort = _this51.sort;
+              _this51.assetDataSource.paginator = _this51.paginator;
             });
 
-            _this49.filter.assetsBySchedule(_this49.contract[0].ScheduleName).subscribe(function (returnedAsset) {
-              _this49.assets = returnedAsset;
+            _this51.filter.assetsBySchedule(_this51.contract[0].ScheduleName).subscribe(function (returnedAsset) {
+              _this51.assets = returnedAsset;
             });
           });
         }
@@ -13800,7 +13850,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function ContractsComponent(filter, authserv) {
-        var _this50 = this;
+        var _this52 = this;
 
         _classCallCheck(this, ContractsComponent);
 
@@ -13808,7 +13858,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.authserv = authserv;
         this.displayedColumns = ['Contract#', 'Contract Name', 'Start Date', 'Renewal Date', 'Customer', 'Status'];
         this.authserv.currentUser.subscribe(function (name) {
-          _this50.currentProfile = name;
+          _this52.currentProfile = name;
         });
       }
 
@@ -13821,19 +13871,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this51 = this;
+          var _this53 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this51.partnerArr = returnedPartners;
+            return _this53.partnerArr = returnedPartners;
           });
         }
       }, {
         key: "getCompanies",
         value: function getCompanies() {
-          var _this52 = this;
+          var _this54 = this;
 
           this.filter.customerFilter(this.currentProfile).subscribe(function (companies) {
-            _this52.company = companies;
+            _this54.company = companies;
           });
         }
       }, {
@@ -13846,19 +13896,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getContracts",
         value: function getContracts() {
-          var _this53 = this;
+          var _this55 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partConFilter(this.currentProfile).subscribe(function (returnedContracts) {
-              _this53.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedContracts);
-              _this53.contractDataSource.sort = _this53.sort;
-              _this53.contractDataSource.paginator = _this53.paginator;
+              _this55.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedContracts);
+              _this55.contractDataSource.sort = _this55.sort;
+              _this55.contractDataSource.paginator = _this55.paginator;
             });
           } else {
             this.filter.custConFilter(this.currentProfile).subscribe(function (returnedContracts) {
-              _this53.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedContracts);
-              _this53.contractDataSource.sort = _this53.sort;
-              _this53.contractDataSource.paginator = _this53.paginator;
+              _this55.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedContracts);
+              _this55.contractDataSource.sort = _this55.sort;
+              _this55.contractDataSource.paginator = _this55.paginator;
             });
           }
         }
@@ -14518,7 +14568,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function ManageAssetsComponent(filter, authserv, route, router) {
-        var _this54 = this;
+        var _this56 = this;
 
         _classCallCheck(this, ManageAssetsComponent);
 
@@ -14528,7 +14578,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.router = router;
         this.displayedColumns = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
         this.authserv.currentUser.subscribe(function (name) {
-          _this54.currentProfile = name;
+          _this56.currentProfile = name;
         });
       }
 
@@ -14541,10 +14591,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this55 = this;
+          var _this57 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this55.partnerArr = returnedPartners;
+            return _this57.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -14557,21 +14607,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAssets",
         value: function getAssets() {
-          var _this56 = this;
+          var _this58 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
-              _this56.assetLength = returnedAssets;
-              _this56.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAssets);
-              _this56.assetDataSource.sort = _this56.sort;
-              _this56.assetDataSource.paginator = _this56.paginator;
+              _this58.assetLength = returnedAssets;
+              _this58.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAssets);
+              _this58.assetDataSource.sort = _this58.sort;
+              _this58.assetDataSource.paginator = _this58.paginator;
             });
           } else {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              _this56.assetLength = returnedAssetLength;
-              _this56.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAssetLength);
-              _this56.assetDataSource.sort = _this56.sort;
-              _this56.assetDataSource.paginator = _this56.paginator;
+              _this58.assetLength = returnedAssetLength;
+              _this58.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAssetLength);
+              _this58.assetDataSource.sort = _this58.sort;
+              _this58.assetDataSource.paginator = _this58.paginator;
             });
           }
         }
@@ -15872,21 +15922,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getItems",
         value: function getItems() {
-          var _this57 = this;
+          var _this59 = this;
 
           var refNumber = this.route.snapshot.paramMap.get('refNumber');
           this.filter.ticketRefFilter(refNumber.substring(1)).subscribe(function (returnedTicket) {
-            _this57.ticket = returnedTicket;
+            _this59.ticket = returnedTicket;
 
-            _this57.filter.assetsBySerial(_this57.ticket[0].AssetIdentifier).subscribe(function (returnedAsset) {
-              _this57.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
-              _this57.assetDataSource.sort = _this57.sort;
-              _this57.assetDataSource.paginator = _this57.paginator;
+            _this59.filter.assetsBySerial(_this59.ticket[0].AssetIdentifier).subscribe(function (returnedAsset) {
+              _this59.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
+              _this59.assetDataSource.sort = _this59.sort;
+              _this59.assetDataSource.paginator = _this59.paginator;
 
-              _this57.filter.conByName(returnedAsset[0].Schedule).subscribe(function (returnedContract) {
-                _this57.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContract);
-                _this57.contractDataSource.sort = _this57.sort;
-                _this57.contractDataSource.paginator = _this57.paginator;
+              _this59.filter.conByName(returnedAsset[0].Schedule).subscribe(function (returnedContract) {
+                _this59.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContract);
+                _this59.contractDataSource.sort = _this59.sort;
+                _this59.contractDataSource.paginator = _this59.paginator;
               });
             });
           });
@@ -16372,7 +16422,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function TicketsComponent(api, formBuilder, authenticationService, filter) {
-        var _this58 = this;
+        var _this60 = this;
 
         _classCallCheck(this, TicketsComponent);
 
@@ -16382,7 +16432,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.filter = filter;
         this.displayedColumns = ['Case#', 'Name', 'Status', 'Description', 'Schedule', 'Asset ID', 'Customer', 'Update Date'];
         this.authenticationService.currentUser.subscribe(function (typeName) {
-          _this58.currentProfile = typeName;
+          _this60.currentProfile = typeName;
         });
       }
 
@@ -16405,20 +16455,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "createTicket",
         value: function createTicket() {
-          var _this59 = this;
+          var _this61 = this;
 
           this.api.addTicket(this.ticketForm.value).subscribe(function (ticket) {
-            var ticketData = _this59.ticketForm.value;
+            var ticketData = _this61.ticketForm.value;
             ticketData = ticket;
           });
         }
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this60 = this;
+          var _this62 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this60.partnerArr = returnedPartners;
+            return _this62.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -16431,23 +16481,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getTickets",
         value: function getTickets() {
-          var _this61 = this;
+          var _this63 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedTickets) {
-              _this61.testin = 'in the loop';
-              _this61.ticketLength = returnedTickets;
-              _this61.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](_this61.ticketLength);
-              _this61.ticketDataSource.sort = _this61.sort;
-              _this61.ticketDataSource.paginator = _this61.paginator;
+              _this63.testin = 'in the loop';
+              _this63.ticketLength = returnedTickets;
+              _this63.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](_this63.ticketLength);
+              _this63.ticketDataSource.sort = _this63.sort;
+              _this63.ticketDataSource.paginator = _this63.paginator;
             });
           } else {
             this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTickets) {
-              _this61.testin = 'Completely skipped';
-              _this61.ticketLength = returnedTickets;
-              _this61.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedTickets);
-              _this61.ticketDataSource.sort = _this61.sort;
-              _this61.ticketDataSource.paginator = _this61.paginator;
+              _this63.testin = 'Completely skipped';
+              _this63.ticketLength = returnedTickets;
+              _this63.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedTickets);
+              _this63.ticketDataSource.sort = _this63.sort;
+              _this63.ticketDataSource.paginator = _this63.paginator;
             });
           }
         }
@@ -16932,7 +16982,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function NorthComponent(authenticationService, profileService, api, filter) {
-        var _this62 = this;
+        var _this64 = this;
 
         _classCallCheck(this, NorthComponent);
 
@@ -16943,7 +16993,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.contractsData = [];
         this.assetsData = [];
         this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(function (profile) {
-          _this62.currentProfile = profile;
+          _this64.currentProfile = profile;
         });
       }
 
@@ -16965,10 +17015,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this63 = this;
+          var _this65 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this63.partnerArr = returnedPartners;
+            return _this65.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -16981,41 +17031,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "contractsCount",
         value: function contractsCount() {
-          var _this64 = this;
+          var _this66 = this;
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.partConFilter(this.currentProfile).subscribe(function (returnedConLength) {
-              return _this64.contractLength = returnedConLength;
+              return _this66.contractLength = returnedConLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
             this.filter.custConFilter(this.currentProfile).subscribe(function (returnedConLength) {
-              return _this64.contractLength = returnedConLength;
+              return _this66.contractLength = returnedConLength;
             });
           }
         }
       }, {
         key: "assetsCount",
         value: function assetsCount() {
-          var _this65 = this;
+          var _this67 = this;
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this65.assetLength = returnedAssetLength;
+              return _this67.assetLength = returnedAssetLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this65.assetLength = returnedAssetLength;
+              return _this67.assetLength = returnedAssetLength;
             });
           }
         }
       }, {
         key: "ticketsCount",
         value: function ticketsCount() {
-          var _this66 = this;
+          var _this68 = this;
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this66.ticketLength = returnedAssetLength;
+              return _this68.ticketLength = returnedAssetLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {// this.filter.custAssetsFilter(this.currentProfile)
             // .subscribe(
@@ -17026,19 +17076,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "companiesCount",
         value: function companiesCount() {
-          var _this67 = this;
+          var _this69 = this;
 
           this.filter.customerFilter(this.currentProfile).subscribe(function (returnedCompanies) {
-            _this67.companyLength = returnedCompanies;
+            _this69.companyLength = returnedCompanies;
           });
         }
       }, {
         key: "ticketsChart",
         value: function ticketsChart() {
-          var _this68 = this;
+          var _this70 = this;
 
           this.api.getTickets().subscribe(function (returnedTickets) {
-            _this68.tickets = returnedTickets;
+            _this70.tickets = returnedTickets;
           });
         }
       }, {
@@ -17055,10 +17105,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAssets",
         value: function getAssets() {
-          var _this69 = this;
+          var _this71 = this;
 
           this.api.getAssets().subscribe(function (returnedAssets) {
-            _this69.assets = returnedAssets;
+            _this71.assets = returnedAssets;
           });
         }
       }, {
@@ -17113,10 +17163,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadAllUsers",
         value: function loadAllUsers() {
-          var _this70 = this;
+          var _this72 = this;
 
           this.profileService.getAll().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (profile) {
-            _this70.profiles = profile;
+            _this72.profiles = profile;
           });
         }
       }]);
@@ -18307,10 +18357,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this71 = this;
+          var _this73 = this;
 
           this.nameSubscription = this.authenticationService.currentUser.subscribe(function (name) {
-            _this71.currentProfile = name;
+            _this73.currentProfile = name;
           });
           this.profileForm = this.formBuilder.group({
             partner: [this.currentProfile.partner, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -18930,7 +18980,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function ReliantDashComponent(authenticationService, profileService, api, filter) {
-        var _this72 = this;
+        var _this74 = this;
 
         _classCallCheck(this, ReliantDashComponent);
 
@@ -18941,7 +18991,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.contractsData = [];
         this.assetsData = [];
         this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(function (profile) {
-          _this72.currentProfile = profile;
+          _this74.currentProfile = profile;
         });
       }
 
@@ -18963,10 +19013,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this73 = this;
+          var _this75 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this73.partnerArr = returnedPartners;
+            return _this75.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -18979,41 +19029,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "contractsCount",
         value: function contractsCount() {
-          var _this74 = this;
+          var _this76 = this;
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.partConFilter(this.currentProfile).subscribe(function (returnedConLength) {
-              return _this74.contractLength = returnedConLength;
+              return _this76.contractLength = returnedConLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
             this.filter.custConFilter(this.currentProfile).subscribe(function (returnedConLength) {
-              return _this74.contractLength = returnedConLength;
+              return _this76.contractLength = returnedConLength;
             });
           }
         }
       }, {
         key: "assetsCount",
         value: function assetsCount() {
-          var _this75 = this;
+          var _this77 = this;
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this75.assetLength = returnedAssetLength;
+              return _this77.assetLength = returnedAssetLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this75.assetLength = returnedAssetLength;
+              return _this77.assetLength = returnedAssetLength;
             });
           }
         }
       }, {
         key: "ticketsCount",
         value: function ticketsCount() {
-          var _this76 = this;
+          var _this78 = this;
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this76.ticketLength = returnedAssetLength;
+              return _this78.ticketLength = returnedAssetLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {// this.filter.custAssetsFilter(this.currentProfile)
             // .subscribe(
@@ -19024,19 +19074,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "companiesCount",
         value: function companiesCount() {
-          var _this77 = this;
+          var _this79 = this;
 
           this.filter.customerFilter(this.currentProfile).subscribe(function (returnedCompanies) {
-            _this77.companyLength = returnedCompanies;
+            _this79.companyLength = returnedCompanies;
           });
         }
       }, {
         key: "ticketsChart",
         value: function ticketsChart() {
-          var _this78 = this;
+          var _this80 = this;
 
           this.api.getTickets().subscribe(function (returnedTickets) {
-            _this78.tickets = returnedTickets;
+            _this80.tickets = returnedTickets;
           });
         }
       }, {
@@ -19053,10 +19103,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAssets",
         value: function getAssets() {
-          var _this79 = this;
+          var _this81 = this;
 
           this.api.getAssets().subscribe(function (returnedAssets) {
-            _this79.assets = returnedAssets;
+            _this81.assets = returnedAssets;
           });
         }
       }, {
@@ -19106,19 +19156,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteProfile",
         value: function deleteProfile(id) {
-          var _this80 = this;
+          var _this82 = this;
 
           this.profileService.delete(id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["first"])()).subscribe(function () {
-            _this80.loadAllUsers();
+            _this82.loadAllUsers();
           });
         }
       }, {
         key: "loadAllUsers",
         value: function loadAllUsers() {
-          var _this81 = this;
+          var _this83 = this;
 
           this.profileService.getAll().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["first"])()).subscribe(function (profile) {
-            _this81.profiles = profile;
+            _this83.profiles = profile;
           });
         }
       }]);
@@ -20208,7 +20258,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function RelusDashComponent(authenticationService, profileService, api, filter) {
-        var _this82 = this;
+        var _this84 = this;
 
         _classCallCheck(this, RelusDashComponent);
 
@@ -20219,7 +20269,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.contractsData = [];
         this.assetsData = [];
         this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(function (profile) {
-          _this82.currentProfile = profile;
+          _this84.currentProfile = profile;
         });
       }
 
@@ -20241,10 +20291,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this83 = this;
+          var _this85 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this83.partnerArr = returnedPartners;
+            return _this85.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -20257,41 +20307,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "contractsCount",
         value: function contractsCount() {
-          var _this84 = this;
+          var _this86 = this;
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.partConFilter(this.currentProfile).subscribe(function (returnedConLength) {
-              return _this84.contractLength = returnedConLength;
+              return _this86.contractLength = returnedConLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
             this.filter.custConFilter(this.currentProfile).subscribe(function (returnedConLength) {
-              return _this84.contractLength = returnedConLength;
+              return _this86.contractLength = returnedConLength;
             });
           }
         }
       }, {
         key: "assetsCount",
         value: function assetsCount() {
-          var _this85 = this;
+          var _this87 = this;
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this85.assetLength = returnedAssetLength;
+              return _this87.assetLength = returnedAssetLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this85.assetLength = returnedAssetLength;
+              return _this87.assetLength = returnedAssetLength;
             });
           }
         }
       }, {
         key: "ticketsCount",
         value: function ticketsCount() {
-          var _this86 = this;
+          var _this88 = this;
 
           if (this.filterPartner(this.currentProfile.partner)) {
             this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this86.ticketLength = returnedAssetLength;
+              return _this88.ticketLength = returnedAssetLength;
             });
           } else if (this.filterPartner(this.currentProfile.partner) === undefined) {// this.filter.custAssetsFilter(this.currentProfile)
             // .subscribe(
@@ -20302,19 +20352,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "companiesCount",
         value: function companiesCount() {
-          var _this87 = this;
+          var _this89 = this;
 
           this.filter.customerFilter(this.currentProfile).subscribe(function (returnedCompanies) {
-            _this87.companyLength = returnedCompanies;
+            _this89.companyLength = returnedCompanies;
           });
         }
       }, {
         key: "ticketsChart",
         value: function ticketsChart() {
-          var _this88 = this;
+          var _this90 = this;
 
           this.api.getTickets().subscribe(function (returnedTickets) {
-            _this88.tickets = returnedTickets;
+            _this90.tickets = returnedTickets;
           });
         }
       }, {
@@ -20331,10 +20381,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAssets",
         value: function getAssets() {
-          var _this89 = this;
+          var _this91 = this;
 
           this.api.getAssets().subscribe(function (returnedAssets) {
-            _this89.assets = returnedAssets;
+            _this91.assets = returnedAssets;
           });
         }
       }, {
@@ -20384,19 +20434,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteProfile",
         value: function deleteProfile(id) {
-          var _this90 = this;
+          var _this92 = this;
 
           this.profileService.delete(id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["first"])()).subscribe(function () {
-            _this90.loadAllUsers();
+            _this92.loadAllUsers();
           });
         }
       }, {
         key: "loadAllUsers",
         value: function loadAllUsers() {
-          var _this91 = this;
+          var _this93 = this;
 
           this.profileService.getAll().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["first"])()).subscribe(function (profile) {
-            _this91.profiles = profile;
+            _this93.profiles = profile;
           });
         }
       }]);
@@ -21761,10 +21811,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(SettingsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this92 = this;
+          var _this94 = this;
 
           this.nameSubscription = this.authenticationService.currentUser.subscribe(function (name) {
-            _this92.currentProfile = name;
+            _this94.currentProfile = name;
           });
         }
       }]);
@@ -22538,7 +22588,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function SidebarComponent(router, authenticationService, filter) {
-        var _this93 = this;
+        var _this95 = this;
 
         _classCallCheck(this, SidebarComponent);
 
@@ -22549,7 +22599,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.admin = true;
         this.sidebars = _services_loadsidebar_service__WEBPACK_IMPORTED_MODULE_4__["Sidebars"];
         this.roleSubscription = this.authenticationService.currentUser.subscribe(function (role) {
-          _this93.currentRole = role;
+          _this95.currentRole = role;
         });
       }
 
@@ -22568,10 +22618,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this94 = this;
+          var _this96 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this94.partnerArr = returnedPartners;
+            return _this96.partnerArr = returnedPartners;
           });
         }
       }, {
