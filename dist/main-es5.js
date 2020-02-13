@@ -1327,9 +1327,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     LocalMonitorComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: LocalMonitorComponent,
       selectors: [["app-local-monitor"]],
-      decls: 21,
+      decls: 25,
       vars: 2,
-      consts: [[1, "edit-items", "d-flex", "justify-content-end"], [1, "btn", "btn-primary"], ["aria-hidden", "true", 1, "far", "fa-edit"], [1, "table-container", "table-responsive-sm"], [1, "table"], [4, "ngFor", "ngForOf"], ["src", "this.displayLo.Logo", 3, "onLoad"]],
+      consts: [[1, "edit-items", "d-flex", "justify-content-end"], [1, "btn", "btn-primary"], ["aria-hidden", "true", 1, "far", "fa-edit"], [1, "table-container", "table-responsive-sm"], [1, "table"], [4, "ngFor", "ngForOf"], ["src", "this.displayLo.Logo", 3, "onLoad"], ["src", "../../../favicon.ico", 3, "onLoad"]],
       template: function LocalMonitorComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -1397,6 +1397,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "img", 6);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("onLoad", function LocalMonitorComponent_Template_img_onLoad_20_listener($event) {
+            return ctx.displayLogo();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](21, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, " --- ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](23, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "img", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("onLoad", function LocalMonitorComponent_Template_img_onLoad_24_listener($event) {
             return ctx.displayLogo();
           });
 
