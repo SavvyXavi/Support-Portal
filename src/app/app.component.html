@@ -1,8 +1,8 @@
   <div class="container-fluid">
     <div class="row">
-      <div class="header fixed-top col-md">
-       <app-header *ngIf="router.url != '/login' && router.url != 'login?returnUrl=%2F'" ></app-header>
-       </div>
+      <ng-template *ngIf="router.url == '/login' || router.url == '/forgot' || router.url.indexOf('reset-password') == -1"class="header fixed-top col-md">
+       <app-header></app-header>
+       </ng-template>
     </div>
     <div class="row">
       <div class="col-md-2 sidebar">
