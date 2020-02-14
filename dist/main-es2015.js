@@ -1862,6 +1862,11 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     {
+        path: '',
+        redirectTo: '/login',
+        pathMatch: 'full'
+    },
+    {
         path: 'login',
         component: _login_login_login_component__WEBPACK_IMPORTED_MODULE_11__["LoginComponent"]
     },

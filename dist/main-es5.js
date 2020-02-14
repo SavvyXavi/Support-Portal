@@ -3535,6 +3535,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     "./src/app/admin/local-monitor/local-monitor.component.ts");
 
     var routes = [{
+      path: '',
+      redirectTo: '/login',
+      pathMatch: 'full'
+    }, {
       path: 'login',
       component: _login_login_login_component__WEBPACK_IMPORTED_MODULE_11__["LoginComponent"]
     }, {
