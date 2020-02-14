@@ -3569,7 +3569,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       path: 'login/reset-password',
       component: _login_reset_reset_component__WEBPACK_IMPORTED_MODULE_24__["ResetComponent"]
     }, {
-      path: 'dashboard',
+      path: 'portal/dashboard',
       component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_12__["DashboardComponent"],
       canActivate: [_login_guards_auth_guard__WEBPACK_IMPORTED_MODULE_25__["AuthGuard"]]
     }, {
@@ -3749,8 +3749,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
       _createClass(AppComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {// this.router.navigate(['/login']);
-        }
+        value: function ngOnInit() {}
       }]);
 
       return AppComponent;

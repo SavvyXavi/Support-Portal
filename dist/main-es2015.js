@@ -1906,7 +1906,7 @@ const routes = [
         component: _login_reset_reset_component__WEBPACK_IMPORTED_MODULE_24__["ResetComponent"]
     },
     {
-        path: 'dashboard',
+        path: 'portal/dashboard',
         component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_12__["DashboardComponent"],
         canActivate: [_login_guards_auth_guard__WEBPACK_IMPORTED_MODULE_25__["AuthGuard"]]
     },
@@ -2068,9 +2068,7 @@ class AppComponent {
     constructor(router) {
         this.router = router;
     }
-    ngOnInit() {
-        // this.router.navigate(['/login']);
-    }
+    ngOnInit() { }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"])); };
 AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 2, vars: 0, consts: [[1, "container-fluid"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
