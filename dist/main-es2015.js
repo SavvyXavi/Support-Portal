@@ -2064,7 +2064,7 @@ class AppComponent {
         this.router = router;
     }
     ngOnInit() {
-        this.router.navigate(['/login']);
+        // this.router.navigate(['/login']);
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"])); };

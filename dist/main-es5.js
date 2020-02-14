@@ -3745,8 +3745,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
       _createClass(AppComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {
-          this.router.navigate(['/login']);
+        value: function ngOnInit() {// this.router.navigate(['/login']);
         }
       }]);
 
