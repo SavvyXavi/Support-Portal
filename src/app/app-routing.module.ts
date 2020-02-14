@@ -9,6 +9,8 @@ import { SupportComponent } from './admin/support/support.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule,  } from '@angular/router';
 
+import { PortalComponent } from './portal/portal.component';
+
 import { LoginComponent } from './login/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
@@ -34,39 +36,25 @@ import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 const routes: Routes = [
   {
-    path: '',
-    component: DashboardComponent,
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'portal',
+    component: PortalComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: '',
-    component: SuppdashComponent,
-    canActivate: [AuthGuard]
+  path: 'forgot',
+  component: ForgotpasswordComponent
   },
   {
-    path: '',
-    component: NorthComponent,
-    canActivate: [AuthGuard]
+    path: 'reset-password',
+    component: ResetComponent
   },
   {
-    path: '',
-    component: ReliantDashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: '',
-    component: RelusDashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: '',
-    component: GenericDashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: '',
-    component: SuppdashComponent,
-    canActivate: [AuthGuard]
+    path: 'reset',
+    component: ResetComponent
   },
   {
     path: 'profile',
@@ -79,25 +67,10 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'reset-password',
-    component: ResetComponent
-  },
-  {
-  path: 'forgot',
-  component: ForgotpasswordComponent
-  },
-  {
     path: 'forgotpassword',
     component: ForgotpasswordComponent
     },
-  {
-    path: 'reset',
-    component: ResetComponent
-  },
+
   {
     path: 'login/reset-password',
     component: ResetComponent
