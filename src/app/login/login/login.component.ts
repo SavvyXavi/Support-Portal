@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
 
-        this.router.navigate(['/dashboard']);
+      return  this.router.navigate(['/dashboard']);
       //  const dash = this.authenticationService.currentUserValue.partner;
       //  switch (dash) {
       //   case 'NorthSmart (Northland)':
