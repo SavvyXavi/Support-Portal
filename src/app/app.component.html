@@ -3,6 +3,7 @@
       <div class="col-md content">
         <app-alert *ngIf="router.url == '/login' || router.url == '/forgot' || router.url.indexOf('reset-password') == -1"></app-alert>
         <app-login></app-login>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>
