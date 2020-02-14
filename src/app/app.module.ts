@@ -59,6 +59,7 @@ import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/tic
 import { CompaniesComponent } from './companies/companies.component';
 import { AssetLocFilterPipe } from './manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe';
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
+import { PortalComponent } from './portal/portal.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.compo
     CompaniesComponent,
     AssetLocFilterPipe,
     LocalMonitorComponent,
+    PortalComponent,
   ],
   imports: [
     BrowserModule,

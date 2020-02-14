@@ -58,31 +58,33 @@ export class LoginComponent implements OnInit {
     .pipe(first())
     .subscribe(
       data => {
-       const dash = this.authenticationService.currentUserValue.partner;
-       switch (dash) {
-        case 'NorthSmart (Northland)':
-          this.router.navigate(['/northdash']);
-        break;
-        case 'Noble1 Solutions' || 'Colwick Travel' || 'xByte Technologies':
-          this.router.navigate(['/dashboard']);
-        break;
-        case 'Reliant Technology':
-          this.router.navigate(['/reliantdash']);
-        break;
-        case 'Relus Technologies' || 'RAC King LLC':
-          this.router.navigate(['/relusdash']);
-        break;
-        case 'BB&T':
-          this.router.navigate(['/relusdash']);
-        break;
-        case 'Support':
-          this.router.navigate(['/suppdash']);
-          break;
-        default:
-          setTimeout(() => {
-        this.router.navigate(['/genericdash']);
-          }, 5000);
-      }
+
+        this.router.navigate(['/dashboard']);
+      //  const dash = this.authenticationService.currentUserValue.partner;
+      //  switch (dash) {
+      //   case 'NorthSmart (Northland)':
+      //     this.router.navigate(['/northdash']);
+      //   break;
+      //   case 'Noble1 Solutions' || 'Colwick Travel' || 'xByte Technologies':
+      //     this.router.navigate(['/dashboard']);
+      //   break;
+      //   case 'Reliant Technology':
+      //     this.router.navigate(['/reliantdash']);
+      //   break;
+      //   case 'Relus Technologies' || 'RAC King LLC':
+      //     this.router.navigate(['/relusdash']);
+      //   break;
+      //   case 'BB&T':
+      //     this.router.navigate(['/relusdash']);
+      //   break;
+      //   case 'Support':
+      //     this.router.navigate(['/suppdash']);
+      //     break;
+      //   default:
+      //     setTimeout(() => {
+      //   this.router.navigate(['/genericdash']);
+      //     }, 5000);
+      // }
   },
       error => {
         this.alertService.error(error);
