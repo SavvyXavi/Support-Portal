@@ -52,38 +52,15 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-
+    console.log('login submitted!');
     this.loading = true;
     this.authenticationService.login(this.f.username.value, this.f.password.value)
     .pipe(first())
     .subscribe(
       data => {
-        return this.router.navigate(['/portal']);
-      //  const dash = this.authenticationService.currentUserValue.partner;
-      //  switch (dash) {
-      //   case 'NorthSmart (Northland)':
-      //     this.router.navigate(['/northdash']);
-      //   break;
-      //   case 'Noble1 Solutions' || 'Colwick Travel' || 'xByte Technologies':
-      //     this.router.navigate(['/dashboard']);
-      //   break;
-      //   case 'Reliant Technology':
-      //     this.router.navigate(['/reliantdash']);
-      //   break;
-      //   case 'Relus Technologies' || 'RAC King LLC':
-      //     this.router.navigate(['/relusdash']);
-      //   break;
-      //   case 'BB&T':
-      //     this.router.navigate(['/relusdash']);
-      //   break;
-      //   case 'Support':
-      //     this.router.navigate(['/suppdash']);
-      //     break;
-      //   default:
-      //     setTimeout(() => {
-      //   this.router.navigate(['/genericdash']);
-      //     }, 5000);
-      // }
+       this.router.navigate(['/portal']);
+       console.log('attempting route');
+
   },
       error => {
         this.alertService.error(error);

@@ -10381,33 +10381,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return;
           }
 
+          console.log('login submitted!');
           this.loading = true;
           this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
-            return _this44.router.navigate(['/portal']); //  const dash = this.authenticationService.currentUserValue.partner;
-            //  switch (dash) {
-            //   case 'NorthSmart (Northland)':
-            //     this.router.navigate(['/northdash']);
-            //   break;
-            //   case 'Noble1 Solutions' || 'Colwick Travel' || 'xByte Technologies':
-            //     this.router.navigate(['/dashboard']);
-            //   break;
-            //   case 'Reliant Technology':
-            //     this.router.navigate(['/reliantdash']);
-            //   break;
-            //   case 'Relus Technologies' || 'RAC King LLC':
-            //     this.router.navigate(['/relusdash']);
-            //   break;
-            //   case 'BB&T':
-            //     this.router.navigate(['/relusdash']);
-            //   break;
-            //   case 'Support':
-            //     this.router.navigate(['/suppdash']);
-            //     break;
-            //   default:
-            //     setTimeout(() => {
-            //   this.router.navigate(['/genericdash']);
-            //     }, 5000);
-            // }
+            _this44.router.navigate(['/portal']);
+
+            console.log('attempting route');
           }, function (error) {
             _this44.alertService.error(error);
 
