@@ -2073,9 +2073,7 @@ class AppComponent {
         this.authenticationService.logout();
         //     this.router.navigate(['/login']);
     }
-    ngOnInit() { }
-    logout() {
-        this.authenticationService.logout();
+    ngOnInit() {
         this.router.navigate(['/login']);
     }
 }
