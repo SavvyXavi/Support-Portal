@@ -5655,7 +5655,7 @@ class LoginComponent {
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
             .subscribe(data => {
-            this.router.navigate(['/portal']);
+            return this.router.navigate(['/portal']);
             //  const dash = this.authenticationService.currentUserValue.partner;
             //  switch (dash) {
             //   case 'NorthSmart (Northland)':

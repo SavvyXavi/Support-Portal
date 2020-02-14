@@ -10383,7 +10383,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.loading = true;
           this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
-            _this44.router.navigate(['/portal']); //  const dash = this.authenticationService.currentUserValue.partner;
+            return _this44.router.navigate(['/portal']); //  const dash = this.authenticationService.currentUserValue.partner;
             //  switch (dash) {
             //   case 'NorthSmart (Northland)':
             //     this.router.navigate(['/northdash']);
@@ -10408,7 +10408,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             //   this.router.navigate(['/genericdash']);
             //     }, 5000);
             // }
-
           }, function (error) {
             _this44.alertService.error(error);
 
