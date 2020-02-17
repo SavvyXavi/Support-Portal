@@ -64,7 +64,7 @@ const routes: Routes = [
     component: ResetComponent
   },
   {
-    path: 'portal/dashboard',
+    path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard]
   },
