@@ -5974,6 +5974,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.authenticationService.currentUser.subscribe(function (name) {
             _this26.currentProfile = name;
+            console.log(_this26.currentProfile);
           });
         }
       }, {

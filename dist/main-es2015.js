@@ -3327,6 +3327,7 @@ class HeaderComponent {
     ngOnInit() {
         this.authenticationService.currentUser.subscribe(name => {
             this.currentProfile = name;
+            console.log(this.currentProfile);
         });
     }
     logout() {
