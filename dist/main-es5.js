@@ -15796,8 +15796,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       path: 'dashboard',
       component: src_app_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"]
-    }, {
-      path: '**'
     }];
 
     var PortalRoutingModule = function PortalRoutingModule() {

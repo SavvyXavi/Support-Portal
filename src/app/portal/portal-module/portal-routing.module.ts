@@ -19,9 +19,10 @@ const routes: Routes = [
       component: DashboardComponent
   },
 
-  {
-    path: '**'
-  }
+  // {
+  //   path: '**',
+  //   red
+  // }
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

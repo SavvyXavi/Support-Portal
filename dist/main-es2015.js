@@ -8195,9 +8195,6 @@ const routes = [
         path: 'dashboard',
         component: src_app_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_2__["DashboardComponent"]
     },
-    {
-        path: '**'
-    }
 ];
 class PortalRoutingModule {
 }
