@@ -3544,7 +3544,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       path: 'login/reset-password',
       component: _login_reset_reset_component__WEBPACK_IMPORTED_MODULE_22__["ResetComponent"]
     }, {
-      path: 'portal/dashboard',
+      path: 'dashboard',
       component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["DashboardComponent"],
       canActivate: [_login_guards_auth_guard__WEBPACK_IMPORTED_MODULE_23__["AuthGuard"]]
     }, {
@@ -10327,12 +10327,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return;
           }
 
-          console.log('login submitted!');
           this.loading = true;
           this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
             _this44.router.navigate(['/dashboard']);
-
-            console.log('attempting route');
           }, function (error) {
             _this44.alertService.error(error);
 

@@ -1891,7 +1891,7 @@ const routes = [
         component: _login_reset_reset_component__WEBPACK_IMPORTED_MODULE_22__["ResetComponent"]
     },
     {
-        path: 'portal/dashboard',
+        path: 'dashboard',
         component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["DashboardComponent"],
         canActivate: [_login_guards_auth_guard__WEBPACK_IMPORTED_MODULE_23__["AuthGuard"]]
     },
@@ -5616,13 +5616,11 @@ class LoginComponent {
         if (this.loginForm.invalid) {
             return;
         }
-        console.log('login submitted!');
         this.loading = true;
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
             .subscribe(data => {
             this.router.navigate(['/dashboard']);
-            console.log('attempting route');
         }, error => {
             this.alertService.error(error);
             this.loading = false;
