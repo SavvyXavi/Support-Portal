@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   ) {
     if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/portal']);
+      this.router.navigate(['/']);
     }
   }
 
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
     .pipe(first())
     .subscribe(
       data => {
-       this.router.navigate(['/portal']);
+       this.router.navigate(['/dashboard']);
        console.log('attempting route');
 
   },

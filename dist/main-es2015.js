@@ -5598,7 +5598,7 @@ class LoginComponent {
         this.submitted = false;
         this.adminHeader = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         if (this.authenticationService.currentUserValue) {
-            this.router.navigate(['/portal']);
+            this.router.navigate(['/']);
         }
     }
     ngOnInit() {
@@ -5621,7 +5621,7 @@ class LoginComponent {
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
             .subscribe(data => {
-            this.router.navigate(['/portal']);
+            this.router.navigate(['/dashboard']);
             console.log('attempting route');
         }, error => {
             this.alertService.error(error);

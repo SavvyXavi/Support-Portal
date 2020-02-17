@@ -10303,7 +10303,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.adminHeader = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
 
         if (this.authenticationService.currentUserValue) {
-          this.router.navigate(['/portal']);
+          this.router.navigate(['/']);
         }
       }
 
@@ -10330,7 +10330,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log('login submitted!');
           this.loading = true;
           this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
-            _this44.router.navigate(['/portal']);
+            _this44.router.navigate(['/dashboard']);
 
             console.log('attempting route');
           }, function (error) {
