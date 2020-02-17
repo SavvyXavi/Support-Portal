@@ -30,7 +30,7 @@ import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.compo
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './index/index.module.ts#IndexModule'
+    loadChildren: './index/index.module#IndexModule'
   },
   {
     path: 'profile',

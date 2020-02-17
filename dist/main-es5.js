@@ -314,24 +314,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   /*! no static exports found */
 
   /***/
-  function src$$_lazy_route_resourceLazyRecursive(module, exports) {
-    function webpackEmptyAsyncContext(req) {
-      // Here Promise.resolve().then() is used instead of new Promise() to prevent
-      // uncaught exception popping up in devtools
+  function src$$_lazy_route_resourceLazyRecursive(module, exports, __webpack_require__) {
+    var map = {
+      "./index/index.module": "./src/app/index/index.module.ts"
+    };
+
+    function webpackAsyncContext(req) {
       return Promise.resolve().then(function () {
-        var e = new Error("Cannot find module '" + req + "'");
-        e.code = 'MODULE_NOT_FOUND';
-        throw e;
+        if (!__webpack_require__.o(map, req)) {
+          var e = new Error("Cannot find module '" + req + "'");
+          e.code = 'MODULE_NOT_FOUND';
+          throw e;
+        }
+
+        var id = map[req];
+        return __webpack_require__(id);
       });
     }
 
-    webpackEmptyAsyncContext.keys = function () {
-      return [];
+    webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+      return Object.keys(map);
     };
 
-    webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-    module.exports = webpackEmptyAsyncContext;
-    webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
+    webpackAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
+    module.exports = webpackAsyncContext;
     /***/
   },
 
@@ -3482,7 +3488,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var routes = [{
       path: '',
-      loadChildren: './index/index.module.ts#IndexModule'
+      loadChildren: './index/index.module#IndexModule'
     }, {
       path: 'profile',
       component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_14__["ProfileComponent"],

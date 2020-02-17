@@ -291,21 +291,29 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
   \**********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncaught exception popping up in devtools
+var map = {
+	"./index/index.module": "./src/app/index/index.module.ts"
+};
+
+function webpackAsyncContext(req) {
 	return Promise.resolve().then(function() {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
+		if(!__webpack_require__.o(map, req)) {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		}
+
+		var id = map[req];
+		return __webpack_require__(id);
 	});
 }
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
+module.exports = webpackAsyncContext;
 
 /***/ }),
 
@@ -1845,7 +1853,7 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: '',
-        loadChildren: './index/index.module.ts#IndexModule'
+        loadChildren: './index/index.module#IndexModule'
     },
     {
         path: 'profile',
