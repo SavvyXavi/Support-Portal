@@ -4410,7 +4410,9 @@ class AuthenticationService {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(profile => {
             if (profile && profile.token) {
                 const saveInfo = {
-                    'token': profile.token,
+                    'firstName': profile.firstName,
+                    'lastName': profile.lastName,
+                    'email': profile.email,
                     'partner': profile.partner,
                     'company': profile.company,
                     'companypartner': profile.companypartner,

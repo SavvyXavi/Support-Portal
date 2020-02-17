@@ -8144,7 +8144,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (profile) {
             if (profile && profile.token) {
               var saveInfo = {
-                'token': profile.token,
+                'firstName': profile.firstName,
+                'lastName': profile.lastName,
+                'email': profile.email,
                 'partner': profile.partner,
                 'company': profile.company,
                 'companypartner': profile.companypartner,

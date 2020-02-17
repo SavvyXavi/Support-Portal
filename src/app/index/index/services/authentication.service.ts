@@ -31,7 +31,9 @@ export class AuthenticationService {
      .pipe(map( profile => {
        if (profile && profile.token) {
         const saveInfo = {
-          'token': profile.token,
+          'firstName': profile.firstName,
+          'lastName': profile.lastName,
+          'email': profile.email,
           'partner': profile.partner,
           'company': profile.company,
           'companypartner': profile.companypartner,
