@@ -11,13 +11,13 @@ const routes: Routes = [
     component: PortalComponent,
     canActivate: [AuthGuard],
     children: [
-
+        {
+      path: 'dashboard',
+      component: DashboardComponent,
+  },
     ],
   },
-  {
-      path: 'dashboard',
-      component: DashboardComponent
-  },
+
 
   // {
   //   path: '**',
