@@ -6146,8 +6146,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.logoList = _logo_list__WEBPACK_IMPORTED_MODULE_3__["LogoList"];
         this.authenticationService.currentUser.subscribe(function (name) {
           _this26.currentProfile = name;
-        });
-        this.logo = this.displayLo.Logo;
+        }); // this.logo = this.displayLo.Logo;
       }
 
       _createClass(HeaderComponent, [{
