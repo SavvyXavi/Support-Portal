@@ -44,7 +44,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
-import { ResetUserComponent } from './reset-user/reset-user.component';
 import { ContractDetailComponent } from './manage-assets/contracts/contract-detail/contract-detail.component';
 import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.component';
 import { AdminComponent } from './admin/admin.component';
@@ -84,7 +83,6 @@ import { LoginModule } from './login/login.module';
     ProfileComponent,
     SettingsComponent,
     CustomersComponent,
-    ResetUserComponent,
     ContractDetailComponent,
     AssetDetailComponent,
     AdminComponent,

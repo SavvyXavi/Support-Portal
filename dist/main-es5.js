@@ -3525,7 +3525,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var routes = [{
       path: '',
       redirectTo: '/login',
-      pathMatch: 'full',
+      pathMatch: 'full'
+    }, {
+      path: '/login',
       loadChildren: './login/login.module#LoginModule'
     }, {
       path: 'profile',
@@ -4026,79 +4028,73 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _reset_user_reset_user_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(
-    /*! ./reset-user/reset-user.component */
-    "./src/app/reset-user/reset-user.component.ts");
-    /* harmony import */
-
-
-    var _manage_assets_contracts_contract_detail_contract_detail_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(
+    var _manage_assets_contracts_contract_detail_contract_detail_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(
     /*! ./manage-assets/contracts/contract-detail/contract-detail.component */
     "./src/app/manage-assets/contracts/contract-detail/contract-detail.component.ts");
     /* harmony import */
 
 
-    var _manage_assets_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(
+    var _manage_assets_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(
     /*! ./manage-assets/asset-detail/asset-detail.component */
     "./src/app/manage-assets/asset-detail/asset-detail.component.ts");
     /* harmony import */
 
 
-    var _admin_admin_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(
+    var _admin_admin_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(
     /*! ./admin/admin.component */
     "./src/app/admin/admin.component.ts");
     /* harmony import */
 
 
-    var _locations_locations_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(
+    var _locations_locations_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(
     /*! ./locations/locations.component */
     "./src/app/locations/locations.component.ts");
     /* harmony import */
 
 
-    var _locations_location_details_location_details_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(
+    var _locations_location_details_location_details_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(
     /*! ./locations/location-details/location-details.component */
     "./src/app/locations/location-details/location-details.component.ts");
     /* harmony import */
 
 
-    var _admin_register_register_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(
+    var _admin_register_register_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(
     /*! ./admin/register/register.component */
     "./src/app/admin/register/register.component.ts");
     /* harmony import */
 
 
-    var _manage_assets_tickets_ticket_detail_ticket_detail_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(
+    var _manage_assets_tickets_ticket_detail_ticket_detail_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(
     /*! ./manage-assets/tickets/ticket-detail/ticket-detail.component */
     "./src/app/manage-assets/tickets/ticket-detail/ticket-detail.component.ts");
     /* harmony import */
 
 
-    var _companies_companies_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(
+    var _companies_companies_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(
     /*! ./companies/companies.component */
     "./src/app/companies/companies.component.ts");
     /* harmony import */
 
 
-    var _manage_assets_contracts_contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(
+    var _manage_assets_contracts_contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(
     /*! ./manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe */
     "./src/app/manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe.ts");
     /* harmony import */
 
 
-    var _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(
+    var _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(
     /*! ./admin/local-monitor/local-monitor.component */
     "./src/app/admin/local-monitor/local-monitor.component.ts");
     /* harmony import */
 
 
-    var _portal_portal_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(
+    var _portal_portal_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(
     /*! ./portal/portal.component */
     "./src/app/portal/portal.component.ts");
     /* harmony import */
 
 
-    var _login_login_module__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(
+    var _login_login_module__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(
     /*! ./login/login.module */
     "./src/app/login/login.module.ts"); // Material Import
     // Module Imports
@@ -4125,14 +4121,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         useClass: _login_helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_6__["ErrorInterceptor"],
         multi: true
       }],
-      imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_31__["BrowserAnimationsModule"], _login_login_module__WEBPACK_IMPORTED_MODULE_51__["LoginModule"], // Material Imports
+      imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_31__["BrowserAnimationsModule"], _login_login_module__WEBPACK_IMPORTED_MODULE_50__["LoginModule"], // Material Imports
       _angular_material_slider__WEBPACK_IMPORTED_MODULE_32__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_33__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_34__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_35__["MatSortModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_37__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_38__["MatInputModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_36__["MatFormFieldModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, {
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"], _admin_register_register_component__WEBPACK_IMPORTED_MODULE_45__["RegisterComponent"], _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"], _suppdash_suppdash_component__WEBPACK_IMPORTED_MODULE_12__["SuppdashComponent"], _north_north_component__WEBPACK_IMPORTED_MODULE_13__["NorthComponent"], _reliant_dash_reliant_dash_component__WEBPACK_IMPORTED_MODULE_14__["ReliantDashComponent"], _relus_dash_relus_dash_component__WEBPACK_IMPORTED_MODULE_15__["RelusDashComponent"], _generic_dash_generic_dash_component__WEBPACK_IMPORTED_MODULE_16__["GenericDashComponent"], _login_header_header_component__WEBPACK_IMPORTED_MODULE_17__["HeaderComponent"], _manage_assets_manage_assets_component__WEBPACK_IMPORTED_MODULE_18__["ManageAssetsComponent"], _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_19__["SidebarComponent"], _admin_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_20__["AccountsComponent"], _manage_assets_tickets_tickets_component__WEBPACK_IMPORTED_MODULE_21__["TicketsComponent"], _manage_assets_lists_lists_component__WEBPACK_IMPORTED_MODULE_22__["ListsComponent"], _budget_budget_component__WEBPACK_IMPORTED_MODULE_23__["BudgetComponent"], _admin_support_support_component__WEBPACK_IMPORTED_MODULE_24__["SupportComponent"], _admin_oem_oem_component__WEBPACK_IMPORTED_MODULE_25__["OemComponent"], _manage_assets_contracts_contracts_component__WEBPACK_IMPORTED_MODULE_26__["ContractsComponent"], _admin_users_users_component__WEBPACK_IMPORTED_MODULE_27__["UsersComponent"], _profile_profile_component__WEBPACK_IMPORTED_MODULE_28__["ProfileComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_29__["SettingsComponent"], _admin_customers_customers_component__WEBPACK_IMPORTED_MODULE_30__["CustomersComponent"], _reset_user_reset_user_component__WEBPACK_IMPORTED_MODULE_39__["ResetUserComponent"], _manage_assets_contracts_contract_detail_contract_detail_component__WEBPACK_IMPORTED_MODULE_40__["ContractDetailComponent"], _manage_assets_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_41__["AssetDetailComponent"], _admin_admin_component__WEBPACK_IMPORTED_MODULE_42__["AdminComponent"], _locations_locations_component__WEBPACK_IMPORTED_MODULE_43__["LocationsComponent"], _locations_location_details_location_details_component__WEBPACK_IMPORTED_MODULE_44__["LocationDetailsComponent"], _manage_assets_tickets_ticket_detail_ticket_detail_component__WEBPACK_IMPORTED_MODULE_46__["TicketDetailComponent"], _companies_companies_component__WEBPACK_IMPORTED_MODULE_47__["CompaniesComponent"], _manage_assets_contracts_contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_48__["AssetLocFilterPipe"], _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_49__["LocalMonitorComponent"], _portal_portal_component__WEBPACK_IMPORTED_MODULE_50__["PortalComponent"]],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_31__["BrowserAnimationsModule"], _login_login_module__WEBPACK_IMPORTED_MODULE_51__["LoginModule"], // Material Imports
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"], _admin_register_register_component__WEBPACK_IMPORTED_MODULE_44__["RegisterComponent"], _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"], _suppdash_suppdash_component__WEBPACK_IMPORTED_MODULE_12__["SuppdashComponent"], _north_north_component__WEBPACK_IMPORTED_MODULE_13__["NorthComponent"], _reliant_dash_reliant_dash_component__WEBPACK_IMPORTED_MODULE_14__["ReliantDashComponent"], _relus_dash_relus_dash_component__WEBPACK_IMPORTED_MODULE_15__["RelusDashComponent"], _generic_dash_generic_dash_component__WEBPACK_IMPORTED_MODULE_16__["GenericDashComponent"], _login_header_header_component__WEBPACK_IMPORTED_MODULE_17__["HeaderComponent"], _manage_assets_manage_assets_component__WEBPACK_IMPORTED_MODULE_18__["ManageAssetsComponent"], _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_19__["SidebarComponent"], _admin_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_20__["AccountsComponent"], _manage_assets_tickets_tickets_component__WEBPACK_IMPORTED_MODULE_21__["TicketsComponent"], _manage_assets_lists_lists_component__WEBPACK_IMPORTED_MODULE_22__["ListsComponent"], _budget_budget_component__WEBPACK_IMPORTED_MODULE_23__["BudgetComponent"], _admin_support_support_component__WEBPACK_IMPORTED_MODULE_24__["SupportComponent"], _admin_oem_oem_component__WEBPACK_IMPORTED_MODULE_25__["OemComponent"], _manage_assets_contracts_contracts_component__WEBPACK_IMPORTED_MODULE_26__["ContractsComponent"], _admin_users_users_component__WEBPACK_IMPORTED_MODULE_27__["UsersComponent"], _profile_profile_component__WEBPACK_IMPORTED_MODULE_28__["ProfileComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_29__["SettingsComponent"], _admin_customers_customers_component__WEBPACK_IMPORTED_MODULE_30__["CustomersComponent"], _manage_assets_contracts_contract_detail_contract_detail_component__WEBPACK_IMPORTED_MODULE_39__["ContractDetailComponent"], _manage_assets_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_40__["AssetDetailComponent"], _admin_admin_component__WEBPACK_IMPORTED_MODULE_41__["AdminComponent"], _locations_locations_component__WEBPACK_IMPORTED_MODULE_42__["LocationsComponent"], _locations_location_details_location_details_component__WEBPACK_IMPORTED_MODULE_43__["LocationDetailsComponent"], _manage_assets_tickets_ticket_detail_ticket_detail_component__WEBPACK_IMPORTED_MODULE_45__["TicketDetailComponent"], _companies_companies_component__WEBPACK_IMPORTED_MODULE_46__["CompaniesComponent"], _manage_assets_contracts_contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_47__["AssetLocFilterPipe"], _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_48__["LocalMonitorComponent"], _portal_portal_component__WEBPACK_IMPORTED_MODULE_49__["PortalComponent"]],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_31__["BrowserAnimationsModule"], _login_login_module__WEBPACK_IMPORTED_MODULE_50__["LoginModule"], // Material Imports
         _angular_material_slider__WEBPACK_IMPORTED_MODULE_32__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_33__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_34__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_35__["MatSortModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_37__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_38__["MatInputModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_36__["MatFormFieldModule"]]
       });
     })();
@@ -4143,8 +4139,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
-          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"], _admin_register_register_component__WEBPACK_IMPORTED_MODULE_45__["RegisterComponent"], _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"], _suppdash_suppdash_component__WEBPACK_IMPORTED_MODULE_12__["SuppdashComponent"], _north_north_component__WEBPACK_IMPORTED_MODULE_13__["NorthComponent"], _reliant_dash_reliant_dash_component__WEBPACK_IMPORTED_MODULE_14__["ReliantDashComponent"], _relus_dash_relus_dash_component__WEBPACK_IMPORTED_MODULE_15__["RelusDashComponent"], _generic_dash_generic_dash_component__WEBPACK_IMPORTED_MODULE_16__["GenericDashComponent"], _login_header_header_component__WEBPACK_IMPORTED_MODULE_17__["HeaderComponent"], _manage_assets_manage_assets_component__WEBPACK_IMPORTED_MODULE_18__["ManageAssetsComponent"], _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_19__["SidebarComponent"], _admin_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_20__["AccountsComponent"], _manage_assets_tickets_tickets_component__WEBPACK_IMPORTED_MODULE_21__["TicketsComponent"], _manage_assets_lists_lists_component__WEBPACK_IMPORTED_MODULE_22__["ListsComponent"], _budget_budget_component__WEBPACK_IMPORTED_MODULE_23__["BudgetComponent"], _admin_support_support_component__WEBPACK_IMPORTED_MODULE_24__["SupportComponent"], _admin_oem_oem_component__WEBPACK_IMPORTED_MODULE_25__["OemComponent"], _manage_assets_contracts_contracts_component__WEBPACK_IMPORTED_MODULE_26__["ContractsComponent"], _admin_users_users_component__WEBPACK_IMPORTED_MODULE_27__["UsersComponent"], _profile_profile_component__WEBPACK_IMPORTED_MODULE_28__["ProfileComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_29__["SettingsComponent"], _admin_customers_customers_component__WEBPACK_IMPORTED_MODULE_30__["CustomersComponent"], _reset_user_reset_user_component__WEBPACK_IMPORTED_MODULE_39__["ResetUserComponent"], _manage_assets_contracts_contract_detail_contract_detail_component__WEBPACK_IMPORTED_MODULE_40__["ContractDetailComponent"], _manage_assets_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_41__["AssetDetailComponent"], _admin_admin_component__WEBPACK_IMPORTED_MODULE_42__["AdminComponent"], _locations_locations_component__WEBPACK_IMPORTED_MODULE_43__["LocationsComponent"], _locations_location_details_location_details_component__WEBPACK_IMPORTED_MODULE_44__["LocationDetailsComponent"], _manage_assets_tickets_ticket_detail_ticket_detail_component__WEBPACK_IMPORTED_MODULE_46__["TicketDetailComponent"], _companies_companies_component__WEBPACK_IMPORTED_MODULE_47__["CompaniesComponent"], _manage_assets_contracts_contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_48__["AssetLocFilterPipe"], _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_49__["LocalMonitorComponent"], _portal_portal_component__WEBPACK_IMPORTED_MODULE_50__["PortalComponent"]],
-          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_31__["BrowserAnimationsModule"], _login_login_module__WEBPACK_IMPORTED_MODULE_51__["LoginModule"], // Material Imports
+          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"], _admin_register_register_component__WEBPACK_IMPORTED_MODULE_44__["RegisterComponent"], _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"], _suppdash_suppdash_component__WEBPACK_IMPORTED_MODULE_12__["SuppdashComponent"], _north_north_component__WEBPACK_IMPORTED_MODULE_13__["NorthComponent"], _reliant_dash_reliant_dash_component__WEBPACK_IMPORTED_MODULE_14__["ReliantDashComponent"], _relus_dash_relus_dash_component__WEBPACK_IMPORTED_MODULE_15__["RelusDashComponent"], _generic_dash_generic_dash_component__WEBPACK_IMPORTED_MODULE_16__["GenericDashComponent"], _login_header_header_component__WEBPACK_IMPORTED_MODULE_17__["HeaderComponent"], _manage_assets_manage_assets_component__WEBPACK_IMPORTED_MODULE_18__["ManageAssetsComponent"], _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_19__["SidebarComponent"], _admin_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_20__["AccountsComponent"], _manage_assets_tickets_tickets_component__WEBPACK_IMPORTED_MODULE_21__["TicketsComponent"], _manage_assets_lists_lists_component__WEBPACK_IMPORTED_MODULE_22__["ListsComponent"], _budget_budget_component__WEBPACK_IMPORTED_MODULE_23__["BudgetComponent"], _admin_support_support_component__WEBPACK_IMPORTED_MODULE_24__["SupportComponent"], _admin_oem_oem_component__WEBPACK_IMPORTED_MODULE_25__["OemComponent"], _manage_assets_contracts_contracts_component__WEBPACK_IMPORTED_MODULE_26__["ContractsComponent"], _admin_users_users_component__WEBPACK_IMPORTED_MODULE_27__["UsersComponent"], _profile_profile_component__WEBPACK_IMPORTED_MODULE_28__["ProfileComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_29__["SettingsComponent"], _admin_customers_customers_component__WEBPACK_IMPORTED_MODULE_30__["CustomersComponent"], _manage_assets_contracts_contract_detail_contract_detail_component__WEBPACK_IMPORTED_MODULE_39__["ContractDetailComponent"], _manage_assets_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_40__["AssetDetailComponent"], _admin_admin_component__WEBPACK_IMPORTED_MODULE_41__["AdminComponent"], _locations_locations_component__WEBPACK_IMPORTED_MODULE_42__["LocationsComponent"], _locations_location_details_location_details_component__WEBPACK_IMPORTED_MODULE_43__["LocationDetailsComponent"], _manage_assets_tickets_ticket_detail_ticket_detail_component__WEBPACK_IMPORTED_MODULE_45__["TicketDetailComponent"], _companies_companies_component__WEBPACK_IMPORTED_MODULE_46__["CompaniesComponent"], _manage_assets_contracts_contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_47__["AssetLocFilterPipe"], _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_48__["LocalMonitorComponent"], _portal_portal_component__WEBPACK_IMPORTED_MODULE_49__["PortalComponent"]],
+          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_31__["BrowserAnimationsModule"], _login_login_module__WEBPACK_IMPORTED_MODULE_50__["LoginModule"], // Material Imports
           _angular_material_slider__WEBPACK_IMPORTED_MODULE_32__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_33__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_34__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_35__["MatSortModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_37__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_38__["MatInputModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_36__["MatFormFieldModule"]],
           providers: [_login_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"], _login_services_authentication_service__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"], _login_services_loginpulls_service__WEBPACK_IMPORTED_MODULE_9__["LoginpullsService"], {
             provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"],
@@ -21528,85 +21524,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }, {
           type: _services_apifilter_service__WEBPACK_IMPORTED_MODULE_3__["ApifilterService"]
         }];
-      }, null);
-    })();
-    /***/
-
-  },
-
-  /***/
-  "./src/app/reset-user/reset-user.component.ts":
-  /*!****************************************************!*\
-    !*** ./src/app/reset-user/reset-user.component.ts ***!
-    \****************************************************/
-
-  /*! exports provided: ResetUserComponent */
-
-  /***/
-  function srcAppResetUserResetUserComponentTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "ResetUserComponent", function () {
-      return ResetUserComponent;
-    });
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-    var ResetUserComponent =
-    /*#__PURE__*/
-    function () {
-      function ResetUserComponent() {
-        _classCallCheck(this, ResetUserComponent);
-      }
-
-      _createClass(ResetUserComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {}
-      }]);
-
-      return ResetUserComponent;
-    }();
-
-    ResetUserComponent.ɵfac = function ResetUserComponent_Factory(t) {
-      return new (t || ResetUserComponent)();
-    };
-
-    ResetUserComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-      type: ResetUserComponent,
-      selectors: [["app-reset-user"]],
-      decls: 2,
-      vars: 0,
-      template: function ResetUserComponent_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "reset-user works!");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        }
-      },
-      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Jlc2V0LXVzZXIvcmVzZXQtdXNlci5jb21wb25lbnQuY3NzIn0= */"]
-    });
-    /*@__PURE__*/
-
-    (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ResetUserComponent, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-        args: [{
-          selector: 'app-reset-user',
-          templateUrl: './reset-user.component.html',
-          styleUrls: ['./reset-user.component.css']
-        }]
-      }], function () {
-        return [];
       }, null);
     })();
     /***/
