@@ -6167,7 +6167,8 @@ class LoginpullsService {
         this.http = http;
         // partner: Partner;
         this.partnerlist = _partner_list__WEBPACK_IMPORTED_MODULE_4__["PartnerList"];
-        this.code = 'https://harmonyprodcustomersone.azurewebsites.net/api/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
+        this.code = 'https://harmonyprodcustomersone.azurewebsites.net/api/CompanyListByPartner?';
+        this.code2 = 'code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
         this.locationsapi = 'https://prodharmony.azurewebsites.net/api/LocationsByCustomer?code=lOUnhasaC78wc6wyFKiG/loAC7aa0blBIca91Y/BdexlvkqGyEGMXw==';
     }
     getPartnerList() {

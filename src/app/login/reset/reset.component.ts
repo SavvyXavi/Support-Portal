@@ -45,7 +45,7 @@ export class ResetComponent implements OnInit {
     this.authService.validResetToken({resetToken}).subscribe(
       data => {
         this.validToken = true;
-        this.errorMessage = ''
+        this.errorMessage = '';
       },
       err => {
         this.validToken = false;
