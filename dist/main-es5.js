@@ -3527,7 +3527,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       redirectTo: '/login',
       pathMatch: 'full'
     }, {
-      path: '/login',
+      path: 'login',
       loadChildren: './login/login.module#LoginModule'
     }, {
       path: 'profile',
