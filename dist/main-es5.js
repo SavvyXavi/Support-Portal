@@ -10666,21 +10666,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _services_authentication_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ./services/authentication.service */
+    "./src/app/login/services/authentication.service.ts");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
     /* harmony import */
 
 
-    var _helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! ./helpers/error-interceptor.service */
     "./src/app/login/helpers/error-interceptor.service.ts");
     /* harmony import */
 
 
-    var _services_authentication_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-    /*! ./services/authentication.service */
-    "./src/app/login/services/authentication.service.ts");
+    var _helpers_jwt_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! ./helpers/jwt.service */
+    "./src/app/login/helpers/jwt.service.ts");
 
     var LoginModule = function LoginModule() {
       _classCallCheck(this, LoginModule);
@@ -10693,9 +10699,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       factory: function LoginModule_Factory(t) {
         return new (t || LoginModule)();
       },
-      providers: [_services_alert_service__WEBPACK_IMPORTED_MODULE_8__["AlertService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_11__["AuthenticationService"], {
-        provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HTTP_INTERCEPTORS"],
-        useClass: _helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_10__["ErrorInterceptor"],
+      providers: [_services_alert_service__WEBPACK_IMPORTED_MODULE_8__["AlertService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_9__["AuthenticationService"], {
+        provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HTTP_INTERCEPTORS"],
+        useClass: _helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_11__["ErrorInterceptor"],
+        multi: true
+      }, {
+        provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HTTP_INTERCEPTORS"],
+        useClass: _helpers_jwt_service__WEBPACK_IMPORTED_MODULE_12__["JwtInterceptor"],
         multi: true
       }],
       imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _login_routing_module__WEBPACK_IMPORTED_MODULE_3__["LoginRoutingModule"]]]
@@ -10716,9 +10726,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         args: [{
           declarations: [_login_component_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"], _alert_alert_component__WEBPACK_IMPORTED_MODULE_7__["AlertComponent"], _forgotpassword_forgotpassword_component__WEBPACK_IMPORTED_MODULE_5__["ForgotpasswordComponent"], _reset_reset_component__WEBPACK_IMPORTED_MODULE_6__["ResetComponent"]],
           imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _login_routing_module__WEBPACK_IMPORTED_MODULE_3__["LoginRoutingModule"]],
-          providers: [_services_alert_service__WEBPACK_IMPORTED_MODULE_8__["AlertService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_11__["AuthenticationService"], {
-            provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HTTP_INTERCEPTORS"],
-            useClass: _helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_10__["ErrorInterceptor"],
+          providers: [_services_alert_service__WEBPACK_IMPORTED_MODULE_8__["AlertService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_9__["AuthenticationService"], {
+            provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HTTP_INTERCEPTORS"],
+            useClass: _helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_11__["ErrorInterceptor"],
+            multi: true
+          }, {
+            provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HTTP_INTERCEPTORS"],
+            useClass: _helpers_jwt_service__WEBPACK_IMPORTED_MODULE_12__["JwtInterceptor"],
             multi: true
           }]
         }]

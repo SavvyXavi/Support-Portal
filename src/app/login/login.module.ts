@@ -9,11 +9,11 @@ import { ResetComponent } from './reset/reset.component';
 import { AlertComponent } from './alert/alert.component';
 
 import { AlertService } from './services/alert.service';
+import { AuthenticationService } from './services/authentication.service';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './helpers/error-interceptor.service';
-import { AuthenticationService } from './services/authentication.service';
-
+import { JwtInterceptor } from './helpers/jwt.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { AuthenticationService } from './services/authentication.service';
     AlertService,
     AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ]
 })
 export class LoginModule { }

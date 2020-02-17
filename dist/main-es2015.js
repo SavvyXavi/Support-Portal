@@ -5765,9 +5765,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reset_reset_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./reset/reset.component */ "./src/app/login/reset/reset.component.ts");
 /* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./alert/alert.component */ "./src/app/login/alert/alert.component.ts");
 /* harmony import */ var _services_alert_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services/alert.service */ "./src/app/login/services/alert.service.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-/* harmony import */ var _helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helpers/error-interceptor.service */ "./src/app/login/helpers/error-interceptor.service.ts");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./services/authentication.service */ "./src/app/login/services/authentication.service.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./services/authentication.service */ "./src/app/login/services/authentication.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./helpers/error-interceptor.service */ "./src/app/login/helpers/error-interceptor.service.ts");
+/* harmony import */ var _helpers_jwt_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./helpers/jwt.service */ "./src/app/login/helpers/jwt.service.ts");
+
 
 
 
@@ -5786,8 +5788,9 @@ class LoginModule {
 LoginModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: LoginModule });
 LoginModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function LoginModule_Factory(t) { return new (t || LoginModule)(); }, providers: [
         _services_alert_service__WEBPACK_IMPORTED_MODULE_8__["AlertService"],
-        _services_authentication_service__WEBPACK_IMPORTED_MODULE_11__["AuthenticationService"],
-        { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HTTP_INTERCEPTORS"], useClass: _helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_10__["ErrorInterceptor"], multi: true },
+        _services_authentication_service__WEBPACK_IMPORTED_MODULE_9__["AuthenticationService"],
+        { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HTTP_INTERCEPTORS"], useClass: _helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_11__["ErrorInterceptor"], multi: true },
+        { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HTTP_INTERCEPTORS"], useClass: _helpers_jwt_service__WEBPACK_IMPORTED_MODULE_12__["JwtInterceptor"], multi: true },
     ], imports: [[
             _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
@@ -5818,8 +5821,9 @@ LoginModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInject
                 ],
                 providers: [
                     _services_alert_service__WEBPACK_IMPORTED_MODULE_8__["AlertService"],
-                    _services_authentication_service__WEBPACK_IMPORTED_MODULE_11__["AuthenticationService"],
-                    { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HTTP_INTERCEPTORS"], useClass: _helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_10__["ErrorInterceptor"], multi: true },
+                    _services_authentication_service__WEBPACK_IMPORTED_MODULE_9__["AuthenticationService"],
+                    { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HTTP_INTERCEPTORS"], useClass: _helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_11__["ErrorInterceptor"], multi: true },
+                    { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HTTP_INTERCEPTORS"], useClass: _helpers_jwt_service__WEBPACK_IMPORTED_MODULE_12__["JwtInterceptor"], multi: true },
                 ]
             }]
     }], null, null); })();
