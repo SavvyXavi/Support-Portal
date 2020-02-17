@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { AuthenticationService } from './../login/services/authentication.service';
+import { AuthenticationService } from '../index/index/services/authentication.service';
 
-import { Profile } from '../login/models/profile';
-import { ProfileService } from '../login/services/profile.service';
+import { Profile } from '../index/index/models/profile';
+import { ProfileService } from '../index/index/services/profile.service';
 
 import { Filter } from './../models/filter';
 import { Contracts } from './../manage-assets/models/contracts';

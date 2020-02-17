@@ -1,11 +1,11 @@
 import { first } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from '../../login/services/authentication.service';
-import { ProfileService } from '../../login/services/profile.service';
+import { AuthenticationService } from '../../index/index/services/authentication.service';
+import { ProfileService } from '../../index/index/services/profile.service';
 import { Router } from '@angular/router';
 
-import { AlertService } from '../../login/services/alert.service';
+import { AlertService } from '../../index/index/services/alert.service';
 
 @Component({
   selector: 'app-users',

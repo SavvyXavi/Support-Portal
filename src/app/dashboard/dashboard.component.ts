@@ -1,13 +1,13 @@
 import { PartnerList } from './../partner-list';
 import { Component, OnInit } from '@angular/core';
 
-import { Profile } from '../login/models/profile';
+import { Profile } from '../index/index/models/profile';
 import { Tickets } from '../manage-assets/models/tickets';
 import { Assets } from '../manage-assets/models/assets';
 import * as moment from 'moment';
 
-import { AuthenticationService } from '../login/services/authentication.service';
-import { ProfileService } from '../login/services/profile.service';
+import { AuthenticationService } from '../index/index/services/authentication.service';
+import { ProfileService } from '../index/index/services/profile.service';
 import { ApifilterService } from './../services/apifilter.service';
 import { ApiCallService } from './../manage-assets/services/api-call.service';
 

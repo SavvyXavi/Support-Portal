@@ -4,9 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { ApifilterService } from './../../services/apifilter.service';
-import { AuthenticationService } from './../../login/services/authentication.service';
+import { AuthenticationService } from './../../index/index/services/authentication.service';
 
-import { Profile } from '../../login/models/profile';
+import { Profile } from '../../index/index/models/profile';
 import { CustomerLocation } from '../models/location';
 import { Assets } from './../../manage-assets/models/assets';
 

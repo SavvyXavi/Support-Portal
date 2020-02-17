@@ -3,25 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
-import { JwtInterceptor } from './login/helpers/jwt.service';
-import { ErrorInterceptor } from './login/helpers/error-interceptor.service';
-import { AuthGuard } from './login/guards/auth.guard';
-import { AuthenticationService } from './login/services/authentication.service';
-import { AlertService } from './login/services/alert.service';
-import { LoginpullsService } from './login/services/loginpulls.service';
+import { AuthGuard } from './index/index/guards/auth.guard';
+import { LoginpullsService } from './index/index/services/loginpulls.service';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
-import { NorthComponent } from './north/north.component';
-import { ReliantDashComponent } from './reliant-dash/reliant-dash.component';
-import { RelusDashComponent } from './relus-dash/relus-dash.component';
-import { GenericDashComponent } from './generic-dash/generic-dash.component';
-import { HeaderComponent } from './login/header/header.component';
+
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 import { TicketsComponent } from './manage-assets/tickets/tickets.component';
 import { ListsComponent } from './manage-assets/lists/lists.component';
@@ -54,24 +44,17 @@ import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/tic
 import { CompaniesComponent } from './companies/companies.component';
 import { AssetLocFilterPipe } from './manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe';
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
-import { PortalComponent } from './portal/portal.component';
 
 // Module Imports
-import { LoginModule } from './login/login.module';
+import { IndexModule } from './index/index.module';
+import { PortalModule } from './portal/portal-module/portal.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    DashboardComponent,
     SuppdashComponent,
-    NorthComponent,
-    ReliantDashComponent,
-    RelusDashComponent,
-    GenericDashComponent,
-    HeaderComponent,
     ManageAssetsComponent,
-    SidebarComponent,
     AccountsComponent,
     TicketsComponent,
     ListsComponent,
@@ -91,9 +74,8 @@ import { LoginModule } from './login/login.module';
     TicketDetailComponent,
     CompaniesComponent,
     AssetLocFilterPipe,
-    LocalMonitorComponent,
-    PortalComponent,
-  ],
+    LocalMonitorComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -101,7 +83,8 @@ import { LoginModule } from './login/login.module';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    LoginModule,
+    IndexModule,
+    PortalModule,
 
     // Material Imports
     MatSliderModule,
@@ -114,10 +97,7 @@ import { LoginModule } from './login/login.module';
   ],
   providers: [
     AuthGuard,
-    AuthenticationService,
-    LoginpullsService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    LoginpullsService
   ],
   bootstrap: [AppComponent]
 })

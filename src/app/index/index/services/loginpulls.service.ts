@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { Observable, of } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
 
-import { Profile } from '../../login/models/profile';
-import { Filter } from '../../models/filter';
-import { Role } from '../../types/role.enum';
-import { Partner } from '../../models/partner';
-import { PartnerList } from '../../partner-list';
+import { Profile } from '../../index/models/profile';
+import { Filter } from '../../../models/filter';
+import { Role } from '../../../types/role.enum';
+import { Partner } from '../../../models/partner';
+import { PartnerList } from '../../../partner-list';
 
 @Injectable({
   providedIn: 'root'

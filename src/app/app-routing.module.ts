@@ -9,9 +9,6 @@ import { SupportComponent } from './admin/support/support.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule,  } from '@angular/router';
 
-import { PortalComponent } from './portal/portal.component';
-
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
 
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
@@ -19,7 +16,7 @@ import { TicketsComponent } from './manage-assets/tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LocationsComponent } from './locations/locations.component';
-import { AuthGuard } from './login/guards/auth.guard';
+import { AuthGuard } from './index/index/guards/auth.guard';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 import { ListsComponent } from './manage-assets/lists/lists.component';
 import { OemComponent } from './admin/oem/oem.component';
@@ -31,12 +28,15 @@ import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.compo
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
+    loadChildren: () => import
+    ('./index/index.module').then(
+      m => m.IndexModule)
   },
   {
-    path: 'login',
-    loadChildren: './login/login.module#LoginModule'
+    path: 'portal',
+    loadChildren: () => import
+    ('./portal/portal-module/portal.module').then( m =>
+      m.PortalModule),
   },
   {
     path: 'profile',
@@ -46,11 +46,6 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
     canActivate: [AuthGuard]
   },
   {

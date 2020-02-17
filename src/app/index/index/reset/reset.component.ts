@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MustMatch } from '../helpers/must-match';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AlertService } from '../../login/services/alert.service';
-import { AuthenticationService } from '../../login/services/authentication.service';
-import { ProfileService } from '../../login/services/profile.service';
+import { AlertService } from '../../index/services/alert.service';
+import { AuthenticationService } from '../../index/services/authentication.service';
+import { ProfileService } from '../../index/services/profile.service';
 
 @Component({
   selector: 'app-reset',

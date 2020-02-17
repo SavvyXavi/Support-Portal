@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Customer } from '../models/customer';
-import { Profile } from '../../login/models/profile';
+import { Profile } from '../../index/index/models/profile';
 import { Filter } from '../../models/filter';
 import { Subscription } from 'rxjs';
 
 import { ApifilterService } from '../../services/apifilter.service';
-import { AuthenticationService } from '../../login/services/authentication.service';
+import { AuthenticationService } from '../../index/index/services/authentication.service';
 
 @Component({
   selector: 'app-customers',

@@ -3,11 +3,11 @@ import { Assets } from './models/assets';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ApifilterService } from './../services/apifilter.service';
-import { AuthenticationService } from '../login/services/authentication.service';
+import { AuthenticationService } from '../index/index/services/authentication.service';
 
 import { Partner } from '../models/partner';
 import { Filter } from '../models/filter';
-import { Profile } from './../login/models/profile';
+import { Profile } from './../index/index/models/profile';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { MatPaginator } from '@angular/material/paginator';
