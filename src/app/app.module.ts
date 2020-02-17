@@ -13,8 +13,6 @@ import { AlertService } from './login/services/alert.service';
 import { LoginpullsService } from './login/services/loginpulls.service';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login/login.component';
-import { AlertComponent } from './login/alert/alert.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
 import { NorthComponent } from './north/north.component';
@@ -52,20 +50,19 @@ import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.
 import { AdminComponent } from './admin/admin.component';
 import { LocationsComponent } from './locations/locations.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
-import { ResetComponent } from './login/reset/reset.component';
 import { RegisterComponent } from './admin/register/register.component';
-import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/ticket-detail.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { AssetLocFilterPipe } from './manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe';
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 import { PortalComponent } from './portal/portal.component';
 
+// Module Imports
+import { LoginModule } from './login/login.module';
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    AlertComponent,
     RegisterComponent,
     DashboardComponent,
     SuppdashComponent,
@@ -87,15 +84,12 @@ import { PortalComponent } from './portal/portal.component';
     ProfileComponent,
     SettingsComponent,
     CustomersComponent,
-    ForgotpasswordComponent,
     ResetUserComponent,
     ContractDetailComponent,
     AssetDetailComponent,
     AdminComponent,
     LocationsComponent,
     LocationDetailsComponent,
-    ResetComponent,
-    RegisterComponent,
     TicketDetailComponent,
     CompaniesComponent,
     AssetLocFilterPipe,
@@ -109,6 +103,7 @@ import { PortalComponent } from './portal/portal.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    LoginModule,
     // Material Imports
     MatSliderModule,
     MatTableModule,
@@ -120,7 +115,6 @@ import { PortalComponent } from './portal/portal.component';
   ],
   providers: [
     AuthGuard,
-    AlertService,
     AuthenticationService,
     LoginpullsService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

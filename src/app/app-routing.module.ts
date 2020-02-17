@@ -11,7 +11,7 @@ import { Routes, RouterModule,  } from '@angular/router';
 
 import { PortalComponent } from './portal/portal.component';
 
-import { LoginComponent } from './login/login/login.component';
+import { LoginComponent } from './login/login-component/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
 import { NorthComponent } from './north/north.component';
@@ -38,28 +38,8 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'portal',
-    component: PortalComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-  path: 'forgot',
-  component: ForgotpasswordComponent
-  },
-  {
-    path: 'reset-password',
-    component: ResetComponent
-  },
-  {
-    path: 'reset',
-    component: ResetComponent
+    pathMatch: 'full',
+    loadChildren: './login/login.module#LoginModule'
   },
   {
     path: 'profile',
