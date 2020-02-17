@@ -3,17 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AuthGuard } from './index/index/guards/auth.guard';
 import { LoginpullsService } from './index/index/services/loginpulls.service';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
 
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 import { TicketsComponent } from './manage-assets/tickets/tickets.component';
 import { ListsComponent } from './manage-assets/lists/lists.component';
@@ -46,19 +44,17 @@ import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/tic
 import { CompaniesComponent } from './companies/companies.component';
 import { AssetLocFilterPipe } from './manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe';
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
-import { PortalComponent } from './portal/portal.component';
 
 // Module Imports
 import { IndexModule } from './index/index.module';
+import { PortalModule } from './portal/portal-module/portal.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    DashboardComponent,
     SuppdashComponent,
     ManageAssetsComponent,
-    SidebarComponent,
     AccountsComponent,
     TicketsComponent,
     ListsComponent,
@@ -78,9 +74,8 @@ import { IndexModule } from './index/index.module';
     TicketDetailComponent,
     CompaniesComponent,
     AssetLocFilterPipe,
-    LocalMonitorComponent,
-    PortalComponent
-  ],
+    LocalMonitorComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -89,6 +84,7 @@ import { IndexModule } from './index/index.module';
     HttpClientModule,
     BrowserAnimationsModule,
     IndexModule,
+    PortalModule,
 
     // Material Imports
     MatSliderModule,
@@ -101,7 +97,7 @@ import { IndexModule } from './index/index.module';
   ],
   providers: [
     AuthGuard,
-    LoginpullsService,
+    LoginpullsService
   ],
   bootstrap: [AppComponent]
 })

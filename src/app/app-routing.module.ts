@@ -9,8 +9,6 @@ import { SupportComponent } from './admin/support/support.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule,  } from '@angular/router';
 
-import { PortalComponent } from './portal/portal.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
 
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
@@ -35,6 +33,12 @@ const routes: Routes = [
       m => m.IndexModule)
   },
   {
+    path: 'portal',
+    loadChildren: () => import
+    ('./portal/portal-module/portal.module').then( m =>
+      m.PortalModule),
+  },
+  {
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard]
@@ -42,11 +46,6 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
     canActivate: [AuthGuard]
   },
   {

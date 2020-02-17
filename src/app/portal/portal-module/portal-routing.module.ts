@@ -1,33 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './../../login/login/login.component';
-import { ResetComponent } from '../../login/reset/reset.component';
-import { ForgotpasswordComponent } from 'src/app/login/forgotpassword/forgotpassword.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
+import { PortalComponent } from '../portal.component';
+import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
 
 const routes: Routes = [
   {
-    'path': 'dashboard',
-    component: DashboardComponent,
+    'path': '',
+    component: PortalComponent,
+    canActivate: [AuthGuard],
+    children: [
 
+    ],
   },
   {
-    path: 'forgot',
-    component: ForgotpasswordComponent
+      path: 'dashboard',
+      component: DashboardComponent
   },
-  {
-    path: 'reset-password',
-    component: ResetComponent
-  },
-  {
-    path: 'reset',
-    component: ResetComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
+
   {
     path: '**'
   }

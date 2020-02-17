@@ -13,8 +13,6 @@ import { AlertService } from './index/services/alert.service';
 import { AuthenticationService } from './index/services/authentication.service';
 
 import { ErrorInterceptor } from './index/helpers/error-interceptor.service';
-import { JwtInterceptor } from './index/helpers/jwt.service';
-import { AuthGuard } from './index/guards/auth.guard';
 
 
 @NgModule({
@@ -33,9 +31,7 @@ import { AuthGuard } from './index/guards/auth.guard';
   providers: [
     AlertService,
     AuthenticationService,
-    AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ]
 })
 export class IndexModule { }
