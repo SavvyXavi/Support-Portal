@@ -3340,6 +3340,7 @@ const routes = [
     {
         path: '',
         component: _index_index_index_component__WEBPACK_IMPORTED_MODULE_2__["IndexComponent"],
+        redirectTo: '/login',
         children: [
             {
                 path: 'login',
