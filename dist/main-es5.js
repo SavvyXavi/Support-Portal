@@ -5954,22 +5954,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function HeaderComponent(router, authenticationService) {
-        var _this26 = this;
-
         _classCallCheck(this, HeaderComponent);
 
         this.router = router;
         this.authenticationService = authenticationService;
         this.title = 'Support Portal';
-        this.logoList = _logo_list__WEBPACK_IMPORTED_MODULE_3__["LogoList"];
-        this.authenticationService.currentUser.subscribe(function (name) {
-          _this26.currentProfile = name;
-        }); // this.logo = this.displayLo.Logo;
+        this.logoList = _logo_list__WEBPACK_IMPORTED_MODULE_3__["LogoList"]; // this.authenticationService.currentUser.subscribe(
+        //   name => {
+        //     this.currentProfile = name;
+        //   }
+        // );
+        // this.logo = this.displayLo.Logo;
       }
 
       _createClass(HeaderComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {// this.displayLogo();
+        value: function ngOnInit() {
+          var _this26 = this;
+
+          this.authenticationService.currentUser.subscribe(function (name) {
+            _this26.currentProfile = name;
+          });
         }
       }, {
         key: "logout",
