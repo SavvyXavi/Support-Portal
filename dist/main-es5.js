@@ -9117,16 +9117,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this39 = this;
 
-          this.subscription = this.alertService.getMessage().subscribe(function (message) {
+          this.subcscription = this.alertService.getMessage().subscribe(function (message) {
             _this39.message = message;
           });
         }
       }, {
         key: "ngOnDestroy",
         value: function ngOnDestroy() {
-          if (this.subscription) {
-            this.subscription.unsubscribe();
-          }
+          this.subcscription.unsubscribe();
         }
       }]);
 

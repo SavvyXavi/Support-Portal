@@ -4998,14 +4998,12 @@ class AlertComponent {
         this.alertService = alertService;
     }
     ngOnInit() {
-        this.subscription = this.alertService.getMessage().subscribe(message => {
+        this.subcscription = this.alertService.getMessage().subscribe(message => {
             this.message = message;
         });
     }
     ngOnDestroy() {
-        if (this.subscription) {
-            this.subscription.unsubscribe();
-        }
+        this.subcscription.unsubscribe();
     }
 }
 AlertComponent.ɵfac = function AlertComponent_Factory(t) { return new (t || AlertComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_alert_service__WEBPACK_IMPORTED_MODULE_1__["AlertService"])); };
