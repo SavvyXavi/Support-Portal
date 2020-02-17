@@ -1,7 +1,7 @@
         <!-- Ng If to read User Role -->
         <nav class="navbar-nav sticky-top text-center">
 
-          <div *ngIf="currentRole?.partnerRole === 'Admin'" id="container" class="icon-bar text-center">
+          <div id="container" class="icon-bar text-center">
             <div width="100%" class="ham-wrapper text-center">
             <button class="col-auto btn btn-lg custom-btn" role="button">
               <i class="fa fa-bars"></i>
@@ -76,7 +76,7 @@
           </div>
     </nav>
 
-    <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
+    <!-- <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
         <div id="container" class="icon-bar">
             <div class="ham-wrapper">
             <button class="col-auto btn btn-lg custom-btn" (click)="collapseMenu()">
@@ -126,4 +126,4 @@
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
               </div>
           </div>
-    </nav>
+    </nav> -->

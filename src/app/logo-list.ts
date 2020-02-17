@@ -38,5 +38,8 @@ export const LogoList: Logo[] = [
   },
   {
     'CompanyName': 'Reliant Technology', 'Logo': '../assets/Reliant-Logo.png'
+  },
+  {
+    'CompanyName': 'Relutech', 'Logo': '../assets/RelusLogo.png'
   }
 ];
