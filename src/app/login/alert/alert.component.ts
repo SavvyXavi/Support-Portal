@@ -8,21 +8,19 @@ import { AlertService } from '../services/alert.service';
   styleUrls: ['./alert.component.css']
 })
 export class AlertComponent implements OnInit, OnDestroy {
-  private subscription: Subscription;
+  private subcscription: Subscription;
   message: any;
 
   constructor(private alertService: AlertService) { }
 
   ngOnInit() {
-    this.subscription = this.alertService.getMessage().subscribe(message => {
+    this.subcscription = this.alertService.getMessage().subscribe(message => {
       this.message = message;
     });
   }
 
   ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.subcscription.unsubscribe();
   }
 
 }
