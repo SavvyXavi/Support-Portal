@@ -102,6 +102,7 @@ import { LoginModule } from './login/login.module';
     HttpClientModule,
     BrowserAnimationsModule,
     LoginModule,
+
     // Material Imports
     MatSliderModule,
     MatTableModule,

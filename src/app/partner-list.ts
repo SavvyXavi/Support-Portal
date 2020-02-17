@@ -87,5 +87,9 @@ export const PartnerList: Partner[] = [
     'AccountID': 'Part-042', 'CompanyName': 'Ace IT Technologies, Inc'
   },  {
     'AccountID': 'Part-043', 'CompanyName': 'Mega Monolithic Corp'
+  }, {
+    'AccountID': 'Part-044', 'CompanyName': 'Knowledge Computers Inc'
+  }, {
+    'AccountID': 'Part-045', 'CompanyName': 'PB&J Partners LLC'
   }
 ];

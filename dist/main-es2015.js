@@ -9578,6 +9578,10 @@ const PartnerList = [
         'AccountID': 'Part-042', 'CompanyName': 'Ace IT Technologies, Inc'
     }, {
         'AccountID': 'Part-043', 'CompanyName': 'Mega Monolithic Corp'
+    }, {
+        'AccountID': 'Part-044', 'CompanyName': 'Knowledge Computers Inc'
+    }, {
+        'AccountID': 'Part-045', 'CompanyName': 'PB&J Partners LLC'
     }
 ];
 
@@ -12096,7 +12100,7 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().boot
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/shawnmcgee/projects/Support-Portal/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/xavierjohnson/Documents/Support-Portal/src/main.ts */"./src/main.ts");
 
 
 /***/ })
