@@ -8207,17 +8207,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortalModule", function() { return PortalModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-/* harmony import */ var _portal_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./portal-routing.module */ "./src/app/portal/portal-module/portal-routing.module.ts");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../header/header.component */ "./src/app/header/header.component.ts");
-/* harmony import */ var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../sidebar/sidebar.component */ "./src/app/sidebar/sidebar.component.ts");
-/* harmony import */ var src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/index/index/guards/auth.guard */ "./src/app/index/index/guards/auth.guard.ts");
-/* harmony import */ var src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/index/index/services/authentication.service */ "./src/app/index/index/services/authentication.service.ts");
-/* harmony import */ var _index_index_helpers_jwt_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../../index/index/helpers/jwt.service */ "./src/app/index/index/helpers/jwt.service.ts");
-/* harmony import */ var _portal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../portal.component */ "./src/app/portal/portal.component.ts");
-
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _portal_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./portal-routing.module */ "./src/app/portal/portal-module/portal-routing.module.ts");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../header/header.component */ "./src/app/header/header.component.ts");
+/* harmony import */ var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../sidebar/sidebar.component */ "./src/app/sidebar/sidebar.component.ts");
+/* harmony import */ var src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/index/index/guards/auth.guard */ "./src/app/index/index/guards/auth.guard.ts");
+/* harmony import */ var src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/index/index/services/authentication.service */ "./src/app/index/index/services/authentication.service.ts");
+/* harmony import */ var _index_index_helpers_jwt_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../index/index/helpers/jwt.service */ "./src/app/index/index/helpers/jwt.service.ts");
+/* harmony import */ var _portal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../portal.component */ "./src/app/portal/portal.component.ts");
 
 
 
@@ -8234,42 +8232,39 @@ class PortalModule {
 }
 PortalModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: PortalModule });
 PortalModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function PortalModule_Factory(t) { return new (t || PortalModule)(); }, providers: [
-        src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"],
-        src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_9__["AuthenticationService"],
-        { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _index_index_helpers_jwt_service__WEBPACK_IMPORTED_MODULE_10__["JwtInterceptor"], multi: true },
+        src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"],
+        src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"],
+        { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"], useClass: _index_index_helpers_jwt_service__WEBPACK_IMPORTED_MODULE_9__["JwtInterceptor"], multi: true },
     ], imports: [[
             _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
-            _portal_routing_module__WEBPACK_IMPORTED_MODULE_5__["PortalRoutingModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]
+            _portal_routing_module__WEBPACK_IMPORTED_MODULE_4__["PortalRoutingModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](PortalModule, { declarations: [_portal_component__WEBPACK_IMPORTED_MODULE_11__["PortalComponent"],
-        _header_header_component__WEBPACK_IMPORTED_MODULE_6__["HeaderComponent"],
-        _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_7__["SidebarComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
-        _portal_routing_module__WEBPACK_IMPORTED_MODULE_5__["PortalRoutingModule"],
-        _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]] }); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](PortalModule, { declarations: [_portal_component__WEBPACK_IMPORTED_MODULE_10__["PortalComponent"],
+        _header_header_component__WEBPACK_IMPORTED_MODULE_5__["HeaderComponent"],
+        _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_6__["SidebarComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+        _portal_routing_module__WEBPACK_IMPORTED_MODULE_4__["PortalRoutingModule"],
+        _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PortalModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
                 declarations: [
-                    _portal_component__WEBPACK_IMPORTED_MODULE_11__["PortalComponent"],
-                    _header_header_component__WEBPACK_IMPORTED_MODULE_6__["HeaderComponent"],
-                    _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_7__["SidebarComponent"]
+                    _portal_component__WEBPACK_IMPORTED_MODULE_10__["PortalComponent"],
+                    _header_header_component__WEBPACK_IMPORTED_MODULE_5__["HeaderComponent"],
+                    _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_6__["SidebarComponent"]
                 ],
                 imports: [
                     _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                    _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
-                    _portal_routing_module__WEBPACK_IMPORTED_MODULE_5__["PortalRoutingModule"],
-                    _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-                    _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]
+                    _portal_routing_module__WEBPACK_IMPORTED_MODULE_4__["PortalRoutingModule"],
+                    _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+                    _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]
                 ],
                 providers: [
-                    src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"],
-                    src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_9__["AuthenticationService"],
-                    { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _index_index_helpers_jwt_service__WEBPACK_IMPORTED_MODULE_10__["JwtInterceptor"], multi: true },
+                    src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"],
+                    src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"],
+                    { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"], useClass: _index_index_helpers_jwt_service__WEBPACK_IMPORTED_MODULE_9__["JwtInterceptor"], multi: true },
                 ]
             }]
     }], null, null); })();
