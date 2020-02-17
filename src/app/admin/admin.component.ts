@@ -1,12 +1,13 @@
-import { ProfileService } from './../login/services/profile.service';
 import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
-import { AuthenticationService } from './../login/services/authentication.service';
+import { Profile } from '../index/index/models/profile';
+import { AuthenticationService } from '../index/index/services/authentication.service';
+import { ProfileService } from '../index/index/services/profile.service';
 
 import { first } from 'rxjs/operators';
 
-import { Profile } from './../login/models/profile';
+
 
 @Component({
   selector: 'app-admin',

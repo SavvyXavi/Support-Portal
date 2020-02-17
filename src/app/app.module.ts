@@ -5,21 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { JwtInterceptor } from './login/helpers/jwt.service';
-import { ErrorInterceptor } from './login/helpers/error-interceptor.service';
-import { AuthGuard } from './login/guards/auth.guard';
-import { AuthenticationService } from './login/services/authentication.service';
-import { AlertService } from './login/services/alert.service';
-import { LoginpullsService } from './login/services/loginpulls.service';
+import { AuthGuard } from './index/index/guards/auth.guard';
+import { LoginpullsService } from './index/index/services/loginpulls.service';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
-import { NorthComponent } from './north/north.component';
-import { ReliantDashComponent } from './reliant-dash/reliant-dash.component';
-import { RelusDashComponent } from './relus-dash/relus-dash.component';
-import { GenericDashComponent } from './generic-dash/generic-dash.component';
-import { HeaderComponent } from './login/header/header.component';
+
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AccountsComponent } from './admin/accounts/accounts.component';
@@ -57,7 +49,7 @@ import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.compo
 import { PortalComponent } from './portal/portal.component';
 
 // Module Imports
-import { LoginModule } from './login/login.module';
+import { IndexModule } from './index/index.module';
 
 @NgModule({
   declarations: [
@@ -65,11 +57,6 @@ import { LoginModule } from './login/login.module';
     RegisterComponent,
     DashboardComponent,
     SuppdashComponent,
-    NorthComponent,
-    ReliantDashComponent,
-    RelusDashComponent,
-    GenericDashComponent,
-    HeaderComponent,
     ManageAssetsComponent,
     SidebarComponent,
     AccountsComponent,
@@ -92,7 +79,7 @@ import { LoginModule } from './login/login.module';
     CompaniesComponent,
     AssetLocFilterPipe,
     LocalMonitorComponent,
-    PortalComponent,
+    PortalComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +88,7 @@ import { LoginModule } from './login/login.module';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    LoginModule,
+    IndexModule,
 
     // Material Imports
     MatSliderModule,
@@ -114,10 +101,7 @@ import { LoginModule } from './login/login.module';
   ],
   providers: [
     AuthGuard,
-    AuthenticationService,
     LoginpullsService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

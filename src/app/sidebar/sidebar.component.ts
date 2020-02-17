@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLinkActive } from '@angular/router';
-import { AuthenticationService } from '../login/services/authentication.service';
+import { AuthenticationService } from '../index/index/services/authentication.service';
 import { ApifilterService } from './../services/apifilter.service';
 
 import { Subscription } from 'rxjs';
-import { Profile } from '../login/models/profile';
+import { Profile } from '../index/index/models/profile';
 import { Partner } from './../models/partner';
 
 import { Sidebars } from './services/loadsidebar.service';

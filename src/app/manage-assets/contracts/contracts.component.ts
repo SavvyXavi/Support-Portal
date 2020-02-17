@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Contracts } from '../models/contracts';
-import { Profile } from './../../login/models/profile';
+import { Profile } from './../../index/index/models/profile';
 import { Partner } from '../../models/partner';
 import { Customer } from '../../models/customer';
 
 import { ApifilterService } from './../../services/apifilter.service';
-import { AuthenticationService } from './../../login/services/authentication.service';
+import { AuthenticationService } from './../../index/index/services/authentication.service';
 
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';

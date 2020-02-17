@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../login/services/authentication.service';
+import { AuthenticationService } from '../../index/index/services/authentication.service';
 import { OemService } from '../services/oem.service';
 import { Monitor } from '../models/monitor';
-import { Profile } from '../../login/models/profile';
+import { Profile } from '../../index/index//models/profile';
 import { LogoList } from '../../logo-list';
 
 @Component({

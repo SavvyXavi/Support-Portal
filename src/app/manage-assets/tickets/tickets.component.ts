@@ -2,13 +2,13 @@ import { Customer } from './../../admin/models/customer';
 import { Company } from './../../companies/model/company';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { Profile } from '../../login/models/profile';
+import { Profile } from '../../index/index/models/profile';
 import { Partner } from './../../models/partner';
 import { Filter } from '../../models/filter';
 import { Tickets } from './../models/tickets';
 import { TicketType } from '../../types/ticket-type.enum';
 
-import { AuthenticationService } from '../../login/services/authentication.service';
+import { AuthenticationService } from '../../index/index/services/authentication.service';
 import { ApifilterService } from '../../services/apifilter.service';
 import { ApiCallService } from './../services/api-call.service';
 

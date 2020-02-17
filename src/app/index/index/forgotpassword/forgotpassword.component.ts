@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MustMatch } from '../helpers/must-match';
 import { Router } from '@angular/router';
-import { AlertService } from '../../login/services/alert.service';
+import { AlertService } from '../../index/services/alert.service';
 
 @Component({
   selector: 'app-forgotpassword',

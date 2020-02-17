@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { AlertService } from '../../login/services/alert.service';
-import { AuthenticationService } from '../../login/services/authentication.service';
-import { ProfileService } from '../../login/services/profile.service';
-import { MustMatch } from '../../login/helpers/must-match';
+import { AlertService } from '../../index/index/services/alert.service';
+import { AuthenticationService } from '../../index/index/services/authentication.service';
+import { ProfileService } from '../../index/index/services/profile.service';
+import { MustMatch } from '../../index/index//helpers/must-match';
 import { Subscription } from 'rxjs';
-import { LoginpullsService } from '../../login/services/loginpulls.service';
-import { Profile } from '../../login/models/profile';
+import { LoginpullsService } from '../../index/index//services/loginpulls.service';
+import { Profile } from '../../index/index/models/profile';
 
 @Component({
   selector: 'app-register',

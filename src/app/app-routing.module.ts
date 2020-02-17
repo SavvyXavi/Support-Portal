@@ -10,7 +10,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule,  } from '@angular/router';
 
 import { PortalComponent } from './portal/portal.component';
-
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
 
@@ -19,7 +18,7 @@ import { TicketsComponent } from './manage-assets/tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LocationsComponent } from './locations/locations.component';
-import { AuthGuard } from './login/guards/auth.guard';
+import { AuthGuard } from './index/index/guards/auth.guard';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 import { ListsComponent } from './manage-assets/lists/lists.component';
 import { OemComponent } from './admin/oem/oem.component';
@@ -31,12 +30,7 @@ import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.compo
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  {
-    path: 'login',
-    loadChildren: './login/login.module#LoginModule'
+    loadChildren: './index/index.module.ts#IndexModule'
   },
   {
     path: 'profile',
