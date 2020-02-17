@@ -11,20 +11,14 @@ import { Routes, RouterModule,  } from '@angular/router';
 
 import { PortalComponent } from './portal/portal.component';
 
-import { LoginComponent } from './login/login-component/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
-import { NorthComponent } from './north/north.component';
-import { ReliantDashComponent } from './reliant-dash/reliant-dash.component';
-import { RelusDashComponent } from './relus-dash/relus-dash.component';
-import { GenericDashComponent } from './generic-dash/generic-dash.component';
-import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
+
 import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 import { TicketsComponent } from './manage-assets/tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LocationsComponent } from './locations/locations.component';
-import { ResetComponent } from './login/reset/reset.component';
 import { AuthGuard } from './login/guards/auth.guard';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 import { ListsComponent } from './manage-assets/lists/lists.component';
@@ -55,37 +49,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'forgotpassword',
-    component: ForgotpasswordComponent
-    },
-
-  {
-    path: 'login/reset-password',
-    component: ResetComponent
-  },
-  {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'northdash',
-    component: NorthComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'reliantdash',
-    component: ReliantDashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'relusdash',
-    component: RelusDashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'genericdash',
-    component: GenericDashComponent,
     canActivate: [AuthGuard]
   },
   {
