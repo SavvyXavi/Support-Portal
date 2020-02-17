@@ -3319,6 +3319,7 @@ class HeaderComponent {
         this.logoList = _logo_list__WEBPACK_IMPORTED_MODULE_3__["LogoList"];
         this.authenticationService.currentUser.subscribe(name => {
             this.currentProfile = name;
+            console.log(this.currentProfile);
         });
         // this.logo = this.displayLo.Logo;
     }
@@ -3334,7 +3335,7 @@ class HeaderComponent {
         return this.displayLo = this.logoList.find(x => { var _a; return x.CompanyName === ((_a = this.currentProfile) === null || _a === void 0 ? void 0 : _a.partner); });
     }
     dashLink() {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/portal/dashboard']);
     }
 }
 HeaderComponent.ɵfac = function HeaderComponent_Factory(t) { return new (t || HeaderComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"])); };
