@@ -33,7 +33,6 @@ export class HeaderComponent implements OnInit {
       this.authenticationService.currentUser.subscribe(
         name => {
           this.currentProfile = name;
-          console.log(this.currentProfile);
         }
       );
         // this.logo = this.displayLo.Logo;
