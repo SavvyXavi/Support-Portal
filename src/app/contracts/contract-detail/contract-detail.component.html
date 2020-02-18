@@ -140,9 +140,9 @@
 
           <div class="tab-pane locations fade" id="location" role="tabpanel" aria-labelledby="location-tab">
             <div class="form-goup">
-              <label for="siteAddress">
+              <label *ngFor="let asset of assets" for="siteAddress">
                 Address of Asset
-                <input readonly type="text" value="{{this.assets}}" placeholder="Asset Location">
+                <input readonly type="text" value="{{asset.SiteAddress}}" placeholder="Asset Location">
               </label>
             </div>
           </div>
