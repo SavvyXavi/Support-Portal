@@ -4291,7 +4291,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     {
-        path: '', redirectTo: '/login',
+        path: '',
+        redirectTo: '/login',
+        pathMatch: 'full'
     },
     {
         path: '',
