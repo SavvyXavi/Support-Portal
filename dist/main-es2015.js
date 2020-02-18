@@ -2489,6 +2489,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class AssetLocFilterPipe {
+    constructor() {
+    }
     transform(value, filter) {
         value = [...new Set(filter.map(ad => ad.SiteAddress))];
         return value;
@@ -2501,7 +2503,7 @@ AssetLocFilterPipe.ɵpipe = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
         args: [{
                 name: 'assetLocFilter'
             }]
-    }], null, null); })();
+    }], function () { return []; }, null); })();
 
 
 /***/ }),

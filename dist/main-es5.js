@@ -4669,7 +4669,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         args: [{
           name: 'assetLocFilter'
         }]
-      }], null, null);
+      }], function () {
+        return [];
+      }, null);
     })();
     /***/
 
