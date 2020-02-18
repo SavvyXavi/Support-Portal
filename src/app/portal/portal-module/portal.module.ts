@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -23,7 +24,8 @@ import { PortalComponent } from '../portal.component';
     CommonModule,
     PortalRoutingModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    BrowserModule
   ],
   providers: [
     AuthGuard,

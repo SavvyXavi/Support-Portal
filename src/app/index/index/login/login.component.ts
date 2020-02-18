@@ -58,7 +58,6 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
        this.router.navigate(['/portal/dashboard']);
-
   },
       error => {
         this.alertService.error(error);

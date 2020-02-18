@@ -47,7 +47,7 @@
         </a>
       </div>
 
-    <ng-template *ngIf="this.currentProfile.companypartner === 'Partner'" class="companies-container total-container col-md">
+    <div *ngIf="this.currentProfile.companypartner === 'Partner'" class="companies-container total-container col-md">
         <a routerLink="/companies">
           <div class="row companies-content">
             <div class="col companies-length">
@@ -61,7 +61,7 @@
               <img class="company-icon" src="../../assets/Mega-Compannies.png">
           </div>
         </a>
-      </ng-template>
+      </div>
       <!-- <div *ngIf="currentProfile.partnerRole === 'Admin'" class="users-container total-container col-md">
         <a routerLink="/admin/users">
           <div class="users-content">
