@@ -5132,9 +5132,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function LocationsComponent_button_11_Template(rf, ctx) { if (rf & 1) {
-    const _r354 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    const _r351 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LocationsComponent_button_11_Template_button_click_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r354); const ctx_r353 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r353.searchClear(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LocationsComponent_button_11_Template_button_click_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r351); const ctx_r350 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r350.searchClear(); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-icon");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "close");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -5152,11 +5152,11 @@ function LocationsComponent_td_16_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const location_r355 = ctx.$implicit;
+    const location_r352 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "/locationdetail/", location_r355.Description, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "/locationdetail/", location_r352.Description, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", location_r355.Description, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", location_r352.Description, " ");
 } }
 function LocationsComponent_th_18_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 25);
@@ -5168,9 +5168,9 @@ function LocationsComponent_td_19_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const location_r356 = ctx.$implicit;
+    const location_r353 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", location_r356.Address1, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", location_r353.Address1, " ");
 } }
 function LocationsComponent_th_21_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 25);
@@ -5182,9 +5182,9 @@ function LocationsComponent_td_22_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const location_r357 = ctx.$implicit;
+    const location_r354 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", location_r357.Town, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", location_r354.Town, " ");
 } }
 function LocationsComponent_th_24_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 25);
@@ -5196,9 +5196,9 @@ function LocationsComponent_td_25_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const location_r358 = ctx.$implicit;
+    const location_r355 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", location_r358.Postcode, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", location_r355.Postcode, " ");
 } }
 function LocationsComponent_th_27_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 25);
@@ -5210,9 +5210,9 @@ function LocationsComponent_td_28_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const location_r359 = ctx.$implicit;
+    const location_r356 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", location_r359.Country, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", location_r356.Country, " ");
 } }
 function LocationsComponent_th_30_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 25);
@@ -5224,9 +5224,9 @@ function LocationsComponent_td_31_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const location_r360 = ctx.$implicit;
+    const location_r357 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", location_r360.CompanyName, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", location_r357.CompanyName, " ");
 } }
 function LocationsComponent_tr_32_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "tr", 28);
@@ -8146,6 +8146,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_manage_assets_contracts_contracts_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/manage-assets/contracts/contracts.component */ "./src/app/manage-assets/contracts/contracts.component.ts");
 /* harmony import */ var src_app_companies_companies_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/companies/companies.component */ "./src/app/companies/companies.component.ts");
 /* harmony import */ var src_app_admin_customers_customers_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/admin/customers/customers.component */ "./src/app/admin/customers/customers.component.ts");
+/* harmony import */ var src_app_locations_locations_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/locations/locations.component */ "./src/app/locations/locations.component.ts");
+
 
 
 
@@ -8178,6 +8180,10 @@ const routes = [
             {
                 path: 'tickets',
                 component: src_app_manage_assets__WEBPACK_IMPORTED_MODULE_5__["TicketsComponent"]
+            },
+            {
+                path: 'locations',
+                component: src_app_locations_locations_component__WEBPACK_IMPORTED_MODULE_9__["LocationsComponent"]
             },
             {
                 path: 'companies',
@@ -9172,7 +9178,7 @@ class SidebarComponent {
     }
 }
 SidebarComponent.ɵfac = function SidebarComponent_Factory(t) { return new (t || SidebarComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_apifilter_service__WEBPACK_IMPORTED_MODULE_3__["ApifilterService"])); };
-SidebarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SidebarComponent, selectors: [["app-sidebar"]], decls: 46, vars: 3, consts: [[1, "navbar-nav", "sticky-top", "text-center"], ["id", "container", 1, "icon-bar", "text-center"], ["width", "100%", 1, "ham-wrapper", "text-center"], ["role", "button", 1, "col-auto", "btn", "btn-lg", "custom-btn"], [1, "fa", "fa-bars"], [1, "dashboard", 3, "click"], [1, "dashboard-icon", "icon-wrapper"], [1, "icon", "fas", "fa-tachometer-alt"], [1, "dashboard-content", "col-auto"], [1, "assets-btn"], [1, "assets-icon", "icon-wrapper"], ["routerLink", "assets", 1, "icon", "fas", "fa-file-alt"], ["id", "dropdown", "data-toggle", "collapse", "data-target", "#dd", 1, "assets-text", "dropdown-toggle", "dropdown-btn", "col-auto"], ["id", "dd", "aria-labelledby", "dropdown01", 1, "dropdown-container", "collapse"], ["routerLink", "contracts", 1, "dropdown"], ["routerLink", "assets", 1, "dropdown"], ["routerLink", "portal/tickets", 1, "tickets"], [1, "tickets-icon", "icon-wrapper"], ["routerLink", "manageassets/tickets", 1, "icon", "fas", "fa-ticket-alt"], [1, "tickets-content", "col-auto"], ["routerLink", "locations", 1, "locations"], [1, "locations-icon", "icon-wrapper"], ["routerLink", "locations", 1, "icon", "fas", "fa-map"], [1, "admin"], [1, "admin-icon", "icon-wrapper"], ["routerLink", "", 1, "icon", "fas", "fa-users-cog"], ["id", "dropdown02", "data-toggle", "collapse", "data-target", "#dd2", 1, "dropdown-toggle", "dropdown-btn", "col-auto"], ["id", "dd2", "aria-labelledby", "dropdown02", 1, "dropdown-container", "collapse"], ["routerLink", "admin/customers", 1, "dropdown"], ["class", "dropdown", "routerLink", "admin", 4, "ngIf"], ["class", "dropdown", "routerLink", "admin/register", 4, "ngIf"], ["class", "dropdown", "routerLink", "admin/localMonitor", 4, "ngIf"], ["routerLink", "admin", 1, "dropdown"], ["routerLink", "admin/register", 1, "dropdown"], ["routerLink", "admin/localMonitor", 1, "dropdown"]], template: function SidebarComponent_Template(rf, ctx) { if (rf & 1) {
+SidebarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SidebarComponent, selectors: [["app-sidebar"]], decls: 46, vars: 3, consts: [[1, "navbar-nav", "sticky-top", "text-center"], ["id", "container", 1, "icon-bar", "text-center"], ["width", "100%", 1, "ham-wrapper", "text-center"], ["role", "button", 1, "col-auto", "btn", "btn-lg", "custom-btn"], [1, "fa", "fa-bars"], [1, "dashboard", 3, "click"], [1, "dashboard-icon", "icon-wrapper"], [1, "icon", "fas", "fa-tachometer-alt"], [1, "dashboard-content", "col-auto"], [1, "assets-btn"], [1, "assets-icon", "icon-wrapper"], ["routerLink", "assets", 1, "icon", "fas", "fa-file-alt"], ["id", "dropdown", "data-toggle", "collapse", "data-target", "#dd", 1, "assets-text", "dropdown-toggle", "dropdown-btn", "col-auto"], ["id", "dd", "aria-labelledby", "dropdown01", 1, "dropdown-container", "collapse"], ["routerLink", "contracts", 1, "dropdown"], ["routerLink", "assets", 1, "dropdown"], ["routerLink", "portal/tickets", 1, "tickets"], [1, "tickets-icon", "icon-wrapper"], ["routerLink", "tickets", 1, "icon", "fas", "fa-ticket-alt"], [1, "tickets-content", "col-auto"], ["routerLink", "locations", 1, "locations"], [1, "locations-icon", "icon-wrapper"], ["routerLink", "locations", 1, "icon", "fas", "fa-map"], [1, "admin"], [1, "admin-icon", "icon-wrapper"], ["routerLink", "", 1, "icon", "fas", "fa-users-cog"], ["id", "dropdown02", "data-toggle", "collapse", "data-target", "#dd2", 1, "dropdown-toggle", "dropdown-btn", "col-auto"], ["id", "dd2", "aria-labelledby", "dropdown02", 1, "dropdown-container", "collapse"], ["routerLink", "admin/customers", 1, "dropdown"], ["class", "dropdown", "routerLink", "admin", 4, "ngIf"], ["class", "dropdown", "routerLink", "admin/register", 4, "ngIf"], ["class", "dropdown", "routerLink", "admin/localMonitor", 4, "ngIf"], ["routerLink", "admin", 1, "dropdown"], ["routerLink", "admin/register", 1, "dropdown"], ["routerLink", "admin/localMonitor", 1, "dropdown"]], template: function SidebarComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
