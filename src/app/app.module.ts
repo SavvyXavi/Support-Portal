@@ -57,11 +57,12 @@ import { ContractsModule } from './contracts/contracts/contracts.module';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    IndexModule,
-    PortalModule,
     FormsModule,
     ReactiveFormsModule,
-    ContractsModule
+    ContractsModule,
+    PortalModule,
+    IndexModule,
+
   ],
   providers: [
     AuthGuard,

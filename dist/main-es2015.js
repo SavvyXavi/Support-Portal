@@ -2045,11 +2045,11 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
-            _index_index_module__WEBPACK_IMPORTED_MODULE_24__["IndexModule"],
-            _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__["PortalModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-            _contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_26__["ContractsModule"]
+            _contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_26__["ContractsModule"],
+            _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__["PortalModule"],
+            _index_index_module__WEBPACK_IMPORTED_MODULE_24__["IndexModule"],
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
         _admin_register_register_component__WEBPACK_IMPORTED_MODULE_21__["RegisterComponent"],
@@ -2070,11 +2070,11 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
         _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
         _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
-        _index_index_module__WEBPACK_IMPORTED_MODULE_24__["IndexModule"],
-        _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__["PortalModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-        _contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_26__["ContractsModule"]] }); })();
+        _contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_26__["ContractsModule"],
+        _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__["PortalModule"],
+        _index_index_module__WEBPACK_IMPORTED_MODULE_24__["IndexModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
@@ -2101,11 +2101,11 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                     _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                     _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
-                    _index_index_module__WEBPACK_IMPORTED_MODULE_24__["IndexModule"],
-                    _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__["PortalModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-                    _contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_26__["ContractsModule"]
+                    _contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_26__["ContractsModule"],
+                    _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__["PortalModule"],
+                    _index_index_module__WEBPACK_IMPORTED_MODULE_24__["IndexModule"],
                 ],
                 providers: [
                     _index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"],
