@@ -8694,9 +8694,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (err) {
             if (err.status === 401) {
               // auto-logout if 401 response returned from api
-              _this35.authenticationService.logout();
+              _this35.authenticationService.logout(); // location.reload(true);
 
-              location.reload(true);
             }
 
             var error = err.error.message || err.statusText;
