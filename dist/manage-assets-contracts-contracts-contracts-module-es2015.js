@@ -471,7 +471,7 @@ function ContractsComponent_td_15_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const contract_r321 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "/contractdetail/", contract_r321.RefNumber, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "contractdetail/", contract_r321.RefNumber, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](contract_r321.ScheduleName);
 } }
