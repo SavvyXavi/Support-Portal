@@ -11,7 +11,6 @@ import { LoginpullsService } from './index/index/services/loginpulls.service';
 import { AppComponent } from './app.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
 
-import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 import { TicketsComponent } from './manage-assets/tickets/tickets.component';
 import { ListsComponent } from './manage-assets/lists/lists.component';
@@ -54,7 +53,6 @@ import { PortalModule } from './portal/portal-module/portal.module';
     AppComponent,
     RegisterComponent,
     SuppdashComponent,
-    ManageAssetsComponent,
     AccountsComponent,
     TicketsComponent,
     ListsComponent,

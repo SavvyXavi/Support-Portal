@@ -54,11 +54,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'manageassets/assets',
-    component: ManageAssetsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'manageassets/tickets',
     component: TicketsComponent,
     canActivate: [AuthGuard]
