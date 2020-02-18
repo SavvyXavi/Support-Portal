@@ -29,6 +29,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
+// Module Import
+import { ContractsModule } from '../../contracts/contracts/contracts.module';
+
 @NgModule({
   declarations: [
     PortalComponent,
@@ -48,6 +51,7 @@ import { MatInputModule } from '@angular/material/input';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    ContractsModule,
 
     // Material Imports
     MatSliderModule,
