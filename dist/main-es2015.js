@@ -2004,6 +2004,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/local-monitor/local-monitor.component */ "./src/app/admin/local-monitor/local-monitor.component.ts");
 /* harmony import */ var _index_index_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./index/index.module */ "./src/app/index/index.module.ts");
 /* harmony import */ var _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./portal/portal-module/portal.module */ "./src/app/portal/portal-module/portal.module.ts");
+/* harmony import */ var _contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./contracts/contracts/contracts.module */ "./src/app/contracts/contracts/contracts.module.ts");
 
 
 
@@ -2032,6 +2033,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class AppModule {
 }
 AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]] });
@@ -2046,7 +2048,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
             _index_index_module__WEBPACK_IMPORTED_MODULE_24__["IndexModule"],
             _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__["PortalModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
+            _contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_26__["ContractsModule"]
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
         _admin_register_register_component__WEBPACK_IMPORTED_MODULE_21__["RegisterComponent"],
@@ -2070,7 +2073,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _index_index_module__WEBPACK_IMPORTED_MODULE_24__["IndexModule"],
         _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__["PortalModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]] }); })();
+        _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
+        _contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_26__["ContractsModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
@@ -2100,7 +2104,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _index_index_module__WEBPACK_IMPORTED_MODULE_24__["IndexModule"],
                     _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__["PortalModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
+                    _contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_26__["ContractsModule"]
                 ],
                 providers: [
                     _index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"],
@@ -3375,7 +3380,7 @@ ContractsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineIn
         _angular_material_sort__WEBPACK_IMPORTED_MODULE_6__["MatSortModule"],
         _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"],
         _angular_material_input__WEBPACK_IMPORTED_MODULE_9__["MatInputModule"],
-        _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"]], exports: [_contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_10__["AssetLocFilterPipe"]] }); })();
+        _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ContractsModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
@@ -3398,9 +3403,6 @@ ContractsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineIn
                     _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"],
                     _angular_material_input__WEBPACK_IMPORTED_MODULE_9__["MatInputModule"],
                     _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"]
-                ],
-                exports: [
-                    _contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_10__["AssetLocFilterPipe"]
                 ]
             }]
     }], null, null); })();

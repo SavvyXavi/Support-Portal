@@ -31,6 +31,7 @@ import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.compo
 // Module Imports
 import { IndexModule } from './index/index.module';
 import { PortalModule } from './portal/portal-module/portal.module';
+import { ContractsModule } from './contracts/contracts/contracts.module';
 
 @NgModule({
   declarations: [
@@ -58,8 +59,9 @@ import { PortalModule } from './portal/portal-module/portal.module';
     BrowserAnimationsModule,
     IndexModule,
     PortalModule,
-      FormsModule,
-      ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    ContractsModule
   ],
   providers: [
     AuthGuard,
