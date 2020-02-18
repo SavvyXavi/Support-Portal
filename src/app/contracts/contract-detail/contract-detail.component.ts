@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { ApifilterService } from '../../../services/apifilter.service';
+import { ApifilterService } from '../../services/apifilter.service';
 
-import { Contracts } from '../../models/contracts';
-import { Assets } from '../../models/assets';
+import { Contracts } from '../models/contracts';
+import { Assets } from '../../manage-assets/models/assets';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';

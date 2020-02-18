@@ -16,7 +16,7 @@ import { map, first } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 
 import { Partner } from './../models/partner';
-import { Contracts } from './../manage-assets/models/contracts';
+import { Contracts } from './../contracts/models/contracts';
 import { Customer } from './../admin/models/customer';
 
 @Component({

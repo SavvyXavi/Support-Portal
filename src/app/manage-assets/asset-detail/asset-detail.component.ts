@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApifilterService } from './../../services/apifilter.service';
 
 import { Assets } from './../models/assets';
-import { Contracts } from './../models/contracts';
+import { Contracts } from '../../contracts/models/contracts';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';

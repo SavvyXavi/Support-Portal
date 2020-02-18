@@ -6,7 +6,7 @@ import { Profile } from '../index/index/models/profile';
 import { ProfileService } from '../index/index/services/profile.service';
 
 import { Filter } from './../models/filter';
-import { Contracts } from './../manage-assets/models/contracts';
+import { Contracts } from './../contracts/models/contracts';
 import { HttpClient } from '@angular/common/http';
 
 import { Partner } from '../models/partner';

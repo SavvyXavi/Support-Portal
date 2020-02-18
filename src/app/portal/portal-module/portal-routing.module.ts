@@ -27,7 +27,7 @@ const routes: Routes = [
       {
         path: 'contracts',
         loadChildren: () => import
-        ('../../manage-assets/contracts/contracts/contracts.module').then( c =>
+        ('../../contracts/contracts/contracts.module').then( c =>
           c.ContractsModule)
       },
       {

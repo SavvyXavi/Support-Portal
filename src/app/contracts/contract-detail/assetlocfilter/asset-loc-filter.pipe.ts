@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Assets } from './../../../models/assets';
+import { Assets } from '../../../manage-assets/models/assets';
 
 @Pipe({
   name: 'assetLocFilter'

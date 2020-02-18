@@ -11,15 +11,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
+import { AssetLocFilterPipe } from '../contract-detail/assetlocfilter/asset-loc-filter.pipe';
+
 import { ContractsRoutingModule } from './contracts-routing.module';
 import { ContractsComponent } from '../contracts.component';
 import { ContractDetailComponent } from '../contract-detail/contract-detail.component';
+import { ContractTableComponent } from '../contract-table/contract-table.component';
 
 
 @NgModule({
   declarations: [
     ContractsComponent,
-    ContractDetailComponent
+    ContractTableComponent,
+    ContractDetailComponent,
+    AssetLocFilterPipe
   ],
   imports: [
     CommonModule,

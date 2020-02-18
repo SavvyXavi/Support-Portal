@@ -1,23 +1,23 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Contracts } from '../models/contracts';
-import { Profile } from './../../index/index/models/profile';
+import { Profile } from '../../index/index/models/profile';
 import { Partner } from '../../models/partner';
 import { Customer } from '../../models/customer';
 
 import { ApifilterService } from './../../services/apifilter.service';
-import { AuthenticationService } from './../../index/index/services/authentication.service';
+import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
 
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-contracts',
-  templateUrl: './contracts.component.html',
-  styleUrls: ['./contracts.component.css']
+  selector: 'app-contract-table',
+  templateUrl: './contract-table.component.html',
+  styleUrls: ['./contract-table.component.css']
 })
-export class ContractsComponent implements OnInit {
+export class ContractTableComponent implements OnInit {
   contracts: Contracts;
   currentProfile: Profile;
 

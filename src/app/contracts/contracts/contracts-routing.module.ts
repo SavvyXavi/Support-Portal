@@ -5,6 +5,7 @@ import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
 
 import { ContractsComponent } from '../contracts.component';
 import { ContractDetailComponent } from '../contract-detail/contract-detail.component';
+import { ContractTableComponent } from '../contract-table/contract-table.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
     component: ContractsComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path: 'contracts',
+        component: ContractTableComponent
+      },
       {
         path: 'contractdetail/:refNumber',
         component: ContractDetailComponent

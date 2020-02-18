@@ -26,7 +26,6 @@ import { AdminComponent } from './admin/admin.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/ticket-detail.component';
-import { AssetLocFilterPipe } from './manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe';
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 
 // Module Imports
@@ -50,8 +49,7 @@ import { PortalModule } from './portal/portal-module/portal.module';
     AdminComponent,
     LocationDetailsComponent,
     TicketDetailComponent,
-    AssetLocFilterPipe,
-    LocalMonitorComponent
+    LocalMonitorComponent,
    ],
   imports: [
     BrowserModule,

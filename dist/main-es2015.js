@@ -2001,11 +2001,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _locations_location_details_location_details_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./locations/location-details/location-details.component */ "./src/app/locations/location-details/location-details.component.ts");
 /* harmony import */ var _admin_register_register_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/register/register.component */ "./src/app/admin/register/register.component.ts");
 /* harmony import */ var _manage_assets_tickets_ticket_detail_ticket_detail_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./manage-assets/tickets/ticket-detail/ticket-detail.component */ "./src/app/manage-assets/tickets/ticket-detail/ticket-detail.component.ts");
-/* harmony import */ var _manage_assets_contracts_contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe */ "./src/app/manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe.ts");
-/* harmony import */ var _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/local-monitor/local-monitor.component */ "./src/app/admin/local-monitor/local-monitor.component.ts");
-/* harmony import */ var _index_index_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./index/index.module */ "./src/app/index/index.module.ts");
-/* harmony import */ var _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./portal/portal-module/portal.module */ "./src/app/portal/portal-module/portal.module.ts");
-
+/* harmony import */ var _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/local-monitor/local-monitor.component */ "./src/app/admin/local-monitor/local-monitor.component.ts");
+/* harmony import */ var _index_index_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./index/index.module */ "./src/app/index/index.module.ts");
+/* harmony import */ var _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./portal/portal-module/portal.module */ "./src/app/portal/portal-module/portal.module.ts");
 
 
 
@@ -2045,8 +2043,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
-            _index_index_module__WEBPACK_IMPORTED_MODULE_25__["IndexModule"],
-            _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_26__["PortalModule"],
+            _index_index_module__WEBPACK_IMPORTED_MODULE_24__["IndexModule"],
+            _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__["PortalModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]
         ]] });
@@ -2065,13 +2063,12 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _admin_admin_component__WEBPACK_IMPORTED_MODULE_19__["AdminComponent"],
         _locations_location_details_location_details_component__WEBPACK_IMPORTED_MODULE_20__["LocationDetailsComponent"],
         _manage_assets_tickets_ticket_detail_ticket_detail_component__WEBPACK_IMPORTED_MODULE_22__["TicketDetailComponent"],
-        _manage_assets_contracts_contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_23__["AssetLocFilterPipe"],
-        _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_24__["LocalMonitorComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_23__["LocalMonitorComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
         _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
         _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
-        _index_index_module__WEBPACK_IMPORTED_MODULE_25__["IndexModule"],
-        _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_26__["PortalModule"],
+        _index_index_module__WEBPACK_IMPORTED_MODULE_24__["IndexModule"],
+        _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__["PortalModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
@@ -2093,16 +2090,15 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _admin_admin_component__WEBPACK_IMPORTED_MODULE_19__["AdminComponent"],
                     _locations_location_details_location_details_component__WEBPACK_IMPORTED_MODULE_20__["LocationDetailsComponent"],
                     _manage_assets_tickets_ticket_detail_ticket_detail_component__WEBPACK_IMPORTED_MODULE_22__["TicketDetailComponent"],
-                    _manage_assets_contracts_contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_23__["AssetLocFilterPipe"],
-                    _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_24__["LocalMonitorComponent"]
+                    _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_23__["LocalMonitorComponent"],
                 ],
                 imports: [
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                     _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                     _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                     _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
-                    _index_index_module__WEBPACK_IMPORTED_MODULE_25__["IndexModule"],
-                    _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_26__["PortalModule"],
+                    _index_index_module__WEBPACK_IMPORTED_MODULE_24__["IndexModule"],
+                    _portal_portal_module_portal_module__WEBPACK_IMPORTED_MODULE_25__["PortalModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]
                 ],
@@ -5919,37 +5915,6 @@ AssetDetailComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
 
 /***/ }),
 
-/***/ "./src/app/manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe.ts":
-/*!*************************************************************************************************!*\
-  !*** ./src/app/manage-assets/contracts/contract-detail/assetlocfilter/asset-loc-filter.pipe.ts ***!
-  \*************************************************************************************************/
-/*! exports provided: AssetLocFilterPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AssetLocFilterPipe", function() { return AssetLocFilterPipe; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-
-class AssetLocFilterPipe {
-    transform(value, filter) {
-        value = [...new Set(filter.map(ad => ad.SiteAddress))];
-        return value;
-    }
-}
-AssetLocFilterPipe.ɵfac = function AssetLocFilterPipe_Factory(t) { return new (t || AssetLocFilterPipe)(); };
-AssetLocFilterPipe.ɵpipe = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefinePipe"]({ name: "assetLocFilter", type: AssetLocFilterPipe, pure: true });
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AssetLocFilterPipe, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"],
-        args: [{
-                name: 'assetLocFilter'
-            }]
-    }], null, null); })();
-
-
-/***/ }),
-
 /***/ "./src/app/manage-assets/index.ts":
 /*!****************************************!*\
   !*** ./src/app/manage-assets/index.ts ***!
@@ -7467,7 +7432,7 @@ const routes = [
             },
             {
                 path: 'contracts',
-                loadChildren: () => __webpack_require__.e(/*! import() | manage-assets-contracts-contracts-contracts-module */ "manage-assets-contracts-contracts-contracts-module").then(__webpack_require__.bind(null, /*! ../../manage-assets/contracts/contracts/contracts.module */ "./src/app/manage-assets/contracts/contracts/contracts.module.ts")).then(c => c.ContractsModule)
+                loadChildren: () => __webpack_require__.e(/*! import() | contracts-contracts-contracts-module */ "contracts-contracts-contracts-module").then(__webpack_require__.bind(null, /*! ../../contracts/contracts/contracts.module */ "./src/app/contracts/contracts/contracts.module.ts")).then(c => c.ContractsModule)
             },
             {
                 path: 'tickets',
