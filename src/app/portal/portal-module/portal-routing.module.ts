@@ -42,7 +42,7 @@ const routes: Routes = [
         component: CompaniesComponent
       },
       {
-        path: 'customers',
+        path: 'admin/customers',
         component: CustomersComponent
       }
     ],

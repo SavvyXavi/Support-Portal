@@ -8190,7 +8190,7 @@ const routes = [
                 component: src_app_companies_companies_component__WEBPACK_IMPORTED_MODULE_7__["CompaniesComponent"]
             },
             {
-                path: 'customers',
+                path: 'admin/customers',
                 component: src_app_admin_customers_customers_component__WEBPACK_IMPORTED_MODULE_8__["CustomersComponent"]
             }
         ],
