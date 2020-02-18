@@ -1665,7 +1665,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       component: _contracts_component__WEBPACK_IMPORTED_MODULE_3__["ContractsComponent"],
       canActivate: [src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]],
       children: [{
-        path: 'contracts',
+        path: '',
         component: _contract_table_contract_table_component__WEBPACK_IMPORTED_MODULE_5__["ContractTableComponent"]
       }, {
         path: 'contractdetail/:refNumber',
