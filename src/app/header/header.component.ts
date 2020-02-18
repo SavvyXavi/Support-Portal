@@ -52,8 +52,4 @@ export class HeaderComponent implements OnInit {
     return this.displayLo = this.logoList.find(x => x.CompanyName === this.currentProfile?.partner);
   }
 
-
-  dashLink() {
-    this.router.navigate(['/portal/dashboard']);
-  }
 }
