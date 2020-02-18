@@ -61,7 +61,7 @@ import { ContractsModule } from './contracts/contracts/contracts.module';
     ReactiveFormsModule,
     ContractsModule,
     PortalModule,
-    IndexModule,
+    IndexModule
 
   ],
   providers: [
