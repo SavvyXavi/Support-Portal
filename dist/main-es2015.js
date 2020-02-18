@@ -4295,11 +4295,6 @@ const routes = [
         component: _index_index_index_component__WEBPACK_IMPORTED_MODULE_2__["IndexComponent"],
         children: [
             {
-                path: '',
-                redirectTo: 'login',
-                pathMatch: 'full'
-            },
-            {
                 path: 'login',
                 component: _index_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"]
             },

@@ -12,11 +12,6 @@ const routes: Routes = [
     component: IndexComponent,
     children: [
       {
-        path: '',
-        redirectTo: 'login',
-        pathMatch: 'full'
-      },
-      {
         path: 'login',
         component: LoginComponent
       },
