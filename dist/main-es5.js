@@ -8592,7 +8592,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return true;
           }
 
-          this.router.navigate(['/login']);
+          this.router.navigate(['/login'], {
+            queryParams: {
+              returnUrl: state.url
+            }
+          });
           return false;
         }
       }]);
@@ -9095,8 +9099,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.loginForm = this.formBuilder.group({
             username: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
-          });
-          this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+          }); // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
         }
       }, {
         key: "onSubmit",

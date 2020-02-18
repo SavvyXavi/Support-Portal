@@ -4609,7 +4609,7 @@ class AuthGuard {
         if (currentUser) {
             return true;
         }
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;
     }
 }
@@ -4860,7 +4860,7 @@ class LoginComponent {
             username: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
         });
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
     get f() {
         return this.loginForm.controls;
