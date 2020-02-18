@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row ">
       <div class="contracts-container total-container col-md">
-        <a routerLink="/manageassets/contracts">
+        <a routerLink="/portal/contracts">
           <div class="row contract-content">
             <div class="col contract-length">
               {{this.contractLength}}
@@ -17,7 +17,7 @@
         </a>
       </div>
       <div class="assets-container total-container col-md">
-        <a routerLink="/manageassets/assets">
+        <a routerLink="/portal/assets">
           <div class="row asset-content">
             <div class="col asset-length">
               {{this.assetLength}}
@@ -32,7 +32,7 @@
         </a>
       </div>
       <div class="tickets-container total-container col-md">
-        <a routerLink="/manageassets/tickets">
+        <a routerLink="/portal/tickets">
           <div class="row ticket-content">
             <div class="col ticket-length">
               {{this.ticketLength?.length}}
@@ -48,7 +48,7 @@
       </div>
 
     <div *ngIf="this.currentProfile.companypartner === 'Partner'" class="companies-container total-container col-md">
-        <a routerLink="/companies">
+        <a routerLink="/portal/companies">
           <div class="row companies-content">
             <div class="col companies-length">
               {{this.companyLength?.length}}
@@ -267,7 +267,7 @@
       </div>
       <div class="row">
         <div class="view-wrapper col-md">
-          <Button routerLink="/manageassets/tickets" class="btn btn-info"> View All</Button>
+          <Button routerLink="/portal/tickets" class="btn btn-info"> View All</Button>
         </div>
       </div>
 

@@ -1,7 +1,7 @@
         <!-- Ng If to read User Role -->
         <nav class="navbar-nav sticky-top text-center">
 
-          <div *ngIf="currentRole?.partnerRole === 'Admin'" id="container" class="icon-bar text-center">
+          <div id="container" class="icon-bar text-center">
             <div width="100%" class="ham-wrapper text-center">
             <button class="col-auto btn btn-lg custom-btn" role="button">
               <i class="fa fa-bars"></i>
@@ -9,7 +9,7 @@
           </div>
 
 
-                <a (click)="dashLink()" class="dashboard">
+                <a routerLink="dashboard" class="dashboard">
                   <div class="dashboard-icon icon-wrapper">
                     <i class="icon fas fa-tachometer-alt"></i>
                   </div>
@@ -23,7 +23,7 @@
 
                 <a class="assets-btn">
                     <div class="assets-icon icon-wrapper">
-                      <i routerLink="manageassets/assets" class="icon fas fa-file-alt"></i>
+                      <i routerLink="assets" class="icon fas fa-file-alt"></i>
                   </div>
                   <div class="assets-text dropdown-toggle dropdown-btn col-auto" id="dropdown" data-toggle="collapse" data-target="#dd">
                       <span>
@@ -34,14 +34,14 @@
 
 
               <div id="dd" class="dropdown-container collapse" aria-labelledby="dropdown01">
-                    <a class="dropdown" routerLink="manageassets/contracts">Contracts</a>
-                    <a class="dropdown" routerLink="manageassets/assets">Assets</a>
+                    <a class="dropdown" routerLink="contracts">Contracts</a>
+                    <a class="dropdown" routerLink="assets">Assets</a>
               </div>
 
 
-              <a routerLink="manageassets/tickets" class="tickets">
+              <a routerLink="tickets" class="tickets">
                 <div class="tickets-icon icon-wrapper">
-                    <i routerLink="manageassets/tickets" class="icon fas fa-ticket-alt"></i>
+                    <i routerLink="tickets" class="icon fas fa-ticket-alt"></i>
                 </div>
                 <div class="tickets-content col-auto">
                     <span>Tickets</span>
@@ -69,14 +69,14 @@
                 <div id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
                     <!-- <a class="dropdown" routerLink="admin/oem">OEM</a> -->
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
-                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/admin">Admin</a>
+                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin">Admin</a>
                     <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/register">Register Users</a>
                     <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/localMonitor">Local Monitor</a>
               </div>
           </div>
     </nav>
 
-    <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
+    <!-- <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
         <div id="container" class="icon-bar">
             <div class="ham-wrapper">
             <button class="col-auto btn btn-lg custom-btn" (click)="collapseMenu()">
@@ -126,4 +126,4 @@
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
               </div>
           </div>
-    </nav>
+    </nav> -->
