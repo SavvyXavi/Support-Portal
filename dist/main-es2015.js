@@ -3625,8 +3625,7 @@ class AlertComponent {
         });
     }
     ngOnDestroy() {
-        var _a;
-        (_a = this.subcscription) === null || _a === void 0 ? void 0 : _a.unsubscribe();
+        // this.subcscription?.unsubscribe();
     }
 }
 AlertComponent.ɵfac = function AlertComponent_Factory(t) { return new (t || AlertComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_alert_service__WEBPACK_IMPORTED_MODULE_1__["AlertService"])); };
