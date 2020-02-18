@@ -5,7 +5,10 @@ import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
 
 import { PortalComponent } from '../portal.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
-import { ManageAssetsComponent } from 'src/app/manage-assets';
+import { ManageAssetsComponent, TicketsComponent } from 'src/app/manage-assets';
+import { ContractsComponent } from 'src/app/manage-assets/contracts/contracts.component';
+import { CompaniesComponent } from 'src/app/companies/companies.component';
+import { CustomersComponent } from 'src/app/admin/customers/customers.component';
 
 const routes: Routes = [
   {
@@ -20,6 +23,22 @@ const routes: Routes = [
       {
         path: 'assets',
         component: ManageAssetsComponent
+      },
+      {
+        path: 'contracts',
+        component: ContractsComponent
+      },
+      {
+        path: 'tickets',
+        component: TicketsComponent
+      },
+      {
+        path: 'companies',
+        component: CompaniesComponent
+      },
+      {
+        path: 'customers',
+        component: CustomersComponent
       }
     ],
   },

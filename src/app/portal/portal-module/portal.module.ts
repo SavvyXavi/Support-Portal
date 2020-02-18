@@ -9,7 +9,11 @@ import { PortalRoutingModule } from './portal-routing.module';
 import { HeaderComponent } from './../../header/header.component';
 import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
-import { ManageAssetsComponent } from '../../manage-assets';
+import { ManageAssetsComponent, TicketsComponent } from '../../manage-assets';
+import { ContractsComponent } from 'src/app/manage-assets/contracts/contracts.component';
+import { CompaniesComponent } from 'src/app/companies/companies.component';
+import { CustomersComponent } from 'src/app/admin/customers/customers.component';
+import { LocationsComponent } from 'src/app/locations/locations.component';
 
 import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
 import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
@@ -32,7 +36,12 @@ import { MatInputModule } from '@angular/material/input';
     HeaderComponent,
     SidebarComponent,
     DashboardComponent,
-    ManageAssetsComponent
+    ManageAssetsComponent,
+    ContractsComponent,
+    TicketsComponent,
+    CompaniesComponent,
+    CustomersComponent,
+    LocationsComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +58,7 @@ import { MatInputModule } from '@angular/material/input';
     MatSortModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule,
+    MatFormFieldModule
 
   ],
   providers: [

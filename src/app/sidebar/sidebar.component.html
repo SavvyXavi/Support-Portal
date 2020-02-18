@@ -34,12 +34,12 @@
 
 
               <div id="dd" class="dropdown-container collapse" aria-labelledby="dropdown01">
-                    <a class="dropdown" routerLink="manageassets/contracts">Contracts</a>
-                    <a class="dropdown" routerLink="manageassets/assets">Assets</a>
+                    <a class="dropdown" routerLink="portal/contracts">Contracts</a>
+                    <a class="dropdown" routerLink="portal/assets">Assets</a>
               </div>
 
 
-              <a routerLink="manageassets/tickets" class="tickets">
+              <a routerLink="portal/tickets" class="tickets">
                 <div class="tickets-icon icon-wrapper">
                     <i routerLink="manageassets/tickets" class="icon fas fa-ticket-alt"></i>
                 </div>
@@ -48,7 +48,7 @@
                 </div>
                 </a>
 
-                <a routerLink="locations" class="locations">
+                <a routerLink="portal/locations" class="locations">
                   <div class="locations-icon icon-wrapper">
                       <i routerLink="locations" class="icon fas fa-map"></i>
                   </div>
@@ -69,9 +69,9 @@
                 <div id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
                     <!-- <a class="dropdown" routerLink="admin/oem">OEM</a> -->
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
-                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/admin">Admin</a>
-                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/register">Register Users</a>
-                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/localMonitor">Local Monitor</a>
+                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="portal/admin">Admin</a>
+                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="portal/admin/register">Register Users</a>
+                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="portal/admin/localMonitor">Local Monitor</a>
               </div>
           </div>
     </nav>
