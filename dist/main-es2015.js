@@ -3375,7 +3375,7 @@ ContractsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineIn
         _angular_material_sort__WEBPACK_IMPORTED_MODULE_6__["MatSortModule"],
         _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"],
         _angular_material_input__WEBPACK_IMPORTED_MODULE_9__["MatInputModule"],
-        _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"]] }); })();
+        _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"]], exports: [_contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_10__["AssetLocFilterPipe"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ContractsModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
@@ -3398,6 +3398,9 @@ ContractsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineIn
                     _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"],
                     _angular_material_input__WEBPACK_IMPORTED_MODULE_9__["MatInputModule"],
                     _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"]
+                ],
+                exports: [
+                    _contract_detail_assetlocfilter_asset_loc_filter_pipe__WEBPACK_IMPORTED_MODULE_10__["AssetLocFilterPipe"]
                 ]
             }]
     }], null, null); })();

@@ -40,6 +40,9 @@ import { ContractTableComponent } from '../contract-table/contract-table.compone
     MatIconModule,
     MatInputModule,
     MatFormFieldModule
+  ],
+  exports: [
+    AssetLocFilterPipe
   ]
 })
 export class ContractsModule { }
