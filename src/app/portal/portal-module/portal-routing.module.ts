@@ -6,7 +6,6 @@ import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
 import { PortalComponent } from '../portal.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import { ManageAssetsComponent, TicketsComponent } from 'src/app/manage-assets';
-import { ContractsComponent } from 'src/app/manage-assets/contracts/contracts.component';
 import { CompaniesComponent } from 'src/app/companies/companies.component';
 import { CustomersComponent } from 'src/app/admin/customers/customers.component';
 import { LocationsComponent } from 'src/app/locations/locations.component';
@@ -27,7 +26,9 @@ const routes: Routes = [
       },
       {
         path: 'contracts',
-        component: ContractsComponent
+        loadChildren: () => import
+        ('../../manage-assets/contracts/contracts/contracts.module').then( c =>
+          c.ContractsModule)
       },
       {
         path: 'tickets',

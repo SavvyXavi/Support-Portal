@@ -10,7 +10,6 @@ import { HeaderComponent } from './../../header/header.component';
 import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import { ManageAssetsComponent, TicketsComponent } from '../../manage-assets';
-import { ContractsComponent } from 'src/app/manage-assets/contracts/contracts.component';
 import { CompaniesComponent } from 'src/app/companies/companies.component';
 import { CustomersComponent } from 'src/app/admin/customers/customers.component';
 import { LocationsComponent } from 'src/app/locations/locations.component';
@@ -37,7 +36,6 @@ import { MatInputModule } from '@angular/material/input';
     SidebarComponent,
     DashboardComponent,
     ManageAssetsComponent,
-    ContractsComponent,
     TicketsComponent,
     CompaniesComponent,
     CustomersComponent,

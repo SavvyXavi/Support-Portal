@@ -9,7 +9,6 @@ import { Routes, RouterModule,  } from '@angular/router';
 
 import { SuppdashComponent } from './suppdash/suppdash.component';
 
-
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AuthGuard } from './index/index/guards/auth.guard';
@@ -17,7 +16,6 @@ import { AccountsComponent } from './admin/accounts/accounts.component';
 import { OemComponent } from './admin/oem/oem.component';
 import { BudgetComponent } from './budget/budget.component';
 import { CustomersComponent } from './admin/customers/customers.component';
-import { ContractDetailComponent } from './manage-assets/contracts/contract-detail/contract-detail.component';
 import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.component';
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 const routes: Routes = [
@@ -25,7 +23,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import
     ('./index/index.module').then(
-      m => m.IndexModule)
+      m => m.IndexModule),
   },
   {
     path: 'portal',
@@ -46,11 +44,6 @@ const routes: Routes = [
   {
     path: 'suppdash',
     component: SuppdashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'contractdetail/:refNumber',
-    component: ContractDetailComponent,
     canActivate: [AuthGuard]
   },
   {

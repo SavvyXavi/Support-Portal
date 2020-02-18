@@ -21,7 +21,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ContractDetailComponent } from './manage-assets/contracts/contract-detail/contract-detail.component';
 import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.component';
 import { AdminComponent } from './admin/admin.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
@@ -47,7 +46,6 @@ import { PortalModule } from './portal/portal-module/portal.module';
     UsersComponent,
     ProfileComponent,
     SettingsComponent,
-    ContractDetailComponent,
     AssetDetailComponent,
     AdminComponent,
     LocationDetailsComponent,
