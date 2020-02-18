@@ -7992,6 +7992,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var routes = [{
       path: '',
+      redirectTo: '/login'
+    }, {
+      path: '',
       component: _index_index_index_component__WEBPACK_IMPORTED_MODULE_2__["IndexComponent"],
       children: [{
         path: 'login',

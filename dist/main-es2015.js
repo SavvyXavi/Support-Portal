@@ -4291,6 +4291,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     {
+        path: '', redirectTo: '/login',
+    },
+    {
         path: '',
         component: _index_index_index_component__WEBPACK_IMPORTED_MODULE_2__["IndexComponent"],
         children: [

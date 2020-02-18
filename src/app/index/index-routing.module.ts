@@ -8,6 +8,9 @@ import { ResetComponent } from './index/reset/reset.component';
 
 const routes: Routes = [
   {
+    path: '', redirectTo: '/login',
+  },
+  {
     path: '',
     component: IndexComponent,
     children: [
