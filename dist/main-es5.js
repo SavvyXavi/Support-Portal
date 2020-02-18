@@ -3433,6 +3433,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     "./src/app/admin/local-monitor/local-monitor.component.ts");
 
     var routes = [{
+      path: '',
+      redirectTo: '/login',
+      pathMatch: 'full'
+    }, {
       path: 'portal',
       loadChildren: function loadChildren() {
         return Promise.resolve().then(__webpack_require__.bind(null,
@@ -3442,7 +3446,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         });
       }
     }, {
-      path: '',
+      path: 'login',
       loadChildren: function loadChildren() {
         return Promise.resolve().then(__webpack_require__.bind(null,
         /*! ./index/index.module */
@@ -7992,13 +7996,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var routes = [{
       path: '',
-      redirectTo: '/login',
-      pathMatch: 'full'
-    }, {
-      path: '',
       component: _index_index_index_component__WEBPACK_IMPORTED_MODULE_2__["IndexComponent"],
       children: [{
-        path: 'login',
+        path: 'portal',
+        loadChildren: function loadChildren() {
+          return Promise.resolve().then(__webpack_require__.bind(null,
+          /*! ../portal/portal-module/portal.module */
+          "./src/app/portal/portal-module/portal.module.ts")).then(function (p) {
+            return p.PortalModule;
+          });
+        }
+      }, {
+        path: '',
         component: _index_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"]
       }, {
         path: 'forgot',
@@ -8142,6 +8151,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _index_helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! ./index/helpers/error-interceptor.service */
     "./src/app/index/index/helpers/error-interceptor.service.ts");
+    /* harmony import */
+
+
+    var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! @angular/cdk/portal */
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
 
     var IndexModule = function IndexModule() {
       _classCallCheck(this, IndexModule);
@@ -8159,13 +8174,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         useClass: _index_helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_12__["ErrorInterceptor"],
         multi: true
       }],
-      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]]]
+      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__["PortalModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](IndexModule, {
         declarations: [_index_index_component__WEBPACK_IMPORTED_MODULE_5__["IndexComponent"], _index_login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"], _index_alert_alert_component__WEBPACK_IMPORTED_MODULE_7__["AlertComponent"], _index_forgotpassword_forgotpassword_component__WEBPACK_IMPORTED_MODULE_8__["ForgotpasswordComponent"], _index_reset_reset_component__WEBPACK_IMPORTED_MODULE_9__["ResetComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]]
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__["PortalModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]]
       });
     })();
     /*@__PURE__*/
@@ -8176,7 +8191,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
           declarations: [_index_index_component__WEBPACK_IMPORTED_MODULE_5__["IndexComponent"], _index_login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"], _index_alert_alert_component__WEBPACK_IMPORTED_MODULE_7__["AlertComponent"], _index_forgotpassword_forgotpassword_component__WEBPACK_IMPORTED_MODULE_8__["ForgotpasswordComponent"], _index_reset_reset_component__WEBPACK_IMPORTED_MODULE_9__["ResetComponent"]],
-          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]],
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__["PortalModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]],
           providers: [_index_services_alert_service__WEBPACK_IMPORTED_MODULE_10__["AlertService"], _index_services_authentication_service__WEBPACK_IMPORTED_MODULE_11__["AuthenticationService"], {
             provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HTTP_INTERCEPTORS"],
             useClass: _index_helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_12__["ErrorInterceptor"],
@@ -9089,7 +9104,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.adminHeader = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
 
         if (this.authenticationService.currentUserValue) {
-          this.router.navigate(['/portal/dashboard']);
+          this.router.navigate(['/portal']);
         }
       }
 
@@ -9114,7 +9129,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.loading = true;
           this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
-            _this36.router.navigate(['/portal/dashboard']);
+            _this36.router.navigate(['/portal']);
           }, function (error) {
             _this36.alertService.error(error);
 
@@ -16057,6 +16072,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     "./src/app/locations/locations.component.ts");
 
     var routes = [{
+      path: '',
+      redirectTo: 'dashboard',
+      pathMatch: 'full'
+    }, {
       'path': '',
       component: _portal_component__WEBPACK_IMPORTED_MODULE_3__["PortalComponent"],
       canActivate: [src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]],

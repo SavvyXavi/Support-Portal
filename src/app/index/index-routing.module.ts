@@ -9,15 +9,16 @@ import { ResetComponent } from './index/reset/reset.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  {
-    path: '',
     component: IndexComponent,
     children: [
       {
-        path: 'login',
+        path: 'portal',
+        loadChildren: () => import
+        ('../portal/portal-module/portal.module').then( p =>
+          p.PortalModule)
+      },
+      {
+        path: '',
         component: LoginComponent
       },
       {

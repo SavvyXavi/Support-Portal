@@ -12,6 +12,11 @@ import { LocationsComponent } from 'src/app/locations/locations.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
+  {
     'path': '',
     component: PortalComponent,
     canActivate: [AuthGuard],

@@ -20,13 +20,18 @@ import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
     path: 'portal',
     loadChildren: () => import
     ('./portal/portal-module/portal.module').then( m =>
       m.PortalModule),
   },
   {
-    path: '',
+    path: 'login',
     loadChildren: () => import
     ('./index/index.module').then(
       m => m.IndexModule),

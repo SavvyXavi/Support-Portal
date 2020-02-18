@@ -13,6 +13,7 @@ import { AlertService } from './index/services/alert.service';
 import { AuthenticationService } from './index/services/authentication.service';
 
 import { ErrorInterceptor } from './index/helpers/error-interceptor.service';
+import { PortalModule } from '@angular/cdk/portal';
 
 
 @NgModule({
@@ -25,8 +26,9 @@ import { ErrorInterceptor } from './index/helpers/error-interceptor.service';
   ],
   imports: [
     CommonModule,
+    PortalModule,
     IndexRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     AlertService,
