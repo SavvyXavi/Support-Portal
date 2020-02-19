@@ -32,6 +32,7 @@ import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.compo
 import { IndexModule } from './index/index.module';
 import { PortalModule } from './portal/portal-module/portal.module';
 import { ContractsModule } from './contracts/contracts/contracts.module';
+import { AssetsTableComponent } from './manage-assets/assets-table/assets-table.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ContractsModule } from './contracts/contracts/contracts.module';
     LocationDetailsComponent,
     TicketDetailComponent,
     LocalMonitorComponent,
+    AssetsTableComponent,
    ],
   imports: [
     BrowserModule,
@@ -59,8 +61,6 @@ import { ContractsModule } from './contracts/contracts/contracts.module';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    ContractsModule,
-    PortalModule,
     IndexModule
 
   ],

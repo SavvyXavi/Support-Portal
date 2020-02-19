@@ -15,11 +15,13 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ContractTableComponent
-      },
-      {
-        path: 'contractdetail/:refNumber',
-        component: ContractDetailComponent
+        component: ContractTableComponent,
+        children: [
+          {
+            path: ':refNumber',
+            component: ContractDetailComponent
+          }
+        ]
       },
     ]
   }

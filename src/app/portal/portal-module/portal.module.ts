@@ -31,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
 
 // Module Import
 import { ContractsModule } from '../../contracts/contracts/contracts.module';
+import { AssetsModule } from 'src/app/manage-assets/assets/assets.module';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ContractsModule } from '../../contracts/contracts/contracts.module';
     FormsModule,
     ReactiveFormsModule,
     ContractsModule,
+    AssetsModule,
 
     // Material Imports
     MatSliderModule,
