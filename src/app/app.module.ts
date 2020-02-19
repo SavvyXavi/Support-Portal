@@ -21,7 +21,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.component';
 import { AdminComponent } from './admin/admin.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { RegisterComponent } from './admin/register/register.component';
@@ -30,9 +29,6 @@ import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.compo
 
 // Module Imports
 import { IndexModule } from './index/index.module';
-import { PortalModule } from './portal/portal-module/portal.module';
-import { ContractsModule } from './contracts/contracts/contracts.module';
-import { AssetsTableComponent } from './manage-assets/assets-table/assets-table.component';
 
 @NgModule({
   declarations: [
@@ -47,12 +43,10 @@ import { AssetsTableComponent } from './manage-assets/assets-table/assets-table.
     UsersComponent,
     ProfileComponent,
     SettingsComponent,
-    AssetDetailComponent,
     AdminComponent,
     LocationDetailsComponent,
     TicketDetailComponent,
-    LocalMonitorComponent,
-    AssetsTableComponent,
+    LocalMonitorComponent
    ],
   imports: [
     BrowserModule,

@@ -47,11 +47,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'assetdetail/:identifier',
-    component: AssetDetailComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'locationdetail/:description',
     component: LocationDetailsComponent,
     canActivate: [AuthGuard]

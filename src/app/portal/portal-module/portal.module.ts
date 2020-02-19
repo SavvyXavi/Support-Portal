@@ -9,7 +9,7 @@ import { PortalRoutingModule } from './portal-routing.module';
 import { HeaderComponent } from './../../header/header.component';
 import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
-import { ManageAssetsComponent, TicketsComponent } from '../../manage-assets';
+import { TicketsComponent } from '../../manage-assets';
 import { CompaniesComponent } from 'src/app/companies/companies.component';
 import { CustomersComponent } from 'src/app/admin/customers/customers.component';
 import { LocationsComponent } from 'src/app/locations/locations.component';
@@ -39,7 +39,6 @@ import { AssetsModule } from 'src/app/manage-assets/assets/assets.module';
     HeaderComponent,
     SidebarComponent,
     DashboardComponent,
-    ManageAssetsComponent,
     TicketsComponent,
     CompaniesComponent,
     CustomersComponent,

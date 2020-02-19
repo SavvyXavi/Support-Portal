@@ -26,14 +26,16 @@ const routes: Routes = [
         component: DashboardComponent,
       },
       {
-        path: 'assets',
-        component: ManageAssetsComponent
-      },
-      {
         path: 'contracts',
         loadChildren: () => import
         ('../../contracts/contracts/contracts.module').then( c =>
           c.ContractsModule)
+      },
+      {
+        path: 'assets',
+        loadChildren: () => import
+        ('../../manage-assets/assets/assets.module').then( a =>
+          a.AssetsModule)
       },
       {
         path: 'tickets',
