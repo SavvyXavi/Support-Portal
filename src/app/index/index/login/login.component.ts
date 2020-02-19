@@ -58,7 +58,8 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
         console.log('Routing!');
-        this.router.navigate(['../portal'], {relativeTo: this.route.parent});
+        this.router.navigateByUrl('/portal');
+        // this.router.navigate(['../portal'], {relativeTo: this.route.parent});
   },
       error => {
         console.log('Error??');

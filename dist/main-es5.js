@@ -9109,9 +9109,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
             console.log('Routing!');
 
-            _this36.router.navigate(['../portal'], {
-              relativeTo: _this36.route.parent
-            });
+            _this36.router.navigateByUrl('/portal'); // this.router.navigate(['../portal'], {relativeTo: this.route.parent});
+
           }, function (error) {
             console.log('Error??');
 
