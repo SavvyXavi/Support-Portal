@@ -45415,6 +45415,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var assetid = this.route.snapshot.paramMap.get('identifier');
           this.filter.assetsBySerial(assetid).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["first"])()).subscribe(function (returnedAsset) {
             _this37.asset = returnedAsset;
+            console.log(_this37.asset);
 
             _this37.filter.conByName(_this37.asset.Schedule).subscribe(function (returnedContractLength) {
               _this37.contractLength = returnedContractLength;

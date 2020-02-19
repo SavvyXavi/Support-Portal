@@ -40421,6 +40421,7 @@ class AssetDetailComponent {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["first"])())
             .subscribe((returnedAsset) => {
             this.asset = returnedAsset;
+            console.log(this.asset);
             this.filter.conByName(this.asset.Schedule)
                 .subscribe((returnedContractLength) => {
                 this.contractLength = returnedContractLength;
