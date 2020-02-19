@@ -14316,10 +14316,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     "./src/app/locations/locations.component.ts");
 
     var routes = [{
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full'
-    }, {
       'path': '',
       component: _portal_component__WEBPACK_IMPORTED_MODULE_3__["PortalComponent"],
       canActivate: [src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]],
