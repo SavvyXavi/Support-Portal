@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
       data => {
         console.log('Routing!');
         // this.router.navigateByUrl('/portal');
-        this.router.navigate(['/portal']);
+        this.router.navigate(['/portal/dashboard']);
 
       },
       error => {

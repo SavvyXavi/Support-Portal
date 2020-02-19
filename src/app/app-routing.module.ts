@@ -23,12 +23,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'login',
-    loadChildren: () => import
-    ('./index/index.module').then(
-      m => m.IndexModule),
-  },
-  {
     path: 'portal',
     loadChildren: () => import
     ('./portal/portal-module/portal.module').then( m =>
