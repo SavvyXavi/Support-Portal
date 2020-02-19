@@ -38463,7 +38463,7 @@ function ContractTableComponent_td_15_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const contract_r353 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("routerLink", contract_r353.RefNumber);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "contractdetail/", contract_r353.RefNumber, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](contract_r353.ScheduleName);
 } }
@@ -38761,12 +38761,10 @@ const routes = [
             {
                 path: '',
                 component: _contract_table_contract_table_component__WEBPACK_IMPORTED_MODULE_5__["ContractTableComponent"],
-                children: [
-                    {
-                        path: ':RefNumber',
-                        component: _contract_detail_contract_detail_component__WEBPACK_IMPORTED_MODULE_4__["ContractDetailComponent"]
-                    }
-                ]
+            },
+            {
+                path: 'contractdetail/:refNumber',
+                component: _contract_detail_contract_detail_component__WEBPACK_IMPORTED_MODULE_4__["ContractDetailComponent"]
             },
         ]
     }
