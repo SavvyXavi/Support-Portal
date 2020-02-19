@@ -4871,14 +4871,16 @@ class LoginComponent {
         return this.loginForm.controls;
     }
     onSubmit() {
+        var _a, _b;
         this.submitted = true;
         if (this.loginForm.invalid) {
             return;
         }
         this.loading = true;
-        this.authenticationService.login(this.f.username.value, this.f.password.value)
+        this.authenticationService.login((_a = this.f) === null || _a === void 0 ? void 0 : _a.username.value, (_b = this.f) === null || _b === void 0 ? void 0 : _b.password.value)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
             .subscribe(data => {
+            console.log('We made it!');
             this.router.navigate(['/portal']);
         }, error => {
             this.alertService.error(error);

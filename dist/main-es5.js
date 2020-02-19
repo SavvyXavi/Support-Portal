@@ -9108,6 +9108,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onSubmit() {
           var _this36 = this;
 
+          var _a, _b;
+
           this.submitted = true;
 
           if (this.loginForm.invalid) {
@@ -9115,7 +9117,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.loading = true;
-          this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
+          this.authenticationService.login((_a = this.f) === null || _a === void 0 ? void 0 : _a.username.value, (_b = this.f) === null || _b === void 0 ? void 0 : _b.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
+            console.log('We made it!');
+
             _this36.router.navigate(['/portal']);
           }, function (error) {
             _this36.alertService.error(error);
