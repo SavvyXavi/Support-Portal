@@ -26,7 +26,7 @@
   <div matColumnDef="Contract Name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract Name </th>
     <td mat-cell *matCellDef="let contract">
-      <a routerLink="/{{contract.RefNumber}}" class="contract-link">{{contract.ScheduleName}}</a>
+      <a routerLink="{{contract.RefNumber}}" class="contract-link">{{contract.ScheduleName}}</a>
     </td>
   </div>
 
