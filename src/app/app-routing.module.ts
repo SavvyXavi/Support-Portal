@@ -25,6 +25,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'portal',
+    loadChildren: () => import
+    ('./portal/portal-module/portal.module').then( m =>
+      m.PortalModule),
+  },
+  {
     path: 'login',
     loadChildren: () => import
     ('./index/index.module').then(
