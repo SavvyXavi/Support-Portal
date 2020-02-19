@@ -3737,17 +3737,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         path: 'reset-password',
         component: _index_reset_reset_component__WEBPACK_IMPORTED_MODULE_5__["ResetComponent"]
       }]
-    }, {
-      path: 'portal',
-      loadChildren: function loadChildren() {
-        return __webpack_require__.e(
-        /*! import() | portal-portal-module-portal-module */
-        "portal-portal-module-portal-module").then(__webpack_require__.bind(null,
-        /*! ../portal/portal-module/portal.module */
-        "./src/app/portal/portal-module/portal.module.ts")).then(function (m) {
-          return m.PortalModule;
-        });
-      }
     }];
 
     var IndexRoutingModule = function IndexRoutingModule() {
@@ -3883,12 +3872,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _index_helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! ./index/helpers/error-interceptor.service */
     "./src/app/index/index/helpers/error-interceptor.service.ts");
-    /* harmony import */
-
-
-    var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
-    /*! @angular/cdk/portal */
-    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
 
     var IndexModule = function IndexModule() {
       _classCallCheck(this, IndexModule);
@@ -3906,13 +3889,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         useClass: _index_helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_12__["ErrorInterceptor"],
         multi: true
       }],
-      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__["PortalModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]]]
+      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](IndexModule, {
         declarations: [_index_index_component__WEBPACK_IMPORTED_MODULE_5__["IndexComponent"], _index_login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"], _index_alert_alert_component__WEBPACK_IMPORTED_MODULE_7__["AlertComponent"], _index_forgotpassword_forgotpassword_component__WEBPACK_IMPORTED_MODULE_8__["ForgotpasswordComponent"], _index_reset_reset_component__WEBPACK_IMPORTED_MODULE_9__["ResetComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__["PortalModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]]
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]]
       });
     })();
     /*@__PURE__*/
@@ -3923,7 +3906,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
           declarations: [_index_index_component__WEBPACK_IMPORTED_MODULE_5__["IndexComponent"], _index_login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"], _index_alert_alert_component__WEBPACK_IMPORTED_MODULE_7__["AlertComponent"], _index_forgotpassword_forgotpassword_component__WEBPACK_IMPORTED_MODULE_8__["ForgotpasswordComponent"], _index_reset_reset_component__WEBPACK_IMPORTED_MODULE_9__["ResetComponent"]],
-          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__["PortalModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]],
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]],
           providers: [_index_services_alert_service__WEBPACK_IMPORTED_MODULE_10__["AlertService"], _index_services_authentication_service__WEBPACK_IMPORTED_MODULE_11__["AuthenticationService"], {
             provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HTTP_INTERCEPTORS"],
             useClass: _index_helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_12__["ErrorInterceptor"],
@@ -3992,13 +3975,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var ctx_r363 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        var ctx_r110 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction3"](2, _c0, ctx_r363.message, (ctx_r363.message == null ? null : ctx_r363.message.type) === "success", (ctx_r363.message == null ? null : ctx_r363.message.type) === "error"));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction3"](2, _c0, ctx_r110.message, (ctx_r110.message == null ? null : ctx_r110.message.type) === "success", (ctx_r110.message == null ? null : ctx_r110.message.type) === "error"));
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r363.message.text);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r110.message.text);
       }
     }
 
@@ -4339,7 +4322,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return true;
           }
 
-          this.router.navigate(['/login']);
+          this.router.navigate(['/login'], {
+            queryParams: {
+              returnUrl: state.url
+            }
+          });
           return false;
         }
       }]);
@@ -4772,8 +4759,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.loading = true;
           this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
-            console.log('Routing!'); // this.router.navigateByUrl('/portal');
-
             _this19.router.navigate(['/portal/dashboard']);
           }, function (error) {
             _this19.alertService.error(error);

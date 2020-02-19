@@ -1919,10 +1919,6 @@ const routes = [
             },
         ]
     },
-    {
-        path: 'portal',
-        loadChildren: () => __webpack_require__.e(/*! import() | portal-portal-module-portal-module */ "portal-portal-module-portal-module").then(__webpack_require__.bind(null, /*! ../portal/portal-module/portal.module */ "./src/app/portal/portal-module/portal.module.ts")).then(m => m.PortalModule),
-    },
 ];
 class IndexRoutingModule {
 }
@@ -1964,8 +1960,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_services_alert_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./index/services/alert.service */ "./src/app/index/index/services/alert.service.ts");
 /* harmony import */ var _index_services_authentication_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./index/services/authentication.service */ "./src/app/index/index/services/authentication.service.ts");
 /* harmony import */ var _index_helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./index/helpers/error-interceptor.service */ "./src/app/index/index/helpers/error-interceptor.service.ts");
-/* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
-
 
 
 
@@ -1989,7 +1983,6 @@ IndexModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInject
         { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HTTP_INTERCEPTORS"], useClass: _index_helpers_error_interceptor_service__WEBPACK_IMPORTED_MODULE_12__["ErrorInterceptor"], multi: true },
     ], imports: [[
             _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-            _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__["PortalModule"],
             _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]
@@ -1999,7 +1992,6 @@ IndexModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInject
         _index_alert_alert_component__WEBPACK_IMPORTED_MODULE_7__["AlertComponent"],
         _index_forgotpassword_forgotpassword_component__WEBPACK_IMPORTED_MODULE_8__["ForgotpasswordComponent"],
         _index_reset_reset_component__WEBPACK_IMPORTED_MODULE_9__["ResetComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-        _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__["PortalModule"],
         _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]] }); })();
@@ -2015,7 +2007,6 @@ IndexModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInject
                 ],
                 imports: [
                     _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                    _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__["PortalModule"],
                     _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]
@@ -2055,10 +2046,10 @@ function AlertComponent_div_0_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const ctx_r363 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction3"](2, _c0, ctx_r363.message, (ctx_r363.message == null ? null : ctx_r363.message.type) === "success", (ctx_r363.message == null ? null : ctx_r363.message.type) === "error"));
+    const ctx_r110 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction3"](2, _c0, ctx_r110.message, (ctx_r110.message == null ? null : ctx_r110.message.type) === "success", (ctx_r110.message == null ? null : ctx_r110.message.type) === "error"));
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r363.message.text);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r110.message.text);
 } }
 class AlertComponent {
     constructor(alertService) {
@@ -2227,7 +2218,7 @@ class AuthGuard {
         if (currentUser) {
             return true;
         }
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;
     }
 }
@@ -2450,8 +2441,6 @@ class LoginComponent {
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
             .subscribe(data => {
-            console.log('Routing!');
-            // this.router.navigateByUrl('/portal');
             this.router.navigate(['/portal/dashboard']);
         }, error => {
             this.alertService.error(error);

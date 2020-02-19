@@ -26,7 +26,6 @@ import { PortalModule } from '@angular/cdk/portal';
   ],
   imports: [
     CommonModule,
-    PortalModule,
     IndexRoutingModule,
     ReactiveFormsModule,
     FormsModule
