@@ -28,7 +28,7 @@ import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.compo
 
 // Module Imports
 import { IndexModule } from './index/index.module';
-import { PortalModule } from '@angular/cdk/portal';
+import { PortalModule } from './portal/portal-module/portal.module';
 
 @NgModule({
   declarations: [
