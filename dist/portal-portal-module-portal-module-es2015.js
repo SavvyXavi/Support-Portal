@@ -40544,7 +40544,7 @@ function AssetsTableComponent_td_15_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const asset_r354 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "/assetdetail/", asset_r354.Identifier, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "assetdetail/", asset_r354.Identifier, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", asset_r354.Name, " ");
 } }
@@ -40760,8 +40760,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AssetsRoutingModule", function() { return AssetsRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _manage_assets_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../manage-assets.component */ "./src/app/manage-assets/manage-assets.component.ts");
-/* harmony import */ var src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/index/index/guards/auth.guard */ "./src/app/index/index/guards/auth.guard.ts");
+/* harmony import */ var src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/index/index/guards/auth.guard */ "./src/app/index/index/guards/auth.guard.ts");
+/* harmony import */ var _manage_assets_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../manage-assets.component */ "./src/app/manage-assets/manage-assets.component.ts");
 /* harmony import */ var _assets_table_assets_table_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets-table/assets-table.component */ "./src/app/manage-assets/assets-table/assets-table.component.ts");
 /* harmony import */ var _asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../asset-detail/asset-detail.component */ "./src/app/manage-assets/asset-detail/asset-detail.component.ts");
 
@@ -40775,16 +40775,16 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: '',
-        component: _manage_assets_component__WEBPACK_IMPORTED_MODULE_2__["ManageAssetsComponent"],
-        canActivate: [src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+        component: _manage_assets_component__WEBPACK_IMPORTED_MODULE_3__["ManageAssetsComponent"],
+        canActivate: [src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]],
         children: [
-            {
-                path: '',
-                component: _assets_table_assets_table_component__WEBPACK_IMPORTED_MODULE_4__["AssetsTableComponent"]
-            },
             {
                 path: 'assetdetail/:identifier',
                 component: _asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_5__["AssetDetailComponent"]
+            },
+            {
+                path: '',
+                component: _assets_table_assets_table_component__WEBPACK_IMPORTED_MODULE_4__["AssetsTableComponent"]
             }
         ]
     }

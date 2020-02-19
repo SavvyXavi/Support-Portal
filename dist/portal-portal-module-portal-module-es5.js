@@ -45671,7 +45671,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "/assetdetail/", asset_r354.Identifier, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "assetdetail/", asset_r354.Identifier, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
@@ -46101,15 +46101,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _manage_assets_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../manage-assets.component */
-    "./src/app/manage-assets/manage-assets.component.ts");
+    var src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/index/index/guards/auth.guard */
+    "./src/app/index/index/guards/auth.guard.ts");
     /* harmony import */
 
 
-    var src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/index/index/guards/auth.guard */
-    "./src/app/index/index/guards/auth.guard.ts");
+    var _manage_assets_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../manage-assets.component */
+    "./src/app/manage-assets/manage-assets.component.ts");
     /* harmony import */
 
 
@@ -46125,14 +46125,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var routes = [{
       path: '',
-      component: _manage_assets_component__WEBPACK_IMPORTED_MODULE_2__["ManageAssetsComponent"],
-      canActivate: [src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+      component: _manage_assets_component__WEBPACK_IMPORTED_MODULE_3__["ManageAssetsComponent"],
+      canActivate: [src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]],
       children: [{
-        path: '',
-        component: _assets_table_assets_table_component__WEBPACK_IMPORTED_MODULE_4__["AssetsTableComponent"]
-      }, {
         path: 'assetdetail/:identifier',
         component: _asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_5__["AssetDetailComponent"]
+      }, {
+        path: '',
+        component: _assets_table_assets_table_component__WEBPACK_IMPORTED_MODULE_4__["AssetsTableComponent"]
       }]
     }];
 

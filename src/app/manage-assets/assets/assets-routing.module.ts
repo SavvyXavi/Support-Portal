@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ManageAssetsComponent } from '../manage-assets.component';
 
 import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
 
+import { ManageAssetsComponent } from '../manage-assets.component';
 import { AssetsTableComponent } from '../assets-table/assets-table.component';
 import { AssetDetailComponent } from '../asset-detail/asset-detail.component';
 
@@ -14,12 +14,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: '',
-        component: AssetsTableComponent
-      },
-      {
         path: 'assetdetail/:identifier',
         component: AssetDetailComponent
+      },
+      {
+        path: '',
+        component: AssetsTableComponent
       }
     ]
   }
