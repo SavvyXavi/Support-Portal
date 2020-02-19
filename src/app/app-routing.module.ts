@@ -30,7 +30,12 @@ const routes: Routes = [
     ('./index/index.module').then(
       m => m.IndexModule),
   },
-
+  {
+    path: 'portal',
+    loadChildren: () => import
+    ('./portal/portal-module/portal.module').then( m =>
+      m.PortalModule),
+  },
   {
     path: 'profile',
     component: ProfileComponent,

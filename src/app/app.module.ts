@@ -29,6 +29,7 @@ import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.compo
 
 // Module Imports
 import { IndexModule } from './index/index.module';
+import { PortalModule } from '@angular/cdk/portal';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { IndexModule } from './index/index.module';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    IndexModule
+    IndexModule,
+    PortalModule
 
   ],
   providers: [

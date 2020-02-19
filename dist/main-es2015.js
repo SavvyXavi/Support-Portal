@@ -1549,6 +1549,10 @@ const routes = [
         loadChildren: () => Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index/index.module */ "./src/app/index/index.module.ts")).then(m => m.IndexModule),
     },
     {
+        path: 'portal',
+        loadChildren: () => __webpack_require__.e(/*! import() | portal-portal-module-portal-module */ "portal-portal-module-portal-module").then(__webpack_require__.bind(null, /*! ./portal/portal-module/portal.module */ "./src/app/portal/portal-module/portal.module.ts")).then(m => m.PortalModule),
+    },
+    {
         path: 'profile',
         component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_9__["ProfileComponent"],
         canActivate: [_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]]
@@ -1710,6 +1714,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _manage_assets_tickets_ticket_detail_ticket_detail_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./manage-assets/tickets/ticket-detail/ticket-detail.component */ "./src/app/manage-assets/tickets/ticket-detail/ticket-detail.component.ts");
 /* harmony import */ var _admin_local_monitor_local_monitor_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/local-monitor/local-monitor.component */ "./src/app/admin/local-monitor/local-monitor.component.ts");
 /* harmony import */ var _index_index_module__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./index/index.module */ "./src/app/index/index.module.ts");
+/* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
 
 
 
@@ -1736,6 +1741,7 @@ __webpack_require__.r(__webpack_exports__);
 // Module Imports
 
 
+
 class AppModule {
 }
 AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]] });
@@ -1749,7 +1755,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-            _index_index_module__WEBPACK_IMPORTED_MODULE_23__["IndexModule"]
+            _index_index_module__WEBPACK_IMPORTED_MODULE_23__["IndexModule"],
+            _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_24__["PortalModule"]
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
         _admin_register_register_component__WEBPACK_IMPORTED_MODULE_20__["RegisterComponent"],
@@ -1771,7 +1778,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-        _index_index_module__WEBPACK_IMPORTED_MODULE_23__["IndexModule"]] }); })();
+        _index_index_module__WEBPACK_IMPORTED_MODULE_23__["IndexModule"],
+        _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_24__["PortalModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
@@ -1799,7 +1807,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-                    _index_index_module__WEBPACK_IMPORTED_MODULE_23__["IndexModule"]
+                    _index_index_module__WEBPACK_IMPORTED_MODULE_23__["IndexModule"],
+                    _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_24__["PortalModule"]
                 ],
                 providers: [
                     _index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"],
@@ -1994,6 +2003,7 @@ IndexModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInject
             _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__["PortalModule"],
             _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](IndexModule, { declarations: [_index_index_component__WEBPACK_IMPORTED_MODULE_5__["IndexComponent"],
         _index_login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"],
@@ -2002,7 +2012,8 @@ IndexModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInject
         _index_reset_reset_component__WEBPACK_IMPORTED_MODULE_9__["ResetComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
         _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__["PortalModule"],
         _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]] }); })();
+        _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](IndexModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
@@ -2018,6 +2029,7 @@ IndexModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInject
                     _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_13__["PortalModule"],
                     _index_routing_module__WEBPACK_IMPORTED_MODULE_4__["IndexRoutingModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]
                 ],
                 providers: [
                     _index_services_alert_service__WEBPACK_IMPORTED_MODULE_10__["AlertService"],
