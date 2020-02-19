@@ -25,12 +25,12 @@ const routes: Routes = [
       },
     ]
   },
-  // {
-  //   path: 'portal',
-  //   loadChildren: () => import
-  //   ('../portal/portal-module/portal.module').then( m =>
-  //     m.PortalModule),
-  // },
+  {
+    path: 'portal',
+    loadChildren: () => import
+    ('../portal/portal-module/portal.module').then( m =>
+      m.PortalModule),
+  },
 ];
 
 @NgModule({
