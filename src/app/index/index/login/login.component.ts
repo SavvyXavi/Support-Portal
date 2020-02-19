@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
        this.router.navigate(['/portal']);
   },
       error => {
+        console.log('Error??');
         this.alertService.error(error);
         this.loading = false;
       }

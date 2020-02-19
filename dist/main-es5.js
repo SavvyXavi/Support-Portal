@@ -9122,6 +9122,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             _this36.router.navigate(['/portal']);
           }, function (error) {
+            console.log('Error??');
+
             _this36.alertService.error(error);
 
             _this36.loading = false;
