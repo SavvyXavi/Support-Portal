@@ -19,8 +19,9 @@ import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.compo
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
+    loadChildren: () => import
+    ('./index/index.module').then(
+      m => m.IndexModule),
   },
   {
     path: 'portal',
