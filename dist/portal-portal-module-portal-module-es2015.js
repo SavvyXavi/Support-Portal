@@ -38763,7 +38763,7 @@ const routes = [
                 component: _contract_table_contract_table_component__WEBPACK_IMPORTED_MODULE_5__["ContractTableComponent"],
                 children: [
                     {
-                        path: ':refNumber',
+                        path: ':RefNumber',
                         component: _contract_detail_contract_detail_component__WEBPACK_IMPORTED_MODULE_4__["ContractDetailComponent"]
                     }
                 ]
