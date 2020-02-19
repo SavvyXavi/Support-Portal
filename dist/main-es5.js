@@ -9119,8 +9119,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.loading = true;
           this.authenticationService.login((_a = this.f) === null || _a === void 0 ? void 0 : _a.username.value, (_b = this.f) === null || _b === void 0 ? void 0 : _b.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
             console.log('We made it!');
+            console.log(_this36.route.parent + ' Parent');
+            console.log(_this36.router.navigate(['/portal']));
 
-            _this36.router.navigate(['/portal']);
+            _this36.router.navigate(['../portal'], {
+              relativeTo: _this36.route.parent
+            });
           }, function (error) {
             console.log('Error??');
 

@@ -57,8 +57,10 @@ export class LoginComponent implements OnInit {
     .pipe(first())
     .subscribe(
       data => {
-        console.log( 'We made it!')
-       this.router.navigate(['/portal']);
+        console.log( 'We made it!');
+        console.log( this.route.parent + ' Parent');
+        console.log ( this.router.navigate(['/portal']));
+        this.router.navigate(['../portal'], {relativeTo: this.route.parent});
   },
       error => {
         console.log('Error??');
