@@ -4771,9 +4771,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.loading = true;
           this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
-            console.log('Routing!');
+            console.log('Routing!'); // this.router.navigateByUrl('/portal');
 
-            _this19.router.navigateByUrl('/portal');
+            _this19.router.navigate(['/portal']);
           }, function (error) {
             _this19.alertService.error(error);
 

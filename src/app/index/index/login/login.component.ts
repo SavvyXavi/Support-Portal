@@ -58,7 +58,9 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
         console.log('Routing!');
-        this.router.navigateByUrl('/portal');
+        // this.router.navigateByUrl('/portal');
+        this.router.navigate(['/portal']);
+
       },
       error => {
         this.alertService.error(error);

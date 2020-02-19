@@ -48,7 +48,7 @@ export class AssetDetailComponent implements OnInit {
         (returnedAsset: Assets) => {
           this.asset = returnedAsset;
           console.log(this.asset);
-          this.filter.conByName(this.asset.Schedule)
+          this.filter.conByName(this.asset[0].Schedule)
           .subscribe(
             (returnedContractLength: Contracts[]) => {
             this.contractLength = returnedContractLength;

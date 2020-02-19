@@ -45417,7 +45417,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this37.asset = returnedAsset;
             console.log(_this37.asset);
 
-            _this37.filter.conByName(_this37.asset.Schedule).subscribe(function (returnedContractLength) {
+            _this37.filter.conByName(_this37.asset[0].Schedule).subscribe(function (returnedContractLength) {
               _this37.contractLength = returnedContractLength;
               _this37.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContractLength);
               _this37.contractDataSource.sort = _this37.sort;

@@ -2450,7 +2450,8 @@ class LoginComponent {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
             .subscribe(data => {
             console.log('Routing!');
-            this.router.navigateByUrl('/portal');
+            // this.router.navigateByUrl('/portal');
+            this.router.navigate(['/portal']);
         }, error => {
             this.alertService.error(error);
             this.loading = false;

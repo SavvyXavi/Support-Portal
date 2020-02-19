@@ -40422,7 +40422,7 @@ class AssetDetailComponent {
             .subscribe((returnedAsset) => {
             this.asset = returnedAsset;
             console.log(this.asset);
-            this.filter.conByName(this.asset.Schedule)
+            this.filter.conByName(this.asset[0].Schedule)
                 .subscribe((returnedContractLength) => {
                 this.contractLength = returnedContractLength;
                 this.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContractLength);
