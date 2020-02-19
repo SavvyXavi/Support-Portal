@@ -40835,11 +40835,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _manage_assets_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../manage-assets.component */ "./src/app/manage-assets/manage-assets.component.ts");
 /* harmony import */ var _assets_table_assets_table_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../assets-table/assets-table.component */ "./src/app/manage-assets/assets-table/assets-table.component.ts");
 /* harmony import */ var _asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../asset-detail/asset-detail.component */ "./src/app/manage-assets/asset-detail/asset-detail.component.ts");
+/* harmony import */ var src_app_contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/contracts/contracts/contracts.module */ "./src/app/contracts/contracts/contracts.module.ts");
 
 
 
 
 // Mat Import
+
 
 
 
@@ -40861,6 +40863,7 @@ AssetsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjec
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+            src_app_contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_15__["ContractsModule"],
             // Mat Imports
             _angular_material_slider__WEBPACK_IMPORTED_MODULE_4__["MatSliderModule"],
             _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableModule"],
@@ -40877,6 +40880,7 @@ AssetsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjec
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+        src_app_contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_15__["ContractsModule"],
         // Mat Imports
         _angular_material_slider__WEBPACK_IMPORTED_MODULE_4__["MatSliderModule"],
         _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableModule"],
@@ -40899,6 +40903,7 @@ AssetsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjec
                     _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+                    src_app_contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_15__["ContractsModule"],
                     // Mat Imports
                     _angular_material_slider__WEBPACK_IMPORTED_MODULE_4__["MatSliderModule"],
                     _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableModule"],

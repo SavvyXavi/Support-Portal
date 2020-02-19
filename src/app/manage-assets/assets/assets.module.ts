@@ -16,6 +16,7 @@ import { AssetsRoutingModule } from './assets-routing.module';
 import { ManageAssetsComponent } from './../manage-assets.component';
 import { AssetsTableComponent } from './../assets-table/assets-table.component';
 import { AssetDetailComponent } from '../asset-detail/asset-detail.component';
+import { ContractsModule } from 'src/app/contracts/contracts/contracts.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AssetDetailComponent } from '../asset-detail/asset-detail.component';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    ContractsModule,
 
     // Mat Imports
     MatSliderModule,

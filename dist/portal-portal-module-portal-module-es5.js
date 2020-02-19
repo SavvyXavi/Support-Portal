@@ -46287,7 +46287,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! ../asset-detail/asset-detail.component */
-    "./src/app/manage-assets/asset-detail/asset-detail.component.ts"); // Mat Import
+    "./src/app/manage-assets/asset-detail/asset-detail.component.ts");
+    /* harmony import */
+
+
+    var src_app_contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    /*! src/app/contracts/contracts/contracts.module */
+    "./src/app/contracts/contracts/contracts.module.ts"); // Mat Import
 
 
     var AssetsModule = function AssetsModule() {
@@ -46301,14 +46307,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       factory: function AssetsModule_Factory(t) {
         return new (t || AssetsModule)();
       },
-      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _assets_routing_module__WEBPACK_IMPORTED_MODULE_11__["AssetsRoutingModule"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], // Mat Imports
+      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _assets_routing_module__WEBPACK_IMPORTED_MODULE_11__["AssetsRoutingModule"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], src_app_contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_15__["ContractsModule"], // Mat Imports
       _angular_material_slider__WEBPACK_IMPORTED_MODULE_4__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_6__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_7__["MatSortModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](AssetsModule, {
         declarations: [_manage_assets_component__WEBPACK_IMPORTED_MODULE_12__["ManageAssetsComponent"], _assets_table_assets_table_component__WEBPACK_IMPORTED_MODULE_13__["AssetsTableComponent"], _asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_14__["AssetDetailComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _assets_routing_module__WEBPACK_IMPORTED_MODULE_11__["AssetsRoutingModule"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], // Mat Imports
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _assets_routing_module__WEBPACK_IMPORTED_MODULE_11__["AssetsRoutingModule"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], src_app_contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_15__["ContractsModule"], // Mat Imports
         _angular_material_slider__WEBPACK_IMPORTED_MODULE_4__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_6__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_7__["MatSortModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"]]
       });
     })();
@@ -46320,7 +46326,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
           declarations: [_manage_assets_component__WEBPACK_IMPORTED_MODULE_12__["ManageAssetsComponent"], _assets_table_assets_table_component__WEBPACK_IMPORTED_MODULE_13__["AssetsTableComponent"], _asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_14__["AssetDetailComponent"]],
-          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _assets_routing_module__WEBPACK_IMPORTED_MODULE_11__["AssetsRoutingModule"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], // Mat Imports
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _assets_routing_module__WEBPACK_IMPORTED_MODULE_11__["AssetsRoutingModule"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], src_app_contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_15__["ContractsModule"], // Mat Imports
           _angular_material_slider__WEBPACK_IMPORTED_MODULE_4__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_6__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_7__["MatSortModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"]]
         }]
       }], null, null);
