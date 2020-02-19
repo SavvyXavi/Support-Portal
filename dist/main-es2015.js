@@ -4881,7 +4881,7 @@ class LoginComponent {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
             .subscribe(data => {
             console.log('We made it!');
-            console.log(this.route.parent + ' Parent');
+            console.log(this.router.navigate(['../portal'], { relativeTo: this.route.parent }) + ' Parent');
             console.log(this.router.navigate(['/portal']));
             this.router.navigate(['../portal'], { relativeTo: this.route.parent });
         }, error => {
