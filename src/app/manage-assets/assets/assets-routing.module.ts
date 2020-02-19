@@ -7,7 +7,6 @@ import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
 import { AssetsTableComponent } from '../assets-table/assets-table.component';
 import { AssetDetailComponent } from '../asset-detail/asset-detail.component';
 
-
 const routes: Routes = [
   {
     path: '',
