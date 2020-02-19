@@ -12,12 +12,6 @@ const routes: Routes = [
     component: IndexComponent,
     children: [
       {
-        path: 'portal',
-        loadChildren: () => import
-        ('../portal/portal-module/portal.module').then( p =>
-          p.PortalModule)
-      },
-      {
         path: '',
         component: LoginComponent
       },
@@ -30,7 +24,13 @@ const routes: Routes = [
         component: ResetComponent,
       },
     ]
-  }
+  },
+  {
+    path: 'portal',
+    loadChildren: () => import
+    ('../portal/portal-module/portal.module').then( m =>
+      m.PortalModule),
+  },
 ];
 
 @NgModule({
