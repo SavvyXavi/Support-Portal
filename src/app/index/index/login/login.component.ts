@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  onSubmit() {
+   onSubmit() {
     this.submitted = true;
 
     if (this.loginForm.invalid) {
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
     .pipe(first())
     .subscribe(
       data => {
-        console.log('Routing!');
+        console.log(data);
         this.router.navigateByUrl('/portal');
         // this.router.navigate(['../portal'], {relativeTo: this.route.parent});
   },

@@ -4879,7 +4879,7 @@ class LoginComponent {
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
             .subscribe(data => {
-            console.log('Routing!');
+            console.log(data);
             this.router.navigateByUrl('/portal');
             // this.router.navigate(['../portal'], {relativeTo: this.route.parent});
         }, error => {
