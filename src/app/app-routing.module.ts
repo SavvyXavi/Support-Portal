@@ -1,4 +1,3 @@
-import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/ticket-detail.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { AdminComponent } from './admin/admin.component';
@@ -16,7 +15,6 @@ import { AccountsComponent } from './admin/accounts/accounts.component';
 import { OemComponent } from './admin/oem/oem.component';
 import { BudgetComponent } from './budget/budget.component';
 import { CustomersComponent } from './admin/customers/customers.component';
-import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.component';
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 const routes: Routes = [
   {
@@ -54,11 +52,6 @@ const routes: Routes = [
   {
     path: 'locationdetail/:description',
     component: LocationDetailsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'ticketdetail/:refNumber',
-    component: TicketDetailComponent,
     canActivate: [AuthGuard]
   },
   {

@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { Tickets } from 'src/app/manage-assets/models/tickets';
-import { Assets } from './../../models/assets';
-import { Contracts } from '../../../contracts/models/contracts';
+import { Tickets } from '../models/tickets';
+import { Assets } from './../../manage-assets/models/assets';
+import { Contracts } from '../../contracts/models/contracts';
 
-import { ApifilterService } from '../../../services/apifilter.service';
+import { ApifilterService } from '../../services/apifilter.service';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 

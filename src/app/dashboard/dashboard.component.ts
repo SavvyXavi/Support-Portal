@@ -2,14 +2,14 @@ import { PartnerList } from './../partner-list';
 import { Component, OnInit } from '@angular/core';
 
 import { Profile } from '../index/index/models/profile';
-import { Tickets } from '../manage-assets/models/tickets';
+import { Tickets } from '../tickets/models/tickets';
 import { Assets } from '../manage-assets/models/assets';
 import * as moment from 'moment';
 
 import { AuthenticationService } from '../index/index/services/authentication.service';
 import { ProfileService } from '../index/index/services/profile.service';
 import { ApifilterService } from './../services/apifilter.service';
-import { ApiCallService } from './../manage-assets/services/api-call.service';
+import { ApiCallService } from './../tickets/services/api-call.service';
 
 import { Subscription } from 'rxjs';
 import { map, first } from 'rxjs/operators';

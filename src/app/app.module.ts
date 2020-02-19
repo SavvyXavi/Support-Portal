@@ -24,7 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminComponent } from './admin/admin.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { RegisterComponent } from './admin/register/register.component';
-import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/ticket-detail.component';
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 
 // Module Imports
@@ -46,7 +45,6 @@ import { PortalModule } from '@angular/cdk/portal';
     SettingsComponent,
     AdminComponent,
     LocationDetailsComponent,
-    TicketDetailComponent,
     LocalMonitorComponent
    ],
   imports: [

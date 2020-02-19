@@ -13,7 +13,7 @@ import { Assets } from './../../manage-assets/models/assets';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { Tickets } from 'src/app/manage-assets/models/tickets';
+import { Tickets } from 'src/app/tickets/models/tickets';
 
 @Component({
   selector: 'app-location-details',
