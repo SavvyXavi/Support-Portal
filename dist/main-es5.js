@@ -7306,7 +7306,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   tooltips: {
                     callbacks: {
                       title: function title(tooltipItem, data) {
-                        return 'Contracts ' + tooltipItem[0].xLabel;
+                        var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                        if (label) {
+                          label += ': ';
+                        }
+
+                        return label;
                       }
                     }
                   }

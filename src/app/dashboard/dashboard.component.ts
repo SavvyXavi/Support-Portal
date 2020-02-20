@@ -180,7 +180,12 @@ export class DashboardComponent implements OnInit {
           tooltips: {
             callbacks: {
               title: function(tooltipItem, data) {
-                return 'Contracts ' + tooltipItem[0].xLabel;
+                var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                    if (label) {
+                        label += ': ';
+                    }
+                return label;
               }
             }
           }
