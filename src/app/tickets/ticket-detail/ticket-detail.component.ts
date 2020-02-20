@@ -6,7 +6,7 @@ import { Contracts } from '../../contracts/models/contracts';
 
 import { ApifilterService } from '../../services/apifilter.service';
 import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -33,7 +33,8 @@ export class TicketDetailComponent implements OnInit {
   constructor(
     private filter: ApifilterService,
     private location: Location,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -72,6 +73,14 @@ export class TicketDetailComponent implements OnInit {
     if (this.assetDataSource.paginator) {
       this.assetDataSource.paginator.firstPage();
     }
+  }
+
+  goToConDet(refNumber: string) {
+    this.router.navigate(['/portal/contracts/contractdetail/' + refNumber]);
+  }
+
+  goToAssetDet(identifier: string) {
+    this.router.navigate(['/portal/assets/assetdetail/' + identifier]);
   }
 
   searchClear() {

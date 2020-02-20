@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { ApifilterService } from './../../services/apifilter.service';
@@ -43,6 +43,7 @@ export class LocationDetailsComponent implements OnInit {
   constructor(
     private location: Location,
     private route: ActivatedRoute,
+    private router: Router,
     private filter: ApifilterService,
     private authserv: AuthenticationService
   ) {
@@ -114,6 +115,14 @@ export class LocationDetailsComponent implements OnInit {
     if (this.assetLocationDataSource.paginator) {
       this.assetLocationDataSource.paginator.firstPage();
     }
+  }
+
+  goToAssetDet(identifier: string) {
+    this.router.navigate(['/portal/assets/assetdetail/' + identifier]);
+  }
+
+  goToTicketDet(refNumber: string) {
+    this.router.navigate(['/portal/tickets/ticketdetail/' + refNumber]);
   }
 
   searchAssetClear() {

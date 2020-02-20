@@ -8,7 +8,15 @@
   padding-bottom: 0;
 }
 
+a {
+  color: blue !important;
+  cursor: pointer;
+}
 
+a:hover {
+  color: blue !important;
+  text-decoration: underline;
+}
 
 .tab-wrapper {
   width: 100%;
