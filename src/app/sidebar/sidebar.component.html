@@ -57,7 +57,7 @@
                   </div>
                   </a>
 
-                <a class="admin">
+                <a  *ngIf="currentRole?.companypartner === 'Partner'" class="admin">
                   <div class="admin-icon icon-wrapper">
                     <i routerLink="" class="icon fas fa-users-cog"></i>
                 </div>

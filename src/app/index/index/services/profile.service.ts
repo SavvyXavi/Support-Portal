@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { Profile } from '../models/profile';
 import { Role } from '../../../types/role.enum';
 import { HttpClient } from '@angular/common/http';
+import { DataPull } from '../../../admin/models/datapull';
 import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
   profile: Profile;
+  datapull: DataPull;
 
   constructor(private http: HttpClient) {}
 
@@ -38,5 +40,9 @@ export class ProfileService {
 
   resetPassword(body) {
     return this.http.post(`${environment.serverUrl}/profile/reset-password`, body);
+  }
+
+  getAllAssets(): Observable<DataPull[]> {
+    return this.http.get<DataPull[]>(`${environment.serverUrl}/asset`);
   }
 }
