@@ -7310,29 +7310,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this28.contractLength = returnedCons.length;
             });
             this.filter.conByDays(this.currentProfile).subscribe(function (returnedDays) {
-              _this28.contractDays = returnedDays; // for (let i = 0; i <= this.contractDays.length; i++) {
-              //   switch (Number(this.contractDays[i]).valueOf()) {
-              //     case <= 14:
-              //       this.now++;
-              //     break;
-              //   }
-              // }
-              // for (let i = 0; i <= this.contractDays.length; ) {
-              //   if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
-              //     this.now++;
-              //   } else if (Number(this.contractDays[i]) <= 29) {
-              //     this.fifteenDays++;
-              //   } else if (Number(this.contractDays[i]) <= 59) {
-              //     this.thirtyDays++;
-              //   }
-              // }
+              _this28.contractDays = returnedDays;
+
+              for (var i = 0; i <= _this28.contractDays.length; i++) {
+                if (Number(_this28.contractDays[i]) > -1 && Number(_this28.contractDays[i]) <= 14) {
+                  _this28.now++;
+                } else if (Number(_this28.contractDays[i]) <= 29) {
+                  _this28.fifteenDays++;
+                } else if (Number(_this28.contractDays[i]) <= 59) {
+                  _this28.thirtyDays++;
+                } else if (Number(_this28.contractDays[i]) <= 89) {
+                  _this28.sixtyDays++;
+                } else if (Number(_this28.contractDays[i]) === 90) {
+                  _this28.ninetyDays++;
+                } else if (Number(_this28.contractDays[i]) > 90) {
+                  _this28.plus++;
+                }
+              }
 
               _this28.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('contracts', {
                 type: 'pie',
                 data: {
                   datasets: [{
                     label: '# of Contracts',
-                    data: [_this28.fifteenDays, _this28.thirtyDays, _this28.sixtyDays, _this28.ninetyDays],
+                    data: [_this28.now, _this28.fifteenDays, _this28.thirtyDays, _this28.sixtyDays, _this28.ninetyDays, _this28.plus],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderWidth: 1
