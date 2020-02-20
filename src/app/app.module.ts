@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AuthGuard } from './index/index/guards/auth.guard';
-import { LoginpullsService } from './index/index/services/loginpulls.service';
 
 import { AppComponent } from './app.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
@@ -50,7 +49,6 @@ import { PortalModule } from './portal/portal-module/portal.module';
   ],
   providers: [
     AuthGuard,
-    LoginpullsService
   ],
   bootstrap: [AppComponent]
 })
