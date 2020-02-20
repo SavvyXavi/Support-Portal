@@ -9598,6 +9598,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var LogoutComponent =
     /*#__PURE__*/
@@ -9623,7 +9629,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-logout"]],
       decls: 17,
       vars: 0,
-      consts: [[1, "container"], [1, "col-md"], [1, "card"], [1, "card-header"], [1, "row"], [1, "header-wrapper"], [1, "header-text"], [1, "card-body"], [1, "message-container"], [1, "message"], ["routerlink", "/login", 1, "btn-primary"]],
+      consts: [[1, "container"], [1, "col-md"], [1, "card"], [1, "card-header"], [1, "row"], [1, "header-wrapper"], [1, "header-text"], [1, "card-body"], [1, "message-container"], [1, "message"], ["routerLink", "/login", 1, "btn-primary"]],
       template: function LogoutComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -9687,6 +9693,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
       },
+      directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterLink"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2luZGV4L2luZGV4L2xvZ291dC9sb2dvdXQuY29tcG9uZW50LmNzcyJ9 */"]
     });
     /*@__PURE__*/
