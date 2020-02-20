@@ -3437,7 +3437,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         "./src/app/portal/portal-module/portal.module.ts")).then(function (m) {
           return m.PortalModule;
         });
-      }
+      },
+      pathMatch: 'prefix'
     }, {
       path: 'profile',
       component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_8__["ProfileComponent"],
@@ -8554,11 +8555,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return true;
           }
 
-          this.router.navigate(['/login'], {
-            queryParams: {
-              returnUrl: state.url
-            }
-          });
+          this.router.navigate(['/login']);
           return false;
         }
       }]);

@@ -28,6 +28,7 @@ const routes: Routes = [
     loadChildren: () => import
     ('./portal/portal-module/portal.module').then( m =>
       m.PortalModule),
+      pathMatch: 'prefix'
   },
   {
     path: 'profile',

@@ -1830,6 +1830,7 @@ const routes = [
     {
         path: 'portal',
         loadChildren: () => Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./portal/portal-module/portal.module */ "./src/app/portal/portal-module/portal.module.ts")).then(m => m.PortalModule),
+        pathMatch: 'prefix'
     },
     {
         path: 'profile',
@@ -4585,7 +4586,7 @@ class AuthGuard {
         if (currentUser) {
             return true;
         }
-        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+        this.router.navigate(['/login']);
         return false;
     }
 }
