@@ -5,6 +5,7 @@ import { IndexComponent } from './../index/index/index.component';
 import { LoginComponent } from './index/login/login.component';
 import { ForgotpasswordComponent } from './index/forgotpassword/forgotpassword.component';
 import { ResetComponent } from './index/reset/reset.component';
+import { AuthGuard } from './index/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
       },
       {
       path: 'logout',
-      component: LogoutComponent
+      component: LogoutComponent,
       }
     ]
   },

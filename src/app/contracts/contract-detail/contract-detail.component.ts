@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApifilterService } from '../../services/apifilter.service';
 
 import { Contracts } from '../models/contracts';
@@ -29,7 +29,8 @@ export class ContractDetailComponent implements OnInit {
   constructor(
     private filter: ApifilterService,
     private location: Location,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -80,6 +81,10 @@ export class ContractDetailComponent implements OnInit {
   searchClear() {
     this.searchKey = '';
     this.applyFilter();
+  }
+
+  goToAssetDet(identifier: string) {
+    this.router.navigate(['/:' + identifier], {relativeTo: this.route.parent});
   }
 
   goBack(): void {

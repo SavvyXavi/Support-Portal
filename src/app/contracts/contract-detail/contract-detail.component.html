@@ -105,7 +105,7 @@
                   <div matColumnDef="Identifier">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Serial </th>
                       <td *matCellDef="let asset">
-                        <a routerLink="/assetdetail/{{asset.Identifier}}" class="asset-link">
+                        <a (click)="goToAssetDet(asset.Identifier)" class="asset-link">
                          {{asset.Identifier}}
                         </a>
                       </td>
