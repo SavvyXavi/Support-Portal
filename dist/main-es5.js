@@ -5739,7 +5739,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "goToAssetDet",
         value: function goToAssetDet(identifier) {
-          this.router.navigate(['/assets/assetdetail/' + identifier]);
+          this.router.navigate(['/portal/assets/assetdetail/' + identifier]);
         }
       }, {
         key: "goBack",
