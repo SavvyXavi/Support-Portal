@@ -3907,7 +3907,15 @@ class DashboardComponent {
                                 borderWidth: 1
                             }]
                     },
-                    options: {}
+                    options: {
+                        tooltips: {
+                            callbacks: {
+                                title: function (tooltipItem, data) {
+                                    return 'Contracts ' + tooltipItem[0].xLabel;
+                                }
+                            }
+                        }
+                    }
                 });
             });
         }
