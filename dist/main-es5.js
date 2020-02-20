@@ -10189,7 +10189,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "logout",
         value: function logout() {
-          localStorage.removeItem('currentUser');
+          localStorage.clear();
           this.currentUserSubject.next(null);
         }
       }, {

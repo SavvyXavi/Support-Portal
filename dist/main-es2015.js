@@ -5427,7 +5427,7 @@ class AuthenticationService {
         return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].serverUrl}/profile/valid-reset-token`, body);
     }
     logout() {
-        localStorage.removeItem('currentUser');
+        localStorage.clear();
         this.currentUserSubject.next(null);
     }
 }
