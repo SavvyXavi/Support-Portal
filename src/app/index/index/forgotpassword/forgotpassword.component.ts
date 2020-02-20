@@ -1,5 +1,7 @@
 import { AuthenticationService } from './../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MustMatch } from '../helpers/must-match';
 import { Router } from '@angular/router';
@@ -20,6 +22,7 @@ export class ForgotpasswordComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
+    private location: Location,
     private alertService: AlertService,
    ) {
 
@@ -59,5 +62,9 @@ export class ForgotpasswordComponent implements OnInit {
     } else {
       this.IsvalidForm = false;
     }
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
