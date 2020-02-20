@@ -3861,7 +3861,6 @@ class DashboardComponent {
             this.filter.conByDays(this.currentProfile)
                 .subscribe((returnedDays) => {
                 this.contractDays = returnedDays;
-                console.log(this.contractDays);
                 for (let i = 0; i <= this.contractDays.length; i++) {
                     if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
                         this.now++;
@@ -3910,7 +3909,6 @@ class DashboardComponent {
             this.filter.conByDays(this.currentProfile)
                 .subscribe((returnedDays) => {
                 this.contractDays = returnedDays;
-                console.log(this.contractDays);
                 // for (let i = 0; i <= this.contractDays.length; i++) {
                 //   switch (Number(this.contractDays[i]).valueOf()) {
                 //     case <= 14:

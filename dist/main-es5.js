@@ -7273,7 +7273,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
             this.filter.conByDays(this.currentProfile).subscribe(function (returnedDays) {
               _this28.contractDays = returnedDays;
-              console.log(_this28.contractDays);
 
               for (var i = 0; i <= _this28.contractDays.length; i++) {
                 if (Number(_this28.contractDays[i]) > -1 || Number(_this28.contractDays[i]) <= 14) {
@@ -7304,8 +7303,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this28.contractLength = returnedCons.length;
             });
             this.filter.conByDays(this.currentProfile).subscribe(function (returnedDays) {
-              _this28.contractDays = returnedDays;
-              console.log(_this28.contractDays); // for (let i = 0; i <= this.contractDays.length; i++) {
+              _this28.contractDays = returnedDays; // for (let i = 0; i <= this.contractDays.length; i++) {
               //   switch (Number(this.contractDays[i]).valueOf()) {
               //     case <= 14:
               //       this.now++;
