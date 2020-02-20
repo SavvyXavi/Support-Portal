@@ -203,28 +203,28 @@ p {
 }
 
 .badge-now {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 1);
   text-align: center;
 }
 
 .badge-15 {
-  background-color: purple;
+  background-color: rgba(54, 162, 235, 1);
 }
 
 .badge-30 {
-  background-color: orange;
+  background-color: rgba(255, 206, 86, 1);
 }
 
 .badge-60 {
-  background-color: teal;
+  background-color: rgba(75, 192, 192, 1);
 }
 
 .badge-90 {
-  background-color: blue;
+  background-color: rgba(153, 102, 255, 1);
 }
 
 .badge-plus {
-  background-color: green;
+  background-color: rgba(255, 159, 64, 1);
 }
 
 .badge-active {

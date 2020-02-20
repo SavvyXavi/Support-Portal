@@ -134,6 +134,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(
         (returnedDays: string[]) => {
           this.contractDays = returnedDays;
+          console.log(this.contractDays);
           for (let i = 0; i <= this.contractDays.length; i++) {
             if (Number(this.contractDays[i]) > -1 && Number(this.contractDays[i]) <= 14) {
               this.now++;
