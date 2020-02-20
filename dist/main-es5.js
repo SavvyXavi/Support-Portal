@@ -17172,9 +17172,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
-    function SidebarComponent_a_43_Template(rf, ctx) {
+    function SidebarComponent_div_40_a_3_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 32);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 33);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Admin");
 
@@ -17182,9 +17182,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function SidebarComponent_a_44_Template(rf, ctx) {
+    function SidebarComponent_div_40_a_4_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 33);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 34);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Register Users");
 
@@ -17192,13 +17192,49 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function SidebarComponent_a_45_Template(rf, ctx) {
+    function SidebarComponent_div_40_a_5_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 34);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 35);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Local Monitor");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+    }
+
+    function SidebarComponent_div_40_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 28);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "a", 29);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Customers");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, SidebarComponent_div_40_a_3_Template, 2, 0, "a", 30);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, SidebarComponent_div_40_a_4_Template, 2, 0, "a", 31);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, SidebarComponent_div_40_a_5_Template, 2, 0, "a", 32);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var ctx_r373 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (ctx_r373.currentRole == null ? null : ctx_r373.currentRole.partner) === "Noble1Solutions");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (ctx_r373.currentRole == null ? null : ctx_r373.currentRole.partner) === "Noble1Solutions");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (ctx_r373.currentRole == null ? null : ctx_r373.currentRole.partner) === "Noble1Solutions");
       }
     }
 
@@ -17276,9 +17312,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     SidebarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: SidebarComponent,
       selectors: [["app-sidebar"]],
-      decls: 46,
-      vars: 3,
-      consts: [[1, "navbar-nav", "sticky-top", "text-center"], ["id", "container", 1, "icon-bar", "text-center"], ["width", "100%", 1, "ham-wrapper", "text-center"], ["role", "button", 1, "col-auto", "btn", "btn-lg", "custom-btn"], [1, "fa", "fa-bars"], ["routerLink", "dashboard", 1, "dashboard"], [1, "dashboard-icon", "icon-wrapper"], [1, "icon", "fas", "fa-tachometer-alt"], [1, "dashboard-content", "col-auto"], [1, "assets-btn"], [1, "assets-icon", "icon-wrapper"], ["routerLink", "assets", 1, "icon", "fas", "fa-file-alt"], ["id", "dropdown", "data-toggle", "collapse", "data-target", "#dd", 1, "assets-text", "dropdown-toggle", "dropdown-btn", "col-auto"], ["id", "dd", "aria-labelledby", "dropdown01", 1, "dropdown-container", "collapse"], ["routerLink", "contracts", 1, "dropdown"], ["routerLink", "assets", 1, "dropdown"], ["routerLink", "tickets", 1, "tickets"], [1, "tickets-icon", "icon-wrapper"], ["routerLink", "tickets", 1, "icon", "fas", "fa-ticket-alt"], [1, "tickets-content", "col-auto"], ["routerLink", "locations", 1, "locations"], [1, "locations-icon", "icon-wrapper"], ["routerLink", "locations", 1, "icon", "fas", "fa-map"], [1, "admin"], [1, "admin-icon", "icon-wrapper"], ["routerLink", "", 1, "icon", "fas", "fa-users-cog"], ["id", "dropdown02", "data-toggle", "collapse", "data-target", "#dd2", 1, "dropdown-toggle", "dropdown-btn", "col-auto"], ["id", "dd2", "aria-labelledby", "dropdown02", 1, "dropdown-container", "collapse"], ["routerLink", "admin/customers", 1, "dropdown"], ["class", "dropdown", "routerLink", "admin", 4, "ngIf"], ["class", "dropdown", "routerLink", "admin/register", 4, "ngIf"], ["class", "dropdown", "routerLink", "admin/localmonitor", 4, "ngIf"], ["routerLink", "admin", 1, "dropdown"], ["routerLink", "admin/register", 1, "dropdown"], ["routerLink", "admin/localmonitor", 1, "dropdown"]],
+      decls: 41,
+      vars: 1,
+      consts: [[1, "navbar-nav", "sticky-top", "text-center"], ["id", "container", 1, "icon-bar", "text-center"], ["width", "100%", 1, "ham-wrapper", "text-center"], ["role", "button", 1, "col-auto", "btn", "btn-lg", "custom-btn"], [1, "fa", "fa-bars"], ["routerLink", "dashboard", 1, "dashboard"], [1, "dashboard-icon", "icon-wrapper"], [1, "icon", "fas", "fa-tachometer-alt"], [1, "dashboard-content", "col-auto"], [1, "assets-btn"], [1, "assets-icon", "icon-wrapper"], ["routerLink", "assets", 1, "icon", "fas", "fa-file-alt"], ["id", "dropdown", "data-toggle", "collapse", "data-target", "#dd", 1, "assets-text", "dropdown-toggle", "dropdown-btn", "col-auto"], ["id", "dd", "aria-labelledby", "dropdown01", 1, "dropdown-container", "collapse"], ["routerLink", "contracts", 1, "dropdown"], ["routerLink", "assets", 1, "dropdown"], ["routerLink", "tickets", 1, "tickets"], [1, "tickets-icon", "icon-wrapper"], ["routerLink", "tickets", 1, "icon", "fas", "fa-ticket-alt"], [1, "tickets-content", "col-auto"], ["routerLink", "locations", 1, "locations"], [1, "locations-icon", "icon-wrapper"], ["routerLink", "locations", 1, "icon", "fas", "fa-map"], [1, "admin"], [1, "admin-icon", "icon-wrapper"], ["routerLink", "", 1, "icon", "fas", "fa-users-cog"], ["id", "dropdown02", "data-toggle", "collapse", "data-target", "#dd2", 1, "dropdown-toggle", "dropdown-btn", "col-auto"], ["id", "dd2", "class", "dropdown-container collapse", "aria-labelledby", "dropdown02", 4, "ngIf"], ["id", "dd2", "aria-labelledby", "dropdown02", 1, "dropdown-container", "collapse"], ["routerLink", "admin/customers", 1, "dropdown"], ["class", "dropdown", "routerLink", "admin", 4, "ngIf"], ["class", "dropdown", "routerLink", "admin/register", 4, "ngIf"], ["class", "dropdown", "routerLink", "admin/localmonitor", 4, "ngIf"], ["routerLink", "admin", 1, "dropdown"], ["routerLink", "admin/register", 1, "dropdown"], ["routerLink", "admin/localmonitor", 1, "dropdown"]],
       template: function SidebarComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nav", 0);
@@ -17411,21 +17447,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "div", 27);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](41, "a", 28);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](42, "Customers");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](43, SidebarComponent_a_43_Template, 2, 0, "a", 29);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](44, SidebarComponent_a_44_Template, 2, 0, "a", 30);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](45, SidebarComponent_a_45_Template, 2, 0, "a", 31);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](40, SidebarComponent_div_40_Template, 6, 3, "div", 27);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -17433,17 +17455,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
 
         if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](43);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](40);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (ctx.currentRole == null ? null : ctx.currentRole.partner) === "Noble1Solutions");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (ctx.currentRole == null ? null : ctx.currentRole.partner) === "Noble1Solutions");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (ctx.currentRole == null ? null : ctx.currentRole.partner) === "Noble1Solutions");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (ctx.currentRole == null ? null : ctx.currentRole.companypartner) === "Partner");
         }
       },
       directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterLink"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"]],
