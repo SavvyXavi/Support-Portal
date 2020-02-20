@@ -10,6 +10,7 @@
 
 a {
   color: blue;
+  cursor: pointer;
 }
 
 .tab-wrapper {
