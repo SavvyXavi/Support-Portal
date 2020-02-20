@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Profile } from '../../index/index/models/profile';
-
+import { OemService } from '../services/oem.service';
 import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
 import { ProfileService } from './../../index/index/services/profile.service';
-
+import { DataPull } from '../models/datapull';
 import { first } from 'rxjs/operators';
 
 @Component({
@@ -15,11 +15,13 @@ import { first } from 'rxjs/operators';
 export class CurrentUserComponent implements OnInit {
   currentProfile: Profile;
   profiles: Profile[];
+  datapull: DataPull[];
 
   constructor(
     private authenticationService: AuthenticationService,
-    private profileService: ProfileService
-  ) {
+    private profileService: ProfileService,
+    private oemService: OemService
+    ) {
    this.authenticationService.currentUser.subscribe(
       profile => {
         this.currentProfile = profile;
@@ -35,4 +37,11 @@ export class CurrentUserComponent implements OnInit {
     });
     console.log(this.profiles);
   }
+
+  getAllAssets() {
+    this.oemService.getAllAssets().subscribe(datapull  => {
+      this.datapull = datapull;
+      });
+  }
+
 }
