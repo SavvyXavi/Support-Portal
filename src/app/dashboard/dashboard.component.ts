@@ -135,29 +135,28 @@ export class DashboardComponent implements OnInit {
         (returnedDays: string[]) => {
           this.contractDays = returnedDays;
           console.log(this.contractDays);
-          // for (let i = 0; i <= this.contractDays.length; i++) {
-          //   switch (Number(this.contractDays[i]).valueOf()) {
-          //     case <= 14:
-          //       this.now++;
-          //     break;
-          //   }
-          // }
-          // for (let i = 0; i <= this.contractDays.length; ) {
-          //   if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
-          //     this.now++;
-          //   } else if (Number(this.contractDays[i]) <= 29) {
-          //     this.fifteenDays++;
-          //   } else if (Number(this.contractDays[i]) <= 59) {
-          //     this.thirtyDays++;
-          //   }
-          // }
+          for (let i = 0; i <= this.contractDays.length; i++) {
+            if (Number(this.contractDays[i]) > -1 && Number(this.contractDays[i]) <= 14) {
+              this.now++;
+            } else if (Number(this.contractDays[i]) <= 29) {
+              this.fifteenDays++;
+            } else if (Number(this.contractDays[i]) <= 59) {
+              this.thirtyDays++;
+            } else if (Number(this.contractDays[i]) <= 89) {
+              this.sixtyDays++;
+            } else if (Number(this.contractDays[i]) === 90 ) {
+              this.ninetyDays++;
+            } else if (Number(this.contractDays[i]) > 90) {
+              this.plus++;
+            }
+          }
 
     this.contractsData = new Chart('contracts', {
         type: 'pie',
         data: {
           datasets: [{
               label: '# of Contracts',
-              data: [this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays],
+              data: [this.now, this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays, this.plus],
               backgroundColor: [
                   'rgba(255, 0, 0, 1)',
                   'rgba(54, 162, 235, 1)',
@@ -193,30 +192,28 @@ export class DashboardComponent implements OnInit {
       .subscribe(
         (returnedDays: string[]) => {
           this.contractDays = returnedDays;
-          console.log(this.contractDays);
-          // for (let i = 0; i <= this.contractDays.length; i++) {
-          //   switch (Number(this.contractDays[i]).valueOf()) {
-          //     case <= 14:
-          //       this.now++;
-          //     break;
-          //   }
-          // }
-          // for (let i = 0; i <= this.contractDays.length; ) {
-          //   if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
-          //     this.now++;
-          //   } else if (Number(this.contractDays[i]) <= 29) {
-          //     this.fifteenDays++;
-          //   } else if (Number(this.contractDays[i]) <= 59) {
-          //     this.thirtyDays++;
-          //   }
-          // }
+          for (let i = 0; i <= this.contractDays.length; i++) {
+            if (Number(this.contractDays[i]) > -1 && Number(this.contractDays[i]) <= 14) {
+              this.now++;
+            } else if (Number(this.contractDays[i]) <= 29) {
+              this.fifteenDays++;
+            } else if (Number(this.contractDays[i]) <= 59) {
+              this.thirtyDays++;
+            } else if (Number(this.contractDays[i]) <= 89) {
+              this.sixtyDays++;
+            } else if (Number(this.contractDays[i]) === 90 ) {
+              this.ninetyDays++;
+            } else if (Number(this.contractDays[i]) > 90) {
+              this.plus++;
+            }
+          }
 
     this.contractsData = new Chart('contracts', {
         type: 'pie',
         data: {
           datasets: [{
               label: '# of Contracts',
-              data: [this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays],
+              data: [this.now, this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays, this.plus],
               backgroundColor: [
                   'rgba(255, 0, 0, 1)',
                   'rgba(54, 162, 235, 1)',
