@@ -9,6 +9,8 @@ import { MustMatch } from '../../index/index//helpers/must-match';
 import { Subscription } from 'rxjs';
 import { LoginpullsService } from '../../index/index//services/loginpulls.service';
 import { Profile } from '../../index/index/models/profile';
+import { ApifilterService } from 'src/app/services/apifilter.service';
+import { Partner } from 'src/app/models/partner';
 
 @Component({
   selector: 'app-register',
@@ -24,6 +26,7 @@ export class RegisterComponent implements OnInit {
   randNumber = this.randNumberOne * this.randNumberTwo * 1000;
   profile: Profile[];
   twoprofile: Profile;
+  partnerList: Partner[];
   partner: Profile;
   company: Profile[];
   twocompany: Profile;
@@ -35,7 +38,7 @@ export class RegisterComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private alertService: AlertService,
     private profileService: ProfileService,
-    private loginpullsService: LoginpullsService
+    private filter: ApifilterService
   ) {
     // redirects to dashboard if already logged in
  //   if (this.authenticationService.currentUserValue) {
@@ -44,9 +47,9 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.loginpullsService.getPartnerList().subscribe((profile: Profile) => {
-      this.twoprofile = profile;
-    });
+    this.filter.getPartners().subscribe((partnerList => {
+      this.partnerList = partnerList;
+    }));
 
     this.registerForm = this.formBuilder.group({
       firstName: ['',  Validators.required],
@@ -99,7 +102,7 @@ export class RegisterComponent implements OnInit {
   }
 
   getcompany(partner: any) {
-  this.loginpullsService.getCompanyList(partner).subscribe((company: Profile) => {
+  this.filter.registerCustFilter(partner).subscribe((company: Profile) => {
     this.twocompany = company;
     console.log(this.twocompany);
   });

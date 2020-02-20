@@ -10,6 +10,8 @@ import { Role } from '../../../types/role.enum';
 import { Partner } from '../../../models/partner';
 import { PartnerList } from '../../../partner-list';
 
+import { AdminModule } from 'src/app/admin/admin.module';
+
 @Injectable({
   providedIn: 'root'
 })

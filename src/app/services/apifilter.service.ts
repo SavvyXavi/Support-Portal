@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { AuthenticationService } from '../index/index/services/authentication.service';
 
 import { Profile } from '../index/index/models/profile';
-import { ProfileService } from '../index/index/services/profile.service';
 
 import { Filter } from './../models/filter';
 import { Contracts } from './../contracts/models/contracts';
@@ -71,8 +69,6 @@ export class ApifilterService {
 'https://harmonyprodcustomersone.azurewebsites.net/api/LocationByDescription?code=LlWycAaW502tdZ9EMsNbkqapKMVLR7yfsFJRapYhwAlXuqwpnp9ELA==';
 
   constructor(
-    private profileService: ProfileService,
-    private auth: AuthenticationService,
     private http: HttpClient
   ) { }
 
@@ -194,6 +190,12 @@ export class ApifilterService {
     return this.http.post(this.customerApi, params);
   }
 
+  registerCustFilter(filter: string) {
+    const params = {
+      'partner': filter
+    };
+  return this.http.post(this.customerApi, params);
+  }
 
 
   partLocationFilter(filter: Filter) {
