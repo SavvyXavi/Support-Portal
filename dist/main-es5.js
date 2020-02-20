@@ -9375,7 +9375,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.adminHeader = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
 
         if (this.authenticationService.currentUserValue) {
-          this.router.navigate(['/portal']);
+          this.router.navigate(['/portal/dashboard']);
         }
       }
 
