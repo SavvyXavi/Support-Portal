@@ -55,28 +55,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'admin/admin',
-    component: AdminComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'admin/support',
     component: SupportComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'admin/register',
-    component: RegisterComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'admin/oem',
-    component: OemComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'admin/customers',
-    component: CustomersComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -84,11 +64,6 @@ const routes: Routes = [
     component: UsersComponent,
     canActivate: [AuthGuard]
   },
-  {
-    path: 'admin/localMonitor',
-    component: LocalMonitorComponent,
-    canActivate: [AuthGuard]
-  }
 ];
 
 @NgModule({

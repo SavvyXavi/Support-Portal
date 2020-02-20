@@ -49,8 +49,10 @@ const routes: Routes = [
           l.LocationsModule)
       },
       {
-        path: 'admin/customers',
-        component: CustomersComponent
+        path: 'admin',
+        loadChildren: () => import
+        ('../../admin/admin.module').then( a =>
+          a.AdminModule)
       }
     ],
   },
