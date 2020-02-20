@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ApifilterService } from './../../services/apifilter.service';
 
@@ -32,7 +32,8 @@ export class AssetDetailComponent implements OnInit {
   constructor(
     private filter: ApifilterService,
     private location: Location,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -72,6 +73,10 @@ export class AssetDetailComponent implements OnInit {
     if (this.contractDataSource.paginator) {
       this.contractDataSource.paginator.firstPage();
     }
+  }
+
+  goToConDet(refNumber: string) {
+    this.router.navigate(['/portal/contracts/contractdetail/' + refNumber]);
   }
 
   searchClear() {

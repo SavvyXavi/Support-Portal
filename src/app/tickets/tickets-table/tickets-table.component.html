@@ -63,8 +63,8 @@
     <table mat-table [dataSource]="ticketDataSource" class="mat-elevation-z8 table" matSort>
 
       <!-- Case Column -->
-      <div matColumnDef="Case#">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Case# </th>
+      <div class="" matColumnDef="Case#">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Case Number </th>
         <td mat-cell *matCellDef="let ticket">
           <a routerLink="ticketdetail/{{ticket.RefNumber}}" class="asset-link"> {{ticket.RefNumber}} </a>
         </td>
