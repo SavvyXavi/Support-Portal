@@ -29,6 +29,7 @@ import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.compo
 // Module Imports
 import { IndexModule } from './index/index.module';
 import { PortalModule } from './portal/portal-module/portal.module';
+import { LogoutComponent } from './index/index/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { PortalModule } from './portal/portal-module/portal.module';
     SettingsComponent,
     AdminComponent,
     LocationDetailsComponent,
-    LocalMonitorComponent
+    LocalMonitorComponent,
+    LogoutComponent
    ],
   imports: [
     BrowserModule,
