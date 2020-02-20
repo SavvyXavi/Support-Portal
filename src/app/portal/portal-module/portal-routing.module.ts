@@ -5,7 +5,6 @@ import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
 
 import { PortalComponent } from '../portal.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
-import { CompaniesComponent } from 'src/app/companies/companies.component';
 import { CustomersComponent } from 'src/app/admin/customers/customers.component';
 import { LocationsComponent } from 'src/app/locations/locations.component';
 
@@ -38,12 +37,14 @@ const routes: Routes = [
           t.TicketsModule)
       },
       {
-        path: 'locations',
-        component: LocationsComponent
+        path: 'companies',
+        loadChildren: () => import
+        ('../../companies/companies.module').then( c =>
+          c.CompaniesModule)
       },
       {
-        path: 'companies',
-        component: CompaniesComponent
+        path: 'locations',
+        component: LocationsComponent
       },
       {
         path: 'admin/customers',

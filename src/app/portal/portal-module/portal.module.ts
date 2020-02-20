@@ -9,7 +9,6 @@ import { PortalRoutingModule } from './portal-routing.module';
 import { HeaderComponent } from './../../header/header.component';
 import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
-import { CompaniesComponent } from 'src/app/companies/companies.component';
 import { CustomersComponent } from 'src/app/admin/customers/customers.component';
 import { LocationsComponent } from 'src/app/locations/locations.component';
 
@@ -32,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ContractsModule } from '../../contracts/contracts/contracts.module';
 import { AssetsModule } from 'src/app/manage-assets/assets/assets.module';
 import { TicketsModule } from 'src/app/tickets/tickets.module';
+import { CompaniesModule } from 'src/app/companies/companies.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,6 @@ import { TicketsModule } from 'src/app/tickets/tickets.module';
     HeaderComponent,
     SidebarComponent,
     DashboardComponent,
-    CompaniesComponent,
     CustomersComponent,
     LocationsComponent
   ],
@@ -53,6 +52,7 @@ import { TicketsModule } from 'src/app/tickets/tickets.module';
     ContractsModule,
     AssetsModule,
     TicketsModule,
+    CompaniesModule,
 
     // Material Imports
     MatSliderModule,
