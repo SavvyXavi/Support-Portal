@@ -84,7 +84,7 @@ export class ContractDetailComponent implements OnInit {
   }
 
   goToAssetDet(identifier: string) {
-    this.router.navigate(['assetdetail/' + identifier], {relativeTo: this.route.root});
+    this.router.navigate(['/assets/assetdetail/' + identifier]);
   }
 
   goBack(): void {

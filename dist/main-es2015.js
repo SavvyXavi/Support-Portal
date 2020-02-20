@@ -3041,7 +3041,7 @@ class ContractDetailComponent {
         this.applyFilter();
     }
     goToAssetDet(identifier) {
-        this.router.navigate(['assetdetail/' + identifier], { relativeTo: this.route.root });
+        this.router.navigate(['/assets/assetdetail/' + identifier]);
     }
     goBack() {
         this.location.back();
