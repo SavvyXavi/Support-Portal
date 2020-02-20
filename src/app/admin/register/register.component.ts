@@ -7,7 +7,6 @@ import { AuthenticationService } from '../../index/index/services/authentication
 import { ProfileService } from '../../index/index/services/profile.service';
 import { MustMatch } from '../../index/index//helpers/must-match';
 import { Subscription } from 'rxjs';
-import { LoginpullsService } from '../../index/index//services/loginpulls.service';
 import { Profile } from '../../index/index/models/profile';
 import { ApifilterService } from 'src/app/services/apifilter.service';
 import { Partner } from 'src/app/models/partner';
