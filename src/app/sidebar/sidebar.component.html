@@ -57,7 +57,7 @@
                   </div>
                   </a>
 
-                <a class="admin">
+                <a  *ngIf="currentRole?.companypartner === 'Partner'" class="admin">
                   <div class="admin-icon icon-wrapper">
                     <i routerLink="" class="icon fas fa-users-cog"></i>
                 </div>
@@ -66,7 +66,7 @@
                 </div>
                 </a>
 
-                <div *ngIf="currentRole?.companypartner === 'Partner'"id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
+                <div id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
                     <!-- <a class="dropdown" routerLink="admin/oem">OEM</a> -->
                     <a class="dropdown" routerLink="admin/customers">Customers</a>
                     <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin">Admin</a>
