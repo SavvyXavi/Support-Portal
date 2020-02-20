@@ -135,22 +135,15 @@ export class DashboardComponent implements OnInit {
         (returnedDays: string[]) => {
           this.contractDays = returnedDays;
           console.log(this.contractDays);
-          // for (let i = 0; i <= this.contractDays.length; i++) {
-          //   switch (Number(this.contractDays[i]).valueOf()) {
-          //     case <= 14:
-          //       this.now++;
-          //     break;
-          //   }
-          // }
-          // for (let i = 0; i <= this.contractDays.length; ) {
-          //   if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
-          //     this.now++;
-          //   } else if (Number(this.contractDays[i]) <= 29) {
-          //     this.fifteenDays++;
-          //   } else if (Number(this.contractDays[i]) <= 59) {
-          //     this.thirtyDays++;
-          //   }
-          // }
+          for (let i = 0; i <= this.contractDays.length; i++) {
+            if (Number(this.contractDays[i]) > -1 || Number(this.contractDays[i]) <= 14) {
+              this.now++;
+            } else if (Number(this.contractDays[i]) <= 29) {
+              this.fifteenDays++;
+            } else if (Number(this.contractDays[i]) <= 59) {
+              this.thirtyDays++;
+            }
+          }
 
     this.contractsData = new Chart('contracts', {
         type: 'pie',
