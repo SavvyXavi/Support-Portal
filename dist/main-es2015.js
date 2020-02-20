@@ -3041,7 +3041,7 @@ class ContractDetailComponent {
         this.applyFilter();
     }
     goToAssetDet(identifier) {
-        this.router.navigate(['assetdetail/:' + identifier], { relativeTo: this.route.parent });
+        this.router.navigate(['assetdetail/' + identifier], { relativeTo: this.route.parent });
     }
     goBack() {
         this.location.back();
@@ -5494,7 +5494,7 @@ class AuthenticationService {
         return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].serverUrl}/profile/valid-reset-token`, body);
     }
     logout() {
-        localStorage.clear();
+        localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
 }

@@ -5739,7 +5739,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "goToAssetDet",
         value: function goToAssetDet(identifier) {
-          this.router.navigate(['assetdetail/:' + identifier], {
+          this.router.navigate(['assetdetail/' + identifier], {
             relativeTo: this.route.parent
           });
         }
@@ -10340,7 +10340,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "logout",
         value: function logout() {
-          localStorage.clear();
+          localStorage.removeItem('currentUser');
           this.currentUserSubject.next(null);
         }
       }, {
