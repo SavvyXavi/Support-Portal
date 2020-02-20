@@ -9076,7 +9076,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.loading = true;
           this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
-            _this36.router.navigate(['/portal/']);
+            _this36.router.navigate(['/portal/dashboard']);
           }, function (error) {
             _this36.alertService.error(error);
 
