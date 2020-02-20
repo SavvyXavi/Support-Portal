@@ -10703,7 +10703,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllAssets",
         value: function getAllAssets() {
-          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].serverUrl, "/asset"));
+          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].DataPull, "/asset"));
         }
       }]);
 
@@ -19893,7 +19893,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       serverUrl: 'https://finalauth.noble1it.com',
       secret: 'Noble1Solutions',
       LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
-      CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/'
+      CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
+      DataPull: 'https://testdata.noble1it.com'
     };
     /*
      * For easier debugging in development mode, you can import the following file

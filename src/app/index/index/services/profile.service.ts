@@ -5,6 +5,7 @@ import { Role } from '../../../types/role.enum';
 import { HttpClient } from '@angular/common/http';
 import { DataPull } from '../../../admin/models/datapull';
 import { environment } from '../../../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -43,6 +44,6 @@ export class ProfileService {
   }
 
   getAllAssets(): Observable<DataPull[]> {
-    return this.http.get<DataPull[]>(`${environment.serverUrl}/asset`);
+    return this.http.get<DataPull[]>(`${environment.DataPull}/asset`);
   }
 }

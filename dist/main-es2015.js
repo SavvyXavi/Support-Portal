@@ -5700,7 +5700,7 @@ class ProfileService {
         return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].serverUrl}/profile/reset-password`, body);
     }
     getAllAssets() {
-        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].serverUrl}/asset`);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].DataPull}/asset`);
     }
 }
 ProfileService.ɵfac = function ProfileService_Factory(t) { return new (t || ProfileService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
@@ -10456,7 +10456,8 @@ const environment = {
     serverUrl: 'https://finalauth.noble1it.com',
     secret: 'Noble1Solutions',
     LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
-    CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/'
+    CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
+    DataPull: 'https://testdata.noble1it.com'
 };
 /*
  * For easier debugging in development mode, you can import the following file
