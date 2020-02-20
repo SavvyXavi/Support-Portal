@@ -701,7 +701,7 @@ class CurrentUserComponent {
         console.log(this.profiles);
     }
     getAllAssets() {
-        this.oemService.getAllAssets().subscribe(datapull => {
+        this.profileService.getAllAssets().subscribe(datapull => {
             this.datapull = datapull;
         });
     }

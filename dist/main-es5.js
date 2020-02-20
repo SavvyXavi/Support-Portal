@@ -1058,7 +1058,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getAllAssets() {
           var _this3 = this;
 
-          this.oemService.getAllAssets().subscribe(function (datapull) {
+          this.profileService.getAllAssets().subscribe(function (datapull) {
             _this3.datapull = datapull;
           });
         }
