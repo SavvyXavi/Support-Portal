@@ -9,7 +9,7 @@
 }
 
 a {
-  color: blue;
+  color: blue !important;
   cursor: pointer;
 }
 
