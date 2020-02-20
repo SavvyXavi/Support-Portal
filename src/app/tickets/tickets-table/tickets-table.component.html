@@ -96,7 +96,7 @@
 
       <!-- Asset ID Column -->
     <div matColumnDef="Asset ID">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Asset ID </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Serial# </th>
         <td mat-cell *matCellDef="let ticket"> {{ticket.AssetIdentifier}} </td>
       </div>
 
@@ -108,7 +108,7 @@
 
       <!-- Update Column -->
    <div matColumnDef="Update Date">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Update Date </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Updated </th>
         <td mat-cell *matCellDef="let ticket"> {{ticket.UpdatedDate | date: 'shortDate'}} </td>
       </div>
 
