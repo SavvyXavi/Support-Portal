@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { CompaniesRoutingModule } from './companies-routing.module';
 import { AuthGuard } from '../index/index/guards/auth.guard';
 
-import { CompaniesComponent } from './companies.component';
-import { ComapniesTableComponent } from './comapnies-table/comapnies-table.component';
+import { LocationsRoutingModule } from './locations-routing.module';
+import { LocationsTableComponent } from './locations-table/locations-table.component';
+import { LocationDetailsComponent } from './location-details/location-details.component';
+import { LocationsComponent } from './locations.component';
 
 // Material Import
 import { MatSliderModule } from '@angular/material/slider';
@@ -17,14 +18,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
+
 @NgModule({
   declarations: [
-    CompaniesComponent,
-    ComapniesTableComponent,
+    LocationsTableComponent,
+    LocationsComponent,
+    LocationDetailsComponent
   ],
   imports: [
     CommonModule,
-    CompaniesRoutingModule,
+    LocationsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
 
@@ -38,8 +41,7 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule
   ],
   providers: [
-    AuthGuard,
-
+    AuthGuard
   ]
 })
-export class CompaniesModule { }
+export class LocationsModule { }

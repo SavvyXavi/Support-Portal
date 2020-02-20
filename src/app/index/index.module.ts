@@ -9,11 +9,12 @@ import { LoginComponent } from './index/login/login.component';
 import { AlertComponent } from './index/alert/alert.component';
 import { ForgotpasswordComponent } from './index/forgotpassword/forgotpassword.component';
 import { ResetComponent } from './index/reset/reset.component';
+import { LogoutComponent } from './index/logout/logout.component';
+
 import { AlertService } from './index/services/alert.service';
 import { AuthenticationService } from './index/services/authentication.service';
 
 import { ErrorInterceptor } from './index/helpers/error-interceptor.service';
-
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ErrorInterceptor } from './index/helpers/error-interceptor.service';
     LoginComponent,
     AlertComponent,
     ForgotpasswordComponent,
-    ResetComponent
+    ResetComponent,
+    LogoutComponent
   ],
   imports: [
     CommonModule,

@@ -10,7 +10,6 @@ import { HeaderComponent } from './../../header/header.component';
 import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import { CustomersComponent } from 'src/app/admin/customers/customers.component';
-import { LocationsComponent } from 'src/app/locations/locations.component';
 
 import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
 import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
@@ -32,6 +31,7 @@ import { ContractsModule } from '../../contracts/contracts/contracts.module';
 import { AssetsModule } from 'src/app/manage-assets/assets/assets.module';
 import { TicketsModule } from 'src/app/tickets/tickets.module';
 import { CompaniesModule } from 'src/app/companies/companies.module';
+import { LocationsModule } from 'src/app/locations/locations.module';
 
 @NgModule({
   declarations: [
@@ -39,8 +39,7 @@ import { CompaniesModule } from 'src/app/companies/companies.module';
     HeaderComponent,
     SidebarComponent,
     DashboardComponent,
-    CustomersComponent,
-    LocationsComponent
+    CustomersComponent
   ],
   imports: [
     CommonModule,
@@ -53,6 +52,7 @@ import { CompaniesModule } from 'src/app/companies/companies.module';
     AssetsModule,
     TicketsModule,
     CompaniesModule,
+    LocationsModule,
 
     // Material Imports
     MatSliderModule,

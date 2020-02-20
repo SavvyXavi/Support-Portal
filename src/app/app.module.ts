@@ -22,14 +22,12 @@ import { SettingsComponent } from './settings/settings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AdminComponent } from './admin/admin.component';
-import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 
 // Module Imports
 import { IndexModule } from './index/index.module';
 import { PortalModule } from './portal/portal-module/portal.module';
-import { LogoutComponent } from './index/index/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -45,9 +43,7 @@ import { LogoutComponent } from './index/index/logout/logout.component';
     ProfileComponent,
     SettingsComponent,
     AdminComponent,
-    LocationDetailsComponent,
     LocalMonitorComponent,
-    LogoutComponent
    ],
   imports: [
     BrowserModule,

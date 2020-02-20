@@ -45,11 +45,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'locationdetail/:description',
-    component: LocationDetailsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'budgets',
     component: BudgetComponent,
     canActivate: [AuthGuard]
