@@ -9519,7 +9519,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-index"]],
       decls: 3,
       vars: 0,
-      consts: [[1, "container"], [1, "wrapper"]],
+      consts: [[1, "container-fluid"], [1, "wrapper"]],
       template: function IndexComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);

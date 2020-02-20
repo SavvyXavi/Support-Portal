@@ -5107,7 +5107,7 @@ class IndexComponent {
     }
 }
 IndexComponent.ɵfac = function IndexComponent_Factory(t) { return new (t || IndexComponent)(); };
-IndexComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: IndexComponent, selectors: [["app-index"]], decls: 3, vars: 0, consts: [[1, "container"], [1, "wrapper"]], template: function IndexComponent_Template(rf, ctx) { if (rf & 1) {
+IndexComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: IndexComponent, selectors: [["app-index"]], decls: 3, vars: 0, consts: [[1, "container-fluid"], [1, "wrapper"]], template: function IndexComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "router-outlet");
