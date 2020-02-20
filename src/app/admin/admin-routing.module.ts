@@ -21,16 +21,16 @@ const routes: Routes = [
         component: CustomersComponent,
       },
       {
-        path: 'currentuser',
-        component: CurrentUserComponent,
-      },
-      {
         path: 'register',
         component: RegisterComponent
       },
       {
         path: 'localmonitor',
         component: LocalMonitorComponent
+      },
+      {
+        path: '',
+        component: CurrentUserComponent,
       }
     ]
   }
