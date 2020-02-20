@@ -4585,7 +4585,7 @@ class AuthGuard {
         if (currentUser) {
             return true;
         }
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;
     }
 }
@@ -4850,7 +4850,7 @@ class LoginComponent {
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
             .subscribe(data => {
-            this.router.navigate(['/portal/dashboard']);
+            this.router.navigate(['/portal/']);
         }, error => {
             this.alertService.error(error);
             this.loading = false;
