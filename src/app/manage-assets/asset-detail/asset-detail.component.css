@@ -8,6 +8,9 @@
   padding-bottom: 0;
 }
 
+a {
+  color: blue;
+}
 
 .tab-wrapper {
   width: 100%;
