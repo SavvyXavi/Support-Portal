@@ -12148,7 +12148,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "/locationdetail/", location_r354.Description, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "locationdetail/", location_r354.Description, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
@@ -12712,67 +12712,73 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _locations_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _services_apifilter_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../services/apifilter.service */
+    "./src/app/services/apifilter.service.ts");
+    /* harmony import */
+
+
+    var _locations_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./locations-routing.module */
     "./src/app/locations/locations-routing.module.ts");
     /* harmony import */
 
 
-    var _locations_table_locations_table_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _locations_table_locations_table_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./locations-table/locations-table.component */
     "./src/app/locations/locations-table/locations-table.component.ts");
     /* harmony import */
 
 
-    var _location_details_location_details_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _location_details_location_details_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./location-details/location-details.component */
     "./src/app/locations/location-details/location-details.component.ts");
     /* harmony import */
 
 
-    var _locations_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _locations_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ./locations.component */
     "./src/app/locations/locations.component.ts");
     /* harmony import */
 
 
-    var _angular_material_slider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _angular_material_slider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/material/slider */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/slider.js");
     /* harmony import */
 
 
-    var _angular_material_table__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _angular_material_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @angular/material/table */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/table.js");
     /* harmony import */
 
 
-    var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! @angular/material/paginator */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/paginator.js");
     /* harmony import */
 
 
-    var _angular_material_sort__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _angular_material_sort__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! @angular/material/sort */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sort.js");
     /* harmony import */
 
 
-    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! @angular/material/form-field */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
     /* harmony import */
 
 
-    var _angular_material_icon__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    var _angular_material_icon__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! @angular/material/icon */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
     /* harmony import */
 
 
-    var _angular_material_input__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    var _angular_material_input__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! @angular/material/input */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/input.js"); // Material Import
 
@@ -12788,16 +12794,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       factory: function LocationsModule_Factory(t) {
         return new (t || LocationsModule)();
       },
-      providers: [_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
-      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _locations_routing_module__WEBPACK_IMPORTED_MODULE_4__["LocationsRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], // Material Imports
-      _angular_material_slider__WEBPACK_IMPORTED_MODULE_8__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_10__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_11__["MatSortModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_13__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_14__["MatInputModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__["MatFormFieldModule"]]]
+      providers: [_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"], _services_apifilter_service__WEBPACK_IMPORTED_MODULE_4__["ApifilterService"]],
+      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _locations_routing_module__WEBPACK_IMPORTED_MODULE_5__["LocationsRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], // Material Imports
+      _angular_material_slider__WEBPACK_IMPORTED_MODULE_9__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_10__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_11__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_12__["MatSortModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_14__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_15__["MatInputModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__["MatFormFieldModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](LocationsModule, {
-        declarations: [_locations_table_locations_table_component__WEBPACK_IMPORTED_MODULE_5__["LocationsTableComponent"], _locations_component__WEBPACK_IMPORTED_MODULE_7__["LocationsComponent"], _location_details_location_details_component__WEBPACK_IMPORTED_MODULE_6__["LocationDetailsComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _locations_routing_module__WEBPACK_IMPORTED_MODULE_4__["LocationsRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], // Material Imports
-        _angular_material_slider__WEBPACK_IMPORTED_MODULE_8__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_10__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_11__["MatSortModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_13__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_14__["MatInputModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__["MatFormFieldModule"]]
+        declarations: [_locations_table_locations_table_component__WEBPACK_IMPORTED_MODULE_6__["LocationsTableComponent"], _locations_component__WEBPACK_IMPORTED_MODULE_8__["LocationsComponent"], _location_details_location_details_component__WEBPACK_IMPORTED_MODULE_7__["LocationDetailsComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _locations_routing_module__WEBPACK_IMPORTED_MODULE_5__["LocationsRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], // Material Imports
+        _angular_material_slider__WEBPACK_IMPORTED_MODULE_9__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_10__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_11__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_12__["MatSortModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_14__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_15__["MatInputModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__["MatFormFieldModule"]]
       });
     })();
     /*@__PURE__*/
@@ -12807,10 +12813,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LocationsModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
-          declarations: [_locations_table_locations_table_component__WEBPACK_IMPORTED_MODULE_5__["LocationsTableComponent"], _locations_component__WEBPACK_IMPORTED_MODULE_7__["LocationsComponent"], _location_details_location_details_component__WEBPACK_IMPORTED_MODULE_6__["LocationDetailsComponent"]],
-          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _locations_routing_module__WEBPACK_IMPORTED_MODULE_4__["LocationsRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], // Material Imports
-          _angular_material_slider__WEBPACK_IMPORTED_MODULE_8__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_10__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_11__["MatSortModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_13__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_14__["MatInputModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__["MatFormFieldModule"]],
-          providers: [_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+          declarations: [_locations_table_locations_table_component__WEBPACK_IMPORTED_MODULE_6__["LocationsTableComponent"], _locations_component__WEBPACK_IMPORTED_MODULE_8__["LocationsComponent"], _location_details_location_details_component__WEBPACK_IMPORTED_MODULE_7__["LocationDetailsComponent"]],
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _locations_routing_module__WEBPACK_IMPORTED_MODULE_5__["LocationsRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], // Material Imports
+          _angular_material_slider__WEBPACK_IMPORTED_MODULE_9__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_10__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_11__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_12__["MatSortModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_14__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_15__["MatInputModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__["MatFormFieldModule"]],
+          providers: [_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"], _services_apifilter_service__WEBPACK_IMPORTED_MODULE_4__["ApifilterService"]]
         }]
       }], null, null);
     })();

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthGuard } from '../index/index/guards/auth.guard';
+import { ApifilterService } from '../services/apifilter.service';
 
 import { LocationsRoutingModule } from './locations-routing.module';
 import { LocationsTableComponent } from './locations-table/locations-table.component';
@@ -41,7 +42,8 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    ApifilterService
   ]
 })
 export class LocationsModule { }
