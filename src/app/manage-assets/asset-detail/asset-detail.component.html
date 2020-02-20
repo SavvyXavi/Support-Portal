@@ -25,7 +25,7 @@
               Start Date
             </h6>
             <p>
-              {{this.contract[0]?.StartDate | date: 'shortDate'}}
+              {{this.contract?.StartDate | date: 'shortDate'}}
             </p>
           </div>
           <div class="col-md con-ref">
@@ -33,7 +33,7 @@
               Renewal Date
             </h6>
             <p>
-              {{this.contract[0]?.RenewalDate | date: 'shortDate'}}
+              {{this.contract?.RenewalDate | date: 'shortDate'}}
             </p>
           </div>
         </div>
@@ -100,7 +100,7 @@
                   <div matColumnDef="Contract Name">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract Name </th>
                     <td mat-cell *matCellDef="let contract">
-                      <a routerLink="/contractdetail/{{contract.RefNumber}}" class="contract-link">{{contract.ScheduleName}}</a>
+                      <a routerLink="../contracts/contractdetail/{{contract.RefNumber}}" class="contract-link">{{contract.ScheduleName}}</a>
                     </td>
                   </div>
 

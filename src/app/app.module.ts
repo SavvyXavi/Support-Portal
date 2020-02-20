@@ -21,17 +21,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AssetDetailComponent } from './manage-assets/asset-detail/asset-detail.component';
 import { AdminComponent } from './admin/admin.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { RegisterComponent } from './admin/register/register.component';
-import { TicketDetailComponent } from './manage-assets/tickets/ticket-detail/ticket-detail.component';
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 
 // Module Imports
 import { IndexModule } from './index/index.module';
 import { PortalModule } from './portal/portal-module/portal.module';
-import { ContractsModule } from './contracts/contracts/contracts.module';
 
 @NgModule({
   declarations: [
@@ -46,22 +43,20 @@ import { ContractsModule } from './contracts/contracts/contracts.module';
     UsersComponent,
     ProfileComponent,
     SettingsComponent,
-    AssetDetailComponent,
     AdminComponent,
     LocationDetailsComponent,
-    TicketDetailComponent,
-    LocalMonitorComponent,
+    LocalMonitorComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    IndexModule,
-    PortalModule,
     FormsModule,
     ReactiveFormsModule,
-    ContractsModule
+    IndexModule,
+    PortalModule
+
   ],
   providers: [
     AuthGuard,

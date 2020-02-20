@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { IndexRoutingModule } from './index-routing.module';
 import { IndexComponent } from './index/index.component';
@@ -13,6 +13,7 @@ import { AlertService } from './index/services/alert.service';
 import { AuthenticationService } from './index/services/authentication.service';
 
 import { ErrorInterceptor } from './index/helpers/error-interceptor.service';
+import { PortalModule } from '@angular/cdk/portal';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ErrorInterceptor } from './index/helpers/error-interceptor.service';
   imports: [
     CommonModule,
     IndexRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     AlertService,

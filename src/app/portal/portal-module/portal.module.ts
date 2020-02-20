@@ -9,7 +9,6 @@ import { PortalRoutingModule } from './portal-routing.module';
 import { HeaderComponent } from './../../header/header.component';
 import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
-import { ManageAssetsComponent, TicketsComponent } from '../../manage-assets';
 import { CompaniesComponent } from 'src/app/companies/companies.component';
 import { CustomersComponent } from 'src/app/admin/customers/customers.component';
 import { LocationsComponent } from 'src/app/locations/locations.component';
@@ -31,6 +30,8 @@ import { MatInputModule } from '@angular/material/input';
 
 // Module Import
 import { ContractsModule } from '../../contracts/contracts/contracts.module';
+import { AssetsModule } from 'src/app/manage-assets/assets/assets.module';
+import { TicketsModule } from 'src/app/tickets/tickets.module';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,6 @@ import { ContractsModule } from '../../contracts/contracts/contracts.module';
     HeaderComponent,
     SidebarComponent,
     DashboardComponent,
-    ManageAssetsComponent,
-    TicketsComponent,
     CompaniesComponent,
     CustomersComponent,
     LocationsComponent
@@ -52,6 +51,8 @@ import { ContractsModule } from '../../contracts/contracts/contracts.module';
     FormsModule,
     ReactiveFormsModule,
     ContractsModule,
+    AssetsModule,
+    TicketsModule,
 
     // Material Imports
     MatSliderModule,
@@ -61,7 +62,6 @@ import { ContractsModule } from '../../contracts/contracts/contracts.module';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule
-
   ],
   providers: [
     AuthGuard,

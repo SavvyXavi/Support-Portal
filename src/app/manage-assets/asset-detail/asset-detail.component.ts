@@ -10,6 +10,7 @@ import { Contracts } from '../../contracts/models/contracts';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-asset-detail',
@@ -42,9 +43,11 @@ export class AssetDetailComponent implements OnInit {
     const assetid =
     this.route.snapshot.paramMap.get('identifier');
     this.filter.assetsBySerial(assetid)
+    .pipe(first())
     .subscribe(
         (returnedAsset: Assets) => {
           this.asset = returnedAsset;
+          console.log(this.asset);
           this.filter.conByName(this.asset[0].Schedule)
           .subscribe(
             (returnedContractLength: Contracts[]) => {
@@ -54,7 +57,7 @@ export class AssetDetailComponent implements OnInit {
             this.contractDataSource.paginator = this.paginator;
             }
           );
-          this.filter.conByName(this.asset[0].Schedule)
+          this.filter.conByName(this.asset.Schedule)
           .subscribe(
             (returnedContract: Contracts) => {
               this.contract = returnedContract;

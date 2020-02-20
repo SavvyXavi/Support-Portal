@@ -15,7 +15,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ContractTableComponent
+        component: ContractTableComponent,
       },
       {
         path: 'contractdetail/:refNumber',

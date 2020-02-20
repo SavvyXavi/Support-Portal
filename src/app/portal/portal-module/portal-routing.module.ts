@@ -5,7 +5,6 @@ import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
 
 import { PortalComponent } from '../portal.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
-import { ManageAssetsComponent, TicketsComponent } from 'src/app/manage-assets';
 import { CompaniesComponent } from 'src/app/companies/companies.component';
 import { CustomersComponent } from 'src/app/admin/customers/customers.component';
 import { LocationsComponent } from 'src/app/locations/locations.component';
@@ -21,18 +20,22 @@ const routes: Routes = [
         component: DashboardComponent,
       },
       {
-        path: 'assets',
-        component: ManageAssetsComponent
-      },
-      {
         path: 'contracts',
         loadChildren: () => import
         ('../../contracts/contracts/contracts.module').then( c =>
           c.ContractsModule)
       },
       {
+        path: 'assets',
+        loadChildren: () => import
+        ('../../manage-assets/assets/assets.module').then( a =>
+          a.AssetsModule)
+      },
+      {
         path: 'tickets',
-        component: TicketsComponent
+        loadChildren: () => import
+        ('../../tickets/tickets.module').then( t =>
+          t.TicketsModule)
       },
       {
         path: 'locations',

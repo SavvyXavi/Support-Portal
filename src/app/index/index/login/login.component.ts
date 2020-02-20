@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   ) {
     if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/portal/dashboard']);
+      this.router.navigate(['/portal']);
     }
   }
 
@@ -39,14 +39,14 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   get f() {
     return this.loginForm.controls;
   }
 
-  onSubmit() {
+   onSubmit() {
     this.submitted = true;
 
     if (this.loginForm.invalid) {
@@ -57,8 +57,9 @@ export class LoginComponent implements OnInit {
     .pipe(first())
     .subscribe(
       data => {
-       this.router.navigate(['/portal/dashboard']);
-  },
+        this.router.navigate(['/portal/dashboard']);
+
+      },
       error => {
         this.alertService.error(error);
         this.loading = false;
