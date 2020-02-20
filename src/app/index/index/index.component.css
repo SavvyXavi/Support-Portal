@@ -1,10 +1,11 @@
 .container{
-  height: 100%;
-  top: 50%;
+  height: 100vh;
   display: flex;
   align-items: center;
 }
 
 .wrapper{
   height: 100%;
+  top: 50%;
+  position: absolute;
 }
