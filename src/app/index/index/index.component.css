@@ -5,7 +5,6 @@
 }
 
 .wrapper{
-  /* height: 100%; */
   top: 50%;
-  position: relative;
+  position: fixed;
 }
