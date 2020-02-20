@@ -21,10 +21,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AdminComponent } from './admin/admin.component';
-import { RegisterComponent } from './admin/register/register.component';
-import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
-
 // Module Imports
 import { IndexModule } from './index/index.module';
 import { PortalModule } from './portal/portal-module/portal.module';
@@ -32,7 +28,6 @@ import { PortalModule } from './portal/portal-module/portal.module';
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
     SuppdashComponent,
     AccountsComponent,
     ListsComponent,
@@ -41,9 +36,7 @@ import { PortalModule } from './portal/portal-module/portal.module';
     OemComponent,
     UsersComponent,
     ProfileComponent,
-    SettingsComponent,
-    AdminComponent,
-    LocalMonitorComponent,
+    SettingsComponent
    ],
   imports: [
     BrowserModule,
@@ -54,7 +47,6 @@ import { PortalModule } from './portal/portal-module/portal.module';
     ReactiveFormsModule,
     IndexModule,
     PortalModule
-
   ],
   providers: [
     AuthGuard,

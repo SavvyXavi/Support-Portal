@@ -9,7 +9,6 @@ import { PortalRoutingModule } from './portal-routing.module';
 import { HeaderComponent } from './../../header/header.component';
 import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
-import { CustomersComponent } from 'src/app/admin/customers/customers.component';
 
 import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
 import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
@@ -32,6 +31,7 @@ import { AssetsModule } from 'src/app/manage-assets/assets/assets.module';
 import { TicketsModule } from 'src/app/tickets/tickets.module';
 import { CompaniesModule } from 'src/app/companies/companies.module';
 import { LocationsModule } from 'src/app/locations/locations.module';
+import { AdminModule } from 'src/app/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,6 @@ import { LocationsModule } from 'src/app/locations/locations.module';
     HeaderComponent,
     SidebarComponent,
     DashboardComponent,
-    CustomersComponent
   ],
   imports: [
     CommonModule,
@@ -53,6 +52,7 @@ import { LocationsModule } from 'src/app/locations/locations.module';
     TicketsModule,
     CompaniesModule,
     LocationsModule,
+    AdminModule,
 
     // Material Imports
     MatSliderModule,
