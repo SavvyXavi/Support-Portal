@@ -36,14 +36,6 @@ nav {
   margin-left: 13px;
 }
 
-.northsmart button {
-  color: black;
-}
-
-.relusNav button {
-  color: black;
-}
-
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   background-color:#8c8c8c;
 }
