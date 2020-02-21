@@ -1,0 +1,19 @@
+
+<div>
+  <h3>
+  All Users: <button (click)="getAllAssets()">Load assets</button>
+  <ul>
+    <li *ngFor="let zipper of datapull">
+      {{zipper.partner}}<br>
+      {{zipper.Identifier}}
+      {{zipper.AssetType}}<br>
+      {{zipper.ContractCoverage}}<br>
+      {{zipper.SiteAddress}}<br>
+      {{zipper.EndCustomer}}<br>
+      {{zipper.Schedule}}<br>
+      {{zipper.ScheduleLine}}
+    </li>
+  </ul>
+</h3>
+</div>
+

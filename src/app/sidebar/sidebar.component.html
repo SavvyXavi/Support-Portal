@@ -1,0 +1,129 @@
+        <!-- Ng If to read User Role -->
+        <nav class="navbar-nav sticky-top text-center">
+
+          <div id="container" class="icon-bar text-center">
+            <div width="100%" class="ham-wrapper text-center">
+            <button class="col-auto btn btn-lg custom-btn" role="button">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+
+
+                <a routerLink="dashboard" class="dashboard">
+                  <div class="dashboard-icon icon-wrapper">
+                    <i class="icon fas fa-tachometer-alt"></i>
+                  </div>
+                <div class="dashboard-content col-auto">
+                    <span>
+                      Dashboard
+                    </span>
+                </div>
+                </a>
+
+
+                <a class="assets-btn">
+                    <div class="assets-icon icon-wrapper">
+                      <i routerLink="assets" class="icon fas fa-file-alt"></i>
+                  </div>
+                  <div class="assets-text dropdown-toggle dropdown-btn col-auto" id="dropdown" data-toggle="collapse" data-target="#dd">
+                      <span>
+                        Assets
+                      </span>
+                  </div>
+                </a>
+
+
+              <div id="dd" class="dropdown-container collapse" aria-labelledby="dropdown01">
+                    <a class="dropdown" routerLink="contracts">Contracts</a>
+                    <a class="dropdown" routerLink="assets">Assets</a>
+              </div>
+
+
+              <a routerLink="tickets" class="tickets">
+                <div class="tickets-icon icon-wrapper">
+                    <i routerLink="tickets" class="icon fas fa-ticket-alt"></i>
+                </div>
+                <div class="tickets-content col-auto">
+                    <span>Tickets</span>
+                </div>
+                </a>
+
+                <a routerLink="locations" class="locations">
+                  <div class="locations-icon icon-wrapper">
+                      <i routerLink="locations" class="icon fas fa-map"></i>
+                  </div>
+                  <div class="tickets-content col-auto">
+                      <span>Locations</span>
+                  </div>
+                  </a>
+
+                <a  *ngIf="currentRole?.companypartner === 'Partner'" class="admin">
+                  <div class="admin-icon icon-wrapper">
+                    <i routerLink="" class="icon fas fa-users-cog"></i>
+                </div>
+                <div class="dropdown-toggle dropdown-btn col-auto" id="dropdown02" data-toggle="collapse" data-target="#dd2">
+                    <span>Admin</span>
+                </div>
+                </a>
+
+                <div id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
+                    <!-- <a class="dropdown" routerLink="admin/oem">OEM</a> -->
+                    <a class="dropdown" routerLink="admin/customers">Customers</a>
+                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin">Admin</a>
+                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/register">Register Users</a>
+                    <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/localmonitor">Local Monitor</a>
+              </div>
+          </div>
+    </nav>
+
+    <!-- <nav *ngIf="currentRole?.partnerRole === 'User'" class="navbar-nav">
+        <div id="container" class="icon-bar">
+            <div class="ham-wrapper">
+            <button class="col-auto btn btn-lg custom-btn" (click)="collapseMenu()">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+                <a (click)="dashLink()" class="dashboard">
+                  <div class="dashboard-icon">
+                    <i class="icon fas fa-tachometer-alt"></i>
+                  </div>
+                <div class="dashboard-content col-auto">
+                    <span>Dashboard</span>
+                    <i class="fa fa-caret-down"></i>
+                </div>
+                </a>
+                <a class="assets-btn">
+                    <div class="assets-icon">
+                      <i routerLink="manageassets/assets" class="icon fas fa-file-alt"></i>
+                  </div>
+                  <div (click)="dropdownMA()" class="dropdown-btn col-auto">
+                      <span>Assets</span>
+                      <i class="fa fa-caret-down"></i>
+                  </div>
+                </a>
+              <div id="dropdown" class="dropdown-container">
+                    <a class="dropdown" routerLink="manageassets/contracts">Contracts</a>
+                    <a class="dropdown" routerLink="manageassets/assets">Assets</a>
+              </div>
+              <a routerLink="manageassets/tickets" class="tickets">
+                  <div class="tickets-icon">
+                    <i routerLink="manageassets/tickets" class="icon fas fa-ticket-alt"></i>
+                </div>
+                <div class="tickets-content col-auto">
+                    <span>Tickets</span>
+                </div>
+                </a>
+                <a class="admin">
+                  <div class="admin-icon">
+                    <i class="icon fas fa-users-cog"></i>
+                </div>
+                <div  class="admin-content col-auto">
+                    <span>Admin</span>
+                    <i class="fa fa-caret-down"></i>
+                </div>
+                </a>
+                <div id="dropdownTwo" class="dropdown-container-two">
+                    <a class="dropdown" routerLink="admin/customers">Customers</a>
+              </div>
+          </div>
+    </nav> -->

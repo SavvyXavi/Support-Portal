@@ -1,0 +1,51 @@
+.d-flex {
+  margin-right: 20px;
+}
+
+.btn {
+  margin: 10px;
+  background-color: rgb(230, 92, 0) !important;
+  border-color: rgb(230, 92, 0) !important;
+}
+
+.btn:click,
+.btn:hover,
+.btn:focused,
+.btn:active,
+.btn:visited {
+  margin: 10px;
+  background-color: rgb(230, 92, 0) !important;
+  border: rgb(230, 92, 0) !important;
+}
+
+.table-container {
+  margin-right: 30px;
+}
+
+table {
+  border: 3px solid black;
+}
+
+th {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 15px;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+  background-color: #e6e6e6;
+}
+
+tr:nth-child(odd) {
+  background-color:   white;
+}

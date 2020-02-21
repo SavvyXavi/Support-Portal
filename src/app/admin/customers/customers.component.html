@@ -1,0 +1,30 @@
+<div class="edit-items-container d-flex justify-content-end">
+  <button class="assign-assets btn btn-primary">
+    <i class="fas fa-file-export" aria-hidden="true"></i> Export Customers
+  </button>
+  <button class="btn btn-primary">
+    <i class="far fa-eye"></i> Show Archived
+  </button>
+</div>
+<div class="table-container table-responsive-sm">
+<table class="table table-bordered">
+    <thead>
+     <tr>
+         <th>Account ID</th>
+         <th>Company Name</th>
+         <th>Account Manager</th>
+         <th>Primary Contact Name</th>
+         <th>Primary Contact Email</th>
+         <th>Created Date</th>
+       </tr>
+    </thead>
+    <tr *ngFor='let data of customers'>
+      <td> {{data.AccountID}} </td>
+      <td> {{data.CompanyName}} </td>
+      <td> {{data.AccountManager}}</td>
+      <td> {{data.PrimaryContactFullName}} </td>
+      <td> {{data.PrimaryContactEmail}} </td>
+      <td> {{data.CreatedDate}} </td>
+    </tr>
+   </table>
+</div>
