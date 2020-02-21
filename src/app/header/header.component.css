@@ -2,17 +2,17 @@
   margin: 0px 0px 0px 0px;
 }
 
-form {
+/* form {
   margin-left: 150px;
   margin-right: 150px;
-}
+} */
 
 hr {
   border-color: #8c8c8c;
 }
 
 nav {
-  width: 102vw;
+  width: 100vw;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
 }
 
