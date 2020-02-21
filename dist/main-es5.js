@@ -19937,7 +19937,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       secret: 'Noble1Solutions',
       LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
       CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
-      DataPull: 'https://testdata.noble1it.com'
+      DataPull: 'https://n1stestdata.noble1it.com'
     };
     /*
      * For easier debugging in development mode, you can import the following file
