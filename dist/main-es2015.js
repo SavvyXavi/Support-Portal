@@ -2765,8 +2765,8 @@ __webpack_require__.r(__webpack_exports__);
 class AssetLocFilterPipe {
     constructor() {
     }
-    transform(value, filter) {
-        value = filter.map(x => x.SiteAddress);
+    transform(filter) {
+        const value = filter.map(x => x.SiteAddress);
         const locs = [...new Set(value)];
         return locs;
     }

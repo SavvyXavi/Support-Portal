@@ -5111,8 +5111,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
       _createClass(AssetLocFilterPipe, [{
         key: "transform",
-        value: function transform(value, filter) {
-          value = filter.map(function (x) {
+        value: function transform(filter) {
+          var value = filter.map(function (x) {
             return x.SiteAddress;
           });
 
