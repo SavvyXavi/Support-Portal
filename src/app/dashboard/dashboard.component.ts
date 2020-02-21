@@ -130,7 +130,7 @@ export class DashboardComponent implements OnInit {
           this.contractLength = returnedCons.length;
         }
       );
-      this.filter.conByDays(this.currentProfile)
+      this.filter.pConByDays(this.currentProfile)
       .subscribe(
         (returnedDays: string[]) => {
           this.contractDays = returnedDays;
@@ -180,7 +180,12 @@ export class DashboardComponent implements OnInit {
           tooltips: {
             callbacks: {
               title: function(tooltipItem, data) {
-                return 'Contracts ' + tooltipItem[0].xLabel;
+                var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                    if (label) {
+                        label += ': ';
+                    }
+                return label;
               }
             }
           }
@@ -193,10 +198,11 @@ export class DashboardComponent implements OnInit {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
         (returnedCons: Contracts[]) => {
+          console.log('Hi customer');
           this.contractLength = returnedCons.length;
         }
       );
-      this.filter.conByDays(this.currentProfile)
+      this.filter.cConByDays(this.currentProfile)
       .subscribe(
         (returnedDays: string[]) => {
           this.contractDays = returnedDays;
