@@ -139,7 +139,7 @@
 
           <div class="tab-pane locations fade" id="location" role="tabpanel" aria-labelledby="location-tab">
             <div class="form-goup">
-              <label *ngFor="let asset of assets | assetLocFilter" for="siteAddress">
+              <label *ngFor="let asset of assets | assetLocFilter: asset.SiteAddress" for="siteAddress">
                 Address of Asset
                 <input readonly type="text" value="{{asset.SiteAddress}}" placeholder="Asset Location">
               </label>
