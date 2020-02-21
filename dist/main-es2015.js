@@ -8333,7 +8333,7 @@ class PortalComponent {
     ngOnInit() { }
 }
 PortalComponent.ɵfac = function PortalComponent_Factory(t) { return new (t || PortalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_1__["AuthenticationService"])); };
-PortalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PortalComponent, selectors: [["app-portal"]], decls: 9, vars: 0, consts: [[1, "container-fluid"], [1, "row"], [1, "header", "fixed-top", "col-md"], [1, "col-md-2", "sidebar"], [1, "col-md", "content"]], template: function PortalComponent_Template(rf, ctx) { if (rf & 1) {
+PortalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PortalComponent, selectors: [["app-portal"]], decls: 9, vars: 0, consts: [[1, "container-fluid"], [1, "row"], [1, "header", "col-md"], [1, "col-md-2", "sidebar"], [1, "col-md", "content"]], template: function PortalComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);

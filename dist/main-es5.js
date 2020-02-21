@@ -15693,7 +15693,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-portal"]],
       decls: 9,
       vars: 0,
-      consts: [[1, "container-fluid"], [1, "row"], [1, "header", "fixed-top", "col-md"], [1, "col-md-2", "sidebar"], [1, "col-md", "content"]],
+      consts: [[1, "container-fluid"], [1, "row"], [1, "header", "col-md"], [1, "col-md-2", "sidebar"], [1, "col-md", "content"]],
       template: function PortalComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
