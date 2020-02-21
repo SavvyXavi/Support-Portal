@@ -1,37 +1,19 @@
-<h2>Current User Below:</h2>
-<p>
-    Company: {{this.currentProfile.company}}<br/>
-    _ID: {{this.currentProfile._id}}<br/>
-    ID: {{this.currentProfile.id}}<br/>
-    First Name: {{this.currentProfile.firstName}}<br/>
-    Last Name: {{this.currentProfile.lastName}}<br/>
-    Password: {{this.currentProfile.password}}<br/>
-    Hash: {{this.currentProfile.hash}}<br/>
-    Token: {{this.currentProfile.token}}<br/>
-    Username: {{this.currentProfile.username}}<br/>
-    Company/Partner: {{this.currentProfile.companypartner}} <br/>
-    Partner: {{this.currentProfile.partner}}<br/>
-    PartnerRole: {{this.currentProfile.partnerRole}}<br/>
-    Email: {{this.currentProfile.email}}
-</p>
+
 <div>
   <h3>
-  All Users: <button (click)="loadAllUsers()">Load Users</button>
+  All Users: <button (click)="getAllAssets()">Load assets</button>
   <ul>
-    <li *ngFor="let profile of profiles">
-      {{profile.company}}<br>
-      {{profile._id}}
-      {{profile.id}}<br>
-      {{profile.firstName}}<br>
-      {{profile.lastName}}<br>
-      {{profile.partner}}<br>
-      {{profile.partnerRole}}<br>
-      {{profile.token}}<br>
-      {{profile.hash}}<br>
-      {{profile.email}}
+    <li *ngFor="let zipper of datapull">
+      {{zipper.partner}}<br>
+      {{zipper.Identifier}}
+      {{zipper.AssetType}}<br>
+      {{zipper.ContractCoverage}}<br>
+      {{zipper.SiteAddress}}<br>
+      {{zipper.EndCustomer}}<br>
+      {{zipper.Schedule}}<br>
+      {{zipper.ScheduleLine}}
     </li>
   </ul>
-
 </h3>
 </div>
 

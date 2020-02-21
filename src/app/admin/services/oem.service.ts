@@ -4,7 +4,9 @@ import { LogoList } from '../../logo-list';
 import { Logo } from '../../logolist';
 import { of } from 'rxjs';
 import { Observable } from 'rxjs';
-
+import { DataPull } from '../models/datapull';
+import { Role } from '../../types/role.enum';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +17,8 @@ export class OemService {
   monPull = 'https://localmonitor.noble1it.com/nagiosxi/api/v1/objects/servicestatus';
   combPull = this.monPull + this.monApi;
   azureMonitor = 'https://prodharmonytwo.azurewebsites.net/api/NagiosCall?code=b99vLlCwafNeOtiqbk1VlJ6upDuWsCo06ox9oxr65sggj3KtLv2qFQ==';
-logolist: Logo[];
-
+  logolist: Logo[];
+  datapull: DataPull;
 
 
   constructor( private http: HttpClient ) { }
@@ -30,7 +32,9 @@ logolist: Logo[];
   getLogo(): Observable<Logo[]> {
     return of(LogoList);
   }
-
+  getAllAssets(): Observable<DataPull[]> {
+    return this.http.get<DataPull[]>(`${environment.serverUrl}/asset`);
+  }
 
 
 }
