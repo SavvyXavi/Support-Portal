@@ -177,7 +177,9 @@ export class ApifilterService {
       return this.http.post(this.schedDayCountApi, params);
     }
 
-
+    regGetPartner() {
+      return this.http.get(this.partnerApi);
+    }
 
   getPartners() {
     return of(this.partnerlist);
