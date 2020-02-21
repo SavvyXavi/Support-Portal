@@ -15701,7 +15701,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-portal"]],
       decls: 9,
       vars: 0,
-      consts: [[1, "container-fluid"], [1, "row"], [1, "header", "sticky-top", "col-md"], [1, "col-md-2", "sidebar"], [1, "col-md", "content"]],
+      consts: [[1, "container-fluid"], [1, "row", "sticky-top"], [1, "header", "col-md"], [1, "row"], [1, "col-md-2", "sidebar"], [1, "col-md", "content"]],
       template: function PortalComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -15716,15 +15716,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 3);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 4);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "app-sidebar");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 4);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 5);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "router-outlet");
 
