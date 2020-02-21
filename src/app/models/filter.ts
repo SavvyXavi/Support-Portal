@@ -4,4 +4,5 @@ export class Filter {
   firstName: string;
   lastName: string;
   email: string;
+  company: string;
 }

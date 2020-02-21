@@ -1,0 +1,29 @@
+<div class="edit-items d-flex justify-content-end">
+    <button class="btn btn-primary">
+      <i class="far fa-edit" aria-hidden="true"></i> Refresh
+    </button>
+</div>
+<div class="table-container table-responsive-sm">
+  Total Services Monitored = {{monitor?.recordcount}}
+<table class="table">
+<thead>
+ <tr>
+     <th>State</th>
+     <th>Host Name</th>
+     <th>Name</th>
+     <th>Host Address</th>
+     <th>Last Check</th>
+   </tr>
+</thead>
+ <tr *ngFor='let data of monitor.servicestatus'>
+   <td>{{data.current_state}}</td>
+   <td>{{data.host_name}}</td>
+   <td>{{data.name}}</td>
+   <td>{{data.host_address}}</td>
+   <td>{{data.last_check}}</td>
+ </tr>
+</table>
+</div>
+
+<img class="logo" [src]="this.logo" />
+

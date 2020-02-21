@@ -1,69 +1,33 @@
+import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { UsersComponent } from './admin/users/users.component';
-import { ContractsComponent } from './manage-assets/contracts/contracts.component';
 import { SupportComponent } from './admin/support/support.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule,  } from '@angular/router';
 
-import { LoginComponent } from './login/login/login.component';
-import { RegistrationComponent } from './login/registration/registration.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';
-import { NorthComponent } from './north/north.component';
-import { ReliantDashComponent } from './reliant-dash/reliant-dash.component';
-import { RelusDashComponent } from './relus-dash/relus-dash.component';
-import { GenericDashComponent } from './generic-dash/generic-dash.component';
 
-import { ManageAssetsComponent } from './manage-assets/manage-assets.component';
-import { TicketsComponent } from './manage-assets/tickets/tickets.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
-import { LocationsComponent } from './locations/locations.component';
-import { ResetComponent } from './login/reset/reset.component';
-import { AuthGuard } from './login/guards/auth.guard';
+import { AuthGuard } from './index/index/guards/auth.guard';
 import { AccountsComponent } from './admin/accounts/accounts.component';
-import { ListsComponent } from './manage-assets/lists/lists.component';
 import { OemComponent } from './admin/oem/oem.component';
 import { BudgetComponent } from './budget/budget.component';
 import { CustomersComponent } from './admin/customers/customers.component';
-import { ContractDetailComponent } from './contract-detail/contract-detail.component';
-
+import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
-    canActivate: [AuthGuard]
+    loadChildren: () => import
+    ('./index/index.module').then(
+      m => m.IndexModule),
   },
   {
-    path: '',
-    component: SuppdashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: '',
-    component: NorthComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: '',
-    component: ReliantDashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: '',
-    component: RelusDashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: '',
-    component: GenericDashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: '',
-    component: SuppdashComponent,
-    canActivate: [AuthGuard]
+    path: 'portal',
+    loadChildren: () => import
+    ('./portal/portal-module/portal.module').then( m =>
+      m.PortalModule),
   },
   {
     path: 'profile',
@@ -76,71 +40,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'login/register',
-    component: RegistrationComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'reset',
-    component: ResetComponent
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'northdash',
-    component: NorthComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'reliantdash',
-    component: ReliantDashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'relusdash',
-    component: RelusDashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'genericdash',
-    component: GenericDashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'suppdash',
     component: SuppdashComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'manageassets/assets',
-    component: ManageAssetsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'manageassets/tickets',
-    component: TicketsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'manageassets/lists',
-    component: ListsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'manageassets/contracts',
-    component: ContractsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'contractdetail/:refNumber',
-    component: ContractDetailComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -149,18 +50,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'locations',
-    component: LocationsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'admin/accounts',
     component: AccountsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'admin/admin',
-    component: AdminComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -169,25 +60,10 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'admin/register',
-    component: RegisterComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'admin/oem',
-    component: OemComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'admin/customers',
-    component: CustomersComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'admin/users',
     component: UsersComponent,
     canActivate: [AuthGuard]
-  }
+  },
 ];
 
 @NgModule({

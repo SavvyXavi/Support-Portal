@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLinkActive } from '@angular/router';
-import { AuthenticationService } from '../login/services/authentication.service';
+import { AuthenticationService } from '../index/index/services/authentication.service';
 import { ApifilterService } from './../services/apifilter.service';
 
 import { Subscription } from 'rxjs';
-import { Profile } from '../login/models/profile';
+import { Profile } from '../index/index/models/profile';
 import { Partner } from './../models/partner';
 
 import { Sidebars } from './services/loadsidebar.service';
@@ -65,32 +65,6 @@ export class SidebarComponent implements OnInit {
       document.getElementById('dropdown').style.display = 'block';
     } else {
       document.getElementById('dropdown').style.display = 'none';
-    }
-  }
-
-  dashLink() {
-    const dash = this.authenticationService.currentUserValue.partner;
-    switch (dash) {
-      case 'NorthSmart (Northland)':
-        this.router.navigate(['/northdash']);
-      break;
-      case 'Noble1 Solutions':
-        this.router.navigate(['/dashboard']);
-      break;
-      case 'Reliant Technology':
-        this.router.navigate(['/reliantdash']);
-      break;
-      case 'Relus Technologies':
-        this.router.navigate(['/relusdash']);
-      break;
-      case 'BB&T':
-        this.router.navigate(['/relusdash']);
-      break;
-      case 'Support':
-        this.router.navigate(['/suppdash']);
-        break;
-      default:
-        this.router.navigate(['/genericdash']);
     }
   }
 

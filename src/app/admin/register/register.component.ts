@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { AlertService } from '../../login/services/alert.service';
-import { AuthenticationService } from '../../login/services/authentication.service';
-import { ProfileService } from '../../login/services/profile.service';
-import { MustMatch } from '../../login/helpers/must-match';
+import { AlertService } from '../../index/index/services/alert.service';
+import { AuthenticationService } from '../../index/index/services/authentication.service';
+import { ProfileService } from '../../index/index/services/profile.service';
+import { MustMatch } from '../../index/index//helpers/must-match';
 import { Subscription } from 'rxjs';
+import { Profile } from '../../index/index/models/profile';
+import { ApifilterService } from 'src/app/services/apifilter.service';
+import { Partner } from 'src/app/models/partner';
 
 @Component({
   selector: 'app-register',
@@ -20,13 +23,21 @@ export class RegisterComponent implements OnInit {
   randNumberOne = Math.random() * 10000;
   randNumberTwo = Math.random() * 10000;
   randNumber = this.randNumberOne * this.randNumberTwo * 1000;
+  profile: Profile[];
+  twoprofile: Profile;
+  partnerList: Partner[];
+  partner: Profile;
+  company: Profile[];
+  twocompany: Profile;
+  selpartner: Profile;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService,
     private alertService: AlertService,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private filter: ApifilterService
   ) {
     // redirects to dashboard if already logged in
  //   if (this.authenticationService.currentUserValue) {
@@ -35,6 +46,10 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.filter.getPartners().subscribe((partnerList => {
+      this.partnerList = partnerList;
+    }));
+
     this.registerForm = this.formBuilder.group({
       firstName: ['',  Validators.required],
       lastName:  ['', Validators.required],
@@ -43,8 +58,8 @@ export class RegisterComponent implements OnInit {
       email:     ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$') ]],
       partner:   ['', Validators.required],
       partnerRole: ['', Validators.required],
-      password:  ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$') ]],
-      confirmpassword: ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$') ]],
+      password:  ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$') ]],
+      confirmpassword: ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$') ]],
       username:  ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$') ]],
       id: [this.randNumber]
     },
@@ -63,19 +78,20 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // stop here if form is invalid
- //   if ( this.registerForm.invalid) {
-  //    return;
- //   }
+   // stop here if form is invalid
+      if ( this.registerForm.invalid) {
+        alert('failure :-(\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+      return;
+      }
 
     this.loading = true;
-//    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
     this.profileService.register(this.registerForm.value)
       .pipe(first())
       .subscribe(
         data => {
           this.alertService.success('Registration successful', true);
- //         this.router.navigate(['/login']);
+          this.router.navigate(['/portal/dashboard']);
         },
         error => {
           this.alertService.error(error);
@@ -84,4 +100,10 @@ export class RegisterComponent implements OnInit {
       );
   }
 
+  getcompany(partner: any) {
+  this.filter.registerCustFilter(partner).subscribe((company: Profile) => {
+    this.twocompany = company;
+    console.log(this.twocompany);
+  });
+  }
 }

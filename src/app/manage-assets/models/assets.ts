@@ -1,12 +1,14 @@
 export class Assets {
-  name: string;
+  Name: string;
   id: number;
-  companyName: string;
-  description: string;
-  sla: string;
-  schedule: string;
-  endCustomer: string;
-  archived: boolean;
-  assetType: string;
-  assetStatus: string;
+  CompanyName: string;
+  Description: string;
+  Sla: string;
+  Schedule: string;
+  EndCustomer: string;
+  Archived: boolean;
+  AssetType: string;
+  AssetStatus: string;
+  SiteAddress: string;
+  ContractCoverage: string;
 }

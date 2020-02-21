@@ -1,22 +1,14 @@
-import { AuthenticationService } from './../login/services/authentication.service';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 
-import { Profile } from '../login/models/profile';
-import { ProfileService } from '../login/services/profile.service';
+import { Profile } from '../index/index/models/profile';
 
 import { Filter } from './../models/filter';
-import { Role } from '../types/role.enum';
-import { Assets } from '../manage-assets/models/assets';
-import { Contracts } from './../manage-assets/models/contracts';
-import { SpecContract } from './../manage-assets/models/spec-contract';
+import { Contracts } from './../contracts/models/contracts';
 import { HttpClient } from '@angular/common/http';
 
-import { Customer } from './../admin/models/customer';
 import { Partner } from '../models/partner';
 import { PartnerList } from '../partner-list';
-
-// import { DataSource } from '@angular/cdk/collections';
 
 @Injectable({
   providedIn: 'root'
@@ -28,29 +20,55 @@ export class ApifilterService {
   partner: Partner;
   partnerlist = PartnerList;
 
-  customerApi = 'https://prodharmony.azurewebsites.net/api/CompanyByPartner?code=a7VaewYNOND36Oo0A85ezo9m4bvmkQAzZPtOIfp3dPO/SROa2pE/dA==';
+  customerApi =
+'https://harmonyprodcustomersone.azurewebsites.net/api/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
   partnerApi = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
 
+
   pContractsApi =
-  'https://prodharmony.azurewebsites.net/api/ContractsByPartner?code=GCrRyi4Y8rxCQ6mKJzLXYhROqECUR1clXjK9AdqhMEXEdOFPCqK8WA==';
+  'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByPartner?code=4QQzdPj2j4LgMuJ9wnzmomSadWCLJEpbSOKcJqhBPRDswDZUCq6NqA==';
   cContractsApi =
-  'https://prodharmony.azurewebsites.net/api/ContractsByCustomer?code=SQVrhe8b7rFFsPV0LS6dxBniJW8QqVoa4Jjzv5gwLVuiD/Tg8uIvbQ==';
-  refConApi = 'https://prodharmony.azurewebsites.net/api/SpecificContract?code=YcbG2hXdjXJa/o/b1nxRHhheVoY5l5AvHQ7AQGP9PhQUOppTFi3kig==';
+  'https://harmonyprodcustomersone.azurewebsites.net/api/ContractsByCustomer?code=bpca1PGS/szLyokaPXrzwhbTmpIv1NIC8St234Ce8anUtUKo8uUWkg==';
+  refConApi =
+   'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
+  nameConApi =
+  'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByName?code=IZMBTTmJ5l7M3WPeKg46l/3lfEaAKMgKdagfNCM8T07vyO05QqqBSg==';
+  schedDayCountApi =
+  'https://prodharmonytwo.azurewebsites.net/api/getSchedDaysToGo?code=NxVHnZOpdgRSQCa35OBTA7g/r6wm3euGe0a8pWHG6hDNG7PTCkPJNQ==';
 
-  partassetsapi
-   = 'https://prodharmony.azurewebsites.net/api/PartnerPullAssets?code=BmCsQrHGSIvMr1oFRw7T6kj7/a2H/x8GeOadWjmvZgSeaRwCqZGE9g==';
+
+  oldpartassetsapi
+   = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullAssets?code=jZK5Np57XB8xaTlNIlnyj9Pga9ar34hvOD4fkzGj/xTAlHNCemQvpw==';
+   partassetsapi
+   =   'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
   custassetsapi
-  = 'https://prodharmony.azurewebsites.net/api/CompanyPullAssets?code=qyUMwbo49BKruYRYNRlQnseFOATgwD/e9zJeIyk4ZBIO0xbOmvcVlQ==';
+  = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetByCustomer?code=srg4TRFO6Uvo2YxaFGKlpJ59714bHNlgBTtSXdxDvk7WwBfX8VkdTw==';
+  schedassetsapi
+  = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsBySchedule?code=Q3Yjx/KXbuErLesg4oBVs5BJrdFdOMkXn0T/HoLO6hDrCavd45iN9A==';
+  serialassetsapi
+  = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetDrillDown?code=cwjoeQCF3Qx5PwX0xfLJDclqyxjEyW/gZppvvS6K/g07nFSOTfudrg==';
+  assetlocationapi =
+  'https://harmonyprodcustomersone.azurewebsites.net/api/AssetsByLocation?code=aO2JTfqrHEJNatGh3FIlDHs90/fGncezd7CVxMfZX/lqR9ZoyHvIYw==';
 
 
-  ticketsapi = 'https://prodharmony.azurewebsites.net/api/TickersbyCustomer?code=2PgmwkpRzFu9ak1Stz6uRyGFa0LRwC61pWM9L5oSPzJLQkT33dlNvA==';
+  pTicketsApi
+   = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
+  cTicketsApi =
+  'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
+  ticketsLocationapi =
+  'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByLocation?code=Dj9Nn0m5gd3RuNDO5E/xq9r7AqN7S0z34mrL2bsSwxkANwga/1iJyQ==';
+  ticketRefApi =
+  'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByRefNumber?code=O1Sok3K9e4QIPE/IGmb7YPdn/WlwY97zxeufiVVCmD2iw5FN8/8jyg==';
 
-  locationsapi =
-  'https://prodharmony.azurewebsites.net/api/LocationsByCustomer?code=lOUnhasaC78wc6wyFKiG/loAC7aa0blBIca91Y/BdexlvkqGyEGMXw==';
+
+  pLocationsapi =
+  'https://harmonyprodpartnersone.azurewebsites.net/api/LocationsByPartner?code=4rYRhjsKV710lRV0tXwOXlfMJkzwUp3mPnvpn2dpKA/FgbAYEPIxow==';
+  cLocationsapi =
+  'https://harmonyprodcustomersone.azurewebsites.net/api/LocationsByCustomer?code=S5urk3EhAuuuMATbFA8E5/ixHQPJhcaC6wlLAP4GPxs4qN0tPsfuIA==';
+  locationdescfilterapi =
+'https://harmonyprodcustomersone.azurewebsites.net/api/LocationByDescription?code=LlWycAaW502tdZ9EMsNbkqapKMVLR7yfsFJRapYhwAlXuqwpnp9ELA==';
 
   constructor(
-    private profileService: ProfileService,
-    private auth: AuthenticationService,
     private http: HttpClient
   ) { }
 
@@ -59,36 +77,68 @@ export class ApifilterService {
       'role': filter.partnerRole,
       'partner': filter.partner
     };
-
     return this.http.post(this.partassetsapi, params);
   }
 
   custAssetsFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
-      'partner': filter.partner
+      'company': filter.company
     };
-
     return this.http.post(this.custassetsapi, params);
   }
 
-  paginateAssets(filter: Filter, page: number): Observable<Assets> {
+  assetsBySchedule(schedule: string) {
+    const params = {
+      'schedule': schedule
+    };
+    return this.http.post(this.schedassetsapi, params);
+  }
+
+  assetsBySerial(serial: string) {
+    const params = {
+      'serial': serial
+    };
+    return this.http.post(this.serialassetsapi, params);
+  }
+
+  assetsByLocation(filter: string) {
+    const params = {
+      'location': filter
+    };
+    return this.http.post(this.assetlocationapi, params);
+  }
+
+  cusTicketsFilter(filter: string) {
+    const params = {
+      'company': filter
+    };
+    return this.http.post(this.cTicketsApi, params);
+  }
+
+  partTicketsFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
       'partner': filter.partner
     };
-
-    return this.http.post<Assets>(this.partassetsapi, params);
+    return this.http.post(this.pTicketsApi, params);
   }
 
-  ticketsFilter(filter: Filter) {
+  ticketsLocationFilter(filter: string) {
     const params = {
-      'role': filter.partnerRole,
-      'company': filter.partner
+      'location': filter
     };
-
-    return this.http.post(this.ticketsapi, params);
+    return this.http.post(this.ticketsLocationapi, params);
   }
+
+  ticketRefFilter(filter: string) {
+    const params = {
+      'refnumber': filter
+    };
+    return this.http.post(this.ticketRefApi, params);
+  }
+
+
 
   partConFilter(filter: Filter) {
     const params = {
@@ -98,61 +148,74 @@ export class ApifilterService {
       return this.http.post(this.pContractsApi, params);
     }
 
-    partConFilterSelect(customer: Customer) {
+    conByRef(refNum: string) {
       const params = {
-        'partner': customer.companyName
-      };
-        return this.http.post<Contracts[]>(this.pContractsApi, params);
-    }
-
-    conByRef(refNum: string, schedname: string) {
-      const params = {
-        'ref': refNum,
-        'schedname': schedname
+        'refnumber': refNum,
       };
       return this.http.post(this.refConApi, params);
+    }
+
+    conByName(name: string) {
+      const params = {
+        'schedName': name
+      };
+      return this.http.post(this.nameConApi, params);
     }
 
     custConFilter(filter: Filter) {
       const params = {
         'role': filter.partnerRole,
-        'partner': filter.partner
+        'customer': filter.company
       };
       return this.http.post(this.cContractsApi, params);
     }
+
+    conByDays(filter: Filter) {
+      const params = {
+        'partner': filter.partner
+      };
+      return this.http.post(this.schedDayCountApi, params);
+    }
+
+
 
   getPartners() {
     return of(this.partnerlist);
   }
 
-  // getCompanies(filter: Filter) {
-  //   const Params = {
-  //     'partner'
-  //   }
-  // }
-
   customerFilter(filter: Filter) {
     const params = {
-        'partner': filter.partner,
-        'user': filter.firstName + ' ' + filter.lastName,
-        'email': filter.email
+        'partner': filter.partner
       };
     return this.http.post(this.customerApi, params);
   }
 
-  locationFilter(filter: Filter) {
+  registerCustFilter(filter: string) {
     const params = {
-      'company': filter.partner
+      'partner': filter
     };
-    return this.http.post(this.locationsapi, params);
+  return this.http.post(this.customerApi, params);
   }
 
-  assetObersvable(filter: Filter): Observable<Assets[]> {
+
+  partLocationFilter(filter: Filter) {
     const params = {
-      'role': filter.partnerRole,
       'partner': filter.partner
     };
+    return this.http.post(this.pLocationsapi, params);
+  }
 
-    return this.http.post<Assets[]>(this.partassetsapi, params);
+  custLocationFilter(filter: Filter) {
+    const params = {
+      'company': filter.company
+    };
+    return this.http.post(this.cLocationsapi, params);
+  }
+
+  locationFilter(desc: string) {
+    const params = {
+      'description': desc
+    };
+    return this.http.post(this.locationdescfilterapi, params);
   }
 }

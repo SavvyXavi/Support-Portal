@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Profile } from '../login/models/profile';
+import { Profile } from '../index/index/models/profile';
 import { Role } from '../types/role.enum';
-import { AuthenticationService} from '../login/services/authentication.service';
+import { AuthenticationService} from '../index/index/services/authentication.service';
 import { Subscription } from 'rxjs';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { ProfileService } from '../login/services/profile.service';
+import { ProfileService } from '../index/index/services/profile.service';
 import { Router } from '@angular/router';
 
 @Component({

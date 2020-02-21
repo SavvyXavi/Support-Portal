@@ -1,23 +1,44 @@
 <div class="panel panel-default" >
   <h2 class="center">Portal User Registration</h2>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row ">
+      <div class="col-md-6">
+        <div class="form-group">
+        <label for="companypartner">Is this user for a Company or Partner:</label>
+        <select class="form-control" id="companypartner" formControlName="companypartner" [ngClass]="{ 'is-invalid': submitted && f.companypartner.errors}">
+          <option value="0">--Select--</option>
+          <option>Company</option>
+          <option>Partner</option>
+        </select>
+        </div>
+      </div>
+   </div>
+      <div class="row ">
+        <div class="col-md-6">
+          <label for="partner">Select Partner:</label>
+          <select class="form-group" id="partner" formControlName="partner" [(ngModel)]="partner" (ngModelChange)="getcompany(partner)" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
+          <option value="0">--Select--</option>
+          <option *ngFor="let ga of twoprofile" value={{ga?.CompanyName}}> {{ga?.CompanyName}} </option>
+          </select>
+        </div>
+      </div>
       <div class="row">
               <div class="form-group col-md-10">
                 <label for="email">Enter Email for username</label>
-                  <input type="text" formControlName="email" class="form-control" autocomplete="username" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  placeholder="Enter Users Email address for Username" />
+                  <input type="text" formControlName="email" lowercase class="form-control" autocomplete="username" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  placeholder="Enter Users Email address for Username" />
                   <div *ngIf="submitted && !!f.email.errors" class="invalid-feedback">
-                    <div *ngIf="!!f.email.errors.required">Email Address for username is required</div>
+                    <div *ngIf="!!f.email.errors.required">Email Address must be valid and match</div>
                   </div>
-          </div>
-          </div>
+              </div>
+      </div>
           <div class="row">
             <div class="form-group col-md-10">
               <label for="username">Re-enter Email for username</label>
-                <input type="text" formControlName="username" class="form-control" autocomplete="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"  placeholder="Re-enter Users Email address for Username" />
+                <input type="text" formControlName="username" lowercase class="form-control" autocomplete="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"  placeholder="Re-enter Users Email address for Username" />
                 <div *ngIf="submitted && !!f.username.errors" class="invalid-feedback">
                   <div *ngIf="!!f.username.errors.required">Email Address must be valid and match</div>
                 </div>
-        </div>
+          </div>
         </div>
      <div class="row ">
         <div class="col-md-6">
@@ -39,36 +60,7 @@
         </div>
         </div>
     </div>
-    <div class="row ">
-  <div class="col-md-6">
-    <div class="form-group">
-    <label for="companypartner">Is this user for a Company or Partner:</label>
-    <select class="form-control" id="companypartner" formControlName="companypartner" [ngClass]="{ 'is-invalid': submitted && f.companypartner.errors}">
-      <option>Company</option>
-      <option>Partner</option>
-    </select>
-  </div>
-  </div>
-  <div class="col-md-6">
-    <div class="form-group">
-    <label for="partner">Select Partner:</label>
-    <select class="form-control" id="partner" formControlName="partner" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
-      <option>Mega Monolothic Corp</option>
-      <option>Noble1Solutions</option>
-      <option>Relutech</option>
-      <option>Reliant Technology</option>
-      <option>North American Systems International</option>
-      <option>Riverstone Technology LLC</option>
-      <option>Scale Logic</option>
-      <option>Spadafy</option>
-      <option>Xbyte Technologies</option>
-      <option>Aracion Technology Pte LTD</option>
-      <option>Legacy Integration & Technologies</option>
-      <option>Other</option>
-    </select>
-  </div>
-  </div>
-</div><br>
+
 <div class="row ">
   <div class="col-md-6">
     <div class="form-group">
@@ -79,55 +71,22 @@
       <option>Support</option>
     </select>
   </div>
-  </div>
+  </div><br>
+  <div class="row ">
   <div class="col-md-6">
-    <div class="form-group">
     <label for="company">Select Company:</label>
-    <select class="form-control" id="company" formControlName="company" [ngClass]="{ 'is-invalid': submitted && f.company.errors}">
-      <option>Mega Monolothic Corp</option>
-      <option>Mega Sprockets LLC</option>
-      <option>Mega Widgets Inc</option>
-      <option>Noble1Solutions</option>
-      <option>Relutech</option>
-      <option>Reliant Technology</option>
-      <option>North American Systems International</option>
-      <option>Riverstone Technology LLC</option>
-      <option>Scale Logic</option>
-      <option>Spadafy</option>
-      <option>Xbyte Technologies</option>
-      <option>Aracion Technology Pte LTD</option>
-      <option>Legacy Integration & Technologies</option>
-      <option>RAC King LLC</option>
-      <option>Alameda Health System</option>
-      <option>University of Texas Rio Grande Valley</option>
-      <option>BB&T</option>
-      <option>EHIM</option>
-      <option>ARI Network Services Inc</option>
-      <option>Healthcare IQ</option>
-      <option>Lallemand Inc</option>
-      <option>ARI Network Services Inc</option>
-      <option>Sherman Capital Markets</option>
-      <option>Cheetah Digital</option>
-      <option>Pioneer Metal Finishing</option>
-      <option>Heifer International</option>
-      <option>Bavarian Repair</option>
-      <option>American Electric Power</option>
-      <option>Beghou Consulting</option>
-      <option>Tosca Services LLC</option>
-      <option>Dimont</option>
-      <option>Sabine Oil and Gas</option>
-      <option>GoGo LLC</option>
-      <option>ARI Network Services Inc</option>
-      <option>Other</option>
+    <select class="form-group" id="company" formControlName="company" [(ngModel)]="company" [ngClass]="{ 'is-invalid': submitted && f.company.errors}">
+     <option value="0">--Select--</option>
+     <option *ngFor="let ha of twocompany" value={{ha?.CompanyName}}> {{ha?.CompanyName}} </option>
     </select>
-  </div>
-  </div>
+    </div>
+</div>
 </div>
 <div class="row">
 <div class="col-md-6">
   <div class="form-group">
   <label for="password">Password:</label>
-  <input type="password" formControlName="password" placeholder="Enter Password">
+  <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Enter Password">
   <div *ngIf="submitted && !!f.password.errors" class="invalid-feedback" autocomplete="new-password">
     <div *ngIf="!!f.password.errors.required">Passwords must be 8 characters containing 1 letter, 1 number, and one special character.</div>
 </div>
@@ -136,7 +95,7 @@
 <div class="col-md-6">
   <div class="form-group">
   <label for="confirmpassword">Password:</label>
-  <input type="password" formControlName="confirmpassword" placeholder="Re-enter Password">
+  <input type="password" formControlName="confirmpassword" [ngClass]="{ 'is-invalid': submitted && f.confirmpassword.errors }" placeholder="Re-enter Password">
   <div *ngIf="submitted && !!f.confirmpassword.errors" class="invalid-feedback" autocomplete="new-password">
     <div *ngIf="!!f.confirmpassword.errors.required">Passwords must be 8 characters containing 1 letter, 1 number, and one special character.</div>
     </div>
@@ -147,8 +106,9 @@
       <div class="col-md-6">
         <div class="form-group buttons">
          <button type="submit" style="margin-right:20px;" class="btn btn-primary">Register</button>
-          <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-          <button routerLink="admin/register" type="button" class="btn btn-secondary">Cancel</button>
+      <!--   <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+      -->
+        <button routerLink="/portal/dashboard" type="button" class="btn btn-primary">Cancel</button>
         </div>
        </div>
     </div>

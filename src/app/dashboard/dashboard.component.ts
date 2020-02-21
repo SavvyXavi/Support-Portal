@@ -1,23 +1,23 @@
+import { PartnerList } from './../partner-list';
 import { Component, OnInit } from '@angular/core';
-import { Profile } from './../login/models/profile';
-import { Tickets } from './../manage-assets/models/tickets';
-import { Assets } from './../manage-assets/models/assets';
+
+import { Profile } from '../index/index/models/profile';
+import { Tickets } from '../tickets/models/tickets';
+import { Assets } from '../manage-assets/models/assets';
+import * as moment from 'moment';
+
+import { AuthenticationService } from '../index/index/services/authentication.service';
+import { ProfileService } from '../index/index/services/profile.service';
+import { ApifilterService } from './../services/apifilter.service';
+import { ApiCallService } from './../tickets/services/api-call.service';
 
 import { Subscription } from 'rxjs';
 import { map, first } from 'rxjs/operators';
-
-import { FuncappService } from './../services/funcapp.service';
-import { AuthenticationService } from './../login/services/authentication.service';
-import { ProfileService } from './../login/services/profile.service';
-import { ApiCallService } from './../manage-assets/services/api-call.service';
-import { ApifilterService } from './../services/apifilter.service';
-
-import { Contracts } from './../manage-assets/models/contracts';
-import { Customer } from './../admin/models/customer';
-import { Contract } from './../models/contract';
-import { Partner } from './../models/partner';
-
 import { Chart } from 'chart.js';
+
+import { Partner } from './../models/partner';
+import { Contracts } from './../contracts/models/contracts';
+import { Customer } from './../admin/models/customer';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,23 +25,39 @@ import { Chart } from 'chart.js';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  partner: Partner;
 
   currentProfile: Profile;
   currentProfileSubscription: Subscription;
   profiles: Profile[];
 
-  contractLength: Contracts[];
-  assetLength: Assets[];
+  contractLength: number;
+  assetLength: number;
   ticketLength: Tickets[];
   companyLength: Customer[];
+
+  contractChartData: Date[];
+
   partnerArr: Partner[];
 
   contractsData = [];
   assetsData = [];
   tickets: Tickets;
 
-  assets: Assets;
+  assets: Assets[];
+  contractDays: string[];
+
+  now = 0;
+  fifteenDays = 0;
+  thirtyDays = 0;
+  sixtyDays = 0;
+  ninetyDays = 0;
+  plus = 0;
+
+  active = 0;
+  terminated = 0;
+  unmapped = 0;
+  yetToStart = 0;
+
   constructor(
     private authenticationService: AuthenticationService,
     private profileService: ProfileService,
@@ -59,16 +75,9 @@ export class DashboardComponent implements OnInit {
     this.getPartners();
     this.contractsChart();
     this.assetsChart();
-    this.displayData();
-    this.contractsCount();
-    this.assetsCount();
     this.ticketsCount();
     this.companiesCount();
   }
-
-  // ngOnDestroy() {
-  //   this.currentProfileSubscription.unsubscribe();
-  // }
 
   getPartners() {
     this.filter.getPartners()
@@ -81,41 +90,18 @@ export class DashboardComponent implements OnInit {
     return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
-  contractsCount() {
-    if (this.filterPartner(this.currentProfile.partner)) {
-      this.filter.partConFilter(this.currentProfile)
-      .subscribe(
-        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
-      );
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      this.filter.custConFilter(this.currentProfile)
-      .subscribe(
-        (returnedConLength: Contracts[]) => this.contractLength = returnedConLength
-      );
-    }
-  }
-
-  assetsCount() {
-    if (this.filterPartner(this.currentProfile.partner)) {
-      this.filter.partAssetsFilter(this.currentProfile)
-      .subscribe(
-        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
-      );
-    } else if (this.filterPartner(this.currentProfile.partner) === undefined) {
-      this.filter.custAssetsFilter(this.currentProfile)
-      .subscribe(
-        (returnedAssetLength: Assets[]) => this.assetLength = returnedAssetLength
-      );
-    }
-  }
-
   ticketsCount() {
-    this.filter.ticketsFilter(this.currentProfile)
-    .subscribe(
-      (returnedTickets: Tickets[]) => {
-        this.ticketLength = returnedTickets;
-      }
-    );
+    if (this.currentProfile.companypartner === 'Partner') {
+      this.filter.partTicketsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Tickets[]) => this.ticketLength = returnedAssetLength
+      );
+    } else if (this.currentProfile.companypartner === 'Company') {
+      this.filter.cusTicketsFilter(this.currentProfile.company)
+      .subscribe(
+        (returnedTicketLength: Tickets[]) => this.ticketLength = returnedTicketLength
+      );
+    }
   }
 
   companiesCount() {
@@ -135,51 +121,107 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  displayData() {
-    let array = this.filter.partConFilter(this.currentProfile).subscribe(
-      res => {
-
-        // const price = res.map(res => res.AnnualValue);
-        const length = Object.keys(res).map(function(key) {
-          return [String(key), res[key]];
-        });
-
-        console.log(length);
-        // console.log(price);
-      }
-    );
-  }
-
-  getAssets() {
-    this.api.getAssets()
-    .subscribe(
-      (returnedAssets: Assets) => {
-        this.assets = returnedAssets;
-      }
-    );
-  }
-
   contractsChart() {
     const status = [];
-    this.filter.partConFilter(this.currentProfile).subscribe(
-      (res: Contract[]) => {
-        // status.push(res.status);
-        const length = Object.keys(res).map(function(key) {
-          return [String(key), res[key]];
-        });
-        console.log(res);
-        // console.log(res.status);
-        // console.log(length);
-      }
-    );
+    if (this.currentProfile.companypartner === 'Partner') {
+      this.filter.partConFilter(this.currentProfile)
+      .subscribe(
+        (returnedCons: Contracts[]) => {
+          this.contractLength = returnedCons.length;
+        }
+      );
+      this.filter.conByDays(this.currentProfile)
+      .subscribe(
+        (returnedDays: string[]) => {
+          this.contractDays = returnedDays;
+          console.log(this.contractDays);
+          for (let i = 0; i <= this.contractDays.length; i++) {
+            if (Number(this.contractDays[i]) > -1 && Number(this.contractDays[i]) <= 14) {
+              this.now++;
+            } else if (Number(this.contractDays[i]) <= 29) {
+              this.fifteenDays++;
+            } else if (Number(this.contractDays[i]) <= 59) {
+              this.thirtyDays++;
+            } else if (Number(this.contractDays[i]) <= 89) {
+              this.sixtyDays++;
+            } else if (Number(this.contractDays[i]) === 90 ) {
+              this.ninetyDays++;
+            } else if (Number(this.contractDays[i]) > 90) {
+              this.plus++;
+            }
+          }
 
     this.contractsData = new Chart('contracts', {
         type: 'pie',
         data: {
-          labels: status,
           datasets: [{
               label: '# of Contracts',
-              data: [12, 19, 3, 5, 2, 3],
+              data: [this.now, this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays, this.plus],
+              backgroundColor: [
+                  'rgba(255, 0, 0, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderColor: [
+                  'rgba(255, 0, 0, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+        },
+        options: {
+          tooltips: {
+            callbacks: {
+              title: function(tooltipItem, data) {
+                return 'Contracts ' + tooltipItem[0].xLabel;
+              }
+            }
+          }
+        }
+    } );
+        }
+        );
+
+    } else {
+      this.filter.custConFilter(this.currentProfile)
+      .subscribe(
+        (returnedCons: Contracts[]) => {
+          this.contractLength = returnedCons.length;
+        }
+      );
+      this.filter.conByDays(this.currentProfile)
+      .subscribe(
+        (returnedDays: string[]) => {
+          this.contractDays = returnedDays;
+          for (let i = 0; i <= this.contractDays.length; i++) {
+            if (Number(this.contractDays[i]) > -1 && Number(this.contractDays[i]) <= 14) {
+              this.now++;
+            } else if (Number(this.contractDays[i]) <= 29) {
+              this.fifteenDays++;
+            } else if (Number(this.contractDays[i]) <= 59) {
+              this.thirtyDays++;
+            } else if (Number(this.contractDays[i]) <= 89) {
+              this.sixtyDays++;
+            } else if (Number(this.contractDays[i]) === 90 ) {
+              this.ninetyDays++;
+            } else if (Number(this.contractDays[i]) > 90) {
+              this.plus++;
+            }
+          }
+
+    this.contractsData = new Chart('contracts', {
+        type: 'pie',
+        data: {
+          datasets: [{
+              label: '# of Contracts',
+              data: [this.now, this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays, this.plus],
               backgroundColor: [
                   'rgba(255, 0, 0, 1)',
                   'rgba(54, 162, 235, 1)',
@@ -200,43 +242,104 @@ export class DashboardComponent implements OnInit {
           }]
         },
         options: {}
-    });
-  }
+    } );
+        }
+        );
+      }
+    }
+
 
   assetsChart() {
-   this.assetsData = new Chart('assets', {
-      type: 'pie',
-      data: {
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 0, 0, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderColor: [
-                'rgba(255, 0, 0, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {}
-});
+    let status = [];
+    if (this.currentProfile.companypartner === 'Partner') {
+      this.filter.partAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssets: Assets[]) => {
+          this.assetLength = returnedAssets.length;
+          this.assets = returnedAssets;
+          status = this.assets.map(asset => asset.ContractCoverage);
+        for (let i = 0; i <= status.length; i++) {
+          if (status[i] === 'Active') {
+            this.active++;
+          } else if (status[i] === 'Terminated') {
+            this.terminated++;
+          } else if (status[i] === 'Unmapped') {
+            this.unmapped++;
+          } else if (status[i] === 'Yet to Start') {
+            this.yetToStart++;
+          }
+        }
+         this.contractsData = new Chart('assets', {
+          type: 'pie',
+          data: {
+            datasets: [{
+              label: 'Asset Status',
+                data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                backgroundColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {}
+        });
+      }
+      );
+    } else {
+      this.filter.custAssetsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssets: Assets[]) => {
+          this.assetLength = returnedAssets.length;
+          this.assets = returnedAssets;
+          status = this.assets.map(asset => asset.ContractCoverage);
+        for (let i = 0; i <= status.length; i++) {
+          if (status[i] === 'Active') {
+            this.active++;
+          } else if (status[i] === 'Terminated') {
+            this.terminated++;
+          } else if (status[i] === 'Unmapped') {
+            this.unmapped++;
+          } else if (status[i] === 'Yet to Start') {
+            this.yetToStart++;
+          }
+        }
+        this.assetsData = new Chart('assets', {
+          type: 'pie',
+          data: {
+            datasets: [{
+              label: 'Asset Status',
+                data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                backgroundColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {}
+    });
   }
 
-  deleteProfile(id: number) {
-     this.profileService.delete(id).pipe(first()).subscribe(() => {
-      this.loadAllUsers();
-    });
+      );
+    }
+
   }
 
    loadAllUsers() {
@@ -244,5 +347,4 @@ export class DashboardComponent implements OnInit {
       this.profiles = profile;
     });
   }
-
 }

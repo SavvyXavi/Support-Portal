@@ -1,7 +1,7 @@
-import { Location } from './location';
+import { CustomerLocation } from './location';
 
-describe('Location', () => {
+describe('CustomerLocation', () => {
   it('should create an instance', () => {
-    expect(new Location()).toBeTruthy();
+    expect(new CustomerLocation()).toBeTruthy();
   });
 });

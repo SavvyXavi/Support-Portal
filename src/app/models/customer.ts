@@ -1,6 +1,6 @@
 export class Customer {
-  accountId: string;
-  companyName: string;
+  AccountId: string;
+  CompanyName: string;
   Postcode: string;
-  primaryContactEmail: string;
+  PrimaryContactEmail: string;
 }

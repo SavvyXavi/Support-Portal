@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 
-import { AuthenticationService } from '../login/services/authentication.service';
-import { Profile } from '../login/models/profile';
+import { AuthenticationService } from '../index/index/services/authentication.service';
+import { Profile } from '../index/index/models/profile';
 
 @Component({
   selector: 'app-settings',
