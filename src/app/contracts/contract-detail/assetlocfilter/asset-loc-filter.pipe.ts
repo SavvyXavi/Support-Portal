@@ -8,8 +8,8 @@ export class AssetLocFilterPipe implements PipeTransform {
 
   constructor() { }
 
-  transform(filter: Assets[]): any {
-    const value = [...new Set(filter.map( ad => ad.SiteAddress)) ];
+  transform(value: string[], filter: Assets[]): any {
+    value = [...new Set(filter.map( ad => ad.SiteAddress)) ];
     return value;
 
 }
