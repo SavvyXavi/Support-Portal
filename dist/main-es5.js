@@ -7203,7 +7203,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     borderWidth: 1
                   }]
                 },
-                options: {}
+                options: {
+                  tooltips: {
+                    callbacks: {
+                      title: function title(tooltipItem, data) {
+                        return 'Contracts ' + tooltipItem[0].xLabel;
+                      }
+                    }
+                  }
+                }
               });
             });
           } else {
