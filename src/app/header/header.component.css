@@ -2,8 +2,14 @@
   margin: 0px 0px 0px 0px;
 }
 
+nav {
+  width: 100vw;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .content-wrapper{
   width: 100%;
+  align-items: center;
 }
 
 form {
@@ -12,14 +18,14 @@ form {
   padding-top: 4px;
 }
 
+.col-md-3{
+  align-items: center;
+}
+
 hr {
   border-color: #8c8c8c;
 }
 
-nav {
-  width: 100vw;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
-}
 
 .navbar-brand {
  cursor: pointer;
