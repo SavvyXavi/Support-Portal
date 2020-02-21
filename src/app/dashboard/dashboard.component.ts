@@ -198,6 +198,7 @@ export class DashboardComponent implements OnInit {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
         (returnedCons: Contracts[]) => {
+          console.log('Hi customer');
           this.contractLength = returnedCons.length;
         }
       );
