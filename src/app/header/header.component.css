@@ -1,14 +1,14 @@
 * {
   margin: 0px 0px 0px 0px;
 }
+
 .content-wrapper{
   width: 100%;
 }
 
-/* form {
-  margin-left: 150px;
-  margin-right: 150px;
-} */
+form {
+  width: 100%;
+}
 
 hr {
   border-color: #8c8c8c;
