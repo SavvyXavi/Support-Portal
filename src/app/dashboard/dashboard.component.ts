@@ -130,7 +130,7 @@ export class DashboardComponent implements OnInit {
           this.contractLength = returnedCons.length;
         }
       );
-      this.filter.conByDays(this.currentProfile)
+      this.filter.pConByDays(this.currentProfile)
       .subscribe(
         (returnedDays: string[]) => {
           this.contractDays = returnedDays;
@@ -202,7 +202,7 @@ export class DashboardComponent implements OnInit {
           this.contractLength = returnedCons.length;
         }
       );
-      this.filter.conByDays(this.currentProfile)
+      this.filter.cConByDays(this.currentProfile)
       .subscribe(
         (returnedDays: string[]) => {
           this.contractDays = returnedDays;

@@ -7179,7 +7179,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.filter.partConFilter(this.currentProfile).subscribe(function (returnedCons) {
               _this29.contractLength = returnedCons.length;
             });
-            this.filter.conByDays(this.currentProfile).subscribe(function (returnedDays) {
+            this.filter.pConByDays(this.currentProfile).subscribe(function (returnedDays) {
               _this29.contractDays = returnedDays;
               console.log(_this29.contractDays);
 
@@ -7232,7 +7232,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               console.log('Hi customer');
               _this29.contractLength = returnedCons.length;
             });
-            this.filter.conByDays(this.currentProfile).subscribe(function (returnedDays) {
+            this.filter.cConByDays(this.currentProfile).subscribe(function (returnedDays) {
               _this29.contractDays = returnedDays;
 
               for (var i = 0; i <= _this29.contractDays.length; i++) {
@@ -16428,7 +16428,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.cContractsApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/ContractsByCustomer?code=bpca1PGS/szLyokaPXrzwhbTmpIv1NIC8St234Ce8anUtUKo8uUWkg==';
         this.refConApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
         this.nameConApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByName?code=IZMBTTmJ5l7M3WPeKg46l/3lfEaAKMgKdagfNCM8T07vyO05QqqBSg==';
-        this.schedDayCountApi = 'https://prodharmonytwo.azurewebsites.net/api/getSchedDaysToGo?code=NxVHnZOpdgRSQCa35OBTA7g/r6wm3euGe0a8pWHG6hDNG7PTCkPJNQ==';
+        this.pSchedDayCountApi = 'https://prodharmonytwo.azurewebsites.net/api/getSchedDaysToGo?code=NxVHnZOpdgRSQCa35OBTA7g/r6wm3euGe0a8pWHG6hDNG7PTCkPJNQ==';
+        this.cSchedDayCountApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/SchedByDays?code=ohdQ0dVI3F2jeqDbl96uN1lO7WqvYkcH7OW41bYMeBekzFhb5bRFzw==';
         this.oldpartassetsapi = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullAssets?code=jZK5Np57XB8xaTlNIlnyj9Pga9ar34hvOD4fkzGj/xTAlHNCemQvpw==';
         this.partassetsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
         this.custassetsapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetByCustomer?code=srg4TRFO6Uvo2YxaFGKlpJ59714bHNlgBTtSXdxDvk7WwBfX8VkdTw==';
@@ -16554,12 +16555,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.http.post(this.cContractsApi, params);
         }
       }, {
-        key: "conByDays",
-        value: function conByDays(filter) {
+        key: "pConByDays",
+        value: function pConByDays(filter) {
           var params = {
             'partner': filter.partner
           };
-          return this.http.post(this.schedDayCountApi, params);
+          return this.http.post(this.pSchedDayCountApi, params);
+        }
+      }, {
+        key: "cConByDays",
+        value: function cConByDays(filter) {
+          if (filter.company.includes('&')) {
+            var customer = filter.company.replace('&', '%26');
+            var params = {
+              'customer': customer
+            };
+            return this.http.post(this.cSchedDayCountApi, params);
+          } else {
+            var _params = {
+              'customer': filter.company
+            };
+            return this.http.post(this.cSchedDayCountApi, _params);
+          }
         }
       }, {
         key: "getPartners",
