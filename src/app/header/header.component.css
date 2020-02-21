@@ -1,7 +1,9 @@
 * {
   margin: 0px 0px 0px 0px;
 }
-
+.content-wrapper{
+  width: auto;
+}
 /* form {
   margin-left: 150px;
   margin-right: 150px;

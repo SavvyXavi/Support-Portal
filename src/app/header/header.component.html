@@ -1,5 +1,6 @@
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light justify-content-between">
-   <a class="navbar-brand" routerLink="dashboard">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+   <div class="content-wrapper  justify-content-between">
+    <a class="navbar-brand" routerLink="dashboard">
       <img src={{this.displayLo?.Logo}} style="width:50px; height:50px">
     </a>
      <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +73,8 @@
               </ul>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
 
     <!-- <nav  class="navbar relusNav navbar-expand-lg navbar-light bg-light justify-content-between">
       <a class="navbar-brand" routerLink="dashLink()"><img *ngIf="currentProfile?.partner == 'Relus Technologies'" src="../../../assets/RelusLogo.png" style="height: 44px; margin-left: 20px;"></a>
