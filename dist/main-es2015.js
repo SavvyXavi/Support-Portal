@@ -2765,7 +2765,8 @@ __webpack_require__.r(__webpack_exports__);
 class AssetLocFilterPipe {
     constructor() {
     }
-    transform(value) {
+    transform(value, filter) {
+        value = filter.map(x => x.SiteAddress);
         const locs = [...new Set(value)];
         return locs;
     }
@@ -3112,7 +3113,7 @@ function ContractDetailComponent_div_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pageSizeOptions", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](23, _c0))("pageSize", 10);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](88, 20, ctx_r114.assets, ctx_r114.asset.SiteAddress));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](88, 20, ctx_r114.assets, ctx_r114.assets));
 } }
 class ContractDetailComponent {
     constructor(filter, location, route, router) {
