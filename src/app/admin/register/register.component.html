@@ -18,7 +18,7 @@
           <label for="partner">Select Partner:</label>
           <select class="form-group" id="partner" formControlName="partner" [(ngModel)]="partner" (ngModelChange)="getcompany(partner)" [ngClass]="{ 'is-invalid': submitted && f.partner.errors}">
           <option value="0">--Select--</option>
-          <option *ngFor="let ga of partnerList" value={{ga?.CompanyName}}> {{ga?.CompanyName}} </option>
+          <option *ngFor="let ga of twoprofile" value={{ga?.CompanyName}}> {{ga?.CompanyName}} </option>
           </select>
         </div>
       </div>
