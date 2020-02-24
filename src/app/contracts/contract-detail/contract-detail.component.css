@@ -52,18 +52,15 @@ input:read-only {
     -webkit-border-radius: 8px;
   }
 
-  /* mat-header-cell {
-
-  } */
-
   th {
     background-color: black;
     border-color: black;
     color: white;
   }
 
-  th > div {
+  th > div > button {
     align-content: center;
+    text-align: center;
   }
 
   th,td {
