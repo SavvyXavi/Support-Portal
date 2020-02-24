@@ -1,9 +1,12 @@
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-   <div class="content-wrapper  justify-content-between">
-    <a class="navbar-brand" routerLink="dashboard">
-      <img src={{this.displayLo?.Logo}} style="width:50px; height:50px">
-    </a>
-      <form class="search-bar d-none d-md-block form-inline" style="width:50%">
+   <div class="content-wrapper d-flex justify-content-between">
+     <div class="logo col-md-3">
+      <a class="navbar-brand" routerLink="dashboard">
+        <img src={{this.displayLo?.Logo}}>
+      </a>
+     </div>
+     <div class="col-md-6">
+       <form class="search-bar d-none d-md-block form-inline">
         <div class="input-group">
           <input type="text" class="form-control shadow-none" placeholder="Search">
           <div class="input-group-append">
@@ -11,9 +14,9 @@
           </div>
         </div>
       </form>
+     </div>
 
-      <div class="dropdown d-none d-md-block account-container northsmart" style="padding-right: 15px">
-
+      <div class="dropdown d-none d-md-block account-container col-md-3" style="padding-right: 15px">
             <button class="btn bg-light shadow-none dropdown-toggle" style="width:auto" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-user-circle fa-3x"></i> {{currentProfile?.firstName}} {{currentProfile?.lastName}}
             </button>

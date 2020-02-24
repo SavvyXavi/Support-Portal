@@ -1,11 +1,4 @@
-<div class="edit-items-container d-flex justify-content-end">
-  <button class="assign-assets btn btn-primary">
-    <i class="fas fa-file-export" aria-hidden="true"></i> Export Companies
-  </button>
-  <button class="btn btn-primary">
-    <i class="far fa-eye"></i> Show Archived
-  </button>
-</div>
+
 <div class="table-container table-responsive-sm">
 
 <div class="search-div">
@@ -13,7 +6,7 @@
 
   </button> -->
   <mat-form-field class="search-form-field" floatLabel="never">
-    <input matInput [(ngModel)]="searchKey" (keyup)="applyFilter()" placeholder="Search" autocomplete="off">
+    <input matInput [(ngModel)]="searchKey" (keyup)="applyFilter()" placeholder="Search for Company" autocomplete="off">
     <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchClear()" *ngIf="searchKey">
       <mat-icon>close</mat-icon>
     </button>
@@ -78,5 +71,12 @@
   </table>
 
   <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" [pageSize]="10"></mat-paginator>
+</div>
+<div class="row button-containers">
+  <div class="col-sm">
+    <Button (click)="goBack()" class="btn btn-info">
+      Dashboard
+    </Button>
+  </div>
 </div>
 </div>

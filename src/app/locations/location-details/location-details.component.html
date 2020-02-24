@@ -83,7 +83,7 @@
 
                 </button> -->
                 <mat-form-field class="search-form-field" floatLabel="never">
-                  <input matInput [(ngModel)]="ticketSearchKey" (keyup)="applyTicketFilter()" placeholder="Search" autocomplete="off">
+                  <input matInput [(ngModel)]="ticketSearchKey" (keyup)="applyTicketFilter()" placeholder="Search for Ticket" autocomplete="off">
                   <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchTicketClear()" *ngIf="ticketSearchKey">
                     <mat-icon>close</mat-icon>
                   </button>
@@ -164,7 +164,7 @@
 
                 </button> -->
                 <mat-form-field class="search-form-field" floatLabel="never">
-                  <input matInput [(ngModel)]="assetSearchKey" (keyup)="applyAssetFilter()" placeholder="Search" autocomplete="off">
+                  <input matInput [(ngModel)]="assetSearchKey" (keyup)="applyAssetFilter()" placeholder="Search for Asset" autocomplete="off">
                   <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchAssetClear()" *ngIf="assetSearchKey">
                     <mat-icon>close</mat-icon>
                   </button>

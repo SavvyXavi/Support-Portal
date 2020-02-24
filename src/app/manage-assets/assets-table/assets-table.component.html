@@ -1,18 +1,9 @@
-<div class="edit-items-container d-flex justify-content-end">
-  <button class="assign-assets btn btn-primary">
-    <i class="fas fa-file-export" aria-hidden="true"></i> Export Assets
-  </button>
-  <button class="btn btn-primary">
-    <i class="far fa-eye"></i> Show Archived
-  </button>
-</div>
-
 <div class="search-div">
   <!-- <button mat-raised-button>
 
   </button> -->
   <mat-form-field class="search-form-field" floatLabel="never">
-    <input matInput [(ngModel)]="searchKey" (keyup)="applyFilter()" placeholder="Search" autocomplete="off">
+    <input matInput [(ngModel)]="searchKey" (keyup)="applyFilter()" placeholder="Search for Asset" autocomplete="off">
     <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchClear()" *ngIf="searchKey">
       <mat-icon>close</mat-icon>
     </button>
@@ -31,7 +22,7 @@
 
     <!-- Identifier Column -->
     <div matColumnDef="Identifier">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Serial </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Serial# </th>
       <td *matCellDef="let asset"> {{asset.Identifier}} </td>
     </div>
 
