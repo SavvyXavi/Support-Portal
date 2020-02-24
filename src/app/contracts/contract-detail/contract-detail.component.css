@@ -52,7 +52,7 @@ input:read-only {
     -webkit-border-radius: 8px;
   }
 
-  .mat-header-cell {
+  mat-header-cell {
     flex-direction: column;
     justify-content: center;
   }
