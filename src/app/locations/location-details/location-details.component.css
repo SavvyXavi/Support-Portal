@@ -43,36 +43,29 @@ input:read-only {
   font-size: 18px;
 }
 
-.table-container {
-  margin-right: 30px;
-  }
-
   table {
     border: solid black;
+    border-collapse: separate;
+    border-spacing: 0;
     border-radius: 8px !important;
     -moz-border-radius: 8px;
-    border-collapse: separate;
+    -webkit-border-radius: 8px;
   }
 
   th {
     background-color: black;
     color: white;
-    border-color: white;
+    text-align: center !important;
   }
 
   th,td {
     font-size: medium;
-    text-align: center !important;
   }
 
   th, td {
     border: 1px solid black;
     padding: 15px;
     text-align: left;
-  }
-
-  table {
-    border-collapse: collapse;
   }
 
   tr:nth-child(even) {
@@ -91,7 +84,7 @@ input:read-only {
     color: rgb(230, 92, 0) !important;
   }
 
-  .mat-form-field-ripple {
+  .mat-form-field-underline {
     background-color: rgb(230, 92, 0) !important;
   }
 
@@ -101,15 +94,11 @@ input:read-only {
 
   .search-form-field {
     width: 100%;
-    margin-left: 10px;
     padding:  5px 10px;
     background-color: #e6e6e6;
     border-radius: 5px;
   }
 
-  /* .search-form-field div.mat-form-field-underline {
-    display: none;
-  } */
 
   .mat-focused .mat-form-field-label {
     color: rgb(230, 92, 0) !important;
