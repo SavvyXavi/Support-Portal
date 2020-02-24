@@ -43,9 +43,9 @@ input {
   font-size: 18px;
 }
 
-.table-container {
+/* .table-container {
   margin-right: 30px;
-  }
+  } */
 
   table {
     border: solid black;
@@ -71,9 +71,9 @@ input {
     text-align: left;
   }
 
-  table {
+  /* table {
     border-collapse: collapse;
-  }
+  } */
 
   tr:nth-child(even) {
     background-color: #e6e6e6;
@@ -84,7 +84,7 @@ input {
   }
 
   .mattable-container {
-    width: 94%;
+    /* width: 94%; */
     margin-bottom: 50px;
   }
 
@@ -101,7 +101,7 @@ input {
   }
 
   .search-form-field {
-    width: 94%;
+    /* width: 94%; */
     margin-left: 10px;
     padding:  5px 10px;
     background-color: #e6e6e6;
