@@ -56,11 +56,10 @@ input:read-only {
 
   } */
 
-  /* th {
+  th {
     background-color: black;
     color: white;
-    text-align: center;
-  } */
+  }
 
   th,td {
     font-size: medium;
