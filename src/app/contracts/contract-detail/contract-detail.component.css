@@ -52,10 +52,14 @@ input:read-only {
     -webkit-border-radius: 8px;
   }
 
+  .mat-sort-header-container {
+    align-content: center;
+  }
+
   th {
     background-color: black;
     color: white;
-    justify-content: center;
+    text-align: center;
   }
 
   th,td {
