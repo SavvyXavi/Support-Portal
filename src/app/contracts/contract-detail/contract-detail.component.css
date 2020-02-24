@@ -53,6 +53,7 @@ input:read-only {
   }
 
   .mat-header-cell {
+    flex-direction: column;
     justify-content: center;
   }
 
