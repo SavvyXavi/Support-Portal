@@ -51,7 +51,6 @@ input:read-only {
     border: solid black;
     border-radius: 4px !important;
     -moz-border-radius: 8px;
-    border-collapse: separate;
   }
 
   .mat-sort-header-container {
