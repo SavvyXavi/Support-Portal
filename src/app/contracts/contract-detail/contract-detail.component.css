@@ -45,6 +45,7 @@ input:read-only {
 
   table {
     border: solid black;
+    border-bottom-width: 1px !important;
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 8px !important;
@@ -52,6 +53,9 @@ input:read-only {
     -webkit-border-radius: 8px;
   }
 
+  div.mat-sort-header-container {
+    text-align: center;
+  }
   th {
     background-color: black;
     color: white;
@@ -66,7 +70,6 @@ input:read-only {
   td {
     border: 1px solid black;
     padding: 15px;
-    text-align: left;
   }
 
   tr:nth-child(even) {
