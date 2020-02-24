@@ -44,6 +44,7 @@ input:read-only {
 }
 
   table {
+    border: solid black;
     border-radius: 8px !important;
     -moz-border-radius: 8px;
   }
