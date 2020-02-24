@@ -53,14 +53,15 @@ input:read-only {
   }
 
   th {
+    display: flex;
+    justify-content: flex-end;
     background-color: black;
     border-color: black;
     color: white;
   }
 
   div.mat-sort-header-container{
-    display: flex;
-    justify-content: flex-end;
+
   }
 
   th,td {
