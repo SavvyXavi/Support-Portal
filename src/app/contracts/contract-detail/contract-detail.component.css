@@ -54,7 +54,7 @@ input:read-only {
 
   th {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     background-color: black;
     border-color: black;
     color: white;
