@@ -53,7 +53,7 @@ input:read-only {
   }
 
   th {
-    display: flex;
+    display: flexbox;
     flex-direction: column;
     justify-content: center;
     background-color: black;
