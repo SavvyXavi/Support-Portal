@@ -63,7 +63,7 @@ input:read-only {
   }
 
   th > div {
-    text-align: center;
+    align-content: center;
   }
 
   th,td {
