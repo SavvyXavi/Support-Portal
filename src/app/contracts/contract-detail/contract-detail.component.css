@@ -58,10 +58,10 @@ input:read-only {
     color: white;
   }
 
-  div.mat-sort-header-container{
+  /* div.mat-sort-header-container{
     display: flex;
     justify-content: center;
-  }
+  } */
 
   th,td {
     font-size: medium;
