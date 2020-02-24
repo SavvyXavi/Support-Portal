@@ -73,11 +73,12 @@ input:read-only {
   th {
     text-align: center;
     border: 1px solid black;
+    border-bottom-width: 0px;
   }
 
   td {
     border: 1px solid black;
-    /* padding: 15px; */
+    padding: 5px;
   }
 
   tr:nth-child(even) {
