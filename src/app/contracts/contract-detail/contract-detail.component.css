@@ -53,6 +53,9 @@ input:read-only {
   }
 
   th {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: black;
     border-color: black;
     color: white;
