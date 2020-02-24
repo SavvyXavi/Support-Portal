@@ -47,6 +47,7 @@ input:read-only {
     border: solid black;
     border-radius: 8px !important;
     -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
   }
 
   th {
