@@ -62,6 +62,10 @@ input:read-only {
     color: white;
   }
 
+  th > button {
+    text-align: center;
+  }
+
   th,td {
     font-size: medium;
   }
