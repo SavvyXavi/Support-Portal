@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Location } from '@angular/common';
 
 import { ApifilterService } from '../../services/apifilter.service';
 import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
@@ -33,7 +34,8 @@ export class ComapniesTableComponent implements OnInit {
 
   constructor(
     private filter: ApifilterService,
-    private authserv: AuthenticationService
+    private authserv: AuthenticationService,
+    private location: Location
   ) {
     this.authserv.currentUser.subscribe(
       profile => this.currentProfile = profile
@@ -66,5 +68,9 @@ export class ComapniesTableComponent implements OnInit {
   searchClear() {
     this.searchKey = '';
     this.applyFilter();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
