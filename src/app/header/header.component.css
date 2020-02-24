@@ -12,7 +12,7 @@ nav {
   align-items: center;
 }
 
-.logo, .navbar-brand {
+.logo > .navbar-brand > img{
   max-height: 50px;
   width: auto;
 }
