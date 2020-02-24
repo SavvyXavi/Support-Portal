@@ -62,7 +62,7 @@ input:read-only {
     color: white;
   }
 
-  th > button {
+  th > div {
     text-align: center;
   }
 
