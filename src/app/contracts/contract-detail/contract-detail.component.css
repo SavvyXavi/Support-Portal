@@ -56,27 +56,27 @@ input:read-only {
 
   } */
 
-  th {
+  /* th {
     background-color: black;
     color: white;
     text-align: center;
-  }
+  } */
 
   th,td {
     font-size: medium;
   }
 
-  ::ng-deep th {
-    flex-direction: column;
-    text-align: center;
+  th {
+    /* flex-direction: column;
+    text-align: center; */
     /* padding: 15px; */
   }
 
-  td {
+  /* td {
     border: 1px solid black;
     padding: 15px;
     text-align: left;
-  }
+  } */
 
   tr:nth-child(even) {
     background-color: #e6e6e6;
