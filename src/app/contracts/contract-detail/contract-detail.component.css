@@ -55,12 +55,17 @@ input:read-only {
   th {
     background-color: black;
     color: white;
-    align-content: center;
+    text-align: center !important;
     padding: 15px;
   }
 
   th,td {
     font-size: medium;
+  }
+
+  th {
+
+    text-align: center;
   }
 
   td {
