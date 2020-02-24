@@ -53,6 +53,7 @@ input:read-only {
   }
 
   th {
+    display: inline;
     justify-content: center;
     background-color: black;
     border-color: black;
