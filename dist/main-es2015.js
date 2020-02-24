@@ -2871,7 +2871,7 @@ function ContractDetailComponent_div_2_td_75_Template(rf, ctx) { if (rf & 1) {
 } }
 function ContractDetailComponent_div_2_th_77_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 56);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " Location ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Location");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function ContractDetailComponent_div_2_td_78_Template(rf, ctx) { if (rf & 1) {
