@@ -66,9 +66,9 @@ input:read-only {
     font-size: medium;
   }
 
-  th {
+  ::ng-deep th {
     flex-direction: column;
-    align-self: stretch;
+    text-align: center;
     /* padding: 15px; */
   }
 
