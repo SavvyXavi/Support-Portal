@@ -52,8 +52,8 @@ input:read-only {
     -webkit-border-radius: 8px;
   }
 
-  .mat-sort-header-container {
-    align-items: center;
+  .mat-header-cell {
+    justify-content: center;
   }
 
   th {
