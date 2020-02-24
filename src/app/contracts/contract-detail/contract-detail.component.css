@@ -58,9 +58,9 @@ input:read-only {
     color: white;
   }
 
-  .mat-sort-header-container{
+  div.mat-sort-header-container{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   th,td {
