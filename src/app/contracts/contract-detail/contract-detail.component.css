@@ -55,7 +55,7 @@ input:read-only {
   th {
     background-color: black;
     color: white;
-    text-align: center !important;
+    justify-content: center;
   }
 
   th,td {
