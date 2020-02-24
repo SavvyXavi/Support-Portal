@@ -43,14 +43,9 @@ input:read-only {
   font-size: 18px;
 }
 
-/* .table-container {
-  margin-right: 30px;
-  } */
-
   table {
     border-radius: 8px !important;
     -moz-border-radius: 8px;
-    border-collapse: separate;
   }
 
   th {
