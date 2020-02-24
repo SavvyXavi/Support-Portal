@@ -79,7 +79,6 @@ input:read-only {
   }
 
   .mattable-container {
-    /* width: 94%; */
     margin-bottom: 50px;
   }
 
@@ -92,7 +91,7 @@ input:read-only {
   }
 
   .search-div {
-    margin: 10px;
+    margin: 10px 0px;
   }
 
   .search-form-field {
@@ -102,9 +101,6 @@ input:read-only {
     border-radius: 5px;
   }
 
-  /* .search-form-field div.mat-form-field-underline {
-    display: none;
-  } */
 
   .mat-focused .mat-form-field-label {
     color: rgb(230, 92, 0) !important;
