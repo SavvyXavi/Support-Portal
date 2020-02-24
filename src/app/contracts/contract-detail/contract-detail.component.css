@@ -59,6 +59,7 @@ input:read-only {
   }
 
   .mat-sort-header-container{
+    display: flex;
     justify-content: center;
   }
 
