@@ -58,9 +58,8 @@ input:read-only {
     color: white;
   }
 
-  th > div > button {
-    align-content: center;
-    text-align: center;
+  .mat-sort-header-container{
+    align-items: center;
   }
 
   th,td {
