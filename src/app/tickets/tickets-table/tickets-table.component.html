@@ -39,25 +39,14 @@
   <hr/>
 
   <div class="table-container table-responsive-sm">
-      <div class="edit-items d-flex justify-content-end">
-          <button class="btn btn-primary">
-              <i class="fas fa-edit"></i> Edit List
-          </button>
-          <button class="btn btn-primary">
-            <i class="fas fa-info-circle" aria-hidden="true"></i> Ticket Details
-          </button>
-      </div>
-
-
-  <div class="search-div">
-
-    <mat-form-field class="search-form-field" floatLabel="never">
-      <input matInput [(ngModel)]="searchKey" (keyup)="applyFilter()" placeholder="Search for Ticket" autocomplete="off">
-      <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchClear()" *ngIf="searchKey">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-  </div>
+    <div class="search-div">
+      <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey" (keyup)="applyFilter()" placeholder="Search for Ticket" autocomplete="off">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchClear()" *ngIf="searchKey">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
 
   <div class="mat-table mattable-container">
     <table mat-table [dataSource]="ticketDataSource" class="mat-elevation-z8 table" matSort>
