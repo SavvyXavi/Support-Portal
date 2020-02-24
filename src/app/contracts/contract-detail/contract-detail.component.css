@@ -69,7 +69,7 @@ input:read-only {
   th {
     flex-direction: column;
     justify-content: center;
-    padding: 15px;
+    /* padding: 15px; */
   }
 
   td {
