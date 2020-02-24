@@ -68,7 +68,7 @@ input:read-only {
 
   th {
     flex-direction: column;
-    justify-content: center;
+    align-self: stretch;
     /* padding: 15px; */
   }
 
