@@ -12,7 +12,6 @@ import { AuthenticationService } from 'src/app/index/index/services/authenticati
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { ɵDomEventsPlugin } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contract-table',
@@ -54,7 +53,7 @@ export class ContractTableComponent implements OnInit {
 
   getPdf() {
    let doc = new jsPDF();
-   doc.fromHTML(document.getElementById('table'), 20, 20,
+   doc.fromHTML(document.getElementById('table'), 30, 30,
     {'width': 500}
     );
 
