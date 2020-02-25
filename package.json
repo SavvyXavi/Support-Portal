@@ -27,6 +27,7 @@
     "core-js": "^2.6.11",
     "express": "^4.17.1",
     "ionic": "^5.4.16",
+    "jspdf": "^1.5.3",
     "jw-angular-pagination": "^1.1.0",
     "mongoose": "^5.8.11",
     "node": "^13.8.0",

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { jsPDF } from 'jspdf';
 
 import { Contracts } from '../models/contracts';
 import { Profile } from '../../index/index/models/profile';
@@ -11,6 +12,7 @@ import { AuthenticationService } from 'src/app/index/index/services/authenticati
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ɵDomEventsPlugin } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contract-table',
@@ -48,6 +50,15 @@ export class ContractTableComponent implements OnInit {
     this.getPartners();
     this.getContracts();
     // this.getCompanies();
+  }
+
+  getPdf() {
+   let doc = new jsPDF();
+   doc.fromHTML(document.getElementById('table'), 20, 20,
+    {'width': 500}
+    );
+
+    doc.save('Contracts.pdf');
   }
 
   getPartners() {
