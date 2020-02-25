@@ -6373,7 +6373,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getPdf",
         value: function getPdf() {
           var doc = new jspdf__WEBPACK_IMPORTED_MODULE_1__();
-          doc.fromHTML(document.getElementById('table'), 10, 10, {
+          doc.fromHTML(document.getElementById('table'), 15, 4, {
             'width': 500
           });
           doc.save('Contracts.pdf');
