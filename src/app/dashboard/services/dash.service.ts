@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Filter } from '../../models/filter';
+import { PortalModule } from '@angular/cdk/portal';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: PortalModule
 })
 export class DashService {
 
