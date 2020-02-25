@@ -28,7 +28,6 @@
     "express": "^4.17.1",
     "ionic": "^5.4.16",
     "jw-angular-pagination": "^1.1.0",
-    "moment": "^2.24.0",
     "mongoose": "^5.8.11",
     "node": "^13.8.0",
     "rxjs": "^6.5.4",
