@@ -2,29 +2,44 @@
   margin: 0px 0px 0px 0px;
 }
 
+nav {
+  width: 100vw;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+}
 
-form {
-  margin-left: 150px;
-  margin-right: 150px;
+.content-wrapper{
+  width: 100%;
+  align-items: center;
+}
+
+.logo > .navbar-brand > img{
+  max-height: 50px;
+  width: auto;
+}
+
+/* form {
+  width: 100%;
+  border-radius: 7px;
+  padding-top: 4px;
+} */
+
+.col-md-3{
+  justify-content: center;
 }
 
 hr {
   border-color: #8c8c8c;
 }
 
-nav {
-  width: 102vw;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
-  /* position: sticky;
-  position: -webkit-sticky; */
-}
 
 .navbar-brand {
  cursor: pointer;
 }
+
 .rel-log {
   margin-top: 10px;
 }
+
 .dropdown-item {
   display: flex;
   cursor: pointer;
@@ -32,14 +47,6 @@ nav {
 
 .text {
   margin-left: 13px;
-}
-
-.northsmart button {
-  color: black;
-}
-
-.relusNav button {
-  color: black;
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {

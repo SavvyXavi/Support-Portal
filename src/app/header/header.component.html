@@ -1,22 +1,62 @@
-  <nav class="navbar northNav navbar-expand-lg navbar-light bg-light justify-content-between">
-   <a class="navbar-brand" routerLink="dashboard">
-      <img src={{this.displayLo?.Logo}} style="width:50px; height:50px">
-    </a>
-     <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div id="navbarToggle" class="collapse navbar-collapse">
-      <form class="search-bar d-none d-md-block form-inline" style="width:50%">
-        <div class="input-group">
-          <input type="text" class="form-control shadow-none" placeholder="Search">
-          <div class="input-group-append">
-            <button class="btn btn-transparent" type="button"><i class="fa fa-search"></i></button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <div class="content-wrapper d-flex justify-content-between">
+
+    <div class="logo col-md-3">
+      <a class="navbar-brand" routerLink="dashboard">
+        <img src={{this.displayLo?.Logo}}>
+      </a>
+    </div>
+
+    <div class="col-md-6">
+      <button type="button" data-toggle="modal" data-target="#ticketModal" class="btn btn-primary btn-lg">Create Ticket</button>
+      <button type="button" data-toggle="modal" aria-labelledby="assetModal" class="btn btn-secondary btn-lg">Create Asset</button>
+
+      <!-- Create Ticket Modal -->
+      <div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">
+                Ticket Form
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              . . .
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Submit Ticket</button>
+            </div>
           </div>
         </div>
-      </form>
+      </div>
 
-      <div class="dropdown d-none d-md-block account-container northsmart" style="padding-right: 15px">
+      <!-- Create Asset Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Submit Asset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
 
+      <div class="dropdown d-none d-md-block account-container col-md-3" style="padding-right: 15px">
             <button class="btn bg-light shadow-none dropdown-toggle" style="width:auto" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-user-circle fa-3x"></i> {{currentProfile?.firstName}} {{currentProfile?.lastName}}
             </button>
@@ -30,7 +70,7 @@
                 </li>
                 <hr>
                 <li>
-                  <a class="dropdown-item" routerLink="/profile">
+                  <a class="dropdown-item" routerLink="profile">
                     <div class="icon">
                       <i class="fas fa-user"></i>
                     </div>
@@ -49,7 +89,7 @@
                     </div>
                   </a>
                 </li>
-                <li>
+                <!-- <li>
                   <a class="dropdown-item" routerlink="/notifications">
                     <div class="icon">
                     <i class="fas fa-comment-alt"></i>
@@ -58,7 +98,7 @@
                     Notifications
                   </div>
                   </a>
-                </li>
+                </li> -->
                 <li>
                   <a class="dropdown-item" (click)="logout()">
                     <div class="icon">
@@ -72,129 +112,5 @@
               </ul>
       </div>
     </div>
-  </nav>
+</nav>
 
-    <!-- <nav  class="navbar relusNav navbar-expand-lg navbar-light bg-light justify-content-between">
-      <a class="navbar-brand" routerLink="dashLink()"><img *ngIf="currentProfile?.partner == 'Relus Technologies'" src="../../../assets/RelusLogo.png" style="height: 44px; margin-left: 20px;"></a>
-      <button class="navbar-toggler relusToggle" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div id="navbarToggle" class="collapse navbar-collapse">
-      <form class="search-bar d-none d-md-block form-inline" style="width:50%">
-        <div class="input-group">
-          <input type="text" class="form-control shadow-none" placeholder="Search">
-          <div class="input-group-append">
-            <button class="btn btn-transparent" type="button"><i class="fa fa-search"></i></button>
-          </div>
-        </div>
-      </form>
-
-      <div class="dropdown d-none d-md-block account-container relus" style="padding-right: 15px">
-
-            <button class="btn bg-light shadow-none dropdown-toggle" style="width:auto" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fa fa-user-circle fa-3x"></i> {{currentProfile?.firstName}} {{currentProfile?.lastName}}
-            </button>
-
-            <ul class="dropdown-menu dropdown-menu-right" style="padding-right:auto; width:auto" aria-labelledby="dropdownMenuButton">
-              <li>
-                <span class="dropdown-item-text dropdown-separator-title">
-                  <h4>{{currentProfile?.partnerRole}}</h4>
-                  <h5>{{currentProfile?.email}}</h5>
-                </span>
-              </li>
-              <hr>
-              <li>
-                  <a class="dropdown-item" routerLink="/profile">
-                    <div class="icon">
-                      <i class="fas fa-user"></i>
-                    </div>
-                    <div class="text">
-                      Account
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" routerLink="/settings">
-                    <div class="icon">
-                      <i class="fas fa-cog"></i>
-                    </div>
-                    <div class="text">
-                      Settings
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" routerlink="/notifications">
-                    <div class="icon">
-                    <i class="fas fa-comment-alt"></i>
-                  </div>
-                  <div class="text">
-                    Notifications
-                  </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" (click)="logout()">
-                    <div class="icon">
-                      <i class="fas fa-sign-out-alt"></i>
-                    </div>
-                    <div class="text">
-                      Logout
-                    </div>
-                  </a>
-                </li>
-              </ul>
-      </div>
-    </div>
-    </nav> -->
-
-    <!-- <nav *ngIf="currentProfile?.partner == 'Noble1 Solutions'" class="navbar northNav navbar-expand-lg navbar-light bg-light justify-content-between">
-        <a class="navbar-brand" routerLink="dashLink()"><img *ngIf="currentProfile?.partner == 'Noble1 Solutions'" src="../../assets//favicon.ico" style="width:75px; height:75px"></a>
-        <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div id="navbarToggle" class="collapse navbar-collapse">
-          <form class="search-bar d-none d-md-block form-inline" style="width:50%">
-            <div class="input-group">
-              <input type="text" class="form-control shadow-none" placeholder="Search">
-              <div class="input-group-append">
-                <button class="btn btn-transparent" type="button"><i class="fa fa-search"></i></button>
-              </div>
-            </div>
-          </form>
-
-          <div class="dropdown d-none d-md-block account-container northsmart" style="padding-right: 15px">
-
-                <button class="btn bg-light shadow-none dropdown-toggle" style="width:auto" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-user-circle fa-3x"></i> {{currentProfile?.firstName}} {{currentProfile?.lastName}}
-                </button>
-
-                <ul class="dropdown-menu dropdown-menu-right" style="padding-right:auto; width:auto" aria-labelledby="dropdownMenuButton">
-                    <li>
-                      <span class="dropdown-item-text dropdown-separator-title">
-                        <h4>{{currentProfile?.partnerRole}}</h4>
-                        <h5>{{currentProfile?.email}}</h5>
-                      </span>
-                    </li>
-                    <hr>
-                    <li>
-                      <a class="dropdown-item" routerLink="/profile">
-                        <i class="fas fa-user"></i> Account
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" routerLink="/settings">
-                        <i class="fas fa-cog"></i> Settings
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" (click)="logout()">
-                          <i class="fas fa-sign-out-alt"></i>  Logout
-                      </a>
-                    </li>
-                  </ul>
-          </div>
-        </div>
-      </nav> -->

@@ -9,10 +9,10 @@ import * as moment from 'moment';
 import { AuthenticationService } from '../index/index/services/authentication.service';
 import { ProfileService } from '../index/index/services/profile.service';
 import { ApifilterService } from './../services/apifilter.service';
-import { ApiCallService } from './../tickets/services/api-call.service';
+import { DashService } from './services/dash.service';
 
 import { Subscription } from 'rxjs';
-import { map, first } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 
 import { Partner } from './../models/partner';
@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit {
 
   contractsData = [];
   assetsData = [];
-  tickets: Tickets;
+  tickets: Tickets[];
 
   assets: Assets[];
   contractDays: string[];
@@ -58,11 +58,16 @@ export class DashboardComponent implements OnInit {
   unmapped = 0;
   yetToStart = 0;
 
+  new = 0;
+  assigned = 0;
+  inProcess = 0;
+  closed = 0;
+
   constructor(
     private authenticationService: AuthenticationService,
     private profileService: ProfileService,
-    private api: ApiCallService,
-    private filter: ApifilterService
+    private filter: ApifilterService,
+    private dashServ: DashService
     ) {
       this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(
         profile => {
@@ -77,8 +82,8 @@ export class DashboardComponent implements OnInit {
     this.assetsChart();
     this.ticketsCount();
     this.companiesCount();
+    this.ticketsChart();
   }
-
   getPartners() {
     this.filter.getPartners()
     .subscribe(
@@ -114,11 +119,45 @@ export class DashboardComponent implements OnInit {
   }
 
   ticketsChart() {
-    this.api.getTickets().subscribe(
-      (returnedTickets: Tickets) => {
-        this.tickets = returnedTickets;
-      }
-    );
+    if (this.currentProfile.companypartner === 'Partner') {
+      this.dashServ.partTicketsFilter(this.currentProfile)
+      .subscribe(
+        (tickets: Tickets[]) => {
+          this.tickets = tickets;
+          for (let i = 0;  i <= this.tickets.length; i++) {
+            if (this.tickets[i].Status === 'New') {
+              this.new++;
+            } else if (this.tickets[i].Status === 'Assigned') {
+              this.assigned++;
+            } else if (this.tickets[i].Status === 'Fixed') {
+              this.closed++;
+            } else {
+              this.inProcess++;
+            }
+          }
+        }
+
+      );
+    } else {
+      this.dashServ.cusTicketsFilter(this.currentProfile.company)
+      .subscribe(
+        (tickets: Tickets[]) => {
+          this.tickets = tickets;
+          for (let i = 0;  i <= this.tickets.length; i++) {
+            if (this.tickets[i].Status === 'New') {
+              this.new++;
+            } else if (this.tickets[i].Status === 'Assigned') {
+              this.assigned++;
+            } else if (this.tickets[i].Status === 'Fixed') {
+              this.closed++;
+            } else {
+              this.inProcess++;
+            }
+          }
+        }
+
+      );
+    }
   }
 
   contractsChart() {
@@ -130,11 +169,10 @@ export class DashboardComponent implements OnInit {
           this.contractLength = returnedCons.length;
         }
       );
-      this.filter.conByDays(this.currentProfile)
+      this.filter.pConByDays(this.currentProfile)
       .subscribe(
         (returnedDays: string[]) => {
           this.contractDays = returnedDays;
-          console.log(this.contractDays);
           for (let i = 0; i <= this.contractDays.length; i++) {
             if (Number(this.contractDays[i]) > -1 && Number(this.contractDays[i]) <= 14) {
               this.now++;
@@ -180,7 +218,12 @@ export class DashboardComponent implements OnInit {
           tooltips: {
             callbacks: {
               title: function(tooltipItem, data) {
-                return 'Contracts ' + tooltipItem[0].xLabel;
+                let label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                    if (label) {
+                        label += ': ';
+                    }
+                return label;
               }
             }
           }
@@ -196,7 +239,7 @@ export class DashboardComponent implements OnInit {
           this.contractLength = returnedCons.length;
         }
       );
-      this.filter.conByDays(this.currentProfile)
+      this.filter.cConByDays(this.currentProfile)
       .subscribe(
         (returnedDays: string[]) => {
           this.contractDays = returnedDays;

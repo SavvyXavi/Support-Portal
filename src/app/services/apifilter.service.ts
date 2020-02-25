@@ -34,8 +34,10 @@ export class ApifilterService {
    'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
   nameConApi =
   'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByName?code=IZMBTTmJ5l7M3WPeKg46l/3lfEaAKMgKdagfNCM8T07vyO05QqqBSg==';
-  schedDayCountApi =
+  pSchedDayCountApi =
   'https://prodharmonytwo.azurewebsites.net/api/getSchedDaysToGo?code=NxVHnZOpdgRSQCa35OBTA7g/r6wm3euGe0a8pWHG6hDNG7PTCkPJNQ==';
+  cSchedDayCountApi =
+  'https://harmonyprodcustomersone.azurewebsites.net/api/SchedByDays?code=ohdQ0dVI3F2jeqDbl96uN1lO7WqvYkcH7OW41bYMeBekzFhb5bRFzw==';
 
 
   oldpartassetsapi
@@ -171,16 +173,32 @@ export class ApifilterService {
       return this.http.post(this.cContractsApi, params);
     }
 
-    conByDays(filter: Filter) {
+    pConByDays(filter: Filter) {
       const params = {
         'partner': filter.partner
       };
-      return this.http.post(this.schedDayCountApi, params);
+      return this.http.post(this.pSchedDayCountApi, params);
     }
 
     regGetPartner() {
       return this.http.get(this.partnerApi);
     }
+
+    cConByDays(filter: Filter) {
+      if (filter.company.includes('&')) {
+        const customer = filter.company.replace('&', '%26');
+        const params = {
+          'customer': customer
+        };
+        return this.http.post(this.cSchedDayCountApi, params);
+      } else {
+        const params = {
+          'customer': filter.company
+        };
+        return this.http.post(this.cSchedDayCountApi, params);
+      }
+    }
+
 
   getPartners() {
     return of(this.partnerlist);
