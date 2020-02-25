@@ -32,7 +32,6 @@ import { TicketsModule } from 'src/app/tickets/tickets.module';
 import { CompaniesModule } from 'src/app/companies/companies.module';
 import { LocationsModule } from 'src/app/locations/locations.module';
 import { AdminModule } from 'src/app/admin/admin.module';
-import { DashService } from 'src/app/dashboard/services/dash.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +66,6 @@ import { DashService } from 'src/app/dashboard/services/dash.service';
   providers: [
     AuthGuard,
     AuthenticationService,
-    DashService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ]
 })

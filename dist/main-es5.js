@@ -15742,13 +15742,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var src_app_admin_admin_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
     /*! src/app/admin/admin.module */
-    "./src/app/admin/admin.module.ts");
-    /* harmony import */
-
-
-    var src_app_dashboard_services_dash_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
-    /*! src/app/dashboard/services/dash.service */
-    "./src/app/dashboard/services/dash.service.ts"); // Material Import
+    "./src/app/admin/admin.module.ts"); // Material Import
     // Module Import
 
 
@@ -15763,7 +15757,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       factory: function PortalModule_Factory(t) {
         return new (t || PortalModule)();
       },
-      providers: [src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"], src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_10__["AuthenticationService"], src_app_dashboard_services_dash_service__WEBPACK_IMPORTED_MODULE_26__["DashService"], {
+      providers: [src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"], src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_10__["AuthenticationService"], {
         provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"],
         useClass: _index_index_helpers_jwt_service__WEBPACK_IMPORTED_MODULE_11__["JwtInterceptor"],
         multi: true
@@ -15789,7 +15783,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           declarations: [_portal_component__WEBPACK_IMPORTED_MODULE_12__["PortalComponent"], _header_header_component__WEBPACK_IMPORTED_MODULE_6__["HeaderComponent"], _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_7__["SidebarComponent"], src_app_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"]],
           imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _portal_routing_module__WEBPACK_IMPORTED_MODULE_5__["PortalRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _contracts_contracts_contracts_module__WEBPACK_IMPORTED_MODULE_20__["ContractsModule"], src_app_manage_assets_assets_assets_module__WEBPACK_IMPORTED_MODULE_21__["AssetsModule"], src_app_tickets_tickets_module__WEBPACK_IMPORTED_MODULE_22__["TicketsModule"], src_app_companies_companies_module__WEBPACK_IMPORTED_MODULE_23__["CompaniesModule"], src_app_locations_locations_module__WEBPACK_IMPORTED_MODULE_24__["LocationsModule"], src_app_admin_admin_module__WEBPACK_IMPORTED_MODULE_25__["AdminModule"], // Material Imports
           _angular_material_slider__WEBPACK_IMPORTED_MODULE_13__["MatSliderModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_14__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_15__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_16__["MatSortModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_18__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_19__["MatInputModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_17__["MatFormFieldModule"]],
-          providers: [src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"], src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_10__["AuthenticationService"], src_app_dashboard_services_dash_service__WEBPACK_IMPORTED_MODULE_26__["DashService"], {
+          providers: [src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"], src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_10__["AuthenticationService"], {
             provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"],
             useClass: _index_index_helpers_jwt_service__WEBPACK_IMPORTED_MODULE_11__["JwtInterceptor"],
             multi: true

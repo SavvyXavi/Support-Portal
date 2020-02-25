@@ -8284,7 +8284,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_companies_companies_module__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! src/app/companies/companies.module */ "./src/app/companies/companies.module.ts");
 /* harmony import */ var src_app_locations_locations_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! src/app/locations/locations.module */ "./src/app/locations/locations.module.ts");
 /* harmony import */ var src_app_admin_admin_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! src/app/admin/admin.module */ "./src/app/admin/admin.module.ts");
-/* harmony import */ var src_app_dashboard_services_dash_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! src/app/dashboard/services/dash.service */ "./src/app/dashboard/services/dash.service.ts");
 
 
 
@@ -8314,14 +8313,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 class PortalModule {
 }
 PortalModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: PortalModule });
 PortalModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function PortalModule_Factory(t) { return new (t || PortalModule)(); }, providers: [
         src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"],
         src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_10__["AuthenticationService"],
-        src_app_dashboard_services_dash_service__WEBPACK_IMPORTED_MODULE_26__["DashService"],
         { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _index_index_helpers_jwt_service__WEBPACK_IMPORTED_MODULE_11__["JwtInterceptor"], multi: true },
     ], imports: [[
             _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
@@ -8402,7 +8399,6 @@ PortalModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjec
                 providers: [
                     src_app_index_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"],
                     src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_10__["AuthenticationService"],
-                    src_app_dashboard_services_dash_service__WEBPACK_IMPORTED_MODULE_26__["DashService"],
                     { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _index_index_helpers_jwt_service__WEBPACK_IMPORTED_MODULE_11__["JwtInterceptor"], multi: true },
                 ]
             }]
