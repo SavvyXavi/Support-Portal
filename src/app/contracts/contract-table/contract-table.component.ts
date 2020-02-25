@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as jsPDF from 'jspdf';
-
 import { Contracts } from '../models/contracts';
 import { Profile } from '../../index/index/models/profile';
 import { Partner } from '../../models/partner';
@@ -53,10 +52,8 @@ export class ContractTableComponent implements OnInit {
 
   getPdf() {
    let doc = new jsPDF();
-   doc.fromHTML(document.getElementById('table'), 15, 4,
-    {'width': 600},
-    {'height': 100}
-    );
+   doc.text('Contracts Report', 14, 15);
+   doc.autoTable({html: '#table'});
 
     doc.save('Contracts.pdf');
   }
