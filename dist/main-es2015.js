@@ -651,7 +651,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function CurrentUserComponent_li_6_Template(rf, ctx) { if (rf & 1) {
+function CurrentUserComponent_li_11_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "br");
@@ -707,21 +707,26 @@ class CurrentUserComponent {
     }
 }
 CurrentUserComponent.ɵfac = function CurrentUserComponent_Factory(t) { return new (t || CurrentUserComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_index_services_profile_service__WEBPACK_IMPORTED_MODULE_3__["ProfileService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_oem_service__WEBPACK_IMPORTED_MODULE_1__["OemService"])); };
-CurrentUserComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: CurrentUserComponent, selectors: [["app-current-user"]], decls: 7, vars: 1, consts: [[3, "click"], [4, "ngFor", "ngForOf"]], template: function CurrentUserComponent_Template(rf, ctx) { if (rf & 1) {
+CurrentUserComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: CurrentUserComponent, selectors: [["app-current-user"]], decls: 12, vars: 1, consts: [[3, "click"], [4, "ngFor", "ngForOf"]], template: function CurrentUserComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h3");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, " All Users: ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CurrentUserComponent_Template_button_click_3_listener($event) { return ctx.getAllAssets(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Load assets");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "h3");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, " All Users: ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "button", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CurrentUserComponent_Template_button_click_8_listener($event) { return ctx.getAllAssets(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Load assets");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, CurrentUserComponent_li_6_Template, 14, 8, "li", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "ul");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](11, CurrentUserComponent_li_11_Template, 14, 8, "li", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](11);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.datapull);
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2N1cnJlbnQtdXNlci9jdXJyZW50LXVzZXIuY29tcG9uZW50LmNzcyJ9 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CurrentUserComponent, [{
@@ -1274,9 +1279,9 @@ class RegisterComponent {
         //   }
     }
     ngOnInit() {
-        this.filter.getPartners().subscribe((partnerList => {
-            this.partnerList = partnerList;
-        }));
+        this.filter.regGetPartner().subscribe((partnerList) => {
+            this.twoprofile = partnerList;
+        });
         this.registerForm = this.formBuilder.group({
             firstName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             lastName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -1568,7 +1573,7 @@ class OemService {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_logo_list__WEBPACK_IMPORTED_MODULE_2__["LogoList"]);
     }
     getAllAssets() {
-        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].serverUrl}/asset`);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].serverUrl}/`);
     }
 }
 OemService.ɵfac = function OemService_Factory(t) { return new (t || OemService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
@@ -8820,7 +8825,7 @@ class ApifilterService {
         this.http = http;
         this.partnerlist = _partner_list__WEBPACK_IMPORTED_MODULE_3__["PartnerList"];
         this.customerApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
-        this.partnerApi = 'https://prodharmony.azurewebsites.net/api/PartnerList?code=2e6AULJLQxO60bOdJxfX6oxo57jkNueQEn4nsCKixFMjoheKzBc48w==';
+        this.partnerApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/PartnerList?code=6W5az23O1cyKatIJp7F/ayclp8hQal5rYbCywjOXN6kF5ZMzNluuVA==';
         this.pContractsApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByPartner?code=4QQzdPj2j4LgMuJ9wnzmomSadWCLJEpbSOKcJqhBPRDswDZUCq6NqA==';
         this.cContractsApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/ContractsByCustomer?code=bpca1PGS/szLyokaPXrzwhbTmpIv1NIC8St234Ce8anUtUKo8uUWkg==';
         this.refConApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
@@ -8929,6 +8934,9 @@ class ApifilterService {
             'partner': filter.partner
         };
         return this.http.post(this.pSchedDayCountApi, params);
+    }
+    regGetPartner() {
+        return this.http.get(this.partnerApi);
     }
     cConByDays(filter) {
         if (filter.company.includes('&')) {
@@ -10590,7 +10598,7 @@ const environment = {
     secret: 'Noble1Solutions',
     LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
     CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
-    DataPull: 'https://testdata.noble1it.com'
+    DataPull: 'https://n1stestdata.noble1it.com'
 };
 /*
  * For easier debugging in development mode, you can import the following file

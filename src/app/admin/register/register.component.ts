@@ -46,9 +46,9 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.filter.getPartners().subscribe((partnerList => {
-      this.partnerList = partnerList;
-    }));
+    this.filter.regGetPartner().subscribe((partnerList: any) => {
+      this.twoprofile = partnerList;
+    });
 
     this.registerForm = this.formBuilder.group({
       firstName: ['',  Validators.required],

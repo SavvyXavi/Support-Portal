@@ -33,7 +33,7 @@ export class OemService {
     return of(LogoList);
   }
   getAllAssets(): Observable<DataPull[]> {
-    return this.http.get<DataPull[]>(`${environment.serverUrl}/asset`);
+    return this.http.get<DataPull[]>(`${environment.serverUrl}/`);
   }
 
 
