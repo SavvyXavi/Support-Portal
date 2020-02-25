@@ -54,7 +54,8 @@ export class ContractTableComponent implements OnInit {
   getPdf() {
    let doc = new jsPDF();
    doc.fromHTML(document.getElementById('table'), 15, 4,
-    // {'width': 500}
+    {'width': 600},
+    {'height': 100}
     );
 
     doc.save('Contracts.pdf');
