@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { Profile } from '../index/index/models/profile';
 import { Tickets } from '../tickets/models/tickets';
 import { Assets } from '../manage-assets/models/assets';
-import * as moment from 'moment';
 
 import { AuthenticationService } from '../index/index/services/authentication.service';
 import { ProfileService } from '../index/index/services/profile.service';
