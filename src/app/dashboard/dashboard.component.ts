@@ -82,8 +82,8 @@ export class DashboardComponent implements OnInit {
     this.assetsChart();
     this.ticketsCount();
     this.companiesCount();
+    this.ticketsChart();
   }
-
   getPartners() {
     this.filter.getPartners()
     .subscribe(

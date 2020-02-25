@@ -7081,6 +7081,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.assetsChart();
           this.ticketsCount();
           this.companiesCount();
+          this.ticketsChart();
         }
       }, {
         key: "getPartners",
