@@ -3363,7 +3363,7 @@ class ContractTableComponent {
     }
     getPdf() {
         let doc = new jspdf__WEBPACK_IMPORTED_MODULE_1__();
-        doc.fromHTML(document.getElementById('table'), 15, 4, { 'width': 500 });
+        doc.fromHTML(document.getElementById('table'), 15, 4);
         doc.save('Contracts.pdf');
     }
     getPartners() {
@@ -3782,7 +3782,6 @@ class DashboardComponent {
         this.getPartners();
         this.contractsChart();
         this.assetsChart();
-        this.ticketsCount();
         this.companiesCount();
         this.ticketsChart();
     }
@@ -3793,16 +3792,6 @@ class DashboardComponent {
     filterPartner(partner) {
         return this.partnerArr.find(company => company.CompanyName === partner);
     }
-    ticketsCount() {
-        if (this.currentProfile.companypartner === 'Partner') {
-            this.filter.partTicketsFilter(this.currentProfile)
-                .subscribe((returnedAssetLength) => this.ticketLength = returnedAssetLength);
-        }
-        else if (this.currentProfile.companypartner === 'Company') {
-            this.filter.cusTicketsFilter(this.currentProfile.company)
-                .subscribe((returnedTicketLength) => this.ticketLength = returnedTicketLength);
-        }
-    }
     companiesCount() {
         this.filter.customerFilter(this.currentProfile)
             .subscribe((returnedCompanies) => {
@@ -3811,17 +3800,20 @@ class DashboardComponent {
     }
     ticketsChart() {
         if (this.currentProfile.companypartner === 'Partner') {
+            this.filter.partTicketsFilter(this.currentProfile)
+                .subscribe((returnedAssetLength) => this.ticketLength = returnedAssetLength);
             this.dashServ.partTicketsFilter(this.currentProfile)
                 .subscribe((tickets) => {
                 this.tickets = tickets;
-                for (let i = 0; i <= this.tickets.length; i++) {
-                    if (this.tickets[i].Status === 'New') {
+                this.ticketStatus = this.tickets.map(t => t.Status);
+                for (let i = 0; i <= this.ticketStatus.length; i++) {
+                    if (this.ticketStatus[i] === 'New') {
                         this.new++;
                     }
-                    else if (this.tickets[i].Status === 'Assigned') {
+                    else if (this.ticketStatus[i] === 'Assigned') {
                         this.assigned++;
                     }
-                    else if (this.tickets[i].Status === 'Fixed') {
+                    else if (this.ticketStatus[i] === 'Fixed') {
                         this.closed++;
                     }
                     else {
@@ -3831,17 +3823,20 @@ class DashboardComponent {
             });
         }
         else {
+            this.filter.cusTicketsFilter(this.currentProfile.company)
+                .subscribe((returnedTicketLength) => this.ticketLength = returnedTicketLength);
             this.dashServ.cusTicketsFilter(this.currentProfile.company)
                 .subscribe((tickets) => {
                 this.tickets = tickets;
-                for (let i = 0; i <= this.tickets.length; i++) {
-                    if (this.tickets[i].Status === 'New') {
+                this.ticketStatus = this.tickets.map(t => t.Status);
+                for (let i = 0; i <= this.ticketStatus.length; i++) {
+                    if (this.ticketStatus[i] === 'New') {
                         this.new++;
                     }
-                    else if (this.tickets[i].Status === 'Assigned') {
+                    else if (this.ticketStatus[i] === 'Assigned') {
                         this.assigned++;
                     }
-                    else if (this.tickets[i].Status === 'Fixed') {
+                    else if (this.ticketStatus[i] === 'Fixed') {
                         this.closed++;
                     }
                     else {
