@@ -53,7 +53,7 @@ export class ContractTableComponent implements OnInit {
 
   getPdf() {
    let doc = new jsPDF();
-   doc.fromHTML(document.getElementById('table'), 30, 30,
+   doc.fromHTML(document.getElementById('table'), 10, 10,
     {'width': 500}
     );
 

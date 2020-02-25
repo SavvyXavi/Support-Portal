@@ -3363,7 +3363,7 @@ class ContractTableComponent {
     }
     getPdf() {
         let doc = new jspdf__WEBPACK_IMPORTED_MODULE_1__();
-        doc.fromHTML(document.getElementById('table'), 30, 30, { 'width': 500 });
+        doc.fromHTML(document.getElementById('table'), 10, 10, { 'width': 500 });
         doc.save('Contracts.pdf');
     }
     getPartners() {

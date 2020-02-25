@@ -135,7 +135,6 @@ export class DashboardComponent implements OnInit {
             }
           }
         }
-
       );
     } else {
       this.dashServ.cusTicketsFilter(this.currentProfile.company)
@@ -154,7 +153,6 @@ export class DashboardComponent implements OnInit {
             }
           }
         }
-
       );
     }
   }
