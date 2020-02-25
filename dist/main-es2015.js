@@ -3362,7 +3362,7 @@ class ContractTableComponent {
         // this.getCompanies();
     }
     getPdf() {
-        let doc = new jspdf__WEBPACK_IMPORTED_MODULE_1__["jsPDF"]();
+        let doc = new jspdf__WEBPACK_IMPORTED_MODULE_1__();
         doc.fromHTML(document.getElementById('table'), 20, 20, { 'width': 500 });
         doc.save('Contracts.pdf');
     }

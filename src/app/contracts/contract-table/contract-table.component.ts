@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { jsPDF } from 'jspdf';
+import * as jsPDF from 'jspdf';
 
 import { Contracts } from '../models/contracts';
 import { Profile } from '../../index/index/models/profile';

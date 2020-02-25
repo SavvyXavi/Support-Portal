@@ -6372,7 +6372,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPdf",
         value: function getPdf() {
-          var doc = new jspdf__WEBPACK_IMPORTED_MODULE_1__["jsPDF"]();
+          var doc = new jspdf__WEBPACK_IMPORTED_MODULE_1__();
           doc.fromHTML(document.getElementById('table'), 20, 20, {
             'width': 500
           });
