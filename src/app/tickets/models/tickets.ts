@@ -3,15 +3,16 @@ import { TicketType } from './../../types/ticket-type.enum';
 export class Tickets {
   Title: string;
   RefNumber: string;
-  description: string;
+  Description: string;
   CustomerName: string;
   AssetIdentifier: string;
-  slaSeverity: string;
-  visibleToCustomer?: true;
-  contact?: string;
-  ticketCategoryNameOrId: string;
-  ticketTypeNameOrId: string;
-  name: string;
+  SlaSeverity: string;
+  Status: string;
+  VisibleToCustomer?: true;
+  ContactEmailOrId?: string;
+  TicketCategoryNameOrId: string;
+  TicketTypeNameOrId: string;
+  Name: string;
 }
 
 // "Title": "string",  Entry Field
