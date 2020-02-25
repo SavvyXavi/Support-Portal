@@ -7144,6 +7144,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }
               }
             });
+          } else {
+            this.dashServ.cusTicketsFilter(this.currentProfile.company).subscribe(function (tickets) {
+              _this28.tickets = tickets;
+
+              for (var i = 0; i <= _this28.tickets.length; i++) {
+                if (_this28.tickets[i].Status === 'New') {
+                  _this28.new++;
+                } else if (_this28.tickets[i].Status === 'Assigned') {
+                  _this28.assigned++;
+                } else if (_this28.tickets[i].Status === 'Fixed') {
+                  _this28.closed++;
+                } else {
+                  _this28.inProcess++;
+                }
+              }
+            });
           }
         }
       }, {

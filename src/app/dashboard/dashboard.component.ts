@@ -138,6 +138,25 @@ export class DashboardComponent implements OnInit {
         }
 
       );
+    } else {
+      this.dashServ.cusTicketsFilter(this.currentProfile.company)
+      .subscribe(
+        (tickets: Tickets[]) => {
+          this.tickets = tickets;
+          for (let i = 0;  i <= this.tickets.length; i++) {
+            if (this.tickets[i].Status === 'New') {
+              this.new++;
+            } else if (this.tickets[i].Status === 'Assigned') {
+              this.assigned++;
+            } else if (this.tickets[i].Status === 'Fixed') {
+              this.closed++;
+            } else {
+              this.inProcess++;
+            }
+          }
+        }
+
+      );
     }
   }
 
