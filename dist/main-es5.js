@@ -6081,57 +6081,57 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _services_apifilter_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _services_apifilter_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./../../services/apifilter.service */
     "./src/app/services/apifilter.service.ts");
     /* harmony import */
 
 
-    var src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/index/index/services/authentication.service */
     "./src/app/index/index/services/authentication.service.ts");
     /* harmony import */
 
 
-    var _angular_material_table__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _angular_material_table__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/material/table */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/table.js");
     /* harmony import */
 
 
-    var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/material/paginator */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/paginator.js");
     /* harmony import */
 
 
-    var _angular_material_sort__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _angular_material_sort__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/material/sort */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sort.js");
     /* harmony import */
 
 
-    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @angular/material/form-field */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
     /* harmony import */
 
 
-    var _angular_material_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _angular_material_input__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! @angular/material/input */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/input.js");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-    /* harmony import */
-
-
-    var _angular_common__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
@@ -6383,6 +6383,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.authserv.currentUser.subscribe(function (name) {
           _this20.currentProfile = name;
         });
+        this.pipe = new _angular_common__WEBPACK_IMPORTED_MODULE_4__["DatePipe"]('en-us');
       }
 
       _createClass(ContractTableComponent, [{
@@ -6397,6 +6398,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee() {
+            var _this21 = this;
+
             var docDef;
             return regeneratorRuntime.wrap(function _callee$(_context) {
               while (1) {
@@ -6436,7 +6439,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                             text: 'Status',
                             stlye: 'tableHeader'
                           }]].concat(_toConsumableArray(this.conArr.map(function (c) {
-                            return [c.RefNumber, c.ScheduleName, c.StartDate, c.RenewalDate, c.EndCustomerName, c.Status];
+                            return [c.RefNumber, c.ScheduleName, _this21.pipe.transform(c.StartDate, 'short'), _this21.pipe.transform(c.RenewalDate, 'short'), c.EndCustomerName, c.Status];
                           })))
                         }
                       }]
@@ -6452,33 +6455,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }));
         }
       }, {
-        key: "getPdf",
-        value: function getPdf() {//  let doc = new jsPDF('portrait', 'px', 'a4') as tableplugin;
-          //  doc.text('Contracts Report', 14, 15)
-          //  doc.autotable({
-          //    html: '#table'
-          //   head: [
-          //     []
-          //   ]
-          //   });
-          //   doc.save('Contracts.pdf');
-        }
-      }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this21 = this;
+          var _this22 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this21.partnerArr = returnedPartners;
+            return _this22.partnerArr = returnedPartners;
           });
         }
       }, {
         key: "getCompanies",
         value: function getCompanies() {
-          var _this22 = this;
+          var _this23 = this;
 
           this.filter.customerFilter(this.currentProfile).subscribe(function (companies) {
-            _this22.company = companies;
+            _this23.company = companies;
           });
         }
       }, {
@@ -6491,20 +6482,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getContracts",
         value: function getContracts() {
-          var _this23 = this;
+          var _this24 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partConFilter(this.currentProfile).subscribe(function (returnedContracts) {
-              _this23.conArr = returnedContracts;
-              _this23.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedContracts);
-              _this23.contractDataSource.sort = _this23.sort;
-              _this23.contractDataSource.paginator = _this23.paginator;
+              _this24.conArr = returnedContracts;
+              _this24.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatTableDataSource"](returnedContracts);
+              _this24.contractDataSource.sort = _this24.sort;
+              _this24.contractDataSource.paginator = _this24.paginator;
             });
           } else {
             this.filter.custConFilter(this.currentProfile).subscribe(function (returnedContracts) {
-              _this23.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedContracts);
-              _this23.contractDataSource.sort = _this23.sort;
-              _this23.contractDataSource.paginator = _this23.paginator;
+              _this24.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatTableDataSource"](returnedContracts);
+              _this24.contractDataSource.sort = _this24.sort;
+              _this24.contractDataSource.paginator = _this24.paginator;
             });
           }
         }
@@ -6529,7 +6520,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     ContractTableComponent.ɵfac = function ContractTableComponent_Factory(t) {
-      return new (t || ContractTableComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_services_apifilter_service__WEBPACK_IMPORTED_MODULE_4__["ApifilterService"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"]));
+      return new (t || ContractTableComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_services_apifilter_service__WEBPACK_IMPORTED_MODULE_5__["ApifilterService"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]));
     };
 
     ContractTableComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({
@@ -6537,9 +6528,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-contract-table"]],
       viewQuery: function ContractTableComponent_Query(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵviewQuery"](_angular_material_paginator__WEBPACK_IMPORTED_MODULE_7__["MatPaginator"], true);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵviewQuery"](_angular_material_paginator__WEBPACK_IMPORTED_MODULE_8__["MatPaginator"], true);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵviewQuery"](_angular_material_sort__WEBPACK_IMPORTED_MODULE_8__["MatSort"], true);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵviewQuery"](_angular_material_sort__WEBPACK_IMPORTED_MODULE_9__["MatSort"], true);
         }
 
         if (rf & 2) {
@@ -6689,8 +6680,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("pageSizeOptions", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction0"](8, _c0))("pageSize", 10);
         }
       },
-      directives: [_angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_11__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_11__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_11__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_12__["NgIf"], _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTable"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_8__["MatSort"], _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatColumnDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatHeaderCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatHeaderRowDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatRowDef"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_7__["MatPaginator"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatSuffix"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_13__["MatIcon"], _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatHeaderCell"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_8__["MatSortHeader"], _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatCell"], _angular_router__WEBPACK_IMPORTED_MODULE_14__["RouterLinkWithHref"], _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatHeaderRow"], _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatRow"]],
-      pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_12__["DatePipe"]],
+      directives: [_angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_11__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_12__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_12__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_12__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatTable"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_9__["MatSort"], _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatColumnDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatHeaderCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatHeaderRowDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatRowDef"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_8__["MatPaginator"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_10__["MatSuffix"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_13__["MatIcon"], _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatHeaderCell"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_9__["MatSortHeader"], _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatCell"], _angular_router__WEBPACK_IMPORTED_MODULE_14__["RouterLinkWithHref"], _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatHeaderRow"], _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatRow"]],
+      pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DatePipe"]],
       styles: [".edit-items-container[_ngcontent-%COMP%] {\n  margin-right: 20px;\n}\n\n.btn[_ngcontent-%COMP%] {\n  margin: 10px;\n  background-color: rgb(230, 92, 0) !important;\n  border-color: rgb(230, 92, 0) !important;\n}\n\n.btn[_ngcontent-%COMP%]:click, .btn[_ngcontent-%COMP%]:hover, .btn[_ngcontent-%COMP%]:focused, .btn[_ngcontent-%COMP%]:active, .btn[_ngcontent-%COMP%]:visited {\n  margin: 10px;\n  background-color: rgb(230, 92, 0) !important;\n  border-color: rgb(230, 92, 0) !important;\n}\n\n.table-container[_ngcontent-%COMP%] {\n  margin-right: 30px;\n  }\n\ntable[_ngcontent-%COMP%] {\n    border: solid black;\n    border-collapse: separate;\n    border-spacing: 0;\n    border-radius: 8px !important;\n    -moz-border-radius: 8px;\n    -webkit-border-radius: 8px;\n  }\n\nth[_ngcontent-%COMP%] {\n    background-color: black;\n    color: white;\n    border-color: white;\n  }\n\nth[_ngcontent-%COMP%], td[_ngcontent-%COMP%] {\n    font-size: medium;\n    text-align: center !important;\n  }\n\nth[_ngcontent-%COMP%], td[_ngcontent-%COMP%] {\n    border: 1px solid black;\n    padding: 15px;\n    text-align: left;\n  }\n\ntr[_ngcontent-%COMP%]:nth-child(even) {\n    background-color: #e6e6e6;\n  }\n\ntr[_ngcontent-%COMP%]:nth-child(odd) {\n    background-color:   white;\n  }\n\n.mattable-container[_ngcontent-%COMP%] {\n    width: 94%;\n    margin-bottom: 50px;\n  }\n\n.mat-focused[_ngcontent-%COMP%]   .mat-form-field-label[_ngcontent-%COMP%] {\n    color: rgb(230, 92, 0) !important;\n  }\n\n.mat-form-field-ripple[_ngcontent-%COMP%] {\n    background-color: rgb(230, 92, 0) !important;\n  }\n\n.search-div[_ngcontent-%COMP%] {\n    margin: 10px 30px 10px 0px;\n  }\n\n.search-form-field[_ngcontent-%COMP%] {\n    width: 96%;\n    padding:  5px 10px;\n    background-color: #e6e6e6;\n    border-radius: 5px;\n  }\n\n\n\n.search-form-field[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n    margin: 0;\n    padding: 0;\n    height: 28px;\n    width: 28px;\n    border-radius: 8px;\n    align-content: center;\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29udHJhY3RzL2NvbnRyYWN0LXRhYmxlL2NvbnRyYWN0LXRhYmxlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osNENBQTRDO0VBQzVDLHdDQUF3QztBQUMxQzs7QUFFQTs7Ozs7RUFLRSxZQUFZO0VBQ1osNENBQTRDO0VBQzVDLHdDQUF3QztBQUMxQzs7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQjs7QUFFQTtJQUNFLG1CQUFtQjtJQUNuQix5QkFBeUI7SUFDekIsaUJBQWlCO0lBQ2pCLDZCQUE2QjtJQUM3Qix1QkFBdUI7SUFDdkIsMEJBQTBCO0VBQzVCOztBQUVBO0lBQ0UsdUJBQXVCO0lBQ3ZCLFlBQVk7SUFDWixtQkFBbUI7RUFDckI7O0FBRUE7SUFDRSxpQkFBaUI7SUFDakIsNkJBQTZCO0VBQy9COztBQUVBO0lBQ0UsdUJBQXVCO0lBQ3ZCLGFBQWE7SUFDYixnQkFBZ0I7RUFDbEI7O0FBRUE7SUFDRSx5QkFBeUI7RUFDM0I7O0FBRUE7SUFDRSx5QkFBeUI7RUFDM0I7O0FBRUE7SUFDRSxVQUFVO0lBQ1YsbUJBQW1CO0VBQ3JCOztBQUVBO0lBQ0UsaUNBQWlDO0VBQ25DOztBQUVBO0lBQ0UsNENBQTRDO0VBQzlDOztBQUVBO0lBQ0UsMEJBQTBCO0VBQzVCOztBQUVBO0lBQ0UsVUFBVTtJQUNWLGtCQUFrQjtJQUNsQix5QkFBeUI7SUFDekIsa0JBQWtCO0VBQ3BCOztBQUVBOztLQUVHOztBQUVIO0lBQ0UsU0FBUztJQUNULFVBQVU7SUFDVixZQUFZO0lBQ1osV0FBVztJQUNYLGtCQUFrQjtJQUNsQixxQkFBcUI7RUFDdkIiLCJmaWxlIjoic3JjL2FwcC9jb250cmFjdHMvY29udHJhY3QtdGFibGUvY29udHJhY3QtdGFibGUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5lZGl0LWl0ZW1zLWNvbnRhaW5lciB7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn1cblxuLmJ0biB7XG4gIG1hcmdpbjogMTBweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDIzMCwgOTIsIDApICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1jb2xvcjogcmdiKDIzMCwgOTIsIDApICFpbXBvcnRhbnQ7XG59XG5cbi5idG46Y2xpY2ssXG4uYnRuOmhvdmVyLFxuLmJ0bjpmb2N1c2VkLFxuLmJ0bjphY3RpdmUsXG4uYnRuOnZpc2l0ZWQge1xuICBtYXJnaW46IDEwcHg7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYigyMzAsIDkyLCAwKSAhaW1wb3J0YW50O1xuICBib3JkZXItY29sb3I6IHJnYigyMzAsIDkyLCAwKSAhaW1wb3J0YW50O1xufVxuXG4udGFibGUtY29udGFpbmVyIHtcbiAgbWFyZ2luLXJpZ2h0OiAzMHB4O1xuICB9XG5cbiAgdGFibGUge1xuICAgIGJvcmRlcjogc29saWQgYmxhY2s7XG4gICAgYm9yZGVyLWNvbGxhcHNlOiBzZXBhcmF0ZTtcbiAgICBib3JkZXItc3BhY2luZzogMDtcbiAgICBib3JkZXItcmFkaXVzOiA4cHggIWltcG9ydGFudDtcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDhweDtcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDhweDtcbiAgfVxuXG4gIHRoIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcbiAgICBjb2xvcjogd2hpdGU7XG4gICAgYm9yZGVyLWNvbG9yOiB3aGl0ZTtcbiAgfVxuXG4gIHRoLHRkIHtcbiAgICBmb250LXNpemU6IG1lZGl1bTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXIgIWltcG9ydGFudDtcbiAgfVxuXG4gIHRoLCB0ZCB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XG4gICAgcGFkZGluZzogMTVweDtcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xuICB9XG5cbiAgdHI6bnRoLWNoaWxkKGV2ZW4pIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZTZlNmU2O1xuICB9XG5cbiAgdHI6bnRoLWNoaWxkKG9kZCkge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICAgd2hpdGU7XG4gIH1cblxuICAubWF0dGFibGUtY29udGFpbmVyIHtcbiAgICB3aWR0aDogOTQlO1xuICAgIG1hcmdpbi1ib3R0b206IDUwcHg7XG4gIH1cblxuICAubWF0LWZvY3VzZWQgLm1hdC1mb3JtLWZpZWxkLWxhYmVsIHtcbiAgICBjb2xvcjogcmdiKDIzMCwgOTIsIDApICFpbXBvcnRhbnQ7XG4gIH1cblxuICAubWF0LWZvcm0tZmllbGQtcmlwcGxlIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjMwLCA5MiwgMCkgIWltcG9ydGFudDtcbiAgfVxuXG4gIC5zZWFyY2gtZGl2IHtcbiAgICBtYXJnaW46IDEwcHggMzBweCAxMHB4IDBweDtcbiAgfVxuXG4gIC5zZWFyY2gtZm9ybS1maWVsZCB7XG4gICAgd2lkdGg6IDk2JTtcbiAgICBwYWRkaW5nOiAgNXB4IDEwcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2U2ZTZlNjtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIH1cblxuICAvKiAuc2VhcmNoLWZvcm0tZmllbGQgZGl2Lm1hdC1mb3JtLWZpZWxkLXVuZGVybGluZSB7XG4gICAgZGlzcGxheTogbm9uZTtcbiAgfSAqL1xuXG4gIC5zZWFyY2gtZm9ybS1maWVsZCBidXR0b24ge1xuICAgIG1hcmdpbjogMDtcbiAgICBwYWRkaW5nOiAwO1xuICAgIGhlaWdodDogMjhweDtcbiAgICB3aWR0aDogMjhweDtcbiAgICBib3JkZXItcmFkaXVzOiA4cHg7XG4gICAgYWxpZ24tY29udGVudDogY2VudGVyO1xuICB9XG4iXX0= */"]
     });
     /*@__PURE__*/
@@ -6705,18 +6696,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }]
       }], function () {
         return [{
-          type: _services_apifilter_service__WEBPACK_IMPORTED_MODULE_4__["ApifilterService"]
+          type: _services_apifilter_service__WEBPACK_IMPORTED_MODULE_5__["ApifilterService"]
         }, {
-          type: src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"]
+          type: src_app_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]
         }];
       }, {
         paginator: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"],
-          args: [_angular_material_paginator__WEBPACK_IMPORTED_MODULE_7__["MatPaginator"]]
+          args: [_angular_material_paginator__WEBPACK_IMPORTED_MODULE_8__["MatPaginator"]]
         }],
         sort: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"],
-          args: [_angular_material_sort__WEBPACK_IMPORTED_MODULE_8__["MatSort"]]
+          args: [_angular_material_sort__WEBPACK_IMPORTED_MODULE_9__["MatSort"]]
         }]
       });
     })();
@@ -7187,7 +7178,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function DashboardComponent(authenticationService, profileService, filter, dashServ) {
-        var _this24 = this;
+        var _this25 = this;
 
         _classCallCheck(this, DashboardComponent);
 
@@ -7212,7 +7203,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.inProcess = 0;
         this.closed = 0;
         this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(function (profile) {
-          _this24.currentProfile = profile;
+          _this25.currentProfile = profile;
         });
       }
 
@@ -7228,10 +7219,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this25 = this;
+          var _this26 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this25.partnerArr = returnedPartners;
+            return _this26.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -7244,58 +7235,58 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "companiesCount",
         value: function companiesCount() {
-          var _this26 = this;
+          var _this27 = this;
 
           this.filter.customerFilter(this.currentProfile).subscribe(function (returnedCompanies) {
-            _this26.companyLength = returnedCompanies;
+            _this27.companyLength = returnedCompanies;
           });
         }
       }, {
         key: "ticketsChart",
         value: function ticketsChart() {
-          var _this27 = this;
+          var _this28 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this27.ticketLength = returnedAssetLength;
+              return _this28.ticketLength = returnedAssetLength;
             });
             this.dashServ.partTicketsFilter(this.currentProfile).subscribe(function (tickets) {
-              _this27.tickets = tickets;
-              _this27.ticketStatus = _this27.tickets.map(function (t) {
+              _this28.tickets = tickets;
+              _this28.ticketStatus = _this28.tickets.map(function (t) {
                 return t.Status;
               });
 
-              for (var i = 0; i <= _this27.ticketStatus.length; i++) {
-                if (_this27.ticketStatus[i] === 'New') {
-                  _this27.new++;
-                } else if (_this27.ticketStatus[i] === 'Assigned') {
-                  _this27.assigned++;
-                } else if (_this27.ticketStatus[i] === 'Fixed') {
-                  _this27.closed++;
+              for (var i = 0; i <= _this28.ticketStatus.length; i++) {
+                if (_this28.ticketStatus[i] === 'New') {
+                  _this28.new++;
+                } else if (_this28.ticketStatus[i] === 'Assigned') {
+                  _this28.assigned++;
+                } else if (_this28.ticketStatus[i] === 'Fixed') {
+                  _this28.closed++;
                 } else {
-                  _this27.inProcess++;
+                  _this28.inProcess++;
                 }
               }
             });
           } else {
             this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTicketLength) {
-              return _this27.ticketLength = returnedTicketLength;
+              return _this28.ticketLength = returnedTicketLength;
             });
             this.dashServ.cusTicketsFilter(this.currentProfile.company).subscribe(function (tickets) {
-              _this27.tickets = tickets;
-              _this27.ticketStatus = _this27.tickets.map(function (t) {
+              _this28.tickets = tickets;
+              _this28.ticketStatus = _this28.tickets.map(function (t) {
                 return t.Status;
               });
 
-              for (var i = 0; i <= _this27.ticketStatus.length; i++) {
-                if (_this27.ticketStatus[i] === 'New') {
-                  _this27.new++;
-                } else if (_this27.ticketStatus[i] === 'Assigned') {
-                  _this27.assigned++;
-                } else if (_this27.ticketStatus[i] === 'Fixed') {
-                  _this27.closed++;
+              for (var i = 0; i <= _this28.ticketStatus.length; i++) {
+                if (_this28.ticketStatus[i] === 'New') {
+                  _this28.new++;
+                } else if (_this28.ticketStatus[i] === 'Assigned') {
+                  _this28.assigned++;
+                } else if (_this28.ticketStatus[i] === 'Fixed') {
+                  _this28.closed++;
                 } else {
-                  _this27.inProcess++;
+                  _this28.inProcess++;
                 }
               }
             });
@@ -7304,39 +7295,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "contractsChart",
         value: function contractsChart() {
-          var _this28 = this;
+          var _this29 = this;
 
           var status = [];
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partConFilter(this.currentProfile).subscribe(function (returnedCons) {
-              _this28.contractLength = returnedCons.length;
+              _this29.contractLength = returnedCons.length;
             });
             this.filter.pConByDays(this.currentProfile).subscribe(function (returnedDays) {
-              _this28.contractDays = returnedDays;
+              _this29.contractDays = returnedDays;
 
-              for (var i = 0; i <= _this28.contractDays.length; i++) {
-                if (Number(_this28.contractDays[i]) > -1 && Number(_this28.contractDays[i]) <= 14) {
-                  _this28.now++;
-                } else if (Number(_this28.contractDays[i]) <= 29) {
-                  _this28.fifteenDays++;
-                } else if (Number(_this28.contractDays[i]) <= 59) {
-                  _this28.thirtyDays++;
-                } else if (Number(_this28.contractDays[i]) <= 89) {
-                  _this28.sixtyDays++;
-                } else if (Number(_this28.contractDays[i]) === 90) {
-                  _this28.ninetyDays++;
-                } else if (Number(_this28.contractDays[i]) > 90) {
-                  _this28.plus++;
+              for (var i = 0; i <= _this29.contractDays.length; i++) {
+                if (Number(_this29.contractDays[i]) > -1 && Number(_this29.contractDays[i]) <= 14) {
+                  _this29.now++;
+                } else if (Number(_this29.contractDays[i]) <= 29) {
+                  _this29.fifteenDays++;
+                } else if (Number(_this29.contractDays[i]) <= 59) {
+                  _this29.thirtyDays++;
+                } else if (Number(_this29.contractDays[i]) <= 89) {
+                  _this29.sixtyDays++;
+                } else if (Number(_this29.contractDays[i]) === 90) {
+                  _this29.ninetyDays++;
+                } else if (Number(_this29.contractDays[i]) > 90) {
+                  _this29.plus++;
                 }
               }
 
-              _this28.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('contracts', {
+              _this29.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('contracts', {
                 type: 'pie',
                 data: {
                   datasets: [{
                     label: '# of Contracts',
-                    data: [_this28.now, _this28.fifteenDays, _this28.thirtyDays, _this28.sixtyDays, _this28.ninetyDays, _this28.plus],
+                    data: [_this29.now, _this29.fifteenDays, _this29.thirtyDays, _this29.sixtyDays, _this29.ninetyDays, _this29.plus],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderWidth: 1
@@ -7361,33 +7352,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
           } else {
             this.filter.custConFilter(this.currentProfile).subscribe(function (returnedCons) {
-              _this28.contractLength = returnedCons.length;
+              _this29.contractLength = returnedCons.length;
             });
             this.filter.cConByDays(this.currentProfile).subscribe(function (returnedDays) {
-              _this28.contractDays = returnedDays;
+              _this29.contractDays = returnedDays;
 
-              for (var i = 0; i <= _this28.contractDays.length; i++) {
-                if (Number(_this28.contractDays[i]) > -1 && Number(_this28.contractDays[i]) <= 14) {
-                  _this28.now++;
-                } else if (Number(_this28.contractDays[i]) <= 29) {
-                  _this28.fifteenDays++;
-                } else if (Number(_this28.contractDays[i]) <= 59) {
-                  _this28.thirtyDays++;
-                } else if (Number(_this28.contractDays[i]) <= 89) {
-                  _this28.sixtyDays++;
-                } else if (Number(_this28.contractDays[i]) === 90) {
-                  _this28.ninetyDays++;
-                } else if (Number(_this28.contractDays[i]) > 90) {
-                  _this28.plus++;
+              for (var i = 0; i <= _this29.contractDays.length; i++) {
+                if (Number(_this29.contractDays[i]) > -1 && Number(_this29.contractDays[i]) <= 14) {
+                  _this29.now++;
+                } else if (Number(_this29.contractDays[i]) <= 29) {
+                  _this29.fifteenDays++;
+                } else if (Number(_this29.contractDays[i]) <= 59) {
+                  _this29.thirtyDays++;
+                } else if (Number(_this29.contractDays[i]) <= 89) {
+                  _this29.sixtyDays++;
+                } else if (Number(_this29.contractDays[i]) === 90) {
+                  _this29.ninetyDays++;
+                } else if (Number(_this29.contractDays[i]) > 90) {
+                  _this29.plus++;
                 }
               }
 
-              _this28.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('contracts', {
+              _this29.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('contracts', {
                 type: 'pie',
                 data: {
                   datasets: [{
                     label: '# of Contracts',
-                    data: [_this28.now, _this28.fifteenDays, _this28.thirtyDays, _this28.sixtyDays, _this28.ninetyDays, _this28.plus],
+                    data: [_this29.now, _this29.fifteenDays, _this29.thirtyDays, _this29.sixtyDays, _this29.ninetyDays, _this29.plus],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderWidth: 1
@@ -7401,36 +7392,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "assetsChart",
         value: function assetsChart() {
-          var _this29 = this;
+          var _this30 = this;
 
           var status = [];
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
-              _this29.assetLength = returnedAssets.length;
-              _this29.assets = returnedAssets;
-              status = _this29.assets.map(function (asset) {
+              _this30.assetLength = returnedAssets.length;
+              _this30.assets = returnedAssets;
+              status = _this30.assets.map(function (asset) {
                 return asset.ContractCoverage;
               });
 
               for (var i = 0; i <= status.length; i++) {
                 if (status[i] === 'Active') {
-                  _this29.active++;
+                  _this30.active++;
                 } else if (status[i] === 'Terminated') {
-                  _this29.terminated++;
+                  _this30.terminated++;
                 } else if (status[i] === 'Unmapped') {
-                  _this29.unmapped++;
+                  _this30.unmapped++;
                 } else if (status[i] === 'Yet to Start') {
-                  _this29.yetToStart++;
+                  _this30.yetToStart++;
                 }
               }
 
-              _this29.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('assets', {
+              _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('assets', {
                 type: 'pie',
                 data: {
                   datasets: [{
                     label: 'Asset Status',
-                    data: [_this29.active, _this29.terminated, _this29.unmapped, _this29.yetToStart],
+                    data: [_this30.active, _this30.terminated, _this30.unmapped, _this30.yetToStart],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                     borderWidth: 1
@@ -7441,30 +7432,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
           } else {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
-              _this29.assetLength = returnedAssets.length;
-              _this29.assets = returnedAssets;
-              status = _this29.assets.map(function (asset) {
+              _this30.assetLength = returnedAssets.length;
+              _this30.assets = returnedAssets;
+              status = _this30.assets.map(function (asset) {
                 return asset.ContractCoverage;
               });
 
               for (var i = 0; i <= status.length; i++) {
                 if (status[i] === 'Active') {
-                  _this29.active++;
+                  _this30.active++;
                 } else if (status[i] === 'Terminated') {
-                  _this29.terminated++;
+                  _this30.terminated++;
                 } else if (status[i] === 'Unmapped') {
-                  _this29.unmapped++;
+                  _this30.unmapped++;
                 } else if (status[i] === 'Yet to Start') {
-                  _this29.yetToStart++;
+                  _this30.yetToStart++;
                 }
               }
 
-              _this29.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('assets', {
+              _this30.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('assets', {
                 type: 'pie',
                 data: {
                   datasets: [{
                     label: 'Asset Status',
-                    data: [_this29.active, _this29.terminated, _this29.unmapped, _this29.yetToStart],
+                    data: [_this30.active, _this30.terminated, _this30.unmapped, _this30.yetToStart],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                     borderWidth: 1
@@ -7478,10 +7469,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadAllUsers",
         value: function loadAllUsers() {
-          var _this30 = this;
+          var _this31 = this;
 
           this.profileService.getAll().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])()).subscribe(function (profile) {
-            _this30.profiles = profile;
+            _this31.profiles = profile;
           });
         }
       }]);
@@ -8471,7 +8462,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function HeaderComponent(router, authenticationService) {
-        var _this31 = this;
+        var _this32 = this;
 
         _classCallCheck(this, HeaderComponent);
 
@@ -8480,7 +8471,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.title = 'Support Portal';
         this.logoList = _logo_list__WEBPACK_IMPORTED_MODULE_3__["LogoList"];
         this.authenticationService.currentUser.subscribe(function (name) {
-          _this31.currentProfile = name;
+          _this32.currentProfile = name;
         }); // this.logo = this.displayLo.Logo;
       }
 
@@ -8499,12 +8490,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "displayLogo",
         value: function displayLogo() {
-          var _this32 = this;
+          var _this33 = this;
 
           return this.displayLo = this.logoList.find(function (x) {
             var _a;
 
-            return x.CompanyName === ((_a = _this32.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
+            return x.CompanyName === ((_a = _this33.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
           });
         }
       }]);
@@ -9160,10 +9151,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AlertComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this33 = this;
+          var _this34 = this;
 
           this.subcscription = this.alertService.getMessage().subscribe(function (message) {
-            _this33.message = message;
+            _this34.message = message;
           });
         }
       }, {
@@ -9308,21 +9299,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this34 = this;
+          var _this35 = this;
 
           //    console.log(this.forgotForm)
           if (this.forgotForm.valid) {
             this.IsvalidForm = true;
             this.authenticationService.requestForgotPassword(this.forgotForm.value).subscribe(function (data) {
-              _this34.forgotForm.reset();
+              _this35.forgotForm.reset();
 
-              _this34.successMessage = 'Forgot password link sent to email sucessfully.';
+              _this35.successMessage = 'Forgot password link sent to email sucessfully.';
 
-              _this34.alertService.success('We have just sent you a link to reset password', true);
+              _this35.alertService.success('We have just sent you a link to reset password', true);
 
-              _this34.router.navigate(['login']);
+              _this35.router.navigate(['login']);
             }, function (err) {
-              _this34.alertService.error(err);
+              _this35.alertService.error(err);
             });
           } else {
             this.IsvalidForm = false;
@@ -9584,12 +9575,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ErrorInterceptor, [{
         key: "intercept",
         value: function intercept(request, next) {
-          var _this35 = this;
+          var _this36 = this;
 
           return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (err) {
             if (err.status === 401) {
               // auto-logout if 401 response returned from api
-              _this35.authenticationService.logout();
+              _this36.authenticationService.logout();
 
               location.reload(true);
             }
@@ -10011,7 +10002,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this36 = this;
+          var _this37 = this;
 
           this.submitted = true;
 
@@ -10021,11 +10012,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.loading = true;
           this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
-            _this36.router.navigate(['/portal/dashboard']);
+            _this37.router.navigate(['/portal/dashboard']);
           }, function (error) {
-            _this36.alertService.error(error);
+            _this37.alertService.error(error);
 
-            _this36.loading = false;
+            _this37.loading = false;
           });
         }
       }, {
@@ -10613,7 +10604,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ResetComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this37 = this;
+          var _this38 = this;
 
           this.resetPasswordForm = this.formBuilder.group({
             // password:  ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$') ]],
@@ -10627,19 +10618,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.authService.validResetToken({
             resetToken: resetToken
           }).subscribe(function (data) {
-            _this37.validToken = true;
-            _this37.errorMessage = '';
+            _this38.validToken = true;
+            _this38.errorMessage = '';
           }, function (err) {
-            _this37.validToken = false;
+            _this38.validToken = false;
 
-            _this37.alertService.error(err);
+            _this38.alertService.error(err);
           });
         } // convenience getter for easy access to form fields
 
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this38 = this;
+          var _this39 = this;
 
           this.submitted = true;
 
@@ -10652,15 +10643,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             params: this.resetPasswordForm.value,
             token: this.route.snapshot.queryParams['token']
           }).subscribe(function (data) {
-            _this38.alertService.success('Password reset successful', true);
+            _this39.alertService.success('Password reset successful', true);
 
-            _this38.loading = false;
+            _this39.loading = false;
 
-            _this38.router.navigate(['/login']);
+            _this39.router.navigate(['/login']);
           }, function (error) {
-            _this38.alertService.error(error);
+            _this39.alertService.error(error);
 
-            _this38.loading = false;
+            _this39.loading = false;
           });
         }
       }, {
@@ -10767,7 +10758,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function AlertService(router) {
-        var _this39 = this;
+        var _this40 = this;
 
         _classCallCheck(this, AlertService);
 
@@ -10776,10 +10767,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.keepAfterNavigationChange = false;
         router.events.subscribe(function (event) {
           if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationStart"]) {
-            if (_this39.keepAfterNavigationChange) {
-              _this39.keepAfterNavigationChange = false;
+            if (_this40.keepAfterNavigationChange) {
+              _this40.keepAfterNavigationChange = false;
             } else {
-              _this39.subject.next();
+              _this40.subject.next();
             }
           }
         });
@@ -10906,7 +10897,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AuthenticationService, [{
         key: "login",
         value: function login(username, password) {
-          var _this40 = this;
+          var _this41 = this;
 
           return this.http.post("".concat(src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].serverUrl, "/profile/authenticate"), {
             username: username,
@@ -10924,7 +10915,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               };
               localStorage.setItem('currentUser', JSON.stringify(saveInfo));
 
-              _this40.currentUserSubject.next(profile);
+              _this41.currentUserSubject.next(profile);
             }
 
             return profile;
@@ -12264,7 +12255,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function LocationDetailsComponent(location, route, router, filter, authserv) {
-        var _this41 = this;
+        var _this42 = this;
 
         _classCallCheck(this, LocationDetailsComponent);
 
@@ -12276,7 +12267,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.assetDisplayedColumns = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
         this.ticketDisplayedColumns = ['Case#', 'Name', 'Status', 'Description', 'Schedule', 'Asset ID', 'Customer', 'Update Date', 'Update Since'];
         this.authserv.currentUser.subscribe(function (profile) {
-          return _this41.currentProfile = profile;
+          return _this42.currentProfile = profile;
         });
       }
 
@@ -12288,25 +12279,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getLocation",
         value: function getLocation() {
-          var _this42 = this;
+          var _this43 = this;
 
           var description = this.route.snapshot.paramMap.get('description');
           this.filter.locationFilter(description).subscribe(function (returnedLocation) {
-            _this42.specLocation = returnedLocation;
-            var siteAddress = description + ' - ' + _this42.specLocation[0].Address1 + ', ' + _this42.specLocation[0].Town + ', ' + _this42.specLocation[0].County + ', ' + _this42.specLocation[0].Postcode + ', ' + _this42.specLocation[0].Country;
+            _this43.specLocation = returnedLocation;
+            var siteAddress = description + ' - ' + _this43.specLocation[0].Address1 + ', ' + _this43.specLocation[0].Town + ', ' + _this43.specLocation[0].County + ', ' + _this43.specLocation[0].Postcode + ', ' + _this43.specLocation[0].Country;
 
-            _this42.filter.assetsByLocation(siteAddress).subscribe(function (returnedAssets) {
-              _this42.assetLocationLength = returnedAssets;
-              _this42.assetLocationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAssets);
-              _this42.assetLocationDataSource.sort = _this42.sort;
-              _this42.assetLocationDataSource.paginator = _this42.paginator;
+            _this43.filter.assetsByLocation(siteAddress).subscribe(function (returnedAssets) {
+              _this43.assetLocationLength = returnedAssets;
+              _this43.assetLocationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAssets);
+              _this43.assetLocationDataSource.sort = _this43.sort;
+              _this43.assetLocationDataSource.paginator = _this43.paginator;
             });
 
-            _this42.filter.ticketsLocationFilter(siteAddress).subscribe(function (returnedTickets) {
-              _this42.ticketLocationLength = returnedTickets;
-              _this42.ticketLocationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedTickets);
-              _this42.ticketLocationDataSource.sort = _this42.sort;
-              _this42.ticketLocationDataSource.paginator = _this42.paginator;
+            _this43.filter.ticketsLocationFilter(siteAddress).subscribe(function (returnedTickets) {
+              _this43.ticketLocationLength = returnedTickets;
+              _this43.ticketLocationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedTickets);
+              _this43.ticketLocationDataSource.sort = _this43.sort;
+              _this43.ticketLocationDataSource.paginator = _this43.paginator;
             });
           });
         }
@@ -12861,7 +12852,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function LocationsTableComponent(filter, authserv) {
-        var _this43 = this;
+        var _this44 = this;
 
         _classCallCheck(this, LocationsTableComponent);
 
@@ -12869,7 +12860,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.authserv = authserv;
         this.displayedColumns = ['Description', 'Street', 'City', 'Zip Code', 'Country', 'Company'];
         this.authserv.currentUser.subscribe(function (profile) {
-          return _this43.currentProfile = profile;
+          return _this44.currentProfile = profile;
         });
       }
 
@@ -12882,10 +12873,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this44 = this;
+          var _this45 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this44.partnerArr = returnedPartners;
+            return _this45.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -12898,21 +12889,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getLocations",
         value: function getLocations() {
-          var _this45 = this;
+          var _this46 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partLocationFilter(this.currentProfile).subscribe(function (returnedLocations) {
-              _this45.locationLength = returnedLocations;
-              _this45.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedLocations);
-              _this45.locationDataSource.sort = _this45.sort;
-              _this45.locationDataSource.paginator = _this45.paginator;
+              _this46.locationLength = returnedLocations;
+              _this46.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedLocations);
+              _this46.locationDataSource.sort = _this46.sort;
+              _this46.locationDataSource.paginator = _this46.paginator;
             });
           } else {
             this.filter.custLocationFilter(this.currentProfile).subscribe(function (returnedLocations) {
-              _this45.locationLength = returnedLocations;
-              _this45.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedLocations);
-              _this45.locationDataSource.sort = _this45.sort;
-              _this45.locationDataSource.paginator = _this45.paginator;
+              _this46.locationLength = returnedLocations;
+              _this46.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedLocations);
+              _this46.locationDataSource.sort = _this46.sort;
+              _this46.locationDataSource.paginator = _this46.paginator;
             });
           }
         }
@@ -14273,21 +14264,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getItems",
         value: function getItems() {
-          var _this46 = this;
+          var _this47 = this;
 
           var assetid = this.route.snapshot.paramMap.get('identifier');
           this.filter.assetsBySerial(assetid).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["first"])()).subscribe(function (returnedAsset) {
-            _this46.asset = returnedAsset;
+            _this47.asset = returnedAsset;
 
-            _this46.filter.conByName(_this46.asset[0].Schedule).subscribe(function (returnedContractLength) {
-              _this46.contractLength = returnedContractLength;
-              _this46.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContractLength);
-              _this46.contractDataSource.sort = _this46.sort;
-              _this46.contractDataSource.paginator = _this46.paginator;
+            _this47.filter.conByName(_this47.asset[0].Schedule).subscribe(function (returnedContractLength) {
+              _this47.contractLength = returnedContractLength;
+              _this47.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContractLength);
+              _this47.contractDataSource.sort = _this47.sort;
+              _this47.contractDataSource.paginator = _this47.paginator;
             });
 
-            _this46.filter.conByName(_this46.asset.Schedule).subscribe(function (returnedContract) {
-              _this46.contract = returnedContract;
+            _this47.filter.conByName(_this47.asset.Schedule).subscribe(function (returnedContract) {
+              _this47.contract = returnedContract;
             });
           });
         }
@@ -14687,7 +14678,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function AssetsTableComponent(filter, authserv) {
-        var _this47 = this;
+        var _this48 = this;
 
         _classCallCheck(this, AssetsTableComponent);
 
@@ -14695,7 +14686,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.authserv = authserv;
         this.displayedColumns = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
         this.authserv.currentUser.subscribe(function (name) {
-          _this47.currentProfile = name;
+          _this48.currentProfile = name;
         });
       }
 
@@ -14708,10 +14699,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this48 = this;
+          var _this49 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this48.partnerArr = returnedPartners;
+            return _this49.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -14724,21 +14715,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAssets",
         value: function getAssets() {
-          var _this49 = this;
+          var _this50 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
-              _this49.assetLength = returnedAssets;
-              _this49.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedAssets);
-              _this49.assetDataSource.sort = _this49.sort;
-              _this49.assetDataSource.paginator = _this49.paginator;
+              _this50.assetLength = returnedAssets;
+              _this50.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedAssets);
+              _this50.assetDataSource.sort = _this50.sort;
+              _this50.assetDataSource.paginator = _this50.paginator;
             });
           } else {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              _this49.assetLength = returnedAssetLength;
-              _this49.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedAssetLength);
-              _this49.assetDataSource.sort = _this49.sort;
-              _this49.assetDataSource.paginator = _this49.paginator;
+              _this50.assetLength = returnedAssetLength;
+              _this50.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](returnedAssetLength);
+              _this50.assetDataSource.sort = _this50.sort;
+              _this50.assetDataSource.paginator = _this50.paginator;
             });
           }
         }
@@ -16207,10 +16198,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this50 = this;
+          var _this51 = this;
 
           this.nameSubscription = this.authenticationService.currentUser.subscribe(function (name) {
-            _this50.currentProfile = name;
+            _this51.currentProfile = name;
           });
           this.profileForm = this.formBuilder.group({
             partner: [this.currentProfile.partner, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -17022,10 +17013,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(SettingsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this51 = this;
+          var _this52 = this;
 
           this.nameSubscription = this.authenticationService.currentUser.subscribe(function (name) {
-            _this51.currentProfile = name;
+            _this52.currentProfile = name;
           });
         }
       }]);
@@ -17487,7 +17478,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function SidebarComponent(router, authenticationService, filter) {
-        var _this52 = this;
+        var _this53 = this;
 
         _classCallCheck(this, SidebarComponent);
 
@@ -17498,7 +17489,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.admin = true;
         this.sidebars = _services_loadsidebar_service__WEBPACK_IMPORTED_MODULE_4__["Sidebars"];
         this.roleSubscription = this.authenticationService.currentUser.subscribe(function (role) {
-          _this52.currentRole = role;
+          _this53.currentRole = role;
         });
       }
 
@@ -17517,10 +17508,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this53 = this;
+          var _this54 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this53.partnerArr = returnedPartners;
+            return _this54.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -18928,21 +18919,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getItems",
         value: function getItems() {
-          var _this54 = this;
+          var _this55 = this;
 
           var refNumber = this.route.snapshot.paramMap.get('refNumber');
           this.filter.ticketRefFilter(refNumber.substring(1)).subscribe(function (returnedTicket) {
-            _this54.ticket = returnedTicket;
+            _this55.ticket = returnedTicket;
 
-            _this54.filter.assetsBySerial(_this54.ticket[0].AssetIdentifier).subscribe(function (returnedAsset) {
-              _this54.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
-              _this54.assetDataSource.sort = _this54.sort;
-              _this54.assetDataSource.paginator = _this54.paginator;
+            _this55.filter.assetsBySerial(_this55.ticket[0].AssetIdentifier).subscribe(function (returnedAsset) {
+              _this55.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
+              _this55.assetDataSource.sort = _this55.sort;
+              _this55.assetDataSource.paginator = _this55.paginator;
 
-              _this54.filter.conByName(returnedAsset[0].Schedule).subscribe(function (returnedContract) {
-                _this54.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContract);
-                _this54.contractDataSource.sort = _this54.sort;
-                _this54.contractDataSource.paginator = _this54.paginator;
+              _this55.filter.conByName(returnedAsset[0].Schedule).subscribe(function (returnedContract) {
+                _this55.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContract);
+                _this55.contractDataSource.sort = _this55.sort;
+                _this55.contractDataSource.paginator = _this55.paginator;
               });
             });
           });
@@ -19546,7 +19537,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     function () {
       // filterSubsciption: Subscription;
       function TicketsTableComponent(api, formBuilder, authenticationService, filter) {
-        var _this55 = this;
+        var _this56 = this;
 
         _classCallCheck(this, TicketsTableComponent);
 
@@ -19556,7 +19547,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.filter = filter;
         this.displayedColumns = ['Case#', 'Name', 'Status', 'Description', 'Schedule', 'Asset ID', 'Customer', 'Update Date'];
         this.authenticationService.currentUser.subscribe(function (typeName) {
-          _this55.currentProfile = typeName;
+          _this56.currentProfile = typeName;
         });
       }
 
@@ -19579,20 +19570,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "createTicket",
         value: function createTicket() {
-          var _this56 = this;
+          var _this57 = this;
 
           this.api.addTicket(this.ticketForm.value).subscribe(function (ticket) {
-            var ticketData = _this56.ticketForm.value;
+            var ticketData = _this57.ticketForm.value;
             ticketData = ticket;
           });
         }
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this57 = this;
+          var _this58 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this57.partnerArr = returnedPartners;
+            return _this58.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -19605,23 +19596,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getTickets",
         value: function getTickets() {
-          var _this58 = this;
+          var _this59 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedTickets) {
-              _this58.testin = 'in the loop';
-              _this58.ticketLength = returnedTickets;
-              _this58.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](_this58.ticketLength);
-              _this58.ticketDataSource.sort = _this58.sort;
-              _this58.ticketDataSource.paginator = _this58.paginator;
+              _this59.testin = 'in the loop';
+              _this59.ticketLength = returnedTickets;
+              _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](_this59.ticketLength);
+              _this59.ticketDataSource.sort = _this59.sort;
+              _this59.ticketDataSource.paginator = _this59.paginator;
             });
           } else {
             this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTickets) {
-              _this58.testin = 'Completely skipped';
-              _this58.ticketLength = returnedTickets;
-              _this58.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedTickets);
-              _this58.ticketDataSource.sort = _this58.sort;
-              _this58.ticketDataSource.paginator = _this58.paginator;
+              _this59.testin = 'Completely skipped';
+              _this59.ticketLength = returnedTickets;
+              _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedTickets);
+              _this59.ticketDataSource.sort = _this59.sort;
+              _this59.ticketDataSource.paginator = _this59.paginator;
             });
           }
         }

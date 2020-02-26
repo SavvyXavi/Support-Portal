@@ -3,6 +3,8 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { DatePipe } from '@angular/common';
+
 import * as jsPDF from 'jspdf';
 import { UserOptions } from 'jspdf-autotable'
 import { Contracts } from '../models/contracts';
@@ -33,6 +35,8 @@ export class ContractTableComponent implements OnInit {
   conArr: Contracts[];
   currentProfile: Profile;
 
+  pipe;
+
   partner: Partner;
   partnerArr: Partner[];
   company: Customer;
@@ -54,6 +58,7 @@ export class ContractTableComponent implements OnInit {
         this.currentProfile = name;
       }
     );
+      this.pipe = new DatePipe('en-us');
   }
 
   ngOnInit() {
@@ -106,7 +111,9 @@ export class ContractTableComponent implements OnInit {
               ],
               ...this.conArr.map(
                 c => {
-                  return [c.RefNumber, c.ScheduleName, c.StartDate, c.RenewalDate, c.EndCustomerName, c.Status];
+                  return [c.RefNumber, c.ScheduleName,
+                    this.pipe.transform(c.StartDate, 'short') , this.pipe.transform(c.RenewalDate, 'short'),
+                     c.EndCustomerName, c.Status];
                 }
               )
             ]
@@ -115,19 +122,6 @@ export class ContractTableComponent implements OnInit {
       ]
     };
     pdfMake.createPdf(docDef).open();
-  }
-
-  getPdf() {
-  //  let doc = new jsPDF('portrait', 'px', 'a4') as tableplugin;
-  //  doc.text('Contracts Report', 14, 15)
-  //  doc.autotable({
-  //    html: '#table'
-  //   head: [
-  //     []
-  //   ]
-  //   });
-
-  //   doc.save('Contracts.pdf');
   }
 
   getPartners() {
