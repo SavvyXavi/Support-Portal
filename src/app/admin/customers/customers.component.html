@@ -59,7 +59,7 @@
     <!-- Created Date Column -->
     <div matColumnDef="Created Date">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Created Date </th>
-      <td mat-cell *matCellDef="let customer"> {{customer.CreatedDate}} </td>
+      <td mat-cell *matCellDef="let customer"> {{customer.CreatedDate | date: 'shortDate'}} </td>
     </div>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
