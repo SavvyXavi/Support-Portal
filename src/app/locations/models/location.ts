@@ -1,10 +1,10 @@
 export class CustomerLocation {
-  desription: string;
-  address1: string;
-  address2: string;
-  town: string;
-  county: string;
-  postcode: string;
-  country: string;
-  companyname: string;
+  Description: string;
+  Address1: string;
+  Address2: string;
+  Town: string;
+  County: string;
+  Postcode: string;
+  Country: string;
+  CompanyName: string;
 }

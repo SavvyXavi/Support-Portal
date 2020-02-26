@@ -1,3 +1,7 @@
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ApifilterService } from '../../services/apifilter.service';
@@ -18,11 +22,11 @@ import { MatSort } from '@angular/material/sort';
 })
 export class LocationsTableComponent implements OnInit {
   locations: CustomerLocation;
+  locArr: CustomerLocation[];
+
   currentProfile: Profile;
 
   partnerArr: Partner[];
-
-  locationLength: CustomerLocation[];
 
   locationDataSource: MatTableDataSource<CustomerLocation>;
   displayedColumns: string[] = ['Description', 'Street', 'City', 'Zip Code', 'Country', 'Company'];
@@ -45,6 +49,75 @@ export class LocationsTableComponent implements OnInit {
     this.getLocations();
   }
 
+  async genPdf() {
+    await this.getLocations();
+    const docDef = {
+      content: [
+        {
+          text: 'LOCATIONS REPORT',
+          bold: true,
+          fontSize: 20,
+          alignment: 'center',
+          margin: [0, 0, 0, 20]
+        },
+        {
+          table: {
+            headerRows: 1,
+            widths: ['auto', 'auto', 'auto', 'auto', 'auto', 'auto'],
+            body: [
+              [
+                {
+                  text: 'Description',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Street',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'City',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Zip Code',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Country',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Company',
+                  stlye: 'tableHeader'
+                }
+              ],
+              ...this.locArr.map(
+                l => {
+                  return [l.Description, l.Address1,
+                    l.Town, l.Postcode,
+                     l.Country, l.CompanyName];
+                }
+              )
+            ]
+          }
+        }
+      ],
+      info: {
+        title: 'LOCATIONS',
+        subject: 'Locations',
+        keywords: 'LOCATIONS, Locations, Locations Report, LOCATIONS REPORT',
+        creator: 'Noble 1 Solutions',
+        producer: 'Noble 1 Solutions'
+      },
+      styles: {
+        tableHeader: {
+          bold: true,
+        }
+      }
+    };
+    pdfMake.createPdf(docDef).open();
+  }
+
   getPartners() {
     this.filter.getPartners()
     .subscribe(
@@ -57,12 +130,13 @@ export class LocationsTableComponent implements OnInit {
   }
 
 
+
   getLocations() {
     if (this.currentProfile.companypartner === 'Partner') {
       this.filter.partLocationFilter(this.currentProfile)
       .subscribe(
         (returnedLocations: CustomerLocation[]) => {
-          this.locationLength = returnedLocations;
+          this.locArr = returnedLocations;
           this.locationDataSource = new MatTableDataSource(returnedLocations);
           this.locationDataSource.sort = this.sort;
           this.locationDataSource.paginator = this.paginator;
@@ -72,7 +146,7 @@ export class LocationsTableComponent implements OnInit {
       this.filter.custLocationFilter(this.currentProfile)
       .subscribe(
         (returnedLocations: CustomerLocation[]) => {
-          this.locationLength = returnedLocations;
+          this.locArr = returnedLocations;
           this.locationDataSource = new MatTableDataSource(returnedLocations);
           this.locationDataSource.sort = this.sort;
           this.locationDataSource.paginator = this.paginator;
