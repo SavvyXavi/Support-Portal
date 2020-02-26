@@ -57,7 +57,7 @@ export class AssetsTableComponent implements OnInit {
     const docDef = {
       content: [
         {
-          text: 'CONTRACTS',
+          text: 'ASSETS',
           bold: true,
           fontSize: 20,
           alignment: 'center',

@@ -14756,7 +14756,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   case 2:
                     docDef = {
                       content: [{
-                        text: 'CONTRACTS',
+                        text: 'ASSETS',
                         bold: true,
                         fontSize: 20,
                         alignment: 'center',
