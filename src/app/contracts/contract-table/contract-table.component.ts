@@ -16,6 +16,8 @@ import { AuthenticationService } from 'src/app/index/index/services/authenticati
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { takeUntil } from 'rxjs/operators';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 // interface tableplugin extends jsPDF {
 //   autotable: (options: UserOptions) => jsPDF;
@@ -28,6 +30,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class ContractTableComponent implements OnInit {
   contracts: Contracts;
+  conArr: Contracts[];
   currentProfile: Profile;
 
   partner: Partner;
@@ -59,9 +62,57 @@ export class ContractTableComponent implements OnInit {
     // this.getCompanies();
   }
 
-  genPdf() {
+  async genPdf() {
+    await this.getContracts();
     const docDef = {
-      content: 'Test Pdf'
+      content: [
+        {
+          text: 'CONTRACTS',
+          bold: true,
+          fontSize: 20,
+          alignment: 'center',
+          margin: [0, 0, 0, 20]
+        },
+        {
+          table: {
+            headerRows: 1,
+            widths: ['auto', 'auto', 'auto', 'auto'],
+            body: [
+              [
+                {
+                  text: 'Contract#',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Contract Name',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Start Date',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Renewal Date',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Customer',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Status',
+                  stlye: 'tableHeader'
+                }
+              ],
+              ...this.conArr.map(
+                c => {
+                  return [c.RefNumber, c.ScheduleName, c.StartDate, c.RenewalDate, c.EndCustomerName, c.Status];
+                }
+              )
+            ]
+          }
+        }
+      ]
     };
     pdfMake.createPdf(docDef).open();
   }
@@ -104,6 +155,7 @@ export class ContractTableComponent implements OnInit {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
         (returnedContracts: Contracts[]) => {
+          this.conArr = returnedContracts;
           this.contractDataSource = new MatTableDataSource(returnedContracts);
           this.contractDataSource.sort = this.sort;
           this.contractDataSource.paginator = this.paginator;
