@@ -4655,7 +4655,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                       }, {
                         table: {
                           headerRows: 1,
-                          widths: ['auto', 'auto', 'auto', 'auto', 'auto', 'auto'],
+                          widths: ['auto', 'auto', 'auto', 'auto', 'auto', 'auto', 'auto', 'auto'],
                           body: [[{
                             text: 'Company Name',
                             style: 'tableHeader'
