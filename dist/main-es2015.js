@@ -950,7 +950,7 @@ class CustomersComponent {
                                 ...this.custArr.map(c => {
                                     return [c.AccountID, c.CompanyName,
                                         c.AccountManager, c.PrimaryContactFullName,
-                                        c.PrimaryContactEmail, c.CreatedDate];
+                                        c.PrimaryContactEmail, this.pipe.transform(c.CreatedDate, 'short')];
                                 })
                             ]
                         }
