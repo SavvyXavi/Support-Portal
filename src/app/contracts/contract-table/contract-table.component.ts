@@ -159,6 +159,7 @@ export class ContractTableComponent implements OnInit {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
         (returnedContracts: Contracts[]) => {
+          this.conArr = returnedContracts;
           this.contractDataSource = new MatTableDataSource(returnedContracts);
           this.contractDataSource.sort = this.sort;
           this.contractDataSource.paginator = this.paginator;

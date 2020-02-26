@@ -3454,6 +3454,7 @@ class ContractTableComponent {
         else {
             this.filter.custConFilter(this.currentProfile)
                 .subscribe((returnedContracts) => {
+                this.conArr = returnedContracts;
                 this.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatTableDataSource"](returnedContracts);
                 this.contractDataSource.sort = this.sort;
                 this.contractDataSource.paginator = this.paginator;

@@ -6493,6 +6493,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
           } else {
             this.filter.custConFilter(this.currentProfile).subscribe(function (returnedContracts) {
+              _this24.conArr = returnedContracts;
               _this24.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_7__["MatTableDataSource"](returnedContracts);
               _this24.contractDataSource.sort = _this24.sort;
               _this24.contractDataSource.paginator = _this24.paginator;
