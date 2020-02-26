@@ -1,4 +1,9 @@
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
@@ -24,17 +29,16 @@ export class TicketsTableComponent implements OnInit {
   tickets: Tickets;
   ticketCustomer: string[];
 
-  ticketLength: Tickets[];
+  pipe;
+
+  tickArr: Tickets[];
   ticketForm: FormGroup;
   newTicket: Tickets;
 
   companylist: Company[];
   company: Company;
-  testin: string;
-
 
   ticketType: TicketType;
-  // ticketTypeNameSubscription: Subscription;
 
   currentProfile: Profile;
   displayedColumns: string[] =
@@ -49,7 +53,6 @@ export class TicketsTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-    // filterSubsciption: Subscription;
   constructor(
     private api: ApiCallService,
     private formBuilder: FormBuilder,
@@ -79,6 +82,85 @@ export class TicketsTableComponent implements OnInit {
     this.getPartners();
     this.getTickets();
   }
+
+  async genPdf() {
+    await this.getTickets();
+    const docDef = {
+      content: [
+        {
+          text: 'TICKETS REPORT',
+          bold: true,
+          fontSize: 20,
+          alignment: 'center',
+          margin: [0, 0, 0, 20]
+        },
+        {
+          table: {
+            headerRows: 1,
+            widths: ['auto', 'auto', 'auto', 'auto', 'auto', 'auto', 'auto', 'auto'],
+            body: [
+              [
+                {
+                  text: 'Case Number',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Name',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Status',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Description',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Contract',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Serial#',
+                  stlye: 'tableHeader'
+                },
+                {
+                  text:'Customer',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Updated',
+                  style: 'tableHeader'
+                }
+              ],
+              ...this.tickArr.map(
+                t => {
+                  return [t.RefNumber, t.Name,
+                    t.Status, t.Body,
+                    t.Schedule, t.AssetIdentifier,
+                    t.CustomerName, this.pipe.transform(t.UpdatedDate, 'short')];
+                }
+              )
+            ]
+          }
+        }
+      ],
+      info: {
+        title: 'TICKETS',
+        subject: 'Tickets',
+        keywords: 'TICKETS, Tickets, Tickets Report, TICKETS REPORT',
+        creator: 'Noble 1 Solutions',
+        producer: 'Noble 1 Solutions'
+      },
+      styles: {
+        tableHeader: {
+          bold: true,
+        }
+      }
+    };
+    pdfMake.createPdf(docDef).open();
+  }
+
   createTicket() {
     this.api.addTicket(this.ticketForm.value)
      .subscribe(
@@ -105,9 +187,7 @@ export class TicketsTableComponent implements OnInit {
        this.filter.partTicketsFilter(this.currentProfile)
        .subscribe(
          (returnedTickets: Tickets[]) => {
-           this.testin = 'in the loop';
-           this.ticketLength = returnedTickets;
-           this.ticketDataSource = new MatTableDataSource(this.ticketLength);
+           this.ticketDataSource = new MatTableDataSource(returnedTickets);
            this.ticketDataSource.sort = this.sort;
            this.ticketDataSource.paginator = this.paginator;
          }
@@ -116,8 +196,6 @@ export class TicketsTableComponent implements OnInit {
        this.filter.cusTicketsFilter(this.currentProfile.company)
        .subscribe(
          (returnedTickets: Tickets[]) => {
-           this.testin = 'Completely skipped';
-           this.ticketLength = returnedTickets;
            this.ticketDataSource = new MatTableDataSource(returnedTickets);
            this.ticketDataSource.sort = this.sort;
            this.ticketDataSource.paginator = this.paginator;
@@ -145,29 +223,4 @@ export class TicketsTableComponent implements OnInit {
        return 'Support Quotes';
      }
    }
-
-     // getCustomers() {
-  //   this.filter.companyFilter(this.currentProfile.partner)
-  //   .subscribe(
-  //     (returnedCompanies: Customer)  => this.customerArr = returnedCompanies
-  //   );
-  // }
-
-
-  // getTickets() {
-  //   this.filter.ticketsFilter()
-  //   .subscribe(
-  //     (returnedTickets: Tickets[]) => {
-  //       this.ticketLength = returnedTickets;
-  //     }
-  //   );
-  // }
-
-  // filterTickets(tickets: string) {
-  //   return this.ticketLength.find(ticket => ticket.CustomerName === tickets);
-  // }
-
-  // displayTickets() {
-  //  console.log(this.filterTickets(this.customerArr.companyName));
-  // }
 }

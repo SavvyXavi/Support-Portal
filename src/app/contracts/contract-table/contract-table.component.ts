@@ -64,7 +64,7 @@ export class ContractTableComponent implements OnInit {
     const docDef = {
       content: [
         {
-          text: 'CONTRACTS',
+          text: 'CONTRACTS REPORT',
           bold: true,
           fontSize: 20,
           alignment: 'center',

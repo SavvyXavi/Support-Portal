@@ -1,3 +1,13 @@
+<div class="container">
+  <div class="pdf-container">
+    <div class="row">
+      <div class="col-md">
+        <button class="gen-pdf btn-primary" (click)="genPdf()">
+          Pdf File
+        </button>
+      </div>
+    </div>
+  </div>
 <div class="createItem d-flex justify-content-end">
   <button class="add-ticket btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       <i class="fa fa-plus" aria-hidden="true"></i> Create New Ticket
@@ -108,3 +118,4 @@
      <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" [pageSize]="10"></mat-paginator>
   </div>
   </div>
+</div>

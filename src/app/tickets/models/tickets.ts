@@ -4,10 +4,13 @@ export class Tickets {
   Title: string;
   RefNumber: string;
   Description: string;
+  Body: string;
   CustomerName: string;
   AssetIdentifier: string;
+  Schedule: string;
   SlaSeverity: string;
   Status: string;
+  UpdatedDate: string;
   VisibleToCustomer?: true;
   ContactEmailOrId?: string;
   TicketCategoryNameOrId: string;
