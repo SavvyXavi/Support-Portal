@@ -6444,7 +6444,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                       info: {
                         title: 'CONTRACTS',
                         subject: 'Contracts',
-                        keywords: 'CONTRACTS, Contracts, Online Contracts, Online CONTRACTS',
+                        keywords: 'CONTRACTS, Contracts, Contracts Report, CONTRACTS REPORT',
                         creator: 'Noble 1 Solutions',
                         producer: 'Noble 1 Solutions'
                       },
@@ -19849,12 +19849,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedTickets) {
+              _this60.tickArr = returnedTickets;
               _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](returnedTickets);
               _this60.ticketDataSource.sort = _this60.sort;
               _this60.ticketDataSource.paginator = _this60.paginator;
             });
           } else {
             this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTickets) {
+              _this60.tickArr = returnedTickets;
               _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](returnedTickets);
               _this60.ticketDataSource.sort = _this60.sort;
               _this60.ticketDataSource.paginator = _this60.paginator;

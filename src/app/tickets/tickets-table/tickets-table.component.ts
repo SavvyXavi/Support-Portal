@@ -187,6 +187,7 @@ export class TicketsTableComponent implements OnInit {
        this.filter.partTicketsFilter(this.currentProfile)
        .subscribe(
          (returnedTickets: Tickets[]) => {
+           this.tickArr = returnedTickets;
            this.ticketDataSource = new MatTableDataSource(returnedTickets);
            this.ticketDataSource.sort = this.sort;
            this.ticketDataSource.paginator = this.paginator;
@@ -196,6 +197,7 @@ export class TicketsTableComponent implements OnInit {
        this.filter.cusTicketsFilter(this.currentProfile.company)
        .subscribe(
          (returnedTickets: Tickets[]) => {
+           this.tickArr = returnedTickets;
            this.ticketDataSource = new MatTableDataSource(returnedTickets);
            this.ticketDataSource.sort = this.sort;
            this.ticketDataSource.paginator = this.paginator;

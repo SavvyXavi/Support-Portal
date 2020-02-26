@@ -3424,7 +3424,7 @@ class ContractTableComponent {
                 info: {
                     title: 'CONTRACTS',
                     subject: 'Contracts',
-                    keywords: 'CONTRACTS, Contracts, Online Contracts, Online CONTRACTS',
+                    keywords: 'CONTRACTS, Contracts, Contracts Report, CONTRACTS REPORT',
                     creator: 'Noble 1 Solutions',
                     producer: 'Noble 1 Solutions'
                 },
@@ -10515,6 +10515,7 @@ class TicketsTableComponent {
         if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partTicketsFilter(this.currentProfile)
                 .subscribe((returnedTickets) => {
+                this.tickArr = returnedTickets;
                 this.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](returnedTickets);
                 this.ticketDataSource.sort = this.sort;
                 this.ticketDataSource.paginator = this.paginator;
@@ -10523,6 +10524,7 @@ class TicketsTableComponent {
         else {
             this.filter.cusTicketsFilter(this.currentProfile.company)
                 .subscribe((returnedTickets) => {
+                this.tickArr = returnedTickets;
                 this.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](returnedTickets);
                 this.ticketDataSource.sort = this.sort;
                 this.ticketDataSource.paginator = this.paginator;
