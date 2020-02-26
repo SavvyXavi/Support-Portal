@@ -4681,14 +4681,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                             text: 'Primary Contact',
                             style: 'tableHeader'
                           }]].concat(_toConsumableArray(this.compArr.map(function (c) {
-                            return [c.CompanyName, c.AccountManager, c.AddressLine1, c.Town, c.County, c.PostCode, c.Country, c.PrimaryContactFullName];
+                            return [c.CompanyName, c.AccountManager, c.AddressLine1, c.Town, c.County, c.Postcode, c.Country, c.PrimaryContactFullName];
                           })))
                         }
                       }],
                       info: {
-                        title: 'CONTRACTS',
-                        subject: 'Contracts',
-                        keywords: 'CONTRACTS, Contracts, Contracts Report, CONTRACTS REPORT',
+                        title: 'COMPANIES',
+                        subject: 'Companies',
+                        keywords: 'COMPANIES, Companies, Companies Report, COMPANIES REPORT',
                         creator: 'Noble 1 Solutions',
                         producer: 'Noble 1 Solutions'
                       },
