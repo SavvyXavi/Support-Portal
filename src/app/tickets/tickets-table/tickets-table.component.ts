@@ -64,6 +64,7 @@ export class TicketsTableComponent implements OnInit {
         this.currentProfile = typeName;
       }
     );
+    this.pipe = new DatePipe('en-us');
   }
 
   ngOnInit(): void {
