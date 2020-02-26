@@ -123,8 +123,15 @@ export class ContractTableComponent implements OnInit {
       info: {
         title: 'CONTRACTS',
         subject: 'Contracts',
-        keywords: 'CONTRACTS, Contracts, Online Contracts, Online CONTRACTS'
+        keywords: 'CONTRACTS, Contracts, Online Contracts, Online CONTRACTS',
+        creator: 'Noble 1 Solutions',
+        producer: 'Noble 1 Solutions'
       },
+      styles: {
+        tableHeader: {
+          bold: true,
+        }
+      }
     };
     pdfMake.createPdf(docDef).open();
   }

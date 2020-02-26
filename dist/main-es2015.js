@@ -3427,8 +3427,15 @@ class ContractTableComponent {
                 info: {
                     title: 'CONTRACTS',
                     subject: 'Contracts',
-                    keywords: 'CONTRACTS, Contracts, Online Contracts, Online CONTRACTS'
+                    keywords: 'CONTRACTS, Contracts, Online Contracts, Online CONTRACTS',
+                    creator: 'Noble 1 Solutions',
+                    producer: 'Noble 1 Solutions'
                 },
+                styles: {
+                    tableHeader: {
+                        bold: true,
+                    }
+                }
             };
             pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1___default.a.createPdf(docDef).open();
         });
