@@ -56,7 +56,6 @@ export class ContractTableComponent implements OnInit {
   ngOnInit() {
     this.getPartners();
     this.getContracts();
-    // this.getCompanies();
   }
 
   async genPdf() {
@@ -98,7 +97,7 @@ export class ContractTableComponent implements OnInit {
                 },
                 {
                   text: 'Status',
-                  stlye: 'tableHeader'
+                  style: 'tableHeader'
                 }
               ],
               ...this.conArr.map(
@@ -132,15 +131,6 @@ export class ContractTableComponent implements OnInit {
     this.filter.getPartners()
     .subscribe(
       returnedPartners => this.partnerArr = returnedPartners
-    );
-  }
-
-  getCompanies() {
-    this.filter.customerFilter(this.currentProfile)
-    .subscribe(
-      (companies: Customer) => {
-        this.company = companies;
-      }
     );
   }
 
