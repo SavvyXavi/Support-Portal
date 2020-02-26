@@ -119,7 +119,12 @@ export class ContractTableComponent implements OnInit {
             ]
           }
         }
-      ]
+      ],
+      info: {
+        title: 'CONTRACTS',
+        subject: 'Contracts',
+        keywords: 'CONTRACTS, Contracts, Online Contracts, Online CONTRACTS'
+      },
     };
     pdfMake.createPdf(docDef).open();
   }

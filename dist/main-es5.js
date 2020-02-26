@@ -6442,7 +6442,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                             return [c.RefNumber, c.ScheduleName, _this21.pipe.transform(c.StartDate, 'short'), _this21.pipe.transform(c.RenewalDate, 'short'), c.EndCustomerName, c.Status];
                           })))
                         }
-                      }]
+                      }],
+                      info: {
+                        title: 'CONTRACTS',
+                        subject: 'Contracts',
+                        keywords: 'CONTRACTS, Contracts, Online Contracts, Online CONTRACTS'
+                      }
                     };
                     pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1___default.a.createPdf(docDef).open();
 
