@@ -1,3 +1,13 @@
+<div class="container">
+  <div class="pdf-container">
+    <div class="row">
+      <div class="col-md">
+        <button class="gen-pdf btn-primary" (click)="genPdf()">
+          Pdf File
+        </button>
+      </div>
+    </div>
+  </div>
 <div class="table-container table-responsive-sm">
 
 <div class="search-div">
@@ -57,5 +67,6 @@
   </table>
 
   <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" [pageSize]="10"></mat-paginator>
+</div>
 </div>
 </div>

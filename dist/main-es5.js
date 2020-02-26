@@ -12673,13 +12673,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
-    function LocationsTableComponent_button_4_Template(rf, ctx) {
+    function LocationsTableComponent_button_10_Template(rf, ctx) {
       if (rf & 1) {
         var _r363 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "button", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "button", 24);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function LocationsTableComponent_button_4_Template_button_click_0_listener($event) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function LocationsTableComponent_button_10_Template_button_click_0_listener($event) {
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r363);
 
           var ctx_r362 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
@@ -12697,9 +12697,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_th_8_Template(rf, ctx) {
+    function LocationsTableComponent_th_14_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Description ");
 
@@ -12707,11 +12707,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_td_9_Template(rf, ctx) {
+    function LocationsTableComponent_td_15_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 26);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "a", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "a", 27);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](2);
 
@@ -12733,9 +12733,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_th_11_Template(rf, ctx) {
+    function LocationsTableComponent_th_17_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Street ");
 
@@ -12743,7 +12743,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_td_12_Template(rf, ctx) {
+    function LocationsTableComponent_td_18_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td");
 
@@ -12761,9 +12761,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_th_14_Template(rf, ctx) {
+    function LocationsTableComponent_th_20_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " City ");
 
@@ -12771,9 +12771,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_td_15_Template(rf, ctx) {
+    function LocationsTableComponent_td_21_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1);
 
@@ -12789,9 +12789,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_th_17_Template(rf, ctx) {
+    function LocationsTableComponent_th_23_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Zip Code ");
 
@@ -12799,9 +12799,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_td_18_Template(rf, ctx) {
+    function LocationsTableComponent_td_24_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1);
 
@@ -12817,9 +12817,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_th_20_Template(rf, ctx) {
+    function LocationsTableComponent_th_26_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Country ");
 
@@ -12827,9 +12827,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_td_21_Template(rf, ctx) {
+    function LocationsTableComponent_td_27_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1);
 
@@ -12845,9 +12845,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_th_23_Template(rf, ctx) {
+    function LocationsTableComponent_th_29_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Company ");
 
@@ -12855,9 +12855,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_td_24_Template(rf, ctx) {
+    function LocationsTableComponent_td_30_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1);
 
@@ -12873,15 +12873,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function LocationsTableComponent_tr_25_Template(rf, ctx) {
+    function LocationsTableComponent_tr_31_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "tr", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "tr", 28);
       }
     }
 
-    function LocationsTableComponent_tr_26_Template(rf, ctx) {
+    function LocationsTableComponent_tr_32_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "tr", 24);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "tr", 29);
       }
     }
 
@@ -13063,92 +13063,118 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵloadQuery"]()) && (ctx.sort = _t.first);
         }
       },
-      decls: 28,
+      decls: 34,
       vars: 9,
-      consts: [[1, "table-container", "table-responsive-sm"], [1, "search-div"], ["floatLabel", "never", 1, "search-form-field"], ["matInput", "", "placeholder", "Search for Location", "autocomplete", "off", 3, "ngModel", "ngModelChange", "keyup"], ["mat-button", "", "matSuffix", "", "mat-icon-button", "", "aria-label", "Clear", 3, "click", 4, "ngIf"], [1, "mat-table", "mattable-container"], ["mat-table", "", "matSort", "", 1, "mat-elevation-z8", "table", 3, "dataSource"], ["matColumnDef", "Description"], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "Street"], [4, "matCellDef"], ["matColumnDef", "City"], ["matColumnDef", "Zip Code"], ["matColumnDef", "Country"], ["matColumnDef", "Company"], ["mat-header-row", "", 4, "matHeaderRowDef", "matHeaderRowDefSticky"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "pageSizeOptions", "pageSize"], ["mat-button", "", "matSuffix", "", "mat-icon-button", "", "aria-label", "Clear", 3, "click"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], [1, "asset-link", 3, "routerLink"], ["mat-header-row", ""], ["mat-row", ""]],
+      consts: [[1, "container"], [1, "pdf-container"], [1, "row"], [1, "col-md"], [1, "gen-pdf", "btn-primary", 3, "click"], [1, "table-container", "table-responsive-sm"], [1, "search-div"], ["floatLabel", "never", 1, "search-form-field"], ["matInput", "", "placeholder", "Search for Location", "autocomplete", "off", 3, "ngModel", "ngModelChange", "keyup"], ["mat-button", "", "matSuffix", "", "mat-icon-button", "", "aria-label", "Clear", 3, "click", 4, "ngIf"], [1, "mat-table", "mattable-container"], ["mat-table", "", "matSort", "", 1, "mat-elevation-z8", "table", 3, "dataSource"], ["matColumnDef", "Description"], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "Street"], [4, "matCellDef"], ["matColumnDef", "City"], ["matColumnDef", "Zip Code"], ["matColumnDef", "Country"], ["matColumnDef", "Company"], ["mat-header-row", "", 4, "matHeaderRowDef", "matHeaderRowDefSticky"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "pageSizeOptions", "pageSize"], ["mat-button", "", "matSuffix", "", "mat-icon-button", "", "aria-label", "Clear", 3, "click"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], [1, "asset-link", 3, "routerLink"], ["mat-header-row", ""], ["mat-row", ""]],
       template: function LocationsTableComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "div", 1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](2, "mat-form-field", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](2, "div", 2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "input", 3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "div", 3);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngModelChange", function LocationsTableComponent_Template_input_ngModelChange_3_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](4, "button", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function LocationsTableComponent_Template_button_click_4_listener($event) {
+            return ctx.genPdf();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](5, " Pdf File ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "div", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "div", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "mat-form-field", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](9, "input", 8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngModelChange", function LocationsTableComponent_Template_input_ngModelChange_9_listener($event) {
             return ctx.searchKey = $event;
-          })("keyup", function LocationsTableComponent_Template_input_keyup_3_listener($event) {
+          })("keyup", function LocationsTableComponent_Template_input_keyup_9_listener($event) {
             return ctx.applyFilter();
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](4, LocationsTableComponent_button_4_Template, 3, 0, "button", 4);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](10, LocationsTableComponent_button_10_Template, 3, 0, "button", 9);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](5, "div", 5);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](11, "div", 10);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "table", 6);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "div", 7);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](8, LocationsTableComponent_th_8_Template, 2, 0, "th", 8);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](9, LocationsTableComponent_td_9_Template, 3, 2, "td", 9);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](10, "div", 10);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](11, LocationsTableComponent_th_11_Template, 2, 0, "th", 8);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](12, LocationsTableComponent_td_12_Template, 2, 1, "td", 11);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](12, "table", 11);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](13, "div", 12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](14, LocationsTableComponent_th_14_Template, 2, 0, "th", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](14, LocationsTableComponent_th_14_Template, 2, 0, "th", 13);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](15, LocationsTableComponent_td_15_Template, 2, 1, "td", 9);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](16, "div", 13);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](17, LocationsTableComponent_th_17_Template, 2, 0, "th", 8);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](18, LocationsTableComponent_td_18_Template, 2, 1, "td", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](15, LocationsTableComponent_td_15_Template, 3, 2, "td", 14);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](19, "div", 14);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](16, "div", 15);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](20, LocationsTableComponent_th_20_Template, 2, 0, "th", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](17, LocationsTableComponent_th_17_Template, 2, 0, "th", 13);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](21, LocationsTableComponent_td_21_Template, 2, 1, "td", 9);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](22, "div", 15);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](23, LocationsTableComponent_th_23_Template, 2, 0, "th", 8);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](24, LocationsTableComponent_td_24_Template, 2, 1, "td", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](18, LocationsTableComponent_td_18_Template, 2, 1, "td", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](25, LocationsTableComponent_tr_25_Template, 1, 0, "tr", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](19, "div", 17);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](26, LocationsTableComponent_tr_26_Template, 1, 0, "tr", 17);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](20, LocationsTableComponent_th_20_Template, 2, 0, "th", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](21, LocationsTableComponent_td_21_Template, 2, 1, "td", 14);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](27, "mat-paginator", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](22, "div", 18);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](23, LocationsTableComponent_th_23_Template, 2, 0, "th", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](24, LocationsTableComponent_td_24_Template, 2, 1, "td", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](25, "div", 19);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](26, LocationsTableComponent_th_26_Template, 2, 0, "th", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](27, LocationsTableComponent_td_27_Template, 2, 1, "td", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](28, "div", 20);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](29, LocationsTableComponent_th_29_Template, 2, 0, "th", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](30, LocationsTableComponent_td_30_Template, 2, 1, "td", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](31, LocationsTableComponent_tr_31_Template, 1, 0, "tr", 21);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](32, LocationsTableComponent_tr_32_Template, 1, 0, "tr", 22);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](33, "mat-paginator", 23);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
@@ -13156,7 +13182,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
 
         if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](9);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngModel", ctx.searchKey);
 
