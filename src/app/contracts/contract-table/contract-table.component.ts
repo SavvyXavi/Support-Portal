@@ -1,5 +1,10 @@
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as jsPDF from 'jspdf';
+import { UserOptions } from 'jspdf-autotable'
 import { Contracts } from '../models/contracts';
 import { Profile } from '../../index/index/models/profile';
 import { Partner } from '../../models/partner';
@@ -11,6 +16,10 @@ import { AuthenticationService } from 'src/app/index/index/services/authenticati
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+
+// interface tableplugin extends jsPDF {
+//   autotable: (options: UserOptions) => jsPDF;
+// }
 
 @Component({
   selector: 'app-contract-table',
@@ -50,12 +59,24 @@ export class ContractTableComponent implements OnInit {
     // this.getCompanies();
   }
 
-  getPdf() {
-   let doc = new jsPDF();
-   doc.text('Contracts Report', 14, 15);
-   doc.autoTable({html: '#table'});
+  genPdf() {
+    const docDef = {
+      content: 'Test Pdf'
+    };
+    pdfMake.createPdf(docDef).open();
+  }
 
-    doc.save('Contracts.pdf');
+  getPdf() {
+  //  let doc = new jsPDF('portrait', 'px', 'a4') as tableplugin;
+  //  doc.text('Contracts Report', 14, 15)
+  //  doc.autotable({
+  //    html: '#table'
+  //   head: [
+  //     []
+  //   ]
+  //   });
+
+  //   doc.save('Contracts.pdf');
   }
 
   getPartners() {
