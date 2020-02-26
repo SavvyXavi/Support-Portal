@@ -6365,9 +6365,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return [10, 25, 50, 100];
     };
 
-    pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1___default.a.vfs = pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_2___default.a.pdfMake.vfs; // interface tableplugin extends jsPDF {
-    //   autotable: (options: UserOptions) => jsPDF;
-    // }
+    pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1___default.a.vfs = pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_2___default.a.pdfMake.vfs;
 
     var ContractTableComponent =
     /*#__PURE__*/

@@ -3354,9 +3354,6 @@ function ContractTableComponent_tr_31_Template(rf, ctx) { if (rf & 1) {
 } }
 const _c0 = function () { return [10, 25, 50, 100]; };
 pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1___default.a.vfs = pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_2___default.a.pdfMake.vfs;
-// interface tableplugin extends jsPDF {
-//   autotable: (options: UserOptions) => jsPDF;
-// }
 class ContractTableComponent {
     constructor(filter, authserv) {
         this.filter = filter;

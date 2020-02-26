@@ -5,8 +5,6 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
-import * as jsPDF from 'jspdf';
-import { UserOptions } from 'jspdf-autotable'
 import { Contracts } from '../models/contracts';
 import { Profile } from '../../index/index/models/profile';
 import { Partner } from '../../models/partner';
@@ -18,12 +16,6 @@ import { AuthenticationService } from 'src/app/index/index/services/authenticati
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { takeUntil } from 'rxjs/operators';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-
-// interface tableplugin extends jsPDF {
-//   autotable: (options: UserOptions) => jsPDF;
-// }
 
 @Component({
   selector: 'app-contract-table',
