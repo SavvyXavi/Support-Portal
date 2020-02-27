@@ -15084,7 +15084,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js"); // import { AssetsService } from '../partServ/assets.service';
+
 
     function AssetsTableComponent_button_8_Template(rf, ctx) {
       if (rf & 1) {
@@ -15347,7 +15348,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                       info: {
                         title: 'ASSETS',
                         subject: 'Assets',
-                        keywords: 'ASSETS, Assets, Online Assets, Online ASSETS',
+                        keywords: 'ASSETS, Assets, Assets Report, ASSETS REPORT',
                         creator: 'Noble 1 Solutions',
                         producer: 'Noble 1 Solutions'
                       },
@@ -15389,12 +15390,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this50 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
-            this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
-              _this50.asArr = returnedAssets;
-              _this50.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedAssets);
-              _this50.assetDataSource.sort = _this50.sort;
-              _this50.assetDataSource.paginator = _this50.paginator;
-            });
+            switch (this.currentProfile.partner) {
+              case 'Noble1Solutions':
+                this.filter.nobleAss().subscribe(function (assets) {
+                  _this50.asArr = assets;
+                  _this50.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
+                  _this50.assetDataSource.sort = _this50.sort;
+                  _this50.assetDataSource.paginator = _this50.paginator;
+                });
+                break;
+
+              case 'Relutech':
+                this.filter.reluAss().subscribe(function (assets) {
+                  _this50.asArr = assets;
+                  _this50.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
+                  _this50.assetDataSource.sort = _this50.sort;
+                  _this50.assetDataSource.paginator = _this50.paginator;
+                });
+                break;
+
+              case 'Reliant Technology':
+                this.filter.reliAss().subscribe(function (assets) {
+                  _this50.asArr = assets;
+                  _this50.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
+                  _this50.assetDataSource.sort = _this50.sort;
+                  _this50.assetDataSource.paginator = _this50.paginator;
+                });
+                break;
+
+              default:
+                this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
+                  _this50.asArr = returnedAssets;
+                  _this50.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedAssets);
+                  _this50.assetDataSource.sort = _this50.sort;
+                  _this50.assetDataSource.paginator = _this50.paginator;
+                });
+            }
           } else {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAsset) {
               _this50.asArr = returnedAsset;
@@ -17554,6 +17585,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.http = http;
         this.partnerlist = _partner_list__WEBPACK_IMPORTED_MODULE_3__["PartnerList"];
+        this.nobleApi = 'https://indvdlpartner.azurewebsites.net/api/Nobl1Assets?code=aWlhQda2pA0oJYMXmBpWvks9EwV8xFG5QV5WSeUcOL8SLakHXzTaFQ==';
+        this.reluApi = 'https://indvdlpartner.azurewebsites.net/api/RelusAssets?code=kvN7GwMGY2KwuruqgWKPRFdpQwWBwnvsihvsSjws5paebYAqpiIe7A==';
+        this.reliApi = 'https://indvdlpartner.azurewebsites.net/api/ReliantTickets?code=limYO/Q72TyX9DyJyBQPfb3s6HEgTxRYEDWwSZwYD1fI6Z4fCsa2Kw==';
+        this.assetsApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
         this.customerApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
         this.partnerApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/PartnerList?code=6W5az23O1cyKatIJp7F/ayclp8hQal5rYbCywjOXN6kF5ZMzNluuVA==';
         this.pContractsApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByPartner?code=4QQzdPj2j4LgMuJ9wnzmomSadWCLJEpbSOKcJqhBPRDswDZUCq6NqA==';
@@ -17562,7 +17597,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.nameConApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByName?code=IZMBTTmJ5l7M3WPeKg46l/3lfEaAKMgKdagfNCM8T07vyO05QqqBSg==';
         this.pSchedDayCountApi = 'https://prodharmonytwo.azurewebsites.net/api/getSchedDaysToGo?code=NxVHnZOpdgRSQCa35OBTA7g/r6wm3euGe0a8pWHG6hDNG7PTCkPJNQ==';
         this.cSchedDayCountApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/SchedByDays?code=ohdQ0dVI3F2jeqDbl96uN1lO7WqvYkcH7OW41bYMeBekzFhb5bRFzw==';
-        this.oldpartassetsapi = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullAssets?code=jZK5Np57XB8xaTlNIlnyj9Pga9ar34hvOD4fkzGj/xTAlHNCemQvpw==';
         this.partassetsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
         this.custassetsapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetByCustomer?code=srg4TRFO6Uvo2YxaFGKlpJ59714bHNlgBTtSXdxDvk7WwBfX8VkdTw==';
         this.schedassetsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsBySchedule?code=Q3Yjx/KXbuErLesg4oBVs5BJrdFdOMkXn0T/HoLO6hDrCavd45iN9A==';
@@ -17578,6 +17612,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       _createClass(ApifilterService, [{
+        key: "nobleAss",
+        value: function nobleAss() {
+          return this.http.get(this.nobleApi);
+        }
+      }, {
+        key: "reluAss",
+        value: function reluAss() {
+          return this.http.get(this.reluApi);
+        }
+      }, {
+        key: "reliAss",
+        value: function reliAss() {
+          return this.http.get(this.reliApi);
+        }
+      }, {
         key: "partAssetsFilter",
         value: function partAssetsFilter(filter) {
           var params = {

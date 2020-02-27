@@ -2,7 +2,7 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-import { Component, OnInit, ViewChild, Pipe } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Assets } from '../models/assets';
 import { Partner } from '../../models/partner';
@@ -10,6 +10,7 @@ import { Profile } from '../../index/index/models/profile';
 
 import { ApifilterService } from './../../services/apifilter.service';
 import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
+// import { AssetsService } from '../partServ/assets.service';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -39,6 +40,7 @@ export class AssetsTableComponent implements OnInit {
   constructor(
     private filter: ApifilterService,
     private authserv: AuthenticationService,
+    // private api: AssetsService
     ) {
       this.authserv.currentUser.subscribe(
         name => {
@@ -104,7 +106,7 @@ export class AssetsTableComponent implements OnInit {
       info: {
         title: 'ASSETS',
         subject: 'Assets',
-        keywords: 'ASSETS, Assets, Online Assets, Online ASSETS',
+        keywords: 'ASSETS, Assets, Assets Report, ASSETS REPORT',
         creator: 'Noble 1 Solutions',
         producer: 'Noble 1 Solutions'
       },
@@ -130,15 +132,51 @@ export class AssetsTableComponent implements OnInit {
 
   getAssets() {
     if (this.currentProfile.companypartner === 'Partner') {
-      this.filter.partAssetsFilter(this.currentProfile)
-      .subscribe(
-        (returnedAssets: Assets[]) => {
-          this.asArr = returnedAssets;
-          this.assetDataSource = new MatTableDataSource(returnedAssets);
-          this.assetDataSource.sort = this.sort;
-          this.assetDataSource.paginator = this.paginator;
-        }
-      );
+      switch (this.currentProfile.partner) {
+        case 'Noble1Solutions':
+          this.filter.nobleAss()
+          .subscribe(
+            (assets: Assets[]) => {
+              this.asArr = assets;
+              this.assetDataSource = new MatTableDataSource(assets);
+              this.assetDataSource.sort = this.sort;
+              this.assetDataSource.paginator = this.paginator;
+            }
+          );
+          break;
+        case 'Relutech':
+          this.filter.reluAss()
+          .subscribe(
+            (assets: Assets[]) => {
+              this.asArr = assets;
+              this.assetDataSource = new MatTableDataSource(assets);
+              this.assetDataSource.sort = this.sort;
+              this.assetDataSource.paginator = this.paginator;
+            }
+          );
+          break;
+        case 'Reliant Technology':
+          this.filter.reliAss()
+          .subscribe(
+            (assets: Assets[]) => {
+              this.asArr = assets;
+              this.assetDataSource = new MatTableDataSource(assets);
+              this.assetDataSource.sort = this.sort;
+              this.assetDataSource.paginator = this.paginator;
+            }
+          );
+          break;
+        default:
+          this.filter.partAssetsFilter(this.currentProfile)
+            .subscribe(
+              (returnedAssets: Assets[]) => {
+                this.asArr = returnedAssets;
+                this.assetDataSource = new MatTableDataSource(returnedAssets);
+                this.assetDataSource.sort = this.sort;
+                this.assetDataSource.paginator = this.paginator;
+              }
+            );
+      }
     } else {
       this.filter.custAssetsFilter(this.currentProfile)
       .subscribe(

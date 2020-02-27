@@ -8031,6 +8031,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import { AssetsService } from '../partServ/assets.service';
 
 
 
@@ -8201,7 +8202,7 @@ class AssetsTableComponent {
                 info: {
                     title: 'ASSETS',
                     subject: 'Assets',
-                    keywords: 'ASSETS, Assets, Online Assets, Online ASSETS',
+                    keywords: 'ASSETS, Assets, Assets Report, ASSETS REPORT',
                     creator: 'Noble 1 Solutions',
                     producer: 'Noble 1 Solutions'
                 },
@@ -8223,13 +8224,43 @@ class AssetsTableComponent {
     }
     getAssets() {
         if (this.currentProfile.companypartner === 'Partner') {
-            this.filter.partAssetsFilter(this.currentProfile)
-                .subscribe((returnedAssets) => {
-                this.asArr = returnedAssets;
-                this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedAssets);
-                this.assetDataSource.sort = this.sort;
-                this.assetDataSource.paginator = this.paginator;
-            });
+            switch (this.currentProfile.partner) {
+                case 'Noble1Solutions':
+                    this.filter.nobleAss()
+                        .subscribe((assets) => {
+                        this.asArr = assets;
+                        this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
+                        this.assetDataSource.sort = this.sort;
+                        this.assetDataSource.paginator = this.paginator;
+                    });
+                    break;
+                case 'Relutech':
+                    this.filter.reluAss()
+                        .subscribe((assets) => {
+                        this.asArr = assets;
+                        this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
+                        this.assetDataSource.sort = this.sort;
+                        this.assetDataSource.paginator = this.paginator;
+                    });
+                    break;
+                case 'Reliant Technology':
+                    this.filter.reliAss()
+                        .subscribe((assets) => {
+                        this.asArr = assets;
+                        this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
+                        this.assetDataSource.sort = this.sort;
+                        this.assetDataSource.paginator = this.paginator;
+                    });
+                    break;
+                default:
+                    this.filter.partAssetsFilter(this.currentProfile)
+                        .subscribe((returnedAssets) => {
+                        this.asArr = returnedAssets;
+                        this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedAssets);
+                        this.assetDataSource.sort = this.sort;
+                        this.assetDataSource.paginator = this.paginator;
+                    });
+            }
         }
         else {
             this.filter.custAssetsFilter(this.currentProfile)
@@ -9414,6 +9445,10 @@ class ApifilterService {
     constructor(http) {
         this.http = http;
         this.partnerlist = _partner_list__WEBPACK_IMPORTED_MODULE_3__["PartnerList"];
+        this.nobleApi = 'https://indvdlpartner.azurewebsites.net/api/Nobl1Assets?code=aWlhQda2pA0oJYMXmBpWvks9EwV8xFG5QV5WSeUcOL8SLakHXzTaFQ==';
+        this.reluApi = 'https://indvdlpartner.azurewebsites.net/api/RelusAssets?code=kvN7GwMGY2KwuruqgWKPRFdpQwWBwnvsihvsSjws5paebYAqpiIe7A==';
+        this.reliApi = 'https://indvdlpartner.azurewebsites.net/api/ReliantTickets?code=limYO/Q72TyX9DyJyBQPfb3s6HEgTxRYEDWwSZwYD1fI6Z4fCsa2Kw==';
+        this.assetsApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
         this.customerApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
         this.partnerApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/PartnerList?code=6W5az23O1cyKatIJp7F/ayclp8hQal5rYbCywjOXN6kF5ZMzNluuVA==';
         this.pContractsApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByPartner?code=4QQzdPj2j4LgMuJ9wnzmomSadWCLJEpbSOKcJqhBPRDswDZUCq6NqA==';
@@ -9422,7 +9457,6 @@ class ApifilterService {
         this.nameConApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByName?code=IZMBTTmJ5l7M3WPeKg46l/3lfEaAKMgKdagfNCM8T07vyO05QqqBSg==';
         this.pSchedDayCountApi = 'https://prodharmonytwo.azurewebsites.net/api/getSchedDaysToGo?code=NxVHnZOpdgRSQCa35OBTA7g/r6wm3euGe0a8pWHG6hDNG7PTCkPJNQ==';
         this.cSchedDayCountApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/SchedByDays?code=ohdQ0dVI3F2jeqDbl96uN1lO7WqvYkcH7OW41bYMeBekzFhb5bRFzw==';
-        this.oldpartassetsapi = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullAssets?code=jZK5Np57XB8xaTlNIlnyj9Pga9ar34hvOD4fkzGj/xTAlHNCemQvpw==';
         this.partassetsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
         this.custassetsapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetByCustomer?code=srg4TRFO6Uvo2YxaFGKlpJ59714bHNlgBTtSXdxDvk7WwBfX8VkdTw==';
         this.schedassetsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsBySchedule?code=Q3Yjx/KXbuErLesg4oBVs5BJrdFdOMkXn0T/HoLO6hDrCavd45iN9A==';
@@ -9435,6 +9469,15 @@ class ApifilterService {
         this.pLocationsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/LocationsByPartner?code=4rYRhjsKV710lRV0tXwOXlfMJkzwUp3mPnvpn2dpKA/FgbAYEPIxow==';
         this.cLocationsapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/LocationsByCustomer?code=S5urk3EhAuuuMATbFA8E5/ixHQPJhcaC6wlLAP4GPxs4qN0tPsfuIA==';
         this.locationdescfilterapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/LocationByDescription?code=LlWycAaW502tdZ9EMsNbkqapKMVLR7yfsFJRapYhwAlXuqwpnp9ELA==';
+    }
+    nobleAss() {
+        return this.http.get(this.nobleApi);
+    }
+    reluAss() {
+        return this.http.get(this.reluApi);
+    }
+    reliAss() {
+        return this.http.get(this.reliApi);
     }
     partAssetsFilter(filter) {
         const params = {

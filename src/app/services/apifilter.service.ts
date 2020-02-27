@@ -20,6 +20,20 @@ export class ApifilterService {
   partner: Partner;
   partnerlist = PartnerList;
 
+  nobleApi =
+  'https://indvdlpartner.azurewebsites.net/api/Nobl1Assets?code=aWlhQda2pA0oJYMXmBpWvks9EwV8xFG5QV5WSeUcOL8SLakHXzTaFQ==';
+
+reluApi =
+  'https://indvdlpartner.azurewebsites.net/api/RelusAssets?code=kvN7GwMGY2KwuruqgWKPRFdpQwWBwnvsihvsSjws5paebYAqpiIe7A==';
+
+reliApi =
+  'https://indvdlpartner.azurewebsites.net/api/ReliantTickets?code=limYO/Q72TyX9DyJyBQPfb3s6HEgTxRYEDWwSZwYD1fI6Z4fCsa2Kw==';
+
+assetsApi =
+  'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
+
+
+
   customerApi =
 'https://harmonyprodcustomersone.azurewebsites.net/api/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
   partnerApi =
@@ -40,8 +54,7 @@ export class ApifilterService {
   'https://harmonyprodcustomersone.azurewebsites.net/api/SchedByDays?code=ohdQ0dVI3F2jeqDbl96uN1lO7WqvYkcH7OW41bYMeBekzFhb5bRFzw==';
 
 
-  oldpartassetsapi
-   = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullAssets?code=jZK5Np57XB8xaTlNIlnyj9Pga9ar34hvOD4fkzGj/xTAlHNCemQvpw==';
+
    partassetsapi
    =   'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
   custassetsapi
@@ -74,6 +87,22 @@ export class ApifilterService {
   constructor(
     private http: HttpClient
   ) { }
+
+  nobleAss() {
+    return this.http.get(this.nobleApi);
+  }
+
+  reluAss() {
+    return this.http.get(this.reluApi);
+  }
+
+  reliAss() {
+    return this.http.get(this.reliApi);
+  }
+
+
+
+
 
   partAssetsFilter(filter: Filter) {
     const params = {
