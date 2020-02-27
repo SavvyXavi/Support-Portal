@@ -1,6 +1,7 @@
-/* .container {
+.container-fluid {
+  margin: auto;
   align-items: center;
-} */
+}
 
 .col-md {
   margin-bottom: 15px;
