@@ -2,7 +2,7 @@ nav {
   padding: 0;
   color: white;
   font-size: 1vw;
-  height: 53.2em;
+  height: 100%;
   overflow-x: hidden;
   background: transparent;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
@@ -31,7 +31,7 @@ span {
 
 
 #container {
-  transition:all .5s;
+  transition: all .5s;
 }
 
 .btn, .btn:focus {
