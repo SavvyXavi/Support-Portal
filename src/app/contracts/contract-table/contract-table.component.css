@@ -3,6 +3,10 @@
   align-items: center;
 }
 
+.col-md {
+  margin-right: 30px;
+}
+
 .btn {
   margin: 10px;
   background-color: rgb(230, 92, 0) !important;
