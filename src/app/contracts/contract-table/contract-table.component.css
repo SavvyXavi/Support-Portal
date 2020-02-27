@@ -2,8 +2,8 @@
   margin-top: 20px;
 }
 
-.container-fluid {
-  justify-content: flex-end;
+.pdf-btn {
+  justify-content: end;
 }
 
 .btn {
