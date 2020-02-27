@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  padding: 0;
+
 }
 
 nav {
@@ -17,6 +17,12 @@ nav {
   max-height: 50px;
   width: auto;
 }
+
+/* form {
+  width: 100%;
+  border-radius: 7px;
+  padding-top: 4px;
+} */
 
 .col-md-3{
   justify-content: center;
