@@ -3,6 +3,7 @@
 }
 
 .pdf-btn {
+  display: flex;
   align-content: flex-end;
 }
 
