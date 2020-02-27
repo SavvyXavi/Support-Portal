@@ -1,3 +1,6 @@
+.container {
+  align-self: center;
+}
 
 .col-md {
   margin-bottom: 15px;
