@@ -42,6 +42,7 @@
   th,td {
     font-size: medium;
     text-align: center !important;
+    align-items: center;
   }
 
   th, td {
