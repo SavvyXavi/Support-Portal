@@ -1,5 +1,11 @@
-.container {
+.container-fluid {
   margin-top: 20px;
+  align-items: center;
+}
+
+.col-md {
+  margin-right: 50px;
+  padding: 0px 50px;
 }
 
 .btn {
