@@ -3,7 +3,7 @@
 }
 
 .pdf-btn {
-  justify-content: end;
+  align-content: flex-end;
 }
 
 .btn {
