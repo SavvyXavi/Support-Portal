@@ -8,6 +8,6 @@ export class Company {
   County: string;
   Partner: string;
   PrimaryContactFullName: string;
-  PostCode: string;
+  Postcode: string;
   Town: string;
 }

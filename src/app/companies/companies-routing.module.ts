@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../index/index/guards/auth.guard';
 
 import { CompaniesComponent } from './companies.component';
-import { ComapniesTableComponent } from './comapnies-table/comapnies-table.component';
+import { CompaniesTableComponent } from './companies-table/companies-table.component';
 
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ComapniesTableComponent
+        component: CompaniesTableComponent
       }
     ]
   }

@@ -1,29 +1,9 @@
-.form-container {
-  border-color: black;
-  border-style: solid;
-  padding: 15px;
-  border-radius: 4px;
-}
-
-.card {
-  border: none;
-}
-
-.title, .assetRef {
-  width: 250px;
-}
-
- .createItem{
-  margin-right: 30px;
-}
-
-textarea {
-  outline: none !important;
-  box-shadow: none;
+.container {
+  margin-top: 20px;
 }
 
 .btn {
-  margin: 10px 10px 10px 0px;
+  margin: 10px;
   background-color: rgb(230, 92, 0) !important;
   border-color: rgb(230, 92, 0) !important;
 }
@@ -33,7 +13,7 @@ textarea {
 .btn:focused,
 .btn:active,
 .btn:visited {
-  margin: 10px 10px 10px 0px;
+  margin: 10px;
   background-color: rgb(230, 92, 0) !important;
   border-color: rgb(230, 92, 0) !important;
 }
@@ -44,9 +24,11 @@ textarea {
 
   table {
     border: solid black;
+    border-collapse: separate;
+    border-spacing: 0;
     border-radius: 8px !important;
     -moz-border-radius: 8px;
-    border-collapse: separate;
+    -webkit-border-radius: 8px;
   }
 
   th {
@@ -64,10 +46,6 @@ textarea {
     border: 1px solid black;
     padding: 15px;
     text-align: left;
-  }
-
-  table {
-    border-collapse: collapse;
   }
 
   tr:nth-child(even) {
@@ -114,25 +92,3 @@ textarea {
     border-radius: 8px;
     align-content: center;
   }
-  /* mat-table {
-    border-radius: 8px;
-  }
-
-  mat-table {
-    border: solid black;
-    border-radius: 8px !important;
-    -moz-border-radius: 8px;
-    border-collapse: separate;
-  } */
-
-  /* mat-header-cel {
-    background-color: black;
-    color: white;
-    border-color: white;
-  }
-
-  mat-header-cell, mat-cell {
-    border: 1px solid black;
-    padding: 15px;
-    text-align: left;
-  } */

@@ -1,6 +1,7 @@
 export class Assets {
   Name: string;
   id: number;
+  Identifier: string;
   CompanyName: string;
   Description: string;
   Sla: string;

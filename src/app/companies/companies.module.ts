@@ -6,7 +6,7 @@ import { CompaniesRoutingModule } from './companies-routing.module';
 import { AuthGuard } from '../index/index/guards/auth.guard';
 
 import { CompaniesComponent } from './companies.component';
-import { ComapniesTableComponent } from './comapnies-table/comapnies-table.component';
+import { CompaniesTableComponent } from './companies-table/companies-table.component';
 
 // Material Import
 import { MatSliderModule } from '@angular/material/slider';
@@ -20,7 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     CompaniesComponent,
-    ComapniesTableComponent,
+    CompaniesTableComponent,
   ],
   imports: [
     CommonModule,

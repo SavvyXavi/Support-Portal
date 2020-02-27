@@ -1,5 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+import { Component, OnInit, ViewChild, Pipe } from '@angular/core';
 
 import { Assets } from '../models/assets';
 import { Partner } from '../../models/partner';
@@ -19,7 +22,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class AssetsTableComponent implements OnInit {
   assets: Assets;
-  assetLength: Assets[];
+  asArr: Assets[];
   currentProfile: Profile;
 
   displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
@@ -49,6 +52,71 @@ export class AssetsTableComponent implements OnInit {
     this.getAssets();
   }
 
+  async genPdf() {
+    await this.getAssets();
+    const docDef = {
+      content: [
+        {
+          text: 'ASSETS REPORT',
+          bold: true,
+          fontSize: 20,
+          alignment: 'center',
+          margin: [0, 0, 0, 20]
+        },
+        {
+          table: {
+            headerRows: 1,
+            widths: ['auto', 'auto', 'auto', 'auto', 'auto'],
+            body: [
+              [
+                {
+                  text: 'Name',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Location',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Serial#',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Asset Tag',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Contract',
+                  style: 'tableHeader'
+                }
+              ],
+              ...this.asArr.map(
+                a => {
+                  return [a.Name, a.SiteAddress,
+                    a.Identifier, a.Identifier,
+                     a.Schedule];
+                }
+              )
+            ]
+          }
+        }
+      ],
+      info: {
+        title: 'ASSETS',
+        subject: 'Assets',
+        keywords: 'ASSETS, Assets, Online Assets, Online ASSETS',
+        creator: 'Noble 1 Solutions',
+        producer: 'Noble 1 Solutions'
+      },
+      styles: {
+        tableHeader: {
+          bold: true,
+        }
+      }
+    };
+    pdfMake.createPdf(docDef).open();
+  }
+
   getPartners() {
     this.filter.getPartners()
     .subscribe(
@@ -65,7 +133,7 @@ export class AssetsTableComponent implements OnInit {
       this.filter.partAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
-          this.assetLength = returnedAssets;
+          this.asArr = returnedAssets;
           this.assetDataSource = new MatTableDataSource(returnedAssets);
           this.assetDataSource.sort = this.sort;
           this.assetDataSource.paginator = this.paginator;
@@ -74,9 +142,9 @@ export class AssetsTableComponent implements OnInit {
     } else {
       this.filter.custAssetsFilter(this.currentProfile)
       .subscribe(
-        (returnedAssetLength: Assets[]) => {
-          this.assetLength = returnedAssetLength;
-          this.assetDataSource = new MatTableDataSource(returnedAssetLength);
+        (returnedAsset: Assets[]) => {
+          this.asArr = returnedAsset;
+          this.assetDataSource = new MatTableDataSource(returnedAsset);
           this.assetDataSource.sort = this.sort;
           this.assetDataSource.paginator = this.paginator;
         }

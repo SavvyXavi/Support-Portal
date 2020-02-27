@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { Profile } from '../index/index/models/profile';
 import { Tickets } from '../tickets/models/tickets';
 import { Assets } from '../manage-assets/models/assets';
-import * as moment from 'moment';
 
 import { AuthenticationService } from '../index/index/services/authentication.service';
 import { ProfileService } from '../index/index/services/profile.service';
@@ -42,6 +41,7 @@ export class DashboardComponent implements OnInit {
   contractsData = [];
   assetsData = [];
   tickets: Tickets[];
+  ticketStatus: string[];
 
   assets: Assets[];
   contractDays: string[];
@@ -80,7 +80,6 @@ export class DashboardComponent implements OnInit {
     this.getPartners();
     this.contractsChart();
     this.assetsChart();
-    this.ticketsCount();
     this.companiesCount();
     this.ticketsChart();
   }
@@ -95,20 +94,6 @@ export class DashboardComponent implements OnInit {
     return this.partnerArr.find(company => company.CompanyName === partner);
   }
 
-  ticketsCount() {
-    if (this.currentProfile.companypartner === 'Partner') {
-      this.filter.partTicketsFilter(this.currentProfile)
-      .subscribe(
-        (returnedAssetLength: Tickets[]) => this.ticketLength = returnedAssetLength
-      );
-    } else if (this.currentProfile.companypartner === 'Company') {
-      this.filter.cusTicketsFilter(this.currentProfile.company)
-      .subscribe(
-        (returnedTicketLength: Tickets[]) => this.ticketLength = returnedTicketLength
-      );
-    }
-  }
-
   companiesCount() {
     this.filter.customerFilter(this.currentProfile)
     .subscribe(
@@ -120,42 +105,50 @@ export class DashboardComponent implements OnInit {
 
   ticketsChart() {
     if (this.currentProfile.companypartner === 'Partner') {
+      this.filter.partTicketsFilter(this.currentProfile)
+      .subscribe(
+        (returnedAssetLength: Tickets[]) => this.ticketLength = returnedAssetLength
+      );
       this.dashServ.partTicketsFilter(this.currentProfile)
       .subscribe(
         (tickets: Tickets[]) => {
           this.tickets = tickets;
-          for (let i = 0;  i <= this.tickets.length; i++) {
-            if (this.tickets[i].Status === 'New') {
+          this.ticketStatus = this.tickets.map( t => t.Status);
+          for (let i = 0;  i <= this.ticketStatus.length; i++) {
+            if (this.ticketStatus[i] === 'New') {
               this.new++;
-            } else if (this.tickets[i].Status === 'Assigned') {
+            } else if (this.ticketStatus[i] === 'Assigned') {
               this.assigned++;
-            } else if (this.tickets[i].Status === 'Fixed') {
+            } else if (this.ticketStatus[i] === 'Fixed') {
               this.closed++;
             } else {
               this.inProcess++;
             }
           }
         }
-
       );
     } else {
+      this.filter.cusTicketsFilter(this.currentProfile.company)
+      .subscribe(
+        (returnedTicketLength: Tickets[]) => this.ticketLength = returnedTicketLength
+      );
       this.dashServ.cusTicketsFilter(this.currentProfile.company)
       .subscribe(
         (tickets: Tickets[]) => {
           this.tickets = tickets;
-          for (let i = 0;  i <= this.tickets.length; i++) {
-            if (this.tickets[i].Status === 'New') {
+          this.ticketStatus = this.tickets.map( t => t.Status);
+          for (let i = 0;  i <= this.ticketStatus.length; i++) {
+            if (this.ticketStatus[i] === 'New') {
               this.new++;
-            } else if (this.tickets[i].Status === 'Assigned') {
+            } else if (this.ticketStatus[i] === 'Assigned') {
               this.assigned++;
-            } else if (this.tickets[i].Status === 'Fixed') {
+            } else if (this.ticketStatus[i] === 'Fixed') {
               this.closed++;
             } else {
               this.inProcess++;
             }
           }
         }
-
       );
     }
   }

@@ -1,4 +1,9 @@
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 import { Contracts } from '../models/contracts';
 import { Profile } from '../../index/index/models/profile';
@@ -19,7 +24,10 @@ import { MatSort } from '@angular/material/sort';
 })
 export class ContractTableComponent implements OnInit {
   contracts: Contracts;
+  conArr: Contracts[];
   currentProfile: Profile;
+
+  pipe;
 
   partner: Partner;
   partnerArr: Partner[];
@@ -42,27 +50,87 @@ export class ContractTableComponent implements OnInit {
         this.currentProfile = name;
       }
     );
+      this.pipe = new DatePipe('en-us');
   }
 
   ngOnInit() {
     this.getPartners();
     this.getContracts();
-    // this.getCompanies();
+  }
+
+  async genPdf() {
+    await this.getContracts();
+    const docDef = {
+      content: [
+        {
+          text: 'CONTRACTS REPORT',
+          bold: true,
+          fontSize: 20,
+          alignment: 'center',
+          margin: [0, 0, 0, 20]
+        },
+        {
+          table: {
+            headerRows: 1,
+            widths: ['auto', 'auto', 'auto', 'auto', 'auto', 'auto'],
+            body: [
+              [
+                {
+                  text: 'Contract#',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Contract Name',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Start Date',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Renewal Date',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Customer',
+                  style: 'tableHeader'
+                },
+                {
+                  text: 'Status',
+                  style: 'tableHeader'
+                }
+              ],
+              ...this.conArr.map(
+                c => {
+                  return [c.RefNumber, c.ScheduleName,
+                    this.pipe.transform(c.StartDate, 'short') , this.pipe.transform(c.RenewalDate, 'short'),
+                     c.EndCustomerName, c.Status];
+                }
+              )
+            ]
+          }
+        }
+      ],
+      info: {
+        title: 'CONTRACTS',
+        subject: 'Contracts',
+        keywords: 'CONTRACTS, Contracts, Contracts Report, CONTRACTS REPORT',
+        creator: 'Noble 1 Solutions',
+        producer: 'Noble 1 Solutions'
+      },
+      styles: {
+        tableHeader: {
+          bold: true,
+        }
+      }
+    };
+    pdfMake.createPdf(docDef).open();
   }
 
   getPartners() {
     this.filter.getPartners()
     .subscribe(
       returnedPartners => this.partnerArr = returnedPartners
-    );
-  }
-
-  getCompanies() {
-    this.filter.customerFilter(this.currentProfile)
-    .subscribe(
-      (companies: Customer) => {
-        this.company = companies;
-      }
     );
   }
 
@@ -75,6 +143,7 @@ export class ContractTableComponent implements OnInit {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
         (returnedContracts: Contracts[]) => {
+          this.conArr = returnedContracts;
           this.contractDataSource = new MatTableDataSource(returnedContracts);
           this.contractDataSource.sort = this.sort;
           this.contractDataSource.paginator = this.paginator;
@@ -84,6 +153,7 @@ export class ContractTableComponent implements OnInit {
       this.filter.custConFilter(this.currentProfile)
       .subscribe(
         (returnedContracts: Contracts[]) => {
+          this.conArr = returnedContracts;
           this.contractDataSource = new MatTableDataSource(returnedContracts);
           this.contractDataSource.sort = this.sort;
           this.contractDataSource.paginator = this.paginator;
