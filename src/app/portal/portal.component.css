@@ -3,8 +3,18 @@
   padding: 0;
 }
 
-.content {
-  /* margin-top: 40px;
-  padding-top: 30px; */
-  /* align-items: flex; */
+.btn {
+  margin: 10px;
+  background-color: rgb(230, 92, 0) !important;
+  border-color: rgb(230, 92, 0) !important;
+}
+
+.btn:click,
+.btn:hover,
+.btn:focused,
+.btn:active,
+.btn:visited {
+  margin: 10px;
+  background-color: rgb(230, 92, 0) !important;
+  border-color: rgb(230, 92, 0) !important;
 }

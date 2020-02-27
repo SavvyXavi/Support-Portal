@@ -1,9 +1,5 @@
-.title, .assetRef {
-  width: 250px;
-}
-
-.edit-items-container {
-  margin-right: 20px;
+.container {
+  margin-top: 20px;
 }
 
 .btn {
@@ -21,13 +17,18 @@
   background-color: rgb(230, 92, 0) !important;
   border-color: rgb(230, 92, 0) !important;
 }
+
 .table-container {
   margin-right: 30px;
   }
 
   table {
+    border: solid black;
+    border-collapse: separate;
+    border-spacing: 0;
     border-radius: 8px !important;
     -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
   }
 
   th {
@@ -44,6 +45,7 @@
   th, td {
     border: 1px solid black;
     padding: 15px;
+    text-align: left;
   }
 
   tr:nth-child(even) {
@@ -68,14 +70,14 @@
   }
 
   .search-div {
-    margin: 10px;
+    margin: 10px 30px 10px 0px;
   }
 
   .search-form-field {
-      width: 96%;
-      padding:  5px 10px;
-      background-color: #e6e6e6;
-      border-radius: 5px;
+    width: 96%;
+    padding:  5px 10px;
+    background-color: #e6e6e6;
+    border-radius: 5px;
   }
 
   /* .search-form-field div.mat-form-field-underline {
@@ -90,25 +92,3 @@
     border-radius: 8px;
     align-content: center;
   }
-  /* mat-table {
-    border-radius: 8px;
-  }
-
-  mat-table {
-    border: solid black;
-    border-radius: 8px !important;
-    -moz-border-radius: 8px;
-    border-collapse: separate;
-  } */
-
-  /* mat-header-cel {
-    background-color: black;
-    color: white;
-    border-color: white;
-  }
-
-  mat-header-cell, mat-cell {
-    border: 1px solid black;
-    padding: 15px;
-    text-align: left;
-  } */
