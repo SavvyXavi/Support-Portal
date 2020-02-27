@@ -1,15 +1,12 @@
-.container {
+.container-fluid {
   margin-top: 20px;
+  align-items: center;
 }
 
 .btn {
   margin: 10px;
   background-color: rgb(230, 92, 0) !important;
   border-color: rgb(230, 92, 0) !important;
-}
-.container {
-  /* margin: 20px; */
-  align-items: center;
 }
 
 .btn:click,
