@@ -2,9 +2,10 @@
   margin-top: 20px;
 }
 
-.row {
+.container-fluid {
   justify-content: flex-end;
 }
+
 .btn {
   margin: 10px;
   background-color: rgb(230, 92, 0) !important;
