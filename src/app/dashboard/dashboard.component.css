@@ -1,5 +1,6 @@
 .container-fluid {
   margin: auto;
+  padding: 0;
   align-items: center;
 }
 
@@ -13,7 +14,7 @@
   padding-top: 20px;
 }
 
-.container-fluid {
+.tabs{
   background-color: #d9d9d9;
   margin: 0;
   padding: 0;
