@@ -9448,7 +9448,11 @@ class ApifilterService {
         this.nobleApi = 'https://indvdlpartner.azurewebsites.net/api/Nobl1Assets?code=aWlhQda2pA0oJYMXmBpWvks9EwV8xFG5QV5WSeUcOL8SLakHXzTaFQ==';
         this.reluApi = 'https://indvdlpartner.azurewebsites.net/api/RelusAssets?code=kvN7GwMGY2KwuruqgWKPRFdpQwWBwnvsihvsSjws5paebYAqpiIe7A==';
         this.reliApi = 'https://indvdlpartner.azurewebsites.net/api/ReliantTickets?code=limYO/Q72TyX9DyJyBQPfb3s6HEgTxRYEDWwSZwYD1fI6Z4fCsa2Kw==';
-        this.assetsApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
+        // assetsApi =
+        //   'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
+        this.nobleTick = 'https://indvdlpartner.azurewebsites.net/api/HttpTrigger1?code=fWS1UWW8xaY1j3dUMu0w2AB9JGc/SS1/6AmRWiUQc/HVgJNUaTeOKQ==';
+        this.reluTick = 'https://indvdlpartner.azurewebsites.net/api/Relustickets?code=7UUkBzs7TUButH9heEDa468UE9KgABhIDScGrQ4HhnOT/bdeptQ1jg==';
+        this.reliTick = 'https://indvdlpartner.azurewebsites.net/api/ReliantTickets?code=limYO/Q72TyX9DyJyBQPfb3s6HEgTxRYEDWwSZwYD1fI6Z4fCsa2Kw==';
         this.customerApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
         this.partnerApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/PartnerList?code=6W5az23O1cyKatIJp7F/ayclp8hQal5rYbCywjOXN6kF5ZMzNluuVA==';
         this.pContractsApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByPartner?code=4QQzdPj2j4LgMuJ9wnzmomSadWCLJEpbSOKcJqhBPRDswDZUCq6NqA==';
@@ -9478,6 +9482,15 @@ class ApifilterService {
     }
     reliAss() {
         return this.http.get(this.reliApi);
+    }
+    nobleTicks() {
+        return this.http.get(this.nobleTick);
+    }
+    reluTicks() {
+        return this.http.get(this.reluTick);
+    }
+    reliTicks() {
+        return this.http.get(this.reliTick);
     }
     partAssetsFilter(filter) {
         const params = {
@@ -10908,7 +10921,7 @@ class TicketsTableComponent {
                                     },
                                     {
                                         text: 'Serial#',
-                                        stlye: 'tableHeader'
+                                        style: 'tableHeader'
                                     },
                                     {
                                         text: 'Customer',
@@ -10961,13 +10974,43 @@ class TicketsTableComponent {
     }
     getTickets() {
         if (this.currentProfile.companypartner === 'Partner') {
-            this.filter.partTicketsFilter(this.currentProfile)
-                .subscribe((returnedTickets) => {
-                this.tickArr = returnedTickets;
-                this.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](returnedTickets);
-                this.ticketDataSource.sort = this.sort;
-                this.ticketDataSource.paginator = this.paginator;
-            });
+            switch (this.currentProfile.partner) {
+                case 'Noble1Solutions':
+                    this.filter.nobleTicks()
+                        .subscribe((tickets) => {
+                        this.tickArr = tickets;
+                        this.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](tickets);
+                        this.ticketDataSource.sort = this.sort;
+                        this.ticketDataSource.paginator = this.paginator;
+                    });
+                    break;
+                case 'Relutech':
+                    this.filter.reluTicks()
+                        .subscribe((assets) => {
+                        this.tickArr = assets;
+                        this.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](assets);
+                        this.ticketDataSource.sort = this.sort;
+                        this.ticketDataSource.paginator = this.paginator;
+                    });
+                    break;
+                case 'Reliant Technology':
+                    this.filter.reliTicks()
+                        .subscribe((tickets) => {
+                        this.tickArr = tickets;
+                        this.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](tickets);
+                        this.ticketDataSource.sort = this.sort;
+                        this.ticketDataSource.paginator = this.paginator;
+                    });
+                    break;
+                default:
+                    this.filter.partTicketsFilter(this.currentProfile)
+                        .subscribe((tickets) => {
+                        this.tickArr = tickets;
+                        this.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](tickets);
+                        this.ticketDataSource.sort = this.sort;
+                        this.ticketDataSource.paginator = this.paginator;
+                    });
+            }
         }
         else {
             this.filter.cusTicketsFilter(this.currentProfile.company)

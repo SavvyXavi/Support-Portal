@@ -29,8 +29,18 @@ reluApi =
 reliApi =
   'https://indvdlpartner.azurewebsites.net/api/ReliantTickets?code=limYO/Q72TyX9DyJyBQPfb3s6HEgTxRYEDWwSZwYD1fI6Z4fCsa2Kw==';
 
-assetsApi =
-  'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
+// assetsApi =
+//   'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
+
+  nobleTick =
+  'https://indvdlpartner.azurewebsites.net/api/HttpTrigger1?code=fWS1UWW8xaY1j3dUMu0w2AB9JGc/SS1/6AmRWiUQc/HVgJNUaTeOKQ==';
+
+  reluTick =
+  'https://indvdlpartner.azurewebsites.net/api/Relustickets?code=7UUkBzs7TUButH9heEDa468UE9KgABhIDScGrQ4HhnOT/bdeptQ1jg==';
+
+  reliTick =
+  'https://indvdlpartner.azurewebsites.net/api/ReliantTickets?code=limYO/Q72TyX9DyJyBQPfb3s6HEgTxRYEDWwSZwYD1fI6Z4fCsa2Kw==';
+
 
 
 
@@ -98,6 +108,19 @@ assetsApi =
 
   reliAss() {
     return this.http.get(this.reliApi);
+  }
+
+
+  nobleTicks() {
+    return this.http.get(this.nobleTick);
+  }
+
+  reluTicks() {
+    return this.http.get(this.reluTick);
+  }
+
+  reliTicks() {
+    return this.http.get(this.reliTick);
   }
 
 
