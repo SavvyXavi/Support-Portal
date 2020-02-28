@@ -20,9 +20,11 @@
   color: white;
   background-color: rgb(230, 92, 0);
   border-color: rgb(230, 92, 0);
+  outline-color: rgb(230, 92, 0);
 }
 
 .cancel {
   background-color: grey;
+  border-color: rgb(230, 92, 0);
   color: white
 }
