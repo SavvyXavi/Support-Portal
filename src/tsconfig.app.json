@@ -9,8 +9,4 @@
     "main.ts",
     "polyfills.ts"
   ],
-  "angularCompilerOptions": {
-    "enableIvy": false
-  }
-
 }
