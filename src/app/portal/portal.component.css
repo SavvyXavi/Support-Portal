@@ -9,8 +9,7 @@
   background-color: rgb(230, 92, 0);
   border-color: rgb(230, 92, 0);
 }
-
-.btn:click,
+.btn:active:focus
 .btn:hover,
 .btn:focus,
 .btn:active,
