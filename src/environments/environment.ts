@@ -8,7 +8,8 @@ export const environment = {
   secret: 'Noble1Solutions',
   LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
   CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
-  DataPull: 'https://n1stestdata.noble1it.com'
+  DataPull: 'https://n1stestdata.noble1it.com',
+  LogoutUrl: 'https://qa2supportportal.azurewebsites.net/'
 };
 
 /*
