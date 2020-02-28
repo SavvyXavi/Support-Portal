@@ -27,7 +27,7 @@ reluApi =
   'https://indvdlpartner.azurewebsites.net/api/RelusAssets?code=kvN7GwMGY2KwuruqgWKPRFdpQwWBwnvsihvsSjws5paebYAqpiIe7A==';
 
 reliApi =
-  'https://indvdlpartner.azurewebsites.net/api/ReliantTickets?code=limYO/Q72TyX9DyJyBQPfb3s6HEgTxRYEDWwSZwYD1fI6Z4fCsa2Kw==';
+  'https://indvdlpartner.azurewebsites.net/api/ReliantAssets?code=JA6YllcDUJQOTaMuJV8o0y17ZZaQYF3xTvvjyGKnGaFzMbYaYI017A==';
 
 // assetsApi =
 //   'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
