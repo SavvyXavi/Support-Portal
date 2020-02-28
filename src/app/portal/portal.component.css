@@ -6,15 +6,18 @@
 .btn {
   margin: 10px;
   padding: 6px 12px;
+  color: white;
   background-color: rgb(230, 92, 0);
   border-color: rgb(230, 92, 0);
 }
+
 .btn:active:focus
 .btn:hover,
 .btn:focus,
 .btn:active,
 .btn:visited {
   margin: 10px;
+  color: white;
   background-color: rgb(230, 92, 0);
   border-color: rgb(230, 92, 0);
 }
