@@ -22,4 +22,7 @@
   border-color: rgb(230, 92, 0);
 }
 
-
+.close {
+  background-color: grey;
+  color: white
+}

@@ -8,7 +8,7 @@ export class AssetLocFilterPipe implements PipeTransform {
 
   constructor() { }
 
-  transform(location: string[] ): any {
+  transform(location: Assets[] ): any {
     const noDups = location.filter(( item, index) =>
       location.indexOf(item) === index
     );
