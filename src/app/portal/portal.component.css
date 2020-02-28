@@ -6,8 +6,8 @@
 .btn {
   margin: 10px;
   padding: 6px 12px;
-  background-color: rgb(230, 92, 0) !important;
-  border-color: rgb(230, 92, 0) !important;
+  background-color: rgb(230, 92, 0);
+  border-color: rgb(230, 92, 0);
 }
 
 .btn:click,
@@ -16,8 +16,8 @@
 .btn:active,
 .btn:visited {
   margin: 10px;
-  background-color: rgb(230, 92, 0) !important;
-  border-color: rgb(230, 92, 0) !important;
+  background-color: rgb(230, 92, 0);
+  border-color: rgb(230, 92, 0);
 }
 
 
