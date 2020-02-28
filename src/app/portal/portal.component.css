@@ -12,7 +12,7 @@
 
 .btn:click,
 .btn:hover,
-.btn:focused,
+.btn:focus,
 .btn:active,
 .btn:visited {
   margin: 10px;
