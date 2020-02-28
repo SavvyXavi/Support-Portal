@@ -10,18 +10,21 @@
 
 .btn {
   margin: 10px;
-  background-color: rgb(230, 92, 0) !important;
-  border-color: rgb(230, 92, 0) !important;
+  /* padding: 6px 12px; */
+  color: white;
+  background-color: rgb(230, 92, 0);
+  border-color: rgb(230, 92, 0);
 }
 
-.btn:click,
+.btn:active:focus
 .btn:hover,
-.btn:focused,
+.btn:focus,
 .btn:active,
 .btn:visited {
   margin: 10px;
-  background-color: rgb(230, 92, 0) !important;
-  border-color: rgb(230, 92, 0) !important;
+  color: white;
+  background-color: rgb(230, 92, 0);
+  border-color: rgb(230, 92, 0);
 }
 
   table {
@@ -41,7 +44,7 @@
 
   th,td {
     font-size: medium;
-    text-align: center !important;
+    text-align: center;
     align-items: center;
   }
 
@@ -82,10 +85,6 @@
     background-color: #e6e6e6;
     border-radius: 5px;
   }
-
-  /* .search-form-field div.mat-form-field-underline {
-    display: none;
-  } */
 
   .search-form-field button {
     margin: 0;
