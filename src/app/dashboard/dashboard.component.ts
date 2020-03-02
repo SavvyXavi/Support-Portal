@@ -102,7 +102,7 @@ export class DashboardComponent implements OnInit {
   ticketsChart() {
     if (this.currentProfile.companypartner === 'Partner') {
         switch (this.currentProfile.partner) {
-          case 'Noble1solutions':
+          case 'Noble1Solutions':
             this.filter.nobleTicks()
             .subscribe(
               (returnedTickets: Tickets[]) => {
@@ -347,7 +347,7 @@ export class DashboardComponent implements OnInit {
     let status = [];
     if (this.currentProfile.companypartner === 'Partner') {
           switch (this.currentProfile.partner) {
-            case 'Noble1solutions':
+            case 'Noble1Solutions':
               this.filter.nobleAss()
               .subscribe(
                 (returnedAssets: Assets[]) => {

@@ -7767,7 +7767,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.currentProfile.companypartner === 'Partner') {
             switch (this.currentProfile.partner) {
-              case 'Noble1solutions':
+              case 'Noble1Solutions':
                 this.filter.nobleTicks().subscribe(function (returnedTickets) {
                   _this28.ticketLength = returnedTickets;
                   _this28.ticketStatus = _this28.tickets.map(function (t) {
@@ -7981,7 +7981,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.currentProfile.companypartner === 'Partner') {
             switch (this.currentProfile.partner) {
-              case 'Noble1solutions':
+              case 'Noble1Solutions':
                 this.filter.nobleAss().subscribe(function (returnedAssets) {
                   _this30.assetLength = returnedAssets.length;
                   _this30.assets = returnedAssets;

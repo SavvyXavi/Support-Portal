@@ -4177,7 +4177,7 @@ class DashboardComponent {
     ticketsChart() {
         if (this.currentProfile.companypartner === 'Partner') {
             switch (this.currentProfile.partner) {
-                case 'Noble1solutions':
+                case 'Noble1Solutions':
                     this.filter.nobleTicks()
                         .subscribe((returnedTickets) => {
                         this.ticketLength = returnedTickets;
@@ -4420,7 +4420,7 @@ class DashboardComponent {
         let status = [];
         if (this.currentProfile.companypartner === 'Partner') {
             switch (this.currentProfile.partner) {
-                case 'Noble1solutions':
+                case 'Noble1Solutions':
                     this.filter.nobleAss()
                         .subscribe((returnedAssets) => {
                         this.assetLength = returnedAssets.length;
