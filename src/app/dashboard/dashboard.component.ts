@@ -104,7 +104,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ticketsChart() {
-    if (this.currentProfile.companypartner === 'Partner') {
+    if (this.currentProfile.companypartner === 'Partner' ){
       this.filter.partTicketsFilter(this.currentProfile)
       .subscribe(
         (returnedAssetLength: Tickets[]) => this.ticketLength = returnedAssetLength
