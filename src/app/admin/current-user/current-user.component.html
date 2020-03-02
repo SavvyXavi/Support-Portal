@@ -5,15 +5,10 @@
         All Assets: <button (click)="gettestAssets()">Load assets</button>
         All Tickets: <button (click)="gettestTickets()">Load tickets</button>
   <ul>
-    <li *ngFor="let zipper of datapull">
-      {{zipper.partner}}<br>
-      {{zipper.Identifier}}
-      {{zipper.AssetType}}<br>
-      {{zipper.ContractCoverage}}<br>
-      {{zipper.SiteAddress}}<br>
-      {{zipper.EndCustomer}}<br>
+    <li *ngFor="let zipper of ticketpull">
+      {{zipper.Status}}<br>
+      {{zipper.RefNumber}}<br>
       {{zipper.Schedule}}<br>
-      {{zipper.ScheduleLine}}
     </li>
   </ul>
 </div>
