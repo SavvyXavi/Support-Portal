@@ -698,7 +698,7 @@ class CurrentUserComponent {
     }
     gettestTickets() {
         this.oemService.testTicketPull().subscribe(datapull => {
-            this.ticketpull = datapull;
+            this.ticketpull = datapull = datapull || [];
             this.dpcount = datapull.length;
         });
     }

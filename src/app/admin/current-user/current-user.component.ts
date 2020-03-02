@@ -53,7 +53,7 @@ export class CurrentUserComponent implements OnInit {
   }
   gettestTickets() {
     this.oemService.testTicketPull().subscribe(datapull  => {
-      this.ticketpull = datapull;
+      this.ticketpull = datapull = datapull || [];
       this.dpcount = datapull.length;
       });
   }

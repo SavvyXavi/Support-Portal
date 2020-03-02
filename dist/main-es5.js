@@ -1048,7 +1048,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this5 = this;
 
           this.oemService.testTicketPull().subscribe(function (datapull) {
-            _this5.ticketpull = datapull;
+            _this5.ticketpull = datapull = datapull || [];
             _this5.dpcount = datapull.length;
           });
         }
