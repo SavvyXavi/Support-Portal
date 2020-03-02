@@ -2,7 +2,8 @@
 <div>
   <br><br>
   <h3>{{this.dpcount}}</h3>
-        All Users: <button (click)="gettestAssets()">Load assets</button>
+        All Assets: <button (click)="gettestAssets()">Load assets</button>
+        All Tickets: <button (click)="gettestTickets()">Load tickets</button>
   <ul>
     <li *ngFor="let zipper of datapull">
       {{zipper.partner}}<br>

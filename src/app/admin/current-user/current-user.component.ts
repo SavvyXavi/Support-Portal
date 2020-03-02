@@ -5,6 +5,7 @@ import { AuthenticationService } from 'src/app/index/index/services/authenticati
 import { ProfileService } from './../../index/index/services/profile.service';
 import { DataPull } from '../models/datapull';
 import { first } from 'rxjs/operators';
+import { AssetFilter } from './../models/assetFilter';
 
 @Component({
   selector: 'app-current-user',
@@ -16,6 +17,7 @@ export class CurrentUserComponent implements OnInit {
   profiles: Profile[];
   datapull: DataPull[];
   dpcount: any;
+  ticketArr: AssetFilter[];
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -49,6 +51,18 @@ export class CurrentUserComponent implements OnInit {
       this.dpcount = datapull.length;
       });
   }
-
-
+  gettestTickets() {
+    this.oemService.testDataPull().subscribe(datapull  => {
+      this.datapull = datapull;
+      this.dpcount = datapull.length;
+      });
+  }
+getTickets() {
+  this.oemService.partTicketFilter()
+  .subscribe(
+    (returnedTicket: AssetFilter[]) => {
+      this.ticketArr = returnedTicket;
+    }
+  );
+}
 }
