@@ -15,7 +15,7 @@ export class CurrentUserComponent implements OnInit {
   currentProfile: Profile;
   profiles: Profile[];
   datapull: DataPull[];
-
+  dpcount: any;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -46,6 +46,7 @@ export class CurrentUserComponent implements OnInit {
   gettestAssets() {
     this.oemService.testDataPull().subscribe(datapull  => {
       this.datapull = datapull;
+      this.dpcount = datapull.length;
       });
   }
 

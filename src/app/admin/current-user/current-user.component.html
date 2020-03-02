@@ -1,8 +1,8 @@
 
 <div>
   <br><br>
-  <h3>
-  All Users: <button (click)="gettestAssets()">Load assets</button>
+  <h3>{{this.dpcount}}</h3>
+        All Users: <button (click)="gettestAssets()">Load assets</button>
   <ul>
     <li *ngFor="let zipper of datapull">
       {{zipper.partner}}<br>
@@ -15,6 +15,5 @@
       {{zipper.ScheduleLine}}
     </li>
   </ul>
-</h3>
 </div>
 
