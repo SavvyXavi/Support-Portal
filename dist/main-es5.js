@@ -7979,7 +7979,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           var status = [];
 
-          if (this.currentProfile.companypartner === 'Partner' && (this.currentProfile.partner === 'Noble1solutions' || this.currentProfile.partner === 'Reliant-Technology' || this.currentProfile.partner === 'Relutech')) {
+          if (this.currentProfile.companypartner === 'Partner') {
             switch (this.currentProfile.partner) {
               case 'Noble1solutions':
                 this.filter.nobleAss().subscribe(function (returnedAssets) {

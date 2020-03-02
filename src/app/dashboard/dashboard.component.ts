@@ -348,9 +348,7 @@ export class DashboardComponent implements OnInit {
 
   assetsChart() {
     let status = [];
-    if (this.currentProfile.companypartner === 'Partner' &&
-      (this.currentProfile.partner === 'Noble1solutions' || this.currentProfile.partner === 'Reliant-Technology' ||
-        this.currentProfile.partner === 'Relutech')) {
+    if (this.currentProfile.companypartner === 'Partner') {
           switch (this.currentProfile.partner) {
             case 'Noble1solutions':
               this.filter.nobleAss()
