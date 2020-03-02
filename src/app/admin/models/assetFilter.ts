@@ -9,12 +9,4 @@ export class AssetFilter {
   TimeSinceLastUpdate: string;
   Body: string;
   Schedule: string;
-  CustomerSiteName: string;
-  Identifier: string;
-  AssetType: string;
-  ContractCoverage: string;
-  SiteAddress: string;
-  EndCustomer: string;
-  ScheduleLine: string;
-  Partner: string;
 }

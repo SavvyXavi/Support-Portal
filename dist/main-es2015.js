@@ -712,15 +712,9 @@ class CurrentUserComponent {
         });
     }
     gettestTickets() {
-        this.oemService.testDataPull().subscribe(datapull => {
-            this.datapull = datapull;
+        this.oemService.testTicketPull().subscribe(datapull => {
+            this.ticketpull = datapull;
             this.dpcount = datapull.length;
-        });
-    }
-    getTickets() {
-        this.oemService.partTicketFilter()
-            .subscribe((returnedTicket) => {
-            this.ticketArr = returnedTicket;
         });
     }
 }
@@ -1828,11 +1822,7 @@ class OemService {
     testDataPull() {
         return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/profile`);
     }
-    partAssetsFilter(filter) {
-        const params = {
-            'identifer': filter.Identifier,
-            'partner': filter.Partner
-        };
+    testTicketPull() {
         return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/profile`);
     }
     partTicketFilter() {

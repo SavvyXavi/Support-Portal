@@ -17,7 +17,7 @@ export class CurrentUserComponent implements OnInit {
   profiles: Profile[];
   datapull: DataPull[];
   dpcount: any;
-  ticketArr: AssetFilter[];
+  ticketpull: AssetFilter[];
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -52,17 +52,10 @@ export class CurrentUserComponent implements OnInit {
       });
   }
   gettestTickets() {
-    this.oemService.testDataPull().subscribe(datapull  => {
-      this.datapull = datapull;
+    this.oemService.testTicketPull().subscribe(datapull  => {
+      this.ticketpull = datapull;
       this.dpcount = datapull.length;
       });
   }
-getTickets() {
-  this.oemService.partTicketFilter()
-  .subscribe(
-    (returnedTicket: AssetFilter[]) => {
-      this.ticketArr = returnedTicket;
-    }
-  );
-}
+
 }

@@ -40,13 +40,10 @@ export class OemService {
   testDataPull(): Observable<DataPull[]> {
     return this.http.get<DataPull[]>(`${environment.AssetTest}/profile`);
   }
-  partAssetsFilter(filter: AssetFilter) {
-    const params = {
-      'identifer': filter.Identifier,
-      'partner': filter.Partner
-    };
+  testTicketPull(): Observable<AssetFilter[]> {
     return this.http.get<AssetFilter[]>(`${environment.AssetTest}/profile`);
   }
+
   partTicketFilter() {
     return this.http.get<AssetFilter[]>(`${environment.AssetTest}/profile`);
   }
