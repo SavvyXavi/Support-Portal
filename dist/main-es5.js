@@ -7618,49 +7618,37 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _index_index_services_profile_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../index/index/services/profile.service */
-    "./src/app/index/index/services/profile.service.ts");
-    /* harmony import */
-
-
-    var _services_apifilter_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _services_apifilter_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ./../services/apifilter.service */
     "./src/app/services/apifilter.service.ts");
     /* harmony import */
 
 
-    var _services_dash_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _services_dash_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ./services/dash.service */
     "./src/app/dashboard/services/dash.service.ts");
     /* harmony import */
 
 
-    var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! rxjs/operators */
-    "./node_modules/rxjs/_esm2015/operators/index.js");
-    /* harmony import */
-
-
-    var chart_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var chart_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! chart.js */
     "./node_modules/chart.js/dist/Chart.js");
     /* harmony import */
 
 
-    var chart_js__WEBPACK_IMPORTED_MODULE_6___default =
+    var chart_js__WEBPACK_IMPORTED_MODULE_4___default =
     /*#__PURE__*/
-    __webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_6__);
+    __webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_4__);
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
@@ -7709,13 +7697,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var DashboardComponent =
     /*#__PURE__*/
     function () {
-      function DashboardComponent(authenticationService, profileService, filter, dashServ) {
+      function DashboardComponent(authenticationService, filter, dashServ) {
         var _this25 = this;
 
         _classCallCheck(this, DashboardComponent);
 
         this.authenticationService = authenticationService;
-        this.profileService = profileService;
         this.filter = filter;
         this.dashServ = dashServ;
         this.contractsData = [];
@@ -7734,7 +7721,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.assigned = 0;
         this.inProcess = 0;
         this.closed = 0;
-        this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(function (profile) {
+        this.authenticationService.currentUser.subscribe(function (profile) {
           _this25.currentProfile = profile;
         });
       }
@@ -7778,28 +7765,94 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ticketsChart() {
           var _this28 = this;
 
-          if (this.currentProfile.companypartner === 'Partner') {
-            this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedAssetLength) {
-              return _this28.ticketLength = returnedAssetLength;
-            });
-            this.dashServ.partTicketsFilter(this.currentProfile).subscribe(function (tickets) {
-              _this28.tickets = tickets;
-              _this28.ticketStatus = _this28.tickets.map(function (t) {
-                return t.Status;
-              });
+          if (this.currentProfile.companypartner === 'Partner' && (this.currentProfile.partner === 'Noble1solutions' || this.currentProfile.partner === 'Reliant-Technology' || this.currentProfile.partner === 'Relutech')) {
+            switch (this.currentProfile.partner) {
+              case 'Noble1solutions':
+                this.filter.nobleTicks().subscribe(function (returnedTickets) {
+                  _this28.ticketLength = returnedTickets;
+                  _this28.ticketStatus = _this28.tickets.map(function (t) {
+                    return t.Status;
+                  });
 
-              for (var i = 0; i <= _this28.ticketStatus.length; i++) {
-                if (_this28.ticketStatus[i] === 'New') {
-                  _this28.new++;
-                } else if (_this28.ticketStatus[i] === 'Assigned') {
-                  _this28.assigned++;
-                } else if (_this28.ticketStatus[i] === 'Fixed') {
-                  _this28.closed++;
-                } else {
-                  _this28.inProcess++;
-                }
-              }
-            });
+                  for (var i = 0; i <= _this28.ticketStatus.length; i++) {
+                    if (_this28.ticketStatus[i] === 'New') {
+                      _this28.new++;
+                    } else if (_this28.ticketStatus[i] === 'Assigned') {
+                      _this28.assigned++;
+                    } else if (_this28.ticketStatus[i] === 'Fixed') {
+                      _this28.closed++;
+                    } else {
+                      _this28.inProcess++;
+                    }
+                  }
+                });
+                break;
+
+              case 'Reliant-Technology':
+                this.filter.reliTicks().subscribe(function (returnedTickets) {
+                  _this28.ticketLength = returnedTickets;
+                  _this28.ticketStatus = _this28.tickets.map(function (t) {
+                    return t.Status;
+                  });
+
+                  for (var i = 0; i <= _this28.ticketStatus.length; i++) {
+                    if (_this28.ticketStatus[i] === 'New') {
+                      _this28.new++;
+                    } else if (_this28.ticketStatus[i] === 'Assigned') {
+                      _this28.assigned++;
+                    } else if (_this28.ticketStatus[i] === 'Fixed') {
+                      _this28.closed++;
+                    } else {
+                      _this28.inProcess++;
+                    }
+                  }
+                });
+                break;
+
+              case 'Relutech':
+                this.filter.reluTicks().subscribe(function (returnedTickets) {
+                  _this28.ticketLength = returnedTickets;
+                  _this28.ticketStatus = _this28.tickets.map(function (t) {
+                    return t.Status;
+                  });
+
+                  for (var i = 0; i <= _this28.ticketStatus.length; i++) {
+                    if (_this28.ticketStatus[i] === 'New') {
+                      _this28.new++;
+                    } else if (_this28.ticketStatus[i] === 'Assigned') {
+                      _this28.assigned++;
+                    } else if (_this28.ticketStatus[i] === 'Fixed') {
+                      _this28.closed++;
+                    } else {
+                      _this28.inProcess++;
+                    }
+                  }
+                });
+                break;
+
+              default:
+                this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedTickets) {
+                  return _this28.ticketLength = returnedTickets;
+                });
+                this.dashServ.partTicketsFilter(this.currentProfile).subscribe(function (tickets) {
+                  _this28.tickets = tickets;
+                  _this28.ticketStatus = _this28.tickets.map(function (t) {
+                    return t.Status;
+                  });
+
+                  for (var i = 0; i <= _this28.ticketStatus.length; i++) {
+                    if (_this28.ticketStatus[i] === 'New') {
+                      _this28.new++;
+                    } else if (_this28.ticketStatus[i] === 'Assigned') {
+                      _this28.assigned++;
+                    } else if (_this28.ticketStatus[i] === 'Fixed') {
+                      _this28.closed++;
+                    } else {
+                      _this28.inProcess++;
+                    }
+                  }
+                });
+            }
           } else {
             this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTicketLength) {
               return _this28.ticketLength = returnedTicketLength;
@@ -7829,8 +7882,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function contractsChart() {
           var _this29 = this;
 
-          var status = [];
-
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partConFilter(this.currentProfile).subscribe(function (returnedCons) {
               _this29.contractLength = returnedCons.length;
@@ -7854,7 +7905,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }
               }
 
-              _this29.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('contracts', {
+              _this29.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('contracts', {
                 type: 'pie',
                 data: {
                   datasets: [{
@@ -7905,7 +7956,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }
               }
 
-              _this29.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('contracts', {
+              _this29.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('contracts', {
                 type: 'pie',
                 data: {
                   datasets: [{
@@ -7928,40 +7979,151 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           var status = [];
 
-          if (this.currentProfile.companypartner === 'Partner') {
-            this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
-              _this30.assetLength = returnedAssets.length;
-              _this30.assets = returnedAssets;
-              status = _this30.assets.map(function (asset) {
-                return asset.ContractCoverage;
-              });
+          if (this.currentProfile.companypartner === 'Partner' && (this.currentProfile.partner === 'Noble1solutions' || this.currentProfile.partner === 'Reliant-Technology' || this.currentProfile.partner === 'Relutech')) {
+            switch (this.currentProfile.partner) {
+              case 'Noble1solutions':
+                this.filter.nobleAss().subscribe(function (returnedAssets) {
+                  _this30.assetLength = returnedAssets.length;
+                  _this30.assets = returnedAssets;
+                  status = _this30.assets.map(function (asset) {
+                    return asset.ContractCoverage;
+                  });
 
-              for (var i = 0; i <= status.length; i++) {
-                if (status[i] === 'Active') {
-                  _this30.active++;
-                } else if (status[i] === 'Terminated') {
-                  _this30.terminated++;
-                } else if (status[i] === 'Unmapped') {
-                  _this30.unmapped++;
-                } else if (status[i] === 'Yet to Start') {
-                  _this30.yetToStart++;
-                }
-              }
+                  for (var i = 0; i <= status.length; i++) {
+                    if (status[i] === 'Active') {
+                      _this30.active++;
+                    } else if (status[i] === 'Terminated') {
+                      _this30.terminated++;
+                    } else if (status[i] === 'Unmapped') {
+                      _this30.unmapped++;
+                    } else if (status[i] === 'Yet to Start') {
+                      _this30.yetToStart++;
+                    }
+                  }
 
-              _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('assets', {
-                type: 'pie',
-                data: {
-                  datasets: [{
-                    label: 'Asset Status',
-                    data: [_this30.active, _this30.terminated, _this30.unmapped, _this30.yetToStart],
-                    backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
-                    borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
-                    borderWidth: 1
-                  }]
-                },
-                options: {}
-              });
-            });
+                  _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                    type: 'pie',
+                    data: {
+                      datasets: [{
+                        label: 'Asset Status',
+                        data: [_this30.active, _this30.terminated, _this30.unmapped, _this30.yetToStart],
+                        backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                        borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                        borderWidth: 1
+                      }]
+                    },
+                    options: {}
+                  });
+                });
+                break;
+
+              case 'Reliant-Technology':
+                this.filter.reliAss().subscribe(function (returnedAssets) {
+                  _this30.assetLength = returnedAssets.length;
+                  _this30.assets = returnedAssets;
+                  status = _this30.assets.map(function (asset) {
+                    return asset.ContractCoverage;
+                  });
+
+                  for (var i = 0; i <= status.length; i++) {
+                    if (status[i] === 'Active') {
+                      _this30.active++;
+                    } else if (status[i] === 'Terminated') {
+                      _this30.terminated++;
+                    } else if (status[i] === 'Unmapped') {
+                      _this30.unmapped++;
+                    } else if (status[i] === 'Yet to Start') {
+                      _this30.yetToStart++;
+                    }
+                  }
+
+                  _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                    type: 'pie',
+                    data: {
+                      datasets: [{
+                        label: 'Asset Status',
+                        data: [_this30.active, _this30.terminated, _this30.unmapped, _this30.yetToStart],
+                        backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                        borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                        borderWidth: 1
+                      }]
+                    },
+                    options: {}
+                  });
+                });
+                break;
+
+              case 'Relutech':
+                this.filter.reluAss().subscribe(function (returnedAssets) {
+                  _this30.assetLength = returnedAssets.length;
+                  _this30.assets = returnedAssets;
+                  status = _this30.assets.map(function (asset) {
+                    return asset.ContractCoverage;
+                  });
+
+                  for (var i = 0; i <= status.length; i++) {
+                    if (status[i] === 'Active') {
+                      _this30.active++;
+                    } else if (status[i] === 'Terminated') {
+                      _this30.terminated++;
+                    } else if (status[i] === 'Unmapped') {
+                      _this30.unmapped++;
+                    } else if (status[i] === 'Yet to Start') {
+                      _this30.yetToStart++;
+                    }
+                  }
+
+                  _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                    type: 'pie',
+                    data: {
+                      datasets: [{
+                        label: 'Asset Status',
+                        data: [_this30.active, _this30.terminated, _this30.unmapped, _this30.yetToStart],
+                        backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                        borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                        borderWidth: 1
+                      }]
+                    },
+                    options: {}
+                  });
+                });
+                break;
+
+              default:
+                this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
+                  _this30.assetLength = returnedAssets.length;
+                  _this30.assets = returnedAssets;
+                  status = _this30.assets.map(function (asset) {
+                    return asset.ContractCoverage;
+                  });
+
+                  for (var i = 0; i <= status.length; i++) {
+                    if (status[i] === 'Active') {
+                      _this30.active++;
+                    } else if (status[i] === 'Terminated') {
+                      _this30.terminated++;
+                    } else if (status[i] === 'Unmapped') {
+                      _this30.unmapped++;
+                    } else if (status[i] === 'Yet to Start') {
+                      _this30.yetToStart++;
+                    }
+                  }
+
+                  _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                    type: 'pie',
+                    data: {
+                      datasets: [{
+                        label: 'Asset Status',
+                        data: [_this30.active, _this30.terminated, _this30.unmapped, _this30.yetToStart],
+                        backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                        borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                        borderWidth: 1
+                      }]
+                    },
+                    options: {}
+                  });
+                });
+            }
           } else {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
               _this30.assetLength = returnedAssets.length;
@@ -7982,7 +8144,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }
               }
 
-              _this30.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_6__["Chart"]('assets', {
+              _this30.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
                 type: 'pie',
                 data: {
                   datasets: [{
@@ -7998,22 +8160,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
           }
         }
-      }, {
-        key: "loadAllUsers",
-        value: function loadAllUsers() {
-          var _this31 = this;
-
-          this.profileService.getAll().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])()).subscribe(function (profile) {
-            _this31.profiles = profile;
-          });
-        }
       }]);
 
       return DashboardComponent;
     }();
 
     DashboardComponent.ɵfac = function DashboardComponent_Factory(t) {
-      return new (t || DashboardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_1__["AuthenticationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_index_services_profile_service__WEBPACK_IMPORTED_MODULE_2__["ProfileService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_apifilter_service__WEBPACK_IMPORTED_MODULE_3__["ApifilterService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_dash_service__WEBPACK_IMPORTED_MODULE_4__["DashService"]));
+      return new (t || DashboardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_1__["AuthenticationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_apifilter_service__WEBPACK_IMPORTED_MODULE_2__["ApifilterService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_dash_service__WEBPACK_IMPORTED_MODULE_3__["DashService"]));
     };
 
     DashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -8823,7 +8976,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.inProcess);
         }
       },
-      directives: [_angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterLinkWithHref"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["NgIf"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterLink"]],
+      directives: [_angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterLinkWithHref"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterLink"]],
       styles: [".container-fluid[_ngcontent-%COMP%] {\n  padding: 0 75px 30px 0px;\n}\n\n.col-md[_ngcontent-%COMP%] {\n  margin-bottom: 15px;\n  margin-top: 15px;\n}\n\n.tabs[_ngcontent-%COMP%]{\n  background-color: #d9d9d9;\n  margin: 0;\n  padding: 0;\n  margin-top: 10px;\n}\n\n.total-container[_ngcontent-%COMP%] {\n  background-color: white;\n  border-radius: 8px;\n  margin: 15px;\n  font-size: 32px;\n  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);\n  color: black;\n}\n\na[_ngcontent-%COMP%] {\n  text-decoration: none;\n}\n\na[_ngcontent-%COMP%]   .contract-length[_ngcontent-%COMP%], .contract-label[_ngcontent-%COMP%]{\n color: black;\n text-decoration: none;\n}\n\n.contract-content[_ngcontent-%COMP%] {\n  overflow: hidden;\n  color: black;\n}\n\n.contracts-container[_ngcontent-%COMP%] {\n  padding-right: 0;\n  padding-bottom: 0;\n  overflow: hidden;\n}\n\n.contract-logo[_ngcontent-%COMP%]{\n  opacity: .3;\n  position: relative;\n  left: 8px;\n  top: 10px;\n}\n\n.contract-icon[_ngcontent-%COMP%] {\n  width: 128px !important;\n  height: 128px !important;\n}\n\na[_ngcontent-%COMP%]   .asset-length[_ngcontent-%COMP%], .asset-label[_ngcontent-%COMP%]{\n  color: black;\n  text-decoration: none;\n }\n\n.asset-content[_ngcontent-%COMP%] {\n   overflow: hidden;\n   color: black;\n }\n\n.assets-container[_ngcontent-%COMP%] {\n   padding-right: 0;\n   padding-bottom: 0;\n   overflow: hidden;\n  }\n\n.asset-logo[_ngcontent-%COMP%]{\n   opacity: .3;\n   position: relative;\n   left: 8px;\n   top: 10px;\n }\n\n.asset-icon[_ngcontent-%COMP%] {\n  width: 128px !important;\n  height: 128px !important;\n }\n\na[_ngcontent-%COMP%]   .ticket-length[_ngcontent-%COMP%], .ticket-label[_ngcontent-%COMP%]{\n  color: black;\n  text-decoration: none;\n }\n\n.ticket-content[_ngcontent-%COMP%] {\n   overflow: hidden;\n   color: black;\n }\n\n.tickets-container[_ngcontent-%COMP%] {\n   padding-right: 0;\n   padding-bottom: 0;\n   overflow: hidden;\n }\n\n.ticket-logo[_ngcontent-%COMP%]{\n   opacity: .3;\n   position: relative;\n   left: 20px;\n   top: 10px;\n }\n\n.ticket-icon[_ngcontent-%COMP%] {\n  width: 130px !important;\n  height: 130px !important;\n }\n\na[_ngcontent-%COMP%]   .companies-length[_ngcontent-%COMP%], .companies-label[_ngcontent-%COMP%]{\n  color: black;\n  text-decoration: none;\n }\n\n.companies-content[_ngcontent-%COMP%] {\n   overflow: hidden;\n   color: black;\n }\n\n.companies-container[_ngcontent-%COMP%] {\n   padding-right: 0;\n   padding-bottom: 0;\n   overflow: hidden;\n }\n\n.company-logo[_ngcontent-%COMP%]{\n  opacity: .3;\n  position: relative;\n  left: 8px;\n  top: 10px;\n}\n\n.company-icon[_ngcontent-%COMP%] {\n  width: 128px !important;\n  height: 128px !important;\n}\n\n.ticket-logo[_ngcontent-%COMP%]{\n   opacity: .2;\n   position: relative;\n   left: 20px;\n   top: 15px;\n }\n\n.users-container[_ngcontent-%COMP%] {\n  padding-right: 0;\n}\n\n.users-content[_ngcontent-%COMP%] {\n  overflow: hidden;\n  Padding-left: 15;\n  color: black;\n}\n\n.users-content[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{\n  opacity: .2;\n  position: relative;\n  top: 20px;\n  left: 50px;\n}\n\n.locations-container[_ngcontent-%COMP%] {\n  Padding-right: 0;\n}\n\n.locations-content[_ngcontent-%COMP%] {\n  overflow: hidden;\n  color: black;\n}\n\n.locations-content[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{\n  opacity: .2;\n  position: relative;\n  top: 20px;\n  left: 60px;\n}\n\n.contracts-wrapper[_ngcontent-%COMP%] {\n  background: white;\n  border-radius: 8px;\n}\n\n.badge[_ngcontent-%COMP%] {\n  width: 15px;\n  height: 15px;\n  color: white;\n}\n\n.badge-table[_ngcontent-%COMP%] {\n  width: 30px !important;\n  padding-bottom: 3px;\n}\n\np[_ngcontent-%COMP%] {\n  display: none;\n}\n\n.badge-now[_ngcontent-%COMP%] {\n  background-color: rgba(255, 0, 0, 1);\n  text-align: center;\n}\n\n.badge-15[_ngcontent-%COMP%] {\n  background-color: rgba(54, 162, 235, 1);\n}\n\n.badge-30[_ngcontent-%COMP%] {\n  background-color: rgba(255, 206, 86, 1);\n}\n\n.badge-60[_ngcontent-%COMP%] {\n  background-color: rgba(75, 192, 192, 1);\n}\n\n.badge-90[_ngcontent-%COMP%] {\n  background-color: rgba(153, 102, 255, 1);\n}\n\n.badge-plus[_ngcontent-%COMP%] {\n  background-color: rgba(255, 159, 64, 1);\n}\n\n.badge-active[_ngcontent-%COMP%] {\n  background-color: rgba(255, 0, 0, 1);\n  text-align: center;\n}\n\n.badge-terminated[_ngcontent-%COMP%] {\n  background-color: rgba(54, 162, 235, 1);\n}\n\n.badge-unmapped[_ngcontent-%COMP%] {\n  background-color: rgba(255, 206, 86, 1);\n}\n\n.badge-yetToStart[_ngcontent-%COMP%] {\n  background-color: rgba(75, 192, 192, 1);\n}\n\n.assets-wrapper[_ngcontent-%COMP%] {\n  background: white;\n  border-radius: 8px;\n}\n\n.tickets-wrapper[_ngcontent-%COMP%] {\n  background: white;\n  border-radius: 8px;\n}\n\n.view-wrapper[_ngcontent-%COMP%] {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usd0JBQXdCO0FBQzFCOztBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixTQUFTO0VBQ1QsVUFBVTtFQUNWLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLHVCQUF1QjtFQUN2QixrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLGVBQWU7RUFDZix5RUFBeUU7RUFDekUsWUFBWTtBQUNkOztBQUVBO0VBQ0UscUJBQXFCO0FBQ3ZCOztBQUVBO0NBQ0MsWUFBWTtDQUNaLHFCQUFxQjtBQUN0Qjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsU0FBUztFQUNULFNBQVM7QUFDWDs7QUFFQTtFQUNFLHVCQUF1QjtFQUN2Qix3QkFBd0I7QUFDMUI7O0FBRUE7RUFDRSxZQUFZO0VBQ1oscUJBQXFCO0NBQ3RCOztBQUVBO0dBQ0UsZ0JBQWdCO0dBQ2hCLFlBQVk7Q0FDZDs7QUFFQTtHQUNFLGdCQUFnQjtHQUNoQixpQkFBaUI7R0FDakIsZ0JBQWdCO0VBQ2pCOztBQUVEO0dBQ0UsV0FBVztHQUNYLGtCQUFrQjtHQUNsQixTQUFTO0dBQ1QsU0FBUztDQUNYOztBQUVBO0VBQ0MsdUJBQXVCO0VBQ3ZCLHdCQUF3QjtDQUN6Qjs7QUFFRDtFQUNFLFlBQVk7RUFDWixxQkFBcUI7Q0FDdEI7O0FBRUE7R0FDRSxnQkFBZ0I7R0FDaEIsWUFBWTtDQUNkOztBQUVBO0dBQ0UsZ0JBQWdCO0dBQ2hCLGlCQUFpQjtHQUNqQixnQkFBZ0I7Q0FDbEI7O0FBRUE7R0FDRSxXQUFXO0dBQ1gsa0JBQWtCO0dBQ2xCLFVBQVU7R0FDVixTQUFTO0NBQ1g7O0FBRUE7RUFDQyx1QkFBdUI7RUFDdkIsd0JBQXdCO0NBQ3pCOztBQUVBO0VBQ0MsWUFBWTtFQUNaLHFCQUFxQjtDQUN0Qjs7QUFFQTtHQUNFLGdCQUFnQjtHQUNoQixZQUFZO0NBQ2Q7O0FBRUE7R0FDRSxnQkFBZ0I7R0FDaEIsaUJBQWlCO0dBQ2pCLGdCQUFnQjtDQUNsQjs7QUFFQTtFQUNDLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsU0FBUztFQUNULFNBQVM7QUFDWDs7QUFFQztFQUNDLHVCQUF1QjtFQUN2Qix3QkFBd0I7QUFDMUI7O0FBRUM7R0FDRSxXQUFXO0dBQ1gsa0JBQWtCO0dBQ2xCLFVBQVU7R0FDVixTQUFTO0NBQ1g7O0FBRUQ7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsU0FBUztFQUNULFVBQVU7QUFDWjs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLFNBQVM7RUFDVCxVQUFVO0FBQ1o7O0FBR0E7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsV0FBVztFQUNYLFlBQVk7RUFDWixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxzQkFBc0I7RUFDdEIsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0Usb0NBQW9DO0VBQ3BDLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLHVDQUF1QztBQUN6Qzs7QUFFQTtFQUNFLHVDQUF1QztBQUN6Qzs7QUFFQTtFQUNFLHVDQUF1QztBQUN6Qzs7QUFFQTtFQUNFLHdDQUF3QztBQUMxQzs7QUFFQTtFQUNFLHVDQUF1QztBQUN6Qzs7QUFFQTtFQUNFLG9DQUFvQztFQUNwQyxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSx1Q0FBdUM7QUFDekM7O0FBRUE7RUFDRSx1Q0FBdUM7QUFDekM7O0FBRUE7RUFDRSx1Q0FBdUM7QUFDekM7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGtCQUFrQjtBQUNwQiIsImZpbGUiOiJzcmMvYXBwL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXItZmx1aWQge1xuICBwYWRkaW5nOiAwIDc1cHggMzBweCAwcHg7XG59XG5cbi5jb2wtbWQge1xuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xuICBtYXJnaW4tdG9wOiAxNXB4O1xufVxuXG4udGFic3tcbiAgYmFja2dyb3VuZC1jb2xvcjogI2Q5ZDlkOTtcbiAgbWFyZ2luOiAwO1xuICBwYWRkaW5nOiAwO1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuXG4udG90YWwtY29udGFpbmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XG4gIGJvcmRlci1yYWRpdXM6IDhweDtcbiAgbWFyZ2luOiAxNXB4O1xuICBmb250LXNpemU6IDMycHg7XG4gIGJveC1zaGFkb3c6IDAgMCA4cHggMCByZ2JhKDAsIDAsIDAsIDAuMTUpLCAwIDAgMjBweCAwIHJnYmEoMCwgMCwgMCwgMC4xMik7XG4gIGNvbG9yOiBibGFjaztcbn1cblxuYSB7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbn1cblxuYSAuY29udHJhY3QtbGVuZ3RoLCAuY29udHJhY3QtbGFiZWx7XG4gY29sb3I6IGJsYWNrO1xuIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbn1cblxuLmNvbnRyYWN0LWNvbnRlbnQge1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBjb2xvcjogYmxhY2s7XG59XG5cbi5jb250cmFjdHMtY29udGFpbmVyIHtcbiAgcGFkZGluZy1yaWdodDogMDtcbiAgcGFkZGluZy1ib3R0b206IDA7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi5jb250cmFjdC1sb2dve1xuICBvcGFjaXR5OiAuMztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBsZWZ0OiA4cHg7XG4gIHRvcDogMTBweDtcbn1cblxuLmNvbnRyYWN0LWljb24ge1xuICB3aWR0aDogMTI4cHggIWltcG9ydGFudDtcbiAgaGVpZ2h0OiAxMjhweCAhaW1wb3J0YW50O1xufVxuXG5hIC5hc3NldC1sZW5ndGgsIC5hc3NldC1sYWJlbHtcbiAgY29sb3I6IGJsYWNrO1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gfVxuXG4gLmFzc2V0LWNvbnRlbnQge1xuICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgIGNvbG9yOiBibGFjaztcbiB9XG5cbiAuYXNzZXRzLWNvbnRhaW5lciB7XG4gICBwYWRkaW5nLXJpZ2h0OiAwO1xuICAgcGFkZGluZy1ib3R0b206IDA7XG4gICBvdmVyZmxvdzogaGlkZGVuO1xuICB9XG5cbiAuYXNzZXQtbG9nb3tcbiAgIG9wYWNpdHk6IC4zO1xuICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgbGVmdDogOHB4O1xuICAgdG9wOiAxMHB4O1xuIH1cblxuIC5hc3NldC1pY29uIHtcbiAgd2lkdGg6IDEyOHB4ICFpbXBvcnRhbnQ7XG4gIGhlaWdodDogMTI4cHggIWltcG9ydGFudDtcbiB9XG5cbmEgLnRpY2tldC1sZW5ndGgsIC50aWNrZXQtbGFiZWx7XG4gIGNvbG9yOiBibGFjaztcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuIH1cblxuIC50aWNrZXQtY29udGVudCB7XG4gICBvdmVyZmxvdzogaGlkZGVuO1xuICAgY29sb3I6IGJsYWNrO1xuIH1cblxuIC50aWNrZXRzLWNvbnRhaW5lciB7XG4gICBwYWRkaW5nLXJpZ2h0OiAwO1xuICAgcGFkZGluZy1ib3R0b206IDA7XG4gICBvdmVyZmxvdzogaGlkZGVuO1xuIH1cblxuIC50aWNrZXQtbG9nb3tcbiAgIG9wYWNpdHk6IC4zO1xuICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgbGVmdDogMjBweDtcbiAgIHRvcDogMTBweDtcbiB9XG5cbiAudGlja2V0LWljb24ge1xuICB3aWR0aDogMTMwcHggIWltcG9ydGFudDtcbiAgaGVpZ2h0OiAxMzBweCAhaW1wb3J0YW50O1xuIH1cblxuIGEgLmNvbXBhbmllcy1sZW5ndGgsIC5jb21wYW5pZXMtbGFiZWx7XG4gIGNvbG9yOiBibGFjaztcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuIH1cblxuIC5jb21wYW5pZXMtY29udGVudCB7XG4gICBvdmVyZmxvdzogaGlkZGVuO1xuICAgY29sb3I6IGJsYWNrO1xuIH1cblxuIC5jb21wYW5pZXMtY29udGFpbmVyIHtcbiAgIHBhZGRpbmctcmlnaHQ6IDA7XG4gICBwYWRkaW5nLWJvdHRvbTogMDtcbiAgIG92ZXJmbG93OiBoaWRkZW47XG4gfVxuXG4gLmNvbXBhbnktbG9nb3tcbiAgb3BhY2l0eTogLjM7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgbGVmdDogOHB4O1xuICB0b3A6IDEwcHg7XG59XG5cbiAuY29tcGFueS1pY29uIHtcbiAgd2lkdGg6IDEyOHB4ICFpbXBvcnRhbnQ7XG4gIGhlaWdodDogMTI4cHggIWltcG9ydGFudDtcbn1cblxuIC50aWNrZXQtbG9nb3tcbiAgIG9wYWNpdHk6IC4yO1xuICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgbGVmdDogMjBweDtcbiAgIHRvcDogMTVweDtcbiB9XG5cbi51c2Vycy1jb250YWluZXIge1xuICBwYWRkaW5nLXJpZ2h0OiAwO1xufVxuXG4udXNlcnMtY29udGVudCB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIFBhZGRpbmctbGVmdDogMTU7XG4gIGNvbG9yOiBibGFjaztcbn1cblxuLnVzZXJzLWNvbnRlbnQgaW1ne1xuICBvcGFjaXR5OiAuMjtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IDIwcHg7XG4gIGxlZnQ6IDUwcHg7XG59XG5cbi5sb2NhdGlvbnMtY29udGFpbmVyIHtcbiAgUGFkZGluZy1yaWdodDogMDtcbn1cblxuLmxvY2F0aW9ucy1jb250ZW50IHtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgY29sb3I6IGJsYWNrO1xufVxuXG4ubG9jYXRpb25zLWNvbnRlbnQgaW1ne1xuICBvcGFjaXR5OiAuMjtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IDIwcHg7XG4gIGxlZnQ6IDYwcHg7XG59XG5cblxuLmNvbnRyYWN0cy13cmFwcGVyIHtcbiAgYmFja2dyb3VuZDogd2hpdGU7XG4gIGJvcmRlci1yYWRpdXM6IDhweDtcbn1cblxuLmJhZGdlIHtcbiAgd2lkdGg6IDE1cHg7XG4gIGhlaWdodDogMTVweDtcbiAgY29sb3I6IHdoaXRlO1xufVxuXG4uYmFkZ2UtdGFibGUge1xuICB3aWR0aDogMzBweCAhaW1wb3J0YW50O1xuICBwYWRkaW5nLWJvdHRvbTogM3B4O1xufVxuXG5wIHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmJhZGdlLW5vdyB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAwLCAwLCAxKTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4uYmFkZ2UtMTUge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDU0LCAxNjIsIDIzNSwgMSk7XG59XG5cbi5iYWRnZS0zMCB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAyMDYsIDg2LCAxKTtcbn1cblxuLmJhZGdlLTYwIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSg3NSwgMTkyLCAxOTIsIDEpO1xufVxuXG4uYmFkZ2UtOTAge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDE1MywgMTAyLCAyNTUsIDEpO1xufVxuXG4uYmFkZ2UtcGx1cyB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAxNTksIDY0LCAxKTtcbn1cblxuLmJhZGdlLWFjdGl2ZSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAwLCAwLCAxKTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4uYmFkZ2UtdGVybWluYXRlZCB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoNTQsIDE2MiwgMjM1LCAxKTtcbn1cblxuLmJhZGdlLXVubWFwcGVkIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsIDIwNiwgODYsIDEpO1xufVxuXG4uYmFkZ2UteWV0VG9TdGFydCB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoNzUsIDE5MiwgMTkyLCAxKTtcbn1cblxuLmFzc2V0cy13cmFwcGVyIHtcbiAgYmFja2dyb3VuZDogd2hpdGU7XG4gIGJvcmRlci1yYWRpdXM6IDhweDtcbn1cblxuLnRpY2tldHMtd3JhcHBlciB7XG4gIGJhY2tncm91bmQ6IHdoaXRlO1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG59XG5cbi52aWV3LXdyYXBwZXIge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbiJdfQ== */"]
     });
     /*@__PURE__*/
@@ -8840,11 +8993,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         return [{
           type: _index_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_1__["AuthenticationService"]
         }, {
-          type: _index_index_services_profile_service__WEBPACK_IMPORTED_MODULE_2__["ProfileService"]
+          type: _services_apifilter_service__WEBPACK_IMPORTED_MODULE_2__["ApifilterService"]
         }, {
-          type: _services_apifilter_service__WEBPACK_IMPORTED_MODULE_3__["ApifilterService"]
-        }, {
-          type: _services_dash_service__WEBPACK_IMPORTED_MODULE_4__["DashService"]
+          type: _services_dash_service__WEBPACK_IMPORTED_MODULE_3__["DashService"]
         }];
       }, null);
     })();
@@ -8998,7 +9149,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function HeaderComponent(router, authenticationService) {
-        var _this32 = this;
+        var _this31 = this;
 
         _classCallCheck(this, HeaderComponent);
 
@@ -9007,7 +9158,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.title = 'Support Portal';
         this.logoList = _logo_list__WEBPACK_IMPORTED_MODULE_3__["LogoList"];
         this.authenticationService.currentUser.subscribe(function (name) {
-          _this32.currentProfile = name;
+          _this31.currentProfile = name;
         }); // this.logo = this.displayLo.Logo;
       }
 
@@ -9026,12 +9177,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "displayLogo",
         value: function displayLogo() {
-          var _this33 = this;
+          var _this32 = this;
 
           return this.displayLo = this.logoList.find(function (x) {
             var _a;
 
-            return x.CompanyName === ((_a = _this33.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
+            return x.CompanyName === ((_a = _this32.currentProfile) === null || _a === void 0 ? void 0 : _a.partner);
           });
         }
       }]);
@@ -9567,10 +9718,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AlertComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this34 = this;
+          var _this33 = this;
 
           this.subcscription = this.alertService.getMessage().subscribe(function (message) {
-            _this34.message = message;
+            _this33.message = message;
           });
         }
       }, {
@@ -9715,21 +9866,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this35 = this;
+          var _this34 = this;
 
           //    console.log(this.forgotForm)
           if (this.forgotForm.valid) {
             this.IsvalidForm = true;
             this.authenticationService.requestForgotPassword(this.forgotForm.value).subscribe(function (data) {
-              _this35.forgotForm.reset();
+              _this34.forgotForm.reset();
 
-              _this35.successMessage = 'Forgot password link sent to email sucessfully.';
+              _this34.successMessage = 'Forgot password link sent to email sucessfully.';
 
-              _this35.alertService.success('We have just sent you a link to reset password', true);
+              _this34.alertService.success('We have just sent you a link to reset password', true);
 
-              _this35.router.navigate(['login']);
+              _this34.router.navigate(['login']);
             }, function (err) {
-              _this35.alertService.error(err);
+              _this34.alertService.error(err);
             });
           } else {
             this.IsvalidForm = false;
@@ -9991,12 +10142,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ErrorInterceptor, [{
         key: "intercept",
         value: function intercept(request, next) {
-          var _this36 = this;
+          var _this35 = this;
 
           return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (err) {
             if (err.status === 401) {
               // auto-logout if 401 response returned from api
-              _this36.authenticationService.logout();
+              _this35.authenticationService.logout();
 
               location.reload(true);
             }
@@ -10418,7 +10569,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this37 = this;
+          var _this36 = this;
 
           this.submitted = true;
 
@@ -10428,11 +10579,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.loading = true;
           this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])()).subscribe(function (data) {
-            _this37.router.navigate(['/portal/dashboard']);
+            _this36.router.navigate(['/portal/dashboard']);
           }, function (error) {
-            _this37.alertService.error(error);
+            _this36.alertService.error(error);
 
-            _this37.loading = false;
+            _this36.loading = false;
           });
         }
       }, {
@@ -11020,7 +11171,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ResetComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this38 = this;
+          var _this37 = this;
 
           this.resetPasswordForm = this.formBuilder.group({
             // password:  ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$') ]],
@@ -11034,19 +11185,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.authService.validResetToken({
             resetToken: resetToken
           }).subscribe(function (data) {
-            _this38.validToken = true;
-            _this38.errorMessage = '';
+            _this37.validToken = true;
+            _this37.errorMessage = '';
           }, function (err) {
-            _this38.validToken = false;
+            _this37.validToken = false;
 
-            _this38.alertService.error(err);
+            _this37.alertService.error(err);
           });
         } // convenience getter for easy access to form fields
 
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this39 = this;
+          var _this38 = this;
 
           this.submitted = true;
 
@@ -11059,15 +11210,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             params: this.resetPasswordForm.value,
             token: this.route.snapshot.queryParams['token']
           }).subscribe(function (data) {
-            _this39.alertService.success('Password reset successful', true);
+            _this38.alertService.success('Password reset successful', true);
 
-            _this39.loading = false;
+            _this38.loading = false;
 
-            _this39.router.navigate(['/login']);
+            _this38.router.navigate(['/login']);
           }, function (error) {
-            _this39.alertService.error(error);
+            _this38.alertService.error(error);
 
-            _this39.loading = false;
+            _this38.loading = false;
           });
         }
       }, {
@@ -11174,7 +11325,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function AlertService(router) {
-        var _this40 = this;
+        var _this39 = this;
 
         _classCallCheck(this, AlertService);
 
@@ -11183,10 +11334,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.keepAfterNavigationChange = false;
         router.events.subscribe(function (event) {
           if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationStart"]) {
-            if (_this40.keepAfterNavigationChange) {
-              _this40.keepAfterNavigationChange = false;
+            if (_this39.keepAfterNavigationChange) {
+              _this39.keepAfterNavigationChange = false;
             } else {
-              _this40.subject.next();
+              _this39.subject.next();
             }
           }
         });
@@ -11313,7 +11464,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AuthenticationService, [{
         key: "login",
         value: function login(username, password) {
-          var _this41 = this;
+          var _this40 = this;
 
           return this.http.post("".concat(src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].serverUrl, "/profile/authenticate"), {
             username: username,
@@ -11331,7 +11482,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               };
               localStorage.setItem('currentUser', JSON.stringify(saveInfo));
 
-              _this41.currentUserSubject.next(profile);
+              _this40.currentUserSubject.next(profile);
             }
 
             return profile;
@@ -12671,7 +12822,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function LocationDetailsComponent(location, route, router, filter, authserv) {
-        var _this42 = this;
+        var _this41 = this;
 
         _classCallCheck(this, LocationDetailsComponent);
 
@@ -12683,7 +12834,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.assetDisplayedColumns = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
         this.ticketDisplayedColumns = ['Case#', 'Name', 'Status', 'Description', 'Schedule', 'Asset ID', 'Customer', 'Update Date', 'Update Since'];
         this.authserv.currentUser.subscribe(function (profile) {
-          return _this42.currentProfile = profile;
+          return _this41.currentProfile = profile;
         });
       }
 
@@ -12695,25 +12846,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getLocation",
         value: function getLocation() {
-          var _this43 = this;
+          var _this42 = this;
 
           var description = this.route.snapshot.paramMap.get('description');
           this.filter.locationFilter(description).subscribe(function (returnedLocation) {
-            _this43.specLocation = returnedLocation;
-            var siteAddress = description + ' - ' + _this43.specLocation[0].Address1 + ', ' + _this43.specLocation[0].Town + ', ' + _this43.specLocation[0].County + ', ' + _this43.specLocation[0].Postcode + ', ' + _this43.specLocation[0].Country;
+            _this42.specLocation = returnedLocation;
+            var siteAddress = description + ' - ' + _this42.specLocation[0].Address1 + ', ' + _this42.specLocation[0].Town + ', ' + _this42.specLocation[0].County + ', ' + _this42.specLocation[0].Postcode + ', ' + _this42.specLocation[0].Country;
 
-            _this43.filter.assetsByLocation(siteAddress).subscribe(function (returnedAssets) {
-              _this43.assetLocationLength = returnedAssets;
-              _this43.assetLocationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAssets);
-              _this43.assetLocationDataSource.sort = _this43.sort;
-              _this43.assetLocationDataSource.paginator = _this43.paginator;
+            _this42.filter.assetsByLocation(siteAddress).subscribe(function (returnedAssets) {
+              _this42.assetLocationLength = returnedAssets;
+              _this42.assetLocationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAssets);
+              _this42.assetLocationDataSource.sort = _this42.sort;
+              _this42.assetLocationDataSource.paginator = _this42.paginator;
             });
 
-            _this43.filter.ticketsLocationFilter(siteAddress).subscribe(function (returnedTickets) {
-              _this43.ticketLocationLength = returnedTickets;
-              _this43.ticketLocationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedTickets);
-              _this43.ticketLocationDataSource.sort = _this43.sort;
-              _this43.ticketLocationDataSource.paginator = _this43.paginator;
+            _this42.filter.ticketsLocationFilter(siteAddress).subscribe(function (returnedTickets) {
+              _this42.ticketLocationLength = returnedTickets;
+              _this42.ticketLocationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedTickets);
+              _this42.ticketLocationDataSource.sort = _this42.sort;
+              _this42.ticketLocationDataSource.paginator = _this42.paginator;
             });
           });
         }
@@ -13300,7 +13451,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function LocationsTableComponent(filter, authserv) {
-        var _this44 = this;
+        var _this43 = this;
 
         _classCallCheck(this, LocationsTableComponent);
 
@@ -13308,7 +13459,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.authserv = authserv;
         this.displayedColumns = ['Description', 'Street', 'City', 'Zip Code', 'Country', 'Company'];
         this.authserv.currentUser.subscribe(function (profile) {
-          return _this44.currentProfile = profile;
+          return _this43.currentProfile = profile;
         });
       }
 
@@ -13393,10 +13544,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this45 = this;
+          var _this44 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this45.partnerArr = returnedPartners;
+            return _this44.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -13409,21 +13560,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getLocations",
         value: function getLocations() {
-          var _this46 = this;
+          var _this45 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             this.filter.partLocationFilter(this.currentProfile).subscribe(function (returnedLocations) {
-              _this46.locArr = returnedLocations;
-              _this46.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedLocations);
-              _this46.locationDataSource.sort = _this46.sort;
-              _this46.locationDataSource.paginator = _this46.paginator;
+              _this45.locArr = returnedLocations;
+              _this45.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedLocations);
+              _this45.locationDataSource.sort = _this45.sort;
+              _this45.locationDataSource.paginator = _this45.paginator;
             });
           } else {
             this.filter.custLocationFilter(this.currentProfile).subscribe(function (returnedLocations) {
-              _this46.locArr = returnedLocations;
-              _this46.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedLocations);
-              _this46.locationDataSource.sort = _this46.sort;
-              _this46.locationDataSource.paginator = _this46.paginator;
+              _this45.locArr = returnedLocations;
+              _this45.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedLocations);
+              _this45.locationDataSource.sort = _this45.sort;
+              _this45.locationDataSource.paginator = _this45.paginator;
             });
           }
         }
@@ -14806,21 +14957,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getItems",
         value: function getItems() {
-          var _this47 = this;
+          var _this46 = this;
 
           var assetid = this.route.snapshot.paramMap.get('identifier');
           this.filter.assetsBySerial(assetid).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["first"])()).subscribe(function (returnedAsset) {
-            _this47.asset = returnedAsset;
+            _this46.asset = returnedAsset;
 
-            _this47.filter.conByName(_this47.asset[0].Schedule).subscribe(function (returnedContractLength) {
-              _this47.contractLength = returnedContractLength;
-              _this47.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContractLength);
-              _this47.contractDataSource.sort = _this47.sort;
-              _this47.contractDataSource.paginator = _this47.paginator;
+            _this46.filter.conByName(_this46.asset[0].Schedule).subscribe(function (returnedContractLength) {
+              _this46.contractLength = returnedContractLength;
+              _this46.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContractLength);
+              _this46.contractDataSource.sort = _this46.sort;
+              _this46.contractDataSource.paginator = _this46.paginator;
             });
 
-            _this47.filter.conByName(_this47.asset.Schedule).subscribe(function (returnedContract) {
-              _this47.contract = returnedContract;
+            _this46.filter.conByName(_this46.asset.Schedule).subscribe(function (returnedContract) {
+              _this46.contract = returnedContract;
             });
           });
         }
@@ -15253,7 +15404,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function AssetsTableComponent(filter, authserv) {
-        var _this48 = this;
+        var _this47 = this;
 
         _classCallCheck(this, AssetsTableComponent);
 
@@ -15261,7 +15412,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.authserv = authserv;
         this.displayedColumns = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
         this.authserv.currentUser.subscribe(function (name) {
-          _this48.currentProfile = name;
+          _this47.currentProfile = name;
         });
       }
 
@@ -15343,10 +15494,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this49 = this;
+          var _this48 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this49.partnerArr = returnedPartners;
+            return _this48.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -15359,51 +15510,51 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAssets",
         value: function getAssets() {
-          var _this50 = this;
+          var _this49 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             switch (this.currentProfile.partner) {
               case 'Noble1Solutions':
                 this.filter.nobleAss().subscribe(function (assets) {
-                  _this50.asArr = assets;
-                  _this50.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
-                  _this50.assetDataSource.sort = _this50.sort;
-                  _this50.assetDataSource.paginator = _this50.paginator;
+                  _this49.asArr = assets;
+                  _this49.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
+                  _this49.assetDataSource.sort = _this49.sort;
+                  _this49.assetDataSource.paginator = _this49.paginator;
                 });
                 break;
 
               case 'Relutech':
                 this.filter.reluAss().subscribe(function (assets) {
-                  _this50.asArr = assets;
-                  _this50.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
-                  _this50.assetDataSource.sort = _this50.sort;
-                  _this50.assetDataSource.paginator = _this50.paginator;
+                  _this49.asArr = assets;
+                  _this49.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
+                  _this49.assetDataSource.sort = _this49.sort;
+                  _this49.assetDataSource.paginator = _this49.paginator;
                 });
                 break;
 
               case 'Reliant Technology':
                 this.filter.reliAss().subscribe(function (assets) {
-                  _this50.asArr = assets;
-                  _this50.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
-                  _this50.assetDataSource.sort = _this50.sort;
-                  _this50.assetDataSource.paginator = _this50.paginator;
+                  _this49.asArr = assets;
+                  _this49.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
+                  _this49.assetDataSource.sort = _this49.sort;
+                  _this49.assetDataSource.paginator = _this49.paginator;
                 });
                 break;
 
               default:
                 this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
-                  _this50.asArr = returnedAssets;
-                  _this50.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedAssets);
-                  _this50.assetDataSource.sort = _this50.sort;
-                  _this50.assetDataSource.paginator = _this50.paginator;
+                  _this49.asArr = returnedAssets;
+                  _this49.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedAssets);
+                  _this49.assetDataSource.sort = _this49.sort;
+                  _this49.assetDataSource.paginator = _this49.paginator;
                 });
             }
           } else {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAsset) {
-              _this50.asArr = returnedAsset;
-              _this50.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedAsset);
-              _this50.assetDataSource.sort = _this50.sort;
-              _this50.assetDataSource.paginator = _this50.paginator;
+              _this49.asArr = returnedAsset;
+              _this49.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedAsset);
+              _this49.assetDataSource.sort = _this49.sort;
+              _this49.assetDataSource.paginator = _this49.paginator;
             });
           }
         }
@@ -17030,10 +17181,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this51 = this;
+          var _this50 = this;
 
           this.nameSubscription = this.authenticationService.currentUser.subscribe(function (name) {
-            _this51.currentProfile = name;
+            _this50.currentProfile = name;
           });
           this.profileForm = this.formBuilder.group({
             partner: [this.currentProfile.partner, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -17882,10 +18033,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(SettingsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this52 = this;
+          var _this51 = this;
 
           this.nameSubscription = this.authenticationService.currentUser.subscribe(function (name) {
-            _this52.currentProfile = name;
+            _this51.currentProfile = name;
           });
         }
       }]);
@@ -18347,7 +18498,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function SidebarComponent(router, authenticationService, filter) {
-        var _this53 = this;
+        var _this52 = this;
 
         _classCallCheck(this, SidebarComponent);
 
@@ -18358,7 +18509,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.admin = true;
         this.sidebars = _services_loadsidebar_service__WEBPACK_IMPORTED_MODULE_4__["Sidebars"];
         this.roleSubscription = this.authenticationService.currentUser.subscribe(function (role) {
-          _this53.currentRole = role;
+          _this52.currentRole = role;
         });
       }
 
@@ -18377,10 +18528,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this54 = this;
+          var _this53 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this54.partnerArr = returnedPartners;
+            return _this53.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -19788,21 +19939,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getItems",
         value: function getItems() {
-          var _this55 = this;
+          var _this54 = this;
 
           var refNumber = this.route.snapshot.paramMap.get('refNumber');
           this.filter.ticketRefFilter(refNumber.substring(1)).subscribe(function (returnedTicket) {
-            _this55.ticket = returnedTicket;
+            _this54.ticket = returnedTicket;
 
-            _this55.filter.assetsBySerial(_this55.ticket[0].AssetIdentifier).subscribe(function (returnedAsset) {
-              _this55.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
-              _this55.assetDataSource.sort = _this55.sort;
-              _this55.assetDataSource.paginator = _this55.paginator;
+            _this54.filter.assetsBySerial(_this54.ticket[0].AssetIdentifier).subscribe(function (returnedAsset) {
+              _this54.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
+              _this54.assetDataSource.sort = _this54.sort;
+              _this54.assetDataSource.paginator = _this54.paginator;
 
-              _this55.filter.conByName(returnedAsset[0].Schedule).subscribe(function (returnedContract) {
-                _this55.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContract);
-                _this55.contractDataSource.sort = _this55.sort;
-                _this55.contractDataSource.paginator = _this55.paginator;
+              _this54.filter.conByName(returnedAsset[0].Schedule).subscribe(function (returnedContract) {
+                _this54.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContract);
+                _this54.contractDataSource.sort = _this54.sort;
+                _this54.contractDataSource.paginator = _this54.paginator;
               });
             });
           });
@@ -20409,7 +20560,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function TicketsTableComponent(api, formBuilder, authenticationService, filter) {
-        var _this56 = this;
+        var _this55 = this;
 
         _classCallCheck(this, TicketsTableComponent);
 
@@ -20419,7 +20570,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.filter = filter;
         this.displayedColumns = ['Case#', 'Name', 'Status', 'Description', 'Asset ID', 'Customer', 'Update Date'];
         this.authenticationService.currentUser.subscribe(function (typeName) {
-          _this56.currentProfile = typeName;
+          _this55.currentProfile = typeName;
         });
         this.pipe = new _angular_common__WEBPACK_IMPORTED_MODULE_4__["DatePipe"]('en-us');
       }
@@ -20446,7 +20597,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee6() {
-            var _this57 = this;
+            var _this56 = this;
 
             var docDef;
             return regeneratorRuntime.wrap(function _callee6$(_context6) {
@@ -20493,7 +20644,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                             text: 'Updated',
                             style: 'tableHeader'
                           }]].concat(_toConsumableArray(this.tickArr.map(function (t) {
-                            return [t.RefNumber, t.Name, t.Status, t.Body, t.Schedule, t.AssetIdentifier, t.CustomerName, _this57.pipe.transform(t.UpdatedDate, 'short')];
+                            return [t.RefNumber, t.Name, t.Status, t.Body, t.Schedule, t.AssetIdentifier, t.CustomerName, _this56.pipe.transform(t.UpdatedDate, 'short')];
                           })))
                         }
                       }],
@@ -20523,20 +20674,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "createTicket",
         value: function createTicket() {
-          var _this58 = this;
+          var _this57 = this;
 
           this.api.addTicket(this.ticketForm.value).subscribe(function (ticket) {
-            var ticketData = _this58.ticketForm.value;
+            var ticketData = _this57.ticketForm.value;
             ticketData = ticket;
           });
         }
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this59 = this;
+          var _this58 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this59.partnerArr = returnedPartners;
+            return _this58.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -20549,51 +20700,51 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getTickets",
         value: function getTickets() {
-          var _this60 = this;
+          var _this59 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             switch (this.currentProfile.partner) {
               case 'Noble1Solutions':
                 this.filter.nobleTicks().subscribe(function (tickets) {
-                  _this60.tickArr = tickets;
-                  _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](tickets);
-                  _this60.ticketDataSource.sort = _this60.sort;
-                  _this60.ticketDataSource.paginator = _this60.paginator;
+                  _this59.tickArr = tickets;
+                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](tickets);
+                  _this59.ticketDataSource.sort = _this59.sort;
+                  _this59.ticketDataSource.paginator = _this59.paginator;
                 });
                 break;
 
               case 'Relutech':
                 this.filter.reluTicks().subscribe(function (assets) {
-                  _this60.tickArr = assets;
-                  _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](assets);
-                  _this60.ticketDataSource.sort = _this60.sort;
-                  _this60.ticketDataSource.paginator = _this60.paginator;
+                  _this59.tickArr = assets;
+                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](assets);
+                  _this59.ticketDataSource.sort = _this59.sort;
+                  _this59.ticketDataSource.paginator = _this59.paginator;
                 });
                 break;
 
               case 'Reliant Technology':
                 this.filter.reliTicks().subscribe(function (tickets) {
-                  _this60.tickArr = tickets;
-                  _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](tickets);
-                  _this60.ticketDataSource.sort = _this60.sort;
-                  _this60.ticketDataSource.paginator = _this60.paginator;
+                  _this59.tickArr = tickets;
+                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](tickets);
+                  _this59.ticketDataSource.sort = _this59.sort;
+                  _this59.ticketDataSource.paginator = _this59.paginator;
                 });
                 break;
 
               default:
                 this.filter.partTicketsFilter(this.currentProfile).subscribe(function (tickets) {
-                  _this60.tickArr = tickets;
-                  _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](tickets);
-                  _this60.ticketDataSource.sort = _this60.sort;
-                  _this60.ticketDataSource.paginator = _this60.paginator;
+                  _this59.tickArr = tickets;
+                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](tickets);
+                  _this59.ticketDataSource.sort = _this59.sort;
+                  _this59.ticketDataSource.paginator = _this59.paginator;
                 });
             }
           } else {
             this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTickets) {
-              _this60.tickArr = returnedTickets;
-              _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](returnedTickets);
-              _this60.ticketDataSource.sort = _this60.sort;
-              _this60.ticketDataSource.paginator = _this60.paginator;
+              _this59.tickArr = returnedTickets;
+              _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](returnedTickets);
+              _this59.ticketDataSource.sort = _this59.sort;
+              _this59.ticketDataSource.paginator = _this59.paginator;
             });
           }
         }

@@ -1,6 +1,9 @@
 <div class="container-fluid wrapper">
+  <!-- Item tabs -->
   <div class="container-fluid tabs">
     <div class="row ">
+
+      <!-- Contracts Tab -->
       <div class="contracts-container total-container col-md">
         <a routerLink="/portal/contracts">
           <div class="row contract-content">
@@ -16,6 +19,8 @@
           </div>
         </a>
       </div>
+
+      <!-- Assets Tab -->
       <div class="assets-container total-container col-md">
         <a routerLink="/portal/assets">
           <div class="row asset-content">
@@ -31,6 +36,7 @@
           </div>
         </a>
       </div>
+      <!-- Tickets Tab -->
       <div class="tickets-container total-container col-md">
         <a routerLink="/portal/tickets">
           <div class="row ticket-content">
@@ -47,6 +53,7 @@
         </a>
       </div>
 
+      <!-- Companies Tab -->
     <div *ngIf="this.currentProfile.companypartner === 'Partner'" class="companies-container total-container col-md">
         <a routerLink="/portal/companies">
           <div class="row companies-content">
@@ -62,26 +69,13 @@
           </div>
         </a>
       </div>
-      <!-- <div *ngIf="currentProfile.partnerRole === 'Admin'" class="users-container total-container col-md">
-        <a routerLink="/admin/users">
-          <div class="users-content">
-            0 <br>
-            Users
-            <img src="../../assets/users.png">
-          </div>
-        </a>
-      </div> -->
-      <!-- <div class="locations-container total-container col-md">
-        <a routerLink="/admin/locations"><div class="locations-content">
-            0 <br>
-            Locations
-          <img src="../../assets/locations.png">
-        </div>
-      </a>
-        </div> -->
+
       </div>
     </div>
+
+    <!-- Item(s) Data -->
   <div class="row">
+    <!-- Contracts Chart -->
     <div class="col-md">
       <div class="container contracts-wrapper">
         <div class="row">
@@ -165,6 +159,7 @@
     </div>
   </div>
 
+  <!-- Assets Chart -->
     <div class="col-md">
       <div class="container assets-wrapper">
         <div class="row">
