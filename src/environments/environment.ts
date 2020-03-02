@@ -10,7 +10,7 @@ export const environment = {
   CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
   DataPull: 'https://n1stestdata.noble1it.com',
   LogoutUrl: 'https://qa2supportportal.azurewebsites.net/',
-  AssetTest: 'https://coden1stesting.noble1it.com/'
+  AssetTest: 'https://coden1stesting.noble1it.com'
 };
 
 /*
