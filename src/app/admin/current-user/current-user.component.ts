@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Profile } from '../../index/index/models/profile';
 import { OemService } from '../services/oem.service';
 import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
@@ -16,6 +15,7 @@ export class CurrentUserComponent implements OnInit {
   currentProfile: Profile;
   profiles: Profile[];
   datapull: DataPull[];
+
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -43,5 +43,11 @@ export class CurrentUserComponent implements OnInit {
       this.datapull = datapull;
       });
   }
+  gettestAssets() {
+    this.oemService.testDataPull().subscribe(datapull  => {
+      this.datapull = datapull;
+      });
+  }
+
 
 }

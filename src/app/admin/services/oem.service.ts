@@ -35,6 +35,7 @@ export class OemService {
   getAllAssets(): Observable<DataPull[]> {
     return this.http.get<DataPull[]>(`${environment.serverUrl}/`);
   }
-
-
+  testDataPull(): Observable<DataPull[]> {
+    return this.http.get<DataPull[]>(`${environment.AssetTest}/profile`);
+  }
 }
