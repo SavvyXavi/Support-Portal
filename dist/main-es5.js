@@ -7765,7 +7765,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ticketsChart() {
           var _this28 = this;
 
-          if (this.currentProfile.companypartner === 'Partner' && (this.currentProfile.partner === 'Noble1solutions' || this.currentProfile.partner === 'Reliant-Technology' || this.currentProfile.partner === 'Relutech')) {
+          if (this.currentProfile.companypartner === 'Partner') {
             switch (this.currentProfile.partner) {
               case 'Noble1solutions':
                 this.filter.nobleTicks().subscribe(function (returnedTickets) {
@@ -7788,7 +7788,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 });
                 break;
 
-              case 'Reliant-Technology':
+              case 'Reliant Technology':
                 this.filter.reliTicks().subscribe(function (returnedTickets) {
                   _this28.ticketLength = returnedTickets;
                   _this28.ticketStatus = _this28.tickets.map(function (t) {
@@ -8017,7 +8017,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 });
                 break;
 
-              case 'Reliant-Technology':
+              case 'Reliant Technology':
                 this.filter.reliAss().subscribe(function (returnedAssets) {
                   _this30.assetLength = returnedAssets.length;
                   _this30.assets = returnedAssets;

@@ -24,7 +24,6 @@ import { Customer } from './../admin/models/customer';
 export class DashboardComponent implements OnInit {
 
   currentProfile: Profile;
-  currentProfileSubscription: Subscription;
   profiles: Profile[];
 
   contractLength: number;
@@ -101,9 +100,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ticketsChart() {
-    if (this.currentProfile.companypartner === 'Partner' &&
-      (this.currentProfile.partner === 'Noble1solutions' || this.currentProfile.partner === 'Reliant-Technology' ||
-      this.currentProfile.partner === 'Relutech')) {
+    if (this.currentProfile.companypartner === 'Partner') {
         switch (this.currentProfile.partner) {
           case 'Noble1solutions':
             this.filter.nobleTicks()
@@ -125,7 +122,7 @@ export class DashboardComponent implements OnInit {
               }
             );
             break;
-            case 'Reliant-Technology':
+            case 'Reliant Technology':
               this.filter.reliTicks()
               .subscribe(
                 (returnedTickets: Tickets[]) => {
@@ -395,7 +392,7 @@ export class DashboardComponent implements OnInit {
               );
               break;
 
-            case 'Reliant-Technology':
+            case 'Reliant Technology':
               this.filter.reliAss()
               .subscribe(
                 (returnedAssets: Assets[]) => {

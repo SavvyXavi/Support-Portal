@@ -4175,9 +4175,7 @@ class DashboardComponent {
         });
     }
     ticketsChart() {
-        if (this.currentProfile.companypartner === 'Partner' &&
-            (this.currentProfile.partner === 'Noble1solutions' || this.currentProfile.partner === 'Reliant-Technology' ||
-                this.currentProfile.partner === 'Relutech')) {
+        if (this.currentProfile.companypartner === 'Partner') {
             switch (this.currentProfile.partner) {
                 case 'Noble1solutions':
                     this.filter.nobleTicks()
@@ -4200,7 +4198,7 @@ class DashboardComponent {
                         }
                     });
                     break;
-                case 'Reliant-Technology':
+                case 'Reliant Technology':
                     this.filter.reliTicks()
                         .subscribe((returnedTickets) => {
                         this.ticketLength = returnedTickets;
@@ -4467,7 +4465,7 @@ class DashboardComponent {
                         });
                     });
                     break;
-                case 'Reliant-Technology':
+                case 'Reliant Technology':
                     this.filter.reliAss()
                         .subscribe((returnedAssets) => {
                         this.assetLength = returnedAssets.length;
