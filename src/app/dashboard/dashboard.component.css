@@ -6,9 +6,6 @@
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);
 }
 
-.assets-wrapper {
-
-}
 /* .charts {
   padding: 0;
   margin-right: 0;
@@ -161,6 +158,10 @@ a .ticket-length, .ticket-label{
 .assets-wrapper {
   background: white;
   border-radius: 8px;
+}
+
+.assets-table {
+  align-items: center;
 }
 
 .tickets-wrapper {
