@@ -9,13 +9,28 @@
               <tr>
                   <th scope="col">Status</th>
                   <th scope="col">RefNumber</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Assigned</th>
+                  <th scope="col">CustomerName</th>
+                  <th scope="col">AssetIndentifier</th>
+                  <th scope="col">UpdatedDate</th>
+                  <th scope="col">TimeSinceLastUpdate</th>
                   <th scope="col">Schedule</th>
+                  <th scope="col">Body</th>
               </tr>
           </thead>
           <tbody *ngFor="let zipper of ticketpull">
               <tr *ngIf="zipper.RefNumber != '' && zipper.RefNumber !== undefined && zipper.RefNumber !== null">
                 <td> {{zipper.Status}}</td>
                 <td> {{zipper.RefNumber}}</td>
+                <td> {{zipper.Name}}</td>
+                <td> {{zipper.Assigned}}</td>
+                <td> {{zipper.CustomerName}}</td>
+                <td> {{zipper.AssetIndentifier}}</td>
+                <td> {{zipper.UpdatedDate}}</td>
+                <td> {{zipper.TimeSinceLastUpdate}}</td>
+                <td> {{zipper.Schedule}}</td>
+                <td> {{zipper.Body}}</td>
               </tr>
           </tbody>
       </table>
@@ -29,10 +44,16 @@
                 <th scope="col">Schedule</th>
             </tr>
         </thead>
-        <tbody *ngFor="let zipper of ticketpull">
-            <tr *ngIf="zipper.RefNumber != '' && zipper.RefNumber !== undefined && zipper.RefNumber !== null">
-              <td> {{zipper.Status}}</td>
-              <td> {{zipper.RefNumber}}</td>
+        <tbody *ngFor="let zipp of datapull">
+            <tr *ngIf="zipp.Identifier != '' && zipp.Identifier !== undefined && zipp.Identifier !== null">
+              <td> {{zipp.partner}}</td>
+              <td> {{zipp.Identifier}}</td>
+              <td> {{zipp.AssetType}}</td>
+              <td> {{zipp.ContractCoverage}}</td>
+              <td> {{zipp.SiteAddress}}</td>
+              <td> {{zipp.EndCustomer}}</td>
+              <td> {{zipp.Schedule}}</td>
+              <td> {{zipp.ScheduleLine}}</td>
             </tr>
         </tbody>
     </table>
