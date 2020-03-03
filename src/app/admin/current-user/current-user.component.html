@@ -13,9 +13,9 @@
           </thead>
           <tbody>
               <tr *ngFor="let zipper of ticketpull">
-                  <td>{{zipper.RefNumber}}</td>
-                  <td>{{zipper.Status}}</td>
-                  <td> {{zipper.Schedule}}</td>
+                  <td ng-show=zipper.RefNumber != '' ></td>
+                  <td ng-show=zipper.Status != '' ></td>
+                  <td ng-show=zipper.Schedule != '' ></td>
               </tr>
           </tbody>
       </table>
