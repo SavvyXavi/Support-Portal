@@ -67,15 +67,16 @@
 
   .mattable-container {
     width: 94%;
+    border-radius: 8px;
     margin-bottom: 50px;
   }
 
   .mat-focused .mat-form-field-label {
-    color: rgb(230, 92, 0) !important;
+    color: rgb(230, 92, 0);
   }
 
   .mat-form-field-ripple {
-    background-color: rgb(230, 92, 0) !important;
+    background-color: rgb(230, 92, 0);
   }
 
   .search-div {
