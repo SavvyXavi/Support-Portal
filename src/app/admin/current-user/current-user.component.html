@@ -1,8 +1,9 @@
 
   <h3>{{this.dpcount}}</h3>
-        All Assets: <button (click)="gettestAssets()">Load assets</button>
-        All Tickets: <button (click)="gettestTickets()">Load tickets</button>
+        All Assets: <button (click)="gettestAssets()" [(ngModel)]="selval" value="assets">Load assets</button>
+        All Tickets: <button (click)="gettestTickets()" [(ngModel)]="selval" value="tickets">Load tickets</button>
       <br>
+    <div *ngIf="selval == 'tickets'; else assets">
       <table class="table table-bordered">
           <thead>
               <tr>
@@ -18,4 +19,21 @@
               </tr>
           </tbody>
       </table>
-
+    </div>
+    <ng-template #assets>
+      <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Status</th>
+                <th scope="col">RefNumber</th>
+                <th scope="col">Schedule</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let zipper of ticketpull">
+            <tr *ngIf="zipper.RefNumber != '' && zipper.RefNumber !== undefined && zipper.RefNumber !== null">
+              <td> {{zipper.Status}}</td>
+              <td> {{zipper.RefNumber}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </ng-template>

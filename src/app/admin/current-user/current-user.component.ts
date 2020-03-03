@@ -18,6 +18,7 @@ export class CurrentUserComponent implements OnInit {
   datapull: DataPull[];
   dpcount: any;
   ticketpull: AssetFilter[];
+  selval: any;
 
   constructor(
     private authenticationService: AuthenticationService,
