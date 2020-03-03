@@ -18,7 +18,7 @@
             <th scope="col">Body</th>
         </tr>
     </thead>
-    <tbody *ngFor="let azer of ticketpull">
+    <tbody *ngFor="let azer of tickettwo">
         <tr *ngIf="azer.RefNumber != '' && azer.RefNumber !== undefined && azer.RefNumber !== null">
           <td> {{azer.Status}}</td>
           <td> {{azer.RefNumber}}</td>
@@ -49,7 +49,7 @@
   </thead>
   <tbody *ngFor="let zipp of datapull">
       <tr *ngIf="zipp.Identifier != '' && zipp.Identifier !== undefined && zipp.Identifier !== null">
-        <td> {{zipp.partner}}</td>
+        <td> {{zipp.Partner}}</td>
         <td> {{zipp.Identifier}}</td>
         <td> {{zipp.AssetType}}</td>
         <td> {{zipp.ContractCoverage}}</td>
