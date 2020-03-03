@@ -9,28 +9,28 @@
               <tr>
                   <th scope="col">Status</th>
                   <th scope="col">RefNumber</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Assigned</th>
+                  <th scope="col">Schedule</th>
+ <!--                 <th scope="col">Assigned</th>
                   <th scope="col">CustomerName</th>
                   <th scope="col">AssetIndentifier</th>
                   <th scope="col">UpdatedDate</th>
                   <th scope="col">TimeSinceLastUpdate</th>
-                  <th scope="col">Schedule</th>
-                  <th scope="col">Body</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Body</th> -->
               </tr>
           </thead>
           <tbody *ngFor="let azer of ticketpull">
               <tr *ngIf="azer.RefNumber != '' && azer.RefNumber !== undefined && azer.RefNumber !== null">
                 <td> {{azer.Status}}</td>
                 <td> {{azer.RefNumber}}</td>
-                <td> {{azer.Name}}</td>
-                <td> {{azer.Assigned}}</td>
+                <td> {{azer.Schedule}}</td>
+ <!--               <td> {{azer.Assigned}}</td>
                 <td> {{azer.CustomerName}}</td>
                 <td> {{azer.AssetIndentifier}}</td>
                 <td> {{azer.UpdatedDate}}</td>
                 <td> {{azer.TimeSinceLastUpdate}}</td>
-                <td> {{azer.Schedule}}</td>
-                <td> {{azer.Body}}</td>
+                <td> {{azer.Name}}</td>
+                <td> {{azer.Body}}</td>  -->
               </tr>
               {{azer.RefNumber.length}}
           </tbody>
