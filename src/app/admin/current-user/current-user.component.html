@@ -3,7 +3,7 @@
         All Assets: <button (click)="gettestAssets()" [(ngModel)]="selval" value="assets">Load assets</button>
         All Tickets: <button (click)="gettestTickets()" [(ngModel)]="selval" value="tickets">Load tickets</button>
       <br>
-    <div *ngIf="selval == 'tickets'; else assets">
+ <!--   <div *ngIf="selval == 'tickets'; else assets"> -->
       <table class="table table-bordered">
           <thead>
               <tr>
@@ -23,20 +23,20 @@
               <tr *ngIf="azer.RefNumber != '' && azer.RefNumber !== undefined && azer.RefNumber !== null">
                 <td> {{azer.Status}}</td>
                 <td> {{azer.RefNumber}}</td>
- <!--           <td> {{azer.Name}}</td>
+                <td> {{azer.Name}}</td>
                 <td> {{azer.Assigned}}</td>
                 <td> {{azer.CustomerName}}</td>
                 <td> {{azer.AssetIndentifier}}</td>
                 <td> {{azer.UpdatedDate}}</td>
                 <td> {{azer.TimeSinceLastUpdate}}</td>
                 <td> {{azer.Schedule}}</td>
-                <td> {{azer.Body}}</td>  -->
+                <td> {{azer.Body}}</td>
               </tr>
               {{azer.RefNumber.length}}
           </tbody>
       </table>
-    </div>
-    <ng-template #assets>
+   <!-- </div>
+    <ng-template #assets>  -->
       <table class="table table-bordered">
         <thead>
             <tr>
@@ -61,7 +61,6 @@
               <td> {{zipp.Schedule}}</td>
               <td> {{zipp.ScheduleLine}}</td>
             </tr>
-            {{zipp.Identifier.length}}
         </tbody>
     </table>
-    </ng-template>
+  <!--  </ng-template>  -->
