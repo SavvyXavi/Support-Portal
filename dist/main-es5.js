@@ -960,7 +960,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function CurrentUserComponent_tbody_32_tr_1_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td");
 
@@ -1160,7 +1160,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-current-user"]],
       decls: 33,
       vars: 2,
-      consts: [["name", "selval", "value", "assets", 3, "click"], ["name", "selval", "value", "tickets", 3, "click"], [1, "table", "table-bordered"], ["scope", "col"], [4, "ngFor", "ngForOf"], ["{{zipper.RefNumber.length}}", "", 4, "ngIf"], ["{{zipper.RefNumber.length}}", ""]],
+      consts: [["name", "selval", "value", "assets", 3, "click"], ["name", "selval", "value", "tickets", 3, "click"], [1, "table", "table-bordered"], ["scope", "col"], [4, "ngFor", "ngForOf"], [4, "ngIf"]],
       template: function CurrentUserComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h3");

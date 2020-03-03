@@ -21,7 +21,7 @@
               </tr>
           </thead>
           <tbody *ngFor="let zipper of ticketpull">
-              <tr *ngIf="zipper.RefNumber != '' && zipper.RefNumber !== undefined && zipper.RefNumber !== null" {{zipper.RefNumber.length}}>
+              <tr *ngIf="zipper.RefNumber != '' && zipper.RefNumber !== undefined && zipper.RefNumber !== null">
                 <td> {{zipper.Status}}</td>
                 <td> {{zipper.RefNumber}}</td>
                 <td> {{zipper.Schedule}}</td>
