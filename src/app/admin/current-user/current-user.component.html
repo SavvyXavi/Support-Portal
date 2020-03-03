@@ -1,15 +1,24 @@
 
-<div>
-  <br><br>
   <h3>{{this.dpcount}}</h3>
         All Assets: <button (click)="gettestAssets()">Load assets</button>
         All Tickets: <button (click)="gettestTickets()">Load tickets</button>
-  <ul>
-    <li *ngFor="let zipper of ticketpull">
-      {{zipper.Status}}<br>
-      {{zipper.RefNumber}}<br>
-      {{zipper.Schedule}}<br>
-    </li>
-  </ul>
-</div>
+      <br>
+      <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th scope="col">Status</th>
+                  <th scope="col">RefNumber</th>
+                  <th scope="col">Schedule</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let zipper of ticketpull">
+                  <td>{{zipper.RefNumber}}</td>
+                  <td>{{zipper.Status}}</td>
+                  <td> {{zipper.Schedule}}</td>
+              </tr>
+          </tbody>
+      </table>
+
+
 
