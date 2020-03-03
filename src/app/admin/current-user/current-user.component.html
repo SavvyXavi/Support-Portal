@@ -1,7 +1,7 @@
 
   <h3>{{this.dpcount}}</h3>
-        All Assets: <button (click)="gettestAssets()" name="selval" value="assets">Load assets</button>
-        All Tickets: <button (click)="gettestTickets()" name="selval" value="tickets">Load tickets</button>
+        All Assets: <button (click)="gettestAssets()" [(ngModel)]="selval" value="assets">Load assets</button>
+        All Tickets: <button (click)="gettestTickets()" [(ngModel)]="selval" value="tickets">Load tickets</button>
       <br>
       <div *ngIf="selval == 'tickets'; else assets">
       <table class="table table-bordered">

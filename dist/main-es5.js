@@ -954,7 +954,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
@@ -1259,8 +1265,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       type: CurrentUserComponent,
       selectors: [["app-current-user"]],
       decls: 12,
-      vars: 3,
-      consts: [["name", "selval", "value", "assets", 3, "click"], ["name", "selval", "value", "tickets", 3, "click"], [4, "ngIf", "ngIfElse"], ["assets", ""], [1, "table", "table-bordered"], ["scope", "col"], [4, "ngFor", "ngForOf"], [4, "ngIf"]],
+      vars: 5,
+      consts: [["value", "assets", 3, "ngModel", "click", "ngModelChange"], ["value", "tickets", 3, "ngModel", "click", "ngModelChange"], [4, "ngIf", "ngIfElse"], ["assets", ""], [1, "table", "table-bordered"], ["scope", "col"], [4, "ngFor", "ngForOf"], [4, "ngIf"]],
       template: function CurrentUserComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h3");
@@ -1275,6 +1281,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CurrentUserComponent_Template_button_click_3_listener($event) {
             return ctx.gettestAssets();
+          })("ngModelChange", function CurrentUserComponent_Template_button_ngModelChange_3_listener($event) {
+            return ctx.selval = $event;
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Load assets");
@@ -1287,6 +1295,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function CurrentUserComponent_Template_button_click_6_listener($event) {
             return ctx.gettestTickets();
+          })("ngModelChange", function CurrentUserComponent_Template_button_ngModelChange_6_listener($event) {
+            return ctx.selval = $event;
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Load tickets");
@@ -1307,12 +1317,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.dpcount);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.selval);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.selval);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.selval == "tickets")("ngIfElse", _r390);
         }
       },
-      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"]],
+      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2N1cnJlbnQtdXNlci9jdXJyZW50LXVzZXIuY29tcG9uZW50LmNzcyJ9 */"]
     });
     /*@__PURE__*/
