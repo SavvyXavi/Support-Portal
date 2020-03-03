@@ -2,6 +2,10 @@
   padding: 0 75px 30px 0px;
 }
 
+.container {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);
+}
+
 /* .charts {
   padding: 0;
   margin-right: 0;
