@@ -20,6 +20,7 @@ export class CurrentUserComponent implements OnInit {
   ticketpull: AssetFilter[];
   selval: any;
   ticketwo: any;
+  dbcount: any;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -57,6 +58,7 @@ export class CurrentUserComponent implements OnInit {
   gettestTickets() {
     this.oemService.testTicketPull().subscribe(ticketpull  => {
       this.ticketpull = ticketpull;
+      this.dbcount = ticketpull.length;
       });
   }
 
