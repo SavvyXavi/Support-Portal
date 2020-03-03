@@ -265,15 +265,8 @@ export class DashboardComponent implements OnInit {
         },
         options: {
           tooltips: {
-            callbacks: {
-              title: function(tooltipItem, data) {
-                let label = data.datasets[tooltipItem.datasetIndex].label || '';
-
-                    if (label) {
-                        label += ': ';
-                    }
-                return label;
-              }
+            tooltips: {
+              enabled: true
             }
           }
         }
@@ -517,7 +510,11 @@ export class DashboardComponent implements OnInit {
                         borderWidth: 1
                     }]
                 },
-                options: {}
+                options: {
+                  tooltips: {
+                    enabled: true
+                  }
+                }
                 });
               }
               );
