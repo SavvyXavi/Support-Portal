@@ -6,7 +6,6 @@ import { ProfileService } from './../../index/index/services/profile.service';
 import { DataPull } from '../models/datapull';
 import { first } from 'rxjs/operators';
 import { AssetFilter } from './../models/assetFilter';
-import { AnyARecord } from 'dns';
 
 @Component({
   selector: 'app-current-user',
@@ -20,9 +19,7 @@ export class CurrentUserComponent implements OnInit {
   dpcount: any;
   ticketpull: AssetFilter[];
   selval: any;
-  ticket: AssetFilter;
-  tickettwo: AssetFilter;
-  tickcount: any;
+  ticketwo: any;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -36,7 +33,7 @@ export class CurrentUserComponent implements OnInit {
     );
    }
 
-  ngOnInit()  {
+  ngOnInit() {
     this.gettestTickets();
   }
 
@@ -63,8 +60,8 @@ export class CurrentUserComponent implements OnInit {
       });
   }
 
-  filterTicket(ticket: String) {
-    return this.ticketpull.find(tickettwo => tickettwo.RefNumber === ticket);
-    }
+  filterFilter(ticketpull: any) {
+    return this.ticketpull.find(ticketwo => ticketpull.RefNumber === ticketwo);
+  }
 
 }

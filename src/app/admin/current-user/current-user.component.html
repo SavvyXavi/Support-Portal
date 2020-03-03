@@ -1,7 +1,7 @@
 
   All Assets: <button (click)="gettestAssets()" >Load assets</button>
   All Tickets: <button (click)="gettestTickets()" >Load tickets</button>
-<br><!--{{this.tickettwo?.RefNumber.length}}<br>-->
+<br>
 
 <table class="table table-bordered">
     <thead>
@@ -18,7 +18,7 @@
             <th scope="col">Body</th>
         </tr>
     </thead>
-    <tbody *ngFor="let azer of tickettwo">
+    <tbody *ngFor="let azer of ticketwo">
         <tr *ngIf="azer.RefNumber != '' && azer.RefNumber !== undefined && azer.RefNumber !== null">
           <td> {{azer.Status}}</td>
           <td> {{azer.RefNumber}}</td>

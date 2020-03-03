@@ -1257,10 +1257,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
         }
       }, {
-        key: "filterTicket",
-        value: function filterTicket(ticket) {
-          return this.ticketpull.find(function (tickettwo) {
-            return tickettwo.RefNumber === ticket;
+        key: "filterFilter",
+        value: function filterFilter(ticketpull) {
+          return this.ticketpull.find(function (ticketwo) {
+            return ticketpull.RefNumber === ticketwo;
           });
         }
       }]);
@@ -1446,7 +1446,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](30);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.tickettwo);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.ticketwo);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](20);
 
