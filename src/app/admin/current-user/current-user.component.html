@@ -11,11 +11,10 @@
                   <th scope="col">Schedule</th>
               </tr>
           </thead>
-          <tbody>
-              <tr tr ng-show="zipper.RefNumber != '' && zipper.RefNumber !== undefined && zipper.RefNumber !== null" *ngFor="let zipper of ticketpull">
-                  <td> {{zipper.RefNumber}}</td>
-                  <td> {{zipper.Status}}</td>
-                  <td> {{zipper.Schedule}}</td>
+          <tbody *ngFor="let zipper of ticketpull">
+              <tr tr ng-show="zipper.RefNumber != '' && zipper.RefNumber !== undefined && zipper.RefNumber !== null">
+                <td> {{zipper.Status}}</td>
+                <td> {{zipper.RefNumber}}</td>
               </tr>
           </tbody>
       </table>
