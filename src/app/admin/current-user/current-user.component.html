@@ -18,7 +18,7 @@
             <th scope="col">Body</th>
         </tr>
     </thead>
-    <tbody *ngFor="let azer of filterTicket">
+    <tbody *ngFor="let azer of ticketpull">
         <tr *ngIf="azer.RefNumber != '' && azer.RefNumber !== undefined && azer.RefNumber !== null">
           <td> {{azer.Status}}</td>
           <td> {{azer.RefNumber}}</td>
