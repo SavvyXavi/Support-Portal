@@ -19,6 +19,8 @@ export class CurrentUserComponent implements OnInit {
   dpcount: any;
   ticketpull: AssetFilter[];
   selval: any;
+  ticket: AssetFilter;
+  tickettwo: AssetFilter;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -32,7 +34,9 @@ export class CurrentUserComponent implements OnInit {
     );
    }
 
-  ngOnInit(): void {}
+  ngOnInit()  {
+    this.gettestTickets();
+  }
 
   loadAllUsers() {
     this.profileService.getAll().pipe(first()).subscribe( profile => {
@@ -49,14 +53,16 @@ export class CurrentUserComponent implements OnInit {
   gettestAssets() {
     this.oemService.testDataPull().subscribe(datapull  => {
       this.datapull = datapull;
-      this.dpcount = datapull.length;
       });
   }
   gettestTickets() {
-    this.oemService.testTicketPull().subscribe(datapull  => {
-      this.ticketpull = datapull = datapull || [];
-      this.dpcount = datapull.length;
+    this.oemService.testTicketPull().subscribe(ticketpull  => {
+      this.ticketpull = ticketpull;
       });
+  }
+
+  filterTicket(ticket: String) {
+    return this.ticketpull.find(tickettwo => tickettwo.RefNumber === ticket);
   }
 
 }

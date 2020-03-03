@@ -40,6 +40,7 @@ export class OemService {
   testDataPull(): Observable<DataPull[]> {
     return this.http.get<DataPull[]>(`${environment.AssetTest}/profile`);
   }
+
   testTicketPull(): Observable<AssetFilter[]> {
     return this.http.get<AssetFilter[]>(`${environment.AssetTest}/profile`);
   }

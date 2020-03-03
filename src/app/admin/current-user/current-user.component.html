@@ -1,5 +1,4 @@
 
-  <h3>{{this.dpcount}}</h3>
   All Assets: <button (click)="gettestAssets()" >Load assets</button>
   All Tickets: <button (click)="gettestTickets()" >Load tickets</button>
 <br>
@@ -19,7 +18,7 @@
             <th scope="col">Body</th>
         </tr>
     </thead>
-    <tbody *ngFor="let azer of ticketpull">
+    <tbody *ngFor="let azer of filterTicket">
         <tr *ngIf="azer.RefNumber != '' && azer.RefNumber !== undefined && azer.RefNumber !== null">
           <td> {{azer.Status}}</td>
           <td> {{azer.RefNumber}}</td>
