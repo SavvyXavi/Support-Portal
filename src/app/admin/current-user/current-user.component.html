@@ -10,12 +10,28 @@
                   <th scope="col">Status</th>
                   <th scope="col">RefNumber</th>
                   <th scope="col">Schedule</th>
+                  <th scope="col">Assigned</th>
+                  <th scope="col">CustomerName</th>
+                  <th scope="col">AssetIndentifier</th>
+                  <th scope="col">UpdatedDate</th>
+                  <th scope="col">TimeSinceLastUpdate</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Body</th>
+
               </tr>
           </thead>
           <tbody *ngFor="let zipper of ticketpull">
-              <tr *ngIf="zipper.RefNumber != '' && zipper.RefNumber !== undefined && zipper.RefNumber !== null">
+              <tr *ngIf="zipper.RefNumber != '' && zipper.RefNumber !== undefined && zipper.RefNumber !== null" {{zipper.RefNumber.length}}>
                 <td> {{zipper.Status}}</td>
                 <td> {{zipper.RefNumber}}</td>
+                <td> {{zipper.Schedule}}</td>
+                <td> {{zipper.Assigned}}</td>
+                <td> {{zipper.CustomerName}}</td>
+                <td> {{zipper.AssetIndentifier}}</td>
+                <td> {{zipper.UpdatedDate}}</td>
+                <td> {{zipper.TimeSinceLastUpdate}}</td>
+                <td> {{zipper.Name}}</td>
+                <td> {{zipper.Body}}</td>
               </tr>
           </tbody>
       </table>
