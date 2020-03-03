@@ -19,19 +19,20 @@
                   <th scope="col">Body</th>
               </tr>
           </thead>
-          <tbody *ngFor="let zipper of ticketpull">
-              <tr *ngIf="zipper.RefNumber != '' && zipper.RefNumber !== undefined && zipper.RefNumber !== null">
-                <td> {{zipper.Status}}</td>
-                <td> {{zipper.RefNumber}}</td>
-                <td> {{zipper.Name}}</td>
-                <td> {{zipper.Assigned}}</td>
-                <td> {{zipper.CustomerName}}</td>
-                <td> {{zipper.AssetIndentifier}}</td>
-                <td> {{zipper.UpdatedDate}}</td>
-                <td> {{zipper.TimeSinceLastUpdate}}</td>
-                <td> {{zipper.Schedule}}</td>
-                <td> {{zipper.Body}}</td>
+          <tbody *ngFor="let azer of ticketpull">
+              <tr *ngIf="azer.RefNumber != '' && azer.RefNumber !== undefined && azer.RefNumber !== null">
+                <td> {{azer.Status}}</td>
+                <td> {{azer.RefNumber}}</td>
+                <td> {{azer.Name}}</td>
+                <td> {{azer.Assigned}}</td>
+                <td> {{azer.CustomerName}}</td>
+                <td> {{azer.AssetIndentifier}}</td>
+                <td> {{azer.UpdatedDate}}</td>
+                <td> {{azer.TimeSinceLastUpdate}}</td>
+                <td> {{azer.Schedule}}</td>
+                <td> {{azer.Body}}</td>
               </tr>
+              {{azer.RefNumber}}.count()
           </tbody>
       </table>
     </div>
@@ -60,6 +61,7 @@
               <td> {{zipp.Schedule}}</td>
               <td> {{zipp.ScheduleLine}}</td>
             </tr>
+            {{zipp.Identifier}}.length
         </tbody>
     </table>
     </ng-template>
