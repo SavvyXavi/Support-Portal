@@ -1262,7 +1262,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.ticketpull.find(function (tickettwo) {
             return tickettwo.RefNumber === ticket;
           });
-          this.tickcount = this.tickettwo.RefNumber.length;
         }
       }]);
 
@@ -1451,7 +1450,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.tickcount);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.tickettwo == null ? null : ctx.tickettwo.RefNumber.length);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](25);
 

@@ -65,8 +65,6 @@ export class CurrentUserComponent implements OnInit {
 
   filterTicket(ticket: String) {
     return this.ticketpull.find(tickettwo => tickettwo.RefNumber === ticket);
-    this.tickcount = this.tickettwo.RefNumber.length;
-
-  }
+    }
 
 }
