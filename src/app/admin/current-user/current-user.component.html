@@ -23,16 +23,16 @@
               <tr *ngIf="azer.RefNumber != '' && azer.RefNumber !== undefined && azer.RefNumber !== null">
                 <td> {{azer.Status}}</td>
                 <td> {{azer.RefNumber}}</td>
-                <td> {{azer.Name}}</td>
+ <!--           <td> {{azer.Name}}</td>
                 <td> {{azer.Assigned}}</td>
                 <td> {{azer.CustomerName}}</td>
                 <td> {{azer.AssetIndentifier}}</td>
                 <td> {{azer.UpdatedDate}}</td>
                 <td> {{azer.TimeSinceLastUpdate}}</td>
                 <td> {{azer.Schedule}}</td>
-                <td> {{azer.Body}}</td>
+                <td> {{azer.Body}}</td>  -->
               </tr>
-              {{azer.RefNumber}}.count()
+              {{azer.RefNumber.length}}
           </tbody>
       </table>
     </div>
@@ -61,7 +61,7 @@
               <td> {{zipp.Schedule}}</td>
               <td> {{zipp.ScheduleLine}}</td>
             </tr>
-            {{zipp.Identifier}}.length
+            {{zipp.Identifier.length}}
         </tbody>
     </table>
     </ng-template>
