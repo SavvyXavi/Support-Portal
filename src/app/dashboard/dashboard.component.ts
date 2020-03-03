@@ -31,8 +31,6 @@ export class DashboardComponent implements OnInit {
   ticketLength: Tickets[];
   companyLength: Customer[];
 
-  contractChartData: Date[];
-
   partnerArr: Partner[];
 
   contractsData = [];
@@ -365,7 +363,7 @@ export class DashboardComponent implements OnInit {
                       this.yetToStart++;
                     }
                   }
-                  this.contractsData = new Chart('assets', {
+                  this.assetsData = new Chart('assets', {
                     type: 'pie',
                     data: {
                       datasets: [{
@@ -410,7 +408,7 @@ export class DashboardComponent implements OnInit {
                       this.yetToStart++;
                     }
                   }
-                  this.contractsData = new Chart('assets', {
+                  this.assetsData = new Chart('assets', {
                     type: 'pie',
                     data: {
                       datasets: [{
@@ -454,7 +452,7 @@ export class DashboardComponent implements OnInit {
                       this.yetToStart++;
                     }
                   }
-                  this.contractsData = new Chart('assets', {
+                  this.assetsData = new Chart('assets', {
                     type: 'pie',
                     data: {
                       datasets: [{
@@ -498,7 +496,7 @@ export class DashboardComponent implements OnInit {
                     this.yetToStart++;
                   }
                 }
-                this.contractsData = new Chart('assets', {
+                this.assetsData = new Chart('assets', {
                   type: 'pie',
                   data: {
                     datasets: [{

@@ -8001,7 +8001,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     }
                   }
 
-                  _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                  _this30.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
                     type: 'pie',
                     data: {
                       datasets: [{
@@ -8037,7 +8037,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     }
                   }
 
-                  _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                  _this30.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
                     type: 'pie',
                     data: {
                       datasets: [{
@@ -8073,7 +8073,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     }
                   }
 
-                  _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                  _this30.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
                     type: 'pie',
                     data: {
                       datasets: [{
@@ -8109,7 +8109,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     }
                   }
 
-                  _this30.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                  _this30.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
                     type: 'pie',
                     data: {
                       datasets: [{
@@ -8941,7 +8941,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](32);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.assetsChart);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.assetsData);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
 

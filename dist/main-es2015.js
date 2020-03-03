@@ -4440,7 +4440,7 @@ class DashboardComponent {
                                 this.yetToStart++;
                             }
                         }
-                        this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                        this.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
                             type: 'pie',
                             data: {
                                 datasets: [{
@@ -4485,7 +4485,7 @@ class DashboardComponent {
                                 this.yetToStart++;
                             }
                         }
-                        this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                        this.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
                             type: 'pie',
                             data: {
                                 datasets: [{
@@ -4530,7 +4530,7 @@ class DashboardComponent {
                                 this.yetToStart++;
                             }
                         }
-                        this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                        this.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
                             type: 'pie',
                             data: {
                                 datasets: [{
@@ -4575,7 +4575,7 @@ class DashboardComponent {
                                 this.yetToStart++;
                             }
                         }
-                        this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                        this.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
                             type: 'pie',
                             data: {
                                 datasets: [{
@@ -5032,7 +5032,7 @@ DashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.plus);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](32);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.assetsChart);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.assetsData);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.active);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
