@@ -2,6 +2,10 @@
   padding: 0 75px 30px 0px;
 }
 
+.charts {
+  padding: 0;
+}
+
 .col-md {
   margin-bottom: 15px;
   margin-top: 15px;
