@@ -5167,7 +5167,7 @@ class HeaderComponent {
         this.displayLogo();
     }
     logout() {
-        localStorage.clear();
+        sessionStorage.clear();
         this.authenticationService.logout();
         this.router.navigate(['/logout']);
     }
@@ -6308,7 +6308,7 @@ __webpack_require__.r(__webpack_exports__);
 class AuthenticationService {
     constructor(http) {
         this.http = http;
-        this.currentUserSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](JSON.parse(localStorage.getItem('currentUser')));
+        this.currentUserSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](JSON.parse(sessionStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
     get currentUserValue() {
@@ -6327,7 +6327,7 @@ class AuthenticationService {
                     'companypartner': profile.companypartner,
                     'partnerRole': profile.partnerRole
                 };
-                localStorage.setItem('currentUser', JSON.stringify(saveInfo));
+                sessionStorage.setItem('currentUser', JSON.stringify(saveInfo));
                 this.currentUserSubject.next(profile);
             }
             return profile;
@@ -6344,6 +6344,7 @@ class AuthenticationService {
     }
     logout() {
         localStorage.removeItem('currentUser');
+        sessionStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
 }

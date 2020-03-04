@@ -9187,7 +9187,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "logout",
         value: function logout() {
-          localStorage.clear();
+          sessionStorage.clear();
           this.authenticationService.logout();
           this.router.navigate(['/logout']);
         }
@@ -11474,7 +11474,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _classCallCheck(this, AuthenticationService);
 
         this.http = http;
-        this.currentUserSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](JSON.parse(localStorage.getItem('currentUser')));
+        this.currentUserSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](JSON.parse(sessionStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
       }
 
@@ -11497,7 +11497,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 'companypartner': profile.companypartner,
                 'partnerRole': profile.partnerRole
               };
-              localStorage.setItem('currentUser', JSON.stringify(saveInfo));
+              sessionStorage.setItem('currentUser', JSON.stringify(saveInfo));
 
               _this40.currentUserSubject.next(profile);
             }
@@ -11524,6 +11524,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "logout",
         value: function logout() {
           localStorage.removeItem('currentUser');
+          sessionStorage.removeItem('currentUser');
           this.currentUserSubject.next(null);
         }
       }, {
