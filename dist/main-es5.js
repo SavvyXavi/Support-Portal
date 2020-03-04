@@ -7917,6 +7917,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   }]
                 },
                 options: {
+                  legend: {
+                    position: 'bottom'
+                  },
                   tooltips: {
                     enabled: true,
                     callbacks: {

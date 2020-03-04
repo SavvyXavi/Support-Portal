@@ -264,6 +264,9 @@ export class DashboardComponent implements OnInit {
           }]
         },
         options: {
+          legend: {
+            position: 'bottom'
+          },
           tooltips: {
               enabled: true,
               callbacks: {

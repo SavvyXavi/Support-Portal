@@ -4343,6 +4343,9 @@ class DashboardComponent {
                             }]
                     },
                     options: {
+                        legend: {
+                            position: 'bottom'
+                        },
                         tooltips: {
                             enabled: true,
                             callbacks: {
