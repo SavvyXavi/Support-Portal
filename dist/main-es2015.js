@@ -4347,8 +4347,8 @@ class DashboardComponent {
                             tooltips: {
                                 enabled: true,
                                 callbacks: {
-                                    label: function (tooltipItem, data) {
-                                        let label = data.datasets[tooltipItem.datasetIndex].label || '';
+                                    label: function (data) {
+                                        let label = data.datasets.label;
                                         if (label) {
                                             label += ': ';
                                         }

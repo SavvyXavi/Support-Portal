@@ -7921,8 +7921,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     tooltips: {
                       enabled: true,
                       callbacks: {
-                        label: function label(tooltipItem, data) {
-                          var label = data.datasets[tooltipItem.datasetIndex].label || '';
+                        label: function label(data) {
+                          var label = data.datasets.label;
 
                           if (label) {
                             label += ': ';
