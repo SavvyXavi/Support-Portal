@@ -265,7 +265,6 @@ export class DashboardComponent implements OnInit {
         },
         options: {
           tooltips: {
-            tooltips: {
               enabled: true,
               callbacks: {
                 label: function(tooltipItem, data) {
@@ -288,7 +287,6 @@ export class DashboardComponent implements OnInit {
                   return dataLabel;
                 }
               }
-            }
           }
         }
     } );
