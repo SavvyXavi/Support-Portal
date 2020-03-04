@@ -32,6 +32,7 @@ import { TicketsModule } from 'src/app/tickets/tickets.module';
 import { CompaniesModule } from 'src/app/companies/companies.module';
 import { LocationsModule } from 'src/app/locations/locations.module';
 import { AdminModule } from 'src/app/admin/admin.module';
+import { SettingsModule } from './../../settings/settings.module';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AdminModule } from 'src/app/admin/admin.module';
     CompaniesModule,
     LocationsModule,
     AdminModule,
+    SettingsModule,
 
     // Material Imports
     MatSliderModule,
