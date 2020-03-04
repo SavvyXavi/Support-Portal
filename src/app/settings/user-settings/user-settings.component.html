@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
           <form>
-            <h4 class="alert alert-dark">Ticket Settings</h4>
+            <h4 class="alert alert-dark">Portal Settings (Coming Soon)</h4>
               <div class="form-group">
                 <label for="ticketEmail">Ticketing Email</label><br>
                 <input type="text" name="ticketEmail" class="shadow-none" value="{{currentProfile?.email}}">
@@ -29,19 +29,30 @@
               </div>
               <div class="form-group">
                 <label for="password">Password</label><br>
-                <button name="password" class="btn btn-primary">Change Password</button>
-              </div>
-              <div class="form-group form-check">
-                <label for="hardwareDesc">Replacement Hardware Desc.</label>
-                <input name="hardwareDesc" class="checkbox shadow-none" type="checkbox">
-              </div>
-              <div class="form-group form-check">
-                <label for="responseLevel">Use Response Level</label>
-                <input name="responseLevel" class="checkbox shadow-none" type="checkbox">
-              </div>
-              <h4 classs="alert alert-dark">Contract & Asset Settings</h4>
-              <div class="form-group-button">
-                <button class="btn btn-primary">Update User</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  Change Password
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Change Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </form>
       </div>
