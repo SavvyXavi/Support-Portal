@@ -7919,7 +7919,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 options: {
                   tooltips: {
                     tooltips: {
-                      enabled: true
+                      enabled: true,
+                      callbacks: {
+                        label: function label(tooltipItem, data) {
+                          var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                          if (label) {
+                            label += ': ';
+                          }
+
+                          return label;
+                        }
+                      }
                     }
                   }
                 }
