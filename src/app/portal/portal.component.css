@@ -27,3 +27,7 @@
   border-color: grey;
   color: white
 }
+
+.modal-dialog {
+  width: 100%;
+}
