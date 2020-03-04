@@ -28,6 +28,10 @@
   color: white
 }
 
+#ticketModal {
+  align-items: center;
+}
+
 .modal-dialog {
   width: 100%;
 }
