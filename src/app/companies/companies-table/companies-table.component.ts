@@ -6,9 +6,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 
 import { ApifilterService } from '../../services/apifilter.service';
-import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
+import { AuthenticationService } from 'src/app/index/services/authentication.service';
 
-import { Profile } from 'src/app/index/index/models/profile';
+import { Profile } from 'src/app/index/models/profile';
 import { Partner } from 'src/app/models/partner';
 import { Company } from '../model/company';
 

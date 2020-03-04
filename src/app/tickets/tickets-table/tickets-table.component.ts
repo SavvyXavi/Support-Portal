@@ -6,13 +6,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
+import { AuthenticationService } from 'src/app/index/services/authentication.service';
 import { ApifilterService } from './../../services/apifilter.service';
 import { ApiCallService } from '../services/api-call.service';
 
 import { Partner } from '../../models/partner';
 import { Company } from '../../companies/model/company';
-import { Profile } from '../../index/index/models/profile';
+import { Profile } from '../../index/models/profile';
 import { Tickets } from '../models/tickets';
 import { TicketType } from '../../types/ticket-type.enum';
 

@@ -1,11 +1,11 @@
-import { LogoutComponent } from './index/logout/logout.component';
+import { LogoutComponent } from './logout/logout.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { IndexComponent } from './../index/index/index.component';
-import { LoginComponent } from './index/login/login.component';
-import { ForgotpasswordComponent } from './index/forgotpassword/forgotpassword.component';
-import { ResetComponent } from './index/reset/reset.component';
-import { AuthGuard } from './index/guards/auth.guard';
+import { IndexComponent } from './index.component';
+import { LoginComponent } from './login/login.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetComponent } from './reset/reset.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {

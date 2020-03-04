@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
+import { AuthGuard } from 'src/app/index/guards/auth.guard';
 
 import { TicketsComponent } from './tickets.component';
 import { TicketsTableComponent } from './tickets-table/tickets-table.component';

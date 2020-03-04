@@ -8,11 +8,11 @@ import { Location } from '@angular/common';
 import { DatePipe } from '@angular/common';
 
 import { Customer } from '../models/customer';
-import { Profile } from '../../index/index/models/profile';
+import { Profile } from '../../index/models/profile';
 import { Filter } from '../../models/filter';
 
 import { ApifilterService } from '../../services/apifilter.service';
-import { AuthenticationService } from '../../index/index/services/authentication.service';
+import { AuthenticationService } from '../../index/services/authentication.service';
 
 
 import { MatTableDataSource } from '@angular/material/table';

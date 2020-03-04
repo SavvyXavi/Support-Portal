@@ -1,0 +1,29 @@
+.card {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 30px;
+}
+
+.card-header {
+  background-color: black;
+  color: white;
+}
+
+input {
+  width: 45%;
+  height: 35px;
+  outline: none !important;
+  box-shadow:none;
+  border-radius: 6px;
+  border-style: solid;
+  padding: auto;
+}
+
+.checkbox {
+  width: auto !important;
+  height: auto !important;
+}
+
+button {
+  background-color: rgb(230, 92, 0) !important;
+  border-color: rgb(230, 92, 0) !important;
+}

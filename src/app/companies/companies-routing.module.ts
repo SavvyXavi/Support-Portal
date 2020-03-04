@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthGuard } from '../index/index/guards/auth.guard';
+import { AuthGuard } from '../index/guards/auth.guard';
 
 import { CompaniesComponent } from './companies.component';
 import { CompaniesTableComponent } from './companies-table/companies-table.component';

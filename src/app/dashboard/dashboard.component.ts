@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Profile } from '../index/index/models/profile';
+import { Profile } from '../index/models/profile';
 import { Tickets } from '../tickets/models/tickets';
 import { Assets } from '../manage-assets/models/assets';
 
-import { AuthenticationService } from '../index/index/services/authentication.service';
+import { AuthenticationService } from '../index/services/authentication.service';
 import { ApifilterService } from './../services/apifilter.service';
 import { DashService } from './services/dash.service';
 
-import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 

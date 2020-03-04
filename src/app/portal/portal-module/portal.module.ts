@@ -10,10 +10,10 @@ import { HeaderComponent } from './../../header/header.component';
 import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 
-import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
-import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
+import { AuthGuard } from 'src/app/index/guards/auth.guard';
+import { AuthenticationService } from 'src/app/index/services/authentication.service';
 
-import { JwtInterceptor } from './../../index/index/helpers/jwt.service';
+import { JwtInterceptor } from './../../index/helpers/jwt.service';
 import { PortalComponent } from '../portal.component';
 
 // Material Import

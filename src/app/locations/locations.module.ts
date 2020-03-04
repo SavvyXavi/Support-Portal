@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AuthGuard } from '../index/index/guards/auth.guard';
+import { AuthGuard } from '../index/guards/auth.guard';
 import { ApifilterService } from '../services/apifilter.service';
 
 import { LocationsRoutingModule } from './locations-routing.module';

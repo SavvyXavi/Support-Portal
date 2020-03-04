@@ -4,17 +4,17 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { IndexRoutingModule } from './index-routing.module';
-import { IndexComponent } from './index/index.component';
-import { LoginComponent } from './index/login/login.component';
-import { AlertComponent } from './index/alert/alert.component';
-import { ForgotpasswordComponent } from './index/forgotpassword/forgotpassword.component';
-import { ResetComponent } from './index/reset/reset.component';
-import { LogoutComponent } from './index/logout/logout.component';
+import { IndexComponent } from './index.component';
+import { LoginComponent } from './login/login.component';
+import { AlertComponent } from './alert/alert.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetComponent } from './reset/reset.component';
+import { LogoutComponent } from './logout/logout.component';
 
-import { AlertService } from './index/services/alert.service';
-import { AuthenticationService } from './index/services/authentication.service';
+import { AlertService } from './services/alert.service';
+import { AuthenticationService } from './services/authentication.service';
 
-import { ErrorInterceptor } from './index/helpers/error-interceptor.service';
+import { ErrorInterceptor } from './helpers/error-interceptor.service';
 
 @NgModule({
   declarations: [
