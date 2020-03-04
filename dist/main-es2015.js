@@ -4320,8 +4320,8 @@ class DashboardComponent {
                 this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('contracts', {
                     type: 'pie',
                     data: {
+                        labels: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
                         datasets: [{
-                                label: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
                                 data: [this.now, this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays, this.plus],
                                 backgroundColor: [
                                     'rgba(255, 0, 0, 1)',

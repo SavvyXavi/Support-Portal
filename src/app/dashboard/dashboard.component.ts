@@ -241,8 +241,8 @@ export class DashboardComponent implements OnInit {
     this.contractsData = new Chart('contracts', {
         type: 'pie',
         data: {
+          labels: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
           datasets: [{
-              label: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
               data: [this.now, this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays, this.plus],
               backgroundColor: [
                   'rgba(255, 0, 0, 1)',
