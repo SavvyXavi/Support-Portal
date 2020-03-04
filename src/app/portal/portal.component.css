@@ -29,7 +29,9 @@
 }
 
 #ticketModal {
-  align-items: center;
+  margin-top: '0px !important';
+  margin-left: 'auto';
+  margin-right: 'auto';
 }
 
 .modal-dialog {
