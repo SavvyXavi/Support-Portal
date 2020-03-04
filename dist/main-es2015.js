@@ -4320,8 +4320,8 @@ class DashboardComponent {
                 this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('contracts', {
                     type: 'pie',
                     data: {
+                        labels: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
                         datasets: [{
-                                labels: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
                                 data: [this.now, this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays, this.plus],
                                 backgroundColor: [
                                     'rgba(255, 0, 0, 1)',
@@ -4350,7 +4350,7 @@ class DashboardComponent {
                                     label: function (tooltipItem, data) {
                                         // get the data label and data value to display
                                         // convert the data value to local string so it uses a comma seperated number
-                                        let dataLabel = data.datasets.labels[tooltipItem.index];
+                                        let dataLabel = data.labels[tooltipItem.index];
                                         let value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
                                         // make this isn't a multi-line label (e.g. [["label 1 - line 1, "line 2, ], [etc...]])
                                         if (chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"].helpers.isArray(dataLabel)) {

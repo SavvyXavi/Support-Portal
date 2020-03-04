@@ -7908,8 +7908,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this29.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('contracts', {
                 type: 'pie',
                 data: {
+                  labels: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
                   datasets: [{
-                    labels: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
                     data: [_this29.now, _this29.fifteenDays, _this29.thirtyDays, _this29.sixtyDays, _this29.ninetyDays, _this29.plus],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
@@ -7924,7 +7924,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                         label: function label(tooltipItem, data) {
                           // get the data label and data value to display
                           // convert the data value to local string so it uses a comma seperated number
-                          var dataLabel = data.datasets.labels[tooltipItem.index];
+                          var dataLabel = data.labels[tooltipItem.index];
                           var value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString(); // make this isn't a multi-line label (e.g. [["label 1 - line 1, "line 2, ], [etc...]])
 
                           if (chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"].helpers.isArray(dataLabel)) {
