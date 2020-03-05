@@ -12,4 +12,5 @@ export class Assets {
   AssetStatus: string;
   SiteAddress: string;
   ContractCoverage: string;
+  CustomerNameOrId: string;
 }

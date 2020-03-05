@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../index/services/authentication.service';
@@ -58,7 +59,13 @@ export class PortalComponent implements OnInit {
    }
 
   createAsset() {
-    this.api
+    this.api.addAsset(this.assetForm.value)
+    .subscribe(
+      asset => {
+        let assetData = this.assetForm.value;
+        assetData = asset;
+      }
+    );
   }
   // logout() {
   //   this.authenticationService.logout();

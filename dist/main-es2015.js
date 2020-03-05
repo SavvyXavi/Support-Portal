@@ -9266,7 +9266,11 @@ class PortalComponent {
         });
     }
     createAsset() {
-        this.api;
+        this.api.addAsset(this.assetForm.value)
+            .subscribe(asset => {
+            let assetData = this.assetForm.value;
+            assetData = asset;
+        });
     }
 }
 PortalComponent.ɵfac = function PortalComponent_Factory(t) { return new (t || PortalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_1__["AuthenticationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_tickets_services_api_call_service__WEBPACK_IMPORTED_MODULE_3__["ApiCallService"])); };
@@ -10550,7 +10554,8 @@ class ApiCallService {
     addTicket(ticket) {
         return this.http.post(this.postTicket, ticket);
     }
-    addAsset() {
+    addAsset(asset) {
+        return this.http.post(this.postAssetApi, asset);
     }
     getAssets() {
         return this.http.get(this.getAsset);

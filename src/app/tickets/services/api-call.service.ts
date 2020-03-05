@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Tickets } from '../models/tickets';
 import { HttpClient } from '@angular/common/http';
+import { Assets } from 'src/app/manage-assets/models/assets';
 
 
 @Injectable({
@@ -31,8 +32,8 @@ export class ApiCallService {
      return this.http.post<Tickets>(this.postTicket, ticket);
   }
 
-  addAsset() {
-
+  addAsset(asset: Assets): Observable<Assets> {
+    return this.http.post<Assets>(this.postAssetApi, asset);
   }
 
   getAssets() {
