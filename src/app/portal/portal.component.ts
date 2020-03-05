@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../index/services/authentication.service';
 
+import { Profile } from '../index/models/profile';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiCallService } from '../tickets/services/api-call.service';
 
@@ -11,13 +13,16 @@ import { ApiCallService } from '../tickets/services/api-call.service';
   styleUrls: ['./portal.component.css']
 })
 export class PortalComponent implements OnInit {
+  currentProfile: Profile;
   ticketForm: FormGroup;
-
+  assetForm: FormGroup;
   constructor (
     private authenticationService: AuthenticationService,
     private formBuilder: FormBuilder,
     private api: ApiCallService
-    ) { }
+    ) {
+
+    }
 
   ngOnInit() {
     this.ticketForm = this.formBuilder.group({
@@ -29,9 +34,14 @@ export class PortalComponent implements OnInit {
       Location: ['', Validators.required],
       TicketCategoryNameOrId: ['', Validators.required],
       TicketTypeNameOrId: [ this.authenticationService.currentUserValue.partner + ' Quotes', Validators.required]
-    },
-
-    );
+    });
+    this.assetForm = this.formBuilder.group({
+      TicketType: ['', Validators.required],
+      Identifier: ['', Validators.required],
+      Name: ['', Validators.required],
+      Description: ['', Validators.required],
+      CustomerNameOrId: [this.currentProfile.firstName +  ' ' + this.currentProfile.lastName, Validators.required]
+    });
   }
 
 
@@ -45,6 +55,9 @@ export class PortalComponent implements OnInit {
      );
    }
 
+  createAsset() {
+
+  }
   // logout() {
   //   this.authenticationService.logout();
   //   this.router.navigate(['/login']);
