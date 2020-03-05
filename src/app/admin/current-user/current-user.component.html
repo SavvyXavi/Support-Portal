@@ -1,20 +1,66 @@
 
-<div>
-  <br><br><br><br><br>
-  <h3>
-  All Users: <button (click)="getAllAssets()">Load assets</button>
-  <ul>
-    <li *ngFor="let zipper of datapull">
-      {{zipper.partner}}<br>
-      {{zipper.Identifier}}
-      {{zipper.AssetType}}<br>
-      {{zipper.ContractCoverage}}<br>
-      {{zipper.SiteAddress}}<br>
-      {{zipper.EndCustomer}}<br>
-      {{zipper.Schedule}}<br>
-      {{zipper.ScheduleLine}}
-    </li>
-  </ul>
-</h3>
-</div>
+  All Assets: <button (click)="gettestAssets()" >Load assets</button>
+  All Tickets: <button (click)="gettestTickets()" >Load tickets</button>
+<br>{{dbcount}}<br>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Status</th>
+            <th scope="col">RefNumber</th>
+            <th scope="col">Schedule</th>
+            <th scope="col">Assigned</th>
+            <th scope="col">CustomerName</th>
+            <th scope="col">AssetIndentifier</th>
+            <th scope="col">UpdatedDate</th>
+            <th scope="col">TimeSinceLastUpdate</th>
+            <th scope="col">Name</th>
+            <th scope="col">Body</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let azer of ticketpull">
+        <tr *ngIf="azer.RefNumber != '' && azer.RefNumber !== undefined && azer.RefNumber !== null">
+          <td> {{azer.Status}}</td>
+          <td> {{azer.RefNumber}}</td>
+          <td> {{azer.Schedule}}</td>
+          <td> {{azer.Assigned}}</td>
+          <td> {{azer.CustomerName}}</td>
+          <td> {{azer.AssetIndentifier}}</td>
+          <td> {{azer.UpdatedDate}}</td>
+          <td> {{azer.TimeSinceLastUpdate}}</td>
+          <td> {{azer.Name}}</td>
+          <td> {{azer.Body}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-bordered">
+  <thead>
+      <tr>
+          <th scope="col">Partner</th>
+          <th scope="col">Identifier</th>
+          <th scope="col">AssetType</th>
+          <th scope="col">ContractCoverage</th>
+          <th scope="col">SiteAddress</th>
+          <th scope="col">EndCustomer</th>
+          <th scope="col">Schedule</th>
+          <th scope="col">ScheduleLine</th>
+      </tr>
+  </thead>
+  <tbody *ngFor="let zipp of datapull">
+      <tr *ngIf="zipp.Identifier != '' && zipp.Identifier !== undefined && zipp.Identifier !== null">
+        <td> {{zipp.Partner}}</td>
+        <td> {{zipp.Identifier}}</td>
+        <td> {{zipp.AssetType}}</td>
+        <td> {{zipp.ContractCoverage}}</td>
+        <td> {{zipp.SiteAddress}}</td>
+        <td> {{zipp.EndCustomer}}</td>
+        <td> {{zipp.Schedule}}</td>
+        <td> {{zipp.ScheduleLine}}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+
 

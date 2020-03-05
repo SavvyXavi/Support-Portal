@@ -1,3 +1,4 @@
+import { AssetFilter } from './../models/assetFilter';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LogoList } from '../../logo-list';
@@ -19,6 +20,7 @@ export class OemService {
   azureMonitor = 'https://prodharmonytwo.azurewebsites.net/api/NagiosCall?code=b99vLlCwafNeOtiqbk1VlJ6upDuWsCo06ox9oxr65sggj3KtLv2qFQ==';
   logolist: Logo[];
   datapull: DataPull;
+  assetfilter: AssetFilter;
 
 
   constructor( private http: HttpClient ) { }
@@ -35,6 +37,21 @@ export class OemService {
   getAllAssets(): Observable<DataPull[]> {
     return this.http.get<DataPull[]>(`${environment.serverUrl}/`);
   }
+  testDataPull(): Observable<DataPull[]> {
+    return this.http.get<DataPull[]>(`${environment.AssetTest}/profile`);
+  }
+
+  testTicketPull(): Observable<AssetFilter[]> {
+    return this.http.get<AssetFilter[]>(`${environment.AssetTest}/profile`);
+  }
+  partTicketFilter() {
+    return this.http.get<AssetFilter[]>(`${environment.AssetTest}/profile`);
+  }
+
+
+
+
+
 
 
 }
