@@ -34,6 +34,10 @@
   margin-right: 'auto';
 }
 
+.modal-body {
+  padding: auto 5px;
+}
+
 .modal-dialog {
   width: 100%;
 }
