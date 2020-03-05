@@ -17,6 +17,7 @@ export class PortalComponent implements OnInit {
   currentProfile: Profile;
   ticketForm: FormGroup;
   assetForm: FormGroup;
+  custOrPart: string;
   constructor (
     private authenticationService: AuthenticationService,
     private formBuilder: FormBuilder,
@@ -25,6 +26,11 @@ export class PortalComponent implements OnInit {
       this.authenticationService.currentUser.subscribe(
         profile => this.currentProfile = profile
       );
+      if ( this.currentProfile.companypartner === 'Partner' ) {
+        this.custOrPart = this.currentProfile.partner;
+      } else {
+        this.custOrPart = this.currentProfile.company;
+      }
     }
 
   ngOnInit() {
@@ -43,7 +49,7 @@ export class PortalComponent implements OnInit {
       Identifier: ['', Validators.required],
       Name: ['', Validators.required],
       Description: ['', Validators.required],
-      CustomerNameOrId: [this.currentProfile.company, Validators.required]
+      CustomerNameOrId: [this.custOrPart, Validators.required]
     });
   }
 
