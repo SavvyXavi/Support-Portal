@@ -87,7 +87,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                      <div class="form-container col-md-6 col-md-offset-3">
+                      <div class="form-container">
                         <form [formGroup]="assetForm">
                           <div class="form-group">
                             <label for="ticketType">Ticket Type:</label><br>
@@ -113,7 +113,7 @@
 
                           <div class="modal-footer form-group-button">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button (click)="createAsset()" type="button" class="btn btn-primary">Submit Asset</button>
+                            <button data-dismiss="modal" (click)="createAsset()" type="button" class="btn btn-primary">Submit Asset</button>
                           </div>
                         </form>
                         </div>
