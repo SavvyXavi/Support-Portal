@@ -28,6 +28,10 @@
   color: white
 }
 
+.modal-header {
+  padding: 5px 3px;
+}
+
 .modal-body {
   padding: auto 5px;
 }
