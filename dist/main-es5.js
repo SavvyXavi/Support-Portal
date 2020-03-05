@@ -16984,9 +16984,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     PortalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: PortalComponent,
       selectors: [["app-portal"]],
-      decls: 101,
+      decls: 119,
       vars: 2,
-      consts: [[1, "container-fluid"], [1, "row", "sticky-top"], [1, "header", "col-md"], [1, "row"], [1, "col-md-2", "sidebar"], [1, "col-md-10", "content"], [1, "col-md"], ["type", "button", "data-toggle", "modal", "data-target", "#ticketModal", 1, "btn", "btn-lg"], ["type", "button", "data-toggle", "modal", "data-target", "#assetModal", 1, "btn", "btn-lg"], ["id", "ticketModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "ticketModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["role", "document", 1, "modal-dialog", "modal-dialog-centered"], [1, "modal-content"], [1, "modal-header"], [1, "modal-title"], ["type", "button", "data-dismiss", "modal", "aria-label", "Close", 1, "close"], ["aria-hidden", "true"], [1, "modal-body"], [1, "card", "card-body", "no-outline"], [1, "form-container", "col-md-6", "col-md-offset-3"], [3, "formGroup"], [1, "form-group"], ["for", "ticketType"], [1, "radio"], ["formControlName", "TicketType", "type", "radio", "name", "TicketType", "value", "Contract Support"], ["for", "title"], ["type", "text", "formControlName", "Title", "name", "Title", 1, "form-control", "title", "shadow-none"], ["value", "", "name", "CustomerNameOrId", "type", "text", "formControlName", "AssetId", 1, "form-control", "shadow-none"], ["for", "description"], ["formControlName", "Description", "name", "Description", "cols", "50%", "rows", "5px", 1, "shadow-none"], [1, "form-group-button"], ["format_align_left", "", 1, "btn", "btn-primary", 3, "click"], [1, "modal-footer"], ["type", "button", "data-dismiss", "modal", 1, "btn", "cancel"], ["type", "button", 1, "btn", "submit"], ["id", "assetModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "assetModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["id", "exampleModalLongTitle", 1, "modal-title"], [1, "form-container"], ["formControlName", "TicketType", "type", "radio", "name", "TicketType", "value", "Asset"], ["for", "Name"], ["type", "text", "formControlName", "Name", "name", "Title", 1, "form-control", "title", "shadow-none"], ["for", "Identifier"], ["value", "", "name", "CustomerNameOrId", "type", "text", "formControlName", "Identifier", 1, "form-control", "shadow-none"], ["for", "Description"], [1, "modal-footer", "form-group-button"], ["type", "button", "data-dismiss", "modal", 1, "btn", "btn-secondary"], ["data-dismiss", "modal", "type", "button", 1, "btn", "btn-primary", 3, "click"], [1, "row", "content"], [1, "col-lg"]],
+      consts: [[1, "container-fluid"], [1, "row", "sticky-top"], [1, "header", "col-md"], [1, "row"], [1, "col-md-2", "sidebar"], [1, "col-md-10", "content"], [1, "col-md"], ["type", "button", "data-toggle", "modal", "data-target", "#ticketModal", 1, "btn", "btn-lg"], ["type", "button", "data-toggle", "modal", "data-target", "#assetModal", 1, "btn", "btn-lg"], ["id", "ticketModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "ticketModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["role", "document", 1, "modal-dialog", "modal-dialog-centered"], [1, "modal-content"], [1, "modal-header"], [1, "modal-title"], ["type", "button", "data-dismiss", "modal", "aria-label", "Close", 1, "close"], ["aria-hidden", "true"], [1, "modal-body"], [1, "card", "card-body", "no-outline"], [1, "form-container", "col-md-6", "col-md-offset-3"], [3, "formGroup"], [1, "form-group"], ["for", "ticketType"], [1, "radio"], ["formControlName", "TicketType", "type", "radio", "name", "TicketType", "value", "Contract Support"], ["for", "title"], ["type", "text", "formControlName", "Title", "name", "Title", 1, "form-control", "title", "shadow-none"], ["value", "", "name", "CustomerNameOrId", "type", "text", "formControlName", "AssetId", 1, "form-control", "shadow-none"], ["for", "description"], ["formControlName", "Description", "name", "Description", "cols", "50%", "rows", "5px", 1, "shadow-none"], [1, "form-group-button"], ["format_align_left", "", 1, "btn", "btn-primary", 3, "click"], [1, "modal-footer"], ["type", "button", "data-dismiss", "modal", 1, "btn", "cancel"], ["type", "button", 1, "btn", "submit"], ["id", "assetModalCenter", "tabindex", "-1", "role", "dialog", "aria-labelledby", "assetModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["id", "exampleModalLongTitle", 1, "modal-title"], [1, "form-container"], ["formControlName", "TicketType", "type", "radio", "name", "TicketType", "value", "Asset"], ["for", "Name"], ["type", "text", "formControlName", "Name", "name", "Title", 1, "form-control", "title", "shadow-none"], ["for", "Identifier"], ["value", "", "name", "CustomerNameOrId", "type", "text", "formControlName", "Identifier", 1, "form-control", "shadow-none"], ["for", "Description"], [1, "modal-footer", "form-group-button"], ["type", "button", "data-dismiss", "modal", 1, "btn", "btn-secondary"], ["data-dismiss", "modal", "type", "button", 1, "btn", "btn-primary", 3, "click"], [1, "row", "content"], [1, "col-lg"], ["type", "button", "data-toggle", "modal", "data-target", "#exampleModalCenter", 1, "btn", "btn-primary"], ["id", "exampleModalCenter", "tabindex", "-1", "role", "dialog", "aria-labelledby", "exampleModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["type", "button", 1, "btn", "btn-primary"]],
       template: function PortalComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -17314,6 +17314,66 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](101, "button", 48);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](102, " Launch demo modal\n");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](103, "div", 49);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](104, "div", 10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](105, "div", 11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](106, "div", 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](107, "h5", 35);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](108, "Modal title");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](109, "button", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](110, "span", 15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](111, "\xD7");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](112, "div", 16);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](113, " ... ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](114, "div", 31);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](115, "button", 44);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](116, "Close");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](117, "button", 50);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](118, "Save changes");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
