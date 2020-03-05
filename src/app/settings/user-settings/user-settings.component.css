@@ -27,3 +27,9 @@ input {
   border-color: black;
   background-color: black
 }
+
+.version {
+ color: grey;
+ width: 100%;
+ text-align: right;
+}

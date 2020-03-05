@@ -28,6 +28,10 @@
   color: white
 }
 
+.close {
+  color: white;
+}
+
 .modal-header {
   padding: 8px 5px;
   background-color: black;
