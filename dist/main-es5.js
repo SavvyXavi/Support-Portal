@@ -16869,49 +16869,84 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _header_header_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _tickets_services_api_call_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../tickets/services/api-call.service */
+    "./src/app/tickets/services/api-call.service.ts");
+    /* harmony import */
+
+
+    var _header_header_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../header/header.component */
     "./src/app/header/header.component.ts");
     /* harmony import */
 
 
-    var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../sidebar/sidebar.component */
     "./src/app/sidebar/sidebar.component.ts");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var PortalComponent =
     /*#__PURE__*/
     function () {
-      function PortalComponent(authenticationService) {
+      function PortalComponent(authenticationService, formBuilder, api) {
         _classCallCheck(this, PortalComponent);
 
         this.authenticationService = authenticationService;
+        this.formBuilder = formBuilder;
+        this.api = api;
       }
 
       _createClass(PortalComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          this.ticketForm = this.formBuilder.group({
+            Title: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            Description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            CustomerNameOrId: [this.authenticationService.currentUserValue.partner, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            TicketType: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            AssetId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            Location: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            TicketCategoryNameOrId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            TicketTypeNameOrId: [this.authenticationService.currentUserValue.partner + ' Quotes', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+          });
+        }
+      }, {
+        key: "createTicket",
+        value: function createTicket() {
+          var _this50 = this;
+
+          this.api.addTicket(this.ticketForm.value).subscribe(function (ticket) {
+            var ticketData = _this50.ticketForm.value;
+            ticketData = ticket;
+          });
+        }
       }]);
 
       return PortalComponent;
     }();
 
     PortalComponent.ɵfac = function PortalComponent_Factory(t) {
-      return new (t || PortalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_1__["AuthenticationService"]));
+      return new (t || PortalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_1__["AuthenticationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_tickets_services_api_call_service__WEBPACK_IMPORTED_MODULE_3__["ApiCallService"]));
     };
 
     PortalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: PortalComponent,
       selectors: [["app-portal"]],
-      decls: 49,
-      vars: 0,
-      consts: [[1, "container-fluid"], [1, "row", "sticky-top"], [1, "header", "col-md"], [1, "row"], [1, "col-md-2", "sidebar"], [1, "col-md-10", "content"], [1, "col-md"], ["type", "button", "data-toggle", "modal", "data-target", "#ticketModal", 1, "btn", "btn-lg"], ["type", "button", "data-toggle", "modal", "data-target", "#assetModal", 1, "btn", "btn-lg"], ["id", "ticketModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "ticketModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["role", "document", 1, "modal-dialog", "modal-dialog-centered"], [1, "modal-content"], [1, "modal-header"], [1, "modal-title"], ["type", "button", "data-dismiss", "modal", "aria-label", "Close", 1, "close"], ["aria-hidden", "true"], [1, "modal-body"], [1, "modal-footer"], ["type", "button", "data-dismiss", "modal", 1, "btn", "cancel"], ["type", "button", 1, "btn", "submit"], ["id", "assetModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "assetModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["id", "exampleModalLongTitle", 1, "modal-title"], ["type", "button", "data-dismiss", "modal", 1, "btn", "btn-secondary"], ["type", "button", 1, "btn", "btn-primary"], [1, "row", "content"], [1, "col-lg"]],
+      decls: 79,
+      vars: 1,
+      consts: [[1, "container-fluid"], [1, "row", "sticky-top"], [1, "header", "col-md"], [1, "row"], [1, "col-md-2", "sidebar"], [1, "col-md-10", "content"], [1, "col-md"], ["type", "button", "data-toggle", "modal", "data-target", "#ticketModal", 1, "btn", "btn-lg"], ["type", "button", "data-toggle", "modal", "data-target", "#assetModal", 1, "btn", "btn-lg"], ["id", "ticketModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "ticketModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["role", "document", 1, "modal-dialog", "modal-dialog-centered"], [1, "modal-content"], [1, "modal-header"], [1, "modal-title"], ["type", "button", "data-dismiss", "modal", "aria-label", "Close", 1, "close"], ["aria-hidden", "true"], [1, "modal-body"], [1, "card", "card-body", "no-outline"], [1, "form-container", "col-md-6", "col-md-offset-3"], [3, "formGroup"], [1, "form-group"], ["for", "ticketType"], [1, "radio"], ["formControlName", "TicketType", "type", "radio", "name", "TicketType", "value", "Contract Support"], ["for", "title"], ["type", "text", "formControlName", "Title", "name", "Title", 1, "form-control", "title", "shadow-none"], ["value", "", "name", "CustomerNameOrId", "type", "text", "formControlName", "AssetId", 1, "form-control", "shadow-none"], ["for", "description"], ["formControlName", "Description", "name", "Description", "cols", "50%", "rows", "5px", 1, "shadow-none"], [1, "form-group-button"], ["format_align_left", "", 1, "btn", "btn-primary", 3, "click"], [1, "modal-footer"], ["type", "button", "data-dismiss", "modal", 1, "btn", "cancel"], ["type", "button", 1, "btn", "submit"], ["id", "assetModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "assetModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["id", "exampleModalLongTitle", 1, "modal-title"], ["type", "button", "data-dismiss", "modal", 1, "btn", "btn-secondary"], ["type", "button", 1, "btn", "btn-primary"], [1, "row", "content"], [1, "col-lg"]],
       template: function PortalComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -16980,75 +17015,95 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, " Coming Soon! ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 17);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 18);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "form", 19);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "h2");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "Ticket Form");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 17);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 20);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "button", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "label", 21);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, "Close");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "button", 19);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "Submit Ticket");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "Ticket Type:");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](32, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "div", 22);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](35, "input", 23);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](36, " Support ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 20);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "div", 10);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 11);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "div", 12);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "h5", 21);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, "Asset Form");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "button", 14);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "span", 15);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](38, "\xD7");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](37, "br");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "div", 20);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "div", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "label", 24);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](40, " Coming Soon! ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](41, "div", 17);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "button", 22);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](43, "Close");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](40, "Title: ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "button", 23);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](41, "input", 25);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](45, "Submit Asset");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "div", 20);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](43, "label", 24);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](44, "Asset Id: ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](45, "input", 26);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "div", 20);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "label", 27);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](48, "Description: ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](49, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "textarea", 28);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, "                            ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "div", 29);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](53, "button", 30);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function PortalComponent_Template_button_click_53_listener($event) {
+            return ctx.createTicket();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](54, " Submit ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -17060,11 +17115,89 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "div", 24);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "div", 25);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "div", 31);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](48, "router-outlet");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](56, "button", 32);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](57, "Close");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](58, "button", 33);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](59, "Submit Ticket");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "div", 34);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "div", 10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](62, "div", 11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "div", 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](64, "h5", 35);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](65, "Asset Form");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](66, "button", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](67, "span", 15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](68, "\xD7");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](69, "div", 16);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](70, " Coming Soon! ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](71, "div", 31);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](72, "button", 36);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](73, "Close");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](74, "button", 37);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](75, "Submit Asset");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](76, "div", 38);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](77, "div", 39);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](78, "router-outlet");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -17080,8 +17213,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](26);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.ticketForm);
+        }
       },
-      directives: [_header_header_component__WEBPACK_IMPORTED_MODULE_2__["HeaderComponent"], _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_3__["SidebarComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterOutlet"]],
+      directives: [_header_header_component__WEBPACK_IMPORTED_MODULE_4__["HeaderComponent"], _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_5__["SidebarComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["RadioControlValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControlName"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterOutlet"]],
       styles: ["*[_ngcontent-%COMP%] {\n  margin: 0;\n  padding: 0;\n}\n\n.btn[_ngcontent-%COMP%] {\n  margin: 10px;\n  padding: 6px 12px;\n  color: white;\n  background-color: rgb(230, 92, 0);\n  border-color: rgb(230, 92, 0);\n}\n\n.btn[_ngcontent-%COMP%]:active:focus, .btn[_ngcontent-%COMP%]:focus, .btn[_ngcontent-%COMP%]:active, .btn[_ngcontent-%COMP%]:visited {\n  margin: 10px;\n  color: white;\n  background-color: rgb(230, 92, 0);\n  border-color: rgb(230, 92, 0);\n}\n\n.cancel[_ngcontent-%COMP%] {\n  background-color: grey;\n  border-color: grey;\n  color: white\n}\n\n#ticketModal[_ngcontent-%COMP%] {\n  margin-top: '0px !important';\n  margin-left: 'auto';\n  margin-right: 'auto';\n}\n\n.modal-dialog[_ngcontent-%COMP%] {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcG9ydGFsL3BvcnRhbC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsU0FBUztFQUNULFVBQVU7QUFDWjs7QUFFQTtFQUNFLFlBQVk7RUFDWixpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGlDQUFpQztFQUNqQyw2QkFBNkI7QUFDL0I7O0FBRUE7Ozs7O0VBS0UsWUFBWTtFQUNaLFlBQVk7RUFDWixpQ0FBaUM7RUFDakMsNkJBQTZCO0FBQy9COztBQUVBO0VBQ0Usc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQjtBQUNGOztBQUVBO0VBQ0UsNEJBQTRCO0VBQzVCLG1CQUFtQjtFQUNuQixvQkFBb0I7QUFDdEI7O0FBRUE7RUFDRSxXQUFXO0FBQ2IiLCJmaWxlIjoic3JjL2FwcC9wb3J0YWwvcG9ydGFsLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcbiAgbWFyZ2luOiAwO1xuICBwYWRkaW5nOiAwO1xufVxuXG4uYnRuIHtcbiAgbWFyZ2luOiAxMHB4O1xuICBwYWRkaW5nOiA2cHggMTJweDtcbiAgY29sb3I6IHdoaXRlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjMwLCA5MiwgMCk7XG4gIGJvcmRlci1jb2xvcjogcmdiKDIzMCwgOTIsIDApO1xufVxuXG4uYnRuOmFjdGl2ZTpmb2N1c1xuLmJ0bjpob3Zlcixcbi5idG46Zm9jdXMsXG4uYnRuOmFjdGl2ZSxcbi5idG46dmlzaXRlZCB7XG4gIG1hcmdpbjogMTBweDtcbiAgY29sb3I6IHdoaXRlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjMwLCA5MiwgMCk7XG4gIGJvcmRlci1jb2xvcjogcmdiKDIzMCwgOTIsIDApO1xufVxuXG4uY2FuY2VsIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JleTtcbiAgYm9yZGVyLWNvbG9yOiBncmV5O1xuICBjb2xvcjogd2hpdGVcbn1cblxuI3RpY2tldE1vZGFsIHtcbiAgbWFyZ2luLXRvcDogJzBweCAhaW1wb3J0YW50JztcbiAgbWFyZ2luLWxlZnQ6ICdhdXRvJztcbiAgbWFyZ2luLXJpZ2h0OiAnYXV0byc7XG59XG5cbi5tb2RhbC1kaWFsb2cge1xuICB3aWR0aDogMTAwJTtcbn1cbiJdfQ== */"]
     });
     /*@__PURE__*/
@@ -17097,6 +17236,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }], function () {
         return [{
           type: _index_services_authentication_service__WEBPACK_IMPORTED_MODULE_1__["AuthenticationService"]
+        }, {
+          type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]
+        }, {
+          type: _tickets_services_api_call_service__WEBPACK_IMPORTED_MODULE_3__["ApiCallService"]
         }];
       }, null);
     })();
@@ -17214,10 +17357,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this50 = this;
+          var _this51 = this;
 
           this.nameSubscription = this.authenticationService.currentUser.subscribe(function (name) {
-            _this50.currentProfile = name;
+            _this51.currentProfile = name;
           });
           this.profileForm = this.formBuilder.group({
             partner: [this.currentProfile.partner, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -18330,10 +18473,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(UserSettingsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this51 = this;
+          var _this52 = this;
 
           this.authenticationService.currentUser.subscribe(function (name) {
-            _this51.currentProfile = name;
+            _this52.currentProfile = name;
           });
         }
       }]);
@@ -18809,7 +18952,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function SidebarComponent(router, authenticationService, filter) {
-        var _this52 = this;
+        var _this53 = this;
 
         _classCallCheck(this, SidebarComponent);
 
@@ -18820,7 +18963,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.admin = true;
         this.sidebars = _services_loadsidebar_service__WEBPACK_IMPORTED_MODULE_4__["Sidebars"];
         this.roleSubscription = this.authenticationService.currentUser.subscribe(function (role) {
-          _this52.currentRole = role;
+          _this53.currentRole = role;
         });
       }
 
@@ -18839,10 +18982,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this53 = this;
+          var _this54 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this53.partnerArr = returnedPartners;
+            return _this54.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -20250,21 +20393,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getItems",
         value: function getItems() {
-          var _this54 = this;
+          var _this55 = this;
 
           var refNumber = this.route.snapshot.paramMap.get('refNumber');
           this.filter.ticketRefFilter(refNumber.substring(1)).subscribe(function (returnedTicket) {
-            _this54.ticket = returnedTicket;
+            _this55.ticket = returnedTicket;
 
-            _this54.filter.assetsBySerial(_this54.ticket[0].AssetIdentifier).subscribe(function (returnedAsset) {
-              _this54.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
-              _this54.assetDataSource.sort = _this54.sort;
-              _this54.assetDataSource.paginator = _this54.paginator;
+            _this55.filter.assetsBySerial(_this55.ticket[0].AssetIdentifier).subscribe(function (returnedAsset) {
+              _this55.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
+              _this55.assetDataSource.sort = _this55.sort;
+              _this55.assetDataSource.paginator = _this55.paginator;
 
-              _this54.filter.conByName(returnedAsset[0].Schedule).subscribe(function (returnedContract) {
-                _this54.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContract);
-                _this54.contractDataSource.sort = _this54.sort;
-                _this54.contractDataSource.paginator = _this54.paginator;
+              _this55.filter.conByName(returnedAsset[0].Schedule).subscribe(function (returnedContract) {
+                _this55.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContract);
+                _this55.contractDataSource.sort = _this55.sort;
+                _this55.contractDataSource.paginator = _this55.paginator;
               });
             });
           });
@@ -20555,57 +20698,57 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-    /* harmony import */
-
-
-    var src_app_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var src_app_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/index/services/authentication.service */
     "./src/app/index/services/authentication.service.ts");
     /* harmony import */
 
 
-    var _services_apifilter_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _services_apifilter_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./../../services/apifilter.service */
     "./src/app/services/apifilter.service.ts");
     /* harmony import */
 
 
-    var _services_api_call_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _services_api_call_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../services/api-call.service */
     "./src/app/tickets/services/api-call.service.ts");
     /* harmony import */
 
 
-    var _angular_material_table__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _angular_material_table__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/material/table */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/table.js");
     /* harmony import */
 
 
-    var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/material/paginator */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/paginator.js");
     /* harmony import */
 
 
-    var _angular_material_sort__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @angular/material/sort */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sort.js");
     /* harmony import */
 
 
-    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! @angular/material/form-field */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
     /* harmony import */
 
 
-    var _angular_material_input__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    var _angular_material_input__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! @angular/material/input */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/input.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
     /* harmony import */
 
 
@@ -20619,13 +20762,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
-    function TicketsTableComponent_button_41_Template(rf, ctx) {
+    function TicketsTableComponent_button_9_Template(rf, ctx) {
       if (rf & 1) {
         var _r269 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "button", 39);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "button", 24);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function TicketsTableComponent_button_41_Template_button_click_0_listener($event) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function TicketsTableComponent_button_9_Template_button_click_0_listener($event) {
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r269);
 
           var ctx_r268 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
@@ -20643,9 +20786,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_th_45_Template(rf, ctx) {
+    function TicketsTableComponent_th_13_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 40);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Case Number ");
 
@@ -20653,11 +20796,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_td_46_Template(rf, ctx) {
+    function TicketsTableComponent_td_14_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 41);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 26);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "a", 42);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "a", 27);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](2);
 
@@ -20679,9 +20822,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_th_48_Template(rf, ctx) {
+    function TicketsTableComponent_th_16_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 40);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Name ");
 
@@ -20689,7 +20832,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_td_49_Template(rf, ctx) {
+    function TicketsTableComponent_td_17_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td");
 
@@ -20707,9 +20850,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_th_51_Template(rf, ctx) {
+    function TicketsTableComponent_th_19_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 40);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Status ");
 
@@ -20717,9 +20860,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_td_52_Template(rf, ctx) {
+    function TicketsTableComponent_td_20_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 41);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1);
 
@@ -20735,9 +20878,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_th_54_Template(rf, ctx) {
+    function TicketsTableComponent_th_22_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 40);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Description ");
 
@@ -20745,9 +20888,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_td_55_Template(rf, ctx) {
+    function TicketsTableComponent_td_23_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 41);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1);
 
@@ -20763,9 +20906,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_th_57_Template(rf, ctx) {
+    function TicketsTableComponent_th_25_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 40);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Customer ");
 
@@ -20773,9 +20916,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_td_58_Template(rf, ctx) {
+    function TicketsTableComponent_td_26_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 41);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1);
 
@@ -20791,9 +20934,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_th_60_Template(rf, ctx) {
+    function TicketsTableComponent_th_28_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 40);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Serial# ");
 
@@ -20801,9 +20944,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_td_61_Template(rf, ctx) {
+    function TicketsTableComponent_td_29_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 41);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1);
 
@@ -20819,9 +20962,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_th_63_Template(rf, ctx) {
+    function TicketsTableComponent_th_31_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 40);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 25);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Updated ");
 
@@ -20829,9 +20972,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_td_64_Template(rf, ctx) {
+    function TicketsTableComponent_td_32_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 41);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "td", 26);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1);
 
@@ -20849,15 +20992,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function TicketsTableComponent_tr_65_Template(rf, ctx) {
+    function TicketsTableComponent_tr_33_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "tr", 43);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "tr", 28);
       }
     }
 
-    function TicketsTableComponent_tr_66_Template(rf, ctx) {
+    function TicketsTableComponent_tr_34_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "tr", 44);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "tr", 29);
       }
     }
 
@@ -20870,18 +21013,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var TicketsTableComponent =
     /*#__PURE__*/
     function () {
-      function TicketsTableComponent(api, formBuilder, authenticationService, filter) {
-        var _this55 = this;
+      function TicketsTableComponent(api, authenticationService, filter) {
+        var _this56 = this;
 
         _classCallCheck(this, TicketsTableComponent);
 
         this.api = api;
-        this.formBuilder = formBuilder;
         this.authenticationService = authenticationService;
         this.filter = filter;
         this.displayedColumns = ['Case#', 'Name', 'Status', 'Description', 'Asset ID', 'Customer', 'Update Date'];
         this.authenticationService.currentUser.subscribe(function (typeName) {
-          _this55.currentProfile = typeName;
+          _this56.currentProfile = typeName;
         });
         this.pipe = new _angular_common__WEBPACK_IMPORTED_MODULE_4__["DatePipe"]('en-us');
       }
@@ -20889,16 +21031,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(TicketsTableComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          this.ticketForm = this.formBuilder.group({
-            Title: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            Description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            CustomerNameOrId: [this.authenticationService.currentUserValue.partner, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            TicketType: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            AssetId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            Location: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            TicketCategoryNameOrId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            TicketTypeNameOrId: [this.authenticationService.currentUserValue.partner + ' Quotes', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
-          });
           this.getPartners();
           this.getTickets();
         }
@@ -20908,7 +21040,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee6() {
-            var _this56 = this;
+            var _this57 = this;
 
             var docDef;
             return regeneratorRuntime.wrap(function _callee6$(_context6) {
@@ -20955,7 +21087,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                             text: 'Updated',
                             style: 'tableHeader'
                           }]].concat(_toConsumableArray(this.tickArr.map(function (t) {
-                            return [t.RefNumber, t.Name, t.Status, t.Body, t.Schedule, t.AssetIdentifier, t.CustomerName, _this56.pipe.transform(t.UpdatedDate, 'short')];
+                            return [t.RefNumber, t.Name, t.Status, t.Body, t.Schedule, t.AssetIdentifier, t.CustomerName, _this57.pipe.transform(t.UpdatedDate, 'short')];
                           })))
                         }
                       }],
@@ -20983,16 +21115,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }));
         }
       }, {
-        key: "createTicket",
-        value: function createTicket() {
-          var _this57 = this;
-
-          this.api.addTicket(this.ticketForm.value).subscribe(function (ticket) {
-            var ticketData = _this57.ticketForm.value;
-            ticketData = ticket;
-          });
-        }
-      }, {
         key: "getPartners",
         value: function getPartners() {
           var _this58 = this;
@@ -21018,7 +21140,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               case 'Noble1Solutions':
                 this.filter.nobleTicks().subscribe(function (tickets) {
                   _this59.tickArr = tickets;
-                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](tickets);
+                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
                   _this59.ticketDataSource.sort = _this59.sort;
                   _this59.ticketDataSource.paginator = _this59.paginator;
                 });
@@ -21027,7 +21149,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               case 'Relutech':
                 this.filter.reluTicks().subscribe(function (assets) {
                   _this59.tickArr = assets;
-                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](assets);
+                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](assets);
                   _this59.ticketDataSource.sort = _this59.sort;
                   _this59.ticketDataSource.paginator = _this59.paginator;
                 });
@@ -21036,7 +21158,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               case 'Reliant Technology':
                 this.filter.reliTicks().subscribe(function (tickets) {
                   _this59.tickArr = tickets;
-                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](tickets);
+                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
                   _this59.ticketDataSource.sort = _this59.sort;
                   _this59.ticketDataSource.paginator = _this59.paginator;
                 });
@@ -21045,7 +21167,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               default:
                 this.filter.partTicketsFilter(this.currentProfile).subscribe(function (tickets) {
                   _this59.tickArr = tickets;
-                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](tickets);
+                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
                   _this59.ticketDataSource.sort = _this59.sort;
                   _this59.ticketDataSource.paginator = _this59.paginator;
                 });
@@ -21053,7 +21175,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTickets) {
               _this59.tickArr = returnedTickets;
-              _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableDataSource"](returnedTickets);
+              _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](returnedTickets);
               _this59.ticketDataSource.sort = _this59.sort;
               _this59.ticketDataSource.paginator = _this59.paginator;
             });
@@ -21089,7 +21211,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     TicketsTableComponent.ɵfac = function TicketsTableComponent_Factory(t) {
-      return new (t || TicketsTableComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_services_api_call_service__WEBPACK_IMPORTED_MODULE_8__["ApiCallService"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_services_apifilter_service__WEBPACK_IMPORTED_MODULE_7__["ApifilterService"]));
+      return new (t || TicketsTableComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_services_api_call_service__WEBPACK_IMPORTED_MODULE_7__["ApiCallService"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_services_apifilter_service__WEBPACK_IMPORTED_MODULE_6__["ApifilterService"]));
     };
 
     TicketsTableComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({
@@ -21097,9 +21219,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-tickets-table"]],
       viewQuery: function TicketsTableComponent_Query(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵviewQuery"](_angular_material_paginator__WEBPACK_IMPORTED_MODULE_10__["MatPaginator"], true);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵviewQuery"](_angular_material_paginator__WEBPACK_IMPORTED_MODULE_9__["MatPaginator"], true);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵviewQuery"](_angular_material_sort__WEBPACK_IMPORTED_MODULE_11__["MatSort"], true);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵviewQuery"](_angular_material_sort__WEBPACK_IMPORTED_MODULE_10__["MatSort"], true);
         }
 
         if (rf & 2) {
@@ -21109,9 +21231,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵloadQuery"]()) && (ctx.sort = _t.first);
         }
       },
-      decls: 68,
-      vars: 10,
-      consts: [[1, "container-fluid"], [1, "row"], [1, "col-md", "d-flex", "justify-content-end"], [1, "gen-pdf", "btn", 3, "click"], ["id", "collapseExample", 1, "collapse"], [1, "card", "card-body", "no-outline"], [1, "form-container", "col-md-6", "col-md-offset-3"], [3, "formGroup"], [1, "form-group"], ["for", "ticketType"], [1, "radio"], ["formControlName", "TicketType", "type", "radio", "name", "TicketType", "value", "Contract Support"], ["for", "title"], ["type", "text", "formControlName", "Title", "name", "Title", 1, "form-control", "title", "shadow-none"], ["value", "", "name", "CustomerNameOrId", "type", "text", "formControlName", "AssetId", 1, "form-control", "shadow-none"], ["for", "description"], ["formControlName", "Description", "name", "Description", "cols", "50%", "rows", "5px", 1, "shadow-none"], [1, "form-group-button"], ["format_align_left", "", 1, "btn", "btn-primary", 3, "click"], [1, "table-container", "table-responsive-sm"], [1, "search-div"], ["floatLabel", "never", 1, "search-form-field"], ["matInput", "", "placeholder", "Search for Ticket", "autocomplete", "off", 3, "ngModel", "ngModelChange", "keyup"], ["mat-button", "", "matSuffix", "", "mat-icon-button", "", "aria-label", "Clear", 3, "click", 4, "ngIf"], [1, "mat-table", "mattable-container"], ["mat-table", "", "matSort", "", 1, "mat-elevation-z8", "table", 3, "dataSource"], ["matColumnDef", "Case#", 1, ""], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "Name"], [4, "matCellDef"], ["matColumnDef", "Status"], ["matColumnDef", "Description"], ["matColumnDef", "Customer"], ["matColumnDef", "Asset ID"], ["matColumnDef", "Update Date"], ["mat-header-row", "", 4, "matHeaderRowDef", "matHeaderRowDefSticky"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "pageSizeOptions", "pageSize"], ["mat-button", "", "matSuffix", "", "mat-icon-button", "", "aria-label", "Clear", 3, "click"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], [1, "asset-link", 3, "routerLink"], ["mat-header-row", ""], ["mat-row", ""]],
+      decls: 36,
+      vars: 9,
+      consts: [[1, "container-fluid"], [1, "row"], [1, "col-md", "d-flex", "justify-content-end"], [1, "gen-pdf", "btn", 3, "click"], [1, "table-container", "table-responsive-sm"], [1, "search-div"], ["floatLabel", "never", 1, "search-form-field"], ["matInput", "", "placeholder", "Search for Ticket", "autocomplete", "off", 3, "ngModel", "ngModelChange", "keyup"], ["mat-button", "", "matSuffix", "", "mat-icon-button", "", "aria-label", "Clear", 3, "click", 4, "ngIf"], [1, "mat-table", "mattable-container"], ["mat-table", "", "matSort", "", 1, "mat-elevation-z8", "table", 3, "dataSource"], ["matColumnDef", "Case#", 1, ""], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "Name"], [4, "matCellDef"], ["matColumnDef", "Status"], ["matColumnDef", "Description"], ["matColumnDef", "Customer"], ["matColumnDef", "Asset ID"], ["matColumnDef", "Update Date"], ["mat-header-row", "", 4, "matHeaderRowDef", "matHeaderRowDefSticky"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "pageSizeOptions", "pageSize"], ["mat-button", "", "matSuffix", "", "mat-icon-button", "", "aria-label", "Clear", 3, "click"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], [1, "asset-link", 3, "routerLink"], ["mat-header-row", ""], ["mat-row", ""]],
       template: function TicketsTableComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0);
@@ -21138,195 +21260,91 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "div", 5);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "div", 6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "mat-form-field", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "form", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "input", 7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](9, "h2");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](10, "Ticket Form");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](11, "div", 8);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](12, "label", 9);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](13, "Ticket Type:");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](14, "br");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](15, "div", 10);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](16, "label");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](17, "input", 11);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](18, " Support ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](19, "br");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](20, "div", 8);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](21, "label", 12);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](22, "Title: ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](23, "input", 13);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](24, "div", 8);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](25, "label", 12);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](26, "Asset Id: ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](27, "input", 14);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](28, "div", 8);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](29, "label", 15);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](30, "Description: ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](31, "br");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](32, "textarea", 16);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](33, "      ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](34, "div", 17);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](35, "button", 18);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function TicketsTableComponent_Template_button_click_35_listener($event) {
-            return ctx.createTicket();
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](36, " Submit ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](37, "div", 19);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](38, "div", 20);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](39, "mat-form-field", 21);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](40, "input", 22);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngModelChange", function TicketsTableComponent_Template_input_ngModelChange_40_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngModelChange", function TicketsTableComponent_Template_input_ngModelChange_8_listener($event) {
             return ctx.searchKey = $event;
-          })("keyup", function TicketsTableComponent_Template_input_keyup_40_listener($event) {
+          })("keyup", function TicketsTableComponent_Template_input_keyup_8_listener($event) {
             return ctx.applyFilter();
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](41, TicketsTableComponent_button_41_Template, 3, 0, "button", 23);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](9, TicketsTableComponent_button_9_Template, 3, 0, "button", 8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](42, "div", 24);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](10, "div", 9);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](43, "table", 25);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](11, "table", 10);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](44, "div", 26);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](12, "div", 11);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](45, TicketsTableComponent_th_45_Template, 2, 0, "th", 27);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](13, TicketsTableComponent_th_13_Template, 2, 0, "th", 12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](46, TicketsTableComponent_td_46_Template, 3, 2, "td", 28);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](47, "div", 29);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](48, TicketsTableComponent_th_48_Template, 2, 0, "th", 27);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](49, TicketsTableComponent_td_49_Template, 2, 1, "td", 30);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](14, TicketsTableComponent_td_14_Template, 3, 2, "td", 13);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](50, "div", 31);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](15, "div", 14);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](51, TicketsTableComponent_th_51_Template, 2, 0, "th", 27);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](16, TicketsTableComponent_th_16_Template, 2, 0, "th", 12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](52, TicketsTableComponent_td_52_Template, 2, 1, "td", 28);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](53, "div", 32);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](54, TicketsTableComponent_th_54_Template, 2, 0, "th", 27);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](55, TicketsTableComponent_td_55_Template, 2, 1, "td", 28);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](17, TicketsTableComponent_td_17_Template, 2, 1, "td", 15);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](56, "div", 33);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](18, "div", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](57, TicketsTableComponent_th_57_Template, 2, 0, "th", 27);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](19, TicketsTableComponent_th_19_Template, 2, 0, "th", 12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](58, TicketsTableComponent_td_58_Template, 2, 1, "td", 28);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](59, "div", 34);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](60, TicketsTableComponent_th_60_Template, 2, 0, "th", 27);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](61, TicketsTableComponent_td_61_Template, 2, 1, "td", 28);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](20, TicketsTableComponent_td_20_Template, 2, 1, "td", 13);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](62, "div", 35);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](21, "div", 17);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](63, TicketsTableComponent_th_63_Template, 2, 0, "th", 27);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](22, TicketsTableComponent_th_22_Template, 2, 0, "th", 12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](64, TicketsTableComponent_td_64_Template, 3, 4, "td", 28);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](65, TicketsTableComponent_tr_65_Template, 1, 0, "tr", 36);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](66, TicketsTableComponent_tr_66_Template, 1, 0, "tr", 37);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](23, TicketsTableComponent_td_23_Template, 2, 1, "td", 13);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](67, "mat-paginator", 38);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](24, "div", 18);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](25, TicketsTableComponent_th_25_Template, 2, 0, "th", 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](26, TicketsTableComponent_td_26_Template, 2, 1, "td", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](27, "div", 19);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](28, TicketsTableComponent_th_28_Template, 2, 0, "th", 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](29, TicketsTableComponent_td_29_Template, 2, 1, "td", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](30, "div", 20);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](31, TicketsTableComponent_th_31_Template, 2, 0, "th", 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](32, TicketsTableComponent_td_32_Template, 3, 4, "td", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](33, TicketsTableComponent_tr_33_Template, 1, 0, "tr", 21);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](34, TicketsTableComponent_tr_34_Template, 1, 0, "tr", 22);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](35, "mat-paginator", 23);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 
@@ -21337,10 +21355,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](8);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("formGroup", ctx.ticketForm);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](32);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngModel", ctx.searchKey);
 
@@ -21362,10 +21376,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("pageSizeOptions", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction0"](9, _c0))("pageSize", 10);
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("pageSizeOptions", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction0"](8, _c0))("pageSize", 10);
         }
       },
-      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["RadioControlValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControlName"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_13__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTable"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_11__["MatSort"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatColumnDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatHeaderCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatHeaderRowDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatRowDef"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_10__["MatPaginator"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__["MatSuffix"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_14__["MatIcon"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatHeaderCell"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_11__["MatSortHeader"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatCell"], _angular_router__WEBPACK_IMPORTED_MODULE_15__["RouterLinkWithHref"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatHeaderRow"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatRow"]],
+      directives: [_angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_12__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_13__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_13__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_13__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTable"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__["MatSort"], _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatColumnDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatHeaderCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatHeaderRowDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatRowDef"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_9__["MatPaginator"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatSuffix"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_14__["MatIcon"], _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatHeaderCell"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__["MatSortHeader"], _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatCell"], _angular_router__WEBPACK_IMPORTED_MODULE_15__["RouterLinkWithHref"], _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatHeaderRow"], _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatRow"]],
       pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DatePipe"]],
       styles: [".container-fluid[_ngcontent-%COMP%] {\n  margin-top: 20px;\n  -webkit-box-align: center;\n          align-items: center;\n}\n\n.col-md[_ngcontent-%COMP%] {\n  margin-right: 50px;\n  padding: 0px 50px;\n}\n\n.btn[_ngcontent-%COMP%] {\n  margin: 10px;\n  \n  color: white;\n  background-color: rgb(230, 92, 0);\n  border-color: rgb(230, 92, 0);\n}\n\n.btn[_ngcontent-%COMP%]:active:focus, .btn[_ngcontent-%COMP%]:focus, .btn[_ngcontent-%COMP%]:active, .btn[_ngcontent-%COMP%]:visited {\n  margin: 10px;\n  color: white;\n  background-color: rgb(230, 92, 0);\n  border-color: rgb(230, 92, 0);\n}\n\ntable[_ngcontent-%COMP%] {\n    border: solid black;\n    border-collapse: separate;\n    border-spacing: 0;\n    border-radius: 8px !important;\n    -moz-border-radius: 8px;\n    -webkit-border-radius: 8px;\n  }\n\nth[_ngcontent-%COMP%] {\n    background-color: black;\n    color: white;\n    border-color: white;\n  }\n\nth[_ngcontent-%COMP%], td[_ngcontent-%COMP%] {\n    font-size: medium;\n    text-align: center !important;\n  }\n\nth[_ngcontent-%COMP%], td[_ngcontent-%COMP%] {\n    border: 1px solid black;\n    padding: 15px;\n    text-align: left;\n  }\n\ntr[_ngcontent-%COMP%]:nth-child(even) {\n    background-color: #e6e6e6;\n  }\n\ntr[_ngcontent-%COMP%]:nth-child(odd) {\n    background-color:   white;\n  }\n\n.mattable-container[_ngcontent-%COMP%] {\n    width: 94%;\n    border-radius: 8px;\n    margin-bottom: 50px;\n  }\n\n.mat-focused[_ngcontent-%COMP%]   .mat-form-field-label[_ngcontent-%COMP%] {\n    color: rgb(230, 92, 0) !important;\n  }\n\n.mat-form-field-ripple[_ngcontent-%COMP%] {\n    background-color: rgb(230, 92, 0) !important;\n  }\n\n.search-div[_ngcontent-%COMP%] {\n    margin: 10px 30px 10px 0px;\n  }\n\n.search-form-field[_ngcontent-%COMP%] {\n    width: 96%;\n    padding:  5px 10px;\n    background-color: #e6e6e6;\n    border-radius: 5px;\n  }\n\n\n\n.search-form-field[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n    margin: 0;\n    padding: 0;\n    height: 28px;\n    width: 28px;\n    border-radius: 8px;\n    align-content: center;\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGlja2V0cy90aWNrZXRzLXRhYmxlL3RpY2tldHMtdGFibGUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQjtFQUNoQix5QkFBbUI7VUFBbkIsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLFlBQVk7RUFDWix1QkFBdUI7RUFDdkIsWUFBWTtFQUNaLGlDQUFpQztFQUNqQyw2QkFBNkI7QUFDL0I7O0FBRUE7Ozs7O0VBS0UsWUFBWTtFQUNaLFlBQVk7RUFDWixpQ0FBaUM7RUFDakMsNkJBQTZCO0FBQy9COztBQUVFO0lBQ0UsbUJBQW1CO0lBQ25CLHlCQUF5QjtJQUN6QixpQkFBaUI7SUFDakIsNkJBQTZCO0lBQzdCLHVCQUF1QjtJQUN2QiwwQkFBMEI7RUFDNUI7O0FBRUE7SUFDRSx1QkFBdUI7SUFDdkIsWUFBWTtJQUNaLG1CQUFtQjtFQUNyQjs7QUFFQTtJQUNFLGlCQUFpQjtJQUNqQiw2QkFBNkI7RUFDL0I7O0FBRUE7SUFDRSx1QkFBdUI7SUFDdkIsYUFBYTtJQUNiLGdCQUFnQjtFQUNsQjs7QUFFQTtJQUNFLHlCQUF5QjtFQUMzQjs7QUFFQTtJQUNFLHlCQUF5QjtFQUMzQjs7QUFFQTtJQUNFLFVBQVU7SUFDVixrQkFBa0I7SUFDbEIsbUJBQW1CO0VBQ3JCOztBQUVBO0lBQ0UsaUNBQWlDO0VBQ25DOztBQUVBO0lBQ0UsNENBQTRDO0VBQzlDOztBQUVBO0lBQ0UsMEJBQTBCO0VBQzVCOztBQUVBO0lBQ0UsVUFBVTtJQUNWLGtCQUFrQjtJQUNsQix5QkFBeUI7SUFDekIsa0JBQWtCO0VBQ3BCOztBQUVBOztLQUVHOztBQUVIO0lBQ0UsU0FBUztJQUNULFVBQVU7SUFDVixZQUFZO0lBQ1osV0FBVztJQUNYLGtCQUFrQjtJQUNsQixxQkFBcUI7RUFDdkIiLCJmaWxlIjoic3JjL2FwcC90aWNrZXRzL3RpY2tldHMtdGFibGUvdGlja2V0cy10YWJsZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lci1mbHVpZCB7XG4gIG1hcmdpbi10b3A6IDIwcHg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG5cbi5jb2wtbWQge1xuICBtYXJnaW4tcmlnaHQ6IDUwcHg7XG4gIHBhZGRpbmc6IDBweCA1MHB4O1xufVxuXG4uYnRuIHtcbiAgbWFyZ2luOiAxMHB4O1xuICAvKiBwYWRkaW5nOiA2cHggMTJweDsgKi9cbiAgY29sb3I6IHdoaXRlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjMwLCA5MiwgMCk7XG4gIGJvcmRlci1jb2xvcjogcmdiKDIzMCwgOTIsIDApO1xufVxuXG4uYnRuOmFjdGl2ZTpmb2N1c1xuLmJ0bjpob3Zlcixcbi5idG46Zm9jdXMsXG4uYnRuOmFjdGl2ZSxcbi5idG46dmlzaXRlZCB7XG4gIG1hcmdpbjogMTBweDtcbiAgY29sb3I6IHdoaXRlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjMwLCA5MiwgMCk7XG4gIGJvcmRlci1jb2xvcjogcmdiKDIzMCwgOTIsIDApO1xufVxuXG4gIHRhYmxlIHtcbiAgICBib3JkZXI6IHNvbGlkIGJsYWNrO1xuICAgIGJvcmRlci1jb2xsYXBzZTogc2VwYXJhdGU7XG4gICAgYm9yZGVyLXNwYWNpbmc6IDA7XG4gICAgYm9yZGVyLXJhZGl1czogOHB4ICFpbXBvcnRhbnQ7XG4gICAgLW1vei1ib3JkZXItcmFkaXVzOiA4cHg7XG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiA4cHg7XG4gIH1cblxuICB0aCB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XG4gICAgY29sb3I6IHdoaXRlO1xuICAgIGJvcmRlci1jb2xvcjogd2hpdGU7XG4gIH1cblxuICB0aCx0ZCB7XG4gICAgZm9udC1zaXplOiBtZWRpdW07XG4gICAgdGV4dC1hbGlnbjogY2VudGVyICFpbXBvcnRhbnQ7XG4gIH1cblxuICB0aCwgdGQge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xuICAgIHBhZGRpbmc6IDE1cHg7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgfVxuXG4gIHRyOm50aC1jaGlsZChldmVuKSB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2U2ZTZlNjtcbiAgfVxuXG4gIHRyOm50aC1jaGlsZChvZGQpIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAgIHdoaXRlO1xuICB9XG5cbiAgLm1hdHRhYmxlLWNvbnRhaW5lciB7XG4gICAgd2lkdGg6IDk0JTtcbiAgICBib3JkZXItcmFkaXVzOiA4cHg7XG4gICAgbWFyZ2luLWJvdHRvbTogNTBweDtcbiAgfVxuXG4gIC5tYXQtZm9jdXNlZCAubWF0LWZvcm0tZmllbGQtbGFiZWwge1xuICAgIGNvbG9yOiByZ2IoMjMwLCA5MiwgMCkgIWltcG9ydGFudDtcbiAgfVxuXG4gIC5tYXQtZm9ybS1maWVsZC1yaXBwbGUge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyMzAsIDkyLCAwKSAhaW1wb3J0YW50O1xuICB9XG5cbiAgLnNlYXJjaC1kaXYge1xuICAgIG1hcmdpbjogMTBweCAzMHB4IDEwcHggMHB4O1xuICB9XG5cbiAgLnNlYXJjaC1mb3JtLWZpZWxkIHtcbiAgICB3aWR0aDogOTYlO1xuICAgIHBhZGRpbmc6ICA1cHggMTBweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZTZlNmU2O1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgfVxuXG4gIC8qIC5zZWFyY2gtZm9ybS1maWVsZCBkaXYubWF0LWZvcm0tZmllbGQtdW5kZXJsaW5lIHtcbiAgICBkaXNwbGF5OiBub25lO1xuICB9ICovXG5cbiAgLnNlYXJjaC1mb3JtLWZpZWxkIGJ1dHRvbiB7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG4gICAgaGVpZ2h0OiAyOHB4O1xuICAgIHdpZHRoOiAyOHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDhweDtcbiAgICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XG4gIH1cbiJdfQ== */"]
     });
@@ -21381,22 +21395,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }]
       }], function () {
         return [{
-          type: _services_api_call_service__WEBPACK_IMPORTED_MODULE_8__["ApiCallService"]
+          type: _services_api_call_service__WEBPACK_IMPORTED_MODULE_7__["ApiCallService"]
         }, {
-          type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]
+          type: src_app_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"]
         }, {
-          type: src_app_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]
-        }, {
-          type: _services_apifilter_service__WEBPACK_IMPORTED_MODULE_7__["ApifilterService"]
+          type: _services_apifilter_service__WEBPACK_IMPORTED_MODULE_6__["ApifilterService"]
         }];
       }, {
         paginator: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"],
-          args: [_angular_material_paginator__WEBPACK_IMPORTED_MODULE_10__["MatPaginator"]]
+          args: [_angular_material_paginator__WEBPACK_IMPORTED_MODULE_9__["MatPaginator"]]
         }],
         sort: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"],
-          args: [_angular_material_sort__WEBPACK_IMPORTED_MODULE_11__["MatSort"]]
+          args: [_angular_material_sort__WEBPACK_IMPORTED_MODULE_10__["MatSort"]]
         }]
       });
     })();
