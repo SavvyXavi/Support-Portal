@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
-import { Profile } from '../index/index/models/profile';
+import { Profile } from '../index/models/profile';
 
 import { Filter } from './../models/filter';
 import { Contracts } from './../contracts/models/contracts';

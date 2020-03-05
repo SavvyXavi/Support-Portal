@@ -27,3 +27,13 @@
   border-color: grey;
   color: white
 }
+
+#ticketModal {
+  margin-top: '0px !important';
+  margin-left: 'auto';
+  margin-right: 'auto';
+}
+
+.modal-dialog {
+  width: 100%;
+}

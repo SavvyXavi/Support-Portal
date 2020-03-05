@@ -10,7 +10,7 @@ import { SuppdashComponent } from './suppdash/suppdash.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
-import { AuthGuard } from './index/index/guards/auth.guard';
+import { AuthGuard } from './index/guards/auth.guard';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 import { OemComponent } from './admin/oem/oem.component';
 import { BudgetComponent } from './budget/budget.component';

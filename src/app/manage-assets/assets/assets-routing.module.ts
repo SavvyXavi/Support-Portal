@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
+import { AuthGuard } from 'src/app/index/guards/auth.guard';
 
 import { ManageAssetsComponent } from '../manage-assets.component';
 import { AssetsTableComponent } from '../assets-table/assets-table.component';

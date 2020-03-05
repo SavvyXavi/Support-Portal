@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="col-md">
+    <div class="card">
+      <div class="card-header">
+        <h3>{{currentProfile?.partner}} Settings</h3>
+      </div>
+      <div class="card-body">
+          <form>
+            <h4 class="alert alert-dark">Portal Settings (Coming Soon)</h4>
+              <div class="form-group">
+                <label for="ticketEmail">Ticketing Email</label><br>
+                <input type="text" name="ticketEmail" class="shadow-none" value="{{currentProfile?.email}}">
+              </div>
+              <div class="form-group">
+                  <label for="openEmail">Open Ticket Notifications Email</label><br>
+                  <input type="text" name="openEmail" class="shadow-none" value="{{currentProfile?.email}}">
+              </div>
+              <div class="form-group">
+                <label for="closedEmail">Closed Ticket Email</label><br>
+                <input type="text" name="closedEmail" class="shadow-none" value="{{currentProfile?.email}}">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label><br>
+                <input type="text" name="phone" class="shadow-none">
+              </div>
+              <div class="form-group">
+                <label for="support">Default T&M Support</label><br>
+                <input type="text" name="support" class="shadow-none">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label><br>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  Change Password
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Change Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>

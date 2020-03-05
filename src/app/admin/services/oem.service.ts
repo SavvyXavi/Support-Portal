@@ -44,8 +44,14 @@ export class OemService {
   testTicketPull(): Observable<AssetFilter[]> {
     return this.http.get<AssetFilter[]>(`${environment.AssetTest}/profile`);
   }
-
   partTicketFilter() {
     return this.http.get<AssetFilter[]>(`${environment.AssetTest}/profile`);
   }
+
+
+
+
+
+
+
 }

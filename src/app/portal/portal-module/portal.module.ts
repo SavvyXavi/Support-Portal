@@ -10,10 +10,10 @@ import { HeaderComponent } from './../../header/header.component';
 import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 
-import { AuthGuard } from 'src/app/index/index/guards/auth.guard';
-import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
+import { AuthGuard } from 'src/app/index/guards/auth.guard';
+import { AuthenticationService } from 'src/app/index/services/authentication.service';
 
-import { JwtInterceptor } from './../../index/index/helpers/jwt.service';
+import { JwtInterceptor } from './../../index/helpers/jwt.service';
 import { PortalComponent } from '../portal.component';
 
 // Material Import
@@ -32,6 +32,7 @@ import { TicketsModule } from 'src/app/tickets/tickets.module';
 import { CompaniesModule } from 'src/app/companies/companies.module';
 import { LocationsModule } from 'src/app/locations/locations.module';
 import { AdminModule } from 'src/app/admin/admin.module';
+import { SettingsModule } from './../../settings/settings.module';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AdminModule } from 'src/app/admin/admin.module';
     CompaniesModule,
     LocationsModule,
     AdminModule,
+    SettingsModule,
 
     // Material Imports
     MatSliderModule,

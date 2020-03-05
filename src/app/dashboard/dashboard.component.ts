@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Profile } from '../index/index/models/profile';
+import { Profile } from '../index/models/profile';
 import { Tickets } from '../tickets/models/tickets';
 import { Assets } from '../manage-assets/models/assets';
 
-import { AuthenticationService } from '../index/index/services/authentication.service';
+import { AuthenticationService } from '../index/services/authentication.service';
 import { ApifilterService } from './../services/apifilter.service';
 import { DashService } from './services/dash.service';
 
-import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 
@@ -30,8 +29,6 @@ export class DashboardComponent implements OnInit {
   assetLength: number;
   ticketLength: Tickets[];
   companyLength: Customer[];
-
-  contractChartData: Date[];
 
   partnerArr: Partner[];
 
@@ -243,8 +240,8 @@ export class DashboardComponent implements OnInit {
     this.contractsData = new Chart('contracts', {
         type: 'pie',
         data: {
+          labels: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
           datasets: [{
-              label: '# of Contracts',
               data: [this.now, this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays, this.plus],
               backgroundColor: [
                   'rgba(255, 0, 0, 1)',
@@ -266,17 +263,32 @@ export class DashboardComponent implements OnInit {
           }]
         },
         options: {
+          legend: {
+            position: 'bottom'
+          },
           tooltips: {
-            callbacks: {
-              title: function(tooltipItem, data) {
-                let label = data.datasets[tooltipItem.datasetIndex].label || '';
+              enabled: true,
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  // get the data label and data value to display
+                  // convert the data value to local string so it uses a comma seperated number
+                  let dataLabel = data.labels[tooltipItem.index];
+                  let value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
 
-                    if (label) {
-                        label += ': ';
-                    }
-                return label;
+                  // make this isn't a multi-line label (e.g. [["label 1 - line 1, "line 2, ], [etc...]])
+                  if (Chart.helpers.isArray(dataLabel)) {
+                    // show value on first line of multiline label
+                    // need to clone because we are changing the value
+                    dataLabel = dataLabel.slice();
+                    dataLabel[0] += value;
+                  } else {
+                    dataLabel += value;
+                  }
+
+                  // return the text to display on the tooltip
+                  return dataLabel;
+                }
               }
-            }
           }
         }
     } );
@@ -365,7 +377,7 @@ export class DashboardComponent implements OnInit {
                       this.yetToStart++;
                     }
                   }
-                  this.contractsData = new Chart('assets', {
+                  this.assetsData = new Chart('assets', {
                     type: 'pie',
                     data: {
                       datasets: [{
@@ -410,7 +422,7 @@ export class DashboardComponent implements OnInit {
                       this.yetToStart++;
                     }
                   }
-                  this.contractsData = new Chart('assets', {
+                  this.assetsData = new Chart('assets', {
                     type: 'pie',
                     data: {
                       datasets: [{
@@ -454,7 +466,7 @@ export class DashboardComponent implements OnInit {
                       this.yetToStart++;
                     }
                   }
-                  this.contractsData = new Chart('assets', {
+                  this.assetsData = new Chart('assets', {
                     type: 'pie',
                     data: {
                       datasets: [{
@@ -498,7 +510,7 @@ export class DashboardComponent implements OnInit {
                     this.yetToStart++;
                   }
                 }
-                this.contractsData = new Chart('assets', {
+                this.assetsData = new Chart('assets', {
                   type: 'pie',
                   data: {
                     datasets: [{
@@ -519,7 +531,11 @@ export class DashboardComponent implements OnInit {
                         borderWidth: 1
                     }]
                 },
-                options: {}
+                options: {
+                  tooltips: {
+                    enabled: true
+                  }
+                }
                 });
               }
               );

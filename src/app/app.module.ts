@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AuthGuard } from './index/index/guards/auth.guard';
+import { AuthGuard } from './index/guards/auth.guard';
 
 import { AppComponent } from './app.component';
 import { SuppdashComponent } from './suppdash/suppdash.component';

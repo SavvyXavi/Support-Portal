@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { AlertService } from '../../index/index/services/alert.service';
-import { AuthenticationService } from '../../index/index/services/authentication.service';
-import { ProfileService } from '../../index/index/services/profile.service';
-import { MustMatch } from '../../index/index//helpers/must-match';
-import { Subscription } from 'rxjs';
-import { Profile } from '../../index/index/models/profile';
+import { AlertService } from '../../index/services/alert.service';
+import { AuthenticationService } from '../../index/services/authentication.service';
+import { ProfileService } from '../../index/services/profile.service';
+import { MustMatch } from '../../index/helpers/must-match';
+
+import { Profile } from '../../index/models/profile';
 import { ApifilterService } from 'src/app/services/apifilter.service';
 import { Partner } from 'src/app/models/partner';
 
