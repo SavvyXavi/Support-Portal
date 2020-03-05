@@ -9255,7 +9255,7 @@ class PortalComponent {
             Identifier: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             Name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             Description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            CustomerNameOrId: [this.currentProfile.firstName + ' ' + this.currentProfile.lastName, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            CustomerNameOrId: [this.currentProfile.company, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
         });
     }
     createTicket() {

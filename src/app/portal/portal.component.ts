@@ -43,7 +43,7 @@ export class PortalComponent implements OnInit {
       Identifier: ['', Validators.required],
       Name: ['', Validators.required],
       Description: ['', Validators.required],
-      CustomerNameOrId: [this.currentProfile.firstName +  ' ' + this.currentProfile.lastName, Validators.required]
+      CustomerNameOrId: [this.currentProfile.company, Validators.required]
     });
   }
 
