@@ -29,15 +29,11 @@
 }
 
 .modal-header {
-  padding: 5px 3px;
+  padding: 8px 5px;
 }
 
 .modal-body {
   padding: auto 5px;
-}
-
-input {
-  width: 50%;
 }
 
 .modal-dialog {
