@@ -30,10 +30,12 @@
 
 .modal-header {
   padding: 8px 5px;
+  background-color: black;
+  color: white;
 }
 
 .modal-body {
-  padding: auto 5px;
+  padding: 8px;
 }
 
 .modal-dialog {
