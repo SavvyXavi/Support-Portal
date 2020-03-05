@@ -10,18 +10,21 @@
 
 .btn {
   margin: 10px;
-  background-color: rgb(230, 92, 0) !important;
-  border-color: rgb(230, 92, 0) !important;
+  /* padding: 6px 12px; */
+  color: white;
+  background-color: rgb(230, 92, 0);
+  border-color: rgb(230, 92, 0);
 }
 
-.btn:click,
+.btn:active:focus
 .btn:hover,
-.btn:focused,
+.btn:focus,
 .btn:active,
 .btn:visited {
   margin: 10px;
-  background-color: rgb(230, 92, 0) !important;
-  border-color: rgb(230, 92, 0) !important;
+  color: white;
+  background-color: rgb(230, 92, 0);
+  border-color: rgb(230, 92, 0);
 }
 
 .table-container {
@@ -64,15 +67,16 @@
 
   .mattable-container {
     width: 94%;
+    border-radius: 8px;
     margin-bottom: 50px;
   }
 
   .mat-focused .mat-form-field-label {
-    color: rgb(230, 92, 0) !important;
+    color: rgb(230, 92, 0);
   }
 
   .mat-form-field-ripple {
-    background-color: rgb(230, 92, 0) !important;
+    background-color: rgb(230, 92, 0);
   }
 
   .search-div {

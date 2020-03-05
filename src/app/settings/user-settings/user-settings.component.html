@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="col-md">
+    <div class="card">
+      <div class="card-header">
+        <h3>{{currentProfile?.partner}} Settings</h3>
+      </div>
+      <div class="card-body">
+          <form>
+            <h4 class="alert alert-dark">Portal Settings (Coming Soon)</h4>
+              <div class="form-group">
+                <label for="ticketEmail">Ticketing Email</label><br>
+                <input type="text" name="ticketEmail" class="shadow-none" value="{{currentProfile?.email}}">
+              </div>
+              <div class="form-group">
+                  <label for="openEmail">Open Ticket Notifications Email</label><br>
+                  <input type="text" name="openEmail" class="shadow-none" value="{{currentProfile?.email}}">
+              </div>
+              <div class="form-group">
+                <label for="closedEmail">Closed Ticket Email</label><br>
+                <input type="text" name="closedEmail" class="shadow-none" value="{{currentProfile?.email}}">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label><br>
+                <input type="text" name="phone" class="shadow-none">
+              </div>
+              <div class="form-group">
+                <label for="support">Default T&M Support</label><br>
+                <input type="text" name="support" class="shadow-none">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label><br>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  Change Password
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <form [formGroup]="passwordForm" (ngSubmit)="submitPassword()">
+
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Change Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Enter Password">
+                            <div *ngIf="submitted && !!f.password.errors" class="invalid-feedback" autocomplete="new-password">
+                              <div *ngIf="!!f.password.errors.required">Passwords must be 8 characters containing 1 letter, 1 number, and one special character.</div>
+                          </div>
+                          </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                            <label for="confirmpassword">Password:</label>
+                            <input type="password" formControlName="confirmpassword" [ngClass]="{ 'is-invalid': submitted && f.confirmpassword.errors }" placeholder="Re-enter Password">
+                            <div *ngIf="submitted && !!f.confirmpassword.errors" class="invalid-feedback" autocomplete="new-password">
+                              <div *ngIf="!!f.confirmpassword.errors.required">Passwords must be 8 characters containing 1 letter, 1 number, and one special character.</div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                  </form>
+                </div>
+              </div>
+            </form>
+            <div class="version">
+              Ver 0.9.3
+            </div>
+      </div>
+    </div>
+  </div>
+</div>

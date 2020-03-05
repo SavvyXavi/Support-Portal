@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Profile } from '../../index/index/models/profile';
+import { Profile } from '../../index/models/profile';
 import { OemService } from '../services/oem.service';
-import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
-import { ProfileService } from './../../index/index/services/profile.service';
+import { AuthenticationService } from 'src/app/index/services/authentication.service';
+import { ProfileService } from './../../index/services/profile.service';
 import { DataPull } from '../models/datapull';
 import { first } from 'rxjs/operators';
 

@@ -3,19 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from '../index/guards/auth.guard';
 
-import { CompaniesComponent } from './companies.component';
-import { CompaniesTableComponent } from './companies-table/companies-table.component';
-
+import { UserSettingsComponent } from './user-settings/user-settings.component';
+import { SettingsComponent } from './settings.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component: CompaniesComponent,
+    path: '',
+    component: SettingsComponent,
     canActivate: [AuthGuard],
     children: [
       {
         path: '',
-        component: CompaniesTableComponent
+        component: UserSettingsComponent
       }
     ]
   }
@@ -25,4 +24,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CompaniesRoutingModule { }
+export class SettingsRoutingModule { }

@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md d-flex justify-content-end">
-      <button class="gen-pdf btn btn-primary" (click)="genPdf()">
+      <button class="gen-pdf btn" (click)="genPdf()">
         Export to PDF
       </button>
     </div>
@@ -17,7 +17,8 @@
 </div>
 
   <div id="table" class="mat-table mattable-container">
-    <table mat-table [dataSource]="contractDataSource" class="mat-elevation-z8 table" matSort>
+    <table mat-table [dataSource]="contractDataSource"
+    class="mat-elevation-z8 table" matSort>
 
       <!-- Contract Name Column -->
       <div matColumnDef="Contract Name">

@@ -4,15 +4,14 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { AuthenticationService } from 'src/app/index/index/services/authentication.service';
+import { AuthenticationService } from 'src/app/index/services/authentication.service';
 import { ApifilterService } from './../../services/apifilter.service';
 import { ApiCallService } from '../services/api-call.service';
 
 import { Partner } from '../../models/partner';
 import { Company } from '../../companies/model/company';
-import { Profile } from '../../index/index/models/profile';
+import { Profile } from '../../index/models/profile';
 import { Tickets } from '../models/tickets';
 import { TicketType } from '../../types/ticket-type.enum';
 
@@ -32,7 +31,6 @@ export class TicketsTableComponent implements OnInit {
   pipe;
 
   tickArr: Tickets[];
-  ticketForm: FormGroup;
   newTicket: Tickets;
 
   companylist: Company[];
@@ -55,7 +53,6 @@ export class TicketsTableComponent implements OnInit {
 
   constructor(
     private api: ApiCallService,
-    private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
     private filter: ApifilterService,
   ) {
@@ -68,18 +65,7 @@ export class TicketsTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ticketForm = this.formBuilder.group({
-      Title: ['', Validators.required],
-      Description: ['', Validators.required],
-      CustomerNameOrId: [this.authenticationService.currentUserValue.partner, Validators.required],
-      TicketType: ['', Validators.required],
-      AssetId: ['', Validators.required],
-      Location: ['', Validators.required],
-      TicketCategoryNameOrId: ['', Validators.required],
-      TicketTypeNameOrId: [ this.authenticationService.currentUserValue.partner + ' Quotes', Validators.required]
-    },
 
-    );
     this.getPartners();
     this.getTickets();
   }
@@ -162,15 +148,7 @@ export class TicketsTableComponent implements OnInit {
     pdfMake.createPdf(docDef).open();
   }
 
-  createTicket() {
-    this.api.addTicket(this.ticketForm.value)
-     .subscribe(
-       ticket => {
-         let ticketData = this.ticketForm.value;
-         ticketData = ticket;
-       }
-     );
-   }
+
 
    getPartners() {
      this.filter.getPartners()

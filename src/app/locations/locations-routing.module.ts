@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthGuard } from '../index/index/guards/auth.guard';
+import { AuthGuard } from '../index/guards/auth.guard';
 
 import { LocationsComponent } from './locations.component';
 import { LocationsTableComponent } from './locations-table/locations-table.component';
