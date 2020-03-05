@@ -28,14 +28,12 @@
   color: white
 }
 
-#ticketModal {
-  margin-top: '0px !important';
-  margin-left: 'auto';
-  margin-right: 'auto';
-}
-
 .modal-body {
   padding: auto 5px;
+}
+
+input {
+  width: 50%;
 }
 
 .modal-dialog {
