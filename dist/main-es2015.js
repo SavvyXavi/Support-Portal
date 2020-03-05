@@ -9237,6 +9237,7 @@ class PortalComponent {
         this.authenticationService = authenticationService;
         this.formBuilder = formBuilder;
         this.api = api;
+        this.authenticationService.currentUser.subscribe(profile => this.currentProfile = profile);
     }
     ngOnInit() {
         this.ticketForm = this.formBuilder.group({
@@ -9265,6 +9266,7 @@ class PortalComponent {
         });
     }
     createAsset() {
+        this.api;
     }
 }
 PortalComponent.ɵfac = function PortalComponent_Factory(t) { return new (t || PortalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_1__["AuthenticationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_tickets_services_api_call_service__WEBPACK_IMPORTED_MODULE_3__["ApiCallService"])); };
@@ -10534,6 +10536,7 @@ __webpack_require__.r(__webpack_exports__);
 class ApiCallService {
     constructor(http) {
         this.http = http;
+        this.postAssetApi = 'https://prodharmonytwo.azurewebsites.net/api/CreateExtAsset?code=DowBFvNl/Ts2sifkAaXRiAFKA0lwUidyhnsypZ1yRwYemQwoO6B6iQ==';
         this.postTicket = 'https://n1sharmonypull.azurewebsites.net/api/MakeHamonyQuote?code=PJLcheEaYAITwiQ2Juxi0PBHJp8PZJZgwAAA03n9rbBbqwJ2m4gRJw==';
         this.getTicket = 'https://n1sharmonypull.azurewebsites.net/api/HttpTrigger1?code=lsPvad3uQA6s/pe1imbqoK0egnysVrGlsZXvaFsZ1jc69X6OdKQHcw==';
         this.oldgetAsset = 'https://n1sharmonypull.azurewebsites.net/api/AssetsPull?code=qQXwJm1YBabl4J8QlK6a2n2/JpY/mTacr66EYRdsZ2i3RfUkAucX4g==';
@@ -10546,6 +10549,8 @@ class ApiCallService {
     }
     addTicket(ticket) {
         return this.http.post(this.postTicket, ticket);
+    }
+    addAsset() {
     }
     getAssets() {
         return this.http.get(this.getAsset);

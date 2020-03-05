@@ -16907,11 +16907,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function PortalComponent(authenticationService, formBuilder, api) {
+        var _this50 = this;
+
         _classCallCheck(this, PortalComponent);
 
         this.authenticationService = authenticationService;
         this.formBuilder = formBuilder;
         this.api = api;
+        this.authenticationService.currentUser.subscribe(function (profile) {
+          return _this50.currentProfile = profile;
+        });
       }
 
       _createClass(PortalComponent, [{
@@ -16938,16 +16943,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "createTicket",
         value: function createTicket() {
-          var _this50 = this;
+          var _this51 = this;
 
           this.api.addTicket(this.ticketForm.value).subscribe(function (ticket) {
-            var ticketData = _this50.ticketForm.value;
+            var ticketData = _this51.ticketForm.value;
             ticketData = ticket;
           });
         }
       }, {
         key: "createAsset",
-        value: function createAsset() {}
+        value: function createAsset() {
+          this.api;
+        }
       }]);
 
       return PortalComponent;
@@ -17459,10 +17466,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this51 = this;
+          var _this52 = this;
 
           this.nameSubscription = this.authenticationService.currentUser.subscribe(function (name) {
-            _this51.currentProfile = name;
+            _this52.currentProfile = name;
           });
           this.profileForm = this.formBuilder.group({
             partner: [this.currentProfile.partner, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -18575,10 +18582,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(UserSettingsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this52 = this;
+          var _this53 = this;
 
           this.authenticationService.currentUser.subscribe(function (name) {
-            _this52.currentProfile = name;
+            _this53.currentProfile = name;
           });
         }
       }]);
@@ -19054,7 +19061,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function SidebarComponent(router, authenticationService, filter) {
-        var _this53 = this;
+        var _this54 = this;
 
         _classCallCheck(this, SidebarComponent);
 
@@ -19065,7 +19072,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.admin = true;
         this.sidebars = _services_loadsidebar_service__WEBPACK_IMPORTED_MODULE_4__["Sidebars"];
         this.roleSubscription = this.authenticationService.currentUser.subscribe(function (role) {
-          _this53.currentRole = role;
+          _this54.currentRole = role;
         });
       }
 
@@ -19084,10 +19091,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this54 = this;
+          var _this55 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this54.partnerArr = returnedPartners;
+            return _this55.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -19425,6 +19432,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _classCallCheck(this, ApiCallService);
 
         this.http = http;
+        this.postAssetApi = 'https://prodharmonytwo.azurewebsites.net/api/CreateExtAsset?code=DowBFvNl/Ts2sifkAaXRiAFKA0lwUidyhnsypZ1yRwYemQwoO6B6iQ==';
         this.postTicket = 'https://n1sharmonypull.azurewebsites.net/api/MakeHamonyQuote?code=PJLcheEaYAITwiQ2Juxi0PBHJp8PZJZgwAAA03n9rbBbqwJ2m4gRJw==';
         this.getTicket = 'https://n1sharmonypull.azurewebsites.net/api/HttpTrigger1?code=lsPvad3uQA6s/pe1imbqoK0egnysVrGlsZXvaFsZ1jc69X6OdKQHcw==';
         this.oldgetAsset = 'https://n1sharmonypull.azurewebsites.net/api/AssetsPull?code=qQXwJm1YBabl4J8QlK6a2n2/JpY/mTacr66EYRdsZ2i3RfUkAucX4g==';
@@ -19443,6 +19451,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function addTicket(ticket) {
           return this.http.post(this.postTicket, ticket);
         }
+      }, {
+        key: "addAsset",
+        value: function addAsset() {}
       }, {
         key: "getAssets",
         value: function getAssets() {
@@ -20495,21 +20506,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getItems",
         value: function getItems() {
-          var _this55 = this;
+          var _this56 = this;
 
           var refNumber = this.route.snapshot.paramMap.get('refNumber');
           this.filter.ticketRefFilter(refNumber.substring(1)).subscribe(function (returnedTicket) {
-            _this55.ticket = returnedTicket;
+            _this56.ticket = returnedTicket;
 
-            _this55.filter.assetsBySerial(_this55.ticket[0].AssetIdentifier).subscribe(function (returnedAsset) {
-              _this55.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
-              _this55.assetDataSource.sort = _this55.sort;
-              _this55.assetDataSource.paginator = _this55.paginator;
+            _this56.filter.assetsBySerial(_this56.ticket[0].AssetIdentifier).subscribe(function (returnedAsset) {
+              _this56.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
+              _this56.assetDataSource.sort = _this56.sort;
+              _this56.assetDataSource.paginator = _this56.paginator;
 
-              _this55.filter.conByName(returnedAsset[0].Schedule).subscribe(function (returnedContract) {
-                _this55.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContract);
-                _this55.contractDataSource.sort = _this55.sort;
-                _this55.contractDataSource.paginator = _this55.paginator;
+              _this56.filter.conByName(returnedAsset[0].Schedule).subscribe(function (returnedContract) {
+                _this56.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedContract);
+                _this56.contractDataSource.sort = _this56.sort;
+                _this56.contractDataSource.paginator = _this56.paginator;
               });
             });
           });
@@ -21116,7 +21127,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function TicketsTableComponent(api, authenticationService, filter) {
-        var _this56 = this;
+        var _this57 = this;
 
         _classCallCheck(this, TicketsTableComponent);
 
@@ -21125,7 +21136,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.filter = filter;
         this.displayedColumns = ['Case#', 'Name', 'Status', 'Description', 'Asset ID', 'Customer', 'Update Date'];
         this.authenticationService.currentUser.subscribe(function (typeName) {
-          _this56.currentProfile = typeName;
+          _this57.currentProfile = typeName;
         });
         this.pipe = new _angular_common__WEBPACK_IMPORTED_MODULE_4__["DatePipe"]('en-us');
       }
@@ -21142,7 +21153,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee6() {
-            var _this57 = this;
+            var _this58 = this;
 
             var docDef;
             return regeneratorRuntime.wrap(function _callee6$(_context6) {
@@ -21189,7 +21200,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                             text: 'Updated',
                             style: 'tableHeader'
                           }]].concat(_toConsumableArray(this.tickArr.map(function (t) {
-                            return [t.RefNumber, t.Name, t.Status, t.Body, t.Schedule, t.AssetIdentifier, t.CustomerName, _this57.pipe.transform(t.UpdatedDate, 'short')];
+                            return [t.RefNumber, t.Name, t.Status, t.Body, t.Schedule, t.AssetIdentifier, t.CustomerName, _this58.pipe.transform(t.UpdatedDate, 'short')];
                           })))
                         }
                       }],
@@ -21219,10 +21230,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPartners",
         value: function getPartners() {
-          var _this58 = this;
+          var _this59 = this;
 
           this.filter.getPartners().subscribe(function (returnedPartners) {
-            return _this58.partnerArr = returnedPartners;
+            return _this59.partnerArr = returnedPartners;
           });
         }
       }, {
@@ -21235,51 +21246,51 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getTickets",
         value: function getTickets() {
-          var _this59 = this;
+          var _this60 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
             switch (this.currentProfile.partner) {
               case 'Noble1Solutions':
                 this.filter.nobleTicks().subscribe(function (tickets) {
-                  _this59.tickArr = tickets;
-                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
-                  _this59.ticketDataSource.sort = _this59.sort;
-                  _this59.ticketDataSource.paginator = _this59.paginator;
+                  _this60.tickArr = tickets;
+                  _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
+                  _this60.ticketDataSource.sort = _this60.sort;
+                  _this60.ticketDataSource.paginator = _this60.paginator;
                 });
                 break;
 
               case 'Relutech':
                 this.filter.reluTicks().subscribe(function (assets) {
-                  _this59.tickArr = assets;
-                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](assets);
-                  _this59.ticketDataSource.sort = _this59.sort;
-                  _this59.ticketDataSource.paginator = _this59.paginator;
+                  _this60.tickArr = assets;
+                  _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](assets);
+                  _this60.ticketDataSource.sort = _this60.sort;
+                  _this60.ticketDataSource.paginator = _this60.paginator;
                 });
                 break;
 
               case 'Reliant Technology':
                 this.filter.reliTicks().subscribe(function (tickets) {
-                  _this59.tickArr = tickets;
-                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
-                  _this59.ticketDataSource.sort = _this59.sort;
-                  _this59.ticketDataSource.paginator = _this59.paginator;
+                  _this60.tickArr = tickets;
+                  _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
+                  _this60.ticketDataSource.sort = _this60.sort;
+                  _this60.ticketDataSource.paginator = _this60.paginator;
                 });
                 break;
 
               default:
                 this.filter.partTicketsFilter(this.currentProfile).subscribe(function (tickets) {
-                  _this59.tickArr = tickets;
-                  _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
-                  _this59.ticketDataSource.sort = _this59.sort;
-                  _this59.ticketDataSource.paginator = _this59.paginator;
+                  _this60.tickArr = tickets;
+                  _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
+                  _this60.ticketDataSource.sort = _this60.sort;
+                  _this60.ticketDataSource.paginator = _this60.paginator;
                 });
             }
           } else {
             this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTickets) {
-              _this59.tickArr = returnedTickets;
-              _this59.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](returnedTickets);
-              _this59.ticketDataSource.sort = _this59.sort;
-              _this59.ticketDataSource.paginator = _this59.paginator;
+              _this60.tickArr = returnedTickets;
+              _this60.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](returnedTickets);
+              _this60.ticketDataSource.sort = _this60.sort;
+              _this60.ticketDataSource.paginator = _this60.paginator;
             });
           }
         }

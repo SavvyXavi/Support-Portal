@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiCallService {
+  postAssetApi =
+   'https://prodharmonytwo.azurewebsites.net/api/CreateExtAsset?code=DowBFvNl/Ts2sifkAaXRiAFKA0lwUidyhnsypZ1yRwYemQwoO6B6iQ==';
 
  postTicket = 'https://n1sharmonypull.azurewebsites.net/api/MakeHamonyQuote?code=PJLcheEaYAITwiQ2Juxi0PBHJp8PZJZgwAAA03n9rbBbqwJ2m4gRJw==';
  getTicket = 'https://n1sharmonypull.azurewebsites.net/api/HttpTrigger1?code=lsPvad3uQA6s/pe1imbqoK0egnysVrGlsZXvaFsZ1jc69X6OdKQHcw==';
@@ -29,8 +31,13 @@ export class ApiCallService {
      return this.http.post<Tickets>(this.postTicket, ticket);
   }
 
+  addAsset() {
+
+  }
+
   getAssets() {
     return this.http.get(this.getAsset);
   }
+
 
 }

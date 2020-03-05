@@ -21,7 +21,9 @@ export class PortalComponent implements OnInit {
     private formBuilder: FormBuilder,
     private api: ApiCallService
     ) {
-
+      this.authenticationService.currentUser.subscribe(
+        profile => this.currentProfile = profile
+      );
     }
 
   ngOnInit() {
@@ -56,7 +58,7 @@ export class PortalComponent implements OnInit {
    }
 
   createAsset() {
-
+    this.api
   }
   // logout() {
   //   this.authenticationService.logout();
