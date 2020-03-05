@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CompaniesRoutingModule } from './companies-routing.module';
-import { AuthGuard } from '../index/index/guards/auth.guard';
+import { AuthGuard } from '../index/guards/auth.guard';
 
 import { CompaniesComponent } from './companies.component';
 import { CompaniesTableComponent } from './companies-table/companies-table.component';

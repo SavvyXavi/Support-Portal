@@ -16,7 +16,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<Profile>(
       JSON.parse(
-        localStorage.getItem('currentUser')
+        sessionStorage.getItem('currentUser')
       )
     );
     this.currentUser = this.currentUserSubject.asObservable();
@@ -39,7 +39,7 @@ export class AuthenticationService {
           'companypartner': profile.companypartner,
           'partnerRole': profile.partnerRole
         };
-         localStorage.setItem('currentUser', JSON.stringify(saveInfo));
+         sessionStorage.setItem('currentUser', JSON.stringify(saveInfo));
          this.currentUserSubject.next(profile);
        }
 
@@ -61,6 +61,7 @@ export class AuthenticationService {
 
    logout() {
      localStorage.removeItem('currentUser');
+     sessionStorage.removeItem('currentUser');
      this.currentUserSubject.next(null);
    }
 }

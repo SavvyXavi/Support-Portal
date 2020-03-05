@@ -5,9 +5,9 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ApifilterService } from '../../services/apifilter.service';
-import { AuthenticationService } from '../../index/index/services/authentication.service';
+import { AuthenticationService } from '../../index/services/authentication.service';
 
-import { Profile } from '../../index/index/models/profile';
+import { Profile } from '../../index/models/profile';
 import { CustomerLocation } from '../models/location';
 import { Partner } from '../../models/partner';
 

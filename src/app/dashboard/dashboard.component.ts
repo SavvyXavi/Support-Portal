@@ -1,16 +1,13 @@
-import { PartnerList } from './../partner-list';
 import { Component, OnInit } from '@angular/core';
 
-import { Profile } from '../index/index/models/profile';
+import { Profile } from '../index/models/profile';
 import { Tickets } from '../tickets/models/tickets';
 import { Assets } from '../manage-assets/models/assets';
 
-import { AuthenticationService } from '../index/index/services/authentication.service';
-import { ProfileService } from '../index/index/services/profile.service';
+import { AuthenticationService } from '../index/services/authentication.service';
 import { ApifilterService } from './../services/apifilter.service';
 import { DashService } from './services/dash.service';
 
-import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { Chart } from 'chart.js';
 
@@ -26,15 +23,12 @@ import { Customer } from './../admin/models/customer';
 export class DashboardComponent implements OnInit {
 
   currentProfile: Profile;
-  currentProfileSubscription: Subscription;
   profiles: Profile[];
 
   contractLength: number;
   assetLength: number;
   ticketLength: Tickets[];
   companyLength: Customer[];
-
-  contractChartData: Date[];
 
   partnerArr: Partner[];
 
@@ -65,11 +59,10 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private profileService: ProfileService,
     private filter: ApifilterService,
     private dashServ: DashService
     ) {
-      this.currentProfileSubscription = this.authenticationService.currentUser.subscribe(
+      this.authenticationService.currentUser.subscribe(
         profile => {
           this.currentProfile = profile;
         }
@@ -105,28 +98,91 @@ export class DashboardComponent implements OnInit {
 
   ticketsChart() {
     if (this.currentProfile.companypartner === 'Partner') {
-      this.filter.partTicketsFilter(this.currentProfile)
-      .subscribe(
-        (returnedAssetLength: Tickets[]) => this.ticketLength = returnedAssetLength
-      );
-      this.dashServ.partTicketsFilter(this.currentProfile)
-      .subscribe(
-        (tickets: Tickets[]) => {
-          this.tickets = tickets;
-          this.ticketStatus = this.tickets.map( t => t.Status);
-          for (let i = 0;  i <= this.ticketStatus.length; i++) {
-            if (this.ticketStatus[i] === 'New') {
-              this.new++;
-            } else if (this.ticketStatus[i] === 'Assigned') {
-              this.assigned++;
-            } else if (this.ticketStatus[i] === 'Fixed') {
-              this.closed++;
-            } else {
-              this.inProcess++;
-            }
-          }
+        switch (this.currentProfile.partner) {
+          case 'Noble1Solutions':
+            this.filter.nobleTicks()
+            .subscribe(
+              (returnedTickets: Tickets[]) => {
+                this.ticketLength = returnedTickets;
+                this.ticketStatus = this.tickets.map( t => t.Status);
+                for (let i = 0;  i <= this.ticketStatus.length; i++) {
+                  if (this.ticketStatus[i] === 'New') {
+                    this.new++;
+                  } else if (this.ticketStatus[i] === 'Assigned') {
+                    this.assigned++;
+                  } else if (this.ticketStatus[i] === 'Fixed') {
+                    this.closed++;
+                  } else {
+                    this.inProcess++;
+                  }
+                }
+              }
+            );
+            break;
+            case 'Reliant Technology':
+              this.filter.reliTicks()
+              .subscribe(
+                (returnedTickets: Tickets[]) => {
+                  this.ticketLength = returnedTickets;
+                  this.ticketStatus = this.tickets.map( t => t.Status);
+                  for (let i = 0;  i <= this.ticketStatus.length; i++) {
+                    if (this.ticketStatus[i] === 'New') {
+                      this.new++;
+                    } else if (this.ticketStatus[i] === 'Assigned') {
+                      this.assigned++;
+                    } else if (this.ticketStatus[i] === 'Fixed') {
+                      this.closed++;
+                    } else {
+                      this.inProcess++;
+                    }
+                  }
+                }
+              );
+            break;
+            case 'Relutech':
+              this.filter.reluTicks()
+              .subscribe(
+                (returnedTickets: Tickets[]) => {
+                  this.ticketLength = returnedTickets;
+                  this.ticketStatus = this.tickets.map( t => t.Status);
+                  for (let i = 0;  i <= this.ticketStatus.length; i++) {
+                    if (this.ticketStatus[i] === 'New') {
+                      this.new++;
+                    } else if (this.ticketStatus[i] === 'Assigned') {
+                      this.assigned++;
+                    } else if (this.ticketStatus[i] === 'Fixed') {
+                      this.closed++;
+                    } else {
+                      this.inProcess++;
+                    }
+                  }
+                }
+              );
+              break;
+              default:
+                this.filter.partTicketsFilter(this.currentProfile)
+                .subscribe(
+                  (returnedTickets: Tickets[]) => this.ticketLength = returnedTickets
+                );
+                this.dashServ.partTicketsFilter(this.currentProfile)
+                .subscribe(
+                  (tickets: Tickets[]) => {
+                    this.tickets = tickets;
+                    this.ticketStatus = this.tickets.map( t => t.Status);
+                    for (let i = 0;  i <= this.ticketStatus.length; i++) {
+                      if (this.ticketStatus[i] === 'New') {
+                        this.new++;
+                      } else if (this.ticketStatus[i] === 'Assigned') {
+                        this.assigned++;
+                      } else if (this.ticketStatus[i] === 'Fixed') {
+                        this.closed++;
+                      } else {
+                        this.inProcess++;
+                      }
+                    }
+                  }
+                );
         }
-      );
     } else {
       this.filter.cusTicketsFilter(this.currentProfile.company)
       .subscribe(
@@ -154,7 +210,6 @@ export class DashboardComponent implements OnInit {
   }
 
   contractsChart() {
-    const status = [];
     if (this.currentProfile.companypartner === 'Partner') {
       this.filter.partConFilter(this.currentProfile)
       .subscribe(
@@ -185,8 +240,8 @@ export class DashboardComponent implements OnInit {
     this.contractsData = new Chart('contracts', {
         type: 'pie',
         data: {
+          labels: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
           datasets: [{
-              label: '# of Contracts',
               data: [this.now, this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays, this.plus],
               backgroundColor: [
                   'rgba(255, 0, 0, 1)',
@@ -208,17 +263,32 @@ export class DashboardComponent implements OnInit {
           }]
         },
         options: {
+          legend: {
+            position: 'bottom'
+          },
           tooltips: {
-            callbacks: {
-              title: function(tooltipItem, data) {
-                let label = data.datasets[tooltipItem.datasetIndex].label || '';
+              enabled: true,
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  // get the data label and data value to display
+                  // convert the data value to local string so it uses a comma seperated number
+                  let dataLabel = data.labels[tooltipItem.index];
+                  let value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
 
-                    if (label) {
-                        label += ': ';
-                    }
-                return label;
+                  // make this isn't a multi-line label (e.g. [["label 1 - line 1, "line 2, ], [etc...]])
+                  if (Chart.helpers.isArray(dataLabel)) {
+                    // show value on first line of multiline label
+                    // need to clone because we are changing the value
+                    dataLabel = dataLabel.slice();
+                    dataLabel[0] += value;
+                  } else {
+                    dataLabel += value;
+                  }
+
+                  // return the text to display on the tooltip
+                  return dataLabel;
+                }
               }
-            }
           }
         }
     } );
@@ -288,48 +358,189 @@ export class DashboardComponent implements OnInit {
   assetsChart() {
     let status = [];
     if (this.currentProfile.companypartner === 'Partner') {
-      this.filter.partAssetsFilter(this.currentProfile)
-      .subscribe(
-        (returnedAssets: Assets[]) => {
-          this.assetLength = returnedAssets.length;
-          this.assets = returnedAssets;
-          status = this.assets.map(asset => asset.ContractCoverage);
-        for (let i = 0; i <= status.length; i++) {
-          if (status[i] === 'Active') {
-            this.active++;
-          } else if (status[i] === 'Terminated') {
-            this.terminated++;
-          } else if (status[i] === 'Unmapped') {
-            this.unmapped++;
-          } else if (status[i] === 'Yet to Start') {
-            this.yetToStart++;
-          }
-        }
-         this.contractsData = new Chart('assets', {
-          type: 'pie',
-          data: {
-            datasets: [{
-              label: 'Asset Status',
-                data: [this.active, this.terminated, this.unmapped, this.yetToStart],
-                backgroundColor: [
-                    'rgba(255, 0, 0, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                ],
-                borderColor: [
-                    'rgba(255, 0, 0, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {}
-        });
-      }
-      );
+          switch (this.currentProfile.partner) {
+            case 'Noble1Solutions':
+              this.filter.nobleAss()
+              .subscribe(
+                (returnedAssets: Assets[]) => {
+                  this.assetLength = returnedAssets.length;
+                  this.assets = returnedAssets;
+                  status = this.assets.map(asset => asset.ContractCoverage);
+                  for (let i = 0; i <= status.length; i++) {
+                    if (status[i] === 'Active') {
+                      this.active++;
+                    } else if (status[i] === 'Terminated') {
+                      this.terminated++;
+                    } else if (status[i] === 'Unmapped') {
+                      this.unmapped++;
+                    } else if (status[i] === 'Yet to Start') {
+                      this.yetToStart++;
+                    }
+                  }
+                  this.assetsData = new Chart('assets', {
+                    type: 'pie',
+                    data: {
+                      datasets: [{
+                        label: 'Asset Status',
+                          data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                          backgroundColor: [
+                              'rgba(255, 0, 0, 1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                          ],
+                          borderColor: [
+                              'rgba(255, 0, 0, 1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                          ],
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {}
+                  });
+                }
+              );
+              break;
+
+            case 'Reliant Technology':
+              this.filter.reliAss()
+              .subscribe(
+                (returnedAssets: Assets[]) => {
+                  this.assetLength = returnedAssets.length;
+                  this.assets = returnedAssets;
+                  status = this.assets.map(asset => asset.ContractCoverage);
+                  for (let i = 0; i <= status.length; i++) {
+                    if (status[i] === 'Active') {
+                      this.active++;
+                    } else if (status[i] === 'Terminated') {
+                      this.terminated++;
+                    } else if (status[i] === 'Unmapped') {
+                      this.unmapped++;
+                    } else if (status[i] === 'Yet to Start') {
+                      this.yetToStart++;
+                    }
+                  }
+                  this.assetsData = new Chart('assets', {
+                    type: 'pie',
+                    data: {
+                      datasets: [{
+                        label: 'Asset Status',
+                          data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                          backgroundColor: [
+                              'rgba(255, 0, 0, 1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                          ],
+                          borderColor: [
+                              'rgba(255, 0, 0, 1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                          ],
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {}
+                  });
+                }
+                );
+              break;
+            case 'Relutech':
+              this.filter.reluAss()
+              .subscribe(
+                (returnedAssets: Assets[]) => {
+                  this.assetLength = returnedAssets.length;
+                  this.assets = returnedAssets;
+                  status = this.assets.map(asset => asset.ContractCoverage);
+                  for (let i = 0; i <= status.length; i++) {
+                    if (status[i] === 'Active') {
+                      this.active++;
+                    } else if (status[i] === 'Terminated') {
+                      this.terminated++;
+                    } else if (status[i] === 'Unmapped') {
+                      this.unmapped++;
+                    } else if (status[i] === 'Yet to Start') {
+                      this.yetToStart++;
+                    }
+                  }
+                  this.assetsData = new Chart('assets', {
+                    type: 'pie',
+                    data: {
+                      datasets: [{
+                        label: 'Asset Status',
+                          data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                          backgroundColor: [
+                              'rgba(255, 0, 0, 1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                          ],
+                          borderColor: [
+                              'rgba(255, 0, 0, 1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                          ],
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {}
+                  });
+                }
+                );
+              break;
+            default:
+              this.filter.partAssetsFilter(this.currentProfile)
+              .subscribe(
+                (returnedAssets: Assets[]) => {
+                  this.assetLength = returnedAssets.length;
+                  this.assets = returnedAssets;
+                  status = this.assets.map(asset => asset.ContractCoverage);
+                for (let i = 0; i <= status.length; i++) {
+                  if (status[i] === 'Active') {
+                    this.active++;
+                  } else if (status[i] === 'Terminated') {
+                    this.terminated++;
+                  } else if (status[i] === 'Unmapped') {
+                    this.unmapped++;
+                  } else if (status[i] === 'Yet to Start') {
+                    this.yetToStart++;
+                  }
+                }
+                this.assetsData = new Chart('assets', {
+                  type: 'pie',
+                  data: {
+                    datasets: [{
+                      label: 'Asset Status',
+                        data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                        backgroundColor: [
+                            'rgba(255, 0, 0, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                  tooltips: {
+                    enabled: true
+                  }
+                }
+                });
+              }
+              );
+            }
+
     } else {
       this.filter.custAssetsFilter(this.currentProfile)
       .subscribe(
@@ -378,9 +589,9 @@ export class DashboardComponent implements OnInit {
 
   }
 
-   loadAllUsers() {
-    this.profileService.getAll().pipe(first()).subscribe( profile => {
-      this.profiles = profile;
-    });
-  }
+  //  loadAllUsers() {
+  //   this.profileService.getAll().pipe(first()).subscribe( profile => {
+  //     this.profiles = profile;
+  //   });
+  // }
 }

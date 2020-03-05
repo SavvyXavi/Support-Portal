@@ -130,9 +130,15 @@ export const LogoList: Logo[] = [
     'CompanyName': 'Mega Monolithic Corp', 'Logo': '../assets/Mega Monolithic Corp - Logo Light Small.png'
   },
   {
-  'CompanyName': 'Knowledge Computers Inc', 'Logo': '../favicon.ico'
+    'CompanyName': 'Knowledge Computers Inc', 'Logo': '../favicon.ico'
   },
   {
     'CompanyName': 'PB&J Partners LLC', 'Logo': '../favicon.ico'
+  },
+  {
+    'CompanyName': 'Velocity Tech Solutions', 'Logo': '../favicon.ico'
+  },
+  {
+    'CompanyName': 'PCPC Direct', 'Logo': '../favicon.ico'
   }
 ];

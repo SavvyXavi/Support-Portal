@@ -1,10 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../index/index/services/authentication.service';
+import { AuthenticationService } from '../index/services/authentication.service';
 
-import { Observable } from 'rxjs';
-
-import { Profile } from '../index/index/models/profile';
+import { Profile } from '../index/models/profile';
 import { Role } from 'src/app/types/role.enum';
 import { Logo } from '../logolist';
 
@@ -43,7 +41,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    localStorage.clear();
+    sessionStorage.clear();
     this.authenticationService.logout();
     this.router.navigate(['/logout']);
   }

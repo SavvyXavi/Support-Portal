@@ -91,5 +91,9 @@ export const PartnerList: Partner[] = [
     'AccountID': 'Part-044', 'CompanyName': 'Knowledge Computers Inc'
   }, {
     'AccountID': 'Part-045', 'CompanyName': 'PB&J Partners LLC'
+  }, {
+    'AccountID': 'Part-046', 'CompanyName': 'Velocity Tech Solutions'
+  }, {
+    'AccountID': 'Part-047', 'CompanyName': 'PCPC Direct'
   }
 ];
