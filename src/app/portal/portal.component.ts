@@ -18,6 +18,8 @@ export class PortalComponent implements OnInit {
   ticketForm: FormGroup;
   assetForm: FormGroup;
   custOrPart: string;
+  submitted = false;
+
   constructor (
     private authenticationService: AuthenticationService,
     private formBuilder: FormBuilder,
@@ -53,8 +55,16 @@ export class PortalComponent implements OnInit {
     });
   }
 
+  get ticketF() {
+    return this.ticketForm.controls;
+  }
+
+  get assetF() {
+    return this.assetForm.controls;
+  }
 
   createTicket() {
+    this.submitted = true;
     this.api.addTicket(this.ticketForm.value)
      .subscribe(
        ticket => {
@@ -73,9 +83,6 @@ export class PortalComponent implements OnInit {
       }
     );
   }
-  // logout() {
-  //   this.authenticationService.logout();
-  //   this.router.navigate(['/login']);
-  // }
+
 }
 
