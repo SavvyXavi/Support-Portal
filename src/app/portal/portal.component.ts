@@ -39,12 +39,12 @@ export class PortalComponent implements OnInit {
     this.ticketForm = this.formBuilder.group({
       Title: ['', Validators.required],
       Description: ['', Validators.required],
-      CustomerNameOrId: [this.authenticationService.currentUserValue.partner, Validators.required],
+      CustomerNameOrId: [this.custOrPart, Validators.required],
       TicketType: ['', Validators.required],
       AssetId: ['', Validators.required],
       Location: ['', Validators.required],
       TicketCategoryNameOrId: ['', Validators.required],
-      TicketTypeNameOrId: [ this.authenticationService.currentUserValue.partner + ' Quotes', Validators.required]
+      TicketTypeNameOrId: [ this.custOrPart + ' Quotes', Validators.required]
     });
     this.assetForm = this.formBuilder.group({
       TicketType: ['', Validators.required],
@@ -65,6 +65,11 @@ export class PortalComponent implements OnInit {
 
   createTicket() {
     this.submitted = true;
+
+    if (this.ticketF.invalid) {
+      return;
+    }
+
     this.api.addTicket(this.ticketForm.value)
      .subscribe(
        ticket => {
@@ -75,6 +80,12 @@ export class PortalComponent implements OnInit {
    }
 
   createAsset() {
+    this.submitted = true;
+
+    if (this.assetF.invalid) {
+      return;
+    }
+
     this.api.addAsset(this.assetForm.value)
     .subscribe(
       asset => {

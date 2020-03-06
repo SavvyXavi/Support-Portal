@@ -17056,12 +17056,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.ticketForm = this.formBuilder.group({
             Title: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             Description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            CustomerNameOrId: [this.authenticationService.currentUserValue.partner, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            CustomerNameOrId: [this.custOrPart, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             TicketType: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             AssetId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             Location: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             TicketCategoryNameOrId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            TicketTypeNameOrId: [this.authenticationService.currentUserValue.partner + ' Quotes', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            TicketTypeNameOrId: [this.custOrPart + ' Quotes', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
           });
           this.assetForm = this.formBuilder.group({
             TicketType: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -17077,6 +17077,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this51 = this;
 
           this.submitted = true;
+
+          if (this.ticketF.invalid) {
+            return;
+          }
+
           this.api.addTicket(this.ticketForm.value).subscribe(function (ticket) {
             var ticketData = _this51.ticketForm.value;
             ticketData = ticket;
@@ -17086,6 +17091,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "createAsset",
         value: function createAsset() {
           var _this52 = this;
+
+          this.submitted = true;
+
+          if (this.assetF.invalid) {
+            return;
+          }
 
           this.api.addAsset(this.assetForm.value).subscribe(function (asset) {
             var assetData = _this52.assetForm.value;
