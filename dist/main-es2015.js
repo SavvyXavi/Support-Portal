@@ -9246,8 +9246,8 @@ function PortalComponent_div_33_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function PortalComponent_div_33_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 47);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, PortalComponent_div_33_div_1_Template, 2, 0, "div", 48);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 46);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, PortalComponent_div_33_div_1_Template, 2, 0, "div", 47);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r134 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
@@ -9260,8 +9260,8 @@ function PortalComponent_div_39_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function PortalComponent_div_39_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 47);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, PortalComponent_div_39_div_1_Template, 2, 0, "div", 48);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 46);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, PortalComponent_div_39_div_1_Template, 2, 0, "div", 47);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r135 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
@@ -9274,8 +9274,8 @@ function PortalComponent_div_44_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function PortalComponent_div_44_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 47);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, PortalComponent_div_44_div_1_Template, 2, 0, "div", 48);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 46);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, PortalComponent_div_44_div_1_Template, 2, 0, "div", 47);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r136 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
@@ -9288,8 +9288,8 @@ function PortalComponent_div_51_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function PortalComponent_div_51_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 47);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, PortalComponent_div_51_div_1_Template, 2, 0, "div", 48);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 46);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, PortalComponent_div_51_div_1_Template, 2, 0, "div", 47);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r137 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
@@ -9359,7 +9359,7 @@ class PortalComponent {
     }
 }
 PortalComponent.ɵfac = function PortalComponent_Factory(t) { return new (t || PortalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_1__["AuthenticationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_tickets_services_api_call_service__WEBPACK_IMPORTED_MODULE_3__["ApiCallService"])); };
-PortalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PortalComponent, selectors: [["app-portal"]], decls: 102, vars: 6, consts: [[1, "container-fluid"], [1, "row", "sticky-top"], [1, "header", "col-md"], [1, "row"], [1, "col-md-2", "sidebar"], [1, "col-md-10", "content"], [1, "col-md"], [1, "row", "tick-asset-form"], [3, "formGroup"], ["type", "button", "data-toggle", "modal", "data-target", "#ticketModal", 1, "btn", "btn-lg"], ["id", "ticketModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "ticketModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["role", "document", 1, "modal-dialog", "modal-dialog-centered"], [1, "modal-content"], [1, "modal-header"], [1, "modal-title"], ["type", "button", "data-dismiss", "modal", "aria-label", "Close", 1, "close"], ["aria-hidden", "true"], [1, "modal-body"], [1, "form-container", "col-md-6"], [1, "form-group"], ["for", "ticketType"], [1, "radio"], ["formControlName", "TicketType", "type", "radio", "name", "TicketType", "value", "Contract Support"], ["class", "invalid-feedback", 4, "ngIf"], ["for", "title"], ["type", "text", "formControlName", "Title", "name", "Title", 1, "form-control", "title", "shadow-none"], ["value", "", "name", "CustomerNameOrId", "type", "text", "formControlName", "AssetId", 1, "form-control", "shadow-none"], ["for", "description"], ["formControlName", "Description", "name", "Description", "cols", "50%", "rows", "5px", 1, "shadow-none"], [1, "modal-footer"], ["type", "button", "data-dismiss", "modal", 1, "btn", "cancel"], ["type", "submit", 1, "btn", "submit", 3, "click"], ["type", "button", "data-toggle", "modal", "data-target", "#assetModal", 1, "btn", "btn-lg"], ["id", "assetModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "assetModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["id", "exampleModalLongTitle", 1, "modal-title"], [1, "form-container"], ["formControlName", "TicketType", "type", "radio", "name", "TicketType", "value", "Asset"], ["for", "Name"], ["type", "text", "formControlName", "Name", "name", "Title", 1, "form-control", "title", "shadow-none"], ["for", "Identifier"], ["value", "", "name", "CustomerNameOrId", "type", "text", "formControlName", "Identifier", 1, "form-control", "shadow-none"], ["for", "Description"], [1, "modal-footer", "form-group-button"], ["type", "button", "data-dismiss", "modal", 1, "btn", "btn-secondary"], ["data-dismiss", "modal", "type", "button", 1, "btn", "btn-primary", 3, "click"], [1, "row", "content"], [1, "col-lg"], [1, "invalid-feedback"], [4, "ngIf"]], template: function PortalComponent_Template(rf, ctx) { if (rf & 1) {
+PortalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PortalComponent, selectors: [["app-portal"]], decls: 102, vars: 6, consts: [[1, "container-fluid"], [1, "row", "sticky-top"], [1, "header", "col-md"], [1, "row"], [1, "col-md-2", "sidebar"], [1, "col-md-10", "content"], [1, "col-md"], [1, "row", "tick-asset-form"], [3, "formGroup"], ["type", "button", "data-toggle", "modal", "data-target", "#ticketModal", 1, "btn", "btn-lg"], ["id", "ticketModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "ticketModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["role", "document", 1, "modal-dialog", "modal-dialog-centered"], [1, "modal-content"], [1, "modal-header"], [1, "modal-title"], ["type", "button", "data-dismiss", "modal", "aria-label", "Close", 1, "close"], ["aria-hidden", "true"], [1, "modal-body"], [1, "form-container"], [1, "form-group"], ["for", "ticketType"], [1, "radio"], ["formControlName", "TicketType", "type", "radio", "name", "TicketType", "value", "Contract Support"], ["class", "invalid-feedback", 4, "ngIf"], ["for", "title"], ["type", "text", "formControlName", "Title", "name", "Title", 1, "form-control", "title", "shadow-none"], ["value", "", "name", "CustomerNameOrId", "type", "text", "formControlName", "AssetId", 1, "form-control", "shadow-none"], ["for", "description"], ["formControlName", "Description", "name", "Description", "cols", "50%", "rows", "5px", 1, "shadow-none"], [1, "modal-footer"], ["type", "button", "data-dismiss", "modal", 1, "btn", "cancel"], ["type", "submit", 1, "btn", "submit", 3, "click"], ["type", "button", "data-toggle", "modal", "data-target", "#assetModal", 1, "btn", "btn-lg"], ["id", "assetModal", "tabindex", "-1", "role", "dialog", "aria-labelledby", "assetModalCenterTitle", "aria-hidden", "true", 1, "modal", "fade"], ["id", "exampleModalLongTitle", 1, "modal-title"], ["formControlName", "TicketType", "type", "radio", "name", "TicketType", "value", "Asset"], ["for", "Name"], ["type", "text", "formControlName", "Name", "name", "Title", 1, "form-control", "title", "shadow-none"], ["for", "Identifier"], ["value", "", "name", "CustomerNameOrId", "type", "text", "formControlName", "Identifier", 1, "form-control", "shadow-none"], ["for", "Description"], [1, "modal-footer", "form-group-button"], ["type", "button", "data-dismiss", "modal", 1, "btn", "btn-secondary"], ["data-dismiss", "modal", "type", "button", 1, "btn", "btn-primary", 3, "click"], [1, "row", "content"], [1, "col-lg"], [1, "invalid-feedback"], [4, "ngIf"]], template: function PortalComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -9464,7 +9464,7 @@ PortalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](69, "div", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](70, "div", 35);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](70, "div", 18);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](71, "div", 19);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](72, "label", 20);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](73, "Ticket Type:");
@@ -9472,26 +9472,26 @@ PortalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](74, "br");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](75, "div", 21);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](76, "label");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](77, "input", 36);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](77, "input", 35);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](78, " Asset ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](79, "br");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](80, "div", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](81, "label", 37);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](81, "label", 36);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](82, "Name: ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](83, "input", 38);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](83, "input", 37);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](84, "div", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](85, "label", 39);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](85, "label", 38);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](86, "Asset ID/Serial: ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](87, "input", 40);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](87, "input", 39);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](88, "div", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](89, "label", 41);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](89, "label", 40);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](90, "Description: ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](91, "br");
@@ -9499,11 +9499,11 @@ PortalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](93, "                            ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](94, "div", 42);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](95, "button", 43);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](94, "div", 41);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](95, "button", 42);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](96, "Close");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](97, "button", 44);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](97, "button", 43);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function PortalComponent_Template_button_click_97_listener($event) { return ctx.createAsset(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](98, "Submit Asset");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -9515,8 +9515,8 @@ PortalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](99, "div", 45);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](100, "div", 46);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](99, "div", 44);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](100, "div", 45);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](101, "router-outlet");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
