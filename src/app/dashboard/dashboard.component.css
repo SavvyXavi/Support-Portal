@@ -25,7 +25,7 @@
 
 .total-container {
   background-color: white;
-  border-radius: 8px;
+  border-radius: 6px;
   margin: 15px;
   font-size: 32px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);
@@ -80,7 +80,7 @@ a .asset-length, .asset-label{
    overflow: hidden;
   }
 
- .asset-logo{
+ .asset-logo {
    opacity: .3;
    position: relative;
    left: 8px;
@@ -92,7 +92,7 @@ a .asset-length, .asset-label{
   height: 128px !important;
  }
 
-a .ticket-length, .ticket-label{
+a .ticket-length, .ticket-label {
   color: black;
   text-decoration: none;
  }

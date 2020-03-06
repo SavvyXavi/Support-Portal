@@ -48,9 +48,9 @@ input:read-only {
     border: solid black;
     border-collapse: separate;
     border-spacing: 0;
-    border-radius: 8px !important;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
+    border-radius: 6px !important;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
   }
 
   th {
@@ -110,7 +110,7 @@ input:read-only {
     width: 100%;
     padding:  5px 10px;
     background-color: #e6e6e6;
-    border-radius: 5px;
+    border-radius: 6px;
   }
 
 
@@ -121,5 +121,5 @@ input:read-only {
 .search-form-field button {
     height: 32px;
     width: 32px;
-    border-radius: 8px;
+    border-radius: 6px;
   }
