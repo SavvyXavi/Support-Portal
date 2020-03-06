@@ -45,3 +45,7 @@
 .modal-dialog {
   width: 100%;
 }
+
+.form-group {
+  margin: 8px;
+}
