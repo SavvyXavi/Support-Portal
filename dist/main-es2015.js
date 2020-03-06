@@ -10332,7 +10332,7 @@ UserSettingsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](59, "div", 29);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "label", 32);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](62, "Password:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](62, "Confirm Password:");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](63, "input", 33);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](64, UserSettingsComponent_div_64_Template, 2, 1, "div", 31);

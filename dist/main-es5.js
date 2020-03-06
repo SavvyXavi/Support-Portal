@@ -18925,7 +18925,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "label", 32);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](62, "Password:");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](62, "Confirm Password:");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
