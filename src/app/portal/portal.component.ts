@@ -1,4 +1,3 @@
-import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../index/services/authentication.service';
@@ -23,7 +22,7 @@ export class PortalComponent implements OnInit {
   constructor (
     private authenticationService: AuthenticationService,
     private formBuilder: FormBuilder,
-    private api: ApiCallService
+    private api: ApiCallService,
     ) {
       this.authenticationService.currentUser.subscribe(
         profile => this.currentProfile = profile
