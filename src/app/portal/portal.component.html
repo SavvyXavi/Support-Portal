@@ -20,6 +20,7 @@
     <div class="col-md-10 content">
       <div class="row">
         <div class="col-md">
+          <form [formGroup]="ticketForm">
 
               <button type="button" data-toggle="modal" data-target="#ticketModal" class="btn btn-lg">Create Ticket</button>
 
@@ -38,7 +39,6 @@
                     <div class="modal-body">
                       <div class="card card-body no-outline">
                         <div class="form-container col-md-6 col-md-offset-3">
-                        <form [formGroup]="ticketForm">
                           <div class="form-group">
                             <label for="ticketType">Ticket Type:</label><br>
                             <div class="radio">
@@ -63,7 +63,6 @@
                           <div class="form-group-button">
                             <button (click)="createTicket()" format_align_left class="btn btn-primary"> Submit </button>
                           </div>
-                        </form>
                         </div>
                         </div>
                     </div>
@@ -74,8 +73,11 @@
                   </div>
                 </div>
               </div>
+            </form>
 
               <!-- Create Asset Modal -->
+              <form [formGroup]="assetForm">
+
               <button type="button" data-toggle="modal" data-target="#assetModal" class="btn btn-lg">Create Asset</button>
 
               <div class="modal fade" id="assetModal" tabindex="-1" role="dialog" aria-labelledby="assetModalCenterTitle" aria-hidden="true">
@@ -89,7 +91,6 @@
                     </div>
                     <div class="modal-body">
                       <div class="form-container">
-                        <form [formGroup]="assetForm">
                           <div class="form-group">
                             <label for="ticketType">Ticket Type:</label><br>
                             <div class="radio">
@@ -116,12 +117,12 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button data-dismiss="modal" (click)="createAsset()" type="button" class="btn btn-primary">Submit Asset</button>
                           </div>
-                        </form>
                         </div>
                       </div>
                   </div>
                 </div>
               </div>
+            </form>
 
           <div class="row content">
             <div class="col-lg">
