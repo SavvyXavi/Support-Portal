@@ -44,6 +44,10 @@ hr {
   cursor: pointer;
 }
 
+li {
+ justify-content:space-around;
+}
+
 .text {
   margin-left: 13px;
 }
