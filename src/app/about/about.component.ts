@@ -9,7 +9,7 @@ import { Profile } from '../index/models/profile';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  companyPartner: string;
+  version: string;
   currentProfile: Profile;
   constructor(
     private authServ: AuthenticationService
@@ -20,15 +20,6 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.displayCompany();
   }
-
-  // displayCompany() {
-  //   if ( this.currentProfile.companypartner  === 'Partner') {
-  //     this.companyPartner = this.currentProfile.partner;
-  //   } else {
-  //     this.companyPartner = this.currentProfile.company;
-  //   }
-  // }
 
 }

@@ -383,8 +383,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
       _createClass(AboutComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {// this.displayCompany();
-        }
+        value: function ngOnInit() {}
       }]);
 
       return AboutComponent;
@@ -447,7 +446,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", ctx.currentProfile.partner, "'s Portal");
         }
       },
-      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Fib3V0L2Fib3V0LmNvbXBvbmVudC5jc3MifQ== */"]
+      styles: [".vers[_ngcontent-%COMP%] {\n  color: grey;\n  width: 100%;\n  text-align: right;\n  opacity: 0.7;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWJvdXQvYWJvdXQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7RUFDWCxXQUFXO0VBQ1gsaUJBQWlCO0VBQ2pCLFlBQVk7QUFDZCIsImZpbGUiOiJzcmMvYXBwL2Fib3V0L2Fib3V0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudmVycyB7XG4gIGNvbG9yOiBncmV5O1xuICB3aWR0aDogMTAwJTtcbiAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gIG9wYWNpdHk6IDAuNztcbn1cbiJdfQ== */"]
     });
     /*@__PURE__*/
 
@@ -9356,7 +9355,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-header"]],
       decls: 42,
       vars: 5,
-      consts: [[1, "container-fluid"], [1, "navbar", "navbar-expand-lg", "navbar-light", "bg-light"], [1, "content-wrapper", "d-flex", "justify-content-between"], [1, "logo", "col-md-3"], ["routerLink", "dashboard", 1, "navbar-brand"], [3, "src"], [1, "dropdown", "d-none", "d-md-block", "account-container", "col-md-3", 2, "padding-right", "15px"], ["type", "button", "id", "dropdownMenuButton", "data-toggle", "dropdown", "aria-haspopup", "true", "aria-expanded", "false", 1, "btn", "bg-light", "shadow-none", "dropdown-toggle", 2, "width", "auto"], [1, "fa", "fa-user-circle", "fa-3x"], ["aria-labelledby", "dropdownMenuButton", 1, "dropdown-menu", "dropdown-menu-right", 2, "padding-right", "auto", "width", "auto"], [1, "dropdown-item-text", "dropdown-separator-title"], ["routerLink", "profile", 1, "dropdown-item"], [1, "icon"], [1, "fas", "fa-user"], [1, "text"], ["routerLink", "about", 1, "dropdown-item"], ["routerLink", "settings", 1, "dropdown-item"], [1, "fas", "fa-cog"], [1, "dropdown-item", 3, "click"], [1, "fas", "fa-sign-out-alt"]],
+      consts: [[1, "container-fluid"], [1, "navbar", "navbar-expand-lg", "navbar-light", "bg-light"], [1, "content-wrapper", "d-flex", "justify-content-between"], [1, "logo", "col-md-3"], ["routerLink", "dashboard", 1, "navbar-brand"], [3, "src"], [1, "dropdown", "d-none", "d-md-block", "account-container", "col-md-3", 2, "padding-right", "15px"], ["type", "button", "id", "dropdownMenuButton", "data-toggle", "dropdown", "aria-haspopup", "true", "aria-expanded", "false", 1, "btn", "bg-light", "shadow-none", "dropdown-toggle", 2, "width", "auto"], [1, "fa", "fa-user-circle", "fa-3x"], ["aria-labelledby", "dropdownMenuButton", 1, "dropdown-menu", "dropdown-menu-right", 2, "padding-right", "auto", "width", "auto"], [1, "dropdown-item-text", "dropdown-separator-title"], ["routerLink", "profile", 1, "dropdown-item"], [1, "icon"], [1, "fas", "fa-user"], [1, "text"], ["routerLink", "about", 1, "dropdown-item"], [1, "fas", "fa-info"], ["routerLink", "settings", 1, "dropdown-item"], [1, "fas", "fa-cog"], [1, "dropdown-item", 3, "click"], [1, "fas", "fa-sign-out-alt"]],
       template: function HeaderComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -9435,7 +9434,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "div", 12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](27, "i", 13);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](27, "i", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -9451,11 +9450,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "li");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "a", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "a", 17);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](33, "i", 17);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](33, "i", 18);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -9471,7 +9470,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "li");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "a", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "a", 19);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function HeaderComponent_Template_a_click_37_listener($event) {
             return ctx.logout();
@@ -9479,7 +9478,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "div", 12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](39, "i", 19);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](39, "i", 20);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
