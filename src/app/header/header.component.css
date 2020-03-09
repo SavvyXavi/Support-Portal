@@ -30,7 +30,6 @@ hr {
   border-color: #8c8c8c;
 }
 
-
 .navbar-brand {
  cursor: pointer;
 }
@@ -44,8 +43,8 @@ hr {
   cursor: pointer;
 }
 
-li {
- justify-content:space-around;
+.about-icon {
+  padding-left: 3px;
 }
 
 .text {
