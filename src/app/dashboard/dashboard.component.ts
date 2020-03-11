@@ -592,7 +592,7 @@ export class DashboardComponent implements OnInit {
   }
 
   geoLocation() {
-     mapboxgl.accessToken = 'N1SPortalTest';
+     mapboxgl.accessToken = 'pk.eyJ1IjoiZGhzZW5zZWkiLCJhIjoiY2s3bTg0cGt2MDB4ZDNscGNlbGFhNGYyYiJ9.gasbmmixfK9Vfry149FMDQ';
      const map = new mapboxgl.Map({
      container: 'geoMap',
      style: 'mapbox://styles/mapbox/streets-v9'
