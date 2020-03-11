@@ -4918,7 +4918,7 @@ class DashboardComponent {
         }
     }
     geoLocation() {
-        mapbox_gl__WEBPACK_IMPORTED_MODULE_5__["accessToken"] = 'N1SPortalTest';
+        mapbox_gl__WEBPACK_IMPORTED_MODULE_5__["accessToken"] = 'pk.eyJ1IjoiZGhzZW5zZWkiLCJhIjoiY2s3bTg0cGt2MDB4ZDNscGNlbGFhNGYyYiJ9.gasbmmixfK9Vfry149FMDQ';
         const map = new mapbox_gl__WEBPACK_IMPORTED_MODULE_5__["Map"]({
             container: 'geoMap',
             style: 'mapbox://styles/mapbox/streets-v9'
