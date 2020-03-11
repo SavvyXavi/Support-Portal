@@ -9,7 +9,7 @@ import { ApifilterService } from './../services/apifilter.service';
 import { DashService } from './services/dash.service';
 
 import { Chart } from 'chart.js';
-// import * as mapboxgl from 'mapbox-gl';
+import * as mapboxgl from 'mapbox-gl';
 
 import { Partner } from './../models/partner';
 import { Contracts } from './../contracts/models/contracts';
@@ -592,11 +592,12 @@ export class DashboardComponent implements OnInit {
   }
 
   geoLocation() {
-    // mapboxgl.accessToken = 'N1SPortalTest';
-    // const map = new mapboxgl.Map({
-    // container: 'map',
-    // style: 'mapbox://styles/mapbox/streets-v9'
-    // });
+
+    mapboxgl.accessToken = 'N1SPortalTest';
+    const map = new mapboxgl.Map({
+    container: 'geoMap',
+    style: 'mapbox://styles/mapbox/streets-v9'
+  });
   }
 
   //  loadAllUsers() {
