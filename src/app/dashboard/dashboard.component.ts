@@ -8,8 +8,8 @@ import { AuthenticationService } from '../index/services/authentication.service'
 import { ApifilterService } from './../services/apifilter.service';
 import { DashService } from './services/dash.service';
 
-import { first } from 'rxjs/operators';
 import { Chart } from 'chart.js';
+// import * as mapboxgl from 'mapbox-gl';
 
 import { Partner } from './../models/partner';
 import { Contracts } from './../contracts/models/contracts';
@@ -75,6 +75,8 @@ export class DashboardComponent implements OnInit {
     this.assetsChart();
     this.companiesCount();
     this.ticketsChart();
+
+    this.geoLocation();
   }
   getPartners() {
     this.filter.getPartners()
@@ -587,6 +589,14 @@ export class DashboardComponent implements OnInit {
       );
     }
 
+  }
+
+  geoLocation() {
+    // mapboxgl.accessToken = 'N1SPortalTest';
+    // const map = new mapboxgl.Map({
+    // container: 'map',
+    // style: 'mapbox://styles/mapbox/streets-v9'
+    // });
   }
 
   //  loadAllUsers() {

@@ -28,6 +28,7 @@
     "express": "^4.17.1",
     "ionic": "^5.4.16",
     "jw-angular-pagination": "^1.1.0",
+    "mapbox-gl": "^1.8.1",
     "mongoose": "^5.8.11",
     "node": "^13.8.0",
     "pdfmake": "^0.1.64",
