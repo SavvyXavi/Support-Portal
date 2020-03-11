@@ -238,6 +238,6 @@ p {
   text-align: center;
 }
 
-.geoMap{
-  height: 100%;
+#geoMap{
+  height: 600px;
 }
