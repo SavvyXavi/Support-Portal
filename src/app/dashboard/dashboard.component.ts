@@ -594,7 +594,7 @@ export class DashboardComponent implements OnInit {
   geoLocation() {
      mapboxgl.accessToken = 'N1SPortalTest';
      const map = new mapboxgl.Map({
-     container: 'map',
+     container: 'geoMap',
      style: 'mapbox://styles/mapbox/streets-v9'
      });
   }
