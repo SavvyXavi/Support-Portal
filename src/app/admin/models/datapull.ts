@@ -6,5 +6,5 @@ export class DataPull {
   EndCustomer: string;
   Schedule: string;
   ScheduleLine: string;
-  partner: string;
+  Partner: string;
 }

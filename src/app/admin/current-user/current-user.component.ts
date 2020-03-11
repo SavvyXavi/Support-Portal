@@ -6,6 +6,7 @@ import { AuthenticationService } from 'src/app/index/services/authentication.ser
 import { ProfileService } from './../../index/services/profile.service';
 import { DataPull } from '../models/datapull';
 import { first } from 'rxjs/operators';
+import { AssetFilter } from './../models/assetFilter';
 
 @Component({
   selector: 'app-current-user',
@@ -16,6 +17,11 @@ export class CurrentUserComponent implements OnInit {
   currentProfile: Profile;
   profiles: Profile[];
   datapull: DataPull[];
+  dpcount: any;
+  ticketpull: AssetFilter[];
+  selval: any;
+  ticketwo: any;
+  dbcount: any;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -29,7 +35,9 @@ export class CurrentUserComponent implements OnInit {
     );
    }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.gettestTickets();
+  }
 
   loadAllUsers() {
     this.profileService.getAll().pipe(first()).subscribe( profile => {
@@ -42,6 +50,21 @@ export class CurrentUserComponent implements OnInit {
     this.profileService.getAllAssets().subscribe(datapull  => {
       this.datapull = datapull;
       });
+  }
+  gettestAssets() {
+    this.oemService.testDataPull().subscribe(datapull  => {
+      this.datapull = datapull;
+      });
+  }
+  gettestTickets() {
+    this.oemService.testTicketPull().subscribe(ticketpull  => {
+      this.ticketpull = ticketpull;
+      this.dbcount = ticketpull.length;
+      });
+  }
+
+  filterFilter(ticketpull: any) {
+    return this.ticketpull.find(ticketwo => ticketpull.RefNumber === ticketwo);
   }
 
 }

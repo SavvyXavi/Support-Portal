@@ -592,12 +592,11 @@ export class DashboardComponent implements OnInit {
   }
 
   geoLocation() {
-
-    mapboxgl.accessToken = 'N1SPortalTest';
-    const map = new mapboxgl.Map({
-    container: 'geoMap',
-    style: 'mapbox://styles/mapbox/streets-v9'
-  });
+     mapboxgl.accessToken = 'N1SPortalTest';
+     const map = new mapboxgl.Map({
+     container: 'geoMap',
+     style: 'mapbox://styles/mapbox/streets-v9'
+     });
   }
 
   //  loadAllUsers() {
