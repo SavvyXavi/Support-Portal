@@ -1,4 +1,3 @@
-import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../index/services/authentication.service';
@@ -18,10 +17,12 @@ export class PortalComponent implements OnInit {
   ticketForm: FormGroup;
   assetForm: FormGroup;
   custOrPart: string;
+  submitted = false;
+
   constructor (
     private authenticationService: AuthenticationService,
     private formBuilder: FormBuilder,
-    private api: ApiCallService
+    private api: ApiCallService,
     ) {
       this.authenticationService.currentUser.subscribe(
         profile => this.currentProfile = profile
@@ -37,12 +38,12 @@ export class PortalComponent implements OnInit {
     this.ticketForm = this.formBuilder.group({
       Title: ['', Validators.required],
       Description: ['', Validators.required],
-      CustomerNameOrId: [this.authenticationService.currentUserValue.partner, Validators.required],
+      CustomerNameOrId: [this.custOrPart, Validators.required],
       TicketType: ['', Validators.required],
       AssetId: ['', Validators.required],
       Location: ['', Validators.required],
       TicketCategoryNameOrId: ['', Validators.required],
-      TicketTypeNameOrId: [ this.authenticationService.currentUserValue.partner + ' Quotes', Validators.required]
+      TicketTypeNameOrId: [ this.custOrPart + ' Quotes', Validators.required]
     });
     this.assetForm = this.formBuilder.group({
       TicketType: ['', Validators.required],
@@ -53,8 +54,21 @@ export class PortalComponent implements OnInit {
     });
   }
 
+  get ticketF() {
+    return this.ticketForm.controls;
+  }
+
+  get assetF() {
+    return this.assetForm.controls;
+  }
 
   createTicket() {
+    this.submitted = true;
+
+    if (this.ticketF.invalid) {
+      return;
+    }
+
     this.api.addTicket(this.ticketForm.value)
      .subscribe(
        ticket => {
@@ -65,6 +79,12 @@ export class PortalComponent implements OnInit {
    }
 
   createAsset() {
+    this.submitted = true;
+
+    if (this.assetF.invalid) {
+      return;
+    }
+
     this.api.addAsset(this.assetForm.value)
     .subscribe(
       asset => {
@@ -73,9 +93,6 @@ export class PortalComponent implements OnInit {
       }
     );
   }
-  // logout() {
-  //   this.authenticationService.logout();
-  //   this.router.navigate(['/login']);
-  // }
+
 }
 

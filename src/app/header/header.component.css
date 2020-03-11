@@ -30,7 +30,6 @@ hr {
   border-color: #8c8c8c;
 }
 
-
 .navbar-brand {
  cursor: pointer;
 }
@@ -44,10 +43,18 @@ hr {
   cursor: pointer;
 }
 
+.about-icon {
+  padding-left: 3px;
+}
+
 .text {
   margin-left: 13px;
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   background-color:#8c8c8c;
+}
+
+.about-icon {
+  padding-left: 8px;
 }

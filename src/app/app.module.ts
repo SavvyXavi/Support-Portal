@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Module Imports
 import { IndexModule } from './index/index.module';
 import { PortalModule } from './portal/portal-module/portal.module';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PortalModule } from './portal/portal-module/portal.module';
     OemComponent,
     UsersComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    AboutComponent
    ],
   imports: [
     BrowserModule,
