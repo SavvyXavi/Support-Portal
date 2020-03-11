@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { Profile } from '../../index/models/profile';
 import { OemService } from '../services/oem.service';
 import { AuthenticationService } from 'src/app/index/services/authentication.service';

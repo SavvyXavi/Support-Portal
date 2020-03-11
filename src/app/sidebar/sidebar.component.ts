@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLinkActive } from '@angular/router';
 import { AuthenticationService } from '../index/services/authentication.service';
 import { ApifilterService } from './../services/apifilter.service';
-
+import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { Profile } from '../index/models/profile';
 import { Partner } from './../models/partner';

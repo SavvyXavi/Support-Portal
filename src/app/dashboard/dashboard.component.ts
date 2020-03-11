@@ -10,7 +10,7 @@ import { DashService } from './services/dash.service';
 
 import { Chart } from 'chart.js';
 import * as mapboxgl from 'mapbox-gl';
-
+import { CommonModule } from '@angular/common';
 import { Partner } from './../models/partner';
 import { Contracts } from './../contracts/models/contracts';
 import { Customer } from './../admin/models/customer';

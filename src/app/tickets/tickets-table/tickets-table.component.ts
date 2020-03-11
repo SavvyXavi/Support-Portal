@@ -4,7 +4,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
-
+import { CommonModule } from '@angular/common';
 import { AuthenticationService } from 'src/app/index/services/authentication.service';
 import { ApifilterService } from './../../services/apifilter.service';
 import { ApiCallService } from '../services/api-call.service';
