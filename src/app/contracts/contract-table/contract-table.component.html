@@ -8,7 +8,7 @@
   </div>
   <div *ngIf="currentProfile.companypartner ==='Partner'" class="company-selector">
     <label for="customers">Select Customer </label>
-    <select id="customers">
+    <select [(ndModel)]="cust.CompanyName" id="customers">
       <option selected value="">All</option>
       <option *ngFor="let cust of custArr">{{cust.CompanyName}}</option>
     </select>
