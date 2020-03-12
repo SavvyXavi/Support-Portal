@@ -7211,7 +7211,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           var ctx_r196 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
 
-          return ctx_r196.cust.CompanyName = $event;
+          return ctx_r196.cust = $event;
         })("ngModelChange", function ContractTableComponent_div_5_Template_select_ngModelChange_3_listener() {
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r197);
 
@@ -7238,7 +7238,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngModel", ctx_r178.cust.CompanyName);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngModel", ctx_r178.cust);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](3);
 
