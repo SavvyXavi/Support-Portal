@@ -166,11 +166,10 @@ export class ContractTableComponent implements OnInit {
   getCustomers() {
     this.filter.customerFilter(this.currentProfile)
     .subscribe(
-      (customers: Array<any>)  => {
+      (customers: Customer[])  => {
         for (let i = 0; i <= customers.length; i++) {
-          this.custArr = customers[i];
+          this.custArr = customers;
         }
-        console.log(this.custArr + 'objects');
       }
     );
   }

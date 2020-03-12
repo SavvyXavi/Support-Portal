@@ -10,7 +10,7 @@
     <label for="customers">Select Customer </label>
     <select id="customers">
       <option selected value="">All</option>
-      <option *ngFor="let cust or custArr">{{cust.CompanyName}}</option>
+      <option *ngFor="let cust of custArr">{{cust.CompanyName}}</option>
     </select>
   </div>
 <div class="search-div">
