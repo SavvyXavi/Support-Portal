@@ -7,10 +7,10 @@
     </div>
   </div>
   <div *ngIf="currentProfile.companypartner ==='Partner'" class="company-selector">
-    <label for="customers"> Select Customer</label>
-    <select id="customers">
-      <option value="all">All</option>
-      <option value="">Customer 1</option>
+    <label for="customers">Select Customer </label>
+    <select [(ngModel)]="custArr.CompanyName" id="customers">
+      <option value="">All</option>
+      <option *ngFor="let cust or custArr">{{cust.CompanyName}}</option>
     </select>
   </div>
 <div class="search-div">
