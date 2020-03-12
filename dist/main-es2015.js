@@ -4061,7 +4061,11 @@ class ContractTableComponent {
     }
     getCustomers() {
         this.filter.customerFilter(this.currentProfile)
-            .subscribe((customers) => this.custArr = customers);
+            .subscribe((customers) => {
+            for (let i = 0; i <= customers.length; i++) {
+                this.custArr = customers[i];
+            }
+        });
     }
     applyFilter() {
         this.contractDataSource.filter = this.searchKey.trim().toLowerCase();

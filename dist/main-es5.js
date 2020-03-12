@@ -7603,7 +7603,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this28 = this;
 
           this.filter.customerFilter(this.currentProfile).subscribe(function (customers) {
-            return _this28.custArr = customers;
+            for (var i = 0; i <= customers.length; i++) {
+              _this28.custArr = customers[i];
+            }
           });
         }
       }, {
