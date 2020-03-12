@@ -170,6 +170,7 @@ export class ContractTableComponent implements OnInit {
         for (let i = 0; i <= customers.length; i++) {
           this.custArr = customers[i];
         }
+        console.log(this.custArr + 'objects');
       }
     );
   }
