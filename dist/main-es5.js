@@ -7217,7 +7217,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           var ctx_r198 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
 
-          return ctx_r198.customerChange(ctx_r198.cust.CompanyName);
+          return ctx_r198.customerChange(ctx_r198.cust);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](4, "option", 26);
@@ -7617,7 +7617,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "customerChange",
         value: function customerChange(customer) {
-          this.contractDataSource.filter = customer.trim().toLowerCase();
+          this.contractDataSource.filter = customer.CompanyName.trim().toLowerCase();
 
           if (this.contractDataSource.paginator) {
             this.contractDataSource.paginator.firstPage();

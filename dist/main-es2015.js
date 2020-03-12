@@ -3828,7 +3828,7 @@ function ContractTableComponent_div_5_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](2, "Select Customer ");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "select", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngModelChange", function ContractTableComponent_div_5_Template_select_ngModelChange_3_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r197); const ctx_r196 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"](); return ctx_r196.cust = $event; })("ngModelChange", function ContractTableComponent_div_5_Template_select_ngModelChange_3_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r197); const ctx_r198 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"](); return ctx_r198.customerChange(ctx_r198.cust.CompanyName); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngModelChange", function ContractTableComponent_div_5_Template_select_ngModelChange_3_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r197); const ctx_r196 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"](); return ctx_r196.cust = $event; })("ngModelChange", function ContractTableComponent_div_5_Template_select_ngModelChange_3_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r197); const ctx_r198 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"](); return ctx_r198.customerChange(ctx_r198.cust); });
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](4, "option", 26);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](5, "All");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
@@ -4068,7 +4068,7 @@ class ContractTableComponent {
         });
     }
     customerChange(customer) {
-        this.contractDataSource.filter = customer.trim().toLowerCase();
+        this.contractDataSource.filter = customer.CompanyName.trim().toLowerCase();
         if (this.contractDataSource.paginator) {
             this.contractDataSource.paginator.firstPage();
         }

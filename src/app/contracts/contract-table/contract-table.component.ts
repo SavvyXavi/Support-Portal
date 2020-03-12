@@ -174,8 +174,8 @@ export class ContractTableComponent implements OnInit {
     );
   }
 
-  customerChange(customer: string) {
-    this.contractDataSource.filter = customer.trim().toLowerCase();
+  customerChange(customer: Customer) {
+    this.contractDataSource.filter = customer.CompanyName.trim().toLowerCase();
     if (this.contractDataSource.paginator) {
       this.contractDataSource.paginator.firstPage();
     }
