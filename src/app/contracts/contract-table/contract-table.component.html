@@ -9,7 +9,7 @@
   <div *ngIf="currentProfile.companypartner ==='Partner'" class="company-selector">
     <label for="customers">Select Customer </label>
     <select [(ngModel)]="custArr.CompanyName" id="customers">
-      <option value="">All</option>
+      <option selected value="">All</option>
       <option *ngFor="let cust or custArr">{{cust.CompanyName}}</option>
     </select>
   </div>
