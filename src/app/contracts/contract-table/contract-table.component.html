@@ -6,6 +6,13 @@
       </button>
     </div>
   </div>
+  <div *ngIf="currentProfile.companypartner ==='Partner'" class="company-selector">
+    <label for="customers"> Select Customer</label>
+    <select id="customers">
+      <option value="all">All</option>
+      <option value="">Customer 1</option>
+    </select>
+  </div>
 <div class="search-div">
 
 <mat-form-field class="search-form-field" floatLabel="never">

@@ -16,6 +16,7 @@ import { AuthenticationService } from 'src/app/index/services/authentication.ser
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-contract-table',
@@ -26,7 +27,7 @@ export class ContractTableComponent implements OnInit {
   contracts: Contracts;
   conArr: Contracts[];
   currentProfile: Profile;
-
+  custArr: string[];
   pipe;
 
   partner: Partner;
@@ -56,6 +57,7 @@ export class ContractTableComponent implements OnInit {
   ngOnInit() {
     this.getPartners();
     this.getContracts();
+    this.getCustomers();
   }
 
   async genPdf() {
@@ -160,6 +162,13 @@ export class ContractTableComponent implements OnInit {
         }
       );
     }
+  }
+
+  getCustomers() {
+    this.filter.customerFilter(this.currentProfile)
+    .subscribe(
+      customers => console.log(customers)
+    );
   }
 
   applyFilter() {
