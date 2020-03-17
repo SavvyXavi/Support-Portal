@@ -85,7 +85,7 @@
           </div>
         </div>
         <div class="row">
- <!--         <div class="legend col-md">
+          <div class="legend col-md">
             <h6>
               <span class="badge badge-now"><p>N</p></span> Now
             </h6>
@@ -95,7 +95,7 @@
             <h6>
               <span class="badge badge-plus"><p>N</p></span> 90+ Days
             </h6>
-          </div>   -->
+          </div>
           <div class="chart col-md" width="250" height="250">
               <canvas id="contracts" >{{ contractsData }}</canvas>
           </div>
@@ -111,10 +111,17 @@
                   <span class="badge badge-now badge-table">{{this.now}}</span>
                 </td>
                 <td>
-                 30 Days
+                  30 Days
                 </td>
-                <tr>
                 <td>
+                  <span class="badge badge-30 badge-table">{{this.thirtyDays}}</span>
+                </td>
+                 </tr>
+              <tr>
+                <td>
+                  90 Days
+                </td>
+                 <td>
                   90+ Days
                 </td>
                 <td>
