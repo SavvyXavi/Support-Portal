@@ -222,9 +222,9 @@ export class DashboardComponent implements OnInit {
         (returnedDays: string[]) => {
           this.contractDays = returnedDays;
           for (let i = 0; i <= this.contractDays.length; i++) {
-            if (Number(this.contractDays[i]) > -1 && Number(this.contractDays[i]) <= 29) {
+            if (Number(this.contractDays[i]) > -1 && Number(this.contractDays[i]) <= 30) {
               this.now++;
-            } else if (Number(this.contractDays[i]) > 29 && Number(this.contractDays[i]) <= 90) {
+            } else if (Number(this.contractDays[i]) > 30 && Number(this.contractDays[i]) <= 90) {
               this.thirtyDays++;
             } else if (Number(this.contractDays[i]) > 90) {
               this.plus++;
@@ -252,7 +252,7 @@ export class DashboardComponent implements OnInit {
         },
         options: {
           legend: {
-            position: 'left'
+            position: 'bottom'
           },
           tooltips: {
               enabled: true,

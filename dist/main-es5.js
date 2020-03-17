@@ -8485,9 +8485,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this33.contractDays = returnedDays;
 
               for (var i = 0; i <= _this33.contractDays.length; i++) {
-                if (Number(_this33.contractDays[i]) > -1 && Number(_this33.contractDays[i]) <= 29) {
+                if (Number(_this33.contractDays[i]) > -1 && Number(_this33.contractDays[i]) <= 30) {
                   _this33.now++;
-                } else if (Number(_this33.contractDays[i]) > 29 && Number(_this33.contractDays[i]) <= 90) {
+                } else if (Number(_this33.contractDays[i]) > 30 && Number(_this33.contractDays[i]) <= 90) {
                   _this33.thirtyDays++;
                 } else if (Number(_this33.contractDays[i]) > 90) {
                   _this33.plus++;
@@ -8507,7 +8507,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 },
                 options: {
                   legend: {
-                    position: 'left'
+                    position: 'bottom'
                   },
                   tooltips: {
                     enabled: true,
