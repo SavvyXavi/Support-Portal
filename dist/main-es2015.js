@@ -4608,9 +4608,9 @@ class DashboardComponent {
                 this.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('contracts', {
                     type: 'pie',
                     data: {
-                        labels: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
+                        labels: ['Now', 'Thirty Days', 'Ninety plus'],
                         datasets: [{
-                                data: [this.now, this.thirtyDays, this.ninetyDays, this.plus],
+                                data: [this.now, this.thirtyDays, this.plus],
                                 backgroundColor: [
                                     'rgba(255, 0, 0, 1)',
                                     'rgba(54, 162, 235, 1)',
@@ -4670,14 +4670,11 @@ class DashboardComponent {
                 .subscribe((returnedDays) => {
                 this.contractDays = returnedDays;
                 for (let i = 0; i <= this.contractDays.length; i++) {
-                    if (Number(this.contractDays[i]) > -1 && Number(this.contractDays[i]) <= 14) {
+                    if (Number(this.contractDays[i]) > -1 && Number(this.contractDays[i]) <= 29) {
                         this.now++;
                     }
-                    else if (Number(this.contractDays[i]) <= 59) {
+                    else if (Number(this.contractDays[i]) <= 89) {
                         this.thirtyDays++;
-                    }
-                    else if (Number(this.contractDays[i]) === 90) {
-                        this.ninetyDays++;
                     }
                     else if (Number(this.contractDays[i]) > 90) {
                         this.plus++;
@@ -4688,7 +4685,7 @@ class DashboardComponent {
                     data: {
                         datasets: [{
                                 label: '# of Contracts',
-                                data: [this.now, this.thirtyDays, this.ninetyDays, this.plus],
+                                data: [this.now, this.thirtyDays, this.plus],
                                 backgroundColor: [
                                     'rgba(255, 0, 0, 1)',
                                     'rgba(54, 162, 235, 1)',

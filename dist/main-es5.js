@@ -8499,9 +8499,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this33.contractsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('contracts', {
                 type: 'pie',
                 data: {
-                  labels: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
+                  labels: ['Now', 'Thirty Days', 'Ninety plus'],
                   datasets: [{
-                    data: [_this33.now, _this33.thirtyDays, _this33.ninetyDays, _this33.plus],
+                    data: [_this33.now, _this33.thirtyDays, _this33.plus],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderWidth: 1
@@ -8545,12 +8545,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this33.contractDays = returnedDays;
 
               for (var i = 0; i <= _this33.contractDays.length; i++) {
-                if (Number(_this33.contractDays[i]) > -1 && Number(_this33.contractDays[i]) <= 14) {
+                if (Number(_this33.contractDays[i]) > -1 && Number(_this33.contractDays[i]) <= 29) {
                   _this33.now++;
-                } else if (Number(_this33.contractDays[i]) <= 59) {
+                } else if (Number(_this33.contractDays[i]) <= 89) {
                   _this33.thirtyDays++;
-                } else if (Number(_this33.contractDays[i]) === 90) {
-                  _this33.ninetyDays++;
                 } else if (Number(_this33.contractDays[i]) > 90) {
                   _this33.plus++;
                 }
@@ -8561,7 +8559,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 data: {
                   datasets: [{
                     label: '# of Contracts',
-                    data: [_this33.now, _this33.thirtyDays, _this33.ninetyDays, _this33.plus],
+                    data: [_this33.now, _this33.thirtyDays, _this33.plus],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
                     borderWidth: 1
