@@ -97,7 +97,7 @@
             </h6>
           </div>   -->
           <div class="chart col-md">
-              <canvas id="contracts" width="150" height="150">{{ contractsData }}</canvas>
+              <canvas id="contracts" width="250" height="250">{{ contractsData }}</canvas>
           </div>
         </div>
         <div class="row">
@@ -115,6 +115,23 @@
                 </td>
               </tr>
               <tr>
+                <td>
+                  30 Days
+                </td>
+                <td>
+                  <span class="badge badge-30 badge-table">{{this.thirtyDays}}</span>
+                </td>
+                <td>
+                 60 Days
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  90 Days
+                </td>
+                <td>
+                  <span class="badge badge-90 badge-table">{{this.ninetyDays}}</span>
+                </td>
                 <td>
                   90+ Days
                 </td>
