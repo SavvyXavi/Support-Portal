@@ -38,20 +38,28 @@ export class OemService {
     return this.http.get<DataPull[]>(`${environment.serverUrl}/`);
   }
   testDataPull(): Observable<DataPull[]> {
-    return this.http.get<DataPull[]>(`${environment.AssetTest}/profile`);
+    return this.http.get<DataPull[]>(`${environment.AssetTest}/`);
   }
 
-  testTicketPull(): Observable<AssetFilter[]> {
-    return this.http.get<AssetFilter[]>(`${environment.AssetTest}/profile`);
-  }
-  partTicketFilter() {
-    return this.http.get<AssetFilter[]>(`${environment.AssetTest}/profile`);
+  allTickets(): Observable<AssetFilter[]> {
+    return this.http.get<AssetFilter[]>(`${environment.AssetTest}/ticket`);
   }
 
+  tickByStatus(id: any) {
+    return this.http.get<AssetFilter[]>(`${environment.AssetTest}/Ref/${id}`);
+  }
 
+  tickByPart(id: any) {
+    return this.http.get(`${environment.AssetTest}/Tick/${id}`);
+  }
 
+  tickByCust(id: any) {
+    return this.http.get(`${environment.AssetTest}/refnumber/${id}`);
+  }
 
-
+  tickCountByPart(id: any) {
+    return this.http.get(`${environment.AssetTest}/tickcount/${id}`);
+  }
 
 
 }

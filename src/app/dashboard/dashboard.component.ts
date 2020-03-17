@@ -41,9 +41,7 @@ export class DashboardComponent implements OnInit {
   contractDays: string[];
 
   now = 0;
-  fifteenDays = 0;
   thirtyDays = 0;
-  sixtyDays = 0;
   ninetyDays = 0;
   plus = 0;
 
@@ -226,12 +224,8 @@ export class DashboardComponent implements OnInit {
           for (let i = 0; i <= this.contractDays.length; i++) {
             if (Number(this.contractDays[i]) > -1 && Number(this.contractDays[i]) <= 14) {
               this.now++;
-            } else if (Number(this.contractDays[i]) <= 29) {
-              this.fifteenDays++;
             } else if (Number(this.contractDays[i]) <= 59) {
               this.thirtyDays++;
-            } else if (Number(this.contractDays[i]) <= 89) {
-              this.sixtyDays++;
             } else if (Number(this.contractDays[i]) === 90 ) {
               this.ninetyDays++;
             } else if (Number(this.contractDays[i]) > 90) {
@@ -244,7 +238,7 @@ export class DashboardComponent implements OnInit {
         data: {
           labels: ['Now', 'Fifteen Days', 'Thirty Days', 'Sixty Days', 'Ninety Days', 'Ninety plus'],
           datasets: [{
-              data: [this.now, this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays, this.plus],
+              data: [this.now, this.thirtyDays, this.ninetyDays, this.plus],
               backgroundColor: [
                   'rgba(255, 0, 0, 1)',
                   'rgba(54, 162, 235, 1)',
@@ -311,12 +305,8 @@ export class DashboardComponent implements OnInit {
           for (let i = 0; i <= this.contractDays.length; i++) {
             if (Number(this.contractDays[i]) > -1 && Number(this.contractDays[i]) <= 14) {
               this.now++;
-            } else if (Number(this.contractDays[i]) <= 29) {
-              this.fifteenDays++;
             } else if (Number(this.contractDays[i]) <= 59) {
               this.thirtyDays++;
-            } else if (Number(this.contractDays[i]) <= 89) {
-              this.sixtyDays++;
             } else if (Number(this.contractDays[i]) === 90 ) {
               this.ninetyDays++;
             } else if (Number(this.contractDays[i]) > 90) {
@@ -329,7 +319,7 @@ export class DashboardComponent implements OnInit {
         data: {
           datasets: [{
               label: '# of Contracts',
-              data: [this.now, this.fifteenDays, this.thirtyDays, this.sixtyDays, this.ninetyDays, this.plus],
+              data: [this.now, this.thirtyDays, this.ninetyDays, this.plus],
               backgroundColor: [
                   'rgba(255, 0, 0, 1)',
                   'rgba(54, 162, 235, 1)',
