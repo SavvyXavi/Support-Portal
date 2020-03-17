@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 import { Partner } from '../models/partner';
 import { PartnerList } from '../partner-list';
 
+import { environment } from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -75,6 +77,12 @@ reliApi =
   = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetDrillDown?code=cwjoeQCF3Qx5PwX0xfLJDclqyxjEyW/gZppvvS6K/g07nFSOTfudrg==';
   assetlocationapi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/AssetsByLocation?code=aO2JTfqrHEJNatGh3FIlDHs90/fGncezd7CVxMfZX/lqR9ZoyHvIYw==';
+  locassbypart
+  = 'https://coden1stesting.noble1it.com/profile/asset/';
+  locassbycust
+  = 'https://coden1stesting.noble1it.com/profile/Part/';
+
+
 
 
   pTicketsApi
@@ -177,6 +185,10 @@ reliApi =
       'partner': filter.partner
     };
     return this.http.post(this.pTicketsApi, params);
+  }
+
+  locpartTicketsFilter(id: any) {
+      return this.http.get(`${environment.AssetTest}/asset/${id}`);
   }
 
   ticketsLocationFilter(filter: string) {

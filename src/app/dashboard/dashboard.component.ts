@@ -469,7 +469,7 @@ export class DashboardComponent implements OnInit {
                 );
               break;
             default:
-              this.filter.partAssetsFilter(this.currentProfile)
+              this.filter.locpartTicketsFilter(this.currentProfile)
               .subscribe(
                 (returnedAssets: Assets[]) => {
                   this.assetLength = returnedAssets.length;
