@@ -78,9 +78,9 @@ reliApi =
   assetlocationapi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/AssetsByLocation?code=aO2JTfqrHEJNatGh3FIlDHs90/fGncezd7CVxMfZX/lqR9ZoyHvIYw==';
   locassbypart
-  = 'https://coden1stesting.noble1it.com/profile/asset/';
+  = 'https://localapicall.noble1it.com/profile/asset/';
   locassbycust
-  = 'https://coden1stesting.noble1it.com/profile/Part/';
+  = 'https://localapicall.noble1it.com/profile/Part/';
 
 
 
@@ -143,6 +143,10 @@ reliApi =
     return this.http.post(this.partassetsapi, params);
   }
 
+  locpartAssetFilter(id: Filter) {
+    return this.http.get(`${environment.AssetTest}/Tick/${id}`);
+}
+
   custAssetsFilter(filter: Filter) {
     const params = {
       'role': filter.partnerRole,
@@ -187,8 +191,8 @@ reliApi =
     return this.http.post(this.pTicketsApi, params);
   }
 
-  locpartTicketsFilter(id: any) {
-      return this.http.get(`${environment.AssetTest}/asset/${id}`);
+  locpartTicketsFilter(id: Filter) {
+      return this.http.get(`${environment.AssetTest}/Partick/${id.partner}`);
   }
 
   ticketsLocationFilter(filter: string) {

@@ -4700,7 +4700,8 @@ class DashboardComponent {
         if (this.currentProfile.companypartner === 'Partner') {
             switch (this.currentProfile.partner) {
                 case 'Noble1Solutions':
-                    this.filter.nobleAss()
+                    const id = this.currentProfile.partner;
+                    this.filter.locpartAssetFilter(this.currentProfile)
                         .subscribe((returnedAssets) => {
                         this.assetLength = returnedAssets.length;
                         this.assets = returnedAssets;
@@ -10068,8 +10069,8 @@ class ApifilterService {
         this.schedassetsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsBySchedule?code=Q3Yjx/KXbuErLesg4oBVs5BJrdFdOMkXn0T/HoLO6hDrCavd45iN9A==';
         this.serialassetsapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetDrillDown?code=cwjoeQCF3Qx5PwX0xfLJDclqyxjEyW/gZppvvS6K/g07nFSOTfudrg==';
         this.assetlocationapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetsByLocation?code=aO2JTfqrHEJNatGh3FIlDHs90/fGncezd7CVxMfZX/lqR9ZoyHvIYw==';
-        this.locassbypart = 'https://coden1stesting.noble1it.com/profile/asset/';
-        this.locassbycust = 'https://coden1stesting.noble1it.com/profile/Part/';
+        this.locassbypart = 'https://localapicall.noble1it.com/profile/asset/';
+        this.locassbycust = 'https://localapicall.noble1it.com/profile/Part/';
         this.pTicketsApi = 'https://prodharmonytwo.azurewebsites.net/api/PartnerPullTickets?code=gQ1Dy1X0aUP27jaL/65LTEV3Pkxm3ptezl8a8/Rg5rhDOOCQblpmgA==';
         this.cTicketsApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
         this.ticketsLocationapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByLocation?code=Dj9Nn0m5gd3RuNDO5E/xq9r7AqN7S0z34mrL2bsSwxkANwga/1iJyQ==';
@@ -10102,6 +10103,9 @@ class ApifilterService {
             'partner': filter.partner
         };
         return this.http.post(this.partassetsapi, params);
+    }
+    locpartAssetFilter(id) {
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/Tick/${id}`);
     }
     custAssetsFilter(filter) {
         const params = {
@@ -10142,7 +10146,7 @@ class ApifilterService {
         return this.http.post(this.pTicketsApi, params);
     }
     locpartTicketsFilter(id) {
-        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/asset/${id}`);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/Partick/${id.partner}`);
     }
     ticketsLocationFilter(filter) {
         const params = {

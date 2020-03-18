@@ -1,3 +1,4 @@
+import { Filter } from './../models/filter';
 import { Component, OnInit } from '@angular/core';
 
 import { Profile } from '../index/models/profile';
@@ -14,6 +15,7 @@ import { CommonModule } from '@angular/common';
 import { Partner } from './../models/partner';
 import { Contracts } from './../contracts/models/contracts';
 import { Customer } from './../admin/models/customer';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -39,6 +41,7 @@ export class DashboardComponent implements OnInit {
 
   assets: Assets[];
   contractDays: string[];
+  id: Filter[];
 
   now = 0;
   thirtyDays = 0;
@@ -336,7 +339,8 @@ export class DashboardComponent implements OnInit {
     if (this.currentProfile.companypartner === 'Partner') {
           switch (this.currentProfile.partner) {
             case 'Noble1Solutions':
-              this.filter.nobleAss()
+              const id = this.currentProfile.partner;
+              this.filter.locpartAssetFilter(this.currentProfile)
               .subscribe(
                 (returnedAssets: Assets[]) => {
                   this.assetLength = returnedAssets.length;
