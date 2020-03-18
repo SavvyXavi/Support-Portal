@@ -8576,155 +8576,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var status = [];
 
           if (this.currentProfile.companypartner === 'Partner') {
-            switch (this.currentProfile.partner) {
-              case 'Noble1Solutions':
-                var id = this.currentProfile.partner;
-                this.filter.locpartAssetFilter(this.currentProfile).subscribe(function (returnedAssets) {
-                  _this34.assetLength = returnedAssets.length;
-                  _this34.assets = returnedAssets;
-                  status = _this34.assets.map(function (asset) {
-                    return asset.ContractCoverage;
-                  });
+            var id = this.currentProfile.partner;
+            this.filter.locpartAssetFilter(this.currentProfile).subscribe(function (returnedAssets) {
+              _this34.assetLength = returnedAssets.length;
+              _this34.assets = returnedAssets;
+              status = _this34.assets.map(function (asset) {
+                return asset.ContractCoverage;
+              });
 
-                  for (var i = 0; i <= status.length; i++) {
-                    if (status[i] === 'Active') {
-                      _this34.active++;
-                    } else if (status[i] === 'Terminated') {
-                      _this34.terminated++;
-                    } else if (status[i] === 'Unmapped') {
-                      _this34.unmapped++;
-                    } else if (status[i] === 'Yet to Start') {
-                      _this34.yetToStart++;
-                    }
-                  }
+              for (var i = 0; i <= status.length; i++) {
+                if (status[i] === 'Active') {
+                  _this34.active++;
+                } else if (status[i] === 'Terminated') {
+                  _this34.terminated++;
+                } else if (status[i] === 'Unmapped') {
+                  _this34.unmapped++;
+                } else if (status[i] === 'Yet to Start') {
+                  _this34.yetToStart++;
+                }
+              }
 
-                  _this34.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
-                    type: 'pie',
-                    data: {
-                      datasets: [{
-                        label: 'Asset Status',
-                        data: [_this34.active, _this34.terminated, _this34.unmapped, _this34.yetToStart],
-                        backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
-                        borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
-                        borderWidth: 1
-                      }]
-                    },
-                    options: {}
-                  });
-                });
-                break;
-
-              case 'Reliant Technology':
-                this.filter.reliAss().subscribe(function (returnedAssets) {
-                  _this34.assetLength = returnedAssets.length;
-                  _this34.assets = returnedAssets;
-                  status = _this34.assets.map(function (asset) {
-                    return asset.ContractCoverage;
-                  });
-
-                  for (var i = 0; i <= status.length; i++) {
-                    if (status[i] === 'Active') {
-                      _this34.active++;
-                    } else if (status[i] === 'Terminated') {
-                      _this34.terminated++;
-                    } else if (status[i] === 'Unmapped') {
-                      _this34.unmapped++;
-                    } else if (status[i] === 'Yet to Start') {
-                      _this34.yetToStart++;
-                    }
-                  }
-
-                  _this34.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
-                    type: 'pie',
-                    data: {
-                      datasets: [{
-                        label: 'Asset Status',
-                        data: [_this34.active, _this34.terminated, _this34.unmapped, _this34.yetToStart],
-                        backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
-                        borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
-                        borderWidth: 1
-                      }]
-                    },
-                    options: {}
-                  });
-                });
-                break;
-
-              case 'Relutech':
-                this.filter.reluAss().subscribe(function (returnedAssets) {
-                  _this34.assetLength = returnedAssets.length;
-                  _this34.assets = returnedAssets;
-                  status = _this34.assets.map(function (asset) {
-                    return asset.ContractCoverage;
-                  });
-
-                  for (var i = 0; i <= status.length; i++) {
-                    if (status[i] === 'Active') {
-                      _this34.active++;
-                    } else if (status[i] === 'Terminated') {
-                      _this34.terminated++;
-                    } else if (status[i] === 'Unmapped') {
-                      _this34.unmapped++;
-                    } else if (status[i] === 'Yet to Start') {
-                      _this34.yetToStart++;
-                    }
-                  }
-
-                  _this34.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
-                    type: 'pie',
-                    data: {
-                      datasets: [{
-                        label: 'Asset Status',
-                        data: [_this34.active, _this34.terminated, _this34.unmapped, _this34.yetToStart],
-                        backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
-                        borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
-                        borderWidth: 1
-                      }]
-                    },
-                    options: {}
-                  });
-                });
-                break;
-
-              default:
-                this.filter.locpartTicketsFilter(this.currentProfile).subscribe(function (returnedAssets) {
-                  _this34.assetLength = returnedAssets.length;
-                  _this34.assets = returnedAssets;
-                  status = _this34.assets.map(function (asset) {
-                    return asset.ContractCoverage;
-                  });
-
-                  for (var i = 0; i <= status.length; i++) {
-                    if (status[i] === 'Active') {
-                      _this34.active++;
-                    } else if (status[i] === 'Terminated') {
-                      _this34.terminated++;
-                    } else if (status[i] === 'Unmapped') {
-                      _this34.unmapped++;
-                    } else if (status[i] === 'Yet to Start') {
-                      _this34.yetToStart++;
-                    }
-                  }
-
-                  _this34.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
-                    type: 'pie',
-                    data: {
-                      datasets: [{
-                        label: 'Asset Status',
-                        data: [_this34.active, _this34.terminated, _this34.unmapped, _this34.yetToStart],
-                        backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
-                        borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
-                        borderWidth: 1
-                      }]
-                    },
-                    options: {
-                      tooltips: {
-                        enabled: true
-                      }
-                    }
-                  });
-                });
-            }
+              _this34.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
+                type: 'pie',
+                data: {
+                  datasets: [{
+                    label: 'Asset Status',
+                    data: [_this34.active, _this34.terminated, _this34.unmapped, _this34.yetToStart],
+                    backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                    borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                    borderWidth: 1
+                  }]
+                },
+                options: {}
+              });
+            });
           } else {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
               _this34.assetLength = returnedAssets.length;
