@@ -18617,7 +18617,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "locpartAssetFilter",
         value: function locpartAssetFilter(id) {
-          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/Tick/").concat(id.partner));
+          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/asset/").concat(id.partner));
         }
       }, {
         key: "custAssetsFilter",

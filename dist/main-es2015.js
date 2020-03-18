@@ -10105,7 +10105,7 @@ class ApifilterService {
         return this.http.post(this.partassetsapi, params);
     }
     locpartAssetFilter(id) {
-        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/Tick/${id.partner}`);
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/asset/${id.partner}`);
     }
     custAssetsFilter(filter) {
         const params = {
