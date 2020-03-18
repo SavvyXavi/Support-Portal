@@ -18617,7 +18617,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "locpartAssetFilter",
         value: function locpartAssetFilter(id) {
-          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/Tick/").concat(id));
+          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/Tick/").concat(id.partner));
         }
       }, {
         key: "custAssetsFilter",
@@ -22569,7 +22569,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
       DataPull: 'https://n1stestdata.noble1it.com',
       LogoutUrl: 'https://qa2supportportal.azurewebsites.net/',
-      AssetTest: 'https://coden1stest.noble1it.com/profile'
+      AssetTest: 'https://localapicall.noble1it.com/profile'
     };
     /*
      * For easier debugging in development mode, you can import the following file

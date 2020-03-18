@@ -144,7 +144,7 @@ reliApi =
   }
 
   locpartAssetFilter(id: Filter) {
-    return this.http.get(`${environment.AssetTest}/Tick/${id}`);
+    return this.http.get(`${environment.AssetTest}/Tick/${id.partner}`);
 }
 
   custAssetsFilter(filter: Filter) {
