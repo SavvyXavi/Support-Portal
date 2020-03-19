@@ -4470,93 +4470,27 @@ class DashboardComponent {
     }
     ticketsChart() {
         if (this.currentProfile.companypartner === 'Partner') {
-            switch (this.currentProfile.partner) {
-                case 'Noble1Solutions':
-                    this.filter.nobleTicks()
-                        .subscribe((returnedTickets) => {
-                        this.ticketLength = returnedTickets;
-                        this.ticketStatus = this.tickets.map(t => t.Status);
-                        for (let i = 0; i <= this.ticketStatus.length; i++) {
-                            if (this.ticketStatus[i] === 'New') {
-                                this.new++;
-                            }
-                            else if (this.ticketStatus[i] === 'Assigned') {
-                                this.assigned++;
-                            }
-                            else if (this.ticketStatus[i] === 'Fixed') {
-                                this.closed++;
-                            }
-                            else {
-                                this.inProcess++;
-                            }
-                        }
-                    });
-                    break;
-                case 'Reliant Technology':
-                    this.filter.reliTicks()
-                        .subscribe((returnedTickets) => {
-                        this.ticketLength = returnedTickets;
-                        this.ticketStatus = this.tickets.map(t => t.Status);
-                        for (let i = 0; i <= this.ticketStatus.length; i++) {
-                            if (this.ticketStatus[i] === 'New') {
-                                this.new++;
-                            }
-                            else if (this.ticketStatus[i] === 'Assigned') {
-                                this.assigned++;
-                            }
-                            else if (this.ticketStatus[i] === 'Fixed') {
-                                this.closed++;
-                            }
-                            else {
-                                this.inProcess++;
-                            }
-                        }
-                    });
-                    break;
-                case 'Relutech':
-                    this.filter.reluTicks()
-                        .subscribe((returnedTickets) => {
-                        this.ticketLength = returnedTickets;
-                        this.ticketStatus = this.tickets.map(t => t.Status);
-                        for (let i = 0; i <= this.ticketStatus.length; i++) {
-                            if (this.ticketStatus[i] === 'New') {
-                                this.new++;
-                            }
-                            else if (this.ticketStatus[i] === 'Assigned') {
-                                this.assigned++;
-                            }
-                            else if (this.ticketStatus[i] === 'Fixed') {
-                                this.closed++;
-                            }
-                            else {
-                                this.inProcess++;
-                            }
-                        }
-                    });
-                    break;
-                default:
-                    this.filter.partTicketsFilter(this.currentProfile)
-                        .subscribe((returnedTickets) => this.ticketLength = returnedTickets);
-                    this.dashServ.partTicketsFilter(this.currentProfile)
-                        .subscribe((tickets) => {
-                        this.tickets = tickets;
-                        this.ticketStatus = this.tickets.map(t => t.Status);
-                        for (let i = 0; i <= this.ticketStatus.length; i++) {
-                            if (this.ticketStatus[i] === 'New') {
-                                this.new++;
-                            }
-                            else if (this.ticketStatus[i] === 'Assigned') {
-                                this.assigned++;
-                            }
-                            else if (this.ticketStatus[i] === 'Fixed') {
-                                this.closed++;
-                            }
-                            else {
-                                this.inProcess++;
-                            }
-                        }
-                    });
-            }
+            this.filter.locpartTicketsFilter(this.currentProfile)
+                .subscribe((returnedTickets) => this.ticketLength = returnedTickets);
+            this.dashServ.locpartTicketsFilter(this.currentProfile)
+                .subscribe((tickets) => {
+                this.tickets = tickets;
+                this.ticketStatus = this.tickets.map(t => t.Status);
+                for (let i = 0; i <= this.ticketStatus.length; i++) {
+                    if (this.ticketStatus[i] === 'New') {
+                        this.new++;
+                    }
+                    else if (this.ticketStatus[i] === 'Assigned') {
+                        this.assigned++;
+                    }
+                    else if (this.ticketStatus[i] === 'Fixed') {
+                        this.closed++;
+                    }
+                    else {
+                        this.inProcess++;
+                    }
+                }
+            });
         }
         else {
             this.filter.cusTicketsFilter(this.currentProfile.company)
@@ -5104,6 +5038,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -5121,6 +5057,9 @@ class DashService {
             'partner': filter.partner
         };
         return this.http.post(this.pTicketsApi, params);
+    }
+    locpartTicketsFilter(id) {
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].AssetTest}/Partick/${id.partner}`);
     }
     cusTicketsFilter(filter) {
         const params = {

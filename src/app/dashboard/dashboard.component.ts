@@ -101,73 +101,11 @@ export class DashboardComponent implements OnInit {
 
   ticketsChart() {
     if (this.currentProfile.companypartner === 'Partner') {
-        switch (this.currentProfile.partner) {
-          case 'Noble1Solutions':
-            this.filter.nobleTicks()
-            .subscribe(
-              (returnedTickets: Tickets[]) => {
-                this.ticketLength = returnedTickets;
-                this.ticketStatus = this.tickets.map( t => t.Status);
-                for (let i = 0;  i <= this.ticketStatus.length; i++) {
-                  if (this.ticketStatus[i] === 'New') {
-                    this.new++;
-                  } else if (this.ticketStatus[i] === 'Assigned') {
-                    this.assigned++;
-                  } else if (this.ticketStatus[i] === 'Fixed') {
-                    this.closed++;
-                  } else {
-                    this.inProcess++;
-                  }
-                }
-              }
-            );
-            break;
-            case 'Reliant Technology':
-              this.filter.reliTicks()
-              .subscribe(
-                (returnedTickets: Tickets[]) => {
-                  this.ticketLength = returnedTickets;
-                  this.ticketStatus = this.tickets.map( t => t.Status);
-                  for (let i = 0;  i <= this.ticketStatus.length; i++) {
-                    if (this.ticketStatus[i] === 'New') {
-                      this.new++;
-                    } else if (this.ticketStatus[i] === 'Assigned') {
-                      this.assigned++;
-                    } else if (this.ticketStatus[i] === 'Fixed') {
-                      this.closed++;
-                    } else {
-                      this.inProcess++;
-                    }
-                  }
-                }
-              );
-            break;
-            case 'Relutech':
-              this.filter.reluTicks()
-              .subscribe(
-                (returnedTickets: Tickets[]) => {
-                  this.ticketLength = returnedTickets;
-                  this.ticketStatus = this.tickets.map( t => t.Status);
-                  for (let i = 0;  i <= this.ticketStatus.length; i++) {
-                    if (this.ticketStatus[i] === 'New') {
-                      this.new++;
-                    } else if (this.ticketStatus[i] === 'Assigned') {
-                      this.assigned++;
-                    } else if (this.ticketStatus[i] === 'Fixed') {
-                      this.closed++;
-                    } else {
-                      this.inProcess++;
-                    }
-                  }
-                }
-              );
-              break;
-              default:
-                this.filter.partTicketsFilter(this.currentProfile)
+                this.filter.locpartTicketsFilter(this.currentProfile)
                 .subscribe(
                   (returnedTickets: Tickets[]) => this.ticketLength = returnedTickets
                 );
-                this.dashServ.partTicketsFilter(this.currentProfile)
+                this.dashServ.locpartTicketsFilter(this.currentProfile)
                 .subscribe(
                   (tickets: Tickets[]) => {
                     this.tickets = tickets;
@@ -185,7 +123,6 @@ export class DashboardComponent implements OnInit {
                     }
                   }
                 );
-        }
     } else {
       this.filter.cusTicketsFilter(this.currentProfile.company)
       .subscribe(

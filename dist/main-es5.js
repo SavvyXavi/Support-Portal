@@ -8361,93 +8361,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this32 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
-            switch (this.currentProfile.partner) {
-              case 'Noble1Solutions':
-                this.filter.nobleTicks().subscribe(function (returnedTickets) {
-                  _this32.ticketLength = returnedTickets;
-                  _this32.ticketStatus = _this32.tickets.map(function (t) {
-                    return t.Status;
-                  });
+            this.filter.locpartTicketsFilter(this.currentProfile).subscribe(function (returnedTickets) {
+              return _this32.ticketLength = returnedTickets;
+            });
+            this.dashServ.locpartTicketsFilter(this.currentProfile).subscribe(function (tickets) {
+              _this32.tickets = tickets;
+              _this32.ticketStatus = _this32.tickets.map(function (t) {
+                return t.Status;
+              });
 
-                  for (var i = 0; i <= _this32.ticketStatus.length; i++) {
-                    if (_this32.ticketStatus[i] === 'New') {
-                      _this32["new"]++;
-                    } else if (_this32.ticketStatus[i] === 'Assigned') {
-                      _this32.assigned++;
-                    } else if (_this32.ticketStatus[i] === 'Fixed') {
-                      _this32.closed++;
-                    } else {
-                      _this32.inProcess++;
-                    }
-                  }
-                });
-                break;
-
-              case 'Reliant Technology':
-                this.filter.reliTicks().subscribe(function (returnedTickets) {
-                  _this32.ticketLength = returnedTickets;
-                  _this32.ticketStatus = _this32.tickets.map(function (t) {
-                    return t.Status;
-                  });
-
-                  for (var i = 0; i <= _this32.ticketStatus.length; i++) {
-                    if (_this32.ticketStatus[i] === 'New') {
-                      _this32["new"]++;
-                    } else if (_this32.ticketStatus[i] === 'Assigned') {
-                      _this32.assigned++;
-                    } else if (_this32.ticketStatus[i] === 'Fixed') {
-                      _this32.closed++;
-                    } else {
-                      _this32.inProcess++;
-                    }
-                  }
-                });
-                break;
-
-              case 'Relutech':
-                this.filter.reluTicks().subscribe(function (returnedTickets) {
-                  _this32.ticketLength = returnedTickets;
-                  _this32.ticketStatus = _this32.tickets.map(function (t) {
-                    return t.Status;
-                  });
-
-                  for (var i = 0; i <= _this32.ticketStatus.length; i++) {
-                    if (_this32.ticketStatus[i] === 'New') {
-                      _this32["new"]++;
-                    } else if (_this32.ticketStatus[i] === 'Assigned') {
-                      _this32.assigned++;
-                    } else if (_this32.ticketStatus[i] === 'Fixed') {
-                      _this32.closed++;
-                    } else {
-                      _this32.inProcess++;
-                    }
-                  }
-                });
-                break;
-
-              default:
-                this.filter.partTicketsFilter(this.currentProfile).subscribe(function (returnedTickets) {
-                  return _this32.ticketLength = returnedTickets;
-                });
-                this.dashServ.partTicketsFilter(this.currentProfile).subscribe(function (tickets) {
-                  _this32.tickets = tickets;
-                  _this32.ticketStatus = _this32.tickets.map(function (t) {
-                    return t.Status;
-                  });
-
-                  for (var i = 0; i <= _this32.ticketStatus.length; i++) {
-                    if (_this32.ticketStatus[i] === 'New') {
-                      _this32["new"]++;
-                    } else if (_this32.ticketStatus[i] === 'Assigned') {
-                      _this32.assigned++;
-                    } else if (_this32.ticketStatus[i] === 'Fixed') {
-                      _this32.closed++;
-                    } else {
-                      _this32.inProcess++;
-                    }
-                  }
-                });
-            }
+              for (var i = 0; i <= _this32.ticketStatus.length; i++) {
+                if (_this32.ticketStatus[i] === 'New') {
+                  _this32["new"]++;
+                } else if (_this32.ticketStatus[i] === 'Assigned') {
+                  _this32.assigned++;
+                } else if (_this32.ticketStatus[i] === 'Fixed') {
+                  _this32.closed++;
+                } else {
+                  _this32.inProcess++;
+                }
+              }
+            });
           } else {
             this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTicketLength) {
               return _this32.ticketLength = returnedTicketLength;
@@ -9295,6 +9229,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/cdk/portal */
     "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
+    /* harmony import */
+
+
+    var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../../environments/environment */
+    "./src/environments/environment.ts");
 
     var DashService =
     /*#__PURE__*/
@@ -9315,6 +9255,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             'partner': filter.partner
           };
           return this.http.post(this.pTicketsApi, params);
+        }
+      }, {
+        key: "locpartTicketsFilter",
+        value: function locpartTicketsFilter(id) {
+          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].AssetTest, "/Partick/").concat(id.partner));
         }
       }, {
         key: "cusTicketsFilter",
