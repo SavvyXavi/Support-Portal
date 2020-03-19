@@ -77,25 +77,13 @@
     <!-- Item(s) Data -->
   <div class="row">
     <!-- Contracts Chart -->
-    <div class="col-md" width="250" height="250">
+    <div class="col-md" >
       <div class="container contracts-wrapper">
         <div class="row">
           <div class="title col-md">
             <h3><i class="fa fa-calendar" aria-hidden="true"> </i> Days until Contract Renewal</h3>
           </div>
         </div>
-        <div class="row">
-  <!--        <div class="legend col-md">
-            <h6>
-              <span class="badge badge-now"><p>N</p></span> Now
-            </h6>
-            <h6>
-              <span class="badge badge-30"><p>N</p></span> 30 Days
-            </h6>
-            <h6>
-              <span class="badge badge-plus"><p>N</p></span> 90+ Days
-            </h6>
-          </div> -->
           <div class="chart col-md" >
               <canvas id="contracts" >{{ contractsData }}</canvas>
           </div>
@@ -129,7 +117,6 @@
           </div>
       </div>
     </div>
-  </div>
 
   <!-- Assets Chart -->
     <div class="col-md" width="250" height="250">
