@@ -7448,7 +7448,7 @@ class LocationsTableComponent {
     }
     getLocations() {
         if (this.currentProfile.companypartner === 'Partner') {
-            this.filter.partLocationFilter(this.currentProfile)
+            this.filter.locpartLocatFilter(this.currentProfile)
                 .subscribe((returnedLocations) => {
                 this.locArr = returnedLocations;
                 this.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedLocations);
@@ -10054,6 +10054,9 @@ class ApifilterService {
         };
         return this.http.post(this.ticketsLocationapi, params);
     }
+    locpartLocatFilter(id) {
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/Partloc/${id.partner}`);
+    }
     ticketRefFilter(filter) {
         const params = {
             'refnumber': filter
@@ -11730,43 +11733,13 @@ class TicketsTableComponent {
     }
     getTickets() {
         if (this.currentProfile.companypartner === 'Partner') {
-            switch (this.currentProfile.partner) {
-                case 'Noble1Solutions':
-                    this.filter.nobleTicks()
-                        .subscribe((tickets) => {
-                        this.tickArr = tickets;
-                        this.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
-                        this.ticketDataSource.sort = this.sort;
-                        this.ticketDataSource.paginator = this.paginator;
-                    });
-                    break;
-                case 'Relutech':
-                    this.filter.reluTicks()
-                        .subscribe((assets) => {
-                        this.tickArr = assets;
-                        this.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](assets);
-                        this.ticketDataSource.sort = this.sort;
-                        this.ticketDataSource.paginator = this.paginator;
-                    });
-                    break;
-                case 'Reliant Technology':
-                    this.filter.reliTicks()
-                        .subscribe((tickets) => {
-                        this.tickArr = tickets;
-                        this.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
-                        this.ticketDataSource.sort = this.sort;
-                        this.ticketDataSource.paginator = this.paginator;
-                    });
-                    break;
-                default:
-                    this.filter.partTicketsFilter(this.currentProfile)
-                        .subscribe((tickets) => {
-                        this.tickArr = tickets;
-                        this.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
-                        this.ticketDataSource.sort = this.sort;
-                        this.ticketDataSource.paginator = this.paginator;
-                    });
-            }
+            this.filter.locpartTicketsFilter(this.currentProfile)
+                .subscribe((tickets) => {
+                this.tickArr = tickets;
+                this.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__["MatTableDataSource"](tickets);
+                this.ticketDataSource.sort = this.sort;
+                this.ticketDataSource.paginator = this.paginator;
+            });
         }
         else {
             this.filter.cusTicketsFilter(this.currentProfile.company)

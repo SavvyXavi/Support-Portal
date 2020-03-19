@@ -202,6 +202,10 @@ reliApi =
     return this.http.post(this.ticketsLocationapi, params);
   }
 
+  locpartLocatFilter(id: Filter) {
+    return this.http.get(`${environment.AssetTest}/Partloc/${id.partner}`);
+}
+
   ticketRefFilter(filter: string) {
     const params = {
       'refnumber': filter

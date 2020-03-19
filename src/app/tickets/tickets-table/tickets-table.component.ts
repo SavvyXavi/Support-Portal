@@ -163,42 +163,7 @@ export class TicketsTableComponent implements OnInit {
 
    getTickets() {
     if (this.currentProfile.companypartner === 'Partner') {
-      switch (this.currentProfile.partner) {
-        case 'Noble1Solutions':
-          this.filter.nobleTicks()
-          .subscribe(
-            (tickets: Tickets[]) => {
-              this.tickArr = tickets;
-              this.ticketDataSource = new MatTableDataSource(tickets);
-              this.ticketDataSource.sort = this.sort;
-              this.ticketDataSource.paginator = this.paginator;
-            }
-          );
-          break;
-        case 'Relutech':
-          this.filter.reluTicks()
-          .subscribe(
-            (assets: Tickets[]) => {
-              this.tickArr = assets;
-              this.ticketDataSource = new MatTableDataSource(assets);
-              this.ticketDataSource.sort = this.sort;
-              this.ticketDataSource.paginator = this.paginator;
-            }
-          );
-          break;
-        case 'Reliant Technology':
-          this.filter.reliTicks()
-          .subscribe(
-            (tickets: Tickets[]) => {
-              this.tickArr = tickets;
-              this.ticketDataSource = new MatTableDataSource(tickets);
-              this.ticketDataSource.sort = this.sort;
-              this.ticketDataSource.paginator = this.paginator;
-            }
-          );
-          break;
-        default:
-          this.filter.partTicketsFilter(this.currentProfile)
+          this.filter.locpartTicketsFilter(this.currentProfile)
             .subscribe(
               (tickets: Tickets[]) => {
                 this.tickArr = tickets;
@@ -207,7 +172,6 @@ export class TicketsTableComponent implements OnInit {
                 this.ticketDataSource.paginator = this.paginator;
               }
             );
-      }
      } else {
        this.filter.cusTicketsFilter(this.currentProfile.company)
        .subscribe(

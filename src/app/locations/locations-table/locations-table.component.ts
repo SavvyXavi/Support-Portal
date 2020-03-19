@@ -133,7 +133,7 @@ export class LocationsTableComponent implements OnInit {
 
   getLocations() {
     if (this.currentProfile.companypartner === 'Partner') {
-      this.filter.partLocationFilter(this.currentProfile)
+      this.filter.locpartLocatFilter(this.currentProfile)
       .subscribe(
         (returnedLocations: CustomerLocation[]) => {
           this.locArr = returnedLocations;
