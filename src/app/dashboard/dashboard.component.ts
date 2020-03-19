@@ -273,21 +273,21 @@ export class DashboardComponent implements OnInit {
                 label: function(tooltipItem, data) {
                   // get the data label and data value to display
                   // convert the data value to local string so it uses a comma seperated number
-                  let dataLabela = data.labels[tooltipItem.index];
-                  let valuea = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                  let dataLabel = data.labels[tooltipItem.index];
+                  let value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
 
                   // make this isn't a multi-line label (e.g. [["label 1 - line 1, "line 2, ], [etc...]])
-                  if (Chart.helpers.isArray(dataLabela)) {
+                  if (Chart.helpers.isArray(dataLabel)) {
                     // show value on first line of multiline label
                     // need to clone because we are changing the value
-                    dataLabela = dataLabela.slice();
-                    dataLabela[0] += valuea;
+                    dataLabel = dataLabel.slice();
+                    dataLabel[0] += value;
                   } else {
-                    dataLabela += valuea;
+                    dataLabel += value;
                   }
 
                   // return the text to display on the tooltip
-                  return dataLabela;
+                  return dataLabel;
                 }
               }
           }
@@ -341,7 +341,35 @@ export class DashboardComponent implements OnInit {
                           borderWidth: 1
                       }]
                   },
-                  options: {}
+                  options: {
+                    legend: {
+                      position: 'left'
+                    },
+                    tooltips: {
+                        enabled: true,
+                        callbacks: {
+                          label: function(tooltipItem, data) {
+                            // get the data label and data value to display
+                            // convert the data value to local string so it uses a comma seperated number
+                            let dataLabel = data.labels[tooltipItem.index];
+                            let value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+
+                            // make this isn't a multi-line label (e.g. [["label 1 - line 1, "line 2, ], [etc...]])
+                            if (Chart.helpers.isArray(dataLabel)) {
+                              // show value on first line of multiline label
+                              // need to clone because we are changing the value
+                              dataLabel = dataLabel.slice();
+                              dataLabel[0] += value;
+                            } else {
+                              dataLabel += value;
+                            }
+
+                            // return the text to display on the tooltip
+                            return dataLabel;
+                          }
+                        }
+                    }
+                  }
                   });
                 }
               );
@@ -384,7 +412,35 @@ export class DashboardComponent implements OnInit {
                 borderWidth: 1
             }]
         },
-        options: {}
+        options: {
+          legend: {
+            position: 'left'
+          },
+          tooltips: {
+              enabled: true,
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  // get the data label and data value to display
+                  // convert the data value to local string so it uses a comma seperated number
+                  let dataLabel = data.labels[tooltipItem.index];
+                  let value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+
+                  // make this isn't a multi-line label (e.g. [["label 1 - line 1, "line 2, ], [etc...]])
+                  if (Chart.helpers.isArray(dataLabel)) {
+                    // show value on first line of multiline label
+                    // need to clone because we are changing the value
+                    dataLabel = dataLabel.slice();
+                    dataLabel[0] += value;
+                  } else {
+                    dataLabel += value;
+                  }
+
+                  // return the text to display on the tooltip
+                  return dataLabel;
+                }
+              }
+          }
+        }
     });
   }
 
