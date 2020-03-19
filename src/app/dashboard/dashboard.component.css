@@ -158,7 +158,6 @@ a .ticket-length, .ticket-label {
 .assets-wrapper {
   background: white;
   border-radius: 8px;
-  height: 500px;
 }
 
 .whiterow {
@@ -253,5 +252,5 @@ p {
 }
 
 #geoMap{
-  height: 380px;
+  height: 385px;
 }
