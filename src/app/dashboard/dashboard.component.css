@@ -160,8 +160,16 @@ a .ticket-length, .ticket-label {
   border-radius: 8px;
 }
 
+.contracts-wrapper {
+  background: white;
+  border-radius: 8px;
+}
 
 .assets-table {
+  align-items: center;
+}
+
+.contracts-table {
   align-items: center;
 }
 
