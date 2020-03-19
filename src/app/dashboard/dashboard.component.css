@@ -6,10 +6,10 @@
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);
 }
 
-/* .charts {
+ .chart {
   padding: 0;
   margin-right: 0;
-} */
+}
 
 .col-md {
   margin-bottom: 15px;
@@ -170,7 +170,7 @@ a .ticket-length, .ticket-label {
 
 .geoLocation-wrapper {
   background: white;
-  border-radius: 8px;
+
 }
 
 .tickets-wrapper {
@@ -244,7 +244,6 @@ p {
 .badge-yetToStart {
   background-color: rgba(75, 192, 192, 1);
 }
-
 
 .view-wrapper {
   text-align: center;
