@@ -119,7 +119,7 @@ a .ticket-length, .ticket-label {
    opacity: .3;
    position: relative;
    left: 20px;
-   top: 9px;
+   top: 29px;
  }
 
  .ticket-icon {
@@ -155,12 +155,12 @@ a .ticket-length, .ticket-label {
   height: 128px !important;
 }
 
- .ticket-logo{
+ /* .ticket-logo{
    opacity: .2;
    position: relative;
    left: 20px;
-   top: 3px;
- }
+   top: 13px;
+ } */
 
 .assets-wrapper {
   background: white;
@@ -254,5 +254,5 @@ p {
 }
 
 #geoMap{
-  height: 365px;
+  height: 385px;
 }
