@@ -112,7 +112,7 @@ a .ticket-length, .ticket-label {
    opacity: .3;
    position: relative;
    left: 20px;
-   top: 10px;
+   top: 9px;
  }
 
  .ticket-icon {
@@ -152,7 +152,7 @@ a .ticket-length, .ticket-label {
    opacity: .2;
    position: relative;
    left: 20px;
-   top: 15px;
+   top: 13px;
  }
 
 .assets-wrapper {
@@ -246,11 +246,10 @@ p {
 }
 
 
-
 .view-wrapper {
   text-align: center;
 }
 
 #geoMap{
-  height: 385px;
+  height: 365px;
 }
