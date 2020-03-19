@@ -9,6 +9,7 @@
  .chart {
   padding: 0;
   margin-right: 0;
+  margin-left: 2;
 }
 
 .col-md {
@@ -108,6 +109,12 @@ a .ticket-length, .ticket-label {
    overflow: hidden;
  }
 
+ .geolocation-container {
+  padding-right: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
  .ticket-logo{
    opacity: .3;
    position: relative;
@@ -116,8 +123,8 @@ a .ticket-length, .ticket-label {
  }
 
  .ticket-icon {
-  width: 150px !important;
-  height: 160px !important;
+  width: 160px !important;
+  height: 180px !important;
  }
 
  a .companies-length, .companies-label{
@@ -160,16 +167,13 @@ a .ticket-length, .ticket-label {
   border-radius: 8px;
 }
 
-.whiterow {
-  background: white;
-}
-
 .assets-table {
   align-items: center;
 }
 
 .geoLocation-wrapper {
   background: white;
+  border-radius: 8px;
 
 }
 
