@@ -84,12 +84,12 @@ a .asset-length, .asset-label{
    opacity: .3;
    position: relative;
    left: 8px;
-   top: 10px;
+   top: 8px;
  }
 
  .asset-icon {
   width: 128px !important;
-  height: 128px !important;
+  height: 132px !important;
  }
 
 a .ticket-length, .ticket-label {
