@@ -8309,7 +8309,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.plus = 0;
         this.active = 0;
         this.terminated = 0;
-        this.unmapped = 0;
+        this.notcovered = 0;
         this.yetToStart = 0;
         this["new"] = 0;
         this.assigned = 0;
@@ -8550,8 +8550,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   _this34.active++;
                 } else if (status[i] === 'Terminated') {
                   _this34.terminated++;
-                } else if (status[i] === 'Unmapped') {
-                  _this34.unmapped++;
+                } else if (status[i] === 'NotCovered') {
+                  _this34.notcovered++;
                 } else if (status[i] === 'Yet to Start') {
                   _this34.yetToStart++;
                 }
@@ -8560,10 +8560,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this34.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
                 type: 'pie',
                 data: {
-                  labels: ['Active', 'Terminated', 'Unmapped', 'Yet to Start'],
+                  labels: ['Active', 'Terminated', 'Not Covered', 'Yet to Start'],
                   datasets: [{
                     label: 'Asset Status',
-                    data: [_this34.active, _this34.terminated, _this34.unmapped, _this34.yetToStart],
+                    data: [_this34.active, _this34.terminated, _this34.notcovered, _this34.yetToStart],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                     borderWidth: 1
@@ -8612,8 +8612,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   _this34.active++;
                 } else if (status[i] === 'Terminated') {
                   _this34.terminated++;
-                } else if (status[i] === 'Unmapped') {
-                  _this34.unmapped++;
+                } else if (status[i] === 'Not covered') {
+                  _this34.notcovered++;
                 } else if (status[i] === 'Yet to Start') {
                   _this34.yetToStart++;
                 }
@@ -8624,7 +8624,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 data: {
                   datasets: [{
                     label: 'Asset Status',
-                    data: [_this34.active, _this34.terminated, _this34.unmapped, _this34.yetToStart],
+                    data: [_this34.active, _this34.terminated, _this34.notcovered, _this34.yetToStart],
                     backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                     borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
                     borderWidth: 1
@@ -8932,8 +8932,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](75, "div", 40);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](76, "div", 32);
@@ -9005,6 +9003,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](98, "span", 44);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](99);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -9240,7 +9240,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.unmapped);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.notcovered);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 

@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit {
 
   active = 0;
   terminated = 0;
-  unmapped = 0;
+  notcovered = 0;
   yetToStart = 0;
 
   new = 0;
@@ -314,8 +314,8 @@ export class DashboardComponent implements OnInit {
                       this.active++;
                     } else if (status[i] === 'Terminated') {
                       this.terminated++;
-                    } else if (status[i] === 'Unmapped') {
-                      this.unmapped++;
+                    } else if (status[i] === 'NotCovered') {
+                      this.notcovered++;
                     } else if (status[i] === 'Yet to Start') {
                       this.yetToStart++;
                     }
@@ -323,10 +323,10 @@ export class DashboardComponent implements OnInit {
                   this.assetsData = new Chart('assets', {
                     type: 'pie',
                     data: {
-                      labels: ['Active', 'Terminated', 'Unmapped', 'Yet to Start'],
+                      labels: ['Active', 'Terminated', 'Not Covered', 'Yet to Start'],
                       datasets: [{
                         label: 'Asset Status',
-                          data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                          data: [this.active, this.terminated, this.notcovered, this.yetToStart],
                           backgroundColor: [
                               'rgba(255, 0, 0, 1)',
                               'rgba(54, 162, 235, 1)',
@@ -386,8 +386,8 @@ export class DashboardComponent implements OnInit {
             this.active++;
           } else if (status[i] === 'Terminated') {
             this.terminated++;
-          } else if (status[i] === 'Unmapped') {
-            this.unmapped++;
+          } else if (status[i] === 'Not covered') {
+            this.notcovered++;
           } else if (status[i] === 'Yet to Start') {
             this.yetToStart++;
           }
@@ -397,7 +397,7 @@ export class DashboardComponent implements OnInit {
           data: {
             datasets: [{
               label: 'Asset Status',
-                data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                data: [this.active, this.terminated, this.notcovered, this.yetToStart],
                 backgroundColor: [
                     'rgba(255, 0, 0, 1)',
                     'rgba(54, 162, 235, 1)',

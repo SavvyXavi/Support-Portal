@@ -4437,7 +4437,7 @@ class DashboardComponent {
         this.plus = 0;
         this.active = 0;
         this.terminated = 0;
-        this.unmapped = 0;
+        this.notcovered = 0;
         this.yetToStart = 0;
         this.new = 0;
         this.assigned = 0;
@@ -4672,8 +4672,8 @@ class DashboardComponent {
                     else if (status[i] === 'Terminated') {
                         this.terminated++;
                     }
-                    else if (status[i] === 'Unmapped') {
-                        this.unmapped++;
+                    else if (status[i] === 'NotCovered') {
+                        this.notcovered++;
                     }
                     else if (status[i] === 'Yet to Start') {
                         this.yetToStart++;
@@ -4682,10 +4682,10 @@ class DashboardComponent {
                 this.assetsData = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('assets', {
                     type: 'pie',
                     data: {
-                        labels: ['Active', 'Terminated', 'Unmapped', 'Yet to Start'],
+                        labels: ['Active', 'Terminated', 'Not Covered', 'Yet to Start'],
                         datasets: [{
                                 label: 'Asset Status',
-                                data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                                data: [this.active, this.terminated, this.notcovered, this.yetToStart],
                                 backgroundColor: [
                                     'rgba(255, 0, 0, 1)',
                                     'rgba(54, 162, 235, 1)',
@@ -4745,8 +4745,8 @@ class DashboardComponent {
                     else if (status[i] === 'Terminated') {
                         this.terminated++;
                     }
-                    else if (status[i] === 'Unmapped') {
-                        this.unmapped++;
+                    else if (status[i] === 'Not covered') {
+                        this.notcovered++;
                     }
                     else if (status[i] === 'Yet to Start') {
                         this.yetToStart++;
@@ -4757,7 +4757,7 @@ class DashboardComponent {
                     data: {
                         datasets: [{
                                 label: 'Asset Status',
-                                data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                                data: [this.active, this.terminated, this.notcovered, this.yetToStart],
                                 backgroundColor: [
                                     'rgba(255, 0, 0, 1)',
                                     'rgba(54, 162, 235, 1)',
@@ -4937,7 +4937,6 @@ DashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](74);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](75, "div", 40);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](76, "div", 32);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](77, "table", 33);
@@ -4974,6 +4973,7 @@ DashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](97, "td");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](98, "span", 44);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](99);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -5091,7 +5091,7 @@ DashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.terminated);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.unmapped);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.notcovered);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.yetToStart);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](23);
