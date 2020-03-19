@@ -119,7 +119,7 @@ a .ticket-length, .ticket-label {
    opacity: .3;
    position: relative;
    left: 20px;
-   top: 29px;
+   top: 11px;
  }
 
  .ticket-icon {
@@ -254,5 +254,5 @@ p {
 }
 
 #geoMap{
-  height: 385px;
+  height: 35px;
 }
