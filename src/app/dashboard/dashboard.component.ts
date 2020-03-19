@@ -340,7 +340,7 @@ export class DashboardComponent implements OnInit {
                           ],
                           borderWidth: 1
                       }]
-                  },
+                   },
                   options: {
                     legend: {
                       position: 'left'
