@@ -15929,42 +15929,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this53 = this;
 
           if (this.currentProfile.companypartner === 'Partner') {
-            switch (this.currentProfile.partner) {
-              case 'Noble1Solutions':
-                this.filter.nobleAss().subscribe(function (assets) {
-                  _this53.asArr = assets;
-                  _this53.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
-                  _this53.assetDataSource.sort = _this53.sort;
-                  _this53.assetDataSource.paginator = _this53.paginator;
-                });
-                break;
-
-              case 'Relutech':
-                this.filter.reluAss().subscribe(function (assets) {
-                  _this53.asArr = assets;
-                  _this53.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
-                  _this53.assetDataSource.sort = _this53.sort;
-                  _this53.assetDataSource.paginator = _this53.paginator;
-                });
-                break;
-
-              case 'Reliant Technology':
-                this.filter.reliAss().subscribe(function (assets) {
-                  _this53.asArr = assets;
-                  _this53.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](assets);
-                  _this53.assetDataSource.sort = _this53.sort;
-                  _this53.assetDataSource.paginator = _this53.paginator;
-                });
-                break;
-
-              default:
-                this.filter.partAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
-                  _this53.asArr = returnedAssets;
-                  _this53.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedAssets);
-                  _this53.assetDataSource.sort = _this53.sort;
-                  _this53.assetDataSource.paginator = _this53.paginator;
-                });
-            }
+            this.filter.locpartAssetFilter(this.currentProfile).subscribe(function (returnedAssets) {
+              _this53.asArr = returnedAssets;
+              _this53.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedAssets);
+              _this53.assetDataSource.sort = _this53.sort;
+              _this53.assetDataSource.paginator = _this53.paginator;
+            });
           } else {
             this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAsset) {
               _this53.asArr = returnedAsset;

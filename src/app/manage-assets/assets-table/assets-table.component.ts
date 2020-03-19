@@ -132,42 +132,7 @@ export class AssetsTableComponent implements OnInit {
 
   getAssets() {
     if (this.currentProfile.companypartner === 'Partner') {
-      switch (this.currentProfile.partner) {
-        case 'Noble1Solutions':
-          this.filter.nobleAss()
-          .subscribe(
-            (assets: Assets[]) => {
-              this.asArr = assets;
-              this.assetDataSource = new MatTableDataSource(assets);
-              this.assetDataSource.sort = this.sort;
-              this.assetDataSource.paginator = this.paginator;
-            }
-          );
-          break;
-        case 'Relutech':
-          this.filter.reluAss()
-          .subscribe(
-            (assets: Assets[]) => {
-              this.asArr = assets;
-              this.assetDataSource = new MatTableDataSource(assets);
-              this.assetDataSource.sort = this.sort;
-              this.assetDataSource.paginator = this.paginator;
-            }
-          );
-          break;
-        case 'Reliant Technology':
-          this.filter.reliAss()
-          .subscribe(
-            (assets: Assets[]) => {
-              this.asArr = assets;
-              this.assetDataSource = new MatTableDataSource(assets);
-              this.assetDataSource.sort = this.sort;
-              this.assetDataSource.paginator = this.paginator;
-            }
-          );
-          break;
-        default:
-          this.filter.partAssetsFilter(this.currentProfile)
+          this.filter.locpartAssetFilter(this.currentProfile)
             .subscribe(
               (returnedAssets: Assets[]) => {
                 this.asArr = returnedAssets;
@@ -176,7 +141,6 @@ export class AssetsTableComponent implements OnInit {
                 this.assetDataSource.paginator = this.paginator;
               }
             );
-      }
     } else {
       this.filter.custAssetsFilter(this.currentProfile)
       .subscribe(
