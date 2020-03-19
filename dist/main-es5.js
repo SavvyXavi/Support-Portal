@@ -8810,8 +8810,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](62, "div", 25);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "div", 37);
@@ -8825,6 +8823,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](67, "i", 39);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](68, " Asset Contractual Status");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -22399,6 +22399,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var environment = {
       production: false,
+      env: 'Shawn',
       serverUrl: 'https://finalauth.noble1it.com',
       secret: 'Noble1Solutions',
       LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
@@ -22441,12 +22442,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var environment = {
       production: true,
+      env: 'UAT',
       serverUrl: 'https://authprod.noble1it.com',
       secret: 'N1S#4rmonyNoble1!',
       LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
       CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
       DataPull: 'https://n1stestdata.noble1it.com',
-      LogoutUrl: 'https://https://uatsupportportal.azurewebsites.net/'
+      LogoutUrl: 'https://qa2supportportal.azurewebsites.net/'
     };
     /***/
   },
