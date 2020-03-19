@@ -13,7 +13,7 @@
 }
 
 .col-md {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   margin-top: 15px;
 }
 
@@ -119,12 +119,12 @@ a .ticket-length, .ticket-label {
    opacity: .3;
    position: relative;
    left: 20px;
-   top: 49px;
+   top: 0px;
  }
 
  .ticket-icon {
   width: 160px !important;
-  height: 180px !important;
+  height: 170px !important;
  }
 
  a .companies-length, .companies-label{
