@@ -1,5 +1,5 @@
+import { environment } from './../../../environments/environment.uat';
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-logout',
@@ -7,7 +7,7 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
-
+  apiEndPoint = environment.LogoutUrl;
   constructor() { }
 
   ngOnInit(): void {

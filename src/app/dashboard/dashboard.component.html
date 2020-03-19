@@ -83,7 +83,7 @@
           <div class="title col-md table-container">
             <h3><i class="fa fa-calendar" aria-hidden="true"> </i> Days until Contract Renewal</h3>
           </div>
-        </div>
+     <!--   </div>  -->
           <div class="chart col-md" >
               <canvas id="contracts" >{{ contractsData }}</canvas>
           </div>
@@ -110,10 +110,11 @@
                   90+ Days
                 </td>
                 <td>
-                  <span class="badge badge-active badge-table">{{this.plus}}</span>
+                  <span class="badge badge-plus badge-table">{{this.plus}}</span>
                 </td>
               </tr>
             </table>
+          </div>
           </div>
       </div>
     </div>
