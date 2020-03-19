@@ -160,6 +160,10 @@ a .ticket-length, .ticket-label {
   border-radius: 8px;
 }
 
+.whitetable {
+  background: white
+}
+
 .assets-table {
   align-items: center;
 }

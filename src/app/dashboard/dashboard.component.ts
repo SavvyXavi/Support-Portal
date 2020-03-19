@@ -325,7 +325,7 @@ export class DashboardComponent implements OnInit {
                     data: {
                       datasets: [{
                         label: 'Asset Status',
-                          dataa: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                          data: [this.active, this.terminated, this.unmapped, this.yetToStart],
                           backgroundColor: [
                               'rgba(255, 0, 0, 1)',
                               'rgba(54, 162, 235, 1)',
@@ -348,24 +348,24 @@ export class DashboardComponent implements OnInit {
                     tooltips: {
                         enabled: true,
                         callbacks: {
-                          label: function(tooltipItem, dataa) {
+                          label: function(tooltipItem, data) {
                             // get the data label and data value to display
                             // convert the data value to local string so it uses a comma seperated number
-                            let dataLabel = dataa.labels[tooltipItem.index];
-                            let value = ': ' + dataa.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                            let dataLabela = data.labels[tooltipItem.index];
+                            let value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
 
                             // make this isn't a multi-line label (e.g. [["label 1 - line 1, "line 2, ], [etc...]])
-                            if (Chart.helpers.isArray(dataLabel)) {
+                            if (Chart.helpers.isArray(dataLabela)) {
                               // show value on first line of multiline label
                               // need to clone because we are changing the value
-                              dataLabel = dataLabel.slice();
-                              dataLabel[0] += value;
+                              dataLabela = dataLabela.slice();
+                              dataLabela[0] += value;
                             } else {
-                              dataLabel += value;
+                              dataLabela += value;
                             }
 
                             // return the text to display on the tooltip
-                            return dataLabel;
+                            return dataLabela;
                           }
                         }
                     }
