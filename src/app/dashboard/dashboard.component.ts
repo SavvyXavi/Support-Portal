@@ -325,7 +325,7 @@ export class DashboardComponent implements OnInit {
                     data: {
                       datasets: [{
                         label: 'Asset Status',
-                          data: [this.active, this.terminated, this.unmapped, this.yetToStart],
+                          dataa: [this.active, this.terminated, this.unmapped, this.yetToStart],
                           backgroundColor: [
                               'rgba(255, 0, 0, 1)',
                               'rgba(54, 162, 235, 1)',
@@ -348,11 +348,11 @@ export class DashboardComponent implements OnInit {
                     tooltips: {
                         enabled: true,
                         callbacks: {
-                          label: function(tooltipItem, data) {
+                          label: function(tooltipItem, dataa) {
                             // get the data label and data value to display
                             // convert the data value to local string so it uses a comma seperated number
-                            let dataLabel = data.labels[tooltipItem.index];
-                            let value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                            let dataLabel = dataa.labels[tooltipItem.index];
+                            let value = ': ' + dataa.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
 
                             // make this isn't a multi-line label (e.g. [["label 1 - line 1, "line 2, ], [etc...]])
                             if (Chart.helpers.isArray(dataLabel)) {
