@@ -158,6 +158,7 @@ a .ticket-length, .ticket-label {
 .assets-wrapper {
   background: white;
   border-radius: 8px;
+  height: 500px;
 }
 
 .whiterow {
@@ -176,7 +177,6 @@ a .ticket-length, .ticket-label {
 .tickets-wrapper {
   background: white;
   border-radius: 8px;
-  height: 300px;
 }
 
 .contracts-wrapper {
