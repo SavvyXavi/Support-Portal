@@ -116,8 +116,8 @@ a .ticket-length, .ticket-label {
  }
 
  .ticket-icon {
-  width: 130px !important;
-  height: 130px !important;
+  width: 150px !important;
+  height: 150px !important;
  }
 
  a .companies-length, .companies-label{
@@ -247,5 +247,5 @@ p {
 }
 
 #geoMap{
-  height: 600px;
+  height: 400px;
 }
