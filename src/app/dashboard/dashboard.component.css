@@ -14,6 +14,7 @@
 .col-md {
   margin-bottom: 15px;
   margin-top: 15px;
+  background-color: white;
 }
 
 .tabs{
@@ -160,16 +161,7 @@ a .ticket-length, .ticket-label {
   border-radius: 8px;
 }
 
-.contracts-wrapper {
-  background: white;
-  border-radius: 8px;
-}
-
 .assets-table {
-  align-items: center;
-}
-
-.contracts-table {
   align-items: center;
 }
 
