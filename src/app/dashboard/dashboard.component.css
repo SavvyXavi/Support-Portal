@@ -201,7 +201,7 @@ a .ticket-length, .ticket-label {
 
 .badge-table {
   width: 30px !important;
-  padding-bottom: 33px;
+ /* padding-bottom: 3px; */
 }
 
 p {
@@ -255,5 +255,5 @@ p {
 }
 
 #geoMap{
-  height: 330px;
+  height: 430px;
 }
