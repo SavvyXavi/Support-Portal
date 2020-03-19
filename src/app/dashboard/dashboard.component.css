@@ -161,7 +161,7 @@ a .ticket-length, .ticket-label {
 }
 
 .whiterow {
-  background: white
+  background: white;
 }
 
 .assets-table {
@@ -169,12 +169,14 @@ a .ticket-length, .ticket-label {
 }
 
 .geoLocation-wrapper {
-  background: white
+  background: white;
+  border-radius: 8px;
 }
 
 .tickets-wrapper {
   background: white;
   border-radius: 8px;
+  height: 300px;
 }
 
 .contracts-wrapper {
@@ -251,5 +253,5 @@ p {
 }
 
 #geoMap{
-  height: 400px;
+  height: 380px;
 }
