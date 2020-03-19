@@ -343,16 +343,16 @@ export class DashboardComponent implements OnInit {
                    },
                   options: {
                     legend: {
-                      position: 'bottom'
+                      position: 'left'
                     },
                     tooltips: {
                         enabled: true,
                         callbacks: {
-                          label: function(tooltipItem, data) {
+                          label: function(tooltipItema, data) {
                             // get the data label and data value to display
                             // convert the data value to local string so it uses a comma seperated number
-                            let dataLabel = data.labels[tooltipItem.index];
-                            let value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                            let dataLabel = data.labels[tooltipItema.index];
+                            let value = ': ' + data.datasets[tooltipItema.datasetIndex].data[tooltipItema.index].toLocaleString();
 
                             // make this isn't a multi-line label (e.g. [["label 1 - line 1, "line 2, ], [etc...]])
                             if (Chart.helpers.isArray(dataLabel)) {
