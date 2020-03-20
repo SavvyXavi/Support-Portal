@@ -22,7 +22,7 @@
 
                 <a *ngIf="currentRole?.companypartner === 'Partner'" class="dropdown" routerLink="admin/customers">
                   <div class="dashboard-icon icon-wrapper">
-                    <i class="icon fas fa-globe-alt"></i>
+                    <i class="icon fas fa-industry-alt"></i>
                   </div>
                 <div class="dashboard-content col-auto">
                     <span>
@@ -33,7 +33,7 @@
 
                 <a class="assets-btn">
                     <div class="assets-icon icon-wrapper">
-                      <i routerLink="contracts" class="icon fas fa-file-alt"></i>
+                      <i routerLink="contracts" class="icon fas fa-list-alt"></i>
                   </div>
                 <!--  <div class="assets-text dropdown-toggle dropdown-btn col-auto" id="dropdown" data-toggle="collapse" data-target="#dd"> -->
                   <div class="dashboard-content col-auto">
@@ -42,6 +42,24 @@
                       </span>
                   </div>
                 </a>
+
+                <a routerLink="locations" class="locations">
+                  <div class="locations-icon icon-wrapper">
+                      <i routerLink="locations" class="icon fas fa-map"></i>
+                  </div>
+                  <div class="tickets-content col-auto">
+                      <span>Locations</span>
+                  </div>
+                  </a>
+
+                  <a routerLink="tickets" class="tickets">
+                    <div class="tickets-icon icon-wrapper">
+                        <i routerLink="tickets" class="icon fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="tickets-content col-auto">
+                        <span>Tickets</span>
+                    </div>
+                    </a>
 
                 <a class="assets-btn">
                   <div class="assets-icon icon-wrapper">
@@ -61,25 +79,8 @@
               </div>
             -->
 
-              <a routerLink="tickets" class="tickets">
-                <div class="tickets-icon icon-wrapper">
-                    <i routerLink="tickets" class="icon fas fa-ticket-alt"></i>
-                </div>
-                <div class="tickets-content col-auto">
-                    <span>Tickets</span>
-                </div>
-                </a>
 
-                <a routerLink="locations" class="locations">
-                  <div class="locations-icon icon-wrapper">
-                      <i routerLink="locations" class="icon fas fa-map"></i>
-                  </div>
-                  <div class="tickets-content col-auto">
-                      <span>Locations</span>
-                  </div>
-                  </a>
-
-                <a  *ngIf="currentRole?.companypartner === 'Partner'" class="admin">
+                <a  *ngIf="currentRole?.partner === 'Noble1Solutions'" class="admin">
                   <div class="admin-icon icon-wrapper">
                     <i routerLink="" class="icon fas fa-users-cog"></i>
                 </div>
