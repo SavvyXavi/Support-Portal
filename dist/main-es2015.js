@@ -9956,6 +9956,7 @@ class ApifilterService {
         this.nobleTick = 'https://indvdlpartner.azurewebsites.net/api/HttpTrigger1?code=fWS1UWW8xaY1j3dUMu0w2AB9JGc/SS1/6AmRWiUQc/HVgJNUaTeOKQ==';
         this.reluTick = 'https://indvdlpartner.azurewebsites.net/api/Relustickets?code=7UUkBzs7TUButH9heEDa468UE9KgABhIDScGrQ4HhnOT/bdeptQ1jg==';
         this.reliTick = 'https://indvdlpartner.azurewebsites.net/api/ReliantTickets?code=limYO/Q72TyX9DyJyBQPfb3s6HEgTxRYEDWwSZwYD1fI6Z4fCsa2Kw==';
+        this.apiKey = '&api_key=81756df42a7f4766b58a4523357a8ed9';
         this.customerApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
         this.partnerApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/PartnerList?code=6W5az23O1cyKatIJp7F/ayclp8hQal5rYbCywjOXN6kF5ZMzNluuVA==';
         this.pContractsApi = 'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByPartner?code=4QQzdPj2j4LgMuJ9wnzmomSadWCLJEpbSOKcJqhBPRDswDZUCq6NqA==';
@@ -10077,7 +10078,7 @@ class ApifilterService {
             'refnumber': filter,
             'addon': '&resultType=Json'
         };
-        return this.http.post(this.getTicketDeets + filter + '&resultType=Json', params);
+        return this.http.post(this.getTicketDeets + filter + '&resultType=Json' + this.apiKey, params);
     }
     ticketRefFilter(filter) {
         const params = {

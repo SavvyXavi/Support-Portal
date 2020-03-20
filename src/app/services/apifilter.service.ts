@@ -44,7 +44,7 @@ reliApi =
   'https://indvdlpartner.azurewebsites.net/api/ReliantTickets?code=limYO/Q72TyX9DyJyBQPfb3s6HEgTxRYEDWwSZwYD1fI6Z4fCsa2Kw==';
 
 
-
+  apiKey = '&api_key=81756df42a7f4766b58a4523357a8ed9';
 
   customerApi =
 'https://harmonyprodcustomersone.azurewebsites.net/api/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
@@ -235,7 +235,7 @@ addon = '&resultType=Json';
       'refnumber': filter,
       'addon': '&resultType=Json'
     };
-    return this.http.post(this.getTicketDeets + filter + '&resultType=Json', params );
+    return this.http.post(this.getTicketDeets + filter + '&resultType=Json' + this.apiKey, params );
   }
 
   ticketRefFilter(filter: string) {
