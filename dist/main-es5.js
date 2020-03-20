@@ -21373,7 +21373,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.filter.betterTicketRefFilter(refNumber.substring(1)).subscribe(function (returnedTicket) {
             _this62.ticket = returnedTicket;
 
-            _this62.filter.assetsBySerial(_this62.ticket[0].AssetIdentifier).subscribe(function (returnedAsset) {
+            _this62.filter.assetsBySerial(_this62.ticket.AssetIdentifier).subscribe(function (returnedAsset) {
               _this62.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
               _this62.assetDataSource.sort = _this62.sort;
               _this62.assetDataSource.paginator = _this62.paginator;

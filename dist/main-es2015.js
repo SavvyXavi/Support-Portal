@@ -11383,7 +11383,7 @@ class TicketDetailComponent {
         this.filter.betterTicketRefFilter(refNumber.substring(1))
             .subscribe((returnedTicket) => {
             this.ticket = returnedTicket;
-            this.filter.assetsBySerial(this.ticket[0].AssetIdentifier)
+            this.filter.assetsBySerial(this.ticket.AssetIdentifier)
                 .subscribe((returnedAsset) => {
                 this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
                 this.assetDataSource.sort = this.sort;
