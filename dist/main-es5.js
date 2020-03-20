@@ -18707,7 +18707,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             'refnumber': filter,
             'addon': '&resultType=Json'
           };
-          return this.http.post(this.getTicketDeets + filter + '&resultType=Json' + this.apiKey, params);
+          return this.http.post(this.getTicketDeets + '%23' + filter + '&resultType=Json' + this.apiKey, params);
         }
       }, {
         key: "ticketRefFilter",
