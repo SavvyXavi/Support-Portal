@@ -142,7 +142,7 @@ export class AssetsTableComponent implements OnInit {
               }
             );
     } else {
-      this.filter.custAssetsFilter(this.currentProfile)
+      this.filter.locCustAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAsset: Assets[]) => {
           this.asArr = returnedAsset;

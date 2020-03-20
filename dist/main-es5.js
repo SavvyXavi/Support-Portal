@@ -15936,7 +15936,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this53.assetDataSource.paginator = _this53.paginator;
             });
           } else {
-            this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAsset) {
+            this.filter.locCustAssetsFilter(this.currentProfile).subscribe(function (returnedAsset) {
               _this53.asArr = returnedAsset;
               _this53.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedAsset);
               _this53.assetDataSource.sort = _this53.sort;

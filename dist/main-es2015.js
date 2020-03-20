@@ -8530,7 +8530,7 @@ class AssetsTableComponent {
             });
         }
         else {
-            this.filter.custAssetsFilter(this.currentProfile)
+            this.filter.locCustAssetsFilter(this.currentProfile)
                 .subscribe((returnedAsset) => {
                 this.asArr = returnedAsset;
                 this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedAsset);
