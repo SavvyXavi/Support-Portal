@@ -48,8 +48,8 @@ export class TicketDetailComponent implements OnInit {
     .subscribe(
       (returnedTicket: Tickets) => {
         this.ticket = returnedTicket;
-        this.filter.assetsBySerial(this.ticket.AssetIdentifier)
-        .subscribe(
+   /*     this.filter.assetsBySerial(this.ticket.AssetIdentifier)
+          .subscribe(
           (returnedAsset: Assets[]) => {
             this.assetDataSource = new MatTableDataSource(returnedAsset);
             this.assetDataSource.sort = this.sort;
@@ -63,7 +63,7 @@ export class TicketDetailComponent implements OnInit {
               }
             );
           }
-        );
+        ); */
       }
     );
   }
