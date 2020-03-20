@@ -34,9 +34,9 @@
       <td *matCellDef="let asset"> {{asset.Identifier}} </td>
     </div>
 
-    <div matColumnDef="Asset Tag">
+    <div matColumnDef="select_all">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Asset Tag </th>
-      <td mat-cell *matCellDef="let asset"> {{asset.Identifier}} </td>
+      <td mat-cell *matCellDef="let asset"> {{asset.sla}} </td>
     </div>
 
     <!-- Location Column -->
