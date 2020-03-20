@@ -19,7 +19,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class TicketDetailComponent implements OnInit {
   ticket: Tickets;
-
+  ticketArr: Tickets[];
   assetdisplayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
   assetDataSource: MatTableDataSource<Assets>;
   searchKey: string;
@@ -44,7 +44,7 @@ export class TicketDetailComponent implements OnInit {
   getItems() {
     const refNumber =
     this.route.snapshot.paramMap.get('refNumber');
-    this.filter.ticketRefFilter(refNumber.substring(1))
+    this.filter.bettterTicketRefFilter(refNumber.substring(1))
     .subscribe(
       (returnedTicket: Tickets) => {
         this.ticket = returnedTicket;
@@ -74,6 +74,16 @@ export class TicketDetailComponent implements OnInit {
       this.assetDataSource.paginator.firstPage();
     }
   }
+
+  getComments() {
+    const refNumber =
+    this.route.snapshot.paramMap.get('refNumber');
+      this.filter.getComments(refNumber.substring(1))
+      .subscribe(
+        (returnedComments: Tickets[]) => {
+          this.ticketArr = returnedComments;
+        });
+      }
 
   goToConDet(refNumber: string) {
     this.router.navigate(['/portal/contracts/contractdetail/' + refNumber]);

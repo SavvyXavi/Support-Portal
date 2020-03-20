@@ -9975,9 +9975,12 @@ class ApifilterService {
         this.cTicketsApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByCustomer?code=wRFojwmWCLa85RKi5UtEg6VLQ1T8ENAdIMeCoRmaRQTaFwEEqGLHBw==';
         this.ticketsLocationapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByLocation?code=Dj9Nn0m5gd3RuNDO5E/xq9r7AqN7S0z34mrL2bsSwxkANwga/1iJyQ==';
         this.ticketRefApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByRefNumber?code=O1Sok3K9e4QIPE/IGmb7YPdn/WlwY97zxeufiVVCmD2iw5FN8/8jyg==';
+        this.betterTicketApi = 'https://harmonyprodcustomersone.azurewebsites.net/api/GetServiceTicket?code=YUu0cxU6Y1jRblyChWMLvUDy3F8cl10JbzUanVr5ybcg4in3na0I2A==';
         this.pLocationsapi = 'https://harmonyprodpartnersone.azurewebsites.net/api/LocationsByPartner?code=4rYRhjsKV710lRV0tXwOXlfMJkzwUp3mPnvpn2dpKA/FgbAYEPIxow==';
         this.cLocationsapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/LocationsByCustomer?code=S5urk3EhAuuuMATbFA8E5/ixHQPJhcaC6wlLAP4GPxs4qN0tPsfuIA==';
         this.locationdescfilterapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/LocationByDescription?code=LlWycAaW502tdZ9EMsNbkqapKMVLR7yfsFJRapYhwAlXuqwpnp9ELA==';
+        this.getTicketDeets = 'https://nasupport.harmonypsa.com/webapi/v1/tickets/getcommentsbyticketreference?idOrRef=';
+        this.addon = '&resultType=Json';
     }
     nobleAss() {
         return this.http.get(this.nobleApi);
@@ -10069,11 +10072,24 @@ class ApifilterService {
     locpartLocatFilter(id) {
         return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/Partloc/${id.partner}`);
     }
+    getComments(filter) {
+        const params = {
+            'refnumber': filter,
+            'addon': '&resultType=Json'
+        };
+        return this.http.post(this.getTicketDeets, params);
+    }
     ticketRefFilter(filter) {
         const params = {
             'refnumber': filter
         };
         return this.http.post(this.ticketRefApi, params);
+    }
+    bettterTicketRefFilter(filter) {
+        const params = {
+            'refnumber': filter
+        };
+        return this.http.post(this.betterTicketApi, params);
     }
     partConFilter(filter) {
         const params = {
@@ -10863,6 +10879,8 @@ class ApiCallService {
         this.getassetUrl = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner';
         this.getassetFilter = '?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
         this.getAsset = 'getassetUrl + getassetFilter';
+        this.getTicketDeets = 'https://nasupport.harmonypsa.com/webapi/v1/tickets/getcommentsbyticketreference?idOrRef=';
+        this.addon = '&resultType=Json';
     }
     getTickets() {
         return this.http.get(this.getTicket);
@@ -11362,7 +11380,7 @@ class TicketDetailComponent {
     }
     getItems() {
         const refNumber = this.route.snapshot.paramMap.get('refNumber');
-        this.filter.ticketRefFilter(refNumber.substring(1))
+        this.filter.bettterTicketRefFilter(refNumber.substring(1))
             .subscribe((returnedTicket) => {
             this.ticket = returnedTicket;
             this.filter.assetsBySerial(this.ticket[0].AssetIdentifier)
@@ -11384,6 +11402,13 @@ class TicketDetailComponent {
         if (this.assetDataSource.paginator) {
             this.assetDataSource.paginator.firstPage();
         }
+    }
+    getComments() {
+        const refNumber = this.route.snapshot.paramMap.get('refNumber');
+        this.filter.getComments(refNumber.substring(1))
+            .subscribe((returnedComments) => {
+            this.ticketArr = returnedComments;
+        });
     }
     goToConDet(refNumber) {
         this.router.navigate(['/portal/contracts/contractdetail/' + refNumber]);
