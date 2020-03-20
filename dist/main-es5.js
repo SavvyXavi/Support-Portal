@@ -13980,7 +13980,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this49.locationDataSource.paginator = _this49.paginator;
             });
           } else {
-            this.filter.custLocationFilter(this.currentProfile).subscribe(function (returnedLocations) {
+            this.filter.locCustlocatFilter(this.currentProfile).subscribe(function (returnedLocations) {
               _this49.locArr = returnedLocations;
               _this49.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedLocations);
               _this49.locationDataSource.sort = _this49.sort;
@@ -18671,6 +18671,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "locCustAssetsFilter",
         value: function locCustAssetsFilter(id) {
+          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/part/").concat(id.company));
+        }
+      }, {
+        key: "locCustlocatFilter",
+        value: function locCustlocatFilter(id) {
           return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/loc/").concat(id.company));
         }
       }, {

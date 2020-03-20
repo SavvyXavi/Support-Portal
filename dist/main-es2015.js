@@ -7457,7 +7457,7 @@ class LocationsTableComponent {
             });
         }
         else {
-            this.filter.custLocationFilter(this.currentProfile)
+            this.filter.locCustlocatFilter(this.currentProfile)
                 .subscribe((returnedLocations) => {
                 this.locArr = returnedLocations;
                 this.locationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__["MatTableDataSource"](returnedLocations);
@@ -10052,6 +10052,9 @@ class ApifilterService {
         return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/loc/${id.company}`);
     }
     locCustAssetsFilter(id) {
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/part/${id.company}`);
+    }
+    locCustlocatFilter(id) {
         return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/loc/${id.company}`);
     }
     locTicketsFilter(id) {

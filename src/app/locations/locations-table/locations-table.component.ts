@@ -143,7 +143,7 @@ export class LocationsTableComponent implements OnInit {
         }
       );
     } else {
-      this.filter.custLocationFilter(this.currentProfile)
+      this.filter.locCustlocatFilter(this.currentProfile)
       .subscribe(
         (returnedLocations: CustomerLocation[]) => {
           this.locArr = returnedLocations;

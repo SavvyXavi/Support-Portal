@@ -200,7 +200,11 @@ reliApi =
 }
 
   locCustAssetsFilter(id: Filter) {
-  return this.http.get(`${environment.AssetTest}/loc/${id.company}`);
+    return this.http.get(`${environment.AssetTest}/part/${id.company}`);
+}
+
+  locCustlocatFilter(id: Filter) {
+    return this.http.get(`${environment.AssetTest}/loc/${id.company}`);
 }
 
   locTicketsFilter(id: Filter) {
