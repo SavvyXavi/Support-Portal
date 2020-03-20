@@ -234,7 +234,7 @@ addon = '&resultType=Json';
     const params = {
       'idOrRef': filter,
     };
-    return this.http.post(this.getTicketDeets + '%23' + filter + this.apiKey, params );
+    return this.http.get(this.getTicketDeets + '%23' + filter + this.apiKey );
   }
 
   ticketRefFilter(filter: string) {
