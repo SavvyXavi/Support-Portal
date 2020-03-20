@@ -8383,7 +8383,7 @@ function AssetsTableComponent_td_16_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const asset_r224 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"](" ", asset_r224.sla, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"](" ", asset_r224.Sla, " ");
 } }
 function AssetsTableComponent_th_18_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 22);
