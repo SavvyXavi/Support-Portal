@@ -196,25 +196,6 @@
             </div>
           </div>
         </div>
-        <div *ngFor='let dataa of ticketArr' class="tab-content" id="nav-tabContent">
-     <!--     <div class="tab-pane detail fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">
-              <label for="refNumber">
-                Reference Number <br>
-                <input readonly type="text" [(ngModel)]="dataa.RefNumber" placeholder="Reference Number" />
-              </label> -->  {{dataa.RefNumber}} {{dataa.LatestPublicComment}}
-              <div class="form-goup">
-                <label for="endCustomer">
-                  Status <br>
-                  <input readonly type="text" [(ngModel)]="dataa.LatestPublicComment" placeholder="Status" />
-                </label>
-              </div>
-              <div class="form-goup">
-                <label for="endCustomer">
-                  Status <br>
-                  <input readonly type="text" [(ngModel)]="dataa.RefNumber" placeholder="Status" />
-                </label>
-              </div>
-          </div>
           <br>
             <div class="row button-containers">
               <div class="col-sm">
@@ -224,6 +205,25 @@
               </div>
             </div>
       </div>
+      <div *ngFor='let dataa of ticketArr' class="tab-content" id="nav-tabContent">
+        <!--     <div class="tab-pane detail fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">
+                 <label for="refNumber">
+                   Reference Number <br>
+                   <input readonly type="text" [(ngModel)]="dataa.RefNumber" placeholder="Reference Number" />
+                 </label> -->  {{dataa.RefNumber}} {{dataa.LatestPublicComment}}
+                 <div class="form-goup">
+                   <label for="endCustomer">
+                     Status <br>
+                     <input readonly type="text" [(ngModel)]="dataa.LatestPublicComment" placeholder="Status" />
+                   </label>
+                 </div>
+                 <div class="form-goup">
+                   <label for="endCustomer">
+                     Status <br>
+                     <input readonly type="text" [(ngModel)]="dataa.RefNumber" placeholder="Status" />
+                   </label>
+                 </div>
+             </div>
   </div>
 </div>
 </div>
