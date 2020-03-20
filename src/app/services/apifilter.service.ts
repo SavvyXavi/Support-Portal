@@ -245,7 +245,7 @@ addon = '&resultType=Json';
     return this.http.post(this.ticketRefApi, params);
   }
 
-  bettterTicketRefFilter(filter: string) {
+  betterTicketRefFilter(filter: string) {
     const params = {
       'refnumber': filter
     };

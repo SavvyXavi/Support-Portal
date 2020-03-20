@@ -44,7 +44,7 @@ export class TicketDetailComponent implements OnInit {
   getItems() {
     const refNumber =
     this.route.snapshot.paramMap.get('refNumber');
-    this.filter.ticketRefFilter(refNumber.substring(1))
+    this.filter.betterTicketRefFilter(refNumber.substring(1))
     .subscribe(
       (returnedTicket: Tickets) => {
         this.ticket = returnedTicket;
@@ -84,6 +84,8 @@ export class TicketDetailComponent implements OnInit {
           this.ticketArr = returnedComments;
         });
       }
+
+
 
   goToConDet(refNumber: string) {
     this.router.navigate(['/portal/contracts/contractdetail/' + refNumber]);
