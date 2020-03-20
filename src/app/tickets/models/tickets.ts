@@ -16,6 +16,7 @@ export class Tickets {
   TicketCategoryNameOrId: string;
   TicketTypeNameOrId: string;
   Name: string;
+  LatestPublicComment: string;
 }
 
 // "Title": "string",  Entry Field
