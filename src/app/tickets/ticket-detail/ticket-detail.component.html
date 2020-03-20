@@ -197,20 +197,19 @@
           </div>
         </div>
         <div *ngFor='let dataa of ticketArr' class="tab-content" id="nav-tabContent">
-
           <div class="tab-pane detail fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">
-            <div class="form-group">
               <label for="refNumber">
                 Reference Number <br>
                 <input readonly type="text" [(ngModel)]="dataa.RefNumber" placeholder="Reference Number" />
               </label>
-            </div>
             <div class="form-goup">
               <label for="endCustomer">
                 Status <br>
                 <input readonly type="text" [(ngModel)]="dataa.Status" placeholder="Status" />
               </label>
             </div>
+            </div>
+         </div>
           <br>
             <div class="row button-containers">
               <div class="col-sm">
