@@ -44,12 +44,12 @@ export class TicketDetailComponent implements OnInit {
   getItems() {
     const refNumber =
     this.route.snapshot.paramMap.get('refNumber');
-    this.filter.betterTicketRefFilter(refNumber)
+    this.filter.ticketRefFilter(refNumber.substring(1))
     .subscribe(
       (returnedTicket: Tickets) => {
         this.ticket = returnedTicket;
-   /*     this.filter.assetsBySerial(this.ticket.AssetIdentifier)
-          .subscribe(
+        this.filter.assetsBySerial(this.ticket[0].AssetIdentifier)
+        .subscribe(
           (returnedAsset: Assets[]) => {
             this.assetDataSource = new MatTableDataSource(returnedAsset);
             this.assetDataSource.sort = this.sort;
@@ -63,7 +63,7 @@ export class TicketDetailComponent implements OnInit {
               }
             );
           }
-        ); */
+        );
       }
     );
   }
