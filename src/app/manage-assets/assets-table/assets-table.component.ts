@@ -26,7 +26,7 @@ export class AssetsTableComponent implements OnInit {
   asArr: Assets[];
   currentProfile: Profile;
 
-  displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
+  displayedColumns: string[] = ['Name', 'Location', 'Sla', 'Asset Tag', 'Schedule'];
 
   partnerArr: Partner[];
 
@@ -80,7 +80,7 @@ export class AssetsTableComponent implements OnInit {
                   style: 'tableHeader'
                 },
                 {
-                  text: 'Serial#',
+                  text: 'SLA',
                   style: 'tableHeader'
                 },
                 {
@@ -95,7 +95,7 @@ export class AssetsTableComponent implements OnInit {
               ...this.asArr.map(
                 a => {
                   return [a.Name, a.SiteAddress,
-                    a.Identifier, a.Identifier,
+                    a.Sla, a.Identifier,
                      a.Schedule];
                 }
               )

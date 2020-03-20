@@ -15690,7 +15690,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "th", 22);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " Serial# ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " SLA ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
       }
@@ -15710,7 +15710,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"](" ", asset_r224.Identifier, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"](" ", asset_r224.sla, " ");
       }
     }
 
@@ -15826,7 +15826,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.filter = filter;
         this.authserv = authserv;
-        this.displayedColumns = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
+        this.displayedColumns = ['Name', 'Location', 'Sla', 'Asset Tag', 'Schedule'];
         this.authserv.currentUser.subscribe(function (name) {
           _this51.currentProfile = name;
         });
@@ -15871,7 +15871,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                             text: 'Location',
                             style: 'tableHeader'
                           }, {
-                            text: 'Serial#',
+                            text: 'SLA',
                             style: 'tableHeader'
                           }, {
                             text: 'Asset Tag',
@@ -15880,7 +15880,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                             text: 'Contract',
                             style: 'tableHeader'
                           }]].concat(_toConsumableArray(this.asArr.map(function (a) {
-                            return [a.Name, a.SiteAddress, a.Identifier, a.Identifier, a.Schedule];
+                            return [a.Name, a.SiteAddress, a.Sla, a.Identifier, a.Schedule];
                           })))
                         }
                       }],
@@ -15987,7 +15987,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       },
       decls: 29,
       vars: 9,
-      consts: [[1, "container-fluid"], [1, "row"], [1, "col-md", "d-flex", "justify-content-end"], [1, "gen-pdf", "btn", 3, "click"], [1, "search-div"], ["floatLabel", "never", 1, "search-form-field"], ["matInput", "", "placeholder", "Search for Asset", "autocomplete", "off", 3, "ngModel", "ngModelChange", "keyup"], ["mat-button", "", "matSuffix", "", "mat-icon-button", "", "aria-label", "Clear", 3, "click", 4, "ngIf"], [1, "mat-table", "mattable-container"], ["mat-table", "", "matSort", "", 1, "mat-elevation-z8", "table", 3, "dataSource"], ["matColumnDef", "Name"], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "Identifier"], [4, "matCellDef"], ["matColumnDef", "Asset Tag"], ["matColumnDef", "Location"], ["matColumnDef", "Schedule"], ["mat-header-row", "", 4, "matHeaderRowDef", "matHeaderRowDefSticky"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "pageSizeOptions", "pageSize"], ["mat-button", "", "matSuffix", "", "mat-icon-button", "", "aria-label", "Clear", 3, "click"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], [1, "asset-link", 3, "routerLink"], ["mat-header-row", ""], ["mat-row", ""]],
+      consts: [[1, "container-fluid"], [1, "row"], [1, "col-md", "d-flex", "justify-content-end"], [1, "gen-pdf", "btn", 3, "click"], [1, "search-div"], ["floatLabel", "never", 1, "search-form-field"], ["matInput", "", "placeholder", "Search for Asset", "autocomplete", "off", 3, "ngModel", "ngModelChange", "keyup"], ["mat-button", "", "matSuffix", "", "mat-icon-button", "", "aria-label", "Clear", 3, "click", 4, "ngIf"], [1, "mat-table", "mattable-container"], ["mat-table", "", "matSort", "", 1, "mat-elevation-z8", "table", 3, "dataSource"], ["matColumnDef", "Name"], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "Sla"], [4, "matCellDef"], ["matColumnDef", "Asset Tag"], ["matColumnDef", "Location"], ["matColumnDef", "Schedule"], ["mat-header-row", "", 4, "matHeaderRowDef", "matHeaderRowDefSticky"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "pageSizeOptions", "pageSize"], ["mat-button", "", "matSuffix", "", "mat-icon-button", "", "aria-label", "Clear", 3, "click"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], [1, "asset-link", 3, "routerLink"], ["mat-header-row", ""], ["mat-row", ""]],
       template: function AssetsTableComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0);
