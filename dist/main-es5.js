@@ -21370,7 +21370,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this62 = this;
 
           var refNumber = this.route.snapshot.paramMap.get('refNumber');
-          this.filter.betterTicketRefFilter(refNumber.substring(1)).subscribe(function (returnedTicket) {
+          this.filter.betterTicketRefFilter(refNumber).subscribe(function (returnedTicket) {
             _this62.ticket = returnedTicket;
 
             _this62.filter.assetsBySerial(_this62.ticket.AssetIdentifier).subscribe(function (returnedAsset) {

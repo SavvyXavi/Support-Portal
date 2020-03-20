@@ -11380,7 +11380,7 @@ class TicketDetailComponent {
     }
     getItems() {
         const refNumber = this.route.snapshot.paramMap.get('refNumber');
-        this.filter.betterTicketRefFilter(refNumber.substring(1))
+        this.filter.betterTicketRefFilter(refNumber)
             .subscribe((returnedTicket) => {
             this.ticket = returnedTicket;
             this.filter.assetsBySerial(this.ticket.AssetIdentifier)
