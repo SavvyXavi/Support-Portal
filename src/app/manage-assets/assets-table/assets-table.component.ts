@@ -26,7 +26,7 @@ export class AssetsTableComponent implements OnInit {
   asArr: Assets[];
   currentProfile: Profile;
 
-  displayedColumns: string[] = ['Name', 'Location', 'Sla', 'Asset Tag', 'Schedule'];
+  displayedColumns: string[] = ['Name', 'Location', 'Sla', 'AssetTag', 'Schedule'];
 
   partnerArr: Partner[];
 
