@@ -4,17 +4,17 @@
            <label for="refNumber">
              Reference Number <br>
              <input readonly type="text" [(ngModel)]="dataa.RefNumber" placeholder="Reference Number" />
-           </label> -->  {{dataa.RefNumber}} {{dataa.LatestPublicComment}}
+           </label> -->  {{dataa[0].RefNumber}} {{dataa[0].LatestPublicComment}}
            <div class="form-goup">
              <label for="endCustomer">
                Status <br>
-               <input readonly type="text" [(ngModel)]="dataa.LatestPublicComment" placeholder="Status" />
+               <input readonly type="text" [(ngModel)]="dataa[2].LatestPublicComment" placeholder="Status" />
              </label>
            </div>
            <div class="form-goup">
              <label for="endCustomer">
                Status <br>
-               <input readonly type="text" [(ngModel)]="dataa.RefNumber" placeholder="Status" />
+               <input readonly type="text" [(ngModel)]="dataa[1].RefNumber" placeholder="Status" />
              </label>
            </div>
        </div>
