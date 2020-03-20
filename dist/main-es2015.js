@@ -11354,6 +11354,7 @@ class TicketDetailComponent {
     }
     ngOnInit() {
         this.getItems();
+        this.getComments();
     }
     getItems() {
         const refNumber = this.route.snapshot.paramMap.get('refNumber');

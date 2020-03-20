@@ -21311,6 +21311,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "ngOnInit",
         value: function ngOnInit() {
           this.getItems();
+          this.getComments();
         }
       }, {
         key: "getItems",

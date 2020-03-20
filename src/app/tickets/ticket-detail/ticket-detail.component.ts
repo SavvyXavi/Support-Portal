@@ -39,6 +39,7 @@ export class TicketDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getItems();
+    this.getComments();
   }
 
   getItems() {
