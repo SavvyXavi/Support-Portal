@@ -10075,10 +10075,9 @@ class ApifilterService {
     }
     getComments(filter) {
         const params = {
-            'refnumber': filter,
-            'addon': '&resultType=Json'
+            'idOrRef': filter,
         };
-        return this.http.post(this.getTicketDeets + '%23' + filter + '&resultType=Json' + this.apiKey, params);
+        return this.http.post(this.getTicketDeets + '%23' + filter + this.apiKey, params);
     }
     ticketRefFilter(filter) {
         const params = {

@@ -18704,10 +18704,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getComments",
         value: function getComments(filter) {
           var params = {
-            'refnumber': filter,
-            'addon': '&resultType=Json'
+            'idOrRef': filter
           };
-          return this.http.post(this.getTicketDeets + '%23' + filter + '&resultType=Json' + this.apiKey, params);
+          return this.http.post(this.getTicketDeets + '%23' + filter + this.apiKey, params);
         }
       }, {
         key: "ticketRefFilter",
