@@ -195,6 +195,18 @@ reliApi =
       return this.http.get(`${environment.AssetTest}/Partick/${id.partner}`);
   }
 
+  locCustTicketsFilter(id: Filter) {
+    return this.http.get(`${environment.AssetTest}/loc/${id.company}`);
+}
+
+  locCustAssetsFilter(id: Filter) {
+  return this.http.get(`${environment.AssetTest}/loc/${id.company}`);
+}
+
+  locTicketsFilter(id: Filter) {
+  return this.http.get(`${environment.AssetTest}/assets/}`);
+}
+
   ticketsLocationFilter(filter: string) {
     const params = {
       'location': filter

@@ -4534,7 +4534,7 @@ class DashboardComponent {
             });
         }
         else {
-            this.filter.cusTicketsFilter(this.currentProfile.company)
+            this.filter.locCustTicketsFilter(this.currentProfile)
                 .subscribe((returnedTicketLength) => this.ticketLength = returnedTicketLength);
             this.dashServ.cusTicketsFilter(this.currentProfile.company)
                 .subscribe((tickets) => {
@@ -4774,7 +4774,7 @@ class DashboardComponent {
             });
         }
         else {
-            this.filter.custAssetsFilter(this.currentProfile)
+            this.filter.locCustAssetsFilter(this.currentProfile)
                 .subscribe((returnedAssets) => {
                 this.assetLength = returnedAssets.length;
                 this.assets = returnedAssets;
@@ -10047,6 +10047,15 @@ class ApifilterService {
     }
     locpartTicketsFilter(id) {
         return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/Partick/${id.partner}`);
+    }
+    locCustTicketsFilter(id) {
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/loc/${id.company}`);
+    }
+    locCustAssetsFilter(id) {
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/loc/${id.company}`);
+    }
+    locTicketsFilter(id) {
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/assets/}`);
     }
     ticketsLocationFilter(filter) {
         const params = {

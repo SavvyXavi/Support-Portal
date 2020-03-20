@@ -124,7 +124,7 @@ export class DashboardComponent implements OnInit {
                   }
                 );
     } else {
-      this.filter.cusTicketsFilter(this.currentProfile.company)
+      this.filter.locCustTicketsFilter(this.currentProfile)
       .subscribe(
         (returnedTicketLength: Tickets[]) => this.ticketLength = returnedTicketLength
       );
@@ -375,7 +375,7 @@ export class DashboardComponent implements OnInit {
                 }
               );
     } else {
-      this.filter.custAssetsFilter(this.currentProfile)
+      this.filter.locCustAssetsFilter(this.currentProfile)
       .subscribe(
         (returnedAssets: Assets[]) => {
           this.assetLength = returnedAssets.length;

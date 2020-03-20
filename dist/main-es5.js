@@ -8468,7 +8468,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             });
           } else {
-            this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (returnedTicketLength) {
+            this.filter.locCustTicketsFilter(this.currentProfile).subscribe(function (returnedTicketLength) {
               return _this32.ticketLength = returnedTicketLength;
             });
             this.dashServ.cusTicketsFilter(this.currentProfile.company).subscribe(function (tickets) {
@@ -8685,7 +8685,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               });
             });
           } else {
-            this.filter.custAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
+            this.filter.locCustAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
               _this34.assetLength = returnedAssets.length;
               _this34.assets = returnedAssets;
               status = _this34.assets.map(function (asset) {
@@ -18662,6 +18662,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "locpartTicketsFilter",
         value: function locpartTicketsFilter(id) {
           return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/Partick/").concat(id.partner));
+        }
+      }, {
+        key: "locCustTicketsFilter",
+        value: function locCustTicketsFilter(id) {
+          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/loc/").concat(id.company));
+        }
+      }, {
+        key: "locCustAssetsFilter",
+        value: function locCustAssetsFilter(id) {
+          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/loc/").concat(id.company));
+        }
+      }, {
+        key: "locTicketsFilter",
+        value: function locTicketsFilter(id) {
+          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/assets/}"));
         }
       }, {
         key: "ticketsLocationFilter",
