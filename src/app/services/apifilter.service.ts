@@ -235,7 +235,7 @@ addon = '&resultType=Json';
       'refnumber': filter,
       'addon': '&resultType=Json'
     };
-    return this.http.post(this.getTicketDeets, params);
+    return this.http.post(this.getTicketDeets + filter + '&resultType=Json', params );
   }
 
   ticketRefFilter(filter: string) {
