@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md d-flex justify-content-end">
+      <div>Show archived<input type="checkbox" name="tc" [ngModel]="archivedYes" value='no' ><br> ComingSoon!
       <button class="gen-pdf btn" (click)="genPdf()">
         Export to PDF
       </button>
-    </div> <br>
-      <div><input type="checkbox" name="tc" [ngModel]="archivedYes" value='no' >Show archived <br> ComingSoon! </div>
-  </div>
+    </div>
+    </div>
 <div class="search-div">
   <!-- <button mat-raised-button>
 
