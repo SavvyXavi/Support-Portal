@@ -6,5 +6,6 @@ export const environment = {
   LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
   CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
   DataPull: 'https://n1stestdata.noble1it.com',
-  LogoutUrl: 'https://qa2supportportal.azurewebsites.net/'
+  LogoutUrl: 'https://qa2supportportal.azurewebsites.net/',
+  AssetTest: 'https://locapicall.noble1it.com/profile'
 };

@@ -211,6 +211,10 @@ reliApi =
     return this.http.get(`${environment.AssetTest}/part/${id.company}`);
 }
 
+locCustAssetsFilterAct(id: Filter) {
+  return this.http.get(`${environment.AssetTest}/partact/${id.company}`);
+}
+
   locCustlocatFilter(id: Filter) {
     return this.http.get(`${environment.AssetTest}/loc/${id.company}`);
 }
@@ -228,6 +232,10 @@ reliApi =
 
   locpartLocatFilter(id: Filter) {
     return this.http.get(`${environment.AssetTest}/Partloc/${id.partner}`);
+}
+
+locpartLocatFilterAct(id: Filter) {
+  return this.http.get(`${environment.AssetTest}/assetact/${id.partner}`);
 }
 
   getAzComments(filter: string) {

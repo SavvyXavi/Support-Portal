@@ -10065,6 +10065,9 @@ class ApifilterService {
     locCustAssetsFilter(id) {
         return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/part/${id.company}`);
     }
+    locCustAssetsFilterAct(id) {
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/partact/${id.company}`);
+    }
     locCustlocatFilter(id) {
         return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/loc/${id.company}`);
     }
@@ -10079,6 +10082,9 @@ class ApifilterService {
     }
     locpartLocatFilter(id) {
         return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/Partloc/${id.partner}`);
+    }
+    locpartLocatFilterAct(id) {
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/assetact/${id.partner}`);
     }
     getAzComments(filter) {
         const params = {
@@ -11215,7 +11221,7 @@ function TicketDetailComponent_div_19_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, " Description ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "br");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "input", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TicketDetailComponent_div_19_Template_input_ngModelChange_16_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r344); const ctx_r346 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r346.cleanbody = $event; });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TicketDetailComponent_div_19_Template_input_ngModelChange_16_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r344); const data_r296 = ctx.$implicit; return data_r296.Body = $event; });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -11321,7 +11327,7 @@ function TicketDetailComponent_div_19_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", data_r296.Status);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r293.cleanbody);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", data_r296.Body);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", data_r296.CreatedDate);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
@@ -11396,7 +11402,6 @@ class TicketDetailComponent {
         this.filter.ticketRefFilter(refNumber.substring(1))
             .subscribe((returnedTicket) => {
             this.ticket = returnedTicket;
-            this.cleanbody = returnedTicket.Body;
             this.filter.assetsBySerial(this.ticket[0].AssetIdentifier)
                 .subscribe((returnedAsset) => {
                 this.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
@@ -12128,7 +12133,7 @@ const environment = {
     CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
     DataPull: 'https://n1stestdata.noble1it.com',
     LogoutUrl: 'https://qa2supportportal.azurewebsites.net/',
-    AssetTest: 'https://localapicall.noble1it.com/profile'
+    AssetTest: 'https://locapicall.noble1it.com/profile'
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -12160,7 +12165,8 @@ const environment = {
     LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
     CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
     DataPull: 'https://n1stestdata.noble1it.com',
-    LogoutUrl: 'https://qa2supportportal.azurewebsites.net/'
+    LogoutUrl: 'https://qa2supportportal.azurewebsites.net/',
+    AssetTest: 'https://locapicall.noble1it.com/profile'
 };
 
 

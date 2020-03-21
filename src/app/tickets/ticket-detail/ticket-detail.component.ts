@@ -19,7 +19,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class TicketDetailComponent implements OnInit {
   ticket: Tickets;
-  cleanbody: string;
+  cleanbody: Tickets;
   ticketArr: Tickets[];
   assetdisplayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
   assetDataSource: MatTableDataSource<Assets>;
@@ -50,7 +50,6 @@ export class TicketDetailComponent implements OnInit {
     .subscribe(
       (returnedTicket: Tickets) => {
         this.ticket = returnedTicket;
-        this.cleanbody = returnedTicket.Body;
         this.filter.assetsBySerial(this.ticket[0].AssetIdentifier)
         .subscribe(
           (returnedAsset: Assets[]) => {

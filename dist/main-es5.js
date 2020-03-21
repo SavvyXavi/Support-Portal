@@ -18689,6 +18689,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/part/").concat(id.company));
         }
       }, {
+        key: "locCustAssetsFilterAct",
+        value: function locCustAssetsFilterAct(id) {
+          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/partact/").concat(id.company));
+        }
+      }, {
         key: "locCustlocatFilter",
         value: function locCustlocatFilter(id) {
           return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/loc/").concat(id.company));
@@ -18710,6 +18715,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "locpartLocatFilter",
         value: function locpartLocatFilter(id) {
           return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/Partloc/").concat(id.partner));
+        }
+      }, {
+        key: "locpartLocatFilterAct",
+        value: function locpartLocatFilterAct(id) {
+          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/assetact/").concat(id.partner));
         }
       }, {
         key: "getAzComments",
@@ -21006,9 +21016,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TicketDetailComponent_div_19_Template_input_ngModelChange_16_listener($event) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r344);
 
-          var ctx_r346 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-          return ctx_r346.cleanbody = $event;
+          var data_r296 = ctx.$implicit;
+          return data_r296.Body = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -21243,7 +21252,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r293.cleanbody);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", data_r296.Body);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
@@ -21397,7 +21406,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var refNumber = this.route.snapshot.paramMap.get('refNumber');
           this.filter.ticketRefFilter(refNumber.substring(1)).subscribe(function (returnedTicket) {
             _this62.ticket = returnedTicket;
-            _this62.cleanbody = returnedTicket.Body;
 
             _this62.filter.assetsBySerial(_this62.ticket[0].AssetIdentifier).subscribe(function (returnedAsset) {
               _this62.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](returnedAsset);
@@ -22720,7 +22728,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
       DataPull: 'https://n1stestdata.noble1it.com',
       LogoutUrl: 'https://qa2supportportal.azurewebsites.net/',
-      AssetTest: 'https://localapicall.noble1it.com/profile'
+      AssetTest: 'https://locapicall.noble1it.com/profile'
     };
     /*
      * For easier debugging in development mode, you can import the following file
@@ -22762,7 +22770,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
       CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
       DataPull: 'https://n1stestdata.noble1it.com',
-      LogoutUrl: 'https://qa2supportportal.azurewebsites.net/'
+      LogoutUrl: 'https://qa2supportportal.azurewebsites.net/',
+      AssetTest: 'https://locapicall.noble1it.com/profile'
     };
     /***/
   },
