@@ -78,9 +78,9 @@ reliApi =
   assetlocationapi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/AssetsByLocation?code=aO2JTfqrHEJNatGh3FIlDHs90/fGncezd7CVxMfZX/lqR9ZoyHvIYw==';
   locassbypart
-  = 'https://localapicall.noble1it.com/profile/asset/';
+  = 'https://locapicall.noble1it.com/profile/asset/';
   locassbycust
-  = 'https://localapicall.noble1it.com/profile/Part/';
+  = 'https://locapicall.noble1it.com/profile/Part/';
 
 
 
