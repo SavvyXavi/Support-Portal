@@ -50,7 +50,7 @@ export class TicketDetailComponent implements OnInit {
     .subscribe(
       (returnedTicket: Tickets) => {
         this.ticket = returnedTicket;
-        this.cleanbody = decodeURIComponent(returnedTicket.Body);
+        this.cleanbody = returnedTicket.Body;
         this.filter.assetsBySerial(this.ticket[0].AssetIdentifier)
         .subscribe(
           (returnedAsset: Assets[]) => {

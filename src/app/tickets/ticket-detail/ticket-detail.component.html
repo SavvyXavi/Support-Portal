@@ -25,7 +25,7 @@
               Asset ID
             </h6>
             <p>
-              {{data.AssetIdentifier}} {{cleanbody}}
+              {{data.AssetIdentifier}}
             </p>
           </div>
         </div>
@@ -66,7 +66,7 @@
             <div class="form-goup">
               <label for="startDate">
                 Description <br>
-                <input readonly type="text" [(ngModel)]="data.Body" placeholder="Description" />
+                <input readonly type="text" [(ngModel)]="this.cleanbody" placeholder="Description" />
               </label>
             </div>
             <div class="form-goup">
