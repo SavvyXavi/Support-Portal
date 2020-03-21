@@ -30,19 +30,15 @@
           </div>
         </div>
       </div>
-        <div *ngFor='let dataa of ticketArr' class="row">
+        <div *ngFor='let dataa of ticketArr' class="card-header">
           <div class="contract-header-wrapper">
-               <div>Latest Public Comment</div>
-              {{dataa.LatestPublicComment}}
-            </div>
-        <br>
-            <h6>
-              Ticket #
-            </h6>
-            <p>
-              {{dataa.RefNumber}}
-            </p>
+               <div class="contract-header-text">Latest Public Comment
+               </div>
+                <p>{{dataa.LatestPublicComment}}</p>
           </div>
+               <br>
+            <h6>Comment made on</h6> {{dataa.UpdatedDate | date: 'shortDate' }}  <h6>by </h6> {{dataa.LastUpdatedBy}}
+        </div>
       <div class="card-body">
         <div class="row">
           <div class="tab-wrapper">

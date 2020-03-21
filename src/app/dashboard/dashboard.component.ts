@@ -124,11 +124,11 @@ export class DashboardComponent implements OnInit {
                   }
                 );
     } else {
-      this.filter.locCustTicketsFilter(this.currentProfile)
+      this.filter.cusTicketsFilter(this.currentProfile.company)
       .subscribe(
         (returnedTicketLength: Tickets[]) => this.ticketLength = returnedTicketLength
       );
-      this.dashServ.locCustTicketsFilter(this.currentProfile.company)
+      this.dashServ.cusTicketsFilter(this.currentProfile.company)
       .subscribe(
         (tickets: Tickets[]) => {
           this.tickets = tickets;
