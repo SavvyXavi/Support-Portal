@@ -196,13 +196,10 @@
           </div>
         </div>
         <div *ngFor='let dataa of ticketArr' class="card-header">
-          <div class="contract-header-wrapper">
-               <div class="contract-header-text">Latest Public Comment
-               </div>
-                <p>{{dataa.LatestPublicComment}}</p>
-          </div>
           <h6>Comment made on {{dataa.UpdatedDate | date: 'shortDate' }}  by  {{dataa.LastUpdatedBy}} </h6>
-        </div>
+          <div class="contract-header-wrapper">
+              <p>decodeURIComponent({{dataa.LatestPublicComment}})</p>
+          </div>
           <br>
             <div class="row button-containers">
               <div class="col-sm">
