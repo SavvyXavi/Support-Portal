@@ -79,7 +79,7 @@ export class TicketDetailComponent implements OnInit {
   getComments() {
     const refNumber =
     this.route.snapshot.paramMap.get('refNumber');
-      this.filter.getComments(refNumber.substring(1))
+      this.filter.getAzComments(refNumber.substring(1))
       .subscribe(
         (returnedComments: Tickets[]) => {
           this.ticketArr = returnedComments;

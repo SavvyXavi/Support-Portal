@@ -228,7 +228,12 @@ addon = '&resultType=Json';
     return this.http.get(`${environment.AssetTest}/Partloc/${id.partner}`);
 }
 
-
+  getAzComments(filter: string) {
+    const params = {
+      'ref': filter,
+    };
+    return this.http.post(this.getTicketDeets, params);
+  }
 
   getComments(filter: string) {
     const params = {

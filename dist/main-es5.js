@@ -18701,6 +18701,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest, "/Partloc/").concat(id.partner));
         }
       }, {
+        key: "getAzComments",
+        value: function getAzComments(filter) {
+          var params = {
+            'ref': filter
+          };
+          return this.http.post(this.getTicketDeets, params);
+        }
+      }, {
         key: "getComments",
         value: function getComments(filter) {
           var params = {
@@ -21378,7 +21386,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this63 = this;
 
           var refNumber = this.route.snapshot.paramMap.get('refNumber');
-          this.filter.getComments(refNumber.substring(1)).subscribe(function (returnedComments) {
+          this.filter.getAzComments(refNumber.substring(1)).subscribe(function (returnedComments) {
             _this63.ticketArr = returnedComments;
           });
         }

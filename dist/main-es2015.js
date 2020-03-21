@@ -10073,6 +10073,12 @@ class ApifilterService {
     locpartLocatFilter(id) {
         return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AssetTest}/Partloc/${id.partner}`);
     }
+    getAzComments(filter) {
+        const params = {
+            'ref': filter,
+        };
+        return this.http.post(this.getTicketDeets, params);
+    }
     getComments(filter) {
         const params = {
             'idOrRef': filter,
@@ -11397,7 +11403,7 @@ class TicketDetailComponent {
     }
     getComments() {
         const refNumber = this.route.snapshot.paramMap.get('refNumber');
-        this.filter.getComments(refNumber.substring(1))
+        this.filter.getAzComments(refNumber.substring(1))
             .subscribe((returnedComments) => {
             this.ticketArr = returnedComments;
         });
