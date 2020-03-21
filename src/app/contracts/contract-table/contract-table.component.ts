@@ -28,7 +28,7 @@ export class ContractTableComponent implements OnInit {
   currentProfile: Profile;
   custArr: Customer[];
   pipe;
-
+  cust: Customer;
   partner: Partner;
   partnerArr: Partner[];
   company: Customer;
