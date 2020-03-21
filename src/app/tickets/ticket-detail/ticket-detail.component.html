@@ -205,25 +205,36 @@
               </div>
             </div>
       </div>
+      <div *ngFor='let dataa of ticketArr' class="card-header">
+        <div class="row">
+          <div class="contract-header-wrapper">
+            <div class="contract-header-text">
+              <div>Latest Public Comment</div>
+              <h4>{{dataa.LatestPublicComment}}</h4>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md con-ref">
+            <h6>
+              Ticket #
+            </h6>
+            <p>
+              {{dataa.RefNumber}}
+            </p>
+          </div>
+          <div class="col-md con-ref">
+            <h6>
+              Asset ID
+            </h6>
+            <p>
+              {{dataa.AssetIdentifier}}
+            </p>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
 </div>
-<div *ngFor='let dataa of ticketArr' class="tab-content" id="nav-tabContent">
-  <!--     <div class="tab-pane detail fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">
-           <label for="refNumber">
-             Reference Number <br>
-             <input readonly type="text" [(ngModel)]="dataa.RefNumber" placeholder="Reference Number" />
-           </label> -->  {{dataa[0].RefNumber}} {{dataa[0].LatestPublicComment}}
-           <div class="form-goup">
-             <label for="endCustomer">
-               Status <br>
-               <input readonly type="text" [(ngModel)]="dataa[2].LatestPublicComment" placeholder="Status" />
-             </label>
-           </div>
-           <div class="form-goup">
-             <label for="endCustomer">
-               Status <br>
-               <input readonly type="text" [(ngModel)]="dataa[1].RefNumber" placeholder="Status" />
-             </label>
-           </div>
-       </div>
+
