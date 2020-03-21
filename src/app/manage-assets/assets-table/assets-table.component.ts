@@ -25,7 +25,7 @@ export class AssetsTableComponent implements OnInit {
   assets: Assets;
   asArr: Assets[];
   currentProfile: Profile;
-
+  archivedYes: string;
   displayedColumns: string[] = ['Name', 'Location', 'Sla', 'AssetTag', 'Schedule'];
 
   partnerArr: Partner[];
@@ -132,7 +132,7 @@ export class AssetsTableComponent implements OnInit {
 
   getAssets() {
     if (this.currentProfile.companypartner === 'Partner') {
-          this.filter.locpartAssetFilter(this.currentProfile)
+          this.filter.locpartAssetFilterAct(this.currentProfile)
             .subscribe(
               (returnedAssets: Assets[]) => {
                 this.asArr = returnedAssets;
@@ -142,7 +142,7 @@ export class AssetsTableComponent implements OnInit {
               }
             );
     } else {
-      this.filter.locCustAssetsFilter(this.currentProfile)
+      this.filter.locCustAssetsFilterAct(this.currentProfile)
       .subscribe(
         (returnedAsset: Assets[]) => {
           this.asArr = returnedAsset;
@@ -160,6 +160,7 @@ export class AssetsTableComponent implements OnInit {
       this.assetDataSource.paginator.firstPage();
     }
   }
+
 
   searchClear() {
     this.searchKey = '';

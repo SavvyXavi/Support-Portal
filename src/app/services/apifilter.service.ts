@@ -211,7 +211,7 @@ reliApi =
     return this.http.get(`${environment.AssetTest}/part/${id.company}`);
 }
 
-locCustAssetsFilterAct(id: Filter) {
+  locCustAssetsFilterAct(id: Filter) {
   return this.http.get(`${environment.AssetTest}/partact/${id.company}`);
 }
 
@@ -234,7 +234,7 @@ locCustAssetsFilterAct(id: Filter) {
     return this.http.get(`${environment.AssetTest}/Partloc/${id.partner}`);
 }
 
-locpartLocatFilterAct(id: Filter) {
+   locpartAssetFilterAct(id: Filter) {
   return this.http.get(`${environment.AssetTest}/assetact/${id.partner}`);
 }
 
