@@ -104,8 +104,10 @@ reliApi =
   locationdescfilterapi =
 'https://harmonyprodcustomersone.azurewebsites.net/api/LocationByDescription?code=LlWycAaW502tdZ9EMsNbkqapKMVLR7yfsFJRapYhwAlXuqwpnp9ELA==';
 
-getTicketDeets = 'https://nasupport.harmonypsa.com/webapi/v1/tickets/getcommentsbyticketreference?idOrRef='
-addon = '&resultType=Json';
+   getTicketDeets = 'https://nasupport.harmonypsa.com/webapi/v1/tickets/getcommentsbyticketreference?idOrRef='
+    addon = '&resultType=Json';
+    getAzTicketDeets =
+    'https://harmonyprodcustomersone.azurewebsites.net/api/GetServiceTicket?code=YUu0cxU6Y1jRblyChWMLvUDy3F8cl10JbzUanVr5ybcg4in3na0I2A==';
 
 
   constructor(
@@ -232,7 +234,7 @@ addon = '&resultType=Json';
     const params = {
       'ref': filter,
     };
-    return this.http.post(this.getTicketDeets, params);
+    return this.http.post(this.getAzTicketDeets, params);
   }
 
   getComments(filter: string) {

@@ -30,6 +30,14 @@ export class DashService {
     return this.http.get(`${environment.AssetTest}/Partick/${id.partner}`);
 }
 
+locCustAssetsFilter(id: Filter) {
+  return this.http.get(`${environment.AssetTest}/part/${id.company}`);
+}
+
+locCustTicketsFilter(id: string) {
+  return this.http.get(`${environment.AssetTest}/loc/${id}`);
+}
+
   cusTicketsFilter(filter: string) {
     const params = {
       'company': filter

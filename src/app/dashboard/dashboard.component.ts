@@ -128,7 +128,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(
         (returnedTicketLength: Tickets[]) => this.ticketLength = returnedTicketLength
       );
-      this.dashServ.cusTicketsFilter(this.currentProfile.company)
+      this.dashServ.locCustTicketsFilter(this.currentProfile.company)
       .subscribe(
         (tickets: Tickets[]) => {
           this.tickets = tickets;

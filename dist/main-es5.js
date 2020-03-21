@@ -8471,7 +8471,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.filter.locCustTicketsFilter(this.currentProfile).subscribe(function (returnedTicketLength) {
               return _this32.ticketLength = returnedTicketLength;
             });
-            this.dashServ.cusTicketsFilter(this.currentProfile.company).subscribe(function (tickets) {
+            this.dashServ.locCustTicketsFilter(this.currentProfile.company).subscribe(function (tickets) {
               _this32.tickets = tickets;
               _this32.ticketStatus = _this32.tickets.map(function (t) {
                 return t.Status;
@@ -9435,6 +9435,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "locpartTicketsFilter",
         value: function locpartTicketsFilter(id) {
           return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].AssetTest, "/Partick/").concat(id.partner));
+        }
+      }, {
+        key: "locCustAssetsFilter",
+        value: function locCustAssetsFilter(id) {
+          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].AssetTest, "/part/").concat(id.company));
+        }
+      }, {
+        key: "locCustTicketsFilter",
+        value: function locCustTicketsFilter(id) {
+          return this.http.get("".concat(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].AssetTest, "/loc/").concat(id));
         }
       }, {
         key: "cusTicketsFilter",
@@ -18566,6 +18576,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.locationdescfilterapi = 'https://harmonyprodcustomersone.azurewebsites.net/api/LocationByDescription?code=LlWycAaW502tdZ9EMsNbkqapKMVLR7yfsFJRapYhwAlXuqwpnp9ELA==';
         this.getTicketDeets = 'https://nasupport.harmonypsa.com/webapi/v1/tickets/getcommentsbyticketreference?idOrRef=';
         this.addon = '&resultType=Json';
+        this.getAzTicketDeets = 'https://harmonyprodcustomersone.azurewebsites.net/api/GetServiceTicket?code=YUu0cxU6Y1jRblyChWMLvUDy3F8cl10JbzUanVr5ybcg4in3na0I2A==';
       }
 
       _createClass(ApifilterService, [{
@@ -18706,7 +18717,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var params = {
             'ref': filter
           };
-          return this.http.post(this.getTicketDeets, params);
+          return this.http.post(this.getAzTicketDeets, params);
         }
       }, {
         key: "getComments",
