@@ -8572,13 +8572,13 @@ AssetsTableComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdef
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function AssetsTableComponent_Template_button_click_3_listener() { return ctx.genPdf(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](4, " Export to PDF ");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](5, "br");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "div");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](7, "input", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](8, "Show archived ");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](9, "br");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](10, " ComingSoon! ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](11, "div", 5);
