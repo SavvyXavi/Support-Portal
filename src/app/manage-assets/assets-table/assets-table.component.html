@@ -1,6 +1,10 @@
 <div class="container-fluid">
   <div class="row">
-    Show archived<input type="checkbox" name="tc" [ngModel]="archivedYes" value='no' > <br>
+    <div class="col-md d-flex justify-content-end">
+    <p>Show archived  <input type="checkbox" name="tc" [ngModel]="archivedYes" value='no' > </p>
+    </div>
+  </div>
+    <div class="row">
     <div class="col-md d-flex justify-content-end">
 
       <button class="gen-pdf btn" (click)="genPdf()">
