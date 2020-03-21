@@ -8637,7 +8637,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   _this34.terminated++;
                 } else if (status[i] === 'NotCovered') {
                   _this34.notcovered++;
-                } else if (status[i] === 'Yet to Start') {
+                } else if (status[i] === 'Unmapped') {
                   _this34.yetToStart++;
                 }
               }

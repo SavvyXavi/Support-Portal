@@ -4716,7 +4716,7 @@ class DashboardComponent {
                     else if (status[i] === 'NotCovered') {
                         this.notcovered++;
                     }
-                    else if (status[i] === 'Yet to Start') {
+                    else if (status[i] === 'Unmapped') {
                         this.yetToStart++;
                     }
                 }
