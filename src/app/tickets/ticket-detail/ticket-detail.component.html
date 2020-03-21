@@ -66,7 +66,7 @@
             <div class="form-goup">
               <label for="startDate">
                 Description <br>
-                <input readonly type="text" [(ngModel)]=decodeURIComponent("data.Body") placeholder="Description" />
+                <input readonly type="text" [(ngModel)]="this.cleanbody" placeholder="Description" />
               </label>
             </div>
             <div class="form-goup">
@@ -198,7 +198,7 @@
         <div *ngFor='let dataa of ticketArr' class="card-header">
           <h6>Comment made on {{dataa.UpdatedDate | date: 'shortDate' }}  by  {{dataa.LastUpdatedBy}} </h6>
           <div class="contract-header-wrapper">
-              decodeURIComponent({{dataa.LatestPublicComment}})
+              {{dataa.LatestPublicComment}}
           </div>
           <br>
             <div class="row button-containers">
