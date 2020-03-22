@@ -3577,9 +3577,10 @@ class CompanyDetailComponent {
         });
     }
     ngOnInit() {
-        this.getCompItems();
+        /*  this.getCompItems(); */
         this.GetCContracts();
         this.getCAssets();
+        this.getCTicket();
     }
     getCompItems() {
         const CompanyName = this.route.snapshot.paramMap.get('CompanyName');

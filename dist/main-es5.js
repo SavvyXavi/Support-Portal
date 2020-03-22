@@ -6673,9 +6673,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(CompanyDetailComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          this.getCompItems();
+          /*  this.getCompItems(); */
           this.GetCContracts();
           this.getCAssets();
+          this.getCTicket();
         }
       }, {
         key: "getCompItems",

@@ -50,9 +50,10 @@ export class CompanyDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCompItems();
+  /*  this.getCompItems(); */
     this.GetCContracts();
     this.getCAssets();
+    this.getCTicket();
   }
 
   getCompItems() {
