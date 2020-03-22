@@ -6,6 +6,7 @@ import { AuthenticationService } from '../../index/services/authentication.servi
 import { Company } from '../model/company';
 import { Contracts } from '../../contracts/models/contracts';
 import { Assets } from '../../manage-assets/models/assets';
+import { Tickets } from '../../tickets/models/tickets';
 import { Filter } from '../../models/filter';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -21,11 +22,14 @@ import { threadId } from 'worker_threads';
 export class CompanyDetailComponent implements OnInit {
   company: Company;
   currentProfile: Profile;
-  assets: Assets;
-  assetLength: Assets[];
+  assets: Assets[];
+  assetLength: number;
   CompanyName: Company;
   contractLength: number;
   ticketLength: number;
+  contracts: Contracts[];
+  tickets: Tickets[];
+
   displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
   assetDataSource: MatTableDataSource<Assets>;
   searchKey: string;
@@ -48,6 +52,7 @@ export class CompanyDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getCompItems();
     this.GetCContracts();
+    this.getCAssets();
   }
 
   getCompItems() {
@@ -61,7 +66,7 @@ export class CompanyDetailComponent implements OnInit {
         this.filter.locCustAssetsFilterActtwo(this.company.CompanyName)
         .subscribe(
           (returnedAssetLength: Assets[]) => {
-          this.assetLength = returnedAssetLength;
+          this.assetLength = returnedAssetLength.length;
           this.assetDataSource = new MatTableDataSource(returnedAssetLength);
           this.assetDataSource.sort = this.sort;
           this.assetDataSource.paginator = this.paginator;
@@ -69,7 +74,7 @@ export class CompanyDetailComponent implements OnInit {
         );
         this.filter.locCustTicketsFilterTwo(this.company.CompanyName)
         .subscribe(
-          (returnedAsset: Assets) => {
+          (returnedAsset: Assets[]) => {
             this.assets = returnedAsset;
             this.ticketLength = this.assets.length;
           }
@@ -95,8 +100,27 @@ GetCContracts() {
   .subscribe(
     (returnedCons: Contracts[]) => {
       this.contractLength = returnedCons.length;
+      this.contracts = returnedCons;
     }
   );
+  }
+
+  getCAssets() {
+    this.filter.locCustAssetsFilter(this.currentProfile)
+    .subscribe(
+      (returnedAssets: Assets[]) => {
+        this.assetLength = returnedAssets.length;
+        this.assets = returnedAssets;
+    });
+  }
+
+  getCTicket() {
+    this.filter.cusTicketsFilter(this.currentProfile.company)
+    .subscribe(
+      (tickets: Tickets[]) => {
+        this.tickets = tickets;
+        this.ticketLength = tickets.length;
+    });
   }
 
   goToAssetDet(identifier: string) {

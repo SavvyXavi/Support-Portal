@@ -6,14 +6,14 @@
       <!-- Contracts Tab -->
       <div class="contracts-container total-container col-md">
   <!--      <a routerLink="/portal/contracts">
-          <div class="row contract-content">   -->
-            <div class="col contract-length">
-              {{this.contractLength}}
+          <div class="row contract-content" >   -->
+            <div class="col contract-length" justify-content-center>
+              {{this.contractLength}} - Contracts
             </div>
     <!--      </div>
-          <div class="row contract-label justify-content-center">  -->
+          <div class="row contract-label justify-content-center">
             Contracts
-   <!--      </div>
+       </div>
           <div class="row contract-logo justify-content-end">
               <img class="contract-icon" src="../../assets/Mega-Contracts.png">
           </div>
@@ -25,13 +25,13 @@
   <!--       <a routerLink="/portal/assets">
           <div class="row asset-content">  -->
             <div class="col asset-length">
-              {{this.assetLength}}
+              {{this.assetLength}} - Assets
             </div>
-    <!--       </div>  -->
+    <!--       </div>
           <div class="row asset-label justify-content-center">
             Assets
           </div>
-     <!--      <div class="row asset-logo justify-content-end">
+           <div class="row asset-logo justify-content-end">
               <img class="asset-icon" src="../../assets/Mega-Assets.png">
           </div>
         </a>   -->
@@ -42,13 +42,13 @@
   <!--      <a routerLink="/portal/tickets">
           <div class="row ticket-content">  -->
             <div class="col ticket-length">
-              {{this.ticketLength}}
+              {{this.ticketLength}} - Tickets
             </div>
-    <!--      </div>    -->
+    <!--     </div>
           <div class="row ticket-label justify-content-center">
             Tickets
           </div>
-    <!--      <div class="row ticket-logo justify-content-end">
+          <div class="row ticket-logo justify-content-end">
               <img class="ticket-icon" src="../../assets/Mega-Tickets.png">
           </div>
        </a>    -->
@@ -59,13 +59,13 @@
       <div class="tab-wrapper">
         <ul class="nav nav-tabs" id="nav-tab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" id="contract-tab" data-toggle="tab" href="#contracts" role="tab" aria-controls="detail" aria-selected="true">Contracts</a>
+            <a class="nav-link active" id="contract-tab" data-toggle="tab" href="#contracts" role="tab" aria-controls="detail" aria-selected="true">Contracts ({{this.contractLength}})</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="asset-tab" data-toggle="tab" href="#assets" role="tab" aria-controls="assets" aria-selected="false">Covered Assets ({{this.assetLength?.length}})</a>
+            <a class="nav-link" id="asset-tab" data-toggle="tab" href="#assets" role="tab" aria-controls="assets" aria-selected="false">Covered Assets ({{this.assetLength}})</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="tickets-tab" data-toggle="tab" href="#tickets" role="tab" aria-controls="location" aria-selected="false">Tickets</a>
+            <a class="nav-link" id="tickets-tab" data-toggle="tab" href="#tickets" role="tab" aria-controls="location" aria-selected="false">Tickets ({{this.ticketLength}})</a>
           </li>
         </ul>
       </div>
