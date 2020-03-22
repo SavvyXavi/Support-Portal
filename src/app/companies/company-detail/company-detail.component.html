@@ -5,53 +5,53 @@
 
       <!-- Contracts Tab -->
       <div class="contracts-container total-container col-md">
-        <a routerLink="/portal/contracts">
-          <div class="row contract-content">
+  <!--      <a routerLink="/portal/contracts">
+          <div class="row contract-content">   -->
             <div class="col contract-length">
               {{this.contractLength}}
             </div>
-          </div>
+    <!--      </div>    -->
           <div class="row contract-label justify-content-center">
             Contracts
           </div>
-          <div class="row contract-logo justify-content-end">
+   <!--       <div class="row contract-logo justify-content-end">
               <img class="contract-icon" src="../../assets/Mega-Contracts.png">
           </div>
-        </a>
+        </a>   -->
       </div>
 
       <!-- Assets Tab -->
       <div class="assets-container total-container col-md">
-        <a routerLink="/portal/assets">
-          <div class="row asset-content">
+  <!--       <a routerLink="/portal/assets">
+          <div class="row asset-content">  -->
             <div class="col asset-length">
               {{this.assetLength}}
             </div>
-          </div>
+    <!--       </div>  -->
           <div class="row asset-label justify-content-center">
             Assets
           </div>
-          <div class="row asset-logo justify-content-end">
+     <!--      <div class="row asset-logo justify-content-end">
               <img class="asset-icon" src="../../assets/Mega-Assets.png">
           </div>
-        </a>
+        </a>   -->
       </div>
 
       <!-- Tickets Tab -->
       <div class="tickets-container total-container col-md">
-        <a routerLink="/portal/tickets">
-          <div class="row ticket-content">
+  <!--      <a routerLink="/portal/tickets">
+          <div class="row ticket-content">  -->
             <div class="col ticket-length">
               {{this.ticketLength}}
             </div>
-          </div>
+    <!--      </div>    -->
           <div class="row ticket-label justify-content-center">
             Tickets
           </div>
           <div class="row ticket-logo justify-content-end">
               <img class="ticket-icon" src="../../assets/Mega-Tickets.png">
           </div>
-        </a>
+    <!--    </a>    -->
       </div>
   </div>
   <div class="card-body">
@@ -104,9 +104,7 @@
       <div class="tab-pane assets fade" id="assets" role="tabpanel" aria-labelledby="asset-tab">
         <div class="form-group">
           <div class="search-div">
-            <!-- <button mat-raised-button>
 
-            </button> -->
             <mat-form-field class="search-form-field" floatLabel="never">
               <input matInput [(ngModel)]="searchKey" (keyup)="applyFilter()" placeholder="Search for Asset" autocomplete="off">
               <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchClear()" *ngIf="searchKey">
