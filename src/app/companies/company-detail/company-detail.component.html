@@ -60,13 +60,13 @@
       <div class="tab-wrapper">
         <ul class="nav nav-tabs" id="nav-tab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link" id="asset-tab" data-toggle="tab" href="#assets" role="tab" aria-controls="assets" aria-selected="false">Covered Assets ({{this.assetLength}})</a>
+            <a class="nav-link active" id="asset-tab" data-toggle="tab" href="#assets" role="tab" aria-controls="assets" aria-selected="false">Covered Assets ({{this.assetLength}})</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="tickets-tab" data-toggle="tab" href="#tickets" role="tab" aria-controls="location" aria-selected="false">Tickets ({{this.ticketLength}})</a>
+            <a class="nav-link" id="tickets-tab" data-toggle="tab" href="#tickets" role="tab" aria-controls="tickets" aria-selected="false">Tickets ({{this.ticketLength}})</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" id="contract-tab" data-toggle="tab" href="#contracts" role="tab" aria-controls="detail" aria-selected="true">Contracts ({{this.contractLength}})</a>
+            <a class="nav-link" id="contract-tab" data-toggle="tab" href="#contracts" role="tab" aria-controls="contracts" aria-selected="true">Contracts ({{this.contractLength}})</a>
           </li>
         </ul>
       </div>
@@ -128,7 +128,7 @@
       </div>
     </div>   -->
     <div class="tab-pane tickets fade" id="tickets" role="tabpanel" aria-labelledby="tickets-tab"> Tickets coming Soon
-      <!--  <div class="form-group">
+        <div class="form-group">
           <div class="mat-table mattable-container">
             <table mat-table [dataSource]="ticketDataSource" class="mat-elevation-z8 table" matSort>
 
@@ -162,7 +162,7 @@
 
             <mat-paginator [pageSizeOptions]="[10, 25]" [pageSize]="10"></mat-paginator>
           </div>
-        </div>  -->
+        </div>
       </div>
 
       <div class="tab-pane contracts fade" id="contracts" role="tabpanel" aria-labelledby="contracts-tab"> Contracts Coming Soon
