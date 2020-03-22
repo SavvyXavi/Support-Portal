@@ -25,6 +25,7 @@ export class CompanyDetailComponent implements OnInit {
   assets: Assets[];
   assetLength: number;
   compname: Tickets[];
+  CompanyName: Filter[];
   contractLength: number;
   ticketLength: number;
   contracts: Contracts[];
@@ -98,7 +99,9 @@ export class CompanyDetailComponent implements OnInit {
   }
 
 GetCContracts() {
-  this.filter.custConFilter(this.currentProfile)
+  const CompanyName =
+  this.route.snapshot.paramMap.get('CompanyName');
+  this.filter.custConFilterTwo(CompanyName)
   .subscribe(
     (returnedCons: Contracts[]) => {
       this.contractLength = returnedCons.length;
@@ -109,7 +112,9 @@ GetCContracts() {
   }
 
   getCAssets() {
-    this.filter.locCustAssetsFilter(this.currentProfile)
+    const CompanyName =
+    this.route.snapshot.paramMap.get('CompanyName');
+    this.filter.locCustAssetsFilterActtwo(CompanyName)
     .subscribe(
       (returnedAssets: Assets[]) => {
         this.assetLength = returnedAssets.length;
@@ -119,7 +124,9 @@ GetCContracts() {
   }
 
   getCTicket() {
-    this.filter.cusTicketsFilter(this.currentProfile.company)
+    const CompanyName =
+    this.route.snapshot.paramMap.get('CompanyName');
+    this.filter.cusTicketsFilter(CompanyName)
     .subscribe(
       (tickets: Tickets[]) => {
         this.tickets = tickets;

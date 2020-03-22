@@ -209,7 +209,7 @@ reliApi =
 }
 
   locCustTicketsFilterTwo(id: String) {
-    return this.http.get(`${environment.AssetTest}/loc/${id}`);
+   return this.http.get(`${environment.AssetTest}/loc/${id}`);
 }
 
   locCustAssetsFilter(id: Filter) {

@@ -6709,7 +6709,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function GetCContracts() {
           var _this25 = this;
 
-          this.filter.custConFilter(this.currentProfile).subscribe(function (returnedCons) {
+          var CompanyName = this.route.snapshot.paramMap.get('CompanyName');
+          this.filter.custConFilterTwo(CompanyName).subscribe(function (returnedCons) {
             _this25.contractLength = returnedCons.length;
             _this25.contracts = returnedCons;
             _this25.contractDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedCons);
@@ -6720,7 +6721,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getCAssets() {
           var _this26 = this;
 
-          this.filter.locCustAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
+          var CompanyName = this.route.snapshot.paramMap.get('CompanyName');
+          this.filter.locCustAssetsFilterActtwo(CompanyName).subscribe(function (returnedAssets) {
             _this26.assetLength = returnedAssets.length;
             _this26.assets = returnedAssets;
             _this26.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAssets);
@@ -6731,7 +6733,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getCTicket() {
           var _this27 = this;
 
-          this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (tickets) {
+          var CompanyName = this.route.snapshot.paramMap.get('CompanyName');
+          this.filter.cusTicketsFilter(CompanyName).subscribe(function (tickets) {
             _this27.tickets = tickets;
             _this27.ticketLength = tickets.length;
             _this27.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](tickets);

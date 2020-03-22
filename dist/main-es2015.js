@@ -3622,7 +3622,8 @@ class CompanyDetailComponent {
         this.applyFilter();
     }
     GetCContracts() {
-        this.filter.custConFilter(this.currentProfile)
+        const CompanyName = this.route.snapshot.paramMap.get('CompanyName');
+        this.filter.custConFilterTwo(CompanyName)
             .subscribe((returnedCons) => {
             this.contractLength = returnedCons.length;
             this.contracts = returnedCons;
@@ -3630,7 +3631,8 @@ class CompanyDetailComponent {
         });
     }
     getCAssets() {
-        this.filter.locCustAssetsFilter(this.currentProfile)
+        const CompanyName = this.route.snapshot.paramMap.get('CompanyName');
+        this.filter.locCustAssetsFilterActtwo(CompanyName)
             .subscribe((returnedAssets) => {
             this.assetLength = returnedAssets.length;
             this.assets = returnedAssets;
@@ -3638,7 +3640,8 @@ class CompanyDetailComponent {
         });
     }
     getCTicket() {
-        this.filter.cusTicketsFilter(this.currentProfile.company)
+        const CompanyName = this.route.snapshot.paramMap.get('CompanyName');
+        this.filter.cusTicketsFilter(CompanyName)
             .subscribe((tickets) => {
             this.tickets = tickets;
             this.ticketLength = tickets.length;
