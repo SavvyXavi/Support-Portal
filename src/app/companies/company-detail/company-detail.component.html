@@ -1,1 +1,67 @@
-<p>company-detail works! </p>
+<div class="container-fluid wrapper">
+  <!-- Item tabs -->
+  <div class="container-fluid tabs">
+    <div class="row ">
+
+      <!-- Contracts Tab -->
+      <div class="contracts-container total-container col-md">
+        <a routerLink="/portal/contracts">
+          <div class="row contract-content">
+            <div class="col contract-length">
+              {{this.contractLength}}
+            </div>
+          </div>
+          <div class="row contract-label justify-content-center">
+            Contracts
+          </div>
+          <div class="row contract-logo justify-content-end">
+              <img class="contract-icon" src="../../assets/Mega-Contracts.png">
+          </div>
+        </a>
+      </div>
+
+      <!-- Assets Tab -->
+      <div class="assets-container total-container col-md">
+        <a routerLink="/portal/assets">
+          <div class="row asset-content">
+            <div class="col asset-length">
+              {{this.assetLength}}
+            </div>
+          </div>
+          <div class="row asset-label justify-content-center">
+            Assets
+          </div>
+          <div class="row asset-logo justify-content-end">
+              <img class="asset-icon" src="../../assets/Mega-Assets.png">
+          </div>
+        </a>
+      </div>
+
+      <!-- Tickets Tab -->
+      <div class="tickets-container total-container col-md">
+        <a routerLink="/portal/tickets">
+          <div class="row ticket-content">
+            <div class="col ticket-length">
+              {{this.ticketLength}}
+            </div>
+          </div>
+          <div class="row ticket-label justify-content-center">
+            Tickets
+          </div>
+          <div class="row ticket-logo justify-content-end">
+              <img class="ticket-icon" src="../../assets/Mega-Tickets.png">
+          </div>
+        </a>
+      </div>
+  </div>
+
+  <div class="row ">
+    <div class="row button-containers">
+      <div class="col-sm">
+        <Button (click)="goBack()" class="btn btn-info">
+           Go Back
+        </Button>
+      </div>
+    </div>
+  </div>
+</div>

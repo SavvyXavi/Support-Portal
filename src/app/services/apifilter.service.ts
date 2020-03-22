@@ -56,6 +56,7 @@ reliApi =
   'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByPartner?code=4QQzdPj2j4LgMuJ9wnzmomSadWCLJEpbSOKcJqhBPRDswDZUCq6NqA==';
   cContractsApi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/ContractsByCustomer?code=bpca1PGS/szLyokaPXrzwhbTmpIv1NIC8St234Ce8anUtUKo8uUWkg==';
+
   refConApi =
    'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
   nameConApi =
@@ -293,6 +294,13 @@ reliApi =
       const params = {
         'role': filter.partnerRole,
         'customer': filter.company
+      };
+      return this.http.post(this.cContractsApi, params);
+    }
+
+    custConFilterTwo(string: String) {
+      const params = {
+        'customer': string
       };
       return this.http.post(this.cContractsApi, params);
     }

@@ -19,7 +19,9 @@ export class CompanyDetailComponent implements OnInit {
   company: Company;
   assets: Assets;
   assetLength: Assets[];
-
+  CompanyName: Company;
+  contractLength: number;
+  ticketLength: number;
   displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
   assetDataSource: MatTableDataSource<Assets>;
   searchKey: string;
@@ -40,10 +42,11 @@ export class CompanyDetailComponent implements OnInit {
   getCompItems() {
     const CompanyName =
     this.route.snapshot.paramMap.get('CompanyName');
-    this.filter.conByRef(CompanyName)
+    this.filter.custConFilterTwo(CompanyName)
     .subscribe(
       (returnedCompany: Company) => {
         this.company = returnedCompany;
+        this.contractLength = this.company.length;
         this.filter.assetsBySchedule(this.company[0].ScheduleName)
         .subscribe(
           (returnedAssetLength: Assets[]) => {
@@ -57,10 +60,13 @@ export class CompanyDetailComponent implements OnInit {
         .subscribe(
           (returnedAsset: Assets) => {
             this.assets = returnedAsset;
+            this.ticketLength = this.assets.length;
           }
         );
       }
     );
   }
-
+  goBack(): void {
+    this.location.back();
+  }
 }
