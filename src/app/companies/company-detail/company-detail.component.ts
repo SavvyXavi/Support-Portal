@@ -29,7 +29,7 @@ export class CompanyDetailComponent implements OnInit {
   ticketLength: number;
   contracts: Contracts[];
   tickets: Tickets[];
-
+  contractDataSource: MatTableDataSource<Contracts>;
   displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
   assetDataSource: MatTableDataSource<Assets>;
   searchKey: string;
@@ -102,6 +102,7 @@ GetCContracts() {
     (returnedCons: Contracts[]) => {
       this.contractLength = returnedCons.length;
       this.contracts = returnedCons;
+      this.contractDataSource = new MatTableDataSource(returnedCons);
     }
   );
   }

@@ -2,7 +2,7 @@
   <!-- Item tabs -->
   <div class="container-fluid tabs">
     <div class="row ">
-
+      <div class="row contract-label justify-content-center">Information for Customer {{this.CompanyName}}</div>
       <!-- Contracts Tab -->
       <div class="contracts-container total-container col-md">
   <!--      <a routerLink="/portal/contracts">
@@ -72,31 +72,49 @@
     </div>
     <br>
     <br>
-    <div *ngFor='let data of company'  class="tab-content" id="nav-tabContent">
-      <div class="tab-pane contract fade show active" id="contracts" role="tabpanel" aria-labelledby="contract-tab">
-        <div class="form-group">
-          <label for="refNumber">
-            Reference Number <br>
-            <input readonly type="text" [(ngModel)]="data.RefNumber" placeholder="Reference Number" />
-          </label>
-        </div>
-        <div class="form-goup">
-          <label for="endCustomer">
-            Customer <br>
-            <input readonly type="text" [(ngModel)]="data.EndCustomerName" placeholder="End Customer" />
-          </label>
-        </div>
-        <div class="form-goup">
-          <label for="startDate">
-            Start Date <br>
-            <input readonly type="text" [(ngModel)]="data.StartDate" placeholder="Start Date" />
-          </label>
-        </div>
-        <div class="form-goup">
-          <label for="renewalDate">
-            Renewal Date <br>
-            <input readonly type="text" [(ngModel)]="data.RenewalDate" placeholder="Renewal Date" />
-          </label>
+    <div  class="tab-content" id="nav-tabContent">
+      <div *ngFor='let data of contracts' class="tab-pane contract fade show active" id="contracts" role="tabpanel" aria-labelledby="contract-tab">
+        <div id="table" class="mat-table mattable-container">
+          <table mat-table [dataSource]="contractDataSource"
+          class="mat-elevation-z8 table" matSort>
+
+            <!-- Contract Name Column -->
+            <div matColumnDef="Contract Name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract Name </th>
+              <td mat-cell *matCellDef="let contract">
+          <!--      <a routerLink="contractdetail/{{data.RefNumber}}" class="contract-link">{{contract.ScheduleName}}</a>   -->
+              </td>
+            </div>
+
+            <!-- Start Date Column -->
+            <div matColumnDef="Start Date">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
+              <td *matCellDef="let contract"> {{data.StartDate | date: 'shortDate'}} </td>
+            </div>
+
+            <!-- Renewal Column -->
+            <div matColumnDef="Renewal Date">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Renewal Date </th>
+              <td mat-cell *matCellDef="let contract"> {{data.RenewalDate | date: 'shortDate'}} </td>
+            </div>
+
+            <!-- Contract# Column -->
+            <div matColumnDef="Contract#">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract# </th>
+              <td mat-cell *matCellDef="let contract"> {{data.RefNumber}} </td>
+            </div>
+
+            <!-- Status Column -->
+            <div matColumnDef="Status">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+              <td mat-cell *matCellDef="let contract"> {{data.Status}} </td>
+            </div>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[10, 25, 50 ]" [pageSize]="25"></mat-paginator>
         </div>
       </div>
 
