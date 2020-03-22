@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Location } from '@angular/common';
+import { Location, CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApifilterService } from '../../services/apifilter.service';
 

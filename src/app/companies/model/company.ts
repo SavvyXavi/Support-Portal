@@ -10,4 +10,6 @@ export class Company {
   PrimaryContactFullName: string;
   Postcode: string;
   Town: string;
+  length: number;
+  ScheduleName: string;
 }

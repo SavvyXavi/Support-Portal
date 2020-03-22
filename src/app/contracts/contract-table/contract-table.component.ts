@@ -1,5 +1,5 @@
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
+import pdfMake from 'pdfmake-lite/build/pdfmake';
+import pdfFonts from 'pdfmake-lite/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -26,9 +26,9 @@ export class ContractTableComponent implements OnInit {
   contracts: Contracts;
   conArr: Contracts[];
   currentProfile: Profile;
-
+  custArr: Customer[];
   pipe;
-
+  cust: Customer;
   partner: Partner;
   partnerArr: Partner[];
   company: Customer;
@@ -56,6 +56,7 @@ export class ContractTableComponent implements OnInit {
   ngOnInit() {
     this.getPartners();
     this.getContracts();
+    this.getCustomers();
   }
 
   async genPdf() {
@@ -159,6 +160,24 @@ export class ContractTableComponent implements OnInit {
           this.contractDataSource.paginator = this.paginator;
         }
       );
+    }
+  }
+
+  getCustomers() {
+    this.filter.customerFilter(this.currentProfile)
+    .subscribe(
+      (customers: Customer[])  => {
+        for (let i = 0; i <= customers.length; i++) {
+          this.custArr = customers;
+        }
+      }
+    );
+  }
+
+  customerChange(customer: Customer) {
+    this.contractDataSource.filter = customer.CompanyName.trim().toLowerCase();
+    if (this.contractDataSource.paginator) {
+      this.contractDataSource.paginator.firstPage();
     }
   }
 

@@ -5,18 +5,22 @@ import { AuthGuard } from '../index/guards/auth.guard';
 
 import { CompaniesComponent } from './companies.component';
 import { CompaniesTableComponent } from './companies-table/companies-table.component';
-
+import { CompanyDetailComponent } from './company-detail/company-detail.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: CompaniesComponent,
     canActivate: [AuthGuard],
     children: [
       {
         path: '',
         component: CompaniesTableComponent
-      }
+      },
+      {
+        path: 'companydetail/:CompanyName',
+        component: CompanyDetailComponent
+      },
     ]
   }
 ];

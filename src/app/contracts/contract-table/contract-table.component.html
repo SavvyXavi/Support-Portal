@@ -6,6 +6,13 @@
       </button>
     </div>
   </div>
+  <div *ngIf="currentProfile.companypartner ==='Partner'" class="company-selector">
+    <label for="customers">Select Customer </label>
+    <select [(ngModel)]="cust"  (ngModelChange)="customerChange(cust)" id="customers">
+      <option selected value="">All</option>
+      <option *ngFor="let cust of custArr">{{cust.CompanyName}}</option>
+    </select>
+  </div>
 <div class="search-div">
 
 <mat-form-field class="search-form-field" floatLabel="never">
@@ -15,7 +22,7 @@
   </button>
 </mat-form-field>
 </div>
-
+<!--Table Start-->
   <div id="table" class="mat-table mattable-container">
     <table mat-table [dataSource]="contractDataSource"
     class="mat-elevation-z8 table" matSort>
@@ -62,6 +69,6 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" [pageSize]="10"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[10, 25, 50 ]" [pageSize]="25"></mat-paginator>
   </div>
 </div>

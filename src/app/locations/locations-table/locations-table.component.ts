@@ -1,5 +1,5 @@
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
+import pdfMake from 'pdfmake-lite/build/pdfmake';
+import pdfFonts from 'pdfmake-lite/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -133,7 +133,7 @@ export class LocationsTableComponent implements OnInit {
 
   getLocations() {
     if (this.currentProfile.companypartner === 'Partner') {
-      this.filter.partLocationFilter(this.currentProfile)
+      this.filter.locpartLocatFilter(this.currentProfile)
       .subscribe(
         (returnedLocations: CustomerLocation[]) => {
           this.locArr = returnedLocations;
@@ -143,7 +143,7 @@ export class LocationsTableComponent implements OnInit {
         }
       );
     } else {
-      this.filter.custLocationFilter(this.currentProfile)
+      this.filter.locCustlocatFilter(this.currentProfile)
       .subscribe(
         (returnedLocations: CustomerLocation[]) => {
           this.locArr = returnedLocations;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { Profile } from '../../index/models/profile';
 import { OemService } from '../services/oem.service';
 import { AuthenticationService } from 'src/app/index/services/authentication.service';
@@ -18,7 +18,7 @@ export class CurrentUserComponent implements OnInit {
   profiles: Profile[];
   datapull: DataPull[];
   dpcount: any;
-  ticketpull: AssetFilter[];
+  ticketpull: any;
   selval: any;
   ticketwo: any;
   dbcount: any;
@@ -36,7 +36,6 @@ export class CurrentUserComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.gettestTickets();
   }
 
   loadAllUsers() {
@@ -56,11 +55,10 @@ export class CurrentUserComponent implements OnInit {
       this.datapull = datapull;
       });
   }
-  gettestTickets() {
-    this.oemService.testTicketPull().subscribe(ticketpull  => {
+  getPartTickets(id: any) {
+    this.oemService.tickByPart(id).subscribe(ticketpull  => {
       this.ticketpull = ticketpull;
-      this.dbcount = ticketpull.length;
-      });
+    });
   }
 
   filterFilter(ticketpull: any) {

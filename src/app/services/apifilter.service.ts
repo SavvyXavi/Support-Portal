@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 import { Partner } from '../models/partner';
 import { PartnerList } from '../partner-list';
 
+import { environment } from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -42,7 +44,7 @@ reliApi =
   'https://indvdlpartner.azurewebsites.net/api/ReliantTickets?code=limYO/Q72TyX9DyJyBQPfb3s6HEgTxRYEDWwSZwYD1fI6Z4fCsa2Kw==';
 
 
-
+  apiKey = '&api_key=81756df42a7f4766b58a4523357a8ed9';
 
   customerApi =
 'https://harmonyprodcustomersone.azurewebsites.net/api/CompanyListByPartner?code=rhtQGzt22H6Z0VQb7iUNZYazTiZpKrCmkSEA71oORrDu/lUFysLEoA==';
@@ -54,6 +56,7 @@ reliApi =
   'https://harmonyprodpartnersone.azurewebsites.net/api/ContractsByPartner?code=4QQzdPj2j4LgMuJ9wnzmomSadWCLJEpbSOKcJqhBPRDswDZUCq6NqA==';
   cContractsApi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/ContractsByCustomer?code=bpca1PGS/szLyokaPXrzwhbTmpIv1NIC8St234Ce8anUtUKo8uUWkg==';
+
   refConApi =
    'https://harmonyprodpartnersone.azurewebsites.net/api/ContractByRefNumber?code=NU4mL4qSFBbCJm9JJYRL75iYb3jljdjT5gicDiZxy0sUz/HfI2DfHw==';
   nameConApi =
@@ -75,6 +78,12 @@ reliApi =
   = 'https://harmonyprodcustomersone.azurewebsites.net/api/AssetDrillDown?code=cwjoeQCF3Qx5PwX0xfLJDclqyxjEyW/gZppvvS6K/g07nFSOTfudrg==';
   assetlocationapi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/AssetsByLocation?code=aO2JTfqrHEJNatGh3FIlDHs90/fGncezd7CVxMfZX/lqR9ZoyHvIYw==';
+  locassbypart
+  = 'https://locapicall.noble1it.com/profile/asset/';
+  locassbycust
+  = 'https://locapicall.noble1it.com/profile/Part/';
+
+
 
 
   pTicketsApi
@@ -85,6 +94,8 @@ reliApi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByLocation?code=Dj9Nn0m5gd3RuNDO5E/xq9r7AqN7S0z34mrL2bsSwxkANwga/1iJyQ==';
   ticketRefApi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/TicketsByRefNumber?code=O1Sok3K9e4QIPE/IGmb7YPdn/WlwY97zxeufiVVCmD2iw5FN8/8jyg==';
+  betterTicketApi =
+  'https://harmonyprodcustomersone.azurewebsites.net/api/GetServiceTicket?code=YUu0cxU6Y1jRblyChWMLvUDy3F8cl10JbzUanVr5ybcg4in3na0I2A==';
 
 
   pLocationsapi =
@@ -93,6 +104,12 @@ reliApi =
   'https://harmonyprodcustomersone.azurewebsites.net/api/LocationsByCustomer?code=S5urk3EhAuuuMATbFA8E5/ixHQPJhcaC6wlLAP4GPxs4qN0tPsfuIA==';
   locationdescfilterapi =
 'https://harmonyprodcustomersone.azurewebsites.net/api/LocationByDescription?code=LlWycAaW502tdZ9EMsNbkqapKMVLR7yfsFJRapYhwAlXuqwpnp9ELA==';
+
+   getTicketDeets = 'https://nasupport.harmonypsa.com/webapi/v1/tickets/getcommentsbyticketreference?idOrRef='
+    addon = '&resultType=Json';
+    getAzTicketDeets =
+    'https://harmonyprodcustomersone.azurewebsites.net/api/GetServiceTicket?code=YUu0cxU6Y1jRblyChWMLvUDy3F8cl10JbzUanVr5ybcg4in3na0I2A==';
+
 
   constructor(
     private http: HttpClient
@@ -134,6 +151,10 @@ reliApi =
     };
     return this.http.post(this.partassetsapi, params);
   }
+
+  locpartAssetFilter(id: Filter) {
+    return this.http.get(`${environment.AssetTest}/asset/${id.partner}`);
+}
 
   custAssetsFilter(filter: Filter) {
     const params = {
@@ -179,11 +200,65 @@ reliApi =
     return this.http.post(this.pTicketsApi, params);
   }
 
+  locpartTicketsFilter(id: Filter) {
+      return this.http.get(`${environment.AssetTest}/Partick/${id.partner}`);
+  }
+
+  locCustTicketsFilter(id: Filter) {
+    return this.http.get(`${environment.AssetTest}/loc/${id.company}`);
+}
+
+  locCustTicketsFilterTwo(id: String) {
+   return this.http.get(`${environment.AssetTest}/loc/${id}`);
+}
+
+  locCustAssetsFilter(id: Filter) {
+    return this.http.get(`${environment.AssetTest}/part/${id.company}`);
+}
+
+  locCustAssetsFilterAct(id: Filter) {
+  return this.http.get(`${environment.AssetTest}/partact/${id.company}`);
+}
+
+  locCustAssetsFilterActtwo(id: String) {
+    return this.http.get(`${environment.AssetTest}/partact/${id}`);
+}
+
+  locCustlocatFilter(id: Filter) {
+    return this.http.get(`${environment.AssetTest}/loc/${id.company}`);
+}
+
+  locTicketsFilter(id: Filter) {
+  return this.http.get(`${environment.AssetTest}/assets/}`);
+}
+
   ticketsLocationFilter(filter: string) {
     const params = {
       'location': filter
     };
     return this.http.post(this.ticketsLocationapi, params);
+  }
+
+  locpartLocatFilter(id: Filter) {
+    return this.http.get(`${environment.AssetTest}/Partloc/${id.partner}`);
+}
+
+   locpartAssetFilterAct(id: Filter) {
+  return this.http.get(`${environment.AssetTest}/assetact/${id.partner}`);
+}
+
+  getAzComments(filter: string) {
+    const params = {
+      'ref': filter,
+    };
+    return this.http.post(this.getAzTicketDeets, params);
+  }
+
+  getComments(filter: string) {
+    const params = {
+      'idOrRef': filter,
+    };
+    return this.http.get(this.getTicketDeets + '%23' + filter + this.apiKey );
   }
 
   ticketRefFilter(filter: string) {
@@ -193,6 +268,12 @@ reliApi =
     return this.http.post(this.ticketRefApi, params);
   }
 
+  betterTicketRefFilter(filter: string) {
+    const params = {
+      'refnumber': filter
+    };
+    return this.http.post(this.betterTicketApi, params);
+  }
 
 
   partConFilter(filter: Filter) {
@@ -221,6 +302,13 @@ reliApi =
       const params = {
         'role': filter.partnerRole,
         'customer': filter.company
+      };
+      return this.http.post(this.cContractsApi, params);
+    }
+
+    custConFilterTwo(string: String) {
+      const params = {
+        'customer': string
       };
       return this.http.post(this.cContractsApi, params);
     }

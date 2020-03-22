@@ -1,10 +1,10 @@
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
+import pdfMake from 'pdfmake-lite/build/pdfmake';
+import pdfFonts from 'pdfmake-lite/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
-
+import { DatePipe } from '@angular/common';
 import { ApifilterService } from '../../services/apifilter.service';
 import { AuthenticationService } from 'src/app/index/services/authentication.service';
 
@@ -23,7 +23,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class CompaniesTableComponent implements OnInit {
   currentProfile: Profile;
-
+  pipe;
   partnerArr: Partner[];
 
   compArr: Company[];

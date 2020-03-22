@@ -1,3 +1,4 @@
+import { CompaniesComponent } from './companies/companies.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { AdminComponent } from './admin/admin.component';
@@ -16,6 +17,8 @@ import { OemComponent } from './admin/oem/oem.component';
 import { BudgetComponent } from './budget/budget.component';
 import { CustomersComponent } from './admin/customers/customers.component';
 import { LocalMonitorComponent } from './admin/local-monitor/local-monitor.component';
+
+
 const routes: Routes = [
   {
     path: '',
@@ -37,6 +40,11 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'companies',
+    component: CompaniesComponent,
     canActivate: [AuthGuard]
   },
   {

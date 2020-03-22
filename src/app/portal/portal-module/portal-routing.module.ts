@@ -5,8 +5,7 @@ import { AuthGuard } from 'src/app/index/guards/auth.guard';
 
 import { PortalComponent } from '../portal.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
-import { CustomersComponent } from 'src/app/admin/customers/customers.component';
-import { LocationsComponent } from 'src/app/locations/locations.component';
+import { AboutComponent } from 'src/app/about/about.component';
 
 const routes: Routes = [
   {
@@ -17,6 +16,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
+      },
+      {
+        path: 'about',
+        component: AboutComponent
       },
       {
         path: 'contracts',

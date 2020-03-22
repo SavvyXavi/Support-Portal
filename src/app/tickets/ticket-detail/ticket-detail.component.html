@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-md">
-    <div *ngFor='let data of ticket' class="card">
-      <div class="card-header">
+    <div class="card">
+      <div *ngFor='let data of ticket' class="card-header">
         <div class="row">
           <div class="contract-header-wrapper">
             <div class="contract-header-text">
@@ -30,7 +30,6 @@
           </div>
         </div>
       </div>
-
       <div class="card-body">
         <div class="row">
           <div class="tab-wrapper">
@@ -49,7 +48,7 @@
         </div>
         <br>
         <br>
-        <div class="tab-content" id="nav-tabContent">
+        <div *ngFor='let data of ticket' class="tab-content" id="nav-tabContent">
 
           <div class="tab-pane detail fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">
             <div class="form-group">
@@ -196,15 +195,20 @@
             </div>
           </div>
         </div>
+        <div *ngFor='let dataa of ticketArr' class="card-header">
+          <h6>Comment made on {{dataa.UpdatedDate | date: 'shortDate' }}  by  {{dataa.LastUpdatedBy}} </h6>
+          <div class="contract-header-wrapper">
+              {{dataa.LatestPublicComment}}
+          </div>
           <br>
             <div class="row button-containers">
               <div class="col-sm">
-                <Button (click)="goBack()" class="btn btn-info">
-                  Go Back
-                </Button>
+                <Button md-raised button (click)="goBack()" class="md-raised button" >Go Back </Button>
+                <Button md-raised button (click)="goBack()" class="md-raised button" > Full history ticket history (coming soon)</Button>
               </div>
             </div>
       </div>
   </div>
 </div>
 </div>
+

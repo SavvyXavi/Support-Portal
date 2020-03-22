@@ -21,6 +21,9 @@ export class ApiCallService {
   getassetUrl = 'https://harmonyprodpartnersone.azurewebsites.net/api/AssetsByPartner';
   getassetFilter = '?code=7/NKrYdcf8OCvktozIiDED7X2KaMUQrvv7AkMQQKPeMPATj3aGTP6Q==';
   getAsset = 'getassetUrl + getassetFilter';
+  getTicketDeets = 'https://nasupport.harmonypsa.com/webapi/v1/tickets/getcommentsbyticketreference?idOrRef='
+  addon = '&resultType=Json';
+
 
   constructor( private http: HttpClient ) { }
 

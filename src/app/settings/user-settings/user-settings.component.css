@@ -23,11 +23,6 @@ input {
   border-color: rgb(230, 92, 0);
 }
 
-.close {
-  border-color: black;
-  background-color: black
-}
-
 .version {
  color: grey;
  width: 100%;

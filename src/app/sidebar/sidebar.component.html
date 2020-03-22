@@ -20,32 +20,28 @@
                 </div>
                 </a>
 
-
-                <a class="assets-btn">
-                    <div class="assets-icon icon-wrapper">
-                      <i routerLink="assets" class="icon fas fa-file-alt"></i>
+           <!--     <a *ngIf="currentRole?.companypartner === 'Partner'" class="dropdown" routerLink="admin/customers">   -->
+                  <a *ngIf="currentRole?.companypartner === 'Partner'" class="dropdown" routerLink="companies">
+                  <div class="dashboard-icon icon-wrapper">
+                    <i class="icon fa fa-industry"></i>
                   </div>
-                  <div class="assets-text dropdown-toggle dropdown-btn col-auto" id="dropdown" data-toggle="collapse" data-target="#dd">
-                      <span>
-                        Assets
-                      </span>
-                  </div>
+                <div class="dashboard-content col-auto">
+                    <span>
+                      Customers
+                    </span>
+                </div>
                 </a>
 
-
-              <div id="dd" class="dropdown-container collapse" aria-labelledby="dropdown01">
-                    <a class="dropdown" routerLink="contracts">Contracts</a>
-                    <a class="dropdown" routerLink="assets">Assets</a>
-              </div>
-
-
-              <a routerLink="tickets" class="tickets">
-                <div class="tickets-icon icon-wrapper">
-                    <i routerLink="tickets" class="icon fas fa-ticket-alt"></i>
-                </div>
-                <div class="tickets-content col-auto">
-                    <span>Tickets</span>
-                </div>
+                <a routerLink="contracts" class="contracts">
+                    <div class="assets-icon icon-wrapper">
+                      <i class="icon fa fa-list-alt"></i>
+                  </div>
+                <!--  <div class="assets-text dropdown-toggle dropdown-btn col-auto" id="dropdown" data-toggle="collapse" data-target="#dd"> -->
+                  <div class="dashboard-content col-auto">
+                  <span>
+                        Contracts
+                      </span>
+                  </div>
                 </a>
 
                 <a routerLink="locations" class="locations">
@@ -57,7 +53,35 @@
                   </div>
                   </a>
 
-                <a  *ngIf="currentRole?.companypartner === 'Partner'" class="admin">
+                  <a routerLink="tickets" class="tickets">
+                    <div class="tickets-icon icon-wrapper">
+                        <i routerLink="tickets" class="icon fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="tickets-content col-auto">
+                        <span>Tickets</span>
+                    </div>
+                    </a>
+
+                <a routerLink="assets" class="assets">
+                  <div class="assets-icon icon-wrapper">
+                    <i class="icon fa fa-server"></i>
+                </div>
+              <!--  <div class="assets-text dropdown-toggle dropdown-btn col-auto" id="dropdown" data-toggle="collapse" data-target="#dd"> -->
+                <div class="dashboard-content col-auto">
+                <span>
+                      Assets
+                    </span>
+                </div>
+              </a>
+
+     <!--         <div id="dd" class="dropdown-container collapse" aria-labelledby="dropdown01">
+                    <a class="dropdown" routerLink="contracts">Contracts</a>
+                    <a class="dropdown" routerLink="assets">Assets</a>
+              </div>
+            -->
+
+
+                <a  *ngIf="currentRole?.partner === 'Noble1Solutions'" class="admin">
                   <div class="admin-icon icon-wrapper">
                     <i routerLink="" class="icon fas fa-users-cog"></i>
                 </div>
@@ -66,9 +90,9 @@
                 </div>
                 </a>
 
-                <div id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
+                <div *ngIf="currentRole?.partner === 'Noble1Solutions'" id="dd2" class="dropdown-container collapse" aria-labelledby="dropdown02">
                     <!-- <a class="dropdown" routerLink="admin/oem">OEM</a> -->
-                    <a class="dropdown" routerLink="admin/customers">Customers</a>
+                 <!--   <a class="dropdown" routerLink="admin/customers">Customers</a>  -->
                     <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin">Admin</a>
                     <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/register">Register Users</a>
                     <a *ngIf="currentRole?.partner === 'Noble1Solutions'" class="dropdown" routerLink="admin/localmonitor">Local Monitor</a>

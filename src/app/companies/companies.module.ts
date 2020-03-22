@@ -16,11 +16,13 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { CompanyDetailComponent } from './company-detail/company-detail.component';
 
 @NgModule({
   declarations: [
     CompaniesComponent,
     CompaniesTableComponent,
+    CompanyDetailComponent,
   ],
   imports: [
     CommonModule,

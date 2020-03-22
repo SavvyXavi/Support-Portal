@@ -6,7 +6,7 @@ import { AlertService } from '../../index/services/alert.service';
 import { AuthenticationService } from '../../index/services/authentication.service';
 import { ProfileService } from '../../index/services/profile.service';
 import { MustMatch } from '../../index/helpers/must-match';
-
+import { CommonModule } from '@angular/common';
 import { Profile } from '../../index/models/profile';
 import { ApifilterService } from 'src/app/services/apifilter.service';
 import { Partner } from 'src/app/models/partner';

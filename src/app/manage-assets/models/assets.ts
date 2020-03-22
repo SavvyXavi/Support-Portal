@@ -13,4 +13,5 @@ export class Assets {
   SiteAddress: string;
   ContractCoverage: string;
   CustomerNameOrId: string;
+  length: number;
 }

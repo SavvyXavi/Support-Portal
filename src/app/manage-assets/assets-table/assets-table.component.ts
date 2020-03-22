@@ -1,5 +1,5 @@
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
+import pdfMake from 'pdfmake-lite/build/pdfmake';
+import pdfFonts from 'pdfmake-lite/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -25,8 +25,8 @@ export class AssetsTableComponent implements OnInit {
   assets: Assets;
   asArr: Assets[];
   currentProfile: Profile;
-
-  displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
+  archivedYes: string;
+  displayedColumns: string[] = ['Name', 'Location', 'Sla', 'AssetTag', 'Schedule'];
 
   partnerArr: Partner[];
 
@@ -80,7 +80,7 @@ export class AssetsTableComponent implements OnInit {
                   style: 'tableHeader'
                 },
                 {
-                  text: 'Serial#',
+                  text: 'SLA',
                   style: 'tableHeader'
                 },
                 {
@@ -95,7 +95,7 @@ export class AssetsTableComponent implements OnInit {
               ...this.asArr.map(
                 a => {
                   return [a.Name, a.SiteAddress,
-                    a.Identifier, a.Identifier,
+                    a.Sla, a.Identifier,
                      a.Schedule];
                 }
               )
@@ -132,42 +132,7 @@ export class AssetsTableComponent implements OnInit {
 
   getAssets() {
     if (this.currentProfile.companypartner === 'Partner') {
-      switch (this.currentProfile.partner) {
-        case 'Noble1Solutions':
-          this.filter.nobleAss()
-          .subscribe(
-            (assets: Assets[]) => {
-              this.asArr = assets;
-              this.assetDataSource = new MatTableDataSource(assets);
-              this.assetDataSource.sort = this.sort;
-              this.assetDataSource.paginator = this.paginator;
-            }
-          );
-          break;
-        case 'Relutech':
-          this.filter.reluAss()
-          .subscribe(
-            (assets: Assets[]) => {
-              this.asArr = assets;
-              this.assetDataSource = new MatTableDataSource(assets);
-              this.assetDataSource.sort = this.sort;
-              this.assetDataSource.paginator = this.paginator;
-            }
-          );
-          break;
-        case 'Reliant Technology':
-          this.filter.reliAss()
-          .subscribe(
-            (assets: Assets[]) => {
-              this.asArr = assets;
-              this.assetDataSource = new MatTableDataSource(assets);
-              this.assetDataSource.sort = this.sort;
-              this.assetDataSource.paginator = this.paginator;
-            }
-          );
-          break;
-        default:
-          this.filter.partAssetsFilter(this.currentProfile)
+          this.filter.locpartAssetFilterAct(this.currentProfile)
             .subscribe(
               (returnedAssets: Assets[]) => {
                 this.asArr = returnedAssets;
@@ -176,9 +141,8 @@ export class AssetsTableComponent implements OnInit {
                 this.assetDataSource.paginator = this.paginator;
               }
             );
-      }
     } else {
-      this.filter.custAssetsFilter(this.currentProfile)
+      this.filter.locCustAssetsFilterAct(this.currentProfile)
       .subscribe(
         (returnedAsset: Assets[]) => {
           this.asArr = returnedAsset;
@@ -196,6 +160,7 @@ export class AssetsTableComponent implements OnInit {
       this.assetDataSource.paginator.firstPage();
     }
   }
+
 
   searchClear() {
     this.searchKey = '';
