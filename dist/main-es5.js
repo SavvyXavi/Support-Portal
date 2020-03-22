@@ -6561,8 +6561,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](26, "br");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](27, "br");
@@ -6632,6 +6630,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "div", 33);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, " Tickets Coming Soon! ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
