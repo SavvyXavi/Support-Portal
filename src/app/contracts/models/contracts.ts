@@ -10,4 +10,5 @@ export class Contracts {
   ValidTo: string;
   Status: string;
   Archived: boolean;
+  TimeSinceLastUpdate: string;
 }
