@@ -1,0 +1,259 @@
+.container-fluid {
+  padding: 0 75px 30px 0px;
+}
+
+.container {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);
+}
+
+ .chart {
+  padding: 0;
+  margin-right: 0;
+  margin-left: 2;
+}
+
+.col-md {
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.tabs{
+  background-color: #d9d9d9;
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.total-container {
+  background-color: white;
+  border-radius: 6px;
+  margin: 15px;
+  font-size: 32px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.12);
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+a .contract-length, .contract-label{
+ color: black;
+ text-decoration: none;
+}
+
+.contract-content {
+  overflow: hidden;
+  color: black;
+}
+
+.contracts-container {
+  padding-right: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.contract-logo{
+  opacity: .3;
+  position: relative;
+  left: 8px;
+  top: 10px;
+}
+
+.contract-icon {
+  width: 128px !important;
+  height: 128px !important;
+}
+
+a .asset-length, .asset-label{
+  color: black;
+  text-decoration: none;
+ }
+
+ .asset-content {
+   overflow: hidden;
+   color: black;
+ }
+
+ .assets-container {
+   padding-right: 0;
+   padding-bottom: 0;
+   overflow: hidden;
+  }
+
+ .asset-logo {
+   opacity: .3;
+   position: relative;
+   left: 8px;
+   top: 8px;
+ }
+
+ .asset-icon {
+  width: 128px !important;
+  height: 132px !important;
+ }
+
+a .ticket-length, .ticket-label {
+  color: black;
+  text-decoration: none;
+ }
+
+ .ticket-content {
+   overflow: hidden;
+   color: black;
+ }
+
+ .tickets-container {
+   padding-right: 0;
+   padding-bottom: 0;
+   overflow: hidden;
+ }
+
+ .geolocation-container {
+  padding-right: 0;
+  padding-bottom: 20;
+  overflow: hidden;
+}
+
+ .ticket-logo{
+   opacity: .3;
+   position: relative;
+   left: 20px;
+   top: 0px;
+ }
+
+ .ticket-icon {
+  width: 160px !important;
+  height: 170px !important;
+ }
+
+ a .companies-length, .companies-label{
+  color: black;
+  text-decoration: none;
+ }
+
+ .companies-content {
+   overflow: hidden;
+   color: black;
+ }
+
+ .companies-container {
+   padding-right: 0;
+   padding-bottom: 0;
+   overflow: hidden;
+ }
+
+ .company-logo{
+  opacity: .3;
+  position: relative;
+  left: 8px;
+  top: 10px;
+}
+
+ .company-icon {
+  width: 128px !important;
+  height: 128px !important;
+}
+
+ /* .ticket-logo{
+   opacity: .2;
+   position: relative;
+   left: 20px;
+   top: 13px;
+ } */
+
+.assets-wrapper {
+  background: white;
+  border-radius: 8px;
+}
+
+.assets-table {
+  align-items: center;
+  border-radius: 8px;
+}
+
+.geoLocation-wrapper {
+  background: white;
+  border-radius: 8px;
+
+}
+
+.tickets-wrapper {
+  background: white;
+  border-radius: 8px;
+}
+
+.contracts-wrapper {
+  background: white;
+  border-radius: 8px;
+}
+
+.contracts-table {
+  background: white;
+  border-radius: 8px;
+}
+
+.badge {
+  width: 15px;
+  height: 15px;
+  color: white;
+}
+
+.badge-table {
+  width: 30px !important;
+ /* padding-bottom: 3px; */
+}
+
+p {
+  display: none;
+}
+
+.badge-now {
+  background-color: rgba(255, 0, 0, 1);
+  text-align: center;
+}
+
+.badge-15 {
+  background-color: rgba(54, 162, 235, 1);
+}
+
+.badge-30 {
+  background-color: rgba(255, 206, 86, 1);
+}
+
+.badge-60 {
+  background-color: rgba(75, 192, 192, 1);
+}
+
+.badge-90 {
+  background-color: rgba(153, 102, 255, 1);
+}
+
+.badge-plus {
+  background-color: rgba(255, 159, 64, 1);
+}
+
+.badge-active {
+  background-color: rgba(255, 0, 0, 1);
+  text-align: center;
+}
+
+.badge-terminated {
+  background-color: rgba(54, 162, 235, 1);
+}
+
+.badge-unmapped {
+  background-color: rgba(255, 206, 86, 1);
+}
+
+.badge-yetToStart {
+  background-color: rgba(75, 192, 192, 1);
+}
+
+.view-wrapper {
+  text-align: center;
+}
+
+#geoMap{
+  height: 370px;
+}
