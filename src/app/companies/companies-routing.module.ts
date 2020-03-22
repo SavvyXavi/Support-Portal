@@ -9,7 +9,7 @@ import { CompanyDetailComponent } from './company-detail/company-detail.componen
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: CompaniesComponent,
     canActivate: [AuthGuard],
     children: [
