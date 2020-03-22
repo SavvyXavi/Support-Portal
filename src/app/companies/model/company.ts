@@ -11,4 +11,5 @@ export class Company {
   Postcode: string;
   Town: string;
   length: number;
+  ScheduleName: string;
 }

@@ -5,7 +5,7 @@ import { ApifilterService } from '../../services/apifilter.service';
 
 import { Company } from '../model/company';
 import { Assets } from '../../manage-assets/models/assets';
-
+import { Filter } from '../../models/filter';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -47,7 +47,7 @@ export class CompanyDetailComponent implements OnInit {
       (returnedCompany: Company) => {
         this.company = returnedCompany;
         this.contractLength = this.company.length;
-        this.filter.assetsBySchedule(this.company[0].ScheduleName)
+        this.filter.locCustAssetsFilterActtwo(this.company.CompanyName)
         .subscribe(
           (returnedAssetLength: Assets[]) => {
           this.assetLength = returnedAssetLength;
@@ -56,7 +56,7 @@ export class CompanyDetailComponent implements OnInit {
           this.assetDataSource.paginator = this.paginator;
           }
         );
-        this.filter.assetsBySchedule(this.company[0].ScheduleName)
+        this.filter.locCustTicketsFilterTwo(this.company.CompanyName)
         .subscribe(
           (returnedAsset: Assets) => {
             this.assets = returnedAsset;
@@ -66,6 +66,23 @@ export class CompanyDetailComponent implements OnInit {
       }
     );
   }
+
+  applyFilter() {
+    this.assetDataSource.filter = this.searchKey.trim().toLowerCase();
+    if (this.assetDataSource.paginator) {
+      this.assetDataSource.paginator.firstPage();
+    }
+  }
+
+  searchClear() {
+    this.searchKey = '';
+    this.applyFilter();
+  }
+
+  goToAssetDet(identifier: string) {
+    this.router.navigate(['/portal/assets/assetdetail/' + identifier]);
+  }
+
   goBack(): void {
     this.location.back();
   }
