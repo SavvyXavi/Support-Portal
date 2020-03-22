@@ -4456,61 +4456,67 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _admin_users_users_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    var _companies_companies_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./companies/companies.component */
+    "./src/app/companies/companies.component.ts");
+    /* harmony import */
+
+
+    var _admin_users_users_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! ./admin/users/users.component */
     "./src/app/admin/users/users.component.ts");
     /* harmony import */
 
 
-    var _admin_support_support_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var _admin_support_support_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ./admin/support/support.component */
     "./src/app/admin/support/support.component.ts");
     /* harmony import */
 
 
-    var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
-    var _suppdash_suppdash_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _suppdash_suppdash_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./suppdash/suppdash.component */
     "./src/app/suppdash/suppdash.component.ts");
     /* harmony import */
 
 
-    var _profile_profile_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _profile_profile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./profile/profile.component */
     "./src/app/profile/profile.component.ts");
     /* harmony import */
 
 
-    var _settings_settings_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _settings_settings_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./settings/settings.component */
     "./src/app/settings/settings.component.ts");
     /* harmony import */
 
 
-    var _index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ./index/guards/auth.guard */
     "./src/app/index/guards/auth.guard.ts");
     /* harmony import */
 
 
-    var _admin_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _admin_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./admin/accounts/accounts.component */
     "./src/app/admin/accounts/accounts.component.ts");
     /* harmony import */
 
 
-    var _budget_budget_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _budget_budget_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ./budget/budget.component */
     "./src/app/budget/budget.component.ts");
 
@@ -4534,63 +4540,67 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }, {
       path: 'profile',
-      component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_5__["ProfileComponent"],
-      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]]
+      component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_6__["ProfileComponent"],
+      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
     }, {
       path: 'settings',
-      component: _settings_settings_component__WEBPACK_IMPORTED_MODULE_6__["SettingsComponent"],
-      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]]
+      component: _settings_settings_component__WEBPACK_IMPORTED_MODULE_7__["SettingsComponent"],
+      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
+    }, {
+      path: 'companies',
+      component: _companies_companies_component__WEBPACK_IMPORTED_MODULE_0__["CompaniesComponent"],
+      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
     }, {
       path: 'suppdash',
-      component: _suppdash_suppdash_component__WEBPACK_IMPORTED_MODULE_4__["SuppdashComponent"],
-      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]]
+      component: _suppdash_suppdash_component__WEBPACK_IMPORTED_MODULE_5__["SuppdashComponent"],
+      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
     }, {
       path: 'budgets',
-      component: _budget_budget_component__WEBPACK_IMPORTED_MODULE_9__["BudgetComponent"],
-      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]]
+      component: _budget_budget_component__WEBPACK_IMPORTED_MODULE_10__["BudgetComponent"],
+      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
     }, {
       path: 'admin/accounts',
-      component: _admin_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_8__["AccountsComponent"],
-      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]]
+      component: _admin_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_9__["AccountsComponent"],
+      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
     }, {
       path: 'admin/support',
-      component: _admin_support_support_component__WEBPACK_IMPORTED_MODULE_1__["SupportComponent"],
-      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]]
+      component: _admin_support_support_component__WEBPACK_IMPORTED_MODULE_2__["SupportComponent"],
+      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
     }, {
       path: 'admin/users',
-      component: _admin_users_users_component__WEBPACK_IMPORTED_MODULE_0__["UsersComponent"],
-      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]]
+      component: _admin_users_users_component__WEBPACK_IMPORTED_MODULE_1__["UsersComponent"],
+      canActivate: [_index_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
     }];
 
     var AppRoutingModule = function AppRoutingModule() {
       _classCallCheck(this, AppRoutingModule);
     };
 
-    AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineNgModule"]({
+    AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineNgModule"]({
       type: AppRoutingModule
     });
-    AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({
+    AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjector"]({
       factory: function AppRoutingModule_Factory(t) {
         return new (t || AppRoutingModule)();
       },
-      imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]]
+      imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"]]
     });
 
     (function () {
-      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](AppRoutingModule, {
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]]
+      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsetNgModuleScope"](AppRoutingModule, {
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"]],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"]]
       });
     })();
     /*@__PURE__*/
 
 
     (function () {
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵsetClassMetadata"](AppRoutingModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"],
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵsetClassMetadata"](AppRoutingModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"],
         args: [{
-          imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(routes)],
-          exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]]
+          imports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(routes)],
+          exports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"]]
         }]
       }], null, null);
     })();
@@ -20170,7 +20180,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-sidebar"]],
       decls: 38,
       vars: 3,
-      consts: [[1, "navbar-nav", "text-center", "fixed-top"], ["id", "container", 1, "icon-bar", "text-center"], ["width", "100%", 1, "ham-wrapper", "text-center"], ["role", "button", 1, "col-auto", "btn", "btn-lg", "custom-btn"], [1, "fa", "fa-bars"], ["routerLink", "dashboard", 1, "dashboard"], [1, "dashboard-icon", "icon-wrapper"], [1, "icon", "fas", "fa-tachometer-alt"], [1, "dashboard-content", "col-auto"], ["class", "dropdown", "routerLink", "admin/customers", 4, "ngIf"], ["routerLink", "contracts", 1, "contracts"], [1, "assets-icon", "icon-wrapper"], [1, "icon", "fa", "fa-list-alt"], ["routerLink", "locations", 1, "locations"], [1, "locations-icon", "icon-wrapper"], ["routerLink", "locations", 1, "icon", "fas", "fa-map"], [1, "tickets-content", "col-auto"], ["routerLink", "tickets", 1, "tickets"], [1, "tickets-icon", "icon-wrapper"], ["routerLink", "tickets", 1, "icon", "fas", "fa-ticket-alt"], ["routerLink", "assets", 1, "assets"], [1, "icon", "fa", "fa-server"], ["class", "admin", 4, "ngIf"], ["id", "dd2", "class", "dropdown-container collapse", "aria-labelledby", "dropdown02", 4, "ngIf"], ["routerLink", "admin/customers", 1, "dropdown"], [1, "icon", "fa", "fa-industry"], [1, "admin"], [1, "admin-icon", "icon-wrapper"], ["routerLink", "", 1, "icon", "fas", "fa-users-cog"], ["id", "dropdown02", "data-toggle", "collapse", "data-target", "#dd2", 1, "dropdown-toggle", "dropdown-btn", "col-auto"], ["id", "dd2", "aria-labelledby", "dropdown02", 1, "dropdown-container", "collapse"], ["class", "dropdown", "routerLink", "admin", 4, "ngIf"], ["class", "dropdown", "routerLink", "admin/register", 4, "ngIf"], ["class", "dropdown", "routerLink", "admin/localmonitor", 4, "ngIf"], ["routerLink", "admin", 1, "dropdown"], ["routerLink", "admin/register", 1, "dropdown"], ["routerLink", "admin/localmonitor", 1, "dropdown"]],
+      consts: [[1, "navbar-nav", "text-center", "fixed-top"], ["id", "container", 1, "icon-bar", "text-center"], ["width", "100%", 1, "ham-wrapper", "text-center"], ["role", "button", 1, "col-auto", "btn", "btn-lg", "custom-btn"], [1, "fa", "fa-bars"], ["routerLink", "dashboard", 1, "dashboard"], [1, "dashboard-icon", "icon-wrapper"], [1, "icon", "fas", "fa-tachometer-alt"], [1, "dashboard-content", "col-auto"], ["class", "dropdown", "routerLink", "companies", 4, "ngIf"], ["routerLink", "contracts", 1, "contracts"], [1, "assets-icon", "icon-wrapper"], [1, "icon", "fa", "fa-list-alt"], ["routerLink", "locations", 1, "locations"], [1, "locations-icon", "icon-wrapper"], ["routerLink", "locations", 1, "icon", "fas", "fa-map"], [1, "tickets-content", "col-auto"], ["routerLink", "tickets", 1, "tickets"], [1, "tickets-icon", "icon-wrapper"], ["routerLink", "tickets", 1, "icon", "fas", "fa-ticket-alt"], ["routerLink", "assets", 1, "assets"], [1, "icon", "fa", "fa-server"], ["class", "admin", 4, "ngIf"], ["id", "dd2", "class", "dropdown-container collapse", "aria-labelledby", "dropdown02", 4, "ngIf"], ["routerLink", "companies", 1, "dropdown"], [1, "icon", "fa", "fa-industry"], [1, "admin"], [1, "admin-icon", "icon-wrapper"], ["routerLink", "", 1, "icon", "fas", "fa-users-cog"], ["id", "dropdown02", "data-toggle", "collapse", "data-target", "#dd2", 1, "dropdown-toggle", "dropdown-btn", "col-auto"], ["id", "dd2", "aria-labelledby", "dropdown02", 1, "dropdown-container", "collapse"], ["class", "dropdown", "routerLink", "admin", 4, "ngIf"], ["class", "dropdown", "routerLink", "admin/register", 4, "ngIf"], ["class", "dropdown", "routerLink", "admin/localmonitor", 4, "ngIf"], ["routerLink", "admin", 1, "dropdown"], ["routerLink", "admin/register", 1, "dropdown"], ["routerLink", "admin/localmonitor", 1, "dropdown"]],
       template: function SidebarComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nav", 0);
