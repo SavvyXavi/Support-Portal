@@ -2,13 +2,16 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location, CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApifilterService } from '../../services/apifilter.service';
-
+import { AuthenticationService } from '../../index/services/authentication.service';
 import { Company } from '../model/company';
+import { Contracts } from '../../contracts/models/contracts';
 import { Assets } from '../../manage-assets/models/assets';
 import { Filter } from '../../models/filter';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { Profile } from '../../index/models/profile';
+import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-company-detail',
@@ -17,6 +20,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class CompanyDetailComponent implements OnInit {
   company: Company;
+  currentProfile: Profile;
   assets: Assets;
   assetLength: Assets[];
   CompanyName: Company;
@@ -32,11 +36,18 @@ export class CompanyDetailComponent implements OnInit {
     private filter: ApifilterService,
     private location: Location,
     private route: ActivatedRoute,
-    private router: Router
-  ) { }
+    private router: Router,
+    private authenticationService: AuthenticationService,
+  ) {
+      this.authenticationService.currentUser.subscribe(
+        profile => {
+          this.currentProfile = profile;
+        });
+  }
 
   ngOnInit(): void {
     this.getCompItems();
+    this.GetCContracts();
   }
 
   getCompItems() {
@@ -77,6 +88,15 @@ export class CompanyDetailComponent implements OnInit {
   searchClear() {
     this.searchKey = '';
     this.applyFilter();
+  }
+
+GetCContracts() {
+  this.filter.custConFilter(this.currentProfile)
+  .subscribe(
+    (returnedCons: Contracts[]) => {
+      this.contractLength = returnedCons.length;
+    }
+  );
   }
 
   goToAssetDet(identifier: string) {
