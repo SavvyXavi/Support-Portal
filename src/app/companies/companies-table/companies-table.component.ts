@@ -4,7 +4,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
-
+import { DatePipe } from '@angular/common';
 import { ApifilterService } from '../../services/apifilter.service';
 import { AuthenticationService } from 'src/app/index/services/authentication.service';
 
@@ -23,7 +23,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class CompaniesTableComponent implements OnInit {
   currentProfile: Profile;
-
+  pipe;
   partnerArr: Partner[];
 
   compArr: Company[];
