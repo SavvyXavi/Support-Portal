@@ -35,6 +35,8 @@ export class CompanyDetailComponent implements OnInit {
   displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
   assetDataSource: MatTableDataSource<Assets>;
   searchKey: string;
+
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
