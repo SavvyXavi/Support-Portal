@@ -1,9 +1,9 @@
+import { Company } from './../model/company';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location, CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApifilterService } from '../../services/apifilter.service';
 import { AuthenticationService } from '../../index/services/authentication.service';
-import { Company } from '../model/company';
 import { Contracts } from '../../contracts/models/contracts';
 import { Assets } from '../../manage-assets/models/assets';
 import { Tickets } from '../../tickets/models/tickets';
@@ -24,12 +24,13 @@ export class CompanyDetailComponent implements OnInit {
   currentProfile: Profile;
   assets: Assets[];
   assetLength: number;
-  CompanyName: Company;
+  compname: Tickets[];
   contractLength: number;
   ticketLength: number;
   contracts: Contracts[];
   tickets: Tickets[];
   contractDataSource: MatTableDataSource<Contracts>;
+  ticketDataSource: MatTableDataSource<Tickets>;
   displayedColumns: string[] = ['Name', 'Location', 'Identifier', 'Asset Tag', 'Schedule'];
   assetDataSource: MatTableDataSource<Assets>;
   searchKey: string;
@@ -113,6 +114,7 @@ GetCContracts() {
       (returnedAssets: Assets[]) => {
         this.assetLength = returnedAssets.length;
         this.assets = returnedAssets;
+        this.assetDataSource = new MatTableDataSource(returnedAssets);
     });
   }
 
@@ -122,6 +124,7 @@ GetCContracts() {
       (tickets: Tickets[]) => {
         this.tickets = tickets;
         this.ticketLength = tickets.length;
+        this.ticketDataSource = new MatTableDataSource(tickets);
     });
   }
 

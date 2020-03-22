@@ -18,6 +18,7 @@ export class Tickets {
   Name: string;
   LatestPublicComment: string;
   LastUpdatedBy: string;
+  CompanyName: string;
 }
 
 // "Title": "string",  Entry Field

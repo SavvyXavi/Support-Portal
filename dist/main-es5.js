@@ -6723,6 +6723,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.filter.locCustAssetsFilter(this.currentProfile).subscribe(function (returnedAssets) {
             _this26.assetLength = returnedAssets.length;
             _this26.assets = returnedAssets;
+            _this26.assetDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](returnedAssets);
           });
         }
       }, {
@@ -6733,6 +6734,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.filter.cusTicketsFilter(this.currentProfile.company).subscribe(function (tickets) {
             _this27.tickets = tickets;
             _this27.ticketLength = tickets.length;
+            _this27.ticketDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](tickets);
           });
         }
       }, {
@@ -6988,7 +6990,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Information for Customer ", ctx.CompanyName, "");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Information for Customer ", ctx.tickets[0].CompanyName, "");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
@@ -7016,7 +7018,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.contracts);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.contractDataSource);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
