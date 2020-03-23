@@ -253,7 +253,9 @@ p {
 .view-wrapper {
   text-align: center;
 }
-
+.geoLocation-wrapper {
+  padding-bottom: 15px
+}
 #geoMap{
   height: 370px;
   margin-bottom: 15px;
