@@ -5282,7 +5282,9 @@ class DashboardComponent {
         mapbox_gl__WEBPACK_IMPORTED_MODULE_5__["accessToken"] = 'pk.eyJ1IjoiZGhzZW5zZWkiLCJhIjoiY2s3bTg0cGt2MDB4ZDNscGNlbGFhNGYyYiJ9.gasbmmixfK9Vfry149FMDQ';
         const map = new mapbox_gl__WEBPACK_IMPORTED_MODULE_5__["Map"]({
             container: 'geoMap',
-            style: 'mapbox://styles/mapbox/streets-v9'
+            style: 'mapbox://styles/mapbox/streets-v9',
+            center: [-96, 37.8],
+            zoom: 3
         });
         const geojson = {
             type: 'FeatureCollection',

@@ -454,7 +454,9 @@ export class DashboardComponent implements OnInit {
      mapboxgl.accessToken = 'pk.eyJ1IjoiZGhzZW5zZWkiLCJhIjoiY2s3bTg0cGt2MDB4ZDNscGNlbGFhNGYyYiJ9.gasbmmixfK9Vfry149FMDQ';
      const map = new mapboxgl.Map({
      container: 'geoMap',
-     style: 'mapbox://styles/mapbox/streets-v9'
+     style: 'mapbox://styles/mapbox/streets-v9',
+     center: [-96, 37.8],
+     zoom: 3
      });
 
      const geojson = {
