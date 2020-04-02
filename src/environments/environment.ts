@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  env: 'Shawn',
-  ver: 'Version 1.1.SM',
+  env: 'Local',
+  ver: 'Local Only!',
   /* serverUrl: 'https://finalauth.noble1it.com',  */
   serverUrl: 'https://localhost:8400',
   secret: 'Noble1Solutions',
