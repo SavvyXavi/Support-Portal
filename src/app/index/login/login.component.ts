@@ -1,9 +1,9 @@
+import { environment } from 'src/environments/environment';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { first } from 'rxjs/operators';
-
 import { AlertService } from './../services/alert.service';
 import { AuthenticationService } from './../services/authentication.service';
 import { Role } from 'src/app/types/role.enum';
@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   role: Role;
+
   @Output() adminHeader: EventEmitter<boolean> = new EventEmitter();
 
   constructor(
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
+   environ = environment;
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -42,6 +44,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
   }
 
   get f() {
