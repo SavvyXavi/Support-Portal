@@ -9610,7 +9610,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 description: 'San Francisco, California'
               }
             }]
-          };
+          }; // add markers to map
+
+          geojson.features.forEach(function (marker) {
+            // create a HTML element for each feature
+            var el = document.createElement('div');
+            el.className = 'marker'; // make a marker for each feature and add to the map
+
+            new mapbox_gl__WEBPACK_IMPORTED_MODULE_5__["Marker"](el).setLngLat(marker.geometry.coordinates).addTo(map);
+          });
         }
       }]);
 

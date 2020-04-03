@@ -5311,6 +5311,16 @@ class DashboardComponent {
                     }
                 }]
         };
+        // add markers to map
+        geojson.features.forEach(function (marker) {
+            // create a HTML element for each feature
+            const el = document.createElement('div');
+            el.className = 'marker';
+            // make a marker for each feature and add to the map
+            new mapbox_gl__WEBPACK_IMPORTED_MODULE_5__["Marker"](el)
+                .setLngLat(marker.geometry.coordinates)
+                .addTo(map);
+        });
     }
 }
 DashboardComponent.ɵfac = function DashboardComponent_Factory(t) { return new (t || DashboardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_index_services_authentication_service__WEBPACK_IMPORTED_MODULE_1__["AuthenticationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_apifilter_service__WEBPACK_IMPORTED_MODULE_2__["ApifilterService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_dash_service__WEBPACK_IMPORTED_MODULE_3__["DashService"])); };

@@ -484,6 +484,19 @@ export class DashboardComponent implements OnInit {
         }
       }]
     };
+
+    // add markers to map
+geojson.features.forEach(function(marker) {
+
+  // create a HTML element for each feature
+  const el = document.createElement('div');
+  el.className = 'marker';
+
+  // make a marker for each feature and add to the map
+  new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+    .addTo(map);
+});
   }
 
   //  loadAllUsers() {
