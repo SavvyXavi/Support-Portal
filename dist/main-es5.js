@@ -9349,8 +9349,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   labels: ['Now', 'Thirty Days', 'Ninety plus'],
                   datasets: [{
                     data: [_this38.now, _this38.thirtyDays, _this38.plus],
-                    backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
-                    borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+                    backgroundColor: ['rgba(241, 12, 12, 1)', 'rgba(241, 242, 12, 1)', 'rgba(85, 190, 88, 1)'],
+                    borderColor: ['rgba(241, 12, 12, 1)', 'rgba(241, 242, 12, 1)', 'rgba(85, 190, 88, 1)'],
                     borderWidth: 1
                   }]
                 },
@@ -9407,8 +9407,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   datasets: [{
                     label: '# of Contracts',
                     data: [_this38.now, _this38.thirtyDays, _this38.plus],
-                    backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
-                    borderColor: ['rgba(255, 0, 0, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+                    backgroundColor: ['rgba(241, 12, 12, 1)', 'rgba(241, 242, 12, 1)', 'rgba(85, 190, 88, 1)'],
+                    borderColor: ['rgba(241, 12, 12, 1)', 'rgba(241, 242, 12, 1)', 'rgba(85, 190, 88, 1)'],
                     borderWidth: 1
                   }]
                 },

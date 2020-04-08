@@ -178,14 +178,14 @@ export class DashboardComponent implements OnInit {
           datasets: [{
               data: [this.now, this.thirtyDays, this.plus],
               backgroundColor: [
-                  'rgba(255, 0, 0, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)'
+                  'rgba(241, 12, 12, 1)',
+                  'rgba(241, 242, 12, 1)',
+                  'rgba(85, 190, 88, 1)'
               ],
               borderColor: [
-                  'rgba(255, 0, 0, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)'
+                'rgba(241, 12, 12, 1)',
+                'rgba(241, 242, 12, 1)',
+                'rgba(85, 190, 88, 1)'
               ],
               borderWidth: 1
           }]
@@ -251,14 +251,14 @@ export class DashboardComponent implements OnInit {
               label: '# of Contracts',
               data: [this.now, this.thirtyDays, this.plus],
               backgroundColor: [
-                  'rgba(255, 0, 0, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)'
+                'rgba(241, 12, 12, 1)',
+                'rgba(241, 242, 12, 1)',
+                'rgba(85, 190, 88, 1)'
               ],
               borderColor: [
-                  'rgba(255, 0, 0, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)'
+                'rgba(241, 12, 12, 1)',
+                'rgba(241, 242, 12, 1)',
+                'rgba(85, 190, 88, 1)'
               ],
               borderWidth: 1
           }]
