@@ -328,15 +328,15 @@ export class DashboardComponent implements OnInit {
                         label: 'Asset Status',
                           data: [this.active, this.terminated, this.notcovered, this.yetToStart],
                           backgroundColor: [
-                            'rgba(241, 12, 12, 1)',
-                            'rgba(241, 242, 12, 1)',
                             'rgba(85, 190, 88, 1)',
+                            'rgba(241, 242, 12, 1)',
+                            'rgba(241, 12, 12, 1)',
                             'rgba(75, 192, 192, 1)',
                           ],
                           borderColor: [
-                            'rgba(241, 12, 12, 1)',
-                            'rgba(241, 242, 12, 1)',
                             'rgba(85, 190, 88, 1)',
+                            'rgba(241, 242, 12, 1)',
+                            'rgba(241, 12, 12, 1)',
                             'rgba(75, 192, 192, 1)',
                           ],
                           borderWidth: 1
@@ -399,15 +399,15 @@ export class DashboardComponent implements OnInit {
               label: 'Asset Status',
                 data: [this.active, this.terminated, this.notcovered, this.yetToStart],
                 backgroundColor: [
-                  'rgba(241, 12, 12, 1)',
-                  'rgba(241, 242, 12, 1)',
                   'rgba(85, 190, 88, 1)',
+                  'rgba(241, 242, 12, 1)',
+                  'rgba(241, 12, 12, 1)',
                   'rgba(75, 192, 192, 1)',
                 ],
                 borderColor: [
-                  'rgba(241, 12, 12, 1)',
-                  'rgba(241, 242, 12, 1)',
                   'rgba(85, 190, 88, 1)',
+                  'rgba(241, 242, 12, 1)',
+                  'rgba(241, 12, 12, 1)',
                   'rgba(75, 192, 192, 1)',
                 ],
                 borderWidth: 1
@@ -456,7 +456,7 @@ export class DashboardComponent implements OnInit {
      container: 'geoMap',
      style: 'mapbox://styles/mapbox/streets-v9',
      center: [34.023, -84.361],
-     zoom: 6
+     zoom: 3
      });
 
      const geojson = {
@@ -494,6 +494,7 @@ geojson.features.forEach(function(marker) {
 
   // make a marker for each feature and add to the map
   new mapboxgl.Marker(el)
+  .setView([34.023, -84.361], 17)
     .setLngLat(marker.geometry.coordinates)
     .addTo(map);
 });
