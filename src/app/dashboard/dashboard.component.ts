@@ -328,16 +328,16 @@ export class DashboardComponent implements OnInit {
                         label: 'Asset Status',
                           data: [this.active, this.terminated, this.notcovered, this.yetToStart],
                           backgroundColor: [
-                              'rgba(255, 0, 0, 1)',
-                              'rgba(54, 162, 235, 1)',
-                              'rgba(255, 206, 86, 1)',
-                              'rgba(75, 192, 192, 1)',
+                            'rgba(241, 12, 12, 1)',
+                            'rgba(241, 242, 12, 1)',
+                            'rgba(85, 190, 88, 1)',
+                            'rgba(75, 192, 192, 1)',
                           ],
                           borderColor: [
-                              'rgba(255, 0, 0, 1)',
-                              'rgba(54, 162, 235, 1)',
-                              'rgba(255, 206, 86, 1)',
-                              'rgba(75, 192, 192, 1)',
+                            'rgba(241, 12, 12, 1)',
+                            'rgba(241, 242, 12, 1)',
+                            'rgba(85, 190, 88, 1)',
+                            'rgba(75, 192, 192, 1)',
                           ],
                           borderWidth: 1
                       }]
@@ -399,16 +399,16 @@ export class DashboardComponent implements OnInit {
               label: 'Asset Status',
                 data: [this.active, this.terminated, this.notcovered, this.yetToStart],
                 backgroundColor: [
-                    'rgba(255, 0, 0, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
+                  'rgba(241, 12, 12, 1)',
+                  'rgba(241, 242, 12, 1)',
+                  'rgba(85, 190, 88, 1)',
+                  'rgba(75, 192, 192, 1)',
                 ],
                 borderColor: [
-                    'rgba(255, 0, 0, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
+                  'rgba(241, 12, 12, 1)',
+                  'rgba(241, 242, 12, 1)',
+                  'rgba(85, 190, 88, 1)',
+                  'rgba(75, 192, 192, 1)',
                 ],
                 borderWidth: 1
             }]
@@ -455,8 +455,8 @@ export class DashboardComponent implements OnInit {
      const map = new mapboxgl.Map({
      container: 'geoMap',
      style: 'mapbox://styles/mapbox/streets-v9',
-     center: [-96, 37.8],
-     zoom: 3
+     center: [34.023, -84.361],
+     zoom: 6
      });
 
      const geojson = {
