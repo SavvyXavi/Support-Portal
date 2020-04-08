@@ -460,7 +460,6 @@ export class DashboardComponent implements OnInit {
      center: [-84.36167, 34.02306]
      });
 
-
      const geojson = {
       type: 'FeatureCollection',
       features: [{
@@ -487,19 +486,20 @@ export class DashboardComponent implements OnInit {
       }]
     };
 
-    // add markers to map
- geojson.features.forEach(function(marker) {
+
+// add markers to map
+geojson.features.forEach(function(marker) {
 
   // create a HTML element for each feature
   const el = document.createElement('div');
   el.className = 'marker';
 
   // make a marker for each feature and add to the map
- new mapboxgl.Marker(el)
- // .setView([34.023, -84.361], 17)
-   .setLngLat(marker.geometry.coordinates)
-  .addTo(map);
+  new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+    .addTo(map);
 });
+
   }
 
   //  loadAllUsers() {
