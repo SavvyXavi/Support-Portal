@@ -455,8 +455,8 @@ export class DashboardComponent implements OnInit {
      const map = new mapboxgl.Map({
      container: 'geoMap',
      style: 'mapbox://styles/mapbox/streets-v9',
-     center: [-96, 37.8],
-     zoom: 3
+     center: [-34.02, 84.36],
+     zoom: 5
      });
 
      const geojson = {
