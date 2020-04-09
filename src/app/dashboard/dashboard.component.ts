@@ -178,14 +178,14 @@ export class DashboardComponent implements OnInit {
           datasets: [{
               data: [this.now, this.thirtyDays, this.plus],
               backgroundColor: [
-                  'rgba(255, 0, 0, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)'
+                  'rgba(241, 12, 12, 1)',
+                  'rgba(241, 242, 12, 1)',
+                  'rgba(85, 190, 88, 1)'
               ],
               borderColor: [
-                  'rgba(255, 0, 0, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)'
+                'rgba(241, 12, 12, 1)',
+                'rgba(241, 242, 12, 1)',
+                'rgba(85, 190, 88, 1)'
               ],
               borderWidth: 1
           }]
@@ -251,14 +251,14 @@ export class DashboardComponent implements OnInit {
               label: '# of Contracts',
               data: [this.now, this.thirtyDays, this.plus],
               backgroundColor: [
-                  'rgba(255, 0, 0, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)'
+                'rgba(241, 12, 12, 1)',
+                'rgba(241, 242, 12, 1)',
+                'rgba(85, 190, 88, 1)'
               ],
               borderColor: [
-                  'rgba(255, 0, 0, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)'
+                'rgba(241, 12, 12, 1)',
+                'rgba(241, 242, 12, 1)',
+                'rgba(85, 190, 88, 1)'
               ],
               borderWidth: 1
           }]
@@ -328,16 +328,16 @@ export class DashboardComponent implements OnInit {
                         label: 'Asset Status',
                           data: [this.active, this.terminated, this.notcovered, this.yetToStart],
                           backgroundColor: [
-                              'rgba(255, 0, 0, 1)',
-                              'rgba(54, 162, 235, 1)',
-                              'rgba(255, 206, 86, 1)',
-                              'rgba(75, 192, 192, 1)',
+                            'rgba(85, 190, 88, 1)',
+                            'rgba(241, 242, 12, 1)',
+                            'rgba(241, 12, 12, 1)',
+                            'rgba(75, 192, 192, 1)',
                           ],
                           borderColor: [
-                              'rgba(255, 0, 0, 1)',
-                              'rgba(54, 162, 235, 1)',
-                              'rgba(255, 206, 86, 1)',
-                              'rgba(75, 192, 192, 1)',
+                            'rgba(85, 190, 88, 1)',
+                            'rgba(241, 242, 12, 1)',
+                            'rgba(241, 12, 12, 1)',
+                            'rgba(75, 192, 192, 1)',
                           ],
                           borderWidth: 1
                       }]
@@ -399,16 +399,16 @@ export class DashboardComponent implements OnInit {
               label: 'Asset Status',
                 data: [this.active, this.terminated, this.notcovered, this.yetToStart],
                 backgroundColor: [
-                    'rgba(255, 0, 0, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
+                  'rgba(85, 190, 88, 1)',
+                  'rgba(241, 242, 12, 1)',
+                  'rgba(241, 12, 12, 1)',
+                  'rgba(75, 192, 192, 1)',
                 ],
                 borderColor: [
-                    'rgba(255, 0, 0, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
+                  'rgba(85, 190, 88, 1)',
+                  'rgba(241, 242, 12, 1)',
+                  'rgba(241, 12, 12, 1)',
+                  'rgba(75, 192, 192, 1)',
                 ],
                 borderWidth: 1
             }]
@@ -452,10 +452,67 @@ export class DashboardComponent implements OnInit {
 
   geoLocation() {
      mapboxgl.accessToken = 'pk.eyJ1IjoiZGhzZW5zZWkiLCJhIjoiY2s3bTg0cGt2MDB4ZDNscGNlbGFhNGYyYiJ9.gasbmmixfK9Vfry149FMDQ';
-     const map = new mapboxgl.Map({
+     const map = new mapboxgl.Map(
+      {
      container: 'geoMap',
-     style: 'mapbox://styles/mapbox/streets-v9'
+     style: 'mapbox://styles/mapbox/streets-v9',
+     zoom: 8,
+     center: [-84.36167, 34.02306]
      });
+
+     const geojson = {
+      type: 'FeatureCollection',
+      features: [{
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [-84.513950, 34.03258]
+        },
+        properties: {
+          title: 'Dr. No\'s Comics',
+          description: 'Sandy Springs - in'
+        },
+      },
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [-84.38217, 34.04408]
+        },
+        properties: {
+          title: 'Heroic Gaming',
+          description: 'Roswell'
+        }
+      },
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [-84.29417, 34.07528]
+        },
+        properties: {
+          title: 'Noble1Solutions',
+          description: 'Alpharetta'
+        }
+      }]
+    };
+
+
+// add markers to map
+geojson.features.forEach(function(marker) {
+
+  // create a HTML element for each feature
+  const el = document.createElement('div');
+  el.className = 'marker';
+
+  // make a marker for each feature and add to the map
+  new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+    .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+    .setHTML('<h5>' + marker.properties.title + '</h5><p>' + marker.properties.description + '</p>'))
+    .addTo(map);
+});
+
   }
 
   //  loadAllUsers() {

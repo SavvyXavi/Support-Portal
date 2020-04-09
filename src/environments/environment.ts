@@ -4,13 +4,16 @@
 
 export const environment = {
   production: false,
-  env: 'Shawn',
-  serverUrl: 'https://finalauth.noble1it.com',
+  env: 'Local',
+  ver: 'Local Only!',
+  /* serverUrl: 'https://finalauth.noble1it.com',  */
+  serverUrl: 'https://localhost:8400',
   secret: 'Noble1Solutions',
   LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
   CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
-  DataPull: 'https://n1stestdata.noble1it.com',
-  LogoutUrl: 'https://qa2supportportal.azurewebsites.net/',
+  /* DataPull: 'https://n1stestdata.noble1it.com', */
+  DataPull: 'http://localhost:6300',
+  LogoutUrl: 'http://localhost:4200',
   AssetTest: 'https://locapicall.noble1it.com/profile'
 };
 
