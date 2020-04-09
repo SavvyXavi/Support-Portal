@@ -456,7 +456,7 @@ export class DashboardComponent implements OnInit {
       {
      container: 'geoMap',
      style: 'mapbox://styles/mapbox/streets-v9',
-     zoom: 10,
+     zoom: 8,
      center: [-84.36167, 34.02306]
      });
 
@@ -466,12 +466,23 @@ export class DashboardComponent implements OnInit {
         type: 'Feature',
         geometry: {
           type: 'Point',
-          coordinates: [-84.37861, 33.924167]
+          coordinates: [-84.513950, 34.03258]
         },
         properties: {
-          title: 'Mapbox',
-          description: 'Sandy Springs'
+          title: 'Dr. No\'s Comics',
+          description: 'Sandy Springs - in'
         },
+      },
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [-84.38217, 34.04408]
+        },
+        properties: {
+          title: 'Heroic Gaming',
+          description: 'Roswell'
+        }
       },
       {
         type: 'Feature',
@@ -480,7 +491,7 @@ export class DashboardComponent implements OnInit {
           coordinates: [-84.29417, 34.07528]
         },
         properties: {
-          title: 'Mapbox',
+          title: 'Noble1Solutions',
           description: 'Alpharetta'
         }
       }]
@@ -497,6 +508,8 @@ geojson.features.forEach(function(marker) {
   // make a marker for each feature and add to the map
   new mapboxgl.Marker(el)
     .setLngLat(marker.geometry.coordinates)
+    .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+    .setHTML('<h5>' + marker.properties.title + '</h5><p>' + marker.properties.description + '</p>'))
     .addTo(map);
 });
 

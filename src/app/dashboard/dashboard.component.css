@@ -266,7 +266,7 @@ p {
   height: 370px;
 }
 
-.marker {
+.geolocation-marker {
   background-image: url('../../assets/mapbox-icon.png');
   background-size: cover;
   width: 50px;
@@ -274,9 +274,13 @@ p {
   border-radius: 50%;
   cursor: pointer;
 }
-.marker-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
+
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
 }
