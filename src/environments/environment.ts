@@ -6,11 +6,10 @@ export const environment = {
   production: false,
   env: 'Local',
   ver: 'Local Only!',
-  /* serverUrl: 'https://finalauth.noble1it.com',  */
   serverUrl: 'https://localhost:8400',
   secret: 'Noble1Solutions',
-  LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
-  CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
+  // LoginPull: 'https://harmonyprodpartnersone.azurewebsites.net/api/',
+  // CusLoginPull: 'https://harmonyprodcustomersone.azurewebsites.net/api/',
   /* DataPull: 'https://n1stestdata.noble1it.com', */
   DataPull: 'http://localhost:6300',
   LogoutUrl: 'http://localhost:4200',
